@@ -1,20 +1,12 @@
-# tblflow-site
+# tblflow.com
 
 Marketing site and blog for **tblflow.com** — Astro, bilingual FR/EN, deployed on
 Cloudflare Pages. Fully static, and it ships **zero external JavaScript files**
 (the only script is a ~700-byte inlined FAQ filter).
 
-> **This directory is staged inside the `nSidr` repo, but it is not part of it.**
-> It has its own `package.json` and lockfile, and it is deliberately outside every
-> `pnpm-workspace.yaml` glob (`apps/*`, `packages/*`, `packages/v2/*`, `plugins`),
-> so the app's `pnpm install`, lint, typecheck and CI never see it. It is meant to
-> be extracted into a standalone `tblflow-site` repository — see
-> [Extracting into its own repo](#extracting-into-its-own-repo).
-
 ## Quick start
 
 ```bash
-cd site
 npm install
 npm run dev        # http://localhost:4321
 ```
@@ -202,7 +194,7 @@ Static output, no adapter, no server runtime.
 | Framework preset | Astro |
 | Build command | `npm run build` |
 | Build output directory | `dist` |
-| Root directory | `site` *(only while this lives inside `nSidr`; drop it after extraction)* |
+| Root directory | *(leave empty — the site is the repo root)* |
 | Node version | `22` (set `NODE_VERSION=22` in the environment variables) |
 
 No secrets or environment variables are required — the build reads nothing from
@@ -221,26 +213,21 @@ HSTS, `X-Frame-Options: DENY` and immutable caching for `/_astro/*`. `style-src`
 carries `'unsafe-inline'` because Astro emits scoped component styles inline;
 `script-src` deliberately does not.
 
-## Extracting into its own repo
+## Relationship to the app repo
 
-This directory is self-contained, so extraction is a copy — no code changes:
+This site is standalone: it shares no build tooling, no package and no TypeScript
+project reference with the TblFlow application. It was originally scaffolded inside
+the app monorepo and extracted here with `git subtree split`, so the commit history
+of the site's own files is preserved.
 
-```bash
-# from the nSidr repo root, with an empty tblflow-site repo already created
-git subtree split --prefix=site -b site-only
-cd .. && git clone <tblflow-site-url> tblflow-site && cd tblflow-site
-git pull ../nSidr site-only
-git push -u origin main
-```
+Two things are copied rather than shared, and need a manual re-sync if they change
+in the app:
 
-Afterwards, clear **Root directory** in the Cloudflare Pages settings (it becomes
-the repo root), and delete `site/` from `nSidr`.
-
-The only asset shared with the app is the logo,
-`apps/nextjs-app/public/images/tblflow-logo.svg`, copied to
-`public/images/tblflow-logo.svg`. Treat it as a manually-synced file: re-copy it if
-the mark changes. `src/components/Logo.astro` inlines the same four-tile geometry
-and would need the same update.
+- **The logo**, `apps/nextjs-app/public/images/tblflow-logo.svg` in the app repo →
+  `public/images/tblflow-logo.svg` here. `src/components/Logo.astro` also inlines
+  the same four-tile geometry, so it needs the same update.
+- **Pricing figures**, which come from `.planning/SALES-POSITIONING-2026.md` in the
+  app repo and live in `src/data/pricing.ts` here. Change them there first.
 
 ## Not built yet
 
