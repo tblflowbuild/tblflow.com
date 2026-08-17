@@ -1,0 +1,37 @@
+---
+import { useTranslations } from '@/i18n/ui';
+import { APP_URL, type Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+  <div class="reveal card relative isolate overflow-hidden px-6 py-14 text-center sm:px-14">
+    <div class="pointer-events-none absolute inset-0 -z-10 opacity-[0.08]" aria-hidden="true">
+      <div class="ai-gradient-bg animate-gradient absolute inset-0"></div>
+    </div>
+
+    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{t('cta.title')}</h2>
+    <p class="mx-auto mt-3 max-w-xl text-lg text-[var(--fg-muted)]">{t('cta.body')}</p>
+
+    <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <a
+        href={`${APP_URL}/auth/signup`}
+        class="ai-gradient-bg animate-gradient w-full rounded-xl px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5 sm:w-auto"
+      >
+        {t('cta.primary')}
+      </a>
+      <a
+        href="mailto:contact@tblflow.com"
+        class="w-full rounded-xl border border-[var(--border-strong)] px-6 py-3.5 text-base font-semibold transition-colors hover:bg-[var(--bg-subtle)] sm:w-auto"
+      >
+        {t('cta.secondary')}
+      </a>
+    </div>
+  </div>
+</section>

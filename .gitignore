@@ -1,0 +1,22 @@
+# Build output
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+
+# Env
+.env
+.env.production
+.env.local
+.dev.vars
+
+# Cloudflare / Wrangler
+.wrangler/
+
+# Editors / OS
+.DS_Store
+*.log
+.vscode/*
+!.vscode/extensions.json
+.idea/

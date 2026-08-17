@@ -1,0 +1,77 @@
+---
+import BaseHead from '@/components/BaseHead.astro';
+import JsonLd from '@/components/JsonLd.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { HREFLANG, type Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
+  breadcrumbs?: Array<{ name: string; path: string }>;
+  faq?: Array<{ question: string; answer: string }>;
+  article?: {
+    headline: string;
+    description: string;
+    publishedAt: Date;
+    updatedAt?: Date;
+    author: string;
+    image?: string;
+  };
+  product?: boolean;
+}
+
+const {
+  locale,
+  title,
+  description,
+  path,
+  image,
+  ogType,
+  noindex,
+  breadcrumbs,
+  faq,
+  article,
+  product,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={HREFLANG[locale]}>
+  <head>
+    <BaseHead
+      locale={locale}
+      title={title}
+      description={description}
+      path={path}
+      image={image}
+      ogType={ogType}
+      noindex={noindex}
+      publishedAt={article?.publishedAt}
+      updatedAt={article?.updatedAt}
+    />
+    <JsonLd
+      locale={locale}
+      path={path}
+      title={title}
+      description={description}
+      breadcrumbs={breadcrumbs}
+      faq={faq}
+      article={article}
+      product={product}
+    />
+  </head>
+
+  <body class="min-h-dvh antialiased">
+    <Header locale={locale} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+  </body>
+</html>

@@ -1,0 +1,156 @@
+---
+import { TIERS, QUOTAS } from '@/data/pricing';
+import { useTranslations } from '@/i18n/ui';
+import { GITHUB_URL, type Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+  /** The full quota grid is worth it on /pricing, too heavy on the home page. */
+  showQuotas?: boolean;
+}
+
+const { locale, showQuotas = true } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section id="pricing" class="mx-auto max-w-6xl scroll-mt-24 px-4 py-16 sm:px-6">
+  <ul class="grid gap-6 lg:grid-cols-4">
+    {
+      TIERS.map((tier) => (
+        <li
+          class:list={[
+            'reveal card relative flex flex-col p-6',
+            tier.featured && 'ring-2 ring-[var(--color-ai-2)]',
+          ]}
+        >
+          {tier.featured && (
+            <span
+              class="ai-gradient-bg absolute -top-3 left-6 rounded-full px-3 py-1 text-[11px] font-semibold text-white"
+            >
+              {t('pricing.popular')}
+            </span>
+          )}
+
+          <h3 class="text-lg font-semibold">{tier.name[locale]}</h3>
+          <p class="mt-1 text-sm text-[var(--fg-muted)]">{tier.tagline[locale]}</p>
+
+          <p class="mt-5 flex items-baseline gap-1">
+            {tier.price === null ? (
+              <span class="text-3xl font-bold">{t('pricing.custom')}</span>
+            ) : tier.price === 0 ? (
+              <span class="text-3xl font-bold">{t('pricing.free')}</span>
+            ) : (
+              <>
+                <span class="text-4xl font-bold">${tier.price}</span>
+                <span class="text-sm text-[var(--fg-subtle)]">{t('pricing.month')}</span>
+              </>
+            )}
+          </p>
+
+          <a
+            href={tier.ctaHref}
+            class:list={[
+              'mt-6 block rounded-lg px-4 py-2.5 text-center text-sm font-semibold transition-transform hover:-translate-y-px',
+              tier.featured
+                ? 'ai-gradient-bg animate-gradient text-white shadow-md shadow-indigo-500/20'
+                : 'border border-[var(--border-strong)] hover:bg-[var(--bg-subtle)]',
+            ]}
+          >
+            {tier.cta[locale]}
+          </a>
+
+          <ul class="mt-6 space-y-2.5 text-sm">
+            {tier.highlights[locale].map((line) => (
+              <li class="flex gap-2.5">
+                <svg
+                  class="mt-0.5 shrink-0 text-[var(--color-ai-2)]"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M20 6 9 17l-5-5"
+                    stroke="currentColor"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span class="text-[var(--fg-muted)]">{line}</span>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ul>
+
+  {
+    showQuotas && (
+      <div class="reveal mt-16">
+        <h3 class="text-xl font-semibold tracking-tight">{t('pricing.compare')}</h3>
+        <div class="mt-6 overflow-x-auto">
+          <table class="w-full min-w-[42rem] border-collapse text-sm">
+            <caption class="sr-only-focusable absolute">{t('pricing.compare')}</caption>
+            <thead>
+              <tr class="border-b border-[var(--border-strong)]">
+                <th scope="col" class="py-3 pr-4 text-left font-semibold" />
+                {TIERS.map((tier) => (
+                  <th
+                    scope="col"
+                    class:list={[
+                      'px-3 py-3 text-center font-semibold whitespace-nowrap',
+                      tier.featured && 'ai-gradient-text',
+                    ]}
+                  >
+                    {tier.name[locale]}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {QUOTAS.map((row) => (
+                <tr class="border-b border-[var(--border)]">
+                  <th scope="row" class="py-3 pr-4 text-left font-medium text-[var(--fg-muted)]">
+                    {row.label[locale]}
+                  </th>
+                  {TIERS.map((tier) => (
+                    <td
+                      class:list={[
+                        'px-3 py-3 text-center whitespace-nowrap',
+                        tier.featured && 'bg-[var(--bg-subtle)] font-medium',
+                      ]}
+                    >
+                      {row.values[tier.id][locale]}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    )
+  }
+
+  {/* Self-hosting is the strongest differentiator against every competitor in the
+      comparison table, so it gets its own panel rather than a footnote. */}
+  <aside class="reveal card mt-12 overflow-hidden p-0">
+    <div class="grid gap-6 p-7 sm:grid-cols-[1fr_auto] sm:items-center">
+      <div>
+        <h3 class="text-lg font-semibold">{t('pricing.selfhost.title')}</h3>
+        <p class="mt-2 max-w-2xl text-sm text-[var(--fg-muted)]">{t('pricing.selfhost.body')}</p>
+      </div>
+      <a
+        href={GITHUB_URL}
+        rel="noopener"
+        class="justify-self-start rounded-lg border border-[var(--border-strong)] px-5 py-2.5 text-sm font-semibold whitespace-nowrap transition-colors hover:bg-[var(--bg-subtle)] sm:justify-self-end"
+      >
+        {t('pricing.selfhost.cta')}
+      </a>
+    </div>
+    <div class="ai-gradient-bg animate-gradient h-1"></div>
+  </aside>
+</section>

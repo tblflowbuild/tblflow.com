@@ -1,0 +1,94 @@
+---
+import Base from '@/layouts/Base.astro';
+import Hero from '@/components/Hero.astro';
+import FeatureGrid from '@/components/FeatureGrid.astro';
+import ViewsStrip from '@/components/ViewsStrip.astro';
+import ComparisonTable from '@/components/ComparisonTable.astro';
+import PricingTable from '@/components/PricingTable.astro';
+import Faq from '@/components/Faq.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { SURFACES, DIFFERENTIATORS } from '@/data/content';
+import { FAQ } from '@/data/faq';
+import { useTranslations } from '@/i18n/ui';
+import { localePath } from '@/i18n/utils';
+import { LOCALES, type Locale } from '@/config';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+
+const meta = {
+  fr: {
+    title: 'TblFlow — Base de données no-code sur PostgreSQL, avec agents IA',
+    description:
+      "Plateforme no-code de base de données : interface tableur sur un vrai PostgreSQL, agents IA autonomes, automatisations et recherche sémantique. Infogéré ou auto-hébergé, sans verrouillage propriétaire.",
+  },
+  en: {
+    title: 'TblFlow — No-code database on PostgreSQL, with AI agents',
+    description:
+      'No-code database platform: a spreadsheet interface over real PostgreSQL, autonomous AI agents, automations and semantic search. Managed or self-hosted, with no vendor lock-in.',
+  },
+} satisfies Record<Locale, { title: string; description: string }>;
+
+/** Same strings the FAQ renders — one source, so text and schema cannot diverge. */
+const faqSchema = FAQ.map((item) => ({
+  question: item.question[locale],
+  answer: item.answer[locale],
+}));
+---
+
+<Base
+  locale={locale}
+  title={meta[locale].title}
+  description={meta[locale].description}
+  path={localePath(locale)}
+  faq={faqSchema}
+  product
+>
+  <Hero locale={locale} />
+
+  <FeatureGrid
+    locale={locale}
+    id="features"
+    title={t('features.title')}
+    subtitle={t('features.subtitle')}
+    items={SURFACES}
+    columns={3}
+  />
+
+  <ViewsStrip
+    locale={locale}
+    title={locale === 'fr' ? 'Sept façons de voir la même table' : 'Seven ways to see the same table'}
+    subtitle={
+      locale === 'fr'
+        ? 'Changez de vue sans dupliquer une seule ligne de données.'
+        : 'Switch views without duplicating a single row of data.'
+    }
+  />
+
+  <FeatureGrid
+    locale={locale}
+    id="why"
+    title={t('why.title')}
+    subtitle={t('why.subtitle')}
+    items={DIFFERENTIATORS}
+    columns={2}
+  />
+
+  <ComparisonTable locale={locale} title={t('compare.title')} subtitle={t('compare.subtitle')} />
+
+  <div class="mx-auto max-w-6xl px-4 pt-10 sm:px-6">
+    <header class="reveal max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{t('pricing.title')}</h2>
+      <p class="mt-3 text-lg text-[var(--fg-muted)]">{t('pricing.subtitle')}</p>
+    </header>
+  </div>
+  <PricingTable locale={locale} showQuotas={false} />
+
+  <Faq locale={locale} />
+
+  <CtaBand locale={locale} />
+</Base>

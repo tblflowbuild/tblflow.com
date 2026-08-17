@@ -1,0 +1,56 @@
+---
+/**
+ * Locale switcher.
+ *
+ * Links to the *same* page in the other locale (not to that locale's home page),
+ * which is both what a visitor expects and what keeps the hreflang cluster
+ * consistent — an alternate that points somewhere else is a conflicting signal.
+ *
+ * `hreflang` on each link tells assistive tech and crawlers the destination
+ * language; `lang` on the label makes screen readers pronounce "Français" with
+ * French phonemes inside an English page.
+ */
+import { LOCALES, HREFLANG, type Locale } from '@/config';
+import { localePath, pathWithoutLocale } from '@/i18n/utils';
+import { useTranslations } from '@/i18n/ui';
+
+interface Props {
+  locale: Locale;
+  class?: string;
+}
+
+const { locale, class: className = '' } = Astro.props;
+const t = useTranslations(locale);
+const bare = pathWithoutLocale(Astro.url.pathname);
+
+const labels: Record<Locale, string> = { fr: t('lang.fr'), en: t('lang.en') };
+---
+
+<nav aria-label={t('footer.lang')} class={className}>
+  <ul class="flex items-center gap-1 text-xs font-medium">
+    {
+      LOCALES.map((code) => {
+        const isCurrent = code === locale;
+        return (
+          <li>
+            <a
+              href={localePath(code, bare)}
+              hreflang={HREFLANG[code]}
+              lang={HREFLANG[code]}
+              aria-current={isCurrent ? 'true' : undefined}
+              class:list={[
+                'block rounded-md px-2 py-1 uppercase tracking-wide transition-colors',
+                isCurrent
+                  ? 'bg-[var(--bg-subtle)] text-[var(--fg)]'
+                  : 'text-[var(--fg-subtle)] hover:text-[var(--fg)]',
+              ]}
+            >
+              {code}
+              <span class="sr-only-focusable absolute">{labels[code]}</span>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>

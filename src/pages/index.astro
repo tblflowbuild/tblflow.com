@@ -1,0 +1,46 @@
+---
+/**
+ * Bare-root entry point.
+ *
+ * Both locales are prefixed (`/fr`, `/en`), so `/` needs to send visitors
+ * somewhere. Cloudflare handles this at the edge via `public/_redirects` (a 302,
+ * because which locale is "right" depends on the visitor, and a 301 would be
+ * cached against them). This page is the belt-and-braces fallback for any context
+ * where the redirect rule does not apply — a local `astro preview`, or the file
+ * being opened directly.
+ *
+ * `noindex` is deliberate: this URL must not compete with `/fr` and `/en` in the
+ * index, and it carries no content of its own.
+ */
+import { DEFAULT_LOCALE } from '@/config';
+import { absoluteUrl, localePath } from '@/i18n/utils';
+
+const target = localePath(DEFAULT_LOCALE);
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={absoluteUrl(target)} />
+    <title>TblFlow</title>
+  </head>
+  <body>
+    <p>
+      <a href={target}>TblFlow</a>
+    </p>
+    <script is:inline>
+      // Prefer the visitor's own language when we can see it, rather than always
+      // forcing French. Runs before paint in practice; the meta refresh above is
+      // the no-JS path.
+      (function () {
+        var preferred = (navigator.language || 'fr').toLowerCase();
+        var target = preferred.startsWith('en') ? '/en' : '/fr';
+        window.location.replace(target);
+      })();
+    </script>
+  </body>
+</html>

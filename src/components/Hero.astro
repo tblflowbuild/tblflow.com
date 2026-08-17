@@ -1,0 +1,99 @@
+---
+import Logo from './Logo.astro';
+import { useTranslations } from '@/i18n/ui';
+import { localePath } from '@/i18n/utils';
+import { APP_URL, type Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+/**
+ * Proof points sit directly under the CTA rather than further down the page.
+ * They are concrete and quotable on purpose — "millions of rows", "28 field
+ * types" — because vague superlatives are exactly what generative engines drop
+ * when summarising a product.
+ */
+const proof = [
+  { value: t('proof.rows.value'), label: t('proof.rows') },
+  { value: '7', label: t('proof.views') },
+  { value: '28', label: t('proof.fields') },
+  { value: t('proof.deploy.value'), label: t('proof.deploy') },
+];
+---
+
+<section class="relative isolate overflow-hidden">
+  {/* Ambient background. aria-hidden and pointer-events-none: decorative only,
+      and it must never intercept a click meant for the CTA underneath. */}
+  <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+    <div
+      class="animate-aurora absolute -top-40 left-1/2 h-[38rem] w-[38rem] -translate-x-1/2 rounded-full opacity-25 blur-3xl"
+      style="background: radial-gradient(circle at 30% 30%, var(--color-ai-1), transparent 62%), radial-gradient(circle at 70% 65%, var(--color-ai-3), transparent 58%);"
+    >
+    </div>
+    {/* Subtle grid, masked so it fades out before the copy starts. */}
+    <div
+      class="absolute inset-0 opacity-[0.06]"
+      style="background-image: linear-gradient(to right, var(--fg) 1px, transparent 1px), linear-gradient(to bottom, var(--fg) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black 40%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black 40%, transparent 100%);"
+    >
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-4xl px-4 pt-20 pb-16 text-center sm:px-6 sm:pt-28">
+    <div class="animate-enter-fade flex justify-center">
+      <Logo size={72} animate title="TblFlow" />
+    </div>
+
+    <p
+      class="animate-enter delay-1 mt-8 text-xs font-semibold tracking-wide text-[var(--fg-subtle)] uppercase"
+    >
+      {t('hero.eyebrow')}
+    </p>
+
+    <h1 class="animate-enter delay-2 mt-4 text-4xl font-bold sm:text-6xl">
+      {t('hero.title')}
+    </h1>
+
+    <p
+      class="animate-enter delay-3 mx-auto mt-6 max-w-2xl text-lg text-[var(--fg-muted)] sm:text-xl"
+    >
+      {t('hero.subtitle')}
+    </p>
+
+    <div class="animate-enter delay-4 mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <a
+        href={`${APP_URL}/auth/signup`}
+        class="ai-gradient-bg animate-gradient w-full rounded-xl px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5 sm:w-auto"
+      >
+        {t('hero.cta.primary')}
+      </a>
+      <a
+        href={localePath(locale, 'pricing')}
+        class="w-full rounded-xl border border-[var(--border-strong)] px-6 py-3.5 text-base font-semibold transition-colors hover:bg-[var(--bg-subtle)] sm:w-auto"
+      >
+        {t('hero.cta.secondary')}
+      </a>
+    </div>
+
+    <p class="animate-enter delay-4 mt-5 text-sm text-[var(--fg-subtle)]">{t('hero.note')}</p>
+
+    <dl
+      class="animate-enter delay-4 mx-auto mt-14 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4"
+    >
+      {
+        /* dt must precede dd in the markup, but the number should read first
+           visually — hence the flex-column order swap rather than a duplicated,
+           visually-hidden label (which made screen readers announce it twice). */
+        proof.map((item) => (
+          <div class="flex flex-col">
+            <dt class="order-2 mt-1 text-xs text-[var(--fg-subtle)]">{item.label}</dt>
+            <dd class="ai-gradient-text order-1 text-2xl font-bold sm:text-3xl">{item.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

@@ -1,0 +1,195 @@
+---
+/**
+ * Structured data, emitted as one connected @graph rather than several isolated
+ * blocks.
+ *
+ * The reason is that isolated blocks describe unrelated things: search engines
+ * cannot tell that "this Organization" is the publisher of "this article" unless
+ * the nodes reference each other by @id. A single graph with stable @ids lets the
+ * Organization, WebSite, page and article nodes resolve to one entity each across
+ * the whole site — which is also what makes the data useful to answer engines,
+ * not just to rich results.
+ */
+import { ORG, SITE_URL, HREFLANG, type Locale } from '@/config';
+import { absoluteUrl } from '@/i18n/utils';
+
+interface Breadcrumb {
+  name: string;
+  path: string;
+}
+
+interface FaqEntry {
+  question: string;
+  answer: string;
+}
+
+interface ArticleMeta {
+  headline: string;
+  description: string;
+  publishedAt: Date;
+  updatedAt?: Date;
+  author: string;
+  image?: string;
+}
+
+interface Props {
+  locale: Locale;
+  path: string;
+  title: string;
+  description: string;
+  breadcrumbs?: Breadcrumb[];
+  faq?: FaqEntry[];
+  article?: ArticleMeta;
+  /** Emits SoftwareApplication + Offer nodes. Home and pricing pages only. */
+  product?: boolean;
+}
+
+const { locale, path, title, description, breadcrumbs, faq, article, product } = Astro.props;
+
+const pageUrl = absoluteUrl(path);
+const orgId = `${SITE_URL}/#organization`;
+const siteId = `${SITE_URL}/#website`;
+const pageId = `${pageUrl}#webpage`;
+
+const graph: Record<string, unknown>[] = [
+  {
+    '@type': 'Organization',
+    '@id': orgId,
+    name: ORG.name,
+    legalName: ORG.legalName,
+    url: SITE_URL,
+    email: ORG.email,
+    sameAs: [...ORG.sameAs],
+    logo: {
+      '@type': 'ImageObject',
+      url: ORG.logo,
+      contentUrl: ORG.logo,
+    },
+  },
+  {
+    '@type': 'WebSite',
+    '@id': siteId,
+    url: SITE_URL,
+    name: ORG.name,
+    description,
+    publisher: { '@id': orgId },
+    inLanguage: HREFLANG[locale],
+  },
+  {
+    '@type': 'WebPage',
+    '@id': pageId,
+    url: pageUrl,
+    name: title,
+    description,
+    isPartOf: { '@id': siteId },
+    inLanguage: HREFLANG[locale],
+    ...(breadcrumbs?.length ? { breadcrumb: { '@id': `${pageUrl}#breadcrumb` } } : {}),
+  },
+];
+
+if (breadcrumbs?.length) {
+  graph.push({
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#breadcrumb`,
+    itemListElement: breadcrumbs.map((crumb, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: crumb.name,
+      item: absoluteUrl(crumb.path),
+    })),
+  });
+}
+
+if (product) {
+  graph.push({
+    '@type': 'SoftwareApplication',
+    '@id': `${SITE_URL}/#software`,
+    name: 'TblFlow',
+    applicationCategory: 'BusinessApplication',
+    applicationSubCategory: 'Database',
+    operatingSystem: 'Web, Linux, Docker',
+    description,
+    url: SITE_URL,
+    publisher: { '@id': orgId },
+    featureList: [
+      'Spreadsheet UI over real PostgreSQL',
+      'Autonomous AI agents with persistent memory',
+      'Event and cron-triggered automations',
+      'Semantic document search (RAG)',
+      'Real-time collaboration',
+      'Self-hostable with all Enterprise features',
+    ],
+    // Explicit, itemised offers. Answer engines quote concrete figures and skip
+    // vague "starting from" copy, so each tier is a separate Offer node.
+    offers: [
+      {
+        '@type': 'Offer',
+        name: 'Free',
+        price: '0',
+        priceCurrency: 'USD',
+        description: '3 bases, 2 users, 10 GB storage, 10k API requests per month.',
+        url: `${SITE_URL}/${locale}/pricing`,
+      },
+      {
+        '@type': 'Offer',
+        name: 'Pro',
+        price: '29',
+        priceCurrency: 'USD',
+        description: '30 bases, 5 users, 2 AI agents and 100 automations per month.',
+        url: `${SITE_URL}/${locale}/pricing`,
+      },
+      {
+        '@type': 'Offer',
+        name: 'Business',
+        price: '99',
+        priceCurrency: 'USD',
+        description: '100+ bases, 20 users, 50 AI agents and 1,000 automations per month.',
+        url: `${SITE_URL}/${locale}/pricing`,
+      },
+      {
+        '@type': 'Offer',
+        name: 'Enterprise',
+        priceCurrency: 'USD',
+        description:
+          'Unlimited usage, on-premise or dedicated VPC deployment, SSO/SAML, 24/7 support.',
+        url: `${SITE_URL}/${locale}/pricing`,
+      },
+    ],
+  });
+}
+
+if (faq?.length) {
+  graph.push({
+    '@type': 'FAQPage',
+    '@id': `${pageUrl}#faq`,
+    mainEntity: faq.map((entry) => ({
+      '@type': 'Question',
+      name: entry.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: entry.answer,
+      },
+    })),
+  });
+}
+
+if (article) {
+  graph.push({
+    '@type': 'BlogPosting',
+    '@id': `${pageUrl}#article`,
+    headline: article.headline,
+    description: article.description,
+    datePublished: article.publishedAt.toISOString(),
+    dateModified: (article.updatedAt ?? article.publishedAt).toISOString(),
+    author: { '@type': 'Person', name: article.author },
+    publisher: { '@id': orgId },
+    mainEntityOfPage: { '@id': pageId },
+    inLanguage: HREFLANG[locale],
+    ...(article.image ? { image: absoluteUrl(article.image) } : {}),
+  });
+}
+
+const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />

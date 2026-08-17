@@ -1,0 +1,66 @@
+---
+import Base from '@/layouts/Base.astro';
+import PricingTable from '@/components/PricingTable.astro';
+import Faq from '@/components/Faq.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { FAQ } from '@/data/faq';
+import { useTranslations } from '@/i18n/ui';
+import { localePath } from '@/i18n/utils';
+import { LOCALES, type Locale } from '@/config';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+
+const meta = {
+  fr: {
+    title: 'Tarifs TblFlow — Gratuit, Pro 29 $, Business 99 $, Enterprise',
+    description:
+      "Quatre paliers : Gratuit (3 bases, 2 utilisateurs), Pro à 29 $/mois, Business à 99 $/mois, Enterprise sur devis. L'auto-hébergement est gratuit avec toutes les fonctionnalités Enterprise.",
+  },
+  en: {
+    title: 'TblFlow pricing — Free, Pro $29, Business $99, Enterprise',
+    description:
+      'Four tiers: Free (3 bases, 2 users), Pro at $29/month, Business at $99/month, Enterprise on quote. Self-hosting is free with every Enterprise feature unlocked.',
+  },
+} satisfies Record<Locale, { title: string; description: string }>;
+
+/** Pricing-related answers only — a FAQPage should match its page's topic. */
+const pricingFaq = FAQ.filter((item) => item.category === 'pricing').map((item) => ({
+  question: item.question[locale],
+  answer: item.answer[locale],
+}));
+
+const breadcrumbs = [
+  { name: locale === 'fr' ? 'Accueil' : 'Home', path: localePath(locale) },
+  { name: t('pricing.title'), path: localePath(locale, 'pricing') },
+];
+---
+
+<Base
+  locale={locale}
+  title={meta[locale].title}
+  description={meta[locale].description}
+  path={localePath(locale, 'pricing')}
+  breadcrumbs={breadcrumbs}
+  faq={pricingFaq}
+  product
+>
+  <div class="mx-auto max-w-6xl px-4 pt-16 text-center sm:px-6 sm:pt-24">
+    <h1 class="animate-enter text-4xl font-bold tracking-tight sm:text-5xl">
+      {t('pricing.title')}
+    </h1>
+    <p class="animate-enter delay-1 mx-auto mt-4 max-w-2xl text-lg text-[var(--fg-muted)]">
+      {t('pricing.subtitle')}
+    </p>
+  </div>
+
+  <PricingTable locale={locale} showQuotas />
+
+  <Faq locale={locale} />
+
+  <CtaBand locale={locale} />
+</Base>

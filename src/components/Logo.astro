@@ -1,0 +1,90 @@
+---
+/**
+ * The TblFlow mark, inlined rather than loaded as an <img>.
+ *
+ * Inlining is what makes the tile animation possible at all: the mark is a 2×2
+ * grid of four independent rounded tiles, and each one can only be animated
+ * separately if the SVG nodes are in the document. It also removes a request from
+ * the critical path for something that appears in the header of every page.
+ *
+ * `animate` adds a staggered entrance — used once in the hero, not in the header,
+ * because a mark that re-animates on every navigation stops reading as delight.
+ * The class is defined under `prefers-reduced-motion: no-preference` only.
+ */
+interface Props {
+  size?: number;
+  animate?: boolean;
+  class?: string;
+  /** Decorative when the adjacent text already names the brand. */
+  title?: string;
+}
+
+const { size = 32, animate = false, class: className = '', title } = Astro.props;
+const tileClass = animate ? 'logo-tile' : '';
+const uid = Math.random().toString(36).slice(2, 8);
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 100 100"
+  width={size}
+  height={size}
+  class={className}
+  role={title ? 'img' : 'presentation'}
+  aria-hidden={title ? undefined : 'true'}
+>
+  {title && <title>{title}</title>}
+  <defs>
+    <linearGradient id={`c1-${uid}`} x1="6" y1="6" x2="46" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#a78bfa"></stop>
+      <stop offset="100%" stop-color="#7c3aed"></stop>
+    </linearGradient>
+    <linearGradient id={`c2-${uid}`} x1="54" y1="6" x2="94" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7c6ef2"></stop>
+      <stop offset="100%" stop-color="#4338ca"></stop>
+    </linearGradient>
+    <linearGradient id={`c3-${uid}`} x1="6" y1="54" x2="46" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8"></stop>
+      <stop offset="100%" stop-color="#0284c7"></stop>
+    </linearGradient>
+    <linearGradient id={`c4-${uid}`} x1="54" y1="54" x2="94" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8b5cf6"></stop>
+      <stop offset="40%" stop-color="#4f46e5"></stop>
+      <stop offset="75%" stop-color="#0ea5e9"></stop>
+      <stop offset="100%" stop-color="#06e0d4"></stop>
+    </linearGradient>
+    <linearGradient id={`gloss-${uid}`} x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"></stop>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
+    </linearGradient>
+    <clipPath id={`clip1-${uid}`}><rect x="6" y="6" width="40" height="40" rx="10"></rect></clipPath>
+    <clipPath id={`clip2-${uid}`}><rect x="54" y="6" width="40" height="40" rx="10"></rect></clipPath>
+    <clipPath id={`clip3-${uid}`}><rect x="6" y="54" width="40" height="40" rx="10"></rect></clipPath>
+    <clipPath id={`clip4-${uid}`}><rect x="54" y="54" width="40" height="40" rx="10"></rect></clipPath>
+  </defs>
+
+  {/* Each tile is its own <g> so the stagger can address them individually. */}
+  <g class={tileClass}>
+    <rect x="6" y="6" width="40" height="40" rx="10" fill={`url(#c1-${uid})`}></rect>
+    <rect x="6" y="6" width="40" height="20" fill={`url(#gloss-${uid})`} clip-path={`url(#clip1-${uid})`} opacity="0.9"></rect>
+  </g>
+  <g class={tileClass}>
+    <rect x="54" y="6" width="40" height="40" rx="10" fill={`url(#c2-${uid})`}></rect>
+    <rect x="54" y="6" width="40" height="20" fill={`url(#gloss-${uid})`} clip-path={`url(#clip2-${uid})`} opacity="0.9"></rect>
+  </g>
+  <g class={tileClass}>
+    <rect x="6" y="54" width="40" height="40" rx="10" fill={`url(#c3-${uid})`}></rect>
+    <rect x="6" y="54" width="40" height="20" fill={`url(#gloss-${uid})`} clip-path={`url(#clip3-${uid})`} opacity="0.9"></rect>
+  </g>
+  <g class={tileClass}>
+    <rect x="54" y="54" width="40" height="40" rx="10" fill={`url(#c4-${uid})`}></rect>
+    <rect x="54" y="54" width="40" height="20" fill={`url(#gloss-${uid})`} clip-path={`url(#clip4-${uid})`} opacity="0.9"></rect>
+    <path
+      d="M 61 82 C 70 82 72 66 87 66"
+      fill="none"
+      stroke="#ffffff"
+      stroke-opacity="0.85"
+      stroke-width="5.5"
+      stroke-linecap="round"></path>
+  </g>
+</svg>

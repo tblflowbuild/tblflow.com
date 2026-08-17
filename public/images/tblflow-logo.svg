@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="c1" x1="6" y1="6" x2="46" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="c2" x1="54" y1="6" x2="94" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7c6ef2"/>
+      <stop offset="100%" stop-color="#4338ca"/>
+    </linearGradient>
+    <linearGradient id="c3" x1="6" y1="54" x2="46" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="c4" x1="54" y1="54" x2="94" y2="94" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="40%" stop-color="#4f46e5"/>
+      <stop offset="75%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#06e0d4"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="lift" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#3b0764" flood-opacity="0.35"/>
+    </filter>
+    <clipPath id="clip1"><rect x="6" y="6" width="40" height="40" rx="10"/></clipPath>
+    <clipPath id="clip2"><rect x="54" y="6" width="40" height="40" rx="10"/></clipPath>
+    <clipPath id="clip3"><rect x="6" y="54" width="40" height="40" rx="10"/></clipPath>
+    <clipPath id="clip4"><rect x="54" y="54" width="40" height="40" rx="10"/></clipPath>
+  </defs>
+
+  <g filter="url(#lift)">
+    <rect x="6" y="6" width="40" height="40" rx="10" fill="url(#c1)"/>
+    <rect x="54" y="6" width="40" height="40" rx="10" fill="url(#c2)"/>
+    <rect x="6" y="54" width="40" height="40" rx="10" fill="url(#c3)"/>
+    <rect x="54" y="54" width="40" height="40" rx="10" fill="url(#c4)"/>
+  </g>
+
+  <!-- glossy top-highlight per cell for the button feel -->
+  <g opacity="0.9">
+    <rect x="6" y="6" width="40" height="20" fill="url(#gloss)" clip-path="url(#clip1)"/>
+    <rect x="54" y="6" width="40" height="20" fill="url(#gloss)" clip-path="url(#clip2)"/>
+    <rect x="6" y="54" width="40" height="20" fill="url(#gloss)" clip-path="url(#clip3)"/>
+    <rect x="54" y="54" width="40" height="20" fill="url(#gloss)" clip-path="url(#clip4)"/>
+  </g>
+
+  <!-- flow swoosh inside the fourth bubble -->
+  <path d="M 61 82 C 70 82 72 66 87 66" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="5.5" stroke-linecap="round"/>
+</svg>

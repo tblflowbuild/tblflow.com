@@ -1,0 +1,34 @@
+# Cloudflare Pages response headers.
+#
+# The CSP is intentionally strict: this site is fully static, loads no third-party
+# script, and self-hosts its fonts via the system stack, so there is nothing
+# legitimate to allow beyond 'self'. Anything that later needs an exception should
+# earn it explicitly rather than the policy being loosened pre-emptively.
+#
+# Note on 'unsafe-inline' for style-src: Astro emits a small inline style block for
+# scoped component styles. script-src does NOT carry it — the only script on the
+# site is the bundled FAQ filter, served from /_astro/.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+
+# Astro fingerprints everything under /_astro/, so it is safe to cache forever.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=604800
+
+# Machine-readable endpoints: short cache so a content change propagates quickly.
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/llms-full.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600

@@ -1,0 +1,146 @@
+---
+/**
+ * Sticky site header.
+ *
+ * The mobile menu is a native <details>/<summary> disclosure rather than a
+ * JS-driven drawer. That keeps the site at zero JavaScript, and native disclosure
+ * semantics give keyboard and screen-reader users correct expand/collapse
+ * behaviour for free — which a hand-rolled div-and-onclick menu usually gets wrong.
+ */
+import Logo from './Logo.astro';
+import LangSwitcher from './LangSwitcher.astro';
+import { useTranslations } from '@/i18n/ui';
+import { localePath, pathWithoutLocale } from '@/i18n/utils';
+import { APP_URL, HELP_URL, type Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const current = pathWithoutLocale(Astro.url.pathname);
+
+const links: Array<{ label: string; href: string; match?: string; external?: boolean }> = [
+  { label: t('nav.pricing'), href: localePath(locale, 'pricing'), match: 'pricing' },
+  { label: t('nav.blog'), href: localePath(locale, 'blog'), match: 'blog' },
+  { label: t('nav.docs'), href: HELP_URL, external: true },
+];
+
+const isActive = (match?: string) => Boolean(match) && current.startsWith(match!);
+---
+
+<a
+  href="#main"
+  class="sr-only-focusable fixed top-2 left-2 z-50 rounded-md bg-[var(--bg-raised)] px-3 py-2 text-sm font-medium shadow-lg ring-1 ring-[var(--border-strong)]"
+>
+  {t('nav.skip')}
+</a>
+
+<header
+  class="sticky top-0 z-40 border-b border-[var(--border)] bg-[color-mix(in_oklab,var(--bg)_85%,transparent)] backdrop-blur-md"
+>
+  <div class="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4 sm:px-6">
+    <a
+      href={localePath(locale)}
+      class="flex shrink-0 items-center gap-2.5 font-semibold tracking-tight"
+    >
+      <Logo size={28} title="TblFlow" />
+      <span class="text-base">TblFlow</span>
+    </a>
+
+    <nav aria-label={t('nav.product')} class="ml-auto hidden items-center gap-1 md:flex">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            aria-current={isActive(link.match) ? 'page' : undefined}
+            rel={link.external ? 'noopener' : undefined}
+            class:list={[
+              'rounded-md px-3 py-2 text-sm font-medium transition-colors',
+              isActive(link.match)
+                ? 'text-[var(--fg)]'
+                : 'text-[var(--fg-muted)] hover:text-[var(--fg)]',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="ml-auto flex items-center gap-2 md:ml-0">
+      <LangSwitcher locale={locale} class="hidden sm:block" />
+
+      <a
+        href={`${APP_URL}/auth/login`}
+        class="hidden rounded-lg px-3 py-2 text-sm font-medium text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)] sm:block"
+      >
+        {t('nav.login')}
+      </a>
+
+      <a
+        href={`${APP_URL}/auth/signup`}
+        class="ai-gradient-bg animate-gradient hidden rounded-lg px-4 py-2 text-sm font-semibold text-white shadow-sm transition-transform hover:-translate-y-px sm:block"
+      >
+        {t('nav.cta')}
+      </a>
+
+      {/* Mobile disclosure */}
+      <details class="group relative md:hidden">
+        <summary
+          class="flex cursor-pointer list-none items-center rounded-lg border border-[var(--border)] p-2 [&::-webkit-details-marker]:hidden"
+          aria-label={t('nav.menu')}
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M4 7h16M4 12h16M4 17h16"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"></path>
+          </svg>
+        </summary>
+
+        <div
+          class="card absolute right-0 mt-2 w-56 origin-top-right p-2 group-open:animate-enter"
+        >
+          <nav aria-label={t('nav.menu')}>
+            <ul class="flex flex-col">
+              {
+                links.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      aria-current={isActive(link.match) ? 'page' : undefined}
+                      class="block rounded-md px-3 py-2 text-sm font-medium text-[var(--fg-muted)] hover:bg-[var(--bg-subtle)] hover:text-[var(--fg)]"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))
+              }
+              <li>
+                <a
+                  href={`${APP_URL}/auth/login`}
+                  class="block rounded-md px-3 py-2 text-sm font-medium text-[var(--fg-muted)] hover:bg-[var(--bg-subtle)] hover:text-[var(--fg)]"
+                >
+                  {t('nav.login')}
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="mt-2 border-t border-[var(--border)] pt-2">
+            <LangSwitcher locale={locale} />
+            <a
+              href={`${APP_URL}/auth/signup`}
+              class="ai-gradient-bg mt-2 block rounded-lg px-3 py-2 text-center text-sm font-semibold text-white"
+            >
+              {t('nav.cta')}
+            </a>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>

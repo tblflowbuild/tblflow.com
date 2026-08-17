@@ -1,0 +1,21 @@
+# Cloudflare Pages redirect rules.
+#
+# Matched top-to-bottom, before the static-asset lookup. Keep the list short:
+# Pages caps a project at 2,100 rules and only the first 100 are evaluated
+# dynamically, the rest are static-only.
+
+# Bare root → default locale. A 302, not a 301: which locale suits a visitor is a
+# per-visitor question, and a permanently-cached redirect would pin them to one
+# answer for good.
+/                     /fr                   302
+
+# Convenience aliases some visitors will type or that appear in older material.
+/pricing              /fr/pricing           302
+/blog                 /fr/blog              302
+/tarifs               /fr/pricing           301
+/fr/prix              /fr/pricing           301
+
+# Legacy nav targets referenced in the OSS README that this site does not serve
+# (yet). Sent to the closest real page rather than left to 404.
+/templates            /fr                   302
+/en/templates         /en                   302

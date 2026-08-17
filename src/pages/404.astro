@@ -1,0 +1,40 @@
+---
+/**
+ * Single 404 for both locales.
+ *
+ * Cloudflare Pages serves `/404.html` for any unmatched path, and it cannot know
+ * the intended locale of a URL that did not match anything — so this page shows
+ * both languages rather than guessing and being wrong half the time.
+ */
+import Base from '@/layouts/Base.astro';
+import { ui } from '@/i18n/ui';
+import { DEFAULT_LOCALE, LOCALES } from '@/config';
+import { localePath } from '@/i18n/utils';
+---
+
+<Base
+  locale={DEFAULT_LOCALE}
+  title="404 — TblFlow"
+  description="Page not found."
+  path="/404"
+  noindex
+>
+  <div class="mx-auto flex max-w-2xl flex-col items-center px-4 py-28 text-center sm:px-6">
+    <p class="ai-gradient-text text-7xl font-bold">404</p>
+
+    {
+      LOCALES.map((locale) => (
+        <div class="mt-10 first:mt-8" lang={locale === 'fr' ? 'fr-FR' : 'en'}>
+          <h1 class="text-xl font-semibold">{ui[locale]['404.title']}</h1>
+          <p class="mt-2 text-[var(--fg-muted)]">{ui[locale]['404.body']}</p>
+          <a
+            href={localePath(locale)}
+            class="mt-4 inline-block rounded-lg border border-[var(--border-strong)] px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-[var(--bg-subtle)]"
+          >
+            {ui[locale]['404.cta']}
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</Base>

@@ -1,0 +1,99 @@
+---
+import Logo from './Logo.astro';
+import LangSwitcher from './LangSwitcher.astro';
+import { useTranslations } from '@/i18n/ui';
+import { localePath } from '@/i18n/utils';
+import { APP_URL, GITHUB_URL, HELP_URL, type Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const year = new Date().getFullYear();
+
+const columns: Array<{ title: string; links: Array<{ label: string; href: string }> }> = [
+  {
+    title: t('footer.product'),
+    links: [
+      { label: t('nav.pricing'), href: localePath(locale, 'pricing') },
+      { label: locale === 'fr' ? 'Fonctionnalités' : 'Features', href: `${localePath(locale)}#features` },
+      { label: locale === 'fr' ? 'Comparatif' : 'Comparison', href: `${localePath(locale)}#comparison` },
+      { label: locale === 'fr' ? 'Se connecter' : 'Log in', href: `${APP_URL}/auth/login` },
+    ],
+  },
+  {
+    title: t('footer.resources'),
+    links: [
+      { label: t('nav.blog'), href: localePath(locale, 'blog') },
+      { label: t('nav.docs'), href: HELP_URL },
+      { label: 'FAQ', href: `${localePath(locale)}#faq` },
+      { label: 'RSS', href: localePath(locale, 'rss.xml') },
+    ],
+  },
+  {
+    title: t('footer.company'),
+    links: [
+      { label: 'GitHub', href: GITHUB_URL },
+      { label: locale === 'fr' ? 'Nous contacter' : 'Contact', href: 'mailto:contact@tblflow.com' },
+    ],
+  },
+];
+---
+
+<footer class="mt-24 border-t border-[var(--border)] bg-[var(--bg-subtle)]">
+  <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <div class="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+      <div>
+        <a href={localePath(locale)} class="flex items-center gap-2.5 font-semibold tracking-tight">
+          <Logo size={28} title="TblFlow" />
+          <span>TblFlow</span>
+        </a>
+        <p class="mt-3 max-w-xs text-sm text-[var(--fg-muted)]">
+          {
+            locale === 'fr'
+              ? "L'interface moderne de base de données pour les équipes. Sur un vrai PostgreSQL."
+              : 'The modern database UI for teams. On real PostgreSQL.'
+          }
+        </p>
+        <LangSwitcher locale={locale} class="mt-5" />
+      </div>
+
+      {
+        columns.map((column) => (
+          <div>
+            <h2 class="text-xs font-semibold tracking-wide text-[var(--fg)] uppercase">
+              {column.title}
+            </h2>
+            <ul class="mt-3 space-y-2">
+              {column.links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-sm text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)]"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <div
+      class="mt-12 flex flex-col gap-3 border-t border-[var(--border)] pt-6 text-xs text-[var(--fg-subtle)] sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>&copy; {year} TblFlow. {t('footer.rights')}</p>
+      <p>
+        {
+          locale === 'fr'
+            ? 'Construit sur PostgreSQL, NestJS et Next.js.'
+            : 'Built on PostgreSQL, NestJS and Next.js.'
+        }
+      </p>
+    </div>
+  </div>
+</footer>

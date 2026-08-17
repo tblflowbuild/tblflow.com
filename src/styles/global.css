@@ -1,0 +1,387 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens.
+ *
+ * The AI gradient (violet → indigo → sky → cyan) and the neutral scale are
+ * carried over verbatim from the app's `global.css` so the site and the product
+ * read as one brand. Per the app's own design-system note, the gradient is
+ * reserved for AI-related surfaces — it is a wayfinding signal, not decoration,
+ * and spending it on generic CTAs is what makes it stop meaning anything.
+ */
+@theme {
+  --color-ai-1: #7c3aed;
+  --color-ai-2: #4f46e5;
+  --color-ai-3: #0ea5e9;
+  --color-ai-4: #06b6d4;
+
+  --color-ink-50: #f8fafc;
+  --color-ink-100: #f1f5f9;
+  --color-ink-200: #e2e8f0;
+  --color-ink-300: #cbd5e1;
+  --color-ink-400: #94a3b8;
+  --color-ink-500: #64748b;
+  --color-ink-600: #475569;
+  --color-ink-700: #334155;
+  --color-ink-800: #1e293b;
+  --color-ink-900: #0f172a;
+  --color-ink-950: #020617;
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  --radius-card: 0.75rem;
+
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/*
+ * Light and dark are both first-class. The palette is defined on :root and only
+ * the roles are swapped under the dark media query — never a colour whose single
+ * definition lives inside a media block.
+ */
+:root {
+  color-scheme: light dark;
+
+  --bg: #ffffff;
+  --bg-subtle: #f8fafc;
+  --bg-raised: #ffffff;
+  --fg: #0f172a;
+  --fg-muted: #475569;
+  --fg-subtle: #64748b;
+  --border: rgb(0 0 0 / 0.08);
+  --border-strong: rgb(0 0 0 / 0.14);
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px -12px rgb(15 23 42 / 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #08090c;
+    --bg-subtle: #0d0f14;
+    --bg-raised: #12141b;
+    --fg: #e8ecf1;
+    --fg-muted: #9aa6b6;
+    --fg-subtle: #7c8798;
+    --border: rgb(255 255 255 / 0.09);
+    --border-strong: rgb(255 255 255 / 0.16);
+    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Offset for the sticky header when jumping to an anchor. */
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    /* Slightly tighter than default for long-form marketing copy. */
+    line-height: 1.6;
+    text-wrap: pretty;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    /* Avoids the classic one-word-orphan on responsive headline wraps. */
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+
+  /* A visible, consistent focus ring everywhere — keyboard users included. */
+  :focus-visible {
+    outline: 2px solid var(--color-ai-2);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-ai-2) 26%, transparent);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Animations
+ *
+ * Every animation below is CSS-only and gated on `prefers-reduced-motion`.
+ * Two consequences worth stating: the site ships no JavaScript for motion, and
+ * a visitor who has asked their OS to reduce motion gets the finished state
+ * immediately rather than a slower version of the same movement.
+ *
+ * The reveal-on-scroll uses scroll-driven animations (`animation-timeline: view()`)
+ * where supported. The @supports guard matters: without it, browsers that don't
+ * support scroll-driven animations would keep elements at opacity 0 forever —
+ * content invisible, not merely un-animated.
+ * ------------------------------------------------------------------------- */
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes tile-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.72) rotate(-8deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04) rotate(1.5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes gradient-drift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes aurora {
+  0% {
+    transform: translate3d(-6%, -3%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6%, 4%, 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(-6%, -3%, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Entrance animation for above-the-fold content. */
+  .animate-enter {
+    animation: fade-rise 0.7s var(--ease-out-soft) both;
+  }
+
+  .animate-enter-fade {
+    animation: fade-in 0.9s var(--ease-out-soft) both;
+  }
+
+  /* Staggered logo tiles — the mark is a 2×2 grid of four independent tiles. */
+  .logo-tile {
+    animation: tile-pop 0.62s var(--ease-out-soft) both;
+    transform-origin: center;
+  }
+  .logo-tile:nth-child(1) { animation-delay: 0.02s; }
+  .logo-tile:nth-child(2) { animation-delay: 0.1s; }
+  .logo-tile:nth-child(3) { animation-delay: 0.18s; }
+  .logo-tile:nth-child(4) { animation-delay: 0.26s; }
+
+  .animate-gradient {
+    background-size: 220% 220%;
+    animation: gradient-drift 9s ease-in-out infinite;
+  }
+
+  .animate-aurora {
+    animation: aurora 22s ease-in-out infinite;
+  }
+
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: fade-rise 0.8s var(--ease-out-soft) both;
+      animation-timeline: view();
+      /* Play as the element enters the viewport, finish well before it leaves. */
+      animation-range: entry 5% cover 32%;
+    }
+  }
+}
+
+/* Delay utilities for hand-tuned stagger on hero children. */
+.delay-1 { animation-delay: 0.06s; }
+.delay-2 { animation-delay: 0.14s; }
+.delay-3 { animation-delay: 0.22s; }
+.delay-4 { animation-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  /* Neutralise any animation or transition that slipped through. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Component primitives
+ * ------------------------------------------------------------------------- */
+
+.ai-gradient-text {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-ai-1),
+    var(--color-ai-2),
+    var(--color-ai-3),
+    var(--color-ai-4)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ai-gradient-bg {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-ai-1),
+    var(--color-ai-2),
+    var(--color-ai-3),
+    var(--color-ai-4)
+  );
+}
+
+.card {
+  background-color: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+/* Long-form article styling — applied to rendered markdown. */
+.prose-site {
+  color: var(--fg);
+  max-width: 68ch;
+}
+.prose-site > * + * {
+  margin-top: 1.15em;
+}
+.prose-site h2 {
+  margin-top: 2.4em;
+  font-size: 1.5rem;
+  font-weight: 650;
+}
+.prose-site h3 {
+  margin-top: 1.9em;
+  font-size: 1.2rem;
+  font-weight: 620;
+}
+.prose-site p,
+.prose-site li {
+  color: var(--fg-muted);
+}
+.prose-site strong {
+  color: var(--fg);
+  font-weight: 620;
+}
+.prose-site a {
+  color: var(--color-ai-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.prose-site a:hover {
+  text-decoration-thickness: 2px;
+}
+.prose-site ul,
+.prose-site ol {
+  padding-left: 1.4em;
+}
+.prose-site ul {
+  list-style: disc;
+}
+.prose-site ol {
+  list-style: decimal;
+}
+.prose-site li + li {
+  margin-top: 0.4em;
+}
+.prose-site blockquote {
+  border-left: 3px solid var(--color-ai-2);
+  padding-left: 1em;
+  font-style: italic;
+  color: var(--fg-muted);
+}
+.prose-site code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+.prose-site pre {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+.prose-site pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+}
+.prose-site img {
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border);
+  max-width: 100%;
+  height: auto;
+}
+.prose-site table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.925rem;
+  display: block;
+  overflow-x: auto;
+}
+.prose-site th,
+.prose-site td {
+  border: 1px solid var(--border);
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+}
+.prose-site th {
+  background-color: var(--bg-subtle);
+  font-weight: 620;
+}
+
+/* Screen-reader-only text that still receives focus when tabbed to. */
+.sr-only-focusable:not(:focus):not(:focus-within) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
