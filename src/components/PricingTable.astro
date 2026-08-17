@@ -14,12 +14,18 @@ const t = useTranslations(locale);
 ---
 
 <section id="pricing" class="mx-auto max-w-6xl scroll-mt-24 px-4 py-16 sm:px-6">
-  <ul class="grid gap-6 lg:grid-cols-4">
+  {/*
+    Subgrid, so the four cards align row-by-row — name, tagline, price, CTA and
+    feature list each share a baseline across all four. With plain flex columns the
+    CTAs sat at four different heights because the taglines wrap to different
+    depths, which reads as a layout bug rather than a design choice.
+  */}
+  <ul class="grid gap-6 lg:grid-cols-4 lg:grid-rows-[auto_auto_auto_auto_1fr]">
     {
       TIERS.map((tier) => (
         <li
           class:list={[
-            'reveal card relative flex flex-col p-6',
+            'reveal card relative flex flex-col p-6 lg:row-span-5 lg:grid lg:grid-rows-subgrid lg:gap-0',
             tier.featured && 'ring-2 ring-[var(--color-ai-2)]',
           ]}
         >
@@ -34,11 +40,12 @@ const t = useTranslations(locale);
           <h3 class="text-lg font-semibold">{tier.name[locale]}</h3>
           <p class="mt-1 text-sm text-[var(--fg-muted)]">{tier.tagline[locale]}</p>
 
+          {/* The Free tier shows "$0", not the word "Free" — the tier is already
+              named "Free" right above, and a uniform price row ($0 / $29 / $99 /
+              Custom) is what lets the subgrid align cleanly. */}
           <p class="mt-5 flex items-baseline gap-1">
             {tier.price === null ? (
               <span class="text-3xl font-bold">{t('pricing.custom')}</span>
-            ) : tier.price === 0 ? (
-              <span class="text-3xl font-bold">{t('pricing.free')}</span>
             ) : (
               <>
                 <span class="text-4xl font-bold">${tier.price}</span>
