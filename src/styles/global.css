@@ -901,6 +901,10 @@
 .pipeline {
   --cell: 4.5rem;
   --cycle: 5.6s;
+  /* Fades the horizontal-scroll edges instead of hard-cropping mid-cell, same
+     trick as the marquee above — cheaper than knowing the section background. */
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 3%, black 97%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 3%, black 97%, transparent);
 }
 .pipeline__row {
   position: relative;
@@ -910,6 +914,7 @@
   min-width: 34rem;
   gap: 0.5rem;
 }
+
 .pipeline__line {
   position: absolute;
   left: calc(var(--cell) / 2);
@@ -983,6 +988,42 @@
   font-size: 0.8rem;
   font-weight: 500;
   white-space: nowrap;
+}
+
+@media (max-width: 30rem) {
+  .pipeline {
+    /* Small enough that all seven steps fit one phone-width screen with no
+       scroll needed — the mask above only kicks in on the rare narrower case. */
+    --cell: 2.75rem;
+  }
+  .pipeline__row {
+    min-width: 0;
+    gap: 0.25rem;
+  }
+  .pipeline__item {
+    /* Wider than --cell so a wrapped two-line label has room without
+       overlapping its neighbours — the icon cell itself stays --cell wide. */
+    width: 3rem;
+  }
+  .pipeline__cell svg {
+    width: 18px;
+    height: 18px;
+  }
+  .pipeline__label {
+    /* align-items: center on the item lets a block child size to its own
+       content instead of the column's width — pin it explicitly so long
+       words like "Automatisations" wrap inside their own column. */
+    width: 100%;
+    font-size: 0.6rem;
+    line-height: 1.15;
+    white-space: normal;
+    overflow-wrap: break-word;
+    text-align: center;
+  }
+  .pipeline__step {
+    font-size: 0.55rem;
+    top: -1.1rem;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
