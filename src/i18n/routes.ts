@@ -36,13 +36,18 @@ async function pairs(): Promise<Map<string, BarePaths>> {
   }
 
   const map = new Map<string, BarePaths>();
-  for (const group of byKey.values()) {
+  for (const [key, group] of byKey.entries()) {
+    // The collection's own index page — the fallback for a locale that has no
+    // article at all yet. Reusing another locale's slug there would link to a
+    // path that was never built (a 404), where the index page always exists.
+    const collection = key.split(':', 1)[0]!;
     for (const lang of LOCALES) {
       const own = group[lang];
       if (!own) continue;
-      // A page whose counterpart is missing keeps its own path in that locale: a
-      // self-referencing alternate is a valid signal, an invented URL is not.
-      map.set(own, Object.fromEntries(LOCALES.map((l) => [l, group[l] ?? own])) as BarePaths);
+      map.set(
+        own,
+        Object.fromEntries(LOCALES.map((l) => [l, group[l] ?? collection])) as BarePaths
+      );
     }
   }
   return map;

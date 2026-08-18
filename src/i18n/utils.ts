@@ -25,9 +25,16 @@ export function localeFromPath(pathname: string): Locale {
 /**
  * Strips the locale prefix, giving the "same page, other language" path.
  * Used by the language switcher and to generate hreflang alternates.
+ *
+ * Also strips a trailing `.html`: `build.format: 'file'` makes `Astro.url.pathname`
+ * carry the literal output filename during the static build (e.g.
+ * `/fr/blog/post.html`), even though the deployed site serves it extension-less.
+ * Left in, it silently breaks every bare-path lookup keyed on the extension-less
+ * form — the language switcher would link to the current slug in every locale
+ * instead of the translated one, a 404 for any locale without that translation.
  */
 export function pathWithoutLocale(pathname: string): string {
-  const segments = pathname.split('/').filter(Boolean);
+  const segments = pathname.replace(/\.html$/, '').split('/').filter(Boolean);
   if (segments.length && isLocale(segments[0]!)) segments.shift();
   return segments.join('/');
 }
