@@ -7,7 +7,8 @@
  * agreeing is to derive them all from the same two inputs (the current URL and
  * the page's own metadata) rather than let each page hand-roll its tags.
  */
-import { absoluteUrl, alternateLinks } from '@/i18n/utils';
+import { absoluteUrl } from '@/i18n/utils';
+import { alternateLinks } from '@/i18n/routes';
 import { HREFLANG, type Locale } from '@/config';
 import '@/styles/global.css';
 
@@ -40,13 +41,31 @@ const {
 } = Astro.props;
 
 const canonical = absoluteUrl(path);
-const alternates = alternateLinks(path);
+const alternates = await alternateLinks(path);
 const ogImage = absoluteUrl(image);
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
+
+{/*
+  Theme, applied before first paint.
+
+  This has to be a blocking inline script in <head>, and it is the one place on
+  the site where that is the right call: run it any later — deferred, module,
+  or at the end of <body> — and a visitor who chose light on a dark OS gets a
+  flash of the dark palette before the class lands. Absent a stored choice it
+  writes nothing, leaving `prefers-color-scheme` in charge.
+*/}
+<script is:inline>
+  try {
+    var t = localStorage.getItem('theme');
+    if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+  } catch (e) {
+    /* Private mode or blocked storage: fall back to the OS preference. */
+  }
+</script>
 
 <title>{title}</title>
 <meta name="description" content={description} />

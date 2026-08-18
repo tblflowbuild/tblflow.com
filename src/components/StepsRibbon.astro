@@ -1,0 +1,80 @@
+---
+/**
+ * The steps an AI-generated app goes through, as a continuous ribbon.
+ *
+ * The list is rendered twice into one track: the animation slides the track by
+ * exactly half its width, so the moment it snaps back the frame is identical
+ * and the loop has no visible seam. The duplicate is `aria-hidden` — a screen
+ * reader should hear the seven steps once, not fourteen.
+ */
+import { t9, type Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale }: Props = Astro.props;
+
+/** Icon paths on a 24×24 grid, inline to avoid an icon-font request. */
+const STEPS = [
+  {
+    icon: 'M4 6h16M4 12h16M4 18h10',
+    label: t9({ fr: 'Décrivez votre besoin', en: 'Describe what you need' }),
+  },
+  {
+    icon: 'M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 7v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7',
+    label: t9({ fr: 'Schéma de données', en: 'Data schema' }),
+  },
+  {
+    icon: 'M3 5h18M3 12h18M3 19h18M8 5v14M16 5v14',
+    label: t9({ fr: 'Tables liées', en: 'Linked tables' }),
+  },
+  {
+    icon: 'M4 4h7v7H4zM13 4h7v4h-7zM13 10h7v10h-7zM4 13h7v7H4z',
+    label: t9({ fr: 'Interfaces', en: 'Interfaces' }),
+  },
+  {
+    icon: 'M13 2 3 14h7l-1 8 10-12h-7z',
+    label: t9({ fr: 'Automatisations', en: 'Automations' }),
+  },
+  {
+    icon: 'M12 2a5 5 0 0 1 5 5v2a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5zM5 20a7 7 0 0 1 14 0',
+    label: t9({ fr: 'Agents IA', en: 'AI agents' }),
+  },
+  {
+    icon: 'M12 3a9 9 0 1 0 9 9M12 3v9l7 4M8 8h.01',
+    label: t9({ fr: 'Publication sur votre domaine', en: 'Published on your domain' }),
+  },
+];
+---
+
+<div class="marquee py-2">
+  <ul class="marquee__track">
+    {
+      [0, 1].map((pass) => (
+        <>
+          {STEPS.map((step) => (
+            <li
+              class="flex shrink-0 items-center gap-2.5 pr-8"
+              aria-hidden={pass === 1 ? 'true' : undefined}
+            >
+              <span class="ai-gradient-bg flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-white">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d={step.icon}
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <span class="text-sm whitespace-nowrap text-[var(--fg-muted)]">{step.label[locale]}</span>
+              <span class="ml-6 h-1 w-1 shrink-0 rounded-full bg-[var(--border-strong)]" />
+            </li>
+          ))}
+        </>
+      ))
+    }
+  </ul>
+</div>

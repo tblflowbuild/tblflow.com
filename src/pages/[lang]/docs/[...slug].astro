@@ -1,0 +1,146 @@
+---
+import Base from '@/layouts/Base.astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { useTranslations } from '@/i18n/ui';
+import { localePath, formatDate, isoDate } from '@/i18n/utils';
+import { isLocale, type Locale } from '@/config';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('docs', ({ data }) => !data.draft);
+
+  return pages.flatMap((page) => {
+    // ids look like `fr/quickstart`; the first segment is the locale.
+    const [lang, ...rest] = page.id.split('/');
+    if (!lang || !isLocale(lang) || rest.length === 0) return [];
+    return [{ params: { lang, slug: rest.join('/') }, props: { page } }];
+  });
+}
+
+interface Props {
+  page: CollectionEntry<'docs'>;
+}
+
+const { page }: Props = Astro.props;
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+
+const { Content, headings } = await render(page);
+const slug = page.id.replace(`${locale}/`, '');
+const path = localePath(locale, `docs/${slug}`);
+
+/**
+ * The neighbouring pages, in the same order the index shows them. A docs page
+ * without a "next" link is a dead end, and readers who arrive from search land
+ * mid-sequence more often than not.
+ */
+const siblings = (await getCollection('docs', ({ id, data }) => id.startsWith(`${locale}/`) && !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order
+);
+const index = siblings.findIndex((entry) => entry.id === page.id);
+const previous = index > 0 ? siblings[index - 1] : undefined;
+const next = index < siblings.length - 1 ? siblings[index + 1] : undefined;
+const linkOf = (entry: CollectionEntry<'docs'>) =>
+  localePath(locale, `docs/${entry.id.replace(`${locale}/`, '')}`);
+
+const breadcrumbs = [
+  { name: t('breadcrumbs.home'), path: localePath(locale) },
+  { name: t('docs.title'), path: localePath(locale, 'docs') },
+  { name: page.data.title, path },
+];
+
+/** Only h2/h3 — deeper levels make the TOC unreadable. */
+const toc = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
+---
+
+<Base
+  locale={locale}
+  title={`${page.data.title} — TblFlow`}
+  description={page.data.description}
+  path={path}
+  breadcrumbs={breadcrumbs}
+>
+  <article class="mx-auto max-w-4xl px-4 pt-14 sm:px-6 sm:pt-20">
+    <a
+      href={localePath(locale, 'docs')}
+      class="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)]"
+    >
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path
+          d="M19 12H5M11 18l-6-6 6-6"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+      {t('docs.back')}
+    </a>
+
+    <header class="mt-6">
+      <p class="text-xs font-semibold tracking-wide uppercase text-[var(--fg-subtle)]">
+        {page.data.section}
+      </p>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-5xl">{page.data.title}</h1>
+      {
+        page.data.updatedAt && (
+          <p class="mt-4 text-sm text-[var(--fg-subtle)]">
+            {t('docs.updated')}
+            <time datetime={isoDate(page.data.updatedAt)}>
+              {formatDate(page.data.updatedAt, locale)}
+            </time>
+          </p>
+        )
+      }
+    </header>
+
+    {
+      toc.length > 2 && (
+        <nav aria-labelledby="toc-heading" class="card mt-10 p-5">
+          <h2 id="toc-heading" class="text-xs font-semibold tracking-wide uppercase">
+            {t('docs.toc')}
+          </h2>
+          <ol class="mt-3 space-y-1.5 text-sm">
+            {toc.map((heading) => (
+              <li class:list={[heading.depth === 3 && 'pl-4']}>
+                <a
+                  href={`#${heading.slug}`}
+                  class="text-[var(--fg-muted)] transition-colors hover:text-[var(--color-ai-2)]"
+                >
+                  {heading.text}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )
+    }
+
+    <div class="prose-site mt-12">
+      <Content />
+    </div>
+
+    {
+      (previous || next) && (
+        <nav
+          aria-label={t('docs.title')}
+          class="mt-16 grid gap-3 border-t border-[var(--border)] pt-8 sm:grid-cols-2"
+        >
+          {previous && (
+            <a href={linkOf(previous)} class="card p-4 transition-shadow hover:shadow-lg">
+              <span class="text-xs text-[var(--fg-subtle)]">{t('docs.previous')}</span>
+              <span class="mt-1 block text-sm font-semibold">{previous.data.title}</span>
+            </a>
+          )}
+          {next && (
+            <a
+              href={linkOf(next)}
+              class="card p-4 transition-shadow hover:shadow-lg sm:col-start-2 sm:text-right"
+            >
+              <span class="text-xs text-[var(--fg-subtle)]">{t('docs.next')}</span>
+              <span class="mt-1 block text-sm font-semibold">{next.data.title}</span>
+            </a>
+          )}
+        </nav>
+      )
+    }
+  </article>
+</Base>

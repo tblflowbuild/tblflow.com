@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Marketing site and blog for tblflow.com — Astro, bilingual FR/EN, deployed on Cloudflare Pages",
+  "description": "Marketing site and blog for tblflow.com — Astro, 10 languages, deployed as a Cloudflare Worker (static assets)",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "check": "astro check",
     "sync": "astro sync",
-    "og": "node scripts/make-og-image.mjs"
+    "og": "node scripts/make-og-image.mjs",
+    "deploy": "astro build && wrangler deploy"
   },
   "dependencies": {
     "@astrojs/rss": "4.0.19",
@@ -24,7 +25,8 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "sharp": "0.35.3",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "wrangler": "^4.123.0"
   },
   "packageManager": "npm@10.9.7"
 }

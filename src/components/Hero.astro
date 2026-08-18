@@ -1,5 +1,7 @@
 ---
 import Logo from './Logo.astro';
+import HeroCards from './HeroCards.astro';
+import StepsRibbon from './StepsRibbon.astro';
 import { useTranslations } from '@/i18n/ui';
 import { localePath } from '@/i18n/utils';
 import { APP_URL, type Locale } from '@/config';
@@ -19,46 +21,89 @@ const t = useTranslations(locale);
  */
 const proof = [
   { value: t('proof.rows.value'), label: t('proof.rows') },
-  { value: '7', label: t('proof.views') },
+  { value: '6', label: t('proof.views') },
   { value: '28', label: t('proof.fields') },
   { value: t('proof.deploy.value'), label: t('proof.deploy') },
 ];
+
 ---
 
-<section class="relative isolate overflow-hidden">
+<section class="corner-ticks relative isolate mx-2 overflow-hidden sm:mx-4" style="--tick: 1.4rem;">
   {/* Ambient background. aria-hidden and pointer-events-none: decorative only,
       and it must never intercept a click meant for the CTA underneath. */}
   <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+    <div class="spotlight absolute inset-0"></div>
+
+    {/* Hexagon lattice, masked so it dissolves before it reaches the copy. */}
     <div
-      class="animate-aurora absolute -top-40 left-1/2 h-[38rem] w-[38rem] -translate-x-1/2 rounded-full opacity-25 blur-3xl"
-      style="background: radial-gradient(circle at 30% 30%, var(--color-ai-1), transparent 62%), radial-gradient(circle at 70% 65%, var(--color-ai-3), transparent 58%);"
+      class="hex-bg absolute inset-0"
+      style="mask-composite: intersect; -webkit-mask-composite: source-in; mask-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E&quot;), radial-gradient(ellipse 75% 60% at 50% 10%, black 25%, transparent 78%); -webkit-mask-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E&quot;), radial-gradient(ellipse 75% 60% at 50% 10%, black 25%, transparent 78%); mask-size: 56px 100px, cover; -webkit-mask-size: 56px 100px, cover;"
+    >
+    </div>
+
+    {/* Three light layers rather than one. Each drifts and brightens on its own
+        pair of timings (see `.animate-aurora`), so they slide past each other
+        instead of breathing in unison — the difference between weather and a
+        loop. Sizes and positions differ too: identical blobs on different
+        timings still read as copies. */}
+    <div
+      class="animate-aurora absolute -top-40 left-1/2 h-[38rem] w-[38rem] -translate-x-1/2 rounded-full blur-3xl"
+      style="--drift: 19s; --pulse: 26s; --glow-lo: 0.13; --glow-hi: 0.24; background: radial-gradient(circle at 30% 30%, var(--color-ai-1), transparent 62%), radial-gradient(circle at 70% 65%, var(--color-ai-3), transparent 58%);"
+    >
+    </div>
+    <div
+      class="animate-aurora absolute -top-24 left-[30%] h-[26rem] w-[26rem] -translate-x-1/2 rounded-full blur-3xl"
+      style="--drift: 23s; --pulse: 17s; --drift-delay: -7s; --pulse-delay: -11s; --glow-lo: 0.07; --glow-hi: 0.16; background: radial-gradient(circle at 50% 40%, var(--color-ai-2), transparent 60%);"
+    >
+    </div>
+    <div
+      class="animate-aurora absolute -top-32 left-[72%] h-[30rem] w-[30rem] -translate-x-1/2 rounded-full blur-3xl"
+      style="--drift: 31s; --pulse: 13s; --drift-delay: -13s; --pulse-delay: -5s; --glow-lo: 0.06; --glow-hi: 0.15; background: radial-gradient(circle at 45% 55%, var(--color-ai-4), transparent 58%);"
     >
     </div>
     {/* Subtle grid, masked so it fades out before the copy starts. */}
     <div
-      class="absolute inset-0 opacity-[0.06]"
-      style="background-image: linear-gradient(to right, var(--fg) 1px, transparent 1px), linear-gradient(to bottom, var(--fg) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black 40%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, black 40%, transparent 100%);"
+      class="bg-grid absolute inset-0"
+      style="mask-image: radial-gradient(ellipse 70% 65% at 50% 0%, black 40%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 0%, black 40%, transparent 100%);"
     >
     </div>
   </div>
 
-  <div class="mx-auto max-w-4xl px-4 pt-20 pb-16 text-center sm:px-6 sm:pt-28">
+  <div class="mx-auto max-w-4xl px-4 pt-20 text-center sm:px-6 sm:pt-28">
     <div class="animate-enter-fade flex justify-center">
       <Logo size={72} animate title="TblFlow" />
     </div>
 
-    <p
-      class="animate-enter delay-1 mt-8 text-xs font-semibold tracking-wide text-[var(--fg-subtle)] uppercase"
-    >
+    <p class="eyebrow animate-enter delay-1 mt-8 justify-center">
       {t('hero.eyebrow')}
     </p>
 
-    <h1 class="animate-enter delay-2 mt-4 text-4xl font-bold sm:text-6xl">
+    {/*
+      The wordmark is the display element, but not the <h1>: the heading still
+      carries the proposition below, because "TblFlow" alone tells a search
+      engine — and a first-time visitor — nothing about what this is.
+
+      aria-hidden because the <svg> logo directly above already has the
+      accessible name "TblFlow"; announcing it twice in a row is noise.
+
+      `data-text` feeds the bloom copy in `.shimmer-text::before`.
+    */}
+    <p
+      class="shimmer-text animate-title mt-5 text-6xl font-bold tracking-tight sm:text-8xl"
+      data-text="TblFlow"
+      aria-hidden="true"
+    >
+      TblFlow
+    </p>
+
+    <h1
+      class="animate-enter delay-3 mx-auto mt-6 max-w-2xl text-2xl font-semibold text-balance sm:text-3xl"
+    >
       {t('hero.title')}
     </h1>
 
     <p
-      class="animate-enter delay-3 mx-auto mt-6 max-w-2xl text-lg text-[var(--fg-muted)] sm:text-xl"
+      class="animate-enter delay-4 mx-auto mt-4 max-w-2xl text-base text-[var(--fg-muted)] sm:text-lg"
     >
       {t('hero.subtitle')}
     </p>
@@ -95,5 +140,24 @@ const proof = [
         ))
       }
     </dl>
+
+    {/* Three panels — the table, the agent writing into it, the app it
+        publishes to. Replaces the single mockup: one card showed the output,
+        the deck shows the chain that produces it. */}
+  </div>
+
+  {/* The deck is wider than the copy column. Nested inside it, a child wider
+      than its parent stretches the parent's content box and shifts every
+      centred element in it — measured at 46px off-centre. So it gets its own
+      container instead. */}
+  <div class="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
+    <div class="animate-enter delay-4">
+      <HeroCards locale={locale} />
+    </div>
+
+    <div class="reveal mt-16">
+      <StepsRibbon locale={locale} />
+    </div>
+
   </div>
 </section>

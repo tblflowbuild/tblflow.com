@@ -75,6 +75,7 @@ const t = useTranslations(locale);
       {
         FAQ.map((item) => (
           <li
+            class="reveal"
             data-faq-item
             data-faq-category={item.category}
             data-faq-text={`${item.question[locale]} ${item.answer[locale]}`.toLowerCase()}

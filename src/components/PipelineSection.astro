@@ -1,0 +1,81 @@
+---
+/**
+ * "Pipeline de génération" — a pulse travelling a timeline, lighting each node
+ * as it reaches it. Ported from the source artifact; the amber/teal accents
+ * became this site's AI gradient and the square texture its dot grid, so the
+ * section reads as part of the page rather than as a pasted-in widget.
+ */
+import { t9, type Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale }: Props = Astro.props;
+
+const STEPS = [
+  { label: t9({ fr: 'Analyse', en: 'Analysis' }), icon: '<circle cx="10" cy="10" r="6.5"/><line x1="7.5" y1="8" x2="12.5" y2="8"/><line x1="7.5" y1="11" x2="11" y2="11"/><line x1="15" y1="15" x2="20.5" y2="20.5"/>' },
+  { label: t9({ fr: 'Blueprint', en: 'Blueprint' }), icon: '<rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3 2.5"/><circle class="fill-icon" cx="9" cy="9" r="1.4"/><circle class="fill-icon" cx="15" cy="15" r="1.4"/><line x1="9.9" y1="9.9" x2="14.1" y2="14.1"/>' },
+  { label: t9({ fr: 'Tables', en: 'Tables' }), icon: '<rect x="3" y="3" width="18" height="18" rx="1.5"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/>' },
+  { label: t9({ fr: 'Liaisons', en: 'Relations' }), icon: '<rect x="2" y="8.5" width="7" height="7" rx="1"/><rect x="15" y="8.5" width="7" height="7" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><circle class="fill-icon" cx="12" cy="12" r="1.3"/>' },
+  { label: t9({ fr: 'Interface', en: 'Interface' }), icon: '<rect x="3" y="4" width="18" height="16" rx="1.5"/><line x1="3" y1="8.5" x2="21" y2="8.5"/><line x1="8" y1="8.5" x2="8" y2="20"/>' },
+  { label: t9({ fr: 'Automatisations', en: 'Automations' }), icon: '<path class="fill-icon" d="M13 3 6 13h5l-1 8 8-11h-5l1-7z"/>' },
+  { label: t9({ fr: 'Agents IA', en: 'AI agents' }), icon: '<path d="M12 2.6v2.6M12 18.8v2.6M2.6 12h2.6M18.8 12h2.6"/><path class="fill-icon" d="M12 7.2 13.6 10.4 16.8 12 13.6 13.6 12 16.8 10.4 13.6 7.2 12 10.4 10.4Z"/>' },
+];
+
+const copy = {
+  eyebrow: t9({ fr: 'Pipeline de génération', en: 'Generation pipeline' }),
+  title: t9({
+    fr: "Du besoin à l'application, en une conversation",
+    en: 'From a need to an app, in one conversation',
+  }),
+  sub: t9({
+    fr: 'Les données transitent d’étape en étape : chaque proposition est validée avant de passer à la suivante.',
+    en: 'Data moves from stage to stage: every proposal is approved before the next one starts.',
+  }),
+  aria: t9({
+    fr: "Étapes de génération d'une application par l'IA : analyse, blueprint, tables, liaisons, interface, automatisations, agents IA",
+    en: 'Stages of AI app generation: analysis, blueprint, tables, relations, interface, automations, AI agents',
+  }),
+};
+---
+
+<section id="pipeline" class="pipeline relative isolate scroll-mt-24 overflow-hidden py-24">
+  <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+    <div
+      class="bg-grid absolute inset-0"
+      style="mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 90%); -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 90%);"
+    >
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <header class="reveal mx-auto max-w-2xl text-center">
+      <p class="eyebrow justify-center">{copy.eyebrow[locale]}</p>
+      <h2 class="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">{copy.title[locale]}</h2>
+      <p class="mt-4 text-lg text-[var(--fg-muted)]">{copy.sub[locale]}</p>
+    </header>
+
+    {/* Scrolls inside its own container, so the page body never moves sideways. */}
+    <div class="reveal mt-16 overflow-x-auto pt-6 pb-2" aria-label={copy.aria[locale]}>
+      <div class="pipeline__row">
+        <div class="pipeline__line" aria-hidden="true">
+          <div class="pipeline__fill"></div>
+          <div class="pipeline__pulse"></div>
+        </div>
+
+        {
+          STEPS.map((step, i) => (
+            <div class="pipeline__item">
+              <div class="pipeline__cell" style={`--i:${i}`}>
+                <span class="pipeline__step">{String(i + 1).padStart(2, '0')}</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" set:html={step.icon} />
+              </div>
+              <p class="pipeline__label">{step.label[locale]}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

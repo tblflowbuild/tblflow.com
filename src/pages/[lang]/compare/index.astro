@@ -1,0 +1,170 @@
+---
+/**
+ * Hub for the per-competitor comparisons.
+ *
+ * Exists so the four pages are not orphans reachable only from the sitemap:
+ * a hub gives them one another's links and a single entry point to rank for
+ * the generic "TblFlow alternatives" query.
+ */
+import Base from '@/layouts/Base.astro';
+import { COMPARISON, COMPETITOR_LABELS } from '@/data/content';
+import { COMPETITOR_PAGES, COMPETITOR_SLUGS } from '@/data/competitors';
+import { useTranslations } from '@/i18n/ui';
+import { localePath } from '@/i18n/utils';
+import { LOCALES, type Locale } from '@/config';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+const path = localePath(locale, 'compare');
+
+const meta = {
+  de: {
+    title: 'TblFlow im Vergleich zu anderen Tools — detaillierte Vergleiche',
+    description:
+      'Vollständige Vergleiche von TblFlow mit Airtable, Monday.com, Notion und Salesforce: überprüfbare Kriterien, wesentliche Unterschiede und die Fälle, in denen das andere Tool noch die bessere Wahl ist.',
+    h1: 'TblFlow im Vergleich zu anderen Tools',
+    lede: `Ein Vergleich pro Tool, jeweils ${COMPARISON.length} Kriterien, und ein Abschnitt darüber, wo das andere Produkt gewinnt. Ohne das wäre es kein Vergleich.`,
+    cta: 'Vergleich ansehen',
+  },
+  en: {
+    title: 'TblFlow versus other tools — detailed comparisons',
+    description:
+      'Full comparisons of TblFlow against Airtable, Monday.com, Notion and Salesforce: verifiable criteria, substantive differences, and where the other tool is still the better choice.',
+    h1: 'TblFlow versus other tools',
+    lede: `One comparison per tool, ${COMPARISON.length} criteria each time, and a section saying where the other product wins. Without that it would not be a comparison.`,
+    cta: 'Read the comparison',
+  },
+  es: {
+    title: 'TblFlow frente a otras herramientas — comparativas detalladas',
+    description:
+      'Comparativas completas de TblFlow con Airtable, Monday.com, Notion y Salesforce: criterios verificables, diferencias de fondo y los casos en los que la otra herramienta sigue siendo la mejor opción.',
+    h1: 'TblFlow frente a otras herramientas',
+    lede: `Una comparativa por herramienta, ${COMPARISON.length} criterios cada vez, y una sección que indica dónde gana el otro producto. Sin eso no sería una comparativa.`,
+    cta: 'Ver la comparativa',
+  },
+  fr: {
+    title: 'TblFlow face aux autres outils — comparatifs détaillés',
+    description:
+      'Comparatifs complets entre TblFlow et Airtable, Monday.com, Notion et Salesforce : critères vérifiables, différences de fond, et les cas où l’autre outil reste le meilleur choix.',
+    h1: 'TblFlow face aux autres outils',
+    lede: `Un comparatif par outil, ${COMPARISON.length} critères à chaque fois, et une section qui dit où l’autre produit gagne. Sans quoi ce ne serait pas un comparatif.`,
+    cta: 'Voir le comparatif',
+  },
+  it: {
+    title: 'TblFlow a confronto con altri strumenti — confronti dettagliati',
+    description:
+      'Confronti completi tra TblFlow e Airtable, Monday.com, Notion e Salesforce: criteri verificabili, differenze sostanziali e i casi in cui l’altro strumento resta la scelta migliore.',
+    h1: 'TblFlow a confronto con altri strumenti',
+    lede: `Un confronto per ogni strumento, ${COMPARISON.length} criteri ogni volta, e una sezione che indica dove vince l’altro prodotto. Senza questo non sarebbe un confronto.`,
+    cta: 'Vedi il confronto',
+  },
+  ja: {
+    title: 'TblFlow と他ツールの比較 — 詳細比較',
+    description:
+      'TblFlowとAirtable、Monday.com、Notion、Salesforceとの完全な比較：検証可能な基準、本質的な違い、そして他社ツールが依然として優れている場合。',
+    h1: 'TblFlow と他ツールの比較',
+    lede: `ツールごとに${COMPARISON.length}の基準で比較し、他社製品が優れている点も明記しています。そうでなければ比較とは言えません。`,
+    cta: '比較を見る',
+  },
+  ru: {
+    title: 'TblFlow в сравнении с другими инструментами — подробные сравнения',
+    description:
+      'Полные сравнения TblFlow с Airtable, Monday.com, Notion и Salesforce: проверяемые критерии, существенные различия и случаи, где другой инструмент по-прежнему лучший выбор.',
+    h1: 'TblFlow в сравнении с другими инструментами',
+    lede: `Одно сравнение на инструмент, по ${COMPARISON.length} критериев каждый раз, и раздел о том, где выигрывает другой продукт. Без этого это не было бы сравнением.`,
+    cta: 'Смотреть сравнение',
+  },
+  tr: {
+    title: 'TblFlow diğer araçlarla karşılaştırıldığında — ayrıntılı karşılaştırmalar',
+    description:
+      'TblFlow ile Airtable, Monday.com, Notion ve Salesforce arasında tam karşılaştırmalar: doğrulanabilir kriterler, temel farklar ve diğer aracın hâlâ daha iyi seçim olduğu durumlar.',
+    h1: 'TblFlow diğer araçlarla karşılaştırıldığında',
+    lede: `Her araç için bir karşılaştırma, her seferinde ${COMPARISON.length} kriter ve diğer ürünün kazandığı yerleri gösteren bir bölüm. Bu olmadan bir karşılaştırma olmazdı.`,
+    cta: 'Karşılaştırmayı gör',
+  },
+  uk: {
+    title: 'TblFlow порівняно з іншими інструментами — детальні порівняння',
+    description:
+      'Повні порівняння TblFlow з Airtable, Monday.com, Notion та Salesforce: перевірювані критерії, суттєві відмінності та випадки, коли інший інструмент усе ще кращий вибір.',
+    h1: 'TblFlow порівняно з іншими інструментами',
+    lede: `Одне порівняння на інструмент, по ${COMPARISON.length} критеріїв щоразу, і розділ про те, де перемагає інший продукт. Без цього це не було б порівнянням.`,
+    cta: 'Переглянути порівняння',
+  },
+  zh: {
+    title: 'TblFlow 与其他工具对比 — 详细对比',
+    description:
+      'TblFlow 与 Airtable、Monday.com、Notion 和 Salesforce 的完整对比：可验证的标准、实质性差异，以及其他工具仍是更优选择的情况。',
+    h1: 'TblFlow 与其他工具对比',
+    lede: `每个工具一次对比，每次 ${COMPARISON.length} 项标准，并说明其他产品的优势所在。否则就不算是真正的对比。`,
+    cta: '查看对比',
+  },
+}[locale];
+
+const breadcrumbs = [
+  { name: t('breadcrumbs.home'), path: localePath(locale) },
+  { name: t('compare.title'), path },
+];
+---
+
+<Base
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  path={path}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="mx-auto max-w-4xl px-4 pt-16 sm:px-6 sm:pt-24">
+    <h1 class="animate-enter text-4xl font-bold tracking-tight sm:text-5xl">{meta.h1}</h1>
+    <p class="animate-enter delay-1 mt-4 text-lg text-[var(--fg-muted)]">{meta.lede}</p>
+
+    <ul class="mt-14 space-y-4">
+      {
+        COMPETITOR_SLUGS.map((slug) => (
+          <li class="reveal">
+            <a
+              href={localePath(locale, `compare/${slug}`)}
+              class="card group block p-6 transition-shadow hover:shadow-lg"
+            >
+              <div class="flex flex-wrap items-baseline gap-x-3">
+                <h2 class="text-xl font-semibold transition-colors group-hover:text-[var(--color-ai-2)]">
+                  TblFlow vs {COMPETITOR_LABELS[slug]}
+                </h2>
+                <span class="text-xs text-[var(--fg-subtle)]">
+                  {COMPETITOR_PAGES[slug].category[locale]}
+                </span>
+              </div>
+
+              <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
+                {COMPETITOR_PAGES[slug].summary[locale]}
+              </p>
+
+              <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-ai-2)]">
+                {meta.cta}
+                <svg
+                  class="transition-transform group-hover:translate-x-0.5"
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>

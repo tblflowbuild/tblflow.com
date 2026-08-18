@@ -1,5 +1,6 @@
 ---
 title: "Pourquoi TblFlow écrit dans un vrai Postgres, et ce que ça change"
+translationKey: "real-postgres"
 description: "La plupart des bases no-code stockent vos données dans un format à elles. TblFlow crée une vraie table PostgreSQL par table. Voici les conséquences concrètes, y compris les moins agréables."
 publishedAt: 2026-08-12
 author: "TblFlow"
@@ -36,4 +37,4 @@ Nous avons pris ce parti parce que la question à laquelle nous voulions répond
 
 Un magasin générique répond bien à la première question. Un vrai schéma répond bien à la seconde.
 
-Si vous voulez vérifier, l'auto-hébergement est gratuit : lancez une instance, créez une table, et allez regarder dans `psql`. Elle est là.
+Si vous voulez vérifier par vous-même, lancez une instance auto-hébergée, créez une table, et allez regarder dans `psql`. Elle est là.

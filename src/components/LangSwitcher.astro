@@ -1,17 +1,23 @@
 ---
 /**
- * Locale switcher.
+ * Locale switcher — a flag dropdown, native `<details>`/`<summary>` rather
+ * than a scripted menu. Ten languages don't fit as a row of pills the way two
+ * did; a disclosure is the zero-JS pattern the header's own mobile menu
+ * already uses, so this doesn't introduce a second way of building a menu.
  *
- * Links to the *same* page in the other locale (not to that locale's home page),
- * which is both what a visitor expects and what keeps the hreflang cluster
- * consistent — an alternate that points somewhere else is a conflicting signal.
+ * Every entry links to the *same* page in that locale (not to the locale's
+ * home page), which is both what a visitor expects and what keeps the
+ * hreflang cluster consistent — an alternate that points somewhere else is a
+ * conflicting signal.
  *
- * `hreflang` on each link tells assistive tech and crawlers the destination
- * language; `lang` on the label makes screen readers pronounce "Français" with
- * French phonemes inside an English page.
+ * `hreflang` and `lang` on each link tell assistive tech and crawlers the
+ * destination language; `lang` on the visible name makes a screen reader
+ * pronounce "Français" or "日本語" with that language's phonemes inside a
+ * page in a different one.
  */
-import { LOCALES, HREFLANG, type Locale } from '@/config';
-import { localePath, pathWithoutLocale } from '@/i18n/utils';
+import { LOCALES, HREFLANG, LOCALE_NAME, LOCALE_FLAG, type Locale } from '@/config';
+import { localePath } from '@/i18n/utils';
+import { barePathsFor } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/ui';
 
 interface Props {
@@ -21,36 +27,58 @@ interface Props {
 
 const { locale, class: className = '' } = Astro.props;
 const t = useTranslations(locale);
-const bare = pathWithoutLocale(Astro.url.pathname);
-
-const labels: Record<Locale, string> = { fr: t('lang.fr'), en: t('lang.en') };
+const bare = await barePathsFor(Astro.url.pathname);
 ---
 
-<nav aria-label={t('footer.lang')} class={className}>
-  <ul class="flex items-center gap-1 text-xs font-medium">
-    {
-      LOCALES.map((code) => {
-        const isCurrent = code === locale;
-        return (
-          <li>
-            <a
-              href={localePath(code, bare)}
-              hreflang={HREFLANG[code]}
-              lang={HREFLANG[code]}
-              aria-current={isCurrent ? 'true' : undefined}
-              class:list={[
-                'block rounded-md px-2 py-1 uppercase tracking-wide transition-colors',
-                isCurrent
-                  ? 'bg-[var(--bg-subtle)] text-[var(--fg)]'
-                  : 'text-[var(--fg-subtle)] hover:text-[var(--fg)]',
-              ]}
-            >
-              {code}
-              <span class="sr-only-focusable absolute">{labels[code]}</span>
-            </a>
-          </li>
-        );
-      })
-    }
-  </ul>
-</nav>
+<details class:list={['group relative', className]}>
+  <summary
+    class="flex cursor-pointer list-none items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm transition-colors hover:bg-[var(--bg-subtle)] [&::-webkit-details-marker]:hidden"
+    aria-label={t('footer.lang')}
+  >
+    <span aria-hidden="true">{LOCALE_FLAG[locale]}</span>
+    <span class="text-xs font-medium tracking-wide text-[var(--fg-muted)] uppercase">{locale}</span>
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      class="text-[var(--fg-subtle)] transition-transform group-open:rotate-180"
+    >
+      <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      ></path>
+    </svg>
+  </summary>
+
+  <nav
+    aria-label={t('footer.lang')}
+    class="card absolute right-0 z-10 mt-2 max-h-80 w-48 origin-top-right overflow-y-auto p-1.5 group-open:animate-enter"
+  >
+    <ul>
+      {
+        LOCALES.map((code) => {
+          const isCurrent = code === locale;
+          return (
+            <li>
+              <a
+                href={localePath(code, bare[code])}
+                hreflang={HREFLANG[code]}
+                lang={HREFLANG[code]}
+                aria-current={isCurrent ? 'true' : undefined}
+                class:list={[
+                  'flex items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-colors',
+                  isCurrent
+                    ? 'bg-[var(--bg-subtle)] font-medium text-[var(--fg)]'
+                    : 'text-[var(--fg-muted)] hover:bg-[var(--bg-subtle)] hover:text-[var(--fg)]',
+                ]}
+              >
+                <span aria-hidden="true">{LOCALE_FLAG[code]}</span>
+                <span lang={HREFLANG[code]}>{LOCALE_NAME[code]}</span>
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </nav>
+</details>

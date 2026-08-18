@@ -35,6 +35,12 @@
   --radius-card: 0.75rem;
 
   --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  /* For travelling light. `--ease-out-soft` front-loads almost all of its
+     distance in the first fifth, which is right for something arriving and
+     settling but wrong for a sweep: the band would cross the whole headline
+     before the eye caught it. This one holds a near-constant speed, then eases
+     out at the end. */
+  --ease-sweep: cubic-bezier(0.37, 0.1, 0.3, 1);
 }
 
 /*
@@ -54,20 +60,50 @@
   --border: rgb(0 0 0 / 0.08);
   --border-strong: rgb(0 0 0 / 0.14);
   --shadow-card: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px -12px rgb(15 23 42 / 0.12);
+  /* Peak of `.shimmer-text`'s sheen. On light backgrounds a pure-white peak
+     would wash out to near-invisible; mixing toward `--fg` instead keeps the
+     band legible. Dark mode overrides this to true white below. */
+  --shimmer-peak: color-mix(in oklab, var(--fg) 55%, white);
 }
 
+/*
+ * Dark palette, declared once and applied from two selectors.
+ *
+ * Three states, not two: an explicit choice stamps `data-theme` on <html>, and
+ * the default "system" setting stamps nothing. So the media query has to be
+ * guarded with `:not([data-theme="light"])` — otherwise a visitor on a dark OS
+ * who explicitly picks light gets the dark palette back through the media
+ * query, and the toggle only appears to work in one direction.
+ */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #08090c;
-    --bg-subtle: #0d0f14;
-    --bg-raised: #12141b;
+  :root:not([data-theme='light']) {
+    /* A near-black *navy*, not a near-black grey — the blue cast is what makes
+       the glow and gradient-text treatments below read as "lit" rather than
+       merely "dim". */
+    --bg: #05060a;
+    --bg-subtle: #0a0c12;
+    --bg-raised: #10131c;
     --fg: #e8ecf1;
     --fg-muted: #9aa6b6;
     --fg-subtle: #7c8798;
     --border: rgb(255 255 255 / 0.09);
     --border-strong: rgb(255 255 255 / 0.16);
     --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+    --shimmer-peak: #ffffff;
   }
+}
+
+:root[data-theme='dark'] {
+  --bg: #05060a;
+  --bg-subtle: #0a0c12;
+  --bg-raised: #10131c;
+  --fg: #e8ecf1;
+  --fg-muted: #9aa6b6;
+  --fg-subtle: #7c8798;
+  --border: rgb(255 255 255 / 0.09);
+  --border-strong: rgb(255 255 255 / 0.16);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+  --shimmer-peak: #ffffff;
 }
 
 @layer base {
@@ -180,6 +216,49 @@
   }
 }
 
+/* Brightness drift, deliberately kept on its own timeline rather than folded
+   into `aurora`. Drift and brightness running on one keyframe means every layer
+   is brightest at exactly the point it is furthest left, forever — a tell that
+   the light is a loop rather than weather. */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: var(--glow-lo, 0.12);
+  }
+  50% {
+    opacity: var(--glow-hi, 0.24);
+  }
+}
+
+/* A single bright wave travelling through the headline, once, then settling.
+   Deliberately not a loop: a sheen that repeats forever reads as a "loading"
+   state that never resolves, and it competes with reading the words for as
+   long as the visitor is on the page. Firing it once makes it an entrance. */
+@keyframes title-charge {
+  from {
+    background-position: 100% 50%;
+  }
+  to {
+    background-position: 0% 50%;
+  }
+}
+
+/* The bloom that trails the wave. It peaks while the wave is mid-crossing and
+   falls back to a low resting value rather than to zero — lit type keeps a
+   little glow, and cutting it to nothing at the end reads as the light being
+   switched off. */
+@keyframes title-bloom {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0.28;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   /* Entrance animation for above-the-fold content. */
   .animate-enter {
@@ -205,8 +284,38 @@
     animation: gradient-drift 9s ease-in-out infinite;
   }
 
+  /* Drift and brightness on two independent timelines, their durations set
+     per-layer via `--drift` / `--pulse`. The durations are chosen to share no
+     small common multiple (19/26, 23/17, 31/13), so the layers never realign
+     into a visible pulse — the pattern would take hours to repeat rather than
+     the ~20s a set of round numbers gives you. */
   .animate-aurora {
-    animation: aurora 22s ease-in-out infinite;
+    animation:
+      aurora var(--drift, 22s) ease-in-out infinite,
+      glow-pulse var(--pulse, 15s) ease-in-out infinite;
+    /* Negative delays start each layer mid-cycle, so the hero is never caught
+       with every layer at its identical 0% pose on first paint. */
+    animation-delay: var(--drift-delay, 0s), var(--pulse-delay, 0s);
+  }
+
+  /* The hero headline does two things at once: it rises into place, and a bright
+     wave passes through it. Declared as one two-animation shorthand because the
+     two must live on the same element — `animation` is not additive, so pairing
+     `.animate-enter` with a second animation class would silently drop one. */
+  .animate-title {
+    animation:
+      fade-rise 0.7s var(--ease-out-soft) 0.14s both,
+      title-charge 2.4s var(--ease-sweep) 0.25s both;
+  }
+
+  /* The bloom re-runs `title-charge` on its own rather than inheriting the
+     parent's animated position: inheritance of an animated value across a
+     pseudo-element is not something to bet a visual on. Identical timing keeps
+     the two exactly in step. */
+  .animate-title::before {
+    animation:
+      title-charge 2.4s var(--ease-sweep) 0.25s both,
+      title-bloom 2.4s var(--ease-sweep) 0.25s both;
   }
 
   @supports (animation-timeline: view()) {
@@ -215,6 +324,17 @@
       animation-timeline: view();
       /* Play as the element enters the viewport, finish well before it leaves. */
       animation-range: entry 5% cover 32%;
+    }
+
+    /* Headlines further down the page charge as they scroll into view rather
+       than on load — by the time the visitor reaches them, an entrance that
+       already played is an entrance they missed. Scoped to @supports: without
+       a scroll timeline this would fire on load, all at once, off-screen. */
+    .reveal-charge,
+    .reveal-charge::before {
+      animation: title-charge 1s linear both;
+      animation-timeline: view();
+      animation-range: entry 15% cover 45%;
     }
   }
 }
@@ -271,6 +391,388 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
+}
+
+/* ---------------------------------------------------------------------------
+ * "Blueprint" motifs — a faint dot-grid, corner crosshair ticks, and a soft
+ * top-down glow. Reserved for section backdrops (hero, closing CTA, the "why"
+ * panel) rather than applied globally: the whole point is that they mark a
+ * handful of moments as deliberately staged, which stops working if every
+ * section has them.
+ * ------------------------------------------------------------------------- */
+
+/* Dot grid, not line grid — matches the canvas background used in the app
+   itself (base map, space view), so the marketing site's backdrop reads as
+   the same surface rather than a generic decorative pattern. */
+.bg-grid {
+  background-image: radial-gradient(var(--fg) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.15;
+}
+
+/* Four small crosshairs at the corners of a `position: relative` container,
+   the way a design tool marks an artboard. Sized off the container via `em`
+   so one `font-size` on the parent scales the whole motif. */
+.corner-ticks {
+  --tick: 0.6em;
+  position: relative;
+}
+.corner-ticks::before,
+.corner-ticks::after {
+  content: '';
+  position: absolute;
+  width: var(--tick);
+  height: var(--tick);
+  pointer-events: none;
+  background:
+    linear-gradient(var(--border-strong), var(--border-strong)) center / 100% 1px no-repeat,
+    linear-gradient(90deg, var(--border-strong), var(--border-strong)) center / 1px 100% no-repeat;
+}
+.corner-ticks::before {
+  top: 0;
+  left: 0;
+}
+.corner-ticks::after {
+  bottom: 0;
+  right: 0;
+}
+
+.spotlight {
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 0%,
+    color-mix(in oklab, var(--color-ai-2) 20%, transparent),
+    transparent 70%
+  );
+}
+
+/* Frosted panel for floating product mockups — distinct from `.card`, which is
+   opaque and used for content. This one is meant to look like it's hovering
+   over the glow behind it. */
+.glass-card {
+  background-color: color-mix(in oklab, var(--bg-raised) 70%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Metallic headline text: a gradient wide enough that only part of it shows at
+   a time, so shifting `background-position` moves a bright band through the
+   letters. The band is what `title-charge` animates; at rest the visible window
+   sits on the calm left end. Distinct from `.ai-gradient-text`, which stays
+   reserved for AI-surface wayfinding per the design-system note above — this
+   one is a typographic finish, not a signal. */
+.shimmer-text {
+  position: relative;
+  /* Contains the bloom copy below: without a stacking context its `z-index: -1`
+     would drop it behind the section backdrop instead of behind the letters. */
+  isolation: isolate;
+  /*
+   * Base colour is `--fg` across the whole ramp, with a brighter band at the
+   * centre — not a muted-to-bright ramp. A display element that rests on the
+   * muted end ends up dimmer than the body copy beneath it, which inverts the
+   * hierarchy: the biggest thing on the page has to be the brightest. Here the
+   * type is fully lit at any background-position and the animation only slides
+   * a specular highlight through it.
+   */
+  background-image: linear-gradient(
+    100deg,
+    var(--fg) 0%,
+    var(--fg) 34%,
+    var(--shimmer-peak) 50%,
+    var(--fg) 66%,
+    var(--fg) 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/*
+ * Overspill bloom.
+ *
+ * `background-clip: text` can only ever paint *inside* the glyphs, so on its own
+ * the headline reads as coloured-in rather than lit — real light spills past
+ * whatever it strikes. This is a blurred duplicate of the same clipped gradient
+ * sitting behind the letters; the blur is what escapes the glyph edges.
+ *
+ * The copy comes from `data-text` rather than a second element in the markup, so
+ * there is exactly one copy of the string in the DOM for assistive tech to read.
+ */
+.shimmer-text[data-text]::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: inherit;
+  background-size: inherit;
+  background-position: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: blur(14px);
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+/* Small caps label flanked by hairlines, e.g. "— Introducing —". */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+}
+.eyebrow::before,
+.eyebrow::after {
+  content: '';
+  width: 1.5em;
+  height: 1px;
+  background: var(--border-strong);
+}
+
+/* ---------------------------------------------------------------------------
+ * Hexagon field.
+ *
+ * A port of the `animate-ui` HexagonBackground, which is a React component that
+ * renders a few hundred DOM nodes. Here the whole field is one element: the hex
+ * lattice is an SVG tile used as a *mask*, painted with `--fg`. Mask rather than
+ * background-image because a data-URI cannot read CSS variables — masking keeps
+ * a single asset that follows the theme instead of one hardcoded colour per
+ * theme, and it stays one node instead of 300.
+ * ------------------------------------------------------------------------- */
+.hex-bg {
+  --hex-size: 56px 100px;
+  background-color: var(--fg);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E");
+  -webkit-mask-size: var(--hex-size);
+  mask-size: var(--hex-size);
+  opacity: 0.07;
+}
+
+/* ---------------------------------------------------------------------------
+ * Bubble navbar — the floating pill the app uses, rather than a full-width bar
+ * welded to the top edge.
+ * ------------------------------------------------------------------------- */
+.nav-bubble {
+  border-radius: 999px;
+  background-color: color-mix(in oklab, var(--bg-raised) 78%, transparent);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+}
+
+/* ---------------------------------------------------------------------------
+ * Theme switch — a real <button role="switch">, so it is operable by keyboard
+ * and announces its state. The thumb slides; the two icons cross-fade.
+ * ------------------------------------------------------------------------- */
+.theme-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 3.25rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background-color: color-mix(in oklab, var(--fg) 8%, transparent);
+  box-shadow: inset 0 0 0 1px var(--border);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.theme-switch:hover {
+  background-color: color-mix(in oklab, var(--fg) 13%, transparent);
+}
+.theme-switch__thumb {
+  position: absolute;
+  left: 0.1875rem;
+  width: 1.375rem;
+  height: 1.375rem;
+  border-radius: 999px;
+  background-color: var(--bg-raised);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.3);
+  transition: transform 0.24s var(--ease-out-soft);
+}
+.theme-switch[aria-checked='true'] .theme-switch__thumb {
+  transform: translateX(1.5rem);
+}
+.theme-switch svg {
+  position: absolute;
+  width: 0.875rem;
+  height: 0.875rem;
+  color: var(--fg-muted);
+  transition: opacity 0.2s;
+}
+.theme-switch__sun {
+  left: 0.4375rem;
+}
+.theme-switch__moon {
+  right: 0.4375rem;
+}
+/* Unchecked = light: the sun is the *current* state, so it is the one lit. */
+.theme-switch[aria-checked='false'] .theme-switch__moon,
+.theme-switch[aria-checked='true'] .theme-switch__sun {
+  opacity: 0.35;
+}
+
+/* ---------------------------------------------------------------------------
+ * Hero card stack — three product panels, the outer two pushed back and turned
+ * on their Y axis so the middle one reads as the front of a deck.
+ * ------------------------------------------------------------------------- */
+.card-stack {
+  perspective: 1200px;
+  perspective-origin: 50% 40%;
+}
+.stack-card {
+  transform-style: preserve-3d;
+  transition: transform 0.5s var(--ease-out-soft);
+}
+/* The outer two overlap inward, so the deck reads as one object rather than
+   three cards in a row. Negative margins, not gaps. */
+.stack-card--left {
+  transform: translateZ(-50px) rotateY(10deg);
+  margin-right: -3.5rem;
+}
+.stack-card--right {
+  transform: translateZ(-50px) rotateY(-10deg);
+  margin-left: -3.5rem;
+}
+.stack-card--center {
+  z-index: 1;
+}
+@media (hover: hover) {
+  .card-stack:hover .stack-card--left {
+    transform: translateZ(-30px) rotateY(7deg);
+  }
+  .card-stack:hover .stack-card--right {
+    transform: translateZ(-30px) rotateY(-7deg);
+  }
+}
+/* Below the fold-out width the deck stops being legible: drop to the front
+   card alone rather than shrinking three unreadable ones. */
+@media (max-width: 860px) {
+  .stack-card--left,
+  .stack-card--right {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Marquee — the steps ribbon. The track holds the list twice and slides by
+ * exactly half its width, so the seam lands on an identical frame and the loop
+ * is invisible. Edges are masked rather than faded with an overlay, which would
+ * have to know the section's background colour.
+ * ------------------------------------------------------------------------- */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+}
+.marquee__track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .marquee__track {
+    animation: marquee 38s linear infinite;
+  }
+  .marquee:hover .marquee__track {
+    animation-play-state: paused;
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * "Table animée" — cells lighting up in sequence, as if an agent were filling
+ * them in. One keyframe, five staggered delays: the cascade comes from
+ * `animation-delay`, not from the animation. The long dead plateau after 45% is
+ * what spaces the waves out instead of leaving the grid blinking.
+ *
+ * Ported from the source artifact onto the site's own tokens — its palette was
+ * a teal unrelated to this brand.
+ * ------------------------------------------------------------------------- */
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1.6rem repeat(3, 1fr);
+  gap: 1px;
+  background-color: var(--border);
+  border: 1px solid var(--border);
+}
+.demo-grid > * {
+  background-color: var(--bg-raised);
+  padding: 0.3rem 0.4rem;
+  font-size: 10px;
+  line-height: 1.3;
+  color: var(--fg-muted);
+  display: flex;
+  align-items: center;
+  min-height: 1.7rem;
+}
+.demo-grid .hcell,
+.demo-grid .rcell {
+  background-color: var(--bg-subtle);
+  color: var(--fg-subtle);
+  font-family: var(--font-mono);
+  justify-content: center;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .demo-grid .filling {
+    animation: fillcell 5.5s ease-in-out infinite;
+  }
+  .demo-grid .d1 { animation-delay: 0.2s; }
+  .demo-grid .d2 { animation-delay: 0.9s; }
+  .demo-grid .d3 { animation-delay: 1.6s; }
+  .demo-grid .d4 { animation-delay: 2.3s; }
+  .demo-grid .d5 { animation-delay: 3s; }
+}
+@keyframes fillcell {
+  0% {
+    background-color: var(--bg-raised);
+    box-shadow: none;
+  }
+  8%,
+  30% {
+    background-color: color-mix(in oklab, var(--color-ai-2) 16%, var(--bg-raised));
+    /* inset, so a lit cell never nudges the grid by a pixel */
+    box-shadow: inset 0 0 0 1.5px var(--color-ai-2);
+  }
+  45%,
+  100% {
+    background-color: var(--bg-raised);
+    box-shadow: none;
+  }
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background-color: var(--color-ai-3);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pulse-dot {
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* Long-form article styling — applied to rendered markdown. */
@@ -384,4 +886,929 @@
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------------------
+ * Generation pipeline — a pulse travelling along a timeline, lighting each
+ * node as it passes. Ported from the source artifact onto this site's tokens:
+ * its amber/teal accents became the AI gradient, and its square texture the
+ * dot grid used elsewhere here.
+ *
+ * The node lighting is one keyframe with a per-node `--i` delay, so the
+ * hand-off is timed by arithmetic rather than by seven tuned animations that
+ * would drift apart the moment the cycle length changes.
+ * ------------------------------------------------------------------------- */
+.pipeline {
+  --cell: 4.5rem;
+  --cycle: 5.6s;
+}
+.pipeline__row {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-width: 34rem;
+  gap: 0.5rem;
+}
+.pipeline__line {
+  position: absolute;
+  left: calc(var(--cell) / 2);
+  right: calc(var(--cell) / 2);
+  top: calc(var(--cell) / 2 - 1px);
+  height: 2px;
+  background: var(--border-strong);
+}
+.pipeline__fill {
+  position: absolute;
+  inset: 0;
+  width: 0;
+  background: linear-gradient(90deg, transparent, var(--color-ai-3));
+}
+.pipeline__pulse {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 11px;
+  height: 11px;
+  margin: -5.5px 0 0 -5.5px;
+  border-radius: 50%;
+  background: var(--color-ai-1);
+  box-shadow: 0 0 8px 1px var(--color-ai-1), 0 0 22px 6px var(--color-ai-2);
+}
+.pipeline__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  flex: none;
+  width: var(--cell);
+}
+.pipeline__cell {
+  position: relative;
+  width: var(--cell);
+  height: var(--cell);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-subtle);
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.pipeline__cell svg {
+  width: 26px;
+  height: 26px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pipeline__cell .fill-icon {
+  fill: currentColor;
+  stroke: none;
+}
+.pipeline__step {
+  position: absolute;
+  top: -1.35rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  color: var(--fg-subtle);
+  opacity: 0.7;
+}
+.pipeline__label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pipeline__fill {
+    animation: travel-fill var(--cycle) linear infinite;
+  }
+  .pipeline__pulse {
+    animation: travel-pulse var(--cycle) linear infinite;
+  }
+  .pipeline__cell {
+    animation: node-light var(--cycle) linear infinite;
+    animation-delay: calc(var(--cycle) / 6 * var(--i));
+  }
+  /* Hovering holds the sequence still so a step can actually be read. */
+  .pipeline__row:hover * {
+    animation-play-state: paused;
+  }
+}
+/* Without motion the track reads as complete rather than stuck at zero. */
+@media (prefers-reduced-motion: reduce) {
+  .pipeline__fill {
+    width: 100%;
+    opacity: 0.15;
+  }
+}
+
+@keyframes travel-pulse {
+  0% { left: 0; opacity: 0; }
+  4%, 92% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+@keyframes travel-fill {
+  0% { width: 0; opacity: 0.4; }
+  4%, 92% { opacity: 0.4; }
+  100% { width: 100%; opacity: 0; }
+}
+@keyframes node-light {
+  0%, 16%, 100% {
+    color: var(--fg-subtle);
+    box-shadow: none;
+    border-color: var(--border);
+  }
+  3% {
+    color: var(--color-ai-2);
+    box-shadow: 0 0 0 1px var(--color-ai-2), 0 0 18px -2px var(--color-ai-2);
+    border-color: var(--color-ai-2);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * View-type cards — one small animated diagram per view (Grid, Kanban,
+ * Gallery, Calendar, Gantt, Form, Plugin), replacing the plain definition
+ * list. Ported from the source artifact onto this site's tokens: its amber
+ * accent became `--color-ai-2` (the same indigo already used for links, focus
+ * rings and selection — not the reserved AI gradient, which stays off a set of
+ * plain product views that have nothing to do with AI), its teal became
+ * `--color-ai-3`, and card chrome now reuses `.card` instead of duplicating it.
+ * ------------------------------------------------------------------------- */
+
+.vt-stage {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--bg-subtle);
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Grille — a selection rectangle patrolling a static grid, the way a cursor
+   would move cell to cell. */
+.vt-grid {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 14%;
+}
+.vt-cell {
+  border: 1px solid var(--border);
+  position: relative;
+}
+.vt-cell::after {
+  content: '';
+  position: absolute;
+  left: 12%;
+  right: 30%;
+  top: 50%;
+  height: 3px;
+  background: var(--fg-subtle);
+  opacity: 0.35;
+  transform: translateY(-50%);
+}
+.vt-cell--blank::after {
+  content: none;
+}
+.vt-select {
+  position: absolute;
+  width: calc((100% - 28%) / 5);
+  height: calc((100% - 28%) / 3);
+  border: 1.5px solid var(--color-ai-2);
+  background: color-mix(in oklab, var(--color-ai-2) 14%, transparent);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .vt-select {
+    animation: vt-grid-move 6s ease-in-out infinite;
+  }
+}
+@keyframes vt-grid-move {
+  0%   { left: 14%; top: 14%; }
+  14%  { left: calc(14% + (100% - 28%) / 5); top: 14%; }
+  28%  { left: calc(14% + (100% - 28%) / 5 * 2); top: 14%; }
+  42%  { left: calc(14% + (100% - 28%) / 5 * 2); top: calc(14% + (100% - 28%) / 3); }
+  57%  { left: calc(14% + (100% - 28%) / 5 * 3); top: calc(14% + (100% - 28%) / 3); }
+  71%  { left: calc(14% + (100% - 28%) / 5 * 3); top: calc(14% + (100% - 28%) / 3 * 2); }
+  85%  { left: calc(14% + (100% - 28%) / 5); top: calc(14% + (100% - 28%) / 3 * 2); }
+  100% { left: 14%; top: 14%; }
+}
+
+/* Kanban — a card lifting out of one column and dropping into the next. */
+.vt-kanban {
+  display: flex;
+  gap: 8%;
+  width: 100%;
+  height: 100%;
+  padding: 12%;
+  position: relative;
+}
+.vt-kcol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8%;
+}
+.vt-kcol-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+}
+.vt-kcard {
+  height: 16%;
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
+  background: var(--bg-raised);
+}
+.vt-kcard--ghost {
+  opacity: 0.4;
+  border-style: dashed;
+}
+.vt-kfly {
+  position: absolute;
+  width: calc((100% - 24% - 16%) / 3);
+  height: 12%;
+  border: 1.5px solid var(--color-ai-2);
+  border-radius: 3px;
+  background: var(--bg-raised);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .vt-kfly {
+    animation: vt-kanban-move 5.5s ease-in-out infinite;
+  }
+}
+@keyframes vt-kanban-move {
+  0%   { left: 12%; top: 22%; box-shadow: none; }
+  12%  { box-shadow: 0 6px 14px -4px var(--color-ai-2); transform: translateY(-3px) rotate(-2deg); }
+  38%  { left: calc(12% + (100% - 24% - 16%) / 3 + 8%); top: 46%; box-shadow: 0 6px 14px -4px var(--color-ai-2); transform: translateY(-3px) rotate(2deg); }
+  50%  { box-shadow: none; transform: none; }
+  62%  { box-shadow: 0 6px 14px -4px var(--color-ai-2); transform: translateY(-3px) rotate(-2deg); }
+  88%  { left: calc(12% + ((100% - 24% - 16%) / 3 + 8%) * 2); top: 28%; box-shadow: 0 6px 14px -4px var(--color-ai-2); transform: translateY(-3px) rotate(2deg); }
+  100% { left: calc(12% + ((100% - 24% - 16%) / 3 + 8%) * 2); top: 28%; box-shadow: none; transform: none; }
+}
+
+/* Galerie — six tiles popping in one after another, like a catalog loading. */
+.vt-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8%;
+  width: 100%;
+  height: 100%;
+  padding: 12%;
+}
+.vt-tile {
+  position: relative;
+  border-radius: 3px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vt-tile svg {
+  width: 34%;
+  height: 34%;
+  stroke: var(--fg-subtle);
+  fill: none;
+  stroke-width: 1.6;
+  opacity: 0.6;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .vt-tile {
+    animation: vt-gallery-pop 6s ease-in-out infinite;
+  }
+  .vt-tile:nth-child(1) { animation-delay: 0s; }
+  .vt-tile:nth-child(2) { animation-delay: 0.35s; }
+  .vt-tile:nth-child(3) { animation-delay: 0.7s; }
+  .vt-tile:nth-child(4) { animation-delay: 1.05s; }
+  .vt-tile:nth-child(5) { animation-delay: 1.4s; }
+  .vt-tile:nth-child(6) { animation-delay: 1.75s; }
+}
+@keyframes vt-gallery-pop {
+  0%   { transform: scale(0.9); opacity: 0.55; border-color: var(--border); }
+  8%   { transform: scale(1.04); opacity: 1; border-color: var(--color-ai-2); }
+  18%  { transform: scale(1); opacity: 1; border-color: var(--border); }
+  100% { transform: scale(1); opacity: 1; border-color: var(--border); }
+}
+
+/* Calendrier — a column sweeping across the week, dropping event dots as it passes. */
+.vt-cal {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  width: 100%;
+  height: 100%;
+  padding: 12%;
+}
+.vt-cal-cell {
+  border: 1px solid var(--border);
+  position: relative;
+}
+.vt-cal-sweep {
+  position: absolute;
+  top: 12%;
+  bottom: 12%;
+  width: calc((100% - 24%) / 7);
+  background: var(--color-ai-2);
+  opacity: 0.12;
+}
+.vt-cal-dot {
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  border-radius: 50%;
+  background: var(--color-ai-3);
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .vt-cal-sweep {
+    animation: vt-cal-sweep 7s steps(6, jump-end) infinite;
+  }
+  .vt-cal-dot {
+    animation: vt-cal-dot 7s ease-in-out infinite;
+  }
+}
+@keyframes vt-cal-sweep {
+  0%   { left: 12%; }
+  100% { left: calc(12% + (100% - 24%) / 7 * 6); }
+}
+@keyframes vt-cal-dot {
+  0%, 68% { opacity: 0; transform: scale(0.4); }
+  74%     { opacity: 1; transform: scale(1); }
+  92%     { opacity: 1; transform: scale(1); }
+  100%    { opacity: 0; transform: scale(0.4); }
+}
+
+/* Gantt — a "today" line scanning across bars, some on the critical path. */
+.vt-gantt {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 14% 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.vt-row {
+  position: relative;
+  height: 12%;
+}
+.vt-bar {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--color-ai-3);
+}
+.vt-bar--critical {
+  background: var(--color-ai-2);
+}
+.vt-elbow {
+  position: absolute;
+  border-left: 1.5px solid var(--border-strong);
+  border-bottom: 1.5px solid var(--border-strong);
+}
+.vt-today {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  background: var(--color-ai-2);
+  opacity: 0.8;
+  box-shadow: 0 0 6px var(--color-ai-2);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .vt-today {
+    animation: vt-gantt-scan 6s linear infinite;
+  }
+}
+@keyframes vt-gantt-scan {
+  0%   { left: 0%; opacity: 0; }
+  6%   { opacity: 0.8; }
+  94%  { opacity: 0.8; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* Formulaire — two fields filling in, then the submit button pulses. */
+.vt-form {
+  width: 100%;
+  height: 100%;
+  padding: 12% 14%;
+  display: flex;
+  flex-direction: column;
+  gap: 9%;
+  justify-content: center;
+}
+.vt-form-url {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--fg-subtle);
+}
+.vt-form-url svg {
+  width: 11px;
+  height: 11px;
+  stroke: var(--fg-subtle);
+  fill: none;
+  stroke-width: 1.6;
+}
+.vt-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+}
+.vt-flabel {
+  width: 32%;
+  height: 6px;
+  background: var(--fg-subtle);
+  opacity: 0.4;
+  border-radius: 2px;
+}
+.vt-finput {
+  position: relative;
+  height: 15%;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.vt-finput-fill {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: var(--color-ai-2);
+  opacity: 0.16;
+}
+.vt-submit {
+  align-self: flex-start;
+  margin-top: 2%;
+  padding: 4% 12%;
+  border-radius: 3px;
+  background: var(--color-ai-2);
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 700;
+  opacity: 0.6;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .vt-field:nth-child(2) .vt-finput-fill { animation: vt-form-fill-1 8s ease-in-out infinite; }
+  .vt-field:nth-child(3) .vt-finput-fill { animation: vt-form-fill-2 8s ease-in-out infinite; }
+  .vt-submit { animation: vt-form-submit 8s ease-in-out infinite; }
+}
+@keyframes vt-form-fill-1 { 0%, 8% { width: 0%; } 30%, 100% { width: 78%; } }
+@keyframes vt-form-fill-2 { 0%, 38% { width: 0%; } 58%, 100% { width: 55%; } }
+@keyframes vt-form-submit {
+  0%, 65%  { opacity: 0.6; transform: scale(1); box-shadow: none; }
+  72%      { opacity: 1; transform: scale(1.06); box-shadow: 0 0 14px -2px var(--color-ai-2); }
+  80%, 100% { opacity: 0.6; transform: scale(1); box-shadow: none; }
+}
+
+/* ---------------------------------------------------------------------------
+ * Surface cards — one small animated diagram per platform surface (Tables,
+ * Apps & Dashboards, Automations, Knowledge graph, AI Agents, Computer use).
+ * Ported from the source artifact onto this site's tokens: amber became
+ * `--color-ai-2`, teal became `--color-ai-3`. The "recording" dot on Computer
+ * use is a plain red, kept off the brand palette on purpose — a record
+ * indicator reads by convention, not by brand colour, and tinting it violet
+ * would make it look like a status the product chose rather than a fact about
+ * what's happening on screen.
+ * ------------------------------------------------------------------------- */
+
+.sf-stage {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-subtle);
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Shared radial mini-network, used by Knowledge graph and AI Agents: a core
+   node with four leaves on lines at fixed angles. */
+.sf-net {
+  position: relative;
+  height: 78%;
+  aspect-ratio: 1;
+}
+.sf-net-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 1.5px;
+  background: var(--border);
+  transform-origin: left center;
+}
+.sf-net-node {
+  position: absolute;
+  width: 15%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-subtle);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.sf-net-node svg {
+  width: 55%;
+  height: 55%;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sf-net-node--core {
+  width: 24%;
+  z-index: 3;
+}
+.sf-net-node--core svg {
+  stroke: var(--color-ai-2);
+}
+.sf-net-pulse {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: var(--color-ai-2);
+  box-shadow: 0 0 8px 1px var(--color-ai-2);
+  opacity: 0;
+}
+
+/* ---------- 1. Tables — a formula column lighting up as a source cell does. ---------- */
+.sf-tb-grid {
+  position: relative;
+  width: 78%;
+  height: 68%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+.sf-tb-cell {
+  border: 1px solid var(--border);
+  position: relative;
+}
+.sf-tb-cell--formula {
+  background: color-mix(in oklab, var(--color-ai-3) 8%, transparent);
+}
+.sf-tb-target::after {
+  content: 'Σ';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--color-ai-3);
+  opacity: 0;
+}
+.sf-tb-db {
+  position: absolute;
+  right: 8%;
+  bottom: 6%;
+  width: 13%;
+  opacity: 0.4;
+}
+.sf-tb-db svg {
+  width: 100%;
+  stroke: var(--color-ai-3);
+  fill: none;
+  stroke-width: 1.5;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sf-tb-src { animation: sf-tb-src 7s ease-in-out infinite; }
+  .sf-tb-target { animation: sf-tb-target 7s ease-in-out infinite; }
+  .sf-tb-target::after { animation: sf-tb-sigma 7s ease-in-out infinite; }
+  .sf-tb-db { animation: sf-tb-db 7s ease-in-out infinite; }
+}
+@keyframes sf-tb-src { 0%, 4% { background: transparent; } 12% { background: var(--color-ai-2); opacity: 0.3; } 24%, 100% { background: transparent; opacity: 1; } }
+@keyframes sf-tb-target { 0%, 18% { opacity: 0.08; } 26% { opacity: 0.4; } 40%, 100% { opacity: 0.08; } }
+@keyframes sf-tb-sigma { 0%, 20% { opacity: 0; } 26%, 40% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes sf-tb-db { 0%, 30% { opacity: 0.35; transform: scale(1); } 42% { opacity: 1; transform: scale(1.15); } 55%, 100% { opacity: 0.35; transform: scale(1); } }
+
+/* ---------- 2. Apps & Dashboards — widgets assembling, then a visitor lock and API line appear. ---------- */
+.sf-db-canvas {
+  width: 78%;
+  height: 70%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1.2fr 1fr;
+  gap: 8%;
+  position: relative;
+}
+.sf-db-widget {
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: var(--bg-raised);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.9);
+}
+.sf-db-widget--chart {
+  grid-column: 1 / 3;
+  display: flex;
+  align-items: flex-end;
+  gap: 6%;
+  padding: 14%;
+}
+.sf-db-widget--chart span {
+  flex: 1;
+  background: var(--color-ai-3);
+  opacity: 0.55;
+  border-radius: 1px;
+}
+.sf-db-widget--kpi {
+  padding: 14%;
+}
+.sf-db-kpi-num {
+  width: 55%;
+  height: 14%;
+  background: var(--fg-subtle);
+  opacity: 0.4;
+  border-radius: 2px;
+  margin-bottom: 12%;
+}
+.sf-db-kpi-label {
+  width: 75%;
+  height: 6%;
+  background: var(--fg-subtle);
+  opacity: 0.25;
+  border-radius: 2px;
+}
+.sf-db-lock {
+  position: absolute;
+  top: -6%;
+  right: 4%;
+  width: 11%;
+  opacity: 0;
+  z-index: 4;
+}
+.sf-db-lock svg {
+  width: 100%;
+  stroke: var(--color-ai-2);
+  fill: none;
+  stroke-width: 1.6;
+}
+.sf-db-api {
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--color-ai-3);
+  opacity: 0;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sf-db-widget { animation: sf-db-in 7s ease-in-out infinite; }
+  .sf-db-widget--chart { animation-delay: 0s; }
+  .sf-db-widget--kpi:nth-of-type(2) { animation-delay: 0.35s; }
+  .sf-db-widget--kpi:nth-of-type(3) { animation-delay: 0.6s; }
+  .sf-db-lock { animation: sf-db-lock 7s ease-in-out infinite; }
+  .sf-db-api { animation: sf-db-api 7s ease-in-out infinite; }
+}
+@keyframes sf-db-in { 0%, 4% { opacity: 0; transform: scale(0.9); } 14% { opacity: 1; transform: scale(1); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes sf-db-lock { 0%, 48% { opacity: 0; transform: translateY(4px); } 58% { opacity: 1; transform: translateY(0); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes sf-db-api { 0%, 65% { opacity: 0; } 75%, 92% { opacity: 1; } 100% { opacity: 0; } }
+
+/* ---------- 3. Automations — a pulse travelling from trigger to gate to action. ---------- */
+.sf-au-row {
+  position: relative;
+  width: 82%;
+  height: 4%;
+  background: var(--border);
+}
+.sf-au-nodes {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sf-au-node {
+  position: relative;
+  width: 22%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-subtle);
+}
+.sf-au-node svg {
+  width: 46%;
+  height: 46%;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sf-au-node .fi {
+  fill: currentColor;
+  stroke: none;
+}
+.sf-au-pulse {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  background: var(--color-ai-2);
+  box-shadow: 0 0 10px 2px var(--color-ai-2);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sf-au-pulse { animation: sf-au-travel 7s linear infinite; }
+  .sf-au-node--gate { animation: sf-au-gate 7s ease-in-out infinite; }
+}
+@keyframes sf-au-travel {
+  0%   { left: 0%; opacity: 0; }
+  4%   { opacity: 1; }
+  30%  { left: 33%; opacity: 1; }
+  34%  { left: 33%; opacity: 1; }
+  56%  { left: 33%; opacity: 1; }
+  62%  { left: 66%; opacity: 1; }
+  96%  { left: 100%; opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+@keyframes sf-au-gate { 0%, 32% { color: var(--fg-subtle); border-color: var(--border); box-shadow: none; } 40% { color: var(--color-ai-2); border-color: var(--color-ai-2); box-shadow: 0 0 14px -3px var(--color-ai-2); } 58%, 100% { color: var(--fg-subtle); border-color: var(--border); box-shadow: none; } }
+
+/* ---------- 4. Knowledge graph — a ping radiating from the core, leaves lighting in turn. ---------- */
+.sf-kg-ping {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 24%;
+  aspect-ratio: 1;
+  margin-left: -12%;
+  margin-top: -12%;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-ai-2);
+  opacity: 0;
+}
+.sf-net-node--kg {
+  animation-fill-mode: both;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sf-kg-ping { animation: sf-kg-ping 3.2s ease-out infinite; }
+  .sf-net-node--kg { animation: sf-kg-node-glow 6.4s ease-in-out infinite; }
+}
+@keyframes sf-kg-ping { 0% { transform: scale(0.7); opacity: 0.6; } 80% { transform: scale(2.2); opacity: 0; } 100% { opacity: 0; } }
+@keyframes sf-kg-node-glow { 0%, 8% { color: var(--fg-subtle); border-color: var(--border); box-shadow: none; } 16% { color: var(--color-ai-3); border-color: var(--color-ai-3); box-shadow: 0 0 12px -2px var(--color-ai-3); } 30%, 100% { color: var(--fg-subtle); border-color: var(--border); box-shadow: none; } }
+
+/* ---------- 5. AI Agents — a ring turning around the core, pulses out to each tool. ---------- */
+.sf-ag-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 34%;
+  aspect-ratio: 1;
+  margin-left: -17%;
+  margin-top: -17%;
+  border-radius: 50%;
+  border: 1.5px dashed var(--border);
+  z-index: 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sf-ag-ring { animation: sf-ag-spin 9s linear infinite; }
+  .sf-ag-pulse { animation: sf-ag-travel 6s linear infinite; }
+}
+@keyframes sf-ag-spin { to { transform: rotate(360deg); } }
+@keyframes sf-ag-travel { 0%, 3% { left: 0%; opacity: 0; } 8% { opacity: 1; } 22% { left: 100%; opacity: 1; } 27%, 100% { opacity: 0; left: 100%; } }
+
+/* ---------- 6. Computer use — a browser window, a field filling, a cursor clicking through. ---------- */
+.sf-cu-window {
+  width: 84%;
+  height: 78%;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-raised);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.sf-cu-chrome {
+  display: flex;
+  align-items: center;
+  gap: 6%;
+  padding: 7% 6%;
+  border-bottom: 1px solid var(--border);
+}
+.sf-cu-dot {
+  width: 5%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+.sf-cu-address {
+  flex: 1;
+  height: 40%;
+  background: var(--border-strong);
+  opacity: 0.6;
+  border-radius: 2px;
+  margin-left: 4%;
+}
+/* Record indicator: plain red by convention, deliberately off the brand
+   palette (see the file-level note above). */
+.sf-cu-rec {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ef4444;
+  margin-left: auto;
+}
+.sf-cu-body {
+  position: relative;
+  flex: 1;
+  padding: 10% 8%;
+  display: flex;
+  flex-direction: column;
+  gap: 12%;
+  justify-content: center;
+}
+.sf-cu-input {
+  position: relative;
+  height: 22%;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.sf-cu-input-fill {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: var(--color-ai-2);
+  opacity: 0.16;
+}
+.sf-cu-cursor {
+  position: absolute;
+  width: 9%;
+  opacity: 0;
+  z-index: 3;
+}
+.sf-cu-cursor svg {
+  width: 100%;
+  fill: var(--fg);
+  stroke: var(--bg-raised);
+  stroke-width: 1;
+}
+.sf-cu-arrow {
+  position: absolute;
+  bottom: -9%;
+  right: 14%;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--color-ai-3);
+  opacity: 0;
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sf-cu-rec { animation: sf-cu-blink 1.4s ease-in-out infinite; }
+  .sf-cu-input-fill { animation: sf-cu-fill 6s ease-in-out infinite; }
+  .sf-cu-cursor { animation: sf-cu-cursor 6s ease-in-out infinite; }
+  .sf-cu-arrow { animation: sf-cu-arrow 6s ease-in-out infinite; }
+}
+@keyframes sf-cu-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+@keyframes sf-cu-cursor { 0% { opacity: 0; top: 10%; left: 70%; } 8% { opacity: 1; } 34% { opacity: 1; top: 42%; left: 30%; } 42% { top: 42%; left: 30%; transform: scale(0.85); } 48%, 100% { opacity: 0; top: 42%; left: 30%; } }
+@keyframes sf-cu-fill { 0%, 40% { width: 0%; } 62%, 100% { width: 72%; } }
+@keyframes sf-cu-arrow { 0%, 66% { opacity: 0; transform: translateY(-2px); } 76%, 92% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sf-db-widget,
+  .sf-kg-ping,
+  .sf-db-lock,
+  .sf-db-api,
+  .sf-cu-cursor,
+  .sf-cu-arrow {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

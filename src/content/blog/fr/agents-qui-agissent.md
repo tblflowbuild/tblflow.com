@@ -1,5 +1,6 @@
 ---
 title: "Un agent qui agit n'est pas un chatbot avec un accès en écriture"
+translationKey: "agents-that-act"
 description: "Donner à un modèle le droit de modifier vos données ne suffit pas à en faire un agent fiable. Ce qu'il faut en plus : mémoire persistante, cycle de proposition, et un humain dans la boucle aux bons endroits."
 publishedAt: 2026-08-05
 author: "TblFlow"

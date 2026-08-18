@@ -1,7 +1,7 @@
 ---
 import { TIERS, QUOTAS } from '@/data/pricing';
 import { useTranslations } from '@/i18n/ui';
-import { GITHUB_URL, type Locale } from '@/config';
+import { SUPPORT_EMAIL, type Locale } from '@/config';
 
 interface Props {
   locale: Locale;
@@ -151,8 +151,7 @@ const t = useTranslations(locale);
         <p class="mt-2 max-w-2xl text-sm text-[var(--fg-muted)]">{t('pricing.selfhost.body')}</p>
       </div>
       <a
-        href={GITHUB_URL}
-        rel="noopener"
+        href={`mailto:${SUPPORT_EMAIL}`}
         class="justify-self-start rounded-lg border border-[var(--border-strong)] px-5 py-2.5 text-sm font-semibold whitespace-nowrap transition-colors hover:bg-[var(--bg-subtle)] sm:justify-self-end"
       >
         {t('pricing.selfhost.cta')}

@@ -6,7 +6,7 @@ import CtaBand from '@/components/CtaBand.astro';
 import { FAQ } from '@/data/faq';
 import { useTranslations } from '@/i18n/ui';
 import { localePath } from '@/i18n/utils';
-import { LOCALES, type Locale } from '@/config';
+import { LOCALES, t9, type Locale } from '@/config';
 
 export function getStaticPaths() {
   return LOCALES.map((lang) => ({ params: { lang } }));
@@ -15,18 +15,17 @@ export function getStaticPaths() {
 const locale = Astro.params.lang as Locale;
 const t = useTranslations(locale);
 
+// ponytail: fr/en hand-written, other 8 locales fall back to English via t9() until translated.
 const meta = {
-  fr: {
-    title: 'Tarifs TblFlow — Gratuit, Pro 29 $, Business 99 $, Enterprise',
-    description:
-      "Quatre paliers : Gratuit (3 bases, 2 utilisateurs), Pro à 29 $/mois, Business à 99 $/mois, Enterprise sur devis. L'auto-hébergement est gratuit avec toutes les fonctionnalités Enterprise.",
-  },
-  en: {
-    title: 'TblFlow pricing — Free, Pro $29, Business $99, Enterprise',
-    description:
-      'Four tiers: Free (3 bases, 2 users), Pro at $29/month, Business at $99/month, Enterprise on quote. Self-hosting is free with every Enterprise feature unlocked.',
-  },
-} satisfies Record<Locale, { title: string; description: string }>;
+  title: t9({
+    fr: 'Tarifs TblFlow — Gratuit, Pro 29 $, Business 99 $, Enterprise',
+    en: 'TblFlow pricing — Free, Pro $29, Business $99, Enterprise',
+  }),
+  description: t9({
+    fr: 'Quatre paliers : Gratuit (1 base, 1 utilisateur), Pro à 29 $/mois, Business à 99 $/mois, Enterprise sur devis avec déploiement auto-hébergé ou en VPC dédié.',
+    en: 'Four tiers: Free (1 base, 1 user), Pro at $29/month, Business at $99/month, Enterprise on quote with self-hosted or dedicated VPC deployment.',
+  }),
+};
 
 /** Pricing-related answers only — a FAQPage should match its page's topic. */
 const pricingFaq = FAQ.filter((item) => item.category === 'pricing').map((item) => ({
@@ -35,15 +34,15 @@ const pricingFaq = FAQ.filter((item) => item.category === 'pricing').map((item) 
 }));
 
 const breadcrumbs = [
-  { name: locale === 'fr' ? 'Accueil' : 'Home', path: localePath(locale) },
+  { name: t('breadcrumbs.home'), path: localePath(locale) },
   { name: t('pricing.title'), path: localePath(locale, 'pricing') },
 ];
 ---
 
 <Base
   locale={locale}
-  title={meta[locale].title}
-  description={meta[locale].description}
+  title={meta.title[locale]}
+  description={meta.description[locale]}
   path={localePath(locale, 'pricing')}
   breadcrumbs={breadcrumbs}
   faq={pricingFaq}

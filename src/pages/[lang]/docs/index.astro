@@ -1,0 +1,141 @@
+---
+import Base from '@/layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { useTranslations } from '@/i18n/ui';
+import { localePath } from '@/i18n/utils';
+import { LOCALES, SUPPORT_EMAIL, type Locale } from '@/config';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+
+/** Same rule as the blog: the locale directory in the id is the source of truth. */
+const pages = (await getCollection('docs', ({ id, data }) => id.startsWith(`${locale}/`) && !data.draft))
+  .sort((a, b) => a.data.order - b.data.order);
+
+/**
+ * Grouped with a Map rather than a hardcoded section list: adding a section is
+ * then a frontmatter value, not an edit here. Insertion order follows the sorted
+ * pages, so a section's position is decided by its lowest `order`.
+ */
+const sections = new Map<string, typeof pages>();
+for (const page of pages) {
+  const group = sections.get(page.data.section) ?? [];
+  group.push(page);
+  sections.set(page.data.section, group);
+}
+
+const meta = {
+  de: {
+    title: 'TblFlow-Dokumentation — Anleitungen und Referenz',
+    description:
+      'TblFlow-Dokumentation: Schnellstart, Tabellen und Felder, Automatisierungen und KI-Agenten, auf einer echten PostgreSQL-Datenbank.',
+  },
+  en: {
+    title: 'TblFlow documentation — guides and reference',
+    description:
+      'TblFlow documentation: quickstart, tables and fields, automations and AI agents, on a real PostgreSQL database.',
+  },
+  es: {
+    title: 'Documentación de TblFlow — guías y referencia',
+    description:
+      'Documentación de TblFlow: inicio rápido, tablas y campos, automatizaciones y agentes IA, sobre una base de datos PostgreSQL real.',
+  },
+  fr: {
+    title: 'Documentation TblFlow — guides et référence',
+    description:
+      "Documentation de TblFlow : démarrage rapide, tables et champs, automatisations et agents IA, sur une base PostgreSQL réelle.",
+  },
+  it: {
+    title: 'Documentazione TblFlow — guide e riferimento',
+    description:
+      'Documentazione TblFlow: avvio rapido, tabelle e campi, automazioni e agenti IA, su un database PostgreSQL reale.',
+  },
+  ja: {
+    title: 'TblFlow ドキュメント — ガイドとリファレンス',
+    description:
+      'TblFlowのドキュメント：クイックスタート、テーブルとフィールド、自動化とAIエージェントを、本物のPostgreSQLデータベース上で解説。',
+  },
+  ru: {
+    title: 'Документация TblFlow — руководства и справочник',
+    description:
+      'Документация TblFlow: быстрый старт, таблицы и поля, автоматизации и ИИ-агенты, на настоящей базе данных PostgreSQL.',
+  },
+  tr: {
+    title: 'TblFlow dokümantasyonu — rehberler ve referans',
+    description:
+      'TblFlow dokümantasyonu: hızlı başlangıç, tablolar ve alanlar, otomasyonlar ve yapay zeka ajanları, gerçek bir PostgreSQL veritabanı üzerinde.',
+  },
+  uk: {
+    title: 'Документація TblFlow — гайди та довідник',
+    description:
+      'Документація TblFlow: швидкий старт, таблиці та поля, автоматизації та ШІ-агенти, на справжній базі даних PostgreSQL.',
+  },
+  zh: {
+    title: 'TblFlow 文档 — 指南与参考',
+    description:
+      'TblFlow 文档：快速入门、表格与字段、自动化与 AI 智能体，基于真实的 PostgreSQL 数据库。',
+  },
+} satisfies Record<Locale, { title: string; description: string }>;
+
+const breadcrumbs = [
+  { name: t('breadcrumbs.home'), path: localePath(locale) },
+  { name: t('docs.title'), path: localePath(locale, 'docs') },
+];
+
+const slugOf = (id: string) => id.replace(`${locale}/`, '');
+---
+
+<Base
+  locale={locale}
+  title={meta[locale].title}
+  description={meta[locale].description}
+  path={localePath(locale, 'docs')}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="mx-auto max-w-4xl px-4 pt-16 sm:px-6 sm:pt-24">
+    <h1 class="animate-enter text-4xl font-bold tracking-tight sm:text-5xl">{t('docs.title')}</h1>
+    <p class="animate-enter delay-1 mt-4 text-lg text-[var(--fg-muted)]">{t('docs.subtitle')}</p>
+
+    {
+      pages.length === 0 ? (
+        <p class="mt-16 text-[var(--fg-subtle)]">{t('docs.empty')}</p>
+      ) : (
+        [...sections].map(([section, entries]) => (
+          <section class="mt-14">
+            <h2 class="text-xs font-semibold tracking-wide uppercase text-[var(--fg-subtle)]">
+              {section}
+            </h2>
+            <ul class="mt-4 space-y-3">
+              {entries.map((page) => (
+                <li class="reveal">
+                  <a
+                    href={localePath(locale, `docs/${slugOf(page.id)}`)}
+                    class="card group block p-6 transition-shadow hover:shadow-lg"
+                  >
+                    <h3 class="text-lg font-semibold transition-colors group-hover:text-[var(--color-ai-2)]">
+                      {page.data.title}
+                    </h3>
+                    <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
+                      {page.data.description}
+                    </p>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      )
+    }
+
+    <p class="mt-16 text-sm text-[var(--fg-muted)]">
+      {t('docs.help')}
+      <a class="font-medium text-[var(--color-ai-2)] hover:underline" href={`mailto:${SUPPORT_EMAIL}`}>
+        {SUPPORT_EMAIL}
+      </a>
+    </p>
+  </div>
+</Base>

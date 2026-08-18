@@ -12,13 +12,13 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'never',
 
-  // Astro's built-in i18n. `prefixDefaultLocale: true` keeps both locales
+  // Astro's built-in i18n. `prefixDefaultLocale: true` keeps every locale
   // symmetric (/fr/... and /en/...) instead of leaving French at the bare root:
   // asymmetric locale roots make hreflang and canonical URLs much easier to get
   // subtly wrong, and cost nothing here since `/` redirects (see _redirects).
   i18n: {
     defaultLocale: 'fr',
-    locales: ['fr', 'en'],
+    locales: ['de', 'en', 'es', 'fr', 'it', 'ja', 'ru', 'tr', 'uk', 'zh'],
     routing: {
       prefixDefaultLocale: true,
     },
@@ -26,12 +26,25 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      // Tell search engines the two locales are translations of each other.
-      // This emits xhtml:link alternates inside the sitemap, which is the
-      // machine-readable half of the hreflang signal (the other half is in <head>).
+      // Tell search engines every locale is a translation of the others. This
+      // emits xhtml:link alternates inside the sitemap, the machine-readable
+      // half of the hreflang signal (the other half is in <head>). Kept in
+      // sync with `HREFLANG` in `src/config.ts` by hand — Astro config files
+      // cannot import project source at this stage of the build.
       i18n: {
         defaultLocale: 'fr',
-        locales: { fr: 'fr-FR', en: 'en' },
+        locales: {
+          de: 'de',
+          en: 'en',
+          es: 'es',
+          fr: 'fr-FR',
+          it: 'it',
+          ja: 'ja',
+          ru: 'ru',
+          tr: 'tr',
+          uk: 'uk',
+          zh: 'zh-Hans',
+        },
       },
       // Excludes the 404, and the bare root — `/` is a noindex redirect stub with
       // no content of its own. Leaving it in listed a noindex URL as canonical and

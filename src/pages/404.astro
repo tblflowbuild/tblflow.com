@@ -8,7 +8,7 @@
  */
 import Base from '@/layouts/Base.astro';
 import { ui } from '@/i18n/ui';
-import { DEFAULT_LOCALE, LOCALES } from '@/config';
+import { DEFAULT_LOCALE, LOCALES, HREFLANG } from '@/config';
 import { localePath } from '@/i18n/utils';
 ---
 
@@ -24,7 +24,7 @@ import { localePath } from '@/i18n/utils';
 
     {
       LOCALES.map((locale) => (
-        <div class="mt-10 first:mt-8" lang={locale === 'fr' ? 'fr-FR' : 'en'}>
+        <div class="mt-10 first:mt-8" lang={HREFLANG[locale]}>
           <h1 class="text-xl font-semibold">{ui[locale]['404.title']}</h1>
           <p class="mt-2 text-[var(--fg-muted)]">{ui[locale]['404.body']}</p>
           <a

@@ -68,6 +68,24 @@ const {
   </head>
 
   <body class="min-h-dvh antialiased">
+    {/*
+      One background for the whole page, not one per section.
+
+      `position: fixed` rather than sized to page height: it paints the full
+      viewport regardless of how long the page is and never has to be told the
+      document's height, which a tall `absolute` layer sized from a parent
+      would. It sits behind everything (`-z-10`) and ignores clicks.
+
+      The hero keeps its own richer treatment on top of this (spotlight, drifting
+      glow, hex mask) — that layering is the "fusion" this one is not meant to
+      replace, only to continue underneath it and past it, so the rest of the
+      page stops reading as alternating plain and decorated sections.
+    */}
+    <div class="pointer-events-none fixed inset-0 -z-10" aria-hidden="true">
+      <div class="bg-grid absolute inset-0"></div>
+      <div class="spotlight absolute inset-0 opacity-40"></div>
+    </div>
+
     <Header locale={locale} />
     <main id="main">
       <slot />

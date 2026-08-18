@@ -1,0 +1,31 @@
+{
+  // Static-assets Worker for tblflow.com. Kept in the repo so the deployment
+  // settings live with the code instead of only in the dashboard, which is what
+  // the observability panel asks for: dashboard-only settings drift silently
+  // between deployments, a committed config cannot.
+  "name": "tblflow-com",
+  "compatibility_date": "2026-08-17",
+
+  // `astro build` output. `_headers` and `_redirects` in public/ are honoured by
+  // Workers static assets, so the CSP and the `/` → `/fr` redirect still apply.
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  },
+
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "persist": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": false,
+      "persist": true,
+      "head_sampling_rate": 1
+    }
+  }
+}

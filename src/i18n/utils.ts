@@ -1,4 +1,4 @@
-import { DEFAULT_LOCALE, LOCALES, SITE_URL, isLocale, type Locale } from '@/config';
+import { DEFAULT_LOCALE, HREFLANG, SITE_URL, isLocale, type Locale } from '@/config';
 
 /**
  * Builds a locale-prefixed path. Every internal link goes through this rather
@@ -32,29 +32,11 @@ export function pathWithoutLocale(pathname: string): string {
   return segments.join('/');
 }
 
-/**
- * The full hreflang set for a page, including x-default.
- *
- * x-default is not optional decoration: without it, Google picks a locale for
- * users whose language matches neither alternate, and it does not always pick
- * the one you would.
- */
-export function alternateLinks(pathname: string): Array<{ hreflang: string; href: string }> {
-  const bare = pathWithoutLocale(pathname);
-  const alternates = LOCALES.map((locale) => ({
-    hreflang: locale === 'fr' ? 'fr-FR' : 'en',
-    href: absoluteUrl(localePath(locale, bare)),
-  }));
-  return [
-    ...alternates,
-    { hreflang: 'x-default', href: absoluteUrl(localePath(DEFAULT_LOCALE, bare)) },
-  ];
-}
-
-const DATE_LOCALE: Record<Locale, string> = { fr: 'fr-FR', en: 'en-US' };
+/* hreflang alternates live in `@/i18n/routes` — they need the content
+   collections to pair translated slugs, which this module deliberately avoids. */
 
 export function formatDate(date: Date, locale: Locale): string {
-  return new Intl.DateTimeFormat(DATE_LOCALE[locale], {
+  return new Intl.DateTimeFormat(HREFLANG[locale], {
     year: 'numeric',
     month: 'long',
     day: 'numeric',

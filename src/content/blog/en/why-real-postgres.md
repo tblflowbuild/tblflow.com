@@ -1,5 +1,6 @@
 ---
 title: "Why TblFlow writes to real Postgres, and what that actually costs"
+translationKey: "real-postgres"
 description: "Most no-code databases store your data in a format of their own. TblFlow creates one real PostgreSQL table per table. Here are the concrete consequences, including the unpleasant ones."
 publishedAt: 2026-08-12
 author: "TblFlow"
@@ -36,4 +37,4 @@ We made this call because the question we wanted to answer was not "how do we sh
 
 A generic store answers the first question well. A real schema answers the second one well.
 
-If you want to check, self-hosting is free: start an instance, create a table, then go look in `psql`. It is there.
+If you want to check for yourself, spin up a self-hosted instance, create a table, then go look in `psql`. It is there.

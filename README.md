@@ -1,7 +1,8 @@
 # tblflow.com
 
 Marketing site and blog for **tblflow.com** — Astro, bilingual FR/EN, deployed on
-Cloudflare Pages. Fully static, and it ships **zero external JavaScript files**
+Cloudflare Workers (static assets). Fully static, and it ships **zero external
+JavaScript files**
 (the only script is a ~700-byte inlined FAQ filter).
 
 ## Quick start
@@ -24,6 +25,7 @@ npm run dev        # http://localhost:4321
 ```
 site/
 ├── astro.config.mjs        # i18n routing, sitemap, Tailwind
+├── wrangler.jsonc          # Cloudflare Worker: static assets, observability
 ├── src/
 │   ├── config.ts           # SITE_URL, locales, org identity — single source of truth
 │   ├── content.config.ts   # blog collection schema (Zod)
@@ -123,8 +125,8 @@ These are typed data modules, not page markup:
 | Open Graph | `og-default.png`, 1200×630 — **PNG, not SVG**, because most platforms render no card at all for an SVG `og:image` |
 
 URL shape is `trailingSlash: 'never'` + `build.format: 'file'`, so each page has
-exactly one valid URL (`/fr/pricing`, not also `/fr/pricing/`). Cloudflare Pages
-serves `fr/pricing.html` at that extension-less path.
+exactly one valid URL (`/fr/pricing`, not also `/fr/pricing/`). The Workers static
+assets binding serves `fr/pricing.html` at that extension-less path.
 
 ## GEO (generative engine optimization)
 
@@ -183,30 +185,44 @@ app's `global.css`. Per the app's own design-system note it is reserved for
 AI-related surfaces: it is a wayfinding signal, and spending it on generic CTAs is
 what makes it stop meaning anything.
 
-## Deploying to Cloudflare Pages
+## Deploying to Cloudflare Workers
 
-Static output, no adapter, no server runtime.
+Static output, no adapter, no server runtime — served through a Worker's static
+assets binding rather than a Pages project. `wrangler.jsonc` at the repo root is
+the source of truth for the deployment (name, assets directory, observability);
+the dashboard's **Workers Builds** just needs to point at it.
 
-**Dashboard → Workers & Pages → Create → Pages → Connect to Git**, then:
+**Dashboard → Workers & Pages → Create → Worker → Connect to Git**, then:
 
 | Setting | Value |
 |---|---|
-| Framework preset | Astro |
 | Build command | `npm run build` |
-| Build output directory | `dist` |
+| Deploy command | `npx wrangler deploy` |
 | Root directory | *(leave empty — the site is the repo root)* |
 | Node version | `22` (set `NODE_VERSION=22` in the environment variables) |
 
 No secrets or environment variables are required — the build reads nothing from
 the environment.
 
-Then, under the Pages project:
+To deploy manually instead of via Git integration:
 
-1. **Custom domains** → add `tblflow.com` and `www.tblflow.com`. Certificates are
-   Cloudflare-managed and automatic.
-2. `public/_redirects` and `public/_headers` are picked up from the build output —
-   nothing to configure in the dashboard for those.
-3. Per-PR preview deployments are on by default.
+```bash
+npm run build
+npx wrangler deploy
+```
+
+Then, under the Worker:
+
+1. **Settings → Domains & Routes** → add `tblflow.com` as a custom domain, and a
+   CNAME for `www` (proxied) with a redirect rule to the apex — a bare `www` CNAME
+   pointed at the Worker's `workers.dev` host does not by itself serve the site.
+   Certificates are Cloudflare-managed and automatic.
+2. `public/_redirects` and `public/_headers` are read from the built assets
+   directory (`dist`) by the static assets binding — nothing to configure in the
+   dashboard for those.
+3. Preview deployments are the `*-tblflow-com.workers.dev` version URLs, not
+   per-PR Pages previews — enable them under **Settings → Builds** if the Git
+   integration is used.
 
 `public/_headers` sets a strict CSP (`default-src 'self'`, no third-party origins),
 HSTS, `X-Frame-Options: DENY` and immutable caching for `/_astro/*`. `style-src`
@@ -234,8 +250,6 @@ in the app:
 Deliberately out of scope for this pass, and tracked in
 `.planning/SUBPLAN-marketing-site.md` in the main repo:
 
-- **`help.tblflow.com`** — the sub-plan recommends one Astro codebase deployed as
-  two Cloudflare Pages projects, gated on confirming actual doc volume first.
 - **A git-backed CMS (Decap).** The blog is markdown-in-repo for now. The
   frontmatter schema in `content.config.ts` is already the contract a CMS would
   need to satisfy, so adding one later requires no content migration.

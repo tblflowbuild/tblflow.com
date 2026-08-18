@@ -39,11 +39,11 @@ Every cell written in TblFlow goes into a real physical PostgreSQL table. There 
 format and no synchronisation layer: the table you see in TblFlow is the table in Postgres, and
 any SQL client can query it directly.
 
-TblFlow is available as a managed service at tblflow.com, as a free self-hosted deployment with
-every Enterprise feature unlocked, and as a dedicated Enterprise deployment on customer
-infrastructure or in a VPC.`);
+TblFlow is available as a managed service at tblflow.com, and as a self-hosted or dedicated VPC
+deployment on customer infrastructure under the Enterprise tier, on quote, with every feature
+unlocked.`);
 
-  sections.push(`## The five surfaces
+  sections.push(`## Product surfaces
 
 ${SURFACES.map((surface) => `### ${surface.title.en}\n\n${surface.body.en}`).join('\n\n')}`);
 
@@ -85,8 +85,8 @@ ${[...rows, ...noteRows].join('\n')}`);
 
   sections.push(`## Pricing
 
-TblFlow Cloud has four tiers. Self-hosting is free, with no licence key, no subscription and no
-usage caps.
+TblFlow Cloud has four tiers. Self-hosted and dedicated VPC deployment is part of the Enterprise
+tier, on quote.
 
 ${tierHeader}
 ${tierDivider}

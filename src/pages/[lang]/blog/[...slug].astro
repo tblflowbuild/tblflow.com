@@ -30,7 +30,7 @@ const slug = post.id.replace(`${locale}/`, '');
 const path = localePath(locale, `blog/${slug}`);
 
 const breadcrumbs = [
-  { name: locale === 'fr' ? 'Accueil' : 'Home', path: localePath(locale) },
+  { name: t('breadcrumbs.home'), path: localePath(locale) },
   { name: t('blog.title'), path: localePath(locale, 'blog') },
   { name: post.data.title, path },
 ];

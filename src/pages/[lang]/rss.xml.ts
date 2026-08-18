@@ -1,20 +1,17 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import type { APIRoute, GetStaticPaths } from 'astro';
-import { LOCALES, SITE_URL, HREFLANG, isLocale, type Locale } from '@/config';
+import { LOCALES, SITE_URL, HREFLANG, isLocale, t9, type Locale } from '@/config';
 
 /** One feed per locale — a mixed-language feed is useful to nobody. */
 export const getStaticPaths: GetStaticPaths = () => LOCALES.map((lang) => ({ params: { lang } }));
 
-const TITLES: Record<Locale, string> = {
-  fr: 'TblFlow — Blog',
-  en: 'TblFlow — Blog',
-};
+const TITLES: Record<Locale, string> = t9({ fr: 'TblFlow — Blog', en: 'TblFlow — Blog' });
 
-const DESCRIPTIONS: Record<Locale, string> = {
+const DESCRIPTIONS: Record<Locale, string> = t9({
   fr: "Notes de produit, guides et retours d'ingénierie sur TblFlow.",
   en: 'Product notes, guides and engineering write-ups on TblFlow.',
-};
+});
 
 export const GET: APIRoute = async ({ params }) => {
   const lang = params.lang;

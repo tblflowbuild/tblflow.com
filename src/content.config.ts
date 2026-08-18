@@ -18,6 +18,13 @@ const blog = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
   schema: z.object({
     title: z.string().max(120),
+    /**
+     * Ties a post to its counterpart in the other locale. Slugs are translated
+     * (`pourquoi-un-vrai-postgres` / `why-real-postgres`), so without this the
+     * language switcher and the hreflang alternates point at a URL that does not
+     * exist. Same key on both files, one file per locale.
+     */
+    translationKey: z.string().optional(),
     /** Used for <meta name="description"> and the card excerpt. */
     description: z.string().min(50).max(300),
     publishedAt: z.coerce.date(),
@@ -35,4 +42,30 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+/**
+ * Docs collection, same locale-in-the-path rule as the blog.
+ *
+ * `section` groups pages on the index and `order` sorts within a group — both in
+ * frontmatter rather than a separate manifest file, so adding a page is one file
+ * and never a two-place edit that can drift.
+ */
+const docs = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/docs' }),
+  schema: z.object({
+    title: z.string().max(120),
+    description: z.string().min(50).max(300),
+    /**
+     * Ties a page to its counterpart in the other locale. Slugs are translated
+     * (`pourquoi-un-vrai-postgres` / `why-real-postgres`), so without this the
+     * language switcher and the hreflang alternates point at a URL that does not
+     * exist. Same key on both files, one file per locale.
+     */
+    translationKey: z.string().optional(),
+    section: z.string(),
+    order: z.number().default(100),
+    updatedAt: z.coerce.date().optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, docs };

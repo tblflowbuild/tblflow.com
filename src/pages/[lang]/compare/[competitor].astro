@@ -1,0 +1,204 @@
+---
+/**
+ * One page per competitor: `/{lang}/compare/{competitor}`.
+ *
+ * Same skeleton on every page — heading, verdict, full table, differences,
+ * where the other tool wins, CTA — because a visitor comparing two products
+ * should not have to relearn the layout on each one, and a consistent shape is
+ * what lets an answer engine lift the same fields across all four.
+ *
+ * The slug is a proper noun and therefore identical in both locales, so the
+ * hreflang pair resolves without a translation key.
+ */
+import Base from '@/layouts/Base.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { COMPARISON, COMPETITOR_LABELS, type Support } from '@/data/content';
+import { COMPETITOR_PAGES, COMPETITOR_SLUGS, type CompetitorSlug } from '@/data/competitors';
+import { useTranslations } from '@/i18n/ui';
+import { localePath } from '@/i18n/utils';
+import { LOCALES, t9, type Locale } from '@/config';
+
+export function getStaticPaths() {
+  return LOCALES.flatMap((lang) =>
+    COMPETITOR_SLUGS.map((competitor) => ({ params: { lang, competitor } }))
+  );
+}
+
+const locale = Astro.params.lang as Locale;
+const slug = Astro.params.competitor as CompetitorSlug;
+const t = useTranslations(locale);
+
+const page = COMPETITOR_PAGES[slug];
+const rival = COMPETITOR_LABELS[slug];
+const path = localePath(locale, `compare/${slug}`);
+
+const supportLabel: Record<Support, string> = {
+  yes: t('compare.yes'),
+  no: t('compare.no'),
+  partial: t('compare.partial'),
+};
+
+/** Rows where the two products actually differ, surfaced first in the copy. */
+const decisive = COMPARISON.filter((row) => row.tblflow === 'yes' && row[slug] !== 'yes');
+
+const metaSource = {
+  fr: {
+    title: `TblFlow vs ${rival} — comparatif complet (${new Date().getFullYear()})`,
+    description: `Comparatif détaillé entre TblFlow et ${rival} : ${COMPARISON.length} critères, différences de fond, et les cas où ${rival} reste le meilleur choix.`,
+    h1: `TblFlow vs ${rival}`,
+    tableTitle: `Les ${COMPARISON.length} critères, côte à côte`,
+    tableLede: `Chaque ligne est vérifiable dans les deux produits. ${decisive.length} critères séparent TblFlow de ${rival}.`,
+    diffTitle: 'Ce que le tableau ne dit pas',
+    honestTitle: `Quand choisir ${rival} plutôt que TblFlow`,
+    honestLede: 'Aucun produit ne gagne partout. Voici où celui-ci est le meilleur choix.',
+    back: 'Tous les comparatifs',
+    feature: t('compare.feature'),
+  },
+  en: {
+    title: `TblFlow vs ${rival} — full comparison (${new Date().getFullYear()})`,
+    description: `A detailed comparison of TblFlow and ${rival}: ${COMPARISON.length} criteria, the substantive differences, and where ${rival} is still the better choice.`,
+    h1: `TblFlow vs ${rival}`,
+    tableTitle: `All ${COMPARISON.length} criteria, side by side`,
+    tableLede: `Every row is verifiable in both products. ${decisive.length} criteria separate TblFlow from ${rival}.`,
+    diffTitle: 'What the table does not say',
+    honestTitle: `When to choose ${rival} over TblFlow`,
+    honestLede: 'No product wins everywhere. Here is where this one is the better call.',
+    back: 'All comparisons',
+    feature: t('compare.feature'),
+  },
+} as const;
+// ponytail: only fr/en are hand-written for this per-competitor page; the other
+// 8 locales fall back to English until translated. Real translations replace
+// this field-by-field with no consumer-code changes needed.
+const meta = Object.fromEntries(
+  (Object.keys(metaSource.fr) as (keyof typeof metaSource.fr)[]).map((key) => [
+    key,
+    t9({ fr: metaSource.fr[key], en: metaSource.en[key] })[locale],
+  ])
+) as typeof metaSource.fr;
+
+const breadcrumbs = [
+  { name: t('breadcrumbs.home'), path: localePath(locale) },
+  { name: t('compare.title'), path: localePath(locale, 'compare') },
+  { name: meta.h1, path },
+];
+---
+
+<Base
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  path={path}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="mx-auto max-w-4xl px-4 pt-16 sm:px-6 sm:pt-20">
+    <a
+      href={localePath(locale, 'compare')}
+      class="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)]"
+    >
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path
+          d="M19 12H5M11 18l-6-6 6-6"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+      {meta.back}
+    </a>
+
+    <h1 class="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">{meta.h1}</h1>
+
+    {/* The answer first, in one paragraph. A comparison page that makes the
+        reader scroll to a table before telling them anything gets abandoned,
+        and gives an answer engine nothing short enough to quote. */}
+    <p class="mt-5 text-lg leading-relaxed text-[var(--fg-muted)]">{page.summary[locale]}</p>
+  </div>
+
+  <section class="mx-auto max-w-4xl scroll-mt-24 px-4 py-16 sm:px-6" id="table">
+    <h2 class="reveal text-2xl font-bold tracking-tight sm:text-3xl">{meta.tableTitle}</h2>
+    <p class="reveal mt-3 text-[var(--fg-muted)]">{meta.tableLede}</p>
+
+    {/* Horizontal scroll stays inside this container, so the page body never
+        scrolls sideways. */}
+    <div class="reveal mt-8 overflow-x-auto">
+      <table class="w-full min-w-[34rem] border-collapse text-sm">
+        <caption class="sr-only-focusable absolute">{meta.title}</caption>
+        <thead>
+          <tr class="border-b border-[var(--border-strong)] text-left">
+            <th scope="col" class="py-3 pr-4 font-semibold">{meta.feature}</th>
+            <th scope="col" class="px-4 py-3 font-semibold">TblFlow</th>
+            <th scope="col" class="px-4 py-3 font-semibold">{rival}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            COMPARISON.map((row) => {
+              const mine = row.tblflow as Support;
+              const theirs = row[slug] as Support;
+              const differs = mine !== theirs;
+              return (
+                <tr
+                  class:list={[
+                    'border-b border-[var(--border)]',
+                    differs && 'bg-[color-mix(in_oklab,var(--color-ai-2)_5%,transparent)]',
+                  ]}
+                >
+                  <th scope="row" class="py-3 pr-4 text-left font-normal">
+                    {row.feature[locale]}
+                  </th>
+                  {[mine, theirs].map((value) => (
+                    <td class="px-4 py-3">
+                      {/* Glyph aria-hidden, label visible: an icon-only cell
+                          transcribes as nothing at all. */}
+                      <span
+                        class:list={[
+                          'inline-flex items-center gap-1.5',
+                          value === 'yes' && 'text-[var(--color-ai-3)]',
+                          value === 'no' && 'text-[var(--fg-subtle)]',
+                        ]}
+                      >
+                        <span aria-hidden="true">
+                          {value === 'yes' ? '✓' : value === 'no' ? '✗' : '~'}
+                        </span>
+                        {supportLabel[value]}
+                      </span>
+                    </td>
+                  ))}
+                </tr>
+              );
+            })
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 pb-16 sm:px-6">
+    <h2 class="reveal text-2xl font-bold tracking-tight sm:text-3xl">{meta.diffTitle}</h2>
+
+    <div class="mt-8 grid gap-6 sm:grid-cols-3">
+      {
+        page.differences.map((diff) => (
+          <div class="reveal card p-6">
+            <h3 class="text-base font-semibold">{diff.title[locale]}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">{diff.body[locale]}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  {/* Naming where the rival wins is what makes the rest of the page credible —
+      to a reader and to an engine weighing whether this is a comparison or an
+      advert. */}
+  <section class="mx-auto max-w-4xl px-4 pb-20 sm:px-6">
+    <div class="reveal card p-7 sm:p-9">
+      <h2 class="text-2xl font-bold tracking-tight">{meta.honestTitle}</h2>
+      <p class="mt-2 text-sm text-[var(--fg-subtle)]">{meta.honestLede}</p>
+      <p class="mt-5 leading-relaxed text-[var(--fg-muted)]">{page.honest[locale]}</p>
+    </div>
+  </section>
+
+  <CtaBand locale={locale} />
+</Base>

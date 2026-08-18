@@ -21,6 +21,10 @@ export const GET: APIRoute = async () => {
     (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
   );
 
+  const docs = (await getCollection('docs', ({ id, data }) => id.startsWith('en/') && !data.draft)).sort(
+    (a, b) => a.data.order - b.data.order
+  );
+
   const priceLine = TIERS.map((tier) =>
     tier.price === null
       ? `${tier.name.en}: custom quote`
@@ -38,13 +42,20 @@ export const GET: APIRoute = async () => {
     })
     .join('\n');
 
+  const docLines = docs
+    .map(
+      (page) =>
+        `- [${page.data.title}](${SITE_URL}/en/docs/${page.id.replace('en/', '')}): ${page.data.description}`
+    )
+    .join('\n');
+
   const body = `# TblFlow
 
 > TblFlow is a no-code database platform that puts a spreadsheet-like interface over a real
 > PostgreSQL database, and adds autonomous AI agents, event-driven automations, semantic
 > document search and publishable custom apps on top of the same data. It is available as a
-> managed service at tblflow.com and as a free self-hosted deployment with every Enterprise
-> feature unlocked.
+> managed service at tblflow.com and, under the Enterprise tier, as a self-hosted or dedicated
+> VPC deployment with every feature unlocked.
 
 ## Key facts
 
@@ -52,7 +63,7 @@ export const GET: APIRoute = async () => {
   client. There is no proprietary format and no sync layer, so a \`pg_dump\` is a complete export.
 - Field types: 28, including formula, rollup, conditional rollup, lookup via link, AI, button,
   attachment, user and rating.
-- View types: 7 — Grid, Kanban, Gallery, Calendar, Gantt, Form, Plugin.
+- View types: 6 — Grid, Kanban, Gallery, Calendar, Gantt, Form.
 - Formulas: 200+ functions.
 - AI agents: autonomous, with a planner, an executor, persistent entity/relation memory and a
   scheduler. They read and write records and act on connected services (Gmail, GitHub, Slack,
@@ -63,14 +74,14 @@ export const GET: APIRoute = async () => {
 - Search: PostgreSQL full-text and pgvector semantic search, fused with reciprocal rank fusion.
 - Scale: filters, sorts, groups and searches across millions of rows with sub-second response.
   The grid renders to canvas and redraws only the visible region.
-- Deployment: managed cloud, self-hosted (free, all Enterprise features), or dedicated
-  Enterprise on customer infrastructure or a VPC.
+- Deployment: managed cloud, or self-hosted / dedicated VPC under the Enterprise tier (on
+  quote), with every feature unlocked.
 - Licence: AGPL-3.0.
 - Stack: NestJS, Next.js, PostgreSQL with pgvector, Redis, BullMQ, ShareDB.
 
 ## Pricing
 
-${priceLine}. Self-hosting is free with no licence key, no subscription and no usage caps.
+${priceLine}. Self-hosted and dedicated VPC deployment is part of the Enterprise tier, on quote.
 Full tier detail: ${SITE_URL}/en/pricing
 
 ## Pages
@@ -81,6 +92,12 @@ Full tier detail: ${SITE_URL}/en/pricing
 - [Pricing (French)](${SITE_URL}/fr/pricing)
 - [Blog (English)](${SITE_URL}/en/blog)
 - [Blog (French)](${SITE_URL}/fr/blog)
+- [Documentation (English)](${SITE_URL}/en/docs)
+- [Documentation (French)](${SITE_URL}/fr/docs)
+
+## Documentation
+
+${docLines || '- (none published yet)'}
 
 ## Blog posts
 

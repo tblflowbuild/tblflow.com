@@ -23,20 +23,60 @@ const posts = (await getCollection('blog', ({ id, data }) => id.startsWith(`${lo
 const slugOf = (id: string) => id.replace(`${locale}/`, '');
 
 const meta = {
-  fr: {
-    title: 'Blog TblFlow — produit, guides et ingénierie',
+  de: {
+    title: 'TblFlow-Blog — Produkt, Anleitungen und Engineering',
     description:
-      "Notes de produit, guides pratiques et retours d'ingénierie sur TblFlow : bases de données no-code, agents IA, automatisations et PostgreSQL.",
+      'Produktnotizen, praktische Anleitungen und Engineering-Berichte zu TblFlow: No-Code-Datenbanken, KI-Agenten, Automatisierungen und PostgreSQL.',
   },
   en: {
     title: 'TblFlow blog — product, guides and engineering',
     description:
       'Product notes, practical guides and engineering write-ups on TblFlow: no-code databases, AI agents, automations and PostgreSQL.',
   },
+  es: {
+    title: 'Blog de TblFlow — producto, guías e ingeniería',
+    description:
+      'Notas de producto, guías prácticas y artículos de ingeniería sobre TblFlow: bases de datos no-code, agentes IA, automatizaciones y PostgreSQL.',
+  },
+  fr: {
+    title: 'Blog TblFlow — produit, guides et ingénierie',
+    description:
+      "Notes de produit, guides pratiques et retours d'ingénierie sur TblFlow : bases de données no-code, agents IA, automatisations et PostgreSQL.",
+  },
+  it: {
+    title: 'Blog TblFlow — prodotto, guide e ingegneria',
+    description:
+      'Note di prodotto, guide pratiche e approfondimenti tecnici su TblFlow: database no-code, agenti IA, automazioni e PostgreSQL.',
+  },
+  ja: {
+    title: 'TblFlow ブログ — 製品、ガイド、エンジニアリング',
+    description:
+      'TblFlowに関する製品ノート、実践ガイド、エンジニアリング記事：ノーコードデータベース、AIエージェント、自動化、PostgreSQL。',
+  },
+  ru: {
+    title: 'Блог TblFlow — продукт, руководства и инженерия',
+    description:
+      'Заметки о продукте, практические руководства и инженерные материалы о TblFlow: no-code базы данных, ИИ-агенты, автоматизации и PostgreSQL.',
+  },
+  tr: {
+    title: 'TblFlow blogu — ürün, rehberler ve mühendislik',
+    description:
+      'TblFlow hakkında ürün notları, pratik rehberler ve mühendislik yazıları: no-code veritabanları, yapay zeka ajanları, otomasyonlar ve PostgreSQL.',
+  },
+  uk: {
+    title: 'Блог TblFlow — продукт, гайди та інженерія',
+    description:
+      'Нотатки про продукт, практичні гайди та інженерні матеріали про TblFlow: no-code бази даних, ШІ-агенти, автоматизації та PostgreSQL.',
+  },
+  zh: {
+    title: 'TblFlow 博客 — 产品、指南与工程实践',
+    description:
+      '关于 TblFlow 的产品动态、实用指南与工程文章：无代码数据库、AI 智能体、自动化与 PostgreSQL。',
+  },
 } satisfies Record<Locale, { title: string; description: string }>;
 
 const breadcrumbs = [
-  { name: locale === 'fr' ? 'Accueil' : 'Home', path: localePath(locale) },
+  { name: t('breadcrumbs.home'), path: localePath(locale) },
   { name: t('blog.title'), path: localePath(locale, 'blog') },
 ];
 ---
