@@ -100,6 +100,14 @@ export const DIFFERENTIATORS: Feature[] = [
       en: 'Filter, sort, group and search across millions of rows in under a second. The grid renders to canvas and only redraws the visible region, so performance does not degrade with row count.',
     }),
   },
+  {
+    icon: 'M8 4 3 12l5 8M16 4l5 8-5 8',
+    title: t9({ fr: 'API-first, dès la première base', en: 'API-first, from your very first base' }),
+    body: t9({
+      fr: "Chaque base créée dans TblFlow est automatiquement accessible via une API REST documentée (OpenAPI), avec authentification par token. Pas de palier à débloquer pour ça : c'est disponible dès le palier Gratuit.",
+      en: 'Every base you create in TblFlow is automatically reachable through a documented REST API (OpenAPI), with token authentication. No tier to unlock for that — it is available from the Free tier onward.',
+    }),
+  },
 ];
 
 /** Views, listed explicitly — answer engines quote enumerations like this well. */

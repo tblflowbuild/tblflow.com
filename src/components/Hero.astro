@@ -3,8 +3,7 @@ import Logo from './Logo.astro';
 import HeroCards from './HeroCards.astro';
 import StepsRibbon from './StepsRibbon.astro';
 import { useTranslations } from '@/i18n/ui';
-import { localePath } from '@/i18n/utils';
-import { APP_URL, type Locale } from '@/config';
+import type { Locale } from '@/config';
 
 interface Props {
   locale: Locale;
@@ -69,7 +68,7 @@ const proof = [
     </div>
   </div>
 
-  <div class="mx-auto max-w-4xl px-4 pt-20 text-center sm:px-6 sm:pt-28">
+  <div class="mx-auto max-w-4xl px-4 pt-10 text-center sm:px-6 sm:pt-14">
     <div class="animate-enter-fade flex justify-center">
       <Logo size={72} animate title="TblFlow" />
     </div>
@@ -107,23 +106,6 @@ const proof = [
     >
       {t('hero.subtitle')}
     </p>
-
-    <div class="animate-enter delay-4 mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-      <a
-        href={`${APP_URL}/auth/signup`}
-        class="ai-gradient-bg animate-gradient w-full rounded-xl px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5 sm:w-auto"
-      >
-        {t('hero.cta.primary')}
-      </a>
-      <a
-        href={localePath(locale, 'pricing')}
-        class="w-full rounded-xl border border-[var(--border-strong)] px-6 py-3.5 text-base font-semibold transition-colors hover:bg-[var(--bg-subtle)] sm:w-auto"
-      >
-        {t('hero.cta.secondary')}
-      </a>
-    </div>
-
-    <p class="animate-enter delay-4 mt-5 text-sm text-[var(--fg-subtle)]">{t('hero.note')}</p>
 
     <dl
       class="animate-enter delay-4 mx-auto mt-14 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4"
