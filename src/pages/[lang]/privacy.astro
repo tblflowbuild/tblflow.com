@@ -1,0 +1,53 @@
+---
+import Base from '@/layouts/Base.astro';
+import { useTranslations } from '@/i18n/ui';
+import { localePath } from '@/i18n/utils';
+import { LOCALES, type Locale } from '@/config';
+import { PRIVACY_TITLE, PRIVACY_LEDE, PRIVACY_SECTIONS, PRIVACY_LAST_UPDATED } from '@/data/legal';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+const path = localePath(locale, 'privacy');
+
+const breadcrumbs = [
+  { name: t('breadcrumbs.home'), path: localePath(locale) },
+  { name: PRIVACY_TITLE[locale], path },
+];
+---
+
+<Base
+  locale={locale}
+  title={`${PRIVACY_TITLE[locale]} — TblFlow`}
+  description={PRIVACY_LEDE[locale]}
+  path={path}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="mx-auto max-w-4xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
+    <h1 class="animate-enter text-4xl font-bold tracking-tight sm:text-5xl">
+      {PRIVACY_TITLE[locale]}
+    </h1>
+    <p class="animate-enter delay-1 mt-4 max-w-2xl text-lg text-[var(--fg-muted)]">
+      {PRIVACY_LEDE[locale]}
+    </p>
+    <p class="animate-enter delay-2 mt-2 text-sm text-[var(--fg-subtle)]">
+      {PRIVACY_LAST_UPDATED[locale]}
+    </p>
+
+    <div class="prose-site reveal mt-10">
+      {
+        PRIVACY_SECTIONS[locale].map((section) => (
+          <section>
+            <h2>{section.heading}</h2>
+            {section.body.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</Base>

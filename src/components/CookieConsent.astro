@@ -100,12 +100,18 @@ const t = useTranslations(locale);
 <script>
   /**
    * Consent categories always include `essential` implicitly (nothing to
-   * gate). `analytics` gates GA4. Stored as `{analytics: boolean}` — add a
-   * key here and a matching category in the markup above for the next one.
+   * gate). `analytics` gates GA4. Stored as `{analytics: boolean, ts: number}`
+   * — add a key here and a matching category in the markup above for the
+   * next one.
+   *
+   * `ts` is when the choice was made. CNIL guidance caps consent validity at
+   * 6 months — past that, re-asking isn't optional, so a stale record is
+   * treated as no record at all rather than kept forever.
    */
-  type Consent = { analytics: boolean };
+  type Consent = { analytics: boolean; ts: number };
 
   const KEY = 'cookie-consent';
+  const MAX_AGE_MS = 6 * 30 * 24 * 60 * 60 * 1000;
   const root = document.getElementById('cookie-consent');
   if (root) {
     const gaId = root.dataset.gaId!;
@@ -119,7 +125,10 @@ const t = useTranslations(locale);
     const read = (): Consent | null => {
       try {
         const raw = localStorage.getItem(KEY);
-        return raw ? JSON.parse(raw) : null;
+        if (!raw) return null;
+        const parsed = JSON.parse(raw) as Consent;
+        if (Date.now() - parsed.ts > MAX_AGE_MS) return null;
+        return parsed;
       } catch {
         return null;
       }
@@ -147,7 +156,8 @@ const t = useTranslations(locale);
       root.hidden = true;
     };
 
-    const write = (consent: Consent) => {
+    const write = (choice: { analytics: boolean }) => {
+      const consent: Consent = { ...choice, ts: Date.now() };
       try {
         localStorage.setItem(KEY, JSON.stringify(consent));
       } catch {

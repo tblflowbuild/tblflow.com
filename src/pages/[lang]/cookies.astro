@@ -1,0 +1,74 @@
+---
+import Base from '@/layouts/Base.astro';
+import { useTranslations } from '@/i18n/ui';
+import { localePath } from '@/i18n/utils';
+import { LOCALES, type Locale } from '@/config';
+import {
+  COOKIES_TITLE,
+  COOKIES_LEDE,
+  COOKIE_TABLE,
+  COOKIE_TABLE_HEADERS,
+  COOKIES_MANAGE_NOTE,
+} from '@/data/legal';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+const path = localePath(locale, 'cookies');
+
+const breadcrumbs = [
+  { name: t('breadcrumbs.home'), path: localePath(locale) },
+  { name: COOKIES_TITLE[locale], path },
+];
+---
+
+<Base
+  locale={locale}
+  title={`${COOKIES_TITLE[locale]} — TblFlow`}
+  description={COOKIES_LEDE[locale]}
+  path={path}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="mx-auto max-w-4xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
+    <h1 class="animate-enter text-4xl font-bold tracking-tight sm:text-5xl">
+      {COOKIES_TITLE[locale]}
+    </h1>
+    <p class="animate-enter delay-1 mt-4 max-w-2xl text-lg text-[var(--fg-muted)]">
+      {COOKIES_LEDE[locale]}
+    </p>
+
+    {/* Horizontal scroll stays inside this container, so the page body never
+        scrolls sideways. */}
+    <div class="reveal mt-10 overflow-x-auto">
+      <table class="w-full min-w-[42rem] border-collapse text-sm">
+        <thead>
+          <tr class="border-b border-[var(--border-strong)] text-left">
+            {COOKIE_TABLE_HEADERS[locale].map((header, i) => (
+              <th scope="col" class:list={['py-3 font-semibold', i === 0 ? 'pr-4' : 'px-4']}>
+                {header}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {
+            COOKIE_TABLE[locale].map((row) => (
+              <tr class="border-b border-[var(--border)] align-top">
+                <td class="py-3 pr-4 font-mono text-xs whitespace-nowrap">{row.name}</td>
+                <td class="px-4 py-3 text-[var(--fg-muted)]">{row.provider}</td>
+                <td class="px-4 py-3 text-[var(--fg-muted)]">{row.purpose}</td>
+                <td class="px-4 py-3 whitespace-nowrap text-[var(--fg-muted)]">{row.duration}</td>
+                <td class="px-4 py-3 whitespace-nowrap text-[var(--fg-muted)]">{row.consent}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <p class="reveal mt-8 text-sm text-[var(--fg-muted)]">{COOKIES_MANAGE_NOTE[locale]}</p>
+  </div>
+</Base>

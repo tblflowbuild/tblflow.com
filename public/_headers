@@ -32,7 +32,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com 'sha256-rfNd9yH7gEkmlM1mjjhNfrxk/D1DDgOcYvoqTJIbT8A=' 'sha256-FxQor8T4t8PipZb27gx3gSpz6hpSILI0uzglOCAYiEI=' 'sha256-GBPdk/app65fKpdZw4FQMXqOXxUnx4RmotWgPwsy4g8=' 'sha256-KgSgDE8dFcIKgUahmcOGCZ2aZe5WBdOuAwXrz62SfJo='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com; font-src 'self'; connect-src 'self' https://static.cloudflareinsights.com https://*.google-analytics.com https://*.analytics.google.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com 'sha256-rfNd9yH7gEkmlM1mjjhNfrxk/D1DDgOcYvoqTJIbT8A=' 'sha256-FxQor8T4t8PipZb27gx3gSpz6hpSILI0uzglOCAYiEI=' 'sha256-GBPdk/app65fKpdZw4FQMXqOXxUnx4RmotWgPwsy4g8=' 'sha256-62mK3ZlQ8FFAwI5YgWn2iC3CVsWk6hdCR8rkAOk9dh8='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com; font-src 'self'; connect-src 'self' https://static.cloudflareinsights.com https://*.google-analytics.com https://*.analytics.google.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
 
 # Astro fingerprints everything under /_astro/, so it is safe to cache forever.
 /_astro/*

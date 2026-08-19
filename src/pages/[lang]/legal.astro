@@ -1,0 +1,63 @@
+---
+/**
+ * Mentions légales — required by French law (LCEN) for any commercial site.
+ *
+ * The body is the same French text on every locale route: it is a statutory
+ * disclosure tied to French administrative facts (SIREN, RCS, VAT number),
+ * not marketing copy, so "translating" it would just be a less authoritative
+ * paraphrase of the one text that actually has legal standing.
+ */
+import Base from '@/layouts/Base.astro';
+import { useTranslations } from '@/i18n/ui';
+import { localePath } from '@/i18n/utils';
+import { LOCALES, type Locale } from '@/config';
+import { LEGAL_NOTICE_TITLE, LEGAL_NOTICE_NOTE, LEGAL_NOTICE_SECTIONS } from '@/data/legal';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+const path = localePath(locale, 'legal');
+
+const breadcrumbs = [
+  { name: t('breadcrumbs.home'), path: localePath(locale) },
+  { name: LEGAL_NOTICE_TITLE[locale], path },
+];
+---
+
+<Base
+  locale={locale}
+  title={`${LEGAL_NOTICE_TITLE[locale]} — TblFlow`}
+  description={LEGAL_NOTICE_TITLE[locale]}
+  path={path}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="mx-auto max-w-4xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
+    <h1 class="animate-enter text-4xl font-bold tracking-tight sm:text-5xl">
+      {LEGAL_NOTICE_TITLE[locale]}
+    </h1>
+
+    {
+      LEGAL_NOTICE_NOTE[locale] && (
+        <p class="animate-enter delay-1 mt-4 text-sm text-[var(--fg-subtle)]">
+          {LEGAL_NOTICE_NOTE[locale]}
+        </p>
+      )
+    }
+
+    <div class="prose-site reveal mt-10" lang="fr">
+      {
+        LEGAL_NOTICE_SECTIONS.map((section) => (
+          <section>
+            <h2>{section.heading}</h2>
+            {section.body.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</Base>

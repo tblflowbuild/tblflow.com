@@ -3,7 +3,7 @@ import Logo from './Logo.astro';
 import LangSwitcher from './LangSwitcher.astro';
 import { useTranslations } from '@/i18n/ui';
 import { localePath } from '@/i18n/utils';
-import { APP_URL, GITHUB_URL, type Locale } from '@/config';
+import { APP_URL, type Locale } from '@/config';
 
 interface Props {
   locale: Locale;
@@ -36,7 +36,6 @@ const columns: Array<{ title: string; links: Array<{ label: string; href: string
   {
     title: t('footer.company'),
     links: [
-      { label: 'GitHub', href: GITHUB_URL },
       { label: t('footer.nav.contact'), href: 'mailto:contact@tblflow.com' },
     ],
   },
@@ -82,9 +81,22 @@ const columns: Array<{ title: string; links: Array<{ label: string; href: string
       class="reveal mt-12 flex flex-col gap-3 border-t border-[var(--border)] pt-6 text-xs text-[var(--fg-subtle)] sm:flex-row sm:items-center sm:justify-between"
     >
       <p>&copy; {year} TblFlow. {t('footer.rights')}</p>
-      <button type="button" data-consent-manage class="transition-colors hover:text-[var(--fg)]">
-        {t('footer.manageCookies')}
-      </button>
+
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <a href={localePath(locale, 'legal')} class="transition-colors hover:text-[var(--fg)]">
+          {t('footer.legal')}
+        </a>
+        <a href={localePath(locale, 'privacy')} class="transition-colors hover:text-[var(--fg)]">
+          {t('footer.privacy')}
+        </a>
+        <a href={localePath(locale, 'cookies')} class="transition-colors hover:text-[var(--fg)]">
+          {t('footer.cookies')}
+        </a>
+        <button type="button" data-consent-manage class="transition-colors hover:text-[var(--fg)]">
+          {t('footer.manageCookies')}
+        </button>
+      </div>
+
       <p>{t('footer.stack')}</p>
     </div>
   </div>
