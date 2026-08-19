@@ -68,4 +68,25 @@ const docs = defineCollection({
   }),
 });
 
-export const collections = { blog, docs };
+/**
+ * Changelog, same locale-in-the-path rule as blog/docs. Unlike those, entries
+ * render inline on one feed page rather than getting their own URL — a
+ * changelog is read as a scroll, not a set of destinations — so there's no
+ * `order`: `date` alone sorts the feed.
+ */
+const changelog = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/changelog' }),
+  schema: z.object({
+    title: z.string().max(120),
+    date: z.coerce.date(),
+    /**
+     * Ties an entry to its counterpart in the other locale — see the blog
+     * schema's comment for why this exists.
+     */
+    translationKey: z.string().optional(),
+    /** Drives the coloured pill shown next to the entry's date. */
+    type: z.enum(['feature', 'improvement', 'fix']),
+  }),
+});
+
+export const collections = { blog, docs, changelog };

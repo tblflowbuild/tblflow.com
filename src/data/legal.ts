@@ -306,3 +306,116 @@ export const COOKIES_MANAGE_NOTE: Record<Locale, string> = t9({
   fr: 'Vous pouvez changer d’avis à tout moment via le lien « Gérer les cookies » en pied de page, qui rouvre le panneau de consentement avec votre choix actuel. Ce choix est de toute façon redemandé automatiquement tous les 6 mois, conformément aux recommandations de la CNIL.',
   en: 'You can change your mind at any time via the "Manage cookies" link in the footer, which reopens the consent panel with your current choice. Either way, we ask again automatically every 6 months, per CNIL guidance.',
 });
+
+export const TERMS_TITLE: Record<Locale, string> = t9({
+  fr: 'Conditions générales de vente et d’utilisation',
+  en: 'Terms of service',
+});
+
+/** Same rationale as LEGAL_NOTICE_NOTE — a contract governed by French law is
+ * not made more valid by an unofficial translation. */
+export const TERMS_NOTE: Record<Locale, string> = t9({
+  fr: '',
+  en: 'These terms are governed by French law and provided in French — the text below is not translated. Contact us if you need an informal English summary.',
+});
+
+/** Single French body, reused on every locale route — see TERMS_NOTE. */
+export const TERMS_SECTIONS: LegalSection[] = [
+  {
+    heading: 'Objet',
+    body: [
+      `Les présentes conditions générales de vente et d'utilisation (« CGVU ») régissent l'accès et l'utilisation des services TblFlow (le « Service »), édités par ${COMPANY.name}. Elles s'appliquent à l'exclusion de toute autre condition, notamment celles pouvant figurer dans les documents du client.`,
+      "Le Service est réservé à un usage professionnel : il n'est pas proposé aux consommateurs au sens du Code de la consommation.",
+    ],
+  },
+  {
+    heading: 'Acceptation',
+    body: [
+      "La création d'un compte ou l'utilisation du Service vaut acceptation pleine et entière des présentes CGVU. Si vous les acceptez au nom d'une entreprise, vous déclarez disposer du pouvoir de l'engager.",
+    ],
+  },
+  {
+    heading: 'Description du Service et paliers',
+    body: [
+      "TblFlow est une plateforme de base de données no-code : interface tableur sur un vrai PostgreSQL, agents IA, automatisations et vues multiples sur les mêmes données.",
+      "Le Service est proposé selon quatre paliers (Gratuit, Pro, Business, Enterprise), dont les caractéristiques, quotas et tarifs en vigueur sont décrits sur la page tarifs (tblflow.com/pricing). Ces paramètres peuvent évoluer ; toute modification substantielle est communiquée avec un préavis raisonnable et ne s'applique pas rétroactivement à une période déjà facturée.",
+    ],
+  },
+  {
+    heading: 'Compte et sécurité des accès',
+    body: [
+      "Le client est responsable de la confidentialité de ses identifiants et de toute activité effectuée depuis son compte. Toute suspicion d'accès non autorisé doit être signalée sans délai à " + COMPANY.email + ".",
+    ],
+  },
+  {
+    heading: 'Tarifs et facturation',
+    body: [
+      "Les paliers payants (Pro, Business) sont facturés mensuellement, sans engagement de durée, au tarif affiché sur la page tarifs au moment de la souscription. Le palier Enterprise fait l'objet d'un devis et d'un contrat spécifique.",
+      "À défaut de paiement à échéance, TblFlow peut suspendre l'accès au Service après relance restée sans effet, sans préjudice des sommes dues.",
+    ],
+  },
+  {
+    heading: 'Durée et résiliation',
+    body: [
+      "Les paliers Gratuit, Pro et Business sont sans engagement : le client peut résilier ou changer de palier à tout moment depuis son compte, avec effet à la fin de la période de facturation en cours.",
+      "TblFlow peut résilier l'accès d'un client en cas de manquement grave aux présentes CGVU non corrigé sous 15 jours après mise en demeure, ou d'usage frauduleux ou illicite du Service, avec effet immédiat dans ce dernier cas.",
+    ],
+  },
+  {
+    heading: 'Auto-hébergement et palier Enterprise',
+    body: [
+      "Le déploiement auto-hébergé ou en VPC dédié fait partie du palier Enterprise, sur devis. Il n'est pas gratuit et n'est pas inclus dans les autres paliers. Les conditions spécifiques (support, niveaux de service, licence) sont précisées dans le contrat Enterprise signé séparément.",
+    ],
+  },
+  {
+    heading: 'Propriété des données et réversibilité',
+    body: [
+      "Les données que le client héberge sur le Service (« Données Client ») restent sa propriété exclusive. TblFlow ne revendique aucun droit sur ces données et ne les utilise pas à d'autres fins que la fourniture du Service.",
+      "Les Données Client sont stockées dans un schéma PostgreSQL standard, exportable à tout moment par le client au format `pg_dump`, y compris en cas de résiliation. Cette réversibilité n'est pas une option payante : elle est disponible sur tous les paliers.",
+    ],
+  },
+  {
+    heading: 'Propriété intellectuelle du Service',
+    body: [
+      "Le Service, son code, ses marques et sa documentation sont la propriété exclusive de " + COMPANY.name + " ou de ses concédants. L'accès au Service ne confère au client qu'un droit d'usage, non exclusif et non transférable, pour la durée de son abonnement.",
+    ],
+  },
+  {
+    heading: 'Disponibilité du Service',
+    body: [
+      "TblFlow met en œuvre les moyens raisonnables pour assurer la disponibilité du Service, avec un objectif de disponibilité mensuelle croissant selon le palier souscrit (indiqué sur la page tarifs). Ces objectifs constituent une cible et non une garantie contractuelle de résultat, sauf stipulation contraire dans un contrat Enterprise signé séparément.",
+      "Des interruptions programmées pour maintenance peuvent survenir ; TblFlow s'efforce d'en informer les clients à l'avance lorsque cela est raisonnablement possible.",
+    ],
+  },
+  {
+    heading: 'Données personnelles',
+    body: [
+      "Le traitement des données personnelles par TblFlow dans le cadre du site tblflow.com est décrit dans la politique de confidentialité. Le traitement des données personnelles que le client fait transiter par le Service, pour son propre compte, fait l'objet d'un accord de sous-traitance (DPA) distinct, disponible sur demande à " + COMPANY.email + ".",
+    ],
+  },
+  {
+    heading: 'Responsabilité',
+    body: [
+      "TblFlow est tenue à une obligation de moyens dans la fourniture du Service. Sa responsabilité, tous préjudices confondus, est limitée aux sommes effectivement versées par le client au titre des douze derniers mois précédant le fait générateur, à l'exclusion de tout préjudice indirect (perte d'exploitation, perte de données non imputable à TblFlow, perte de chance).",
+      "Cette limitation ne s'applique pas en cas de faute lourde ou intentionnelle, ni dans les cas où la loi l'exclut expressément.",
+    ],
+  },
+  {
+    heading: 'Modification des CGVU',
+    body: [
+      "TblFlow peut modifier les présentes CGVU ; la version en vigueur est celle publiée sur cette page, avec sa date de mise à jour. Toute modification substantielle est communiquée aux clients actifs par email avec un préavis raisonnable avant son entrée en vigueur.",
+    ],
+  },
+  {
+    heading: 'Droit applicable et juridiction',
+    body: [
+      `Les présentes CGVU sont soumises au droit français. Tout litige relatif à leur validité, leur interprétation ou leur exécution relève, à défaut de résolution amiable, de la compétence exclusive des tribunaux du ressort du ${COMPANY.rcs}.`,
+    ],
+  },
+];
+
+/** Bump by hand whenever a TERMS_SECTIONS paragraph changes. */
+export const TERMS_LAST_UPDATED: Record<Locale, string> = t9({
+  fr: 'Dernière mise à jour : 19 août 2026.',
+  en: 'Last updated: August 19, 2026.',
+});

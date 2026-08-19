@@ -1,0 +1,96 @@
+---
+/**
+ * Changelog — one feed page per locale, not one page per entry.
+ *
+ * A changelog is read top-to-bottom in one sitting; giving each entry its own
+ * URL would turn a five-minute skim into a click-through, for content that's
+ * rarely worth deep-linking to individually.
+ */
+import Base from '@/layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import { useTranslations } from '@/i18n/ui';
+import { localePath, formatDate, isoDate } from '@/i18n/utils';
+import { LOCALES, type Locale } from '@/config';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+
+const entries = (
+  await getCollection('changelog', ({ id }) => id.startsWith(`${locale}/`))
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const rendered = await Promise.all(entries.map((entry) => render(entry)));
+
+const typeStyle = {
+  feature: 'text-[var(--color-ai-2)]',
+  improvement: 'text-[var(--fg-muted)]',
+  fix: 'text-[var(--fg-subtle)]',
+} as const;
+
+const typeLabel = {
+  feature: t('changelog.type.feature'),
+  improvement: t('changelog.type.improvement'),
+  fix: t('changelog.type.fix'),
+} as const;
+
+const breadcrumbs = [
+  { name: t('breadcrumbs.home'), path: localePath(locale) },
+  { name: t('changelog.title'), path: localePath(locale, 'changelog') },
+];
+---
+
+<Base
+  locale={locale}
+  title={`${t('changelog.title')} — TblFlow`}
+  description={t('changelog.subtitle')}
+  path={localePath(locale, 'changelog')}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="mx-auto max-w-3xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
+    <h1 class="animate-enter text-4xl font-bold tracking-tight sm:text-5xl">
+      {t('changelog.title')}
+    </h1>
+    <p class="animate-enter delay-1 mt-4 text-lg text-[var(--fg-muted)]">
+      {t('changelog.subtitle')}
+    </p>
+
+    {
+      entries.length === 0 ? (
+        <p class="mt-16 text-[var(--fg-subtle)]">—</p>
+      ) : (
+        <ol class="mt-14 space-y-10 border-l border-[var(--border)] pl-6">
+          {entries.map((entry, i) => {
+            const { Content } = rendered[i]!;
+            return (
+              <li class="reveal relative">
+                <span
+                  class="absolute top-1.5 -left-[1.62rem] h-2.5 w-2.5 rounded-full bg-[var(--bg)] ring-2 ring-[var(--border-strong)]"
+                  aria-hidden="true"
+                />
+                <div class="flex flex-wrap items-center gap-2.5 text-xs">
+                  <time
+                    datetime={isoDate(entry.data.date)}
+                    class="font-mono text-[var(--fg-subtle)]"
+                  >
+                    {formatDate(entry.data.date, locale)}
+                  </time>
+                  <span class={`font-semibold uppercase tracking-wide ${typeStyle[entry.data.type]}`}>
+                    {typeLabel[entry.data.type]}
+                  </span>
+                </div>
+                <h2 class="mt-2 text-lg font-semibold">{entry.data.title}</h2>
+                <div class="prose-site mt-2 max-w-none text-sm">
+                  <Content />
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+      )
+    }
+  </div>
+</Base>
