@@ -25,6 +25,12 @@
 # - googletagmanager.com / google-analytics.com: GA4, only ever fetched after
 #   the visitor grants analytics consent in the cookie banner — see
 #   CookieConsent.astro. Never loaded on page load.
+#
+# script-src-elem duplicates script-src verbatim (same hosts, same hashes).
+# Browsers already fall back to script-src for <script> elements when
+# script-src-elem is absent, so this is redundant per spec — but Google's own
+# CSP checker (developers.google.com/tag-platform/security/guides/csp) flags
+# its absence regardless, so it's kept in sync by hand alongside script-src.
 
 /*
   X-Content-Type-Options: nosniff
@@ -32,7 +38,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com 'sha256-rfNd9yH7gEkmlM1mjjhNfrxk/D1DDgOcYvoqTJIbT8A=' 'sha256-7koozjnq80s+xANrFjsx8+WXwgjadIcNV6cDoBoedJo=' 'sha256-FxQor8T4t8PipZb27gx3gSpz6hpSILI0uzglOCAYiEI=' 'sha256-GBPdk/app65fKpdZw4FQMXqOXxUnx4RmotWgPwsy4g8=' 'sha256-syXM7CFzLRVYS+J5LxIxgJnn1g8fgLIIabESWABCKYk='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; connect-src 'self' https://static.cloudflareinsights.com https://*.google-analytics.com https://*.analytics.google.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com 'sha256-rfNd9yH7gEkmlM1mjjhNfrxk/D1DDgOcYvoqTJIbT8A=' 'sha256-7koozjnq80s+xANrFjsx8+WXwgjadIcNV6cDoBoedJo=' 'sha256-FxQor8T4t8PipZb27gx3gSpz6hpSILI0uzglOCAYiEI=' 'sha256-GBPdk/app65fKpdZw4FQMXqOXxUnx4RmotWgPwsy4g8=' 'sha256-syXM7CFzLRVYS+J5LxIxgJnn1g8fgLIIabESWABCKYk='; script-src-elem 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com 'sha256-rfNd9yH7gEkmlM1mjjhNfrxk/D1DDgOcYvoqTJIbT8A=' 'sha256-7koozjnq80s+xANrFjsx8+WXwgjadIcNV6cDoBoedJo=' 'sha256-FxQor8T4t8PipZb27gx3gSpz6hpSILI0uzglOCAYiEI=' 'sha256-GBPdk/app65fKpdZw4FQMXqOXxUnx4RmotWgPwsy4g8=' 'sha256-syXM7CFzLRVYS+J5LxIxgJnn1g8fgLIIabESWABCKYk='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; connect-src 'self' https://static.cloudflareinsights.com https://*.google-analytics.com https://*.analytics.google.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
 
 # Astro fingerprints everything under /_astro/, so it is safe to cache forever.
 /_astro/*
