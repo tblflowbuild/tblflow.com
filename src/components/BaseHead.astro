@@ -67,6 +67,28 @@ const ogImage = absoluteUrl(image);
   }
 </script>
 
+{/*
+  Google Consent Mode v2 default state — denied, on every page, before
+  anything else runs. This is local `dataLayer` bookkeeping only: no network
+  request, and `gtag.js` itself still isn't fetched until the visitor accepts
+  analytics in CookieConsent.astro. Its only job is to give Google's tooling
+  (and any Google tag added later) a signal to read, since a page that never
+  mentions consent at all reads to that tooling as "not implemented" rather
+  than "implemented and declining by default".
+*/}
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+  });
+</script>
+
 <title>{title}</title>
 <meta name="description" content={description} />
 

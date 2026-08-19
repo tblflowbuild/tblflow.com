@@ -134,6 +134,12 @@ const t = useTranslations(locale);
       }
     };
 
+    /* `gtag` and `dataLayer` already exist — BaseHead.astro seeds the
+       Consent Mode default (denied) before this script ever runs. */
+    const w = window as unknown as { dataLayer: unknown[]; gtag?: (...args: unknown[]) => void };
+    w.dataLayer = w.dataLayer || [];
+    const gtag = w.gtag ?? ((...args: unknown[]) => w.dataLayer.push(args));
+
     const loadGA = () => {
       if (document.getElementById('ga4-script')) return;
       const script = document.createElement('script');
@@ -141,17 +147,12 @@ const t = useTranslations(locale);
       script.async = true;
       script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
       document.head.appendChild(script);
-
-      const w = window as unknown as { dataLayer: unknown[] };
-      w.dataLayer = w.dataLayer || [];
-      function gtag(...args: unknown[]) {
-        w.dataLayer.push(args);
-      }
       gtag('js', new Date());
       gtag('config', gaId, { anonymize_ip: true });
     };
 
     const apply = (consent: Consent) => {
+      gtag('consent', 'update', { analytics_storage: consent.analytics ? 'granted' : 'denied' });
       if (consent.analytics) loadGA();
       root.hidden = true;
     };
