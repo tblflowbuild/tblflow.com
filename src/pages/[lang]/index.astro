@@ -2,6 +2,7 @@
 import Base from '@/layouts/Base.astro';
 import Hero from '@/components/Hero.astro';
 import SurfacesGrid from '@/components/SurfacesGrid.astro';
+import ProvidersStrip from '@/components/ProvidersStrip.astro';
 import FeatureGrid from '@/components/FeatureGrid.astro';
 import PipelineSection from '@/components/PipelineSection.astro';
 import ViewsStrip from '@/components/ViewsStrip.astro';
@@ -95,6 +96,8 @@ const faqSchema = FAQ.map((item) => ({
   <PipelineSection locale={locale} />
 
   <SurfacesGrid locale={locale} />
+
+  <ProvidersStrip locale={locale} />
 
   <ViewsStrip
     locale={locale}

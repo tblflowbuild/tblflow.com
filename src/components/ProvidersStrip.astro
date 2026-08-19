@@ -1,0 +1,54 @@
+---
+/**
+ * "Compatible with the models you already use" — a thin proof strip right
+ * after Surfaces, not a new destination section. It exists to back up, in one
+ * glance, the provider list already named in prose on the AI Agents card:
+ * seeing OpenAI/Anthropic/Google/Mistral/Ollama as marks rather than a
+ * sentence is a faster scan.
+ *
+ * Deliberately not real provider logos: each vendor's mark carries its own
+ * brand-usage rules (colour, minimum size, no implied partnership), and
+ * getting that wrong per-vendor is a bigger risk than the visual upgrade is
+ * worth. A neutral monogram badge makes the same claim without borrowing
+ * anyone's trademark.
+ */
+import { useTranslations } from '@/i18n/ui';
+import type { Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale }: Props = Astro.props;
+const t = useTranslations(locale);
+
+const PROVIDERS = ['OpenAI', 'Anthropic', 'Google', 'Mistral', 'Ollama'];
+---
+
+<section class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+  <div class="reveal flex flex-col items-center gap-2 text-center">
+    <p class="text-sm font-medium text-[var(--fg-muted)]">{t('providers.title')}</p>
+    <p class="text-xs text-[var(--fg-subtle)]">{t('providers.subtitle')}</p>
+  </div>
+
+  <ul class="reveal mt-6 flex flex-wrap items-center justify-center gap-3">
+    {
+      PROVIDERS.map((name) => (
+        <li class="group flex items-center gap-2 rounded-full border border-[var(--border)] px-3.5 py-2 text-sm text-[var(--fg-muted)] transition-colors hover:border-[var(--border-strong)] hover:text-[var(--fg)]">
+          <span
+            class="ai-gradient-bg flex h-5 w-5 shrink-0 items-center justify-center rounded-md text-[10px] font-bold text-white opacity-70 transition-opacity group-hover:opacity-100"
+            aria-hidden="true"
+          >
+            {name[0]}
+          </span>
+          {name}
+        </li>
+      ))
+    }
+    <li class="px-2 text-sm text-[var(--fg-subtle)]">
+      <a href="#faq" class="underline decoration-dotted underline-offset-4 hover:text-[var(--fg)]">
+        {t('providers.more')}
+      </a>
+    </li>
+  </ul>
+</section>
