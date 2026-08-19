@@ -65,6 +65,10 @@ export const LOCALE_FLAG: Record<Locale, string> = {
 };
 
 export const APP_URL = 'https://app.tblflow.com';
+
+/** GA4 property. Never fetched until the visitor grants analytics consent —
+ * see CookieConsent.astro. */
+export const GA_MEASUREMENT_ID = 'G-H4VC2RJFZY';
 export const GITHUB_URL = 'https://github.com/TomTomCoder/nSidr';
 export const SUPPORT_EMAIL = 'support@tblflow.com';
 

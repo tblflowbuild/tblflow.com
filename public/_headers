@@ -8,14 +8,23 @@
 # Note on 'unsafe-inline' for style-src: Astro emits a small inline style block for
 # scoped component styles.
 #
-# script-src carries no 'unsafe-inline': Astro inlines its three small per-page
-# scripts (theme FOUC guard, theme-switch reveal, FAQ filter) directly into the
-# HTML rather than extracting them to /_astro/, so each is allowed by exact
-# sha256 hash instead. Their content is identical on every page (verified across
-# builds), so one hash per script covers the whole site — but the hash MUST be
-# regenerated (`shasum -a 256 | base64`, or the browser console's blocked-by-CSP
-# error, which prints the expected hash) whenever that script's source changes,
-# or the deployed page silently loses the FOUC guard and the theme toggle.
+# script-src carries no 'unsafe-inline': Astro inlines its small per-page
+# scripts (theme FOUC guard, theme-switch reveal, FAQ filter, cookie-consent
+# banner) directly into the HTML rather than extracting them to /_astro/, so
+# each is allowed by exact sha256 hash instead. Their content is identical on
+# every page (verified across builds), so one hash per script covers the whole
+# site — but the hash MUST be regenerated (`shasum -a 256 | base64`, or the
+# browser console's blocked-by-CSP error, which prints the expected hash)
+# whenever that script's source changes, or the deployed page silently loses
+# that behaviour.
+#
+# Two external hosts are allowed beyond 'self', both consent-gated or
+# consent-exempt by design:
+# - static.cloudflareinsights.com: Cloudflare Web Analytics, auto-injected at
+#   the edge (no code here). Cookieless — no consent required.
+# - googletagmanager.com / google-analytics.com: GA4, only ever fetched after
+#   the visitor grants analytics consent in the cookie banner — see
+#   CookieConsent.astro. Never loaded on page load.
 
 /*
   X-Content-Type-Options: nosniff
@@ -23,7 +32,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-rfNd9yH7gEkmlM1mjjhNfrxk/D1DDgOcYvoqTJIbT8A=' 'sha256-FxQor8T4t8PipZb27gx3gSpz6hpSILI0uzglOCAYiEI=' 'sha256-GBPdk/app65fKpdZw4FQMXqOXxUnx4RmotWgPwsy4g8='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com 'sha256-rfNd9yH7gEkmlM1mjjhNfrxk/D1DDgOcYvoqTJIbT8A=' 'sha256-FxQor8T4t8PipZb27gx3gSpz6hpSILI0uzglOCAYiEI=' 'sha256-GBPdk/app65fKpdZw4FQMXqOXxUnx4RmotWgPwsy4g8=' 'sha256-KgSgDE8dFcIKgUahmcOGCZ2aZe5WBdOuAwXrz62SfJo='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com; font-src 'self'; connect-src 'self' https://static.cloudflareinsights.com https://*.google-analytics.com https://*.analytics.google.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
 
 # Astro fingerprints everything under /_astro/, so it is safe to cache forever.
 /_astro/*

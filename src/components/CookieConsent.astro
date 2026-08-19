@@ -1,0 +1,190 @@
+---
+/**
+ * Cookie consent banner, native `<dialog>`-free and zero third-party CMP.
+ *
+ * Only one non-essential purpose exists today (Google Analytics), so this is
+ * intentionally small — a category list of one, built so a second category
+ * (e.g. ad_storage, if Google Ads ever lands) is one more entry in
+ * `CATEGORIES`, not a rewrite.
+ *
+ * GA4 is never fetched until the visitor grants analytics consent: Consent
+ * Mode's "unconditional load, cookieless ping" pattern is Google's own
+ * recommendation, but this site's CSP already treats every external request as
+ * something that has to earn its place — so gtag.js is only injected after an
+ * explicit accept, not on page load with consent merely defaulted to denied.
+ *
+ * The choice lives in localStorage, the same mechanism the theme toggle
+ * already uses and — like that one — exempt from consent itself: recording
+ * "the visitor said no" is not a tracking purpose.
+ */
+import { useTranslations } from '@/i18n/ui';
+import type { Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+  gaId: string;
+}
+
+const { locale, gaId }: Props = Astro.props;
+const t = useTranslations(locale);
+---
+
+<div id="cookie-consent" class="fixed inset-x-0 bottom-0 z-50 p-3" data-ga-id={gaId} hidden>
+  <div
+    class="card mx-auto flex max-w-3xl flex-col gap-3 p-3.5 shadow-xl sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
+    role="dialog"
+    aria-modal="false"
+    aria-labelledby="cookie-consent-title"
+  >
+    <p class="text-xs leading-snug text-[var(--fg-muted)] sm:flex-1">
+      <strong id="cookie-consent-title" class="font-semibold text-[var(--fg)]">{t('consent.title')}</strong>
+      {' '}
+      {t('consent.body')}
+    </p>
+
+    <div class="flex shrink-0 flex-wrap items-center gap-1.5">
+      <button
+        type="button"
+        data-consent-customize
+        class="rounded-md px-2.5 py-1.5 text-xs font-medium text-[var(--fg-muted)] transition-colors hover:bg-[var(--bg-subtle)] hover:text-[var(--fg)]"
+      >
+        {t('consent.customize')}
+      </button>
+      <button
+        type="button"
+        data-consent-reject
+        class="rounded-md border border-[var(--border-strong)] px-2.5 py-1.5 text-xs font-medium transition-colors hover:bg-[var(--bg-subtle)]"
+      >
+        {t('consent.rejectAll')}
+      </button>
+      <button
+        type="button"
+        data-consent-save
+        class="ai-gradient-bg rounded-md px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition-transform hover:-translate-y-px"
+        hidden
+      >
+        {t('consent.save')}
+      </button>
+      <button
+        type="button"
+        data-consent-accept
+        class="ai-gradient-bg rounded-md px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition-transform hover:-translate-y-px"
+      >
+        {t('consent.acceptAll')}
+      </button>
+    </div>
+
+    <div
+      class="order-last w-full space-y-2.5 border-t border-[var(--border)] pt-3 sm:basis-full"
+      data-consent-panel
+      hidden
+    >
+      <div>
+        <div class="flex items-center justify-between gap-3">
+          <span class="text-xs font-medium">{t('consent.essential.title')}</span>
+          <input type="checkbox" checked disabled aria-label={t('consent.essential.title')} />
+        </div>
+        <p class="mt-0.5 text-xs text-[var(--fg-subtle)]">{t('consent.essential.body')}</p>
+      </div>
+      <div>
+        <div class="flex items-center justify-between gap-3">
+          <span class="text-xs font-medium">{t('consent.analytics.title')}</span>
+          <input type="checkbox" data-consent-category="analytics" aria-label={t('consent.analytics.title')} />
+        </div>
+        <p class="mt-0.5 text-xs text-[var(--fg-subtle)]">{t('consent.analytics.body')}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /**
+   * Consent categories always include `essential` implicitly (nothing to
+   * gate). `analytics` gates GA4. Stored as `{analytics: boolean}` — add a
+   * key here and a matching category in the markup above for the next one.
+   */
+  type Consent = { analytics: boolean };
+
+  const KEY = 'cookie-consent';
+  const root = document.getElementById('cookie-consent');
+  if (root) {
+    const gaId = root.dataset.gaId!;
+    const panel = root.querySelector<HTMLElement>('[data-consent-panel]')!;
+    const analyticsBox = root.querySelector<HTMLInputElement>('[data-consent-category="analytics"]')!;
+    const customizeBtn = root.querySelector<HTMLButtonElement>('[data-consent-customize]')!;
+    const saveBtn = root.querySelector<HTMLButtonElement>('[data-consent-save]')!;
+    const acceptBtn = root.querySelector<HTMLButtonElement>('[data-consent-accept]')!;
+    const rejectBtn = root.querySelector<HTMLButtonElement>('[data-consent-reject]')!;
+
+    const read = (): Consent | null => {
+      try {
+        const raw = localStorage.getItem(KEY);
+        return raw ? JSON.parse(raw) : null;
+      } catch {
+        return null;
+      }
+    };
+
+    const loadGA = () => {
+      if (document.getElementById('ga4-script')) return;
+      const script = document.createElement('script');
+      script.id = 'ga4-script';
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+      document.head.appendChild(script);
+
+      const w = window as unknown as { dataLayer: unknown[] };
+      w.dataLayer = w.dataLayer || [];
+      function gtag(...args: unknown[]) {
+        w.dataLayer.push(args);
+      }
+      gtag('js', new Date());
+      gtag('config', gaId, { anonymize_ip: true });
+    };
+
+    const apply = (consent: Consent) => {
+      if (consent.analytics) loadGA();
+      root.hidden = true;
+    };
+
+    const write = (consent: Consent) => {
+      try {
+        localStorage.setItem(KEY, JSON.stringify(consent));
+      } catch {
+        /* Storage blocked — the choice still applies for this page view. */
+      }
+      apply(consent);
+    };
+
+    const existing = read();
+    if (existing) {
+      apply(existing);
+    } else {
+      root.hidden = false;
+    }
+
+    customizeBtn.addEventListener('click', () => {
+      panel.hidden = !panel.hidden;
+      saveBtn.hidden = panel.hidden;
+      acceptBtn.hidden = !panel.hidden;
+    });
+    saveBtn.addEventListener('click', () => write({ analytics: analyticsBox.checked }));
+    acceptBtn.addEventListener('click', () => write({ analytics: true }));
+    rejectBtn.addEventListener('click', () => write({ analytics: false }));
+
+    /* Footer "Manage cookies" link reopens the banner with the current choice
+       pre-filled, rather than resetting it — a visitor checking their settings
+       should not have to re-decide from scratch. */
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('[data-consent-manage]')) return;
+      e.preventDefault();
+      const current = read();
+      analyticsBox.checked = current?.analytics ?? false;
+      panel.hidden = false;
+      saveBtn.hidden = false;
+      acceptBtn.hidden = true;
+      root.hidden = false;
+    });
+  }
+</script>

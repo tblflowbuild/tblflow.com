@@ -82,6 +82,9 @@ const columns: Array<{ title: string; links: Array<{ label: string; href: string
       class="reveal mt-12 flex flex-col gap-3 border-t border-[var(--border)] pt-6 text-xs text-[var(--fg-subtle)] sm:flex-row sm:items-center sm:justify-between"
     >
       <p>&copy; {year} TblFlow. {t('footer.rights')}</p>
+      <button type="button" data-consent-manage class="transition-colors hover:text-[var(--fg)]">
+        {t('footer.manageCookies')}
+      </button>
       <p>{t('footer.stack')}</p>
     </div>
   </div>
