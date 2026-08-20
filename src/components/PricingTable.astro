@@ -1,5 +1,5 @@
 ---
-import { TIERS, QUOTAS } from '@/data/pricing';
+import { TIERS, QUOTAS, API_RATE_LIMIT_NOTE } from '@/data/pricing';
 import { useTranslations } from '@/i18n/ui';
 import { SUPPORT_EMAIL, type Locale } from '@/config';
 
@@ -138,6 +138,7 @@ const t = useTranslations(locale);
             </tbody>
           </table>
         </div>
+        <p class="mt-3 text-xs text-[var(--fg-subtle)]">{API_RATE_LIMIT_NOTE[locale]}</p>
       </div>
     )
   }

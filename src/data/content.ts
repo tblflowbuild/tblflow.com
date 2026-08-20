@@ -37,8 +37,8 @@ export const SURFACES: Feature[] = [
     icon: 'M13 2 3 14h7l-1 8 10-12h-7z',
     title: t9({ fr: 'Automations', en: 'Automations' }),
     body: t9({
-      fr: "Des workflows déclenchés par événement ou par cron, à étapes multiples, avec des étapes d'approbation humaine là où elles sont nécessaires. Exécutions illimitées sur tous les paliers.",
-      en: 'Event-driven and cron-triggered workflows, multi-step, with human approval steps where they are needed. Unlimited runs on every tier.',
+      fr: "Des workflows déclenchés par événement ou par cron, à étapes multiples, avec des étapes d'approbation humaine là où elles sont nécessaires. Nombre de workflows illimité ; le nombre d'exécutions mensuelles dépend du palier — voir les tarifs.",
+      en: 'Event-driven and cron-triggered workflows, multi-step, with human approval steps where they are needed. Unlimited workflows; monthly runs depend on your tier — see pricing.',
     }),
   },
   {

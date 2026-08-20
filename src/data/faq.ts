@@ -134,8 +134,8 @@ export const FAQ: FaqItem[] = [
       en: 'How many rows can TblFlow handle?',
     }),
     answer: t9({
-      fr: "TblFlow filtre, trie, groupe et cherche sur des millions de lignes avec un temps de réponse inférieur à la seconde. La grille est rendue en canvas et ne redessine que la zone visible, ce qui fait que la performance d'affichage ne se dégrade pas avec le nombre de lignes. Le palier Cloud gratuit et les paliers payants n'imposent pas de limite de lignes par base.",
-      en: 'TblFlow filters, sorts, groups and searches across millions of rows with sub-second response times. The grid renders to canvas and only redraws the visible region, so display performance does not degrade as row count grows. Neither the free Cloud tier nor the paid tiers impose a row limit per base.',
+      fr: "TblFlow filtre, trie, groupe et cherche sur des millions de lignes avec un temps de réponse inférieur à la seconde : la grille est rendue en canvas et ne redessine que la zone visible, donc la performance d'affichage ne se dégrade pas avec le nombre de lignes. Le nombre de lignes par table dépend en revanche du palier : 5 000 sur le palier Gratuit, jusqu'à 1 000 000 sur Business, illimité sur Enterprise — voir la page tarifs pour le détail par palier.",
+      en: 'TblFlow filters, sorts, groups and searches across millions of rows with sub-second response times: the grid renders to canvas and only redraws the visible region, so display performance does not degrade as row count grows. Rows per table, however, do depend on your tier: 5,000 on the Free tier, up to 1,000,000 on Business, unlimited on Enterprise — see the pricing page for the full breakdown.',
     }),
   },
   {

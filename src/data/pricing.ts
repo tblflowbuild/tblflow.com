@@ -1,9 +1,19 @@
 import { t9, type Locale } from '@/config';
 
 /**
- * SaaS Cloud tiers, transcribed verbatim from `.planning/SALES-POSITIONING-2026.md`
- * ("SaaS Cloud Pricing Table"). Figures are not invented or rounded here — if a
- * price changes, it changes in that document first and then here.
+ * SaaS Cloud tiers. Prices and quotas are transcribed from `PLAN_LIMITS` in
+ * `packages/openapi/src/billing/plan-limits.ts` in the `teable-ee` repo — the
+ * constant the backend actually enforces (`quota.service.ts` for
+ * bases/seats/storage/agents/workflows/computer-use, `creditCheck()` in
+ * `record.service.ts` for rows per table). If a figure here disagrees with
+ * that file, that file is right and this one is stale — check there first.
+ *
+ * "Unlimited AI agents/automations" describes the *number of objects* you can
+ * create, not how often they run — execution counts are metered separately
+ * (`maxAgentRunsPerMonth`, `maxWorkflowRunsPerMonth`) and shown per tier
+ * below. Stating "unlimited" without that distinction on the pricing page is
+ * what a customer actually reads as a commercial promise, so it does not
+ * appear here without the execution number attached.
  */
 
 export type TierId = 'free' | 'pro' | 'business' | 'enterprise';
@@ -34,8 +44,18 @@ export const TIERS: Tier[] = [
     cta: t9({ fr: 'Commencer', en: 'Get started' }),
     ctaHref: 'https://app.tblflow.com/auth/signup',
     highlights: t9({
-      fr: ['1 base', '1 utilisateur', '1 Go de stockage', 'Agents IA, automatisations et requêtes API illimités', 'Support communautaire'],
-      en: ['1 base', '1 user', '1 GB storage', 'Unlimited AI agents, automations and API requests', 'Community support'],
+      fr: [
+        '1 base · 1 espace · 1 utilisateur',
+        '1 Go de stockage · 5 000 lignes par table',
+        'Agents IA et automatisations illimités en nombre — 100 exécutions/mois',
+        'Support communautaire',
+      ],
+      en: [
+        '1 base · 1 space · 1 user',
+        '1 GB storage · 5,000 rows per table',
+        'Unlimited AI agents and automations — 100 runs/month',
+        'Community support',
+      ],
     }),
   },
   {
@@ -52,14 +72,14 @@ export const TIERS: Tier[] = [
     highlights: t9({
       fr: [
         '5 bases · 3 utilisateurs',
-        'Agents IA, automatisations et requêtes API illimités',
-        '100 Go de stockage',
+        '100 Go de stockage · 100 000 lignes par table',
+        'Agents IA et automatisations illimités en nombre — 5 000 exécutions/mois',
         'Support par email · SLA 99,5 %',
       ],
       en: [
         '5 bases · 3 users',
-        'Unlimited AI agents, automations and API requests',
-        '100 GB storage',
+        '100 GB storage · 100,000 rows per table',
+        'Unlimited AI agents and automations — 5,000 runs/month',
         'Email support · 99.5% SLA',
       ],
     }),
@@ -78,14 +98,16 @@ export const TIERS: Tier[] = [
     highlights: t9({
       fr: [
         '30 bases · 10 utilisateurs',
-        'Agents IA, automatisations et requêtes API illimités',
-        '500 Go de stockage',
+        '500 Go de stockage · 1 000 000 lignes par table',
+        'Agents IA et automatisations illimités en nombre — 50 000 exécutions/mois',
+        'SSO / SAML · marque blanche · audit avancé',
         'Support prioritaire · SLA 99,9 %',
       ],
       en: [
         '30 bases · 10 users',
-        'Unlimited AI agents, automations and API requests',
-        '500 GB storage',
+        '500 GB storage · 1,000,000 rows per table',
+        'Unlimited AI agents and automations — 50,000 runs/month',
+        'SSO / SAML · white-label · advanced audit',
         'Priority support · 99.9% SLA',
       ],
     }),
@@ -119,9 +141,9 @@ export const TIERS: Tier[] = [
 ];
 
 /**
- * The full quota grid. Values are strings (not numbers) because the source table
- * mixes exact figures, "100+", and "Unlimited" — normalising them into numbers
- * would lose information the pricing page needs to show as-is.
+ * The full quota grid. Values are strings (not numbers) because the source
+ * mixes exact figures and "Unlimited" — normalising them into numbers would
+ * lose information the pricing page needs to show as-is.
  */
 export interface QuotaRow {
   label: Record<Locale, string>;
@@ -130,6 +152,12 @@ export interface QuotaRow {
 
 const NO: Record<Locale, string> = t9({ fr: '—', en: '—' });
 const UNLIMITED: Record<Locale, string> = t9({ fr: 'Illimité', en: 'Unlimited' });
+/** `maxRowsPerTable`, `maxAgentRunsPerMonth`, etc. — every tier below Enterprise
+ * genuinely caps this. */
+const NO_MONTHLY_QUOTA: Record<Locale, string> = t9({
+  fr: 'Sans quota mensuel',
+  en: 'No monthly quota',
+});
 
 export const QUOTAS: QuotaRow[] = [
   {
@@ -151,18 +179,9 @@ export const QUOTAS: QuotaRow[] = [
     },
   },
   {
-    label: t9({ fr: 'Agents IA / mois', en: 'AI agents / month' }),
+    label: t9({ fr: 'Espaces gratuits par utilisateur', en: 'Free spaces per user' }),
     values: {
-      free: UNLIMITED,
-      pro: UNLIMITED,
-      business: UNLIMITED,
-      enterprise: UNLIMITED,
-    },
-  },
-  {
-    label: t9({ fr: 'Automatisations / mois', en: 'Automations / month' }),
-    values: {
-      free: UNLIMITED,
+      free: t9({ fr: '1', en: '1' }),
       pro: UNLIMITED,
       business: UNLIMITED,
       enterprise: UNLIMITED,
@@ -178,12 +197,66 @@ export const QUOTAS: QuotaRow[] = [
     },
   },
   {
+    label: t9({ fr: 'Lignes par table', en: 'Rows per table' }),
+    values: {
+      free: t9({ fr: '5 000', en: '5,000' }),
+      pro: t9({ fr: '100 000', en: '100,000' }),
+      business: t9({ fr: '1 000 000', en: '1,000,000' }),
+      enterprise: UNLIMITED,
+    },
+  },
+  {
+    label: t9({ fr: 'Exécutions d’agents IA / mois', en: 'AI agent runs / month' }),
+    values: {
+      free: t9({ fr: '100', en: '100' }),
+      pro: t9({ fr: '5 000', en: '5,000' }),
+      business: t9({ fr: '50 000', en: '50,000' }),
+      enterprise: UNLIMITED,
+    },
+  },
+  {
+    label: t9({ fr: 'Exécutions de workflows / mois', en: 'Workflow runs / month' }),
+    values: {
+      free: t9({ fr: '500', en: '500' }),
+      pro: t9({ fr: '25 000', en: '25,000' }),
+      business: t9({ fr: '250 000', en: '250,000' }),
+      enterprise: UNLIMITED,
+    },
+  },
+  {
+    label: t9({ fr: 'E-mails d’automatisation / mois', en: 'Automation emails / month' }),
+    values: {
+      free: t9({ fr: '50', en: '50' }),
+      pro: t9({ fr: '2 000', en: '2,000' }),
+      business: t9({ fr: '20 000', en: '20,000' }),
+      enterprise: UNLIMITED,
+    },
+  },
+  {
+    label: t9({ fr: 'Computer use — minutes / mois', en: 'Computer use — minutes / month' }),
+    values: {
+      free: t9({ fr: '30', en: '30' }),
+      pro: t9({ fr: '600', en: '600' }),
+      business: t9({ fr: '3 000', en: '3,000' }),
+      enterprise: UNLIMITED,
+    },
+  },
+  {
+    label: t9({ fr: 'Computer use — replays / mois', en: 'Computer use — replays / month' }),
+    values: {
+      free: t9({ fr: '10', en: '10' }),
+      pro: t9({ fr: '200', en: '200' }),
+      business: t9({ fr: '1 000', en: '1,000' }),
+      enterprise: UNLIMITED,
+    },
+  },
+  {
     label: t9({ fr: 'Requêtes API / mois', en: 'API requests / month' }),
     values: {
-      free: UNLIMITED,
-      pro: UNLIMITED,
-      business: UNLIMITED,
-      enterprise: UNLIMITED,
+      free: NO_MONTHLY_QUOTA,
+      pro: NO_MONTHLY_QUOTA,
+      business: NO_MONTHLY_QUOTA,
+      enterprise: NO_MONTHLY_QUOTA,
     },
   },
   {
@@ -214,3 +287,11 @@ export const QUOTAS: QuotaRow[] = [
     },
   },
 ];
+
+/** Shown once, below the quota table — the API row's "no monthly quota" is not
+ * the same claim as "no limit at all": a global, tier-independent rate limit
+ * still applies (`BACKEND_THROTTLE_LIMIT`/`BACKEND_THROTTLE_TTL_MS`). */
+export const API_RATE_LIMIT_NOTE: Record<Locale, string> = t9({
+  fr: 'Aucun quota mensuel sur les requêtes API, mais une limitation de débit globale de 100 requêtes par minute par défaut s’applique à tous les paliers.',
+  en: 'No monthly quota on API requests, but a global rate limit of 100 requests per minute by default applies across every tier.',
+});
