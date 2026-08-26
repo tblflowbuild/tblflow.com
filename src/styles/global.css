@@ -393,6 +393,17 @@
   box-shadow: var(--shadow-card);
 }
 
+/* A quiet gradient wash for the odd card in an otherwise-identical grid — see
+ * SurfacesGrid.astro. Two tints in six cards is enough to break the "six
+ * identical dark boxes" rhythm without turning the grid into a mood board. */
+.sf-tint {
+  background-image: radial-gradient(
+    ellipse 140% 100% at 100% 0%,
+    color-mix(in oklab, var(--color-ai-2) 14%, transparent),
+    transparent 60%
+  );
+}
+
 /* ---------------------------------------------------------------------------
  * "Blueprint" motifs — a faint dot-grid, corner crosshair ticks, and a soft
  * top-down glow. Reserved for section backdrops (hero, closing CTA, the "why"

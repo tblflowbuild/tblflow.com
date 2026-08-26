@@ -3,7 +3,7 @@ import Logo from './Logo.astro';
 import HeroCards from './HeroCards.astro';
 import StepsRibbon from './StepsRibbon.astro';
 import { useTranslations } from '@/i18n/ui';
-import type { Locale } from '@/config';
+import { APP_URL, type Locale } from '@/config';
 
 interface Props {
   locale: Locale;
@@ -106,6 +106,17 @@ const proof = [
     >
       {t('hero.subtitle')}
     </p>
+
+    {/* One CTA, not the original pair — a Persuade-mode page needs a primary
+        action reachable without scrolling, but the pipeline demo right below
+        is the real pitch, so a secondary "see pricing" button here would only
+        compete with it. */}
+    <a
+      href={`${APP_URL}/auth/signup`}
+      class="ai-gradient-bg animate-gradient animate-enter delay-4 mt-9 inline-block rounded-xl px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5"
+    >
+      {t('hero.cta.primary')}
+    </a>
 
     <dl
       class="animate-enter delay-4 mx-auto mt-14 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4"

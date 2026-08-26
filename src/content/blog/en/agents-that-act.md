@@ -11,6 +11,18 @@ There is a difference in kind between "an AI that answers questions about your d
 
 Here are the three mechanisms that separate them in TblFlow.
 
+## Agent, automation, or by hand?
+
+Before the internal mechanisms, a simpler question: when do you even need an agent?
+
+Three cases, three different answers:
+
+- **The rule is known and doesn't change** — "when a deal's stage moves to Won, send a welcome email." An [automation](/en/docs/automations) is enough: same input, same path, same result, and it's more predictable than an agent for this exact case.
+- **The decision depends on the content, case by case** — triaging inbound requests that all look different, qualifying a lead based on what they wrote, summarising a week of activity. Nobody is going to write a rule that covers every case in advance: that is exactly an agent's job.
+- **It's a one-off, or it happens once** — you need neither an agent nor an automation, just do it by hand. A mechanism that watches continuously for something that will only happen once is wasted overhead.
+
+The most reliable signal: if you can already describe the rule in one sentence shaped like "when X, do Y," that's an automation. If the sentence ends with "... and it depends," that's an agent.
+
 ## 1. Nothing is written without a proposal
 
 When a TblFlow agent decides to create a table, add a field or change records, it does not do it. It emits a **proposal**: a preview of what would change, with an id. You accept it, and only then does the write happen.

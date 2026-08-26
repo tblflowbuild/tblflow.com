@@ -11,6 +11,18 @@ Il y a une différence de nature entre « une IA qui répond à des questions su
 
 Voici les trois mécanismes qui, chez nous, séparent les deux.
 
+## Agent, automatisation, ou à la main ?
+
+Avant les mécanismes internes, une question plus simple : quand a-t-on seulement besoin d'un agent ?
+
+Trois cas, trois réponses différentes :
+
+- **La règle est connue et ne change pas** — « quand un statut passe à Gagné, envoyer un email de bienvenue ». Une [automatisation](/fr/docs/automatisations) suffit : même entrée, même chemin, même résultat, et c'est plus prévisible qu'un agent pour ce cas précis.
+- **La décision dépend du contenu, au cas par cas** — trier des demandes entrantes hétérogènes, qualifier un prospect selon ce qu'il a écrit, résumer une semaine d'activité. Personne n'écrira une règle qui couvre tous les cas à l'avance : c'est exactement le travail d'un agent.
+- **C'est ponctuel, ou ça arrive une fois** — pas besoin d'agent ni d'automatisation, faites-le à la main. Un mécanisme qui surveille en permanence pour une action qui n'arrivera qu'une fois est une dépense inutile.
+
+Le signal le plus fiable : si vous savez déjà décrire la règle en une phrase du type « quand X, fais Y », c'est une automatisation. Si la phrase se termine par « … et ça dépend », c'est un agent.
+
 ## 1. Rien n'est écrit sans proposition
 
 Quand un agent TblFlow décide de créer une table, d'ajouter un champ ou de modifier des enregistrements, il ne le fait pas. Il émet une **proposition** : un aperçu de ce qui changerait, avec un identifiant. Vous l'acceptez, et alors seulement l'écriture a lieu.

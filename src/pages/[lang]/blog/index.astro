@@ -22,6 +22,10 @@ const posts = (await getCollection('blog', ({ id, data }) => id.startsWith(`${lo
 
 const slugOf = (id: string) => id.replace(`${locale}/`, '');
 
+/** Deduplicated, in first-seen order — stable across builds since `posts` is
+ * already sorted by date. */
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+
 const meta = {
   de: {
     title: 'TblFlow-Blog — Produkt, Anleitungen und Engineering',
@@ -96,9 +100,55 @@ const breadcrumbs = [
       posts.length === 0 ? (
         <p class="mt-16 text-[var(--fg-subtle)]">{t('blog.empty')}</p>
       ) : (
-        <ul class="mt-14 space-y-4">
+        <div class="mt-14" data-blog-root>
+          {/* Controls are injected here by the script — hidden from no-JS
+              visitors, same reasoning as the FAQ's search/filter. */}
+          <div data-blog-controls hidden>
+            <label class="block">
+              <span class="sr-only-focusable absolute">{t('blog.search')}</span>
+              <input
+                type="search"
+                data-blog-search
+                placeholder={t('blog.search')}
+                autocomplete="off"
+                class="w-full rounded-xl border border-[var(--border-strong)] bg-[var(--bg-raised)] px-4 py-3 text-sm outline-none focus:border-transparent"
+              />
+            </label>
+
+            {
+              tags.length > 0 && (
+                <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label={t('blog.title')}>
+                  <button
+                    type="button"
+                    data-blog-filter="all"
+                    aria-pressed="true"
+                    class="rounded-full border border-[var(--border-strong)] px-3 py-1.5 text-xs font-medium transition-colors aria-pressed:bg-[var(--fg)] aria-pressed:text-[var(--bg)]"
+                  >
+                    {t('blog.filterAll')}
+                  </button>
+                  {tags.map((tag) => (
+                    <button
+                      type="button"
+                      data-blog-filter={tag}
+                      aria-pressed="false"
+                      class="rounded-full border border-[var(--border-strong)] px-3 py-1.5 text-xs font-medium transition-colors aria-pressed:bg-[var(--fg)] aria-pressed:text-[var(--bg)]"
+                    >
+                      {tag}
+                    </button>
+                  ))}
+                </div>
+              )
+            }
+          </div>
+
+          <ul class="mt-6 space-y-4">
           {posts.map((post) => (
-            <li class="reveal">
+            <li
+              class="reveal"
+              data-blog-item
+              data-blog-tags={post.data.tags.join(' ')}
+              data-blog-text={`${post.data.title} ${post.data.description}`.toLowerCase()}
+            >
               <a
                 href={localePath(locale, `blog/${slugOf(post.id)}`)}
                 class="card group block p-6 transition-shadow hover:shadow-lg"
@@ -149,8 +199,58 @@ const breadcrumbs = [
               </a>
             </li>
           ))}
-        </ul>
+          </ul>
+
+          <p data-blog-empty hidden class="mt-6 text-center text-sm text-[var(--fg-subtle)]">
+            {t('blog.noResults')}
+          </p>
+        </div>
       )
     }
   </div>
 </Base>
+
+<script>
+  /** Same ~40-line pattern as the FAQ's search/filter — see Faq.astro. */
+  const root = document.querySelector<HTMLElement>('[data-blog-root]');
+  if (root) {
+    const controls = root.querySelector<HTMLElement>('[data-blog-controls]');
+    const search = root.querySelector<HTMLInputElement>('[data-blog-search]');
+    const empty = root.querySelector<HTMLElement>('[data-blog-empty]');
+    const items = Array.from(root.querySelectorAll<HTMLElement>('[data-blog-item]'));
+    const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-blog-filter]'));
+
+    controls?.removeAttribute('hidden');
+
+    let tag = 'all';
+    let query = '';
+
+    const apply = () => {
+      let visible = 0;
+      for (const item of items) {
+        const itemTags = (item.dataset.blogTags ?? '').split(' ');
+        const matchesTag = tag === 'all' || itemTags.includes(tag);
+        const matchesQuery = query === '' || (item.dataset.blogText ?? '').includes(query);
+        const show = matchesTag && matchesQuery;
+        item.hidden = !show;
+        if (show) visible++;
+      }
+      if (empty) empty.hidden = visible > 0;
+    };
+
+    search?.addEventListener('input', () => {
+      query = (search.value ?? '').trim().toLowerCase();
+      apply();
+    });
+
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+        tag = button.dataset.blogFilter ?? 'all';
+        for (const other of buttons) {
+          other.setAttribute('aria-pressed', String(other === button));
+        }
+        apply();
+      });
+    }
+  }
+</script>
