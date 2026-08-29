@@ -13,7 +13,40 @@ const { locale, showQuotas = true } = Astro.props;
 const t = useTranslations(locale);
 ---
 
-<section id="pricing" class="mx-auto max-w-6xl scroll-mt-24 px-4 py-16 sm:px-6">
+<section id="pricing" class="mx-auto max-w-6xl scroll-mt-24 px-4 py-16 sm:px-6" data-billing-root>
+  {/*
+    Monthly/annual toggle — progressive enhancement, same ~15-line pattern as
+    the FAQ/blog filters. The annual price shown is real (one month free,
+    computed in `pricing.ts`), but no Stripe annual price exists yet: every
+    CTA still links to the same monthly signup URL regardless of the toggle
+    state, and the note below says so explicitly rather than letting the
+    visitor assume the switch changes what they're about to pay.
+  */}
+  <div class="reveal mb-8 flex flex-col items-center gap-2">
+    <div class="inline-flex rounded-full border border-[var(--border-strong)] p-1 text-sm">
+      <button
+        type="button"
+        data-billing-toggle="monthly"
+        aria-pressed="true"
+        class="rounded-full px-4 py-1.5 font-medium transition-colors aria-pressed:bg-[var(--fg)] aria-pressed:text-[var(--bg)]"
+      >
+        {t('pricing.billing.monthly')}
+      </button>
+      <button
+        type="button"
+        data-billing-toggle="annual"
+        aria-pressed="false"
+        class="flex items-center gap-1.5 rounded-full px-4 py-1.5 font-medium transition-colors aria-pressed:bg-[var(--fg)] aria-pressed:text-[var(--bg)]"
+      >
+        {t('pricing.billing.annual')}
+        <span class="ai-gradient-bg rounded-full px-2 py-0.5 text-[10px] font-semibold text-white">
+          {t('pricing.billing.save')}
+        </span>
+      </button>
+    </div>
+    <p class="max-w-md text-center text-xs text-[var(--fg-subtle)]">{t('pricing.billing.note')}</p>
+  </div>
+
   {/*
     Subgrid, so the four cards align row-by-row — name, tagline, price, CTA and
     feature list each share a baseline across all four. With plain flex columns the
@@ -43,16 +76,35 @@ const t = useTranslations(locale);
           {/* The Free tier shows "$0", not the word "Free" — the tier is already
               named "Free" right above, and a uniform price row ($0 / $29 / $99 /
               Custom) is what lets the subgrid align cleanly. */}
-          <p class="mt-5 flex items-baseline gap-1">
+          <div class="mt-5">
             {tier.price === null ? (
-              <span class="text-3xl font-bold">{t('pricing.custom')}</span>
-            ) : (
-              <>
+              <p class="flex items-baseline gap-1">
+                <span class="text-3xl font-bold">{t('pricing.custom')}</span>
+              </p>
+            ) : tier.annualPrice === null ? (
+              <p class="flex items-baseline gap-1">
                 <span class="text-4xl font-bold">${tier.price}</span>
                 <span class="text-sm text-[var(--fg-subtle)]">{t('pricing.month')}</span>
+              </p>
+            ) : (
+              <>
+                <p class="flex items-baseline gap-1" data-billing-price="monthly">
+                  <span class="text-4xl font-bold">${tier.price}</span>
+                  <span class="text-sm text-[var(--fg-subtle)]">{t('pricing.month')}</span>
+                </p>
+                <p class="flex items-baseline gap-1" data-billing-price="annual" hidden>
+                  <span class="text-4xl font-bold">${tier.annualPrice}</span>
+                  <span class="text-sm text-[var(--fg-subtle)]">{t('pricing.month')}</span>
+                </p>
+                <p class="mt-1 text-xs text-[var(--fg-subtle)]">
+                  <span data-billing-caption="monthly">{t('pricing.billing.perMonthMonthly')}</span>
+                  <span data-billing-caption="annual" hidden>
+                    {t('pricing.billing.perMonthAnnual')} (${tier.annualPrice * 12}{t('pricing.year')})
+                  </span>
+                </p>
               </>
             )}
-          </p>
+          </div>
 
           <a
             href={tier.ctaHref}
@@ -161,3 +213,28 @@ const t = useTranslations(locale);
     <div class="ai-gradient-bg animate-gradient h-1"></div>
   </aside>
 </section>
+
+<script>
+  /** Same small toggle pattern as the FAQ/blog filters — no framework. */
+  const root = document.querySelector<HTMLElement>('[data-billing-root]');
+  if (root) {
+    const buttons = Array.from(
+      root.querySelectorAll<HTMLButtonElement>('[data-billing-toggle]')
+    );
+
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+        const cycle = button.dataset.billingToggle;
+        for (const other of buttons) {
+          other.setAttribute('aria-pressed', String(other === button));
+        }
+        for (const el of root.querySelectorAll<HTMLElement>('[data-billing-price]')) {
+          el.hidden = el.dataset.billingPrice !== cycle;
+        }
+        for (const el of root.querySelectorAll<HTMLElement>('[data-billing-caption]')) {
+          el.hidden = el.dataset.billingCaption !== cycle;
+        }
+      });
+    }
+  }
+</script>

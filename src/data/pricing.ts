@@ -20,8 +20,17 @@ export type TierId = 'free' | 'pro' | 'business' | 'enterprise';
 
 export interface Tier {
   id: TierId;
-  /** USD per month. `null` = quote-based. */
+  /** USD per month, billed monthly. `null` = quote-based. */
   price: number | null;
+  /**
+   * USD per month, billed annually — one month free (`round(price * 11 / 12)`).
+   * `null` for tiers with no monthly price to discount (Free, Enterprise).
+   *
+   * Not yet wired to a real Stripe annual price — see `STRIPE_PRICE_ID_*_ANNUAL`
+   * in teable-ee. The toggle below reads this value but the checkout link still
+   * points at the monthly signup URL until those exist.
+   */
+  annualPrice: number | null;
   featured: boolean;
   name: Record<Locale, string>;
   tagline: Record<Locale, string>;
@@ -35,6 +44,7 @@ export const TIERS: Tier[] = [
   {
     id: 'free',
     price: 0,
+    annualPrice: null,
     featured: false,
     name: t9({ fr: 'Gratuit', en: 'Free' }),
     tagline: t9({
@@ -61,6 +71,7 @@ export const TIERS: Tier[] = [
   {
     id: 'pro',
     price: 29,
+    annualPrice: 27, // round(29 * 11 / 12) — one month free
     featured: true,
     name: t9({ fr: 'Pro', en: 'Pro' }),
     tagline: t9({
@@ -87,6 +98,7 @@ export const TIERS: Tier[] = [
   {
     id: 'business',
     price: 99,
+    annualPrice: 91, // round(99 * 11 / 12) — one month free
     featured: false,
     name: t9({ fr: 'Business', en: 'Business' }),
     tagline: t9({
@@ -115,6 +127,7 @@ export const TIERS: Tier[] = [
   {
     id: 'enterprise',
     price: null,
+    annualPrice: null,
     featured: false,
     name: t9({ fr: 'Enterprise', en: 'Enterprise' }),
     tagline: t9({
