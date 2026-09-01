@@ -36,6 +36,14 @@ export const HOST = {
   address: '101 Townsend St, San Francisco, CA 94107, USA',
 } as const;
 
+/** Payment processor, named in both the privacy policy and the CGVU. The EU
+ * entity is the one a French SAS contracts with — confirm against the Stripe
+ * dashboard's own legal entity before this is filed anywhere binding. */
+export const PSP = {
+  name: 'Stripe Payments Europe, Ltd.',
+  address: '1 Grand Canal Street Lower, Grand Canal Dock, Dublin, D02 H210, Irlande',
+} as const;
+
 /** Shown once at the top of the (French-only) legal notice on non-French routes. */
 export const LEGAL_NOTICE_NOTE: Record<Locale, string> = t9({
   fr: '',
@@ -97,14 +105,14 @@ export const PRIVACY_TITLE: Record<Locale, string> = t9({
 });
 
 export const PRIVACY_LEDE: Record<Locale, string> = t9({
-  fr: "Cette page décrit les données que ce site (tblflow.com) collecte, pourquoi, et les droits dont vous disposez. Elle ne couvre pas l'application TblFlow elle-même (app.tblflow.com), régie par un document séparé.",
-  en: 'This page describes what data this site (tblflow.com) collects, why, and the rights you have. It does not cover the TblFlow application itself (app.tblflow.com), which has its own document.',
+  fr: "Cette page décrit les données que SPACE UNITY traite dans le cadre du site tblflow.com et de la relation commerciale avec ses clients (souscription, facturation, paiement), pourquoi, et les droits dont vous disposez. Elle ne couvre pas les données que vous hébergez vous-même dans l'application TblFlow (app.tblflow.com) : SPACE UNITY n'y agit qu'en qualité de sous-traitant, dans le cadre d'un accord de sous-traitance (DPA) distinct, disponible sur demande à " + COMPANY.email + '.',
+  en: 'This page describes the data SPACE UNITY processes for the tblflow.com site and for the commercial relationship with its customers (subscription, billing, payment), why, and the rights you have. It does not cover the data you host yourself in the TblFlow application (app.tblflow.com): there SPACE UNITY acts only as a processor, under a separate data processing agreement (DPA) available on request at ' + COMPANY.email + '.',
 });
 
 /** Bump by hand whenever a PRIVACY_SECTIONS paragraph changes. */
 export const PRIVACY_LAST_UPDATED: Record<Locale, string> = t9({
-  fr: 'Dernière mise à jour : 18 août 2026.',
-  en: 'Last updated: August 18, 2026.',
+  fr: 'Dernière mise à jour : 1er septembre 2026.',
+  en: 'Last updated: September 1, 2026.',
 });
 
 export const PRIVACY_SECTIONS: Record<Locale, LegalSection[]> = t9({
@@ -119,7 +127,8 @@ export const PRIVACY_SECTIONS: Record<Locale, LegalSection[]> = t9({
     {
       heading: 'Données collectées',
       body: [
-        "Ce site vitrine ne comporte aucun formulaire d'inscription ni de compte utilisateur : il ne collecte donc aucune donnée d'identification directe (nom, mot de passe, coordonnées de paiement).",
+        "Le site tblflow.com ne comporte aucun formulaire d'inscription ni de compte utilisateur : la souscription et la connexion s'effectuent depuis l'application (app.tblflow.com).",
+        "Si vous souscrivez un palier payant, nous traitons les données nécessaires à la facturation : adresse email, nom ou raison sociale, adresse de facturation, pays, numéro de TVA le cas échéant, palier et cycle de facturation souscrits, et historique des paiements. Les coordonnées de carte bancaire sont saisies directement sur les pages hébergées par notre prestataire de paiement : elles ne transitent pas par nos serveurs, SPACE UNITY n'y a pas accès et n'en conserve aucune copie.",
         "Une préférence d'affichage (thème clair ou sombre) est enregistrée localement dans votre navigateur (localStorage). Cette information reste sur votre appareil et n'est jamais transmise à SPACE UNITY ni à un tiers.",
         "Si vous consentez à la mesure d'audience (voir la politique cookies), Google Analytics 4 collecte des données de navigation pseudonymisées : pages visitées, durée de visite, type d'appareil, provenance approximative (pays/région, jamais l'adresse IP complète — l'anonymisation IP est activée).",
         'Si vous nous contactez par email, nous traitons les données que vous nous transmettez (adresse email, contenu du message) dans le seul but de répondre à votre demande.',
@@ -130,11 +139,13 @@ export const PRIVACY_SECTIONS: Record<Locale, LegalSection[]> = t9({
       body: [
         "Mesure d'audience (Google Analytics 4) : sur la base de votre consentement (article 6.1.a du RGPD), révocable à tout moment via le lien « Gérer les cookies » en pied de page.",
         "Réponse aux demandes de contact : sur la base de l'intérêt légitime à assurer le support et la relation commerciale (article 6.1.f du RGPD).",
+        "Gestion des souscriptions, des paiements et de la facturation : sur la base de l'exécution du contrat vous liant à SPACE UNITY (article 6.1.b du RGPD). La conservation des factures et pièces comptables repose quant à elle sur le respect d'une obligation légale (article 6.1.c du RGPD).",
       ],
     },
     {
       heading: 'Destinataires des données',
       body: [
+        `${PSP.name} (${PSP.address}), en tant que prestataire de paiement, pour le traitement des souscriptions, des paiements, de la facturation et des remboursements des paliers payants. Stripe agit en qualité de responsable de traitement autonome pour la prévention de la fraude et le respect de ses propres obligations réglementaires.`,
         "Google LLC (Google Analytics), uniquement si vous avez consenti à la mesure d'audience. Les données peuvent être traitées par Google en dehors de l'Union européenne ; ce transfert est encadré par les clauses contractuelles types de la Commission européenne.",
         "Cloudflare, Inc., en tant qu'hébergeur technique du site et fournisseur de la mesure d'audience native (Cloudflare Web Analytics), qui ne dépose aucun cookie et ne collecte aucune donnée personnelle identifiable.",
         'Aucune donnée n’est vendue ni louée à des tiers.',
@@ -145,12 +156,15 @@ export const PRIVACY_SECTIONS: Record<Locale, LegalSection[]> = t9({
       body: [
         "Les données Google Analytics 4 sont conservées 14 mois à compter de la collecte, conformément à la configuration retenue pour ce site, puis supprimées automatiquement par Google.",
         'Votre choix de consentement est conservé localement (localStorage) pendant 6 mois maximum, conformément aux recommandations de la CNIL, ou jusqu’à ce que vous le modifiiez ou effaciez les données de votre navigateur.',
+        "Les factures et pièces comptables sont conservées dix ans à compter de la clôture de l'exercice concerné, conformément à l'article L123-22 du Code de commerce.",
+        "Les données de compte et d'abonnement sont conservées pendant toute la durée de l'abonnement, puis supprimées ou anonymisées, sous réserve des durées légales de conservation ci-dessus.",
       ],
     },
     {
       heading: 'Sécurité des données',
       body: [
-        'Le site est servi exclusivement en HTTPS et hébergé sur l’infrastructure Cloudflare, qui assure le chiffrement en transit et la protection contre les attaques réseau courantes. Ce site vitrine ne stockant aucune donnée de compte ni de paiement, il n’existe pas de base de données propriétaire à sécuriser côté SPACE UNITY pour ce périmètre.',
+        'Le site est servi exclusivement en HTTPS et hébergé sur l’infrastructure Cloudflare, qui assure le chiffrement en transit et la protection contre les attaques réseau courantes. Le site lui-même ne stocke aucune donnée de compte ni de paiement.',
+        `Les coordonnées bancaires sont traitées exclusivement par ${PSP.name}, certifié PCI-DSS niveau 1 ; aucune donnée de carte n’est stockée par SPACE UNITY.`,
       ],
     },
     {
@@ -172,7 +186,8 @@ export const PRIVACY_SECTIONS: Record<Locale, LegalSection[]> = t9({
     {
       heading: 'Data we collect',
       body: [
-        'This marketing site has no sign-up form or user account, so it collects no direct identification data (name, password, payment details).',
+        'The tblflow.com site has no sign-up form or user account: subscribing and signing in happen in the application (app.tblflow.com).',
+        'If you subscribe to a paid tier, we process the data needed for billing: email address, name or company name, billing address, country, VAT number where applicable, the tier and billing cycle you subscribed to, and payment history. Card details are entered directly on pages hosted by our payment processor: they do not pass through our servers, SPACE UNITY has no access to them and keeps no copy.',
         'A display preference (light or dark theme) is stored locally in your browser (localStorage). It never leaves your device and is never sent to SPACE UNITY or any third party.',
         'If you consent to analytics (see the cookie policy), Google Analytics 4 collects pseudonymized browsing data: pages visited, time on page, device type, approximate location (country/region — never the full IP address, IP anonymization is enabled).',
         'If you contact us by email, we process the data you send us (email address, message content) solely to answer your request.',
@@ -183,11 +198,13 @@ export const PRIVACY_SECTIONS: Record<Locale, LegalSection[]> = t9({
       body: [
         'Analytics (Google Analytics 4): based on your consent (GDPR Article 6.1.a), revocable at any time via the "Manage cookies" link in the footer.',
         'Responding to contact requests: based on the legitimate interest of providing support and managing the business relationship (GDPR Article 6.1.f).',
+        'Managing subscriptions, payments and billing: based on performance of the contract between you and SPACE UNITY (GDPR Article 6.1.b). Retaining invoices and accounting records rests instead on compliance with a legal obligation (GDPR Article 6.1.c).',
       ],
     },
     {
       heading: 'Data recipients',
       body: [
+        `${PSP.name} (${PSP.address}), as payment processor, to handle subscriptions, payments, billing and refunds for the paid tiers. Stripe acts as an independent controller for fraud prevention and for meeting its own regulatory obligations.`,
         'Google LLC (Google Analytics), only if you consented to analytics. Data may be processed by Google outside the European Union; this transfer is governed by the European Commission\'s standard contractual clauses.',
         'Cloudflare, Inc., as the site\'s technical host and provider of native analytics (Cloudflare Web Analytics), which sets no cookies and collects no personally identifiable data.',
         'No data is sold or rented to third parties.',
@@ -198,12 +215,15 @@ export const PRIVACY_SECTIONS: Record<Locale, LegalSection[]> = t9({
       body: [
         'Google Analytics 4 data is retained for 14 months from collection, per this site\'s configuration, then automatically deleted by Google.',
         'Your consent choice is stored locally (localStorage) for up to 6 months, per CNIL guidance, or until you change it or clear your browser data.',
+        'Invoices and accounting records are retained for ten years from the close of the financial year concerned, as required by Article L123-22 of the French Commercial Code.',
+        'Account and subscription data is retained for the duration of the subscription, then deleted or anonymized, subject to the statutory retention periods above.',
       ],
     },
     {
       heading: 'Data security',
       body: [
-        'The site is served exclusively over HTTPS and hosted on Cloudflare\'s infrastructure, which handles encryption in transit and protection against common network attacks. This marketing site stores no account or payment data, so there is no proprietary database on SPACE UNITY\'s side to secure for this scope.',
+        'The site is served exclusively over HTTPS and hosted on Cloudflare\'s infrastructure, which handles encryption in transit and protection against common network attacks. The site itself stores no account or payment data.',
+        `Card details are handled exclusively by ${PSP.name}, certified PCI-DSS Level 1; no card data is stored by SPACE UNITY.`,
       ],
     },
     {
@@ -350,14 +370,17 @@ export const TERMS_SECTIONS: LegalSection[] = [
   {
     heading: 'Tarifs et facturation',
     body: [
-      "Les paliers payants (Pro, Business) sont facturés mensuellement, sans engagement de durée, au tarif affiché sur la page tarifs au moment de la souscription. Le palier Enterprise fait l'objet d'un devis et d'un contrat spécifique.",
-      "À défaut de paiement à échéance, TblFlow peut suspendre l'accès au Service après relance restée sans effet, sans préjudice des sommes dues.",
+      "Les paliers payants (Pro, Business) sont proposés au choix en facturation mensuelle ou annuelle, au tarif affiché sur la page tarifs au moment de la souscription. Le palier Enterprise fait l'objet d'un devis et d'un contrat spécifique.",
+      "La facturation annuelle est réglée en une fois et d'avance, pour douze mois, et bénéficie de la remise indiquée sur la page tarifs. La facturation mensuelle est réglée chaque mois d'avance. Dans les deux cas l'abonnement est reconduit tacitement à chaque échéance, jusqu'à résiliation par le client dans les conditions prévues à l'article suivant.",
+      "Les tarifs sont libellés en euros ou en dollars américains selon la devise applicable au client, pour un montant identique dans l'une et l'autre devise. Le client est débité du montant affiché.",
+      `Les paiements sont traités par notre prestataire de paiement, ${PSP.name} (${PSP.address}). À défaut de paiement à échéance, TblFlow peut suspendre l'accès au Service après relance restée sans effet, sans préjudice des sommes dues.`,
     ],
   },
   {
     heading: 'Durée et résiliation',
     body: [
-      "Les paliers Gratuit, Pro et Business sont sans engagement : le client peut résilier ou changer de palier à tout moment depuis son compte, avec effet à la fin de la période de facturation en cours.",
+      "Les paliers Gratuit, Pro et Business sont sans engagement au-delà de la période de facturation souscrite : le client peut résilier ou changer de palier à tout moment depuis son compte, avec effet à la fin de la période de facturation en cours.",
+      "Pour un abonnement annuel, la résiliation prend donc effet au terme de la période de douze mois en cours ; le client conserve l'accès au Service jusqu'à cette date et les sommes déjà réglées au titre de cette période ne font pas l'objet d'un remboursement au prorata.",
       "TblFlow peut résilier l'accès d'un client en cas de manquement grave aux présentes CGVU non corrigé sous 15 jours après mise en demeure, ou d'usage frauduleux ou illicite du Service, avec effet immédiat dans ce dernier cas.",
     ],
   },
@@ -416,6 +439,6 @@ export const TERMS_SECTIONS: LegalSection[] = [
 
 /** Bump by hand whenever a TERMS_SECTIONS paragraph changes. */
 export const TERMS_LAST_UPDATED: Record<Locale, string> = t9({
-  fr: 'Dernière mise à jour : 19 août 2026.',
-  en: 'Last updated: August 19, 2026.',
+  fr: 'Dernière mise à jour : 1er septembre 2026.',
+  en: 'Last updated: September 1, 2026.',
 });

@@ -96,3 +96,20 @@ export const ORG = {
 export function t9<T>({ fr, en }: { fr: T; en: T }): Record<Locale, T> {
   return { fr, en, de: en, es: en, it: en, ja: en, ru: en, tr: en, uk: en, zh: en };
 }
+
+/**
+ * Stripe carries every Price in both EUR and USD at the *same* number
+ * (Pro 29/324, Business 99/1092), and bills each customer in their own
+ * currency. So only the symbol is locale-dependent — never the amount.
+ * ponytail: a flat euro-locale list, not Intl.NumberFormat — the amounts are
+ * whole units with no grouping, and Intl would also drag in per-locale
+ * decimal/space conventions we don't want to vary.
+ */
+const EURO_LOCALES: readonly Locale[] = ['de', 'es', 'fr', 'it'];
+
+export const currencyCode = (locale: Locale): 'EUR' | 'USD' =>
+  EURO_LOCALES.includes(locale) ? 'EUR' : 'USD';
+
+/** `29 €` in euro locales (symbol trails, per their typography), `$29` elsewhere. */
+export const formatPrice = (locale: Locale, amount: number): string =>
+  EURO_LOCALES.includes(locale) ? `${amount} €` : `$${amount}`;

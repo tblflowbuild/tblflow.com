@@ -1,7 +1,7 @@
 ---
 import { TIERS, QUOTAS, API_RATE_LIMIT_NOTE } from '@/data/pricing';
 import { useTranslations } from '@/i18n/ui';
-import { SUPPORT_EMAIL, type Locale } from '@/config';
+import { SUPPORT_EMAIL, formatPrice, type Locale } from '@/config';
 
 interface Props {
   locale: Locale;
@@ -16,11 +16,9 @@ const t = useTranslations(locale);
 <section id="pricing" class="mx-auto max-w-6xl scroll-mt-24 px-4 py-16 sm:px-6" data-billing-root>
   {/*
     Monthly/annual toggle — progressive enhancement, same ~15-line pattern as
-    the FAQ/blog filters. The annual price shown is real (one month free,
-    computed in `pricing.ts`), but no Stripe annual price exists yet: every
-    CTA still links to the same monthly signup URL regardless of the toggle
-    state, and the note below says so explicitly rather than letting the
-    visitor assume the switch changes what they're about to pay.
+    the FAQ/blog filters. Both cycles are real Stripe prices and buyable at
+    checkout since 2026-09-01; the annual one is one month free, computed in
+    `pricing.ts`.
   */}
   <div class="reveal mb-8 flex flex-col items-center gap-2">
     <div class="inline-flex rounded-full border border-[var(--border-strong)] p-1 text-sm">
@@ -44,7 +42,6 @@ const t = useTranslations(locale);
         </span>
       </button>
     </div>
-    <p class="max-w-md text-center text-xs text-[var(--fg-subtle)]">{t('pricing.billing.note')}</p>
   </div>
 
   {/*
@@ -73,9 +70,9 @@ const t = useTranslations(locale);
           <h3 class="text-lg font-semibold">{tier.name[locale]}</h3>
           <p class="mt-1 text-sm text-[var(--fg-muted)]">{tier.tagline[locale]}</p>
 
-          {/* The Free tier shows "$0", not the word "Free" — the tier is already
-              named "Free" right above, and a uniform price row ($0 / $29 / $99 /
-              Custom) is what lets the subgrid align cleanly. */}
+          {/* The Free tier shows "$0"/"0 €", not the word "Free" — the tier is
+              already named "Free" right above, and a uniform price row
+              (0 / 29 / 99 / Custom) is what lets the subgrid align cleanly. */}
           <div class="mt-5">
             {tier.price === null ? (
               <p class="flex items-baseline gap-1">
@@ -83,23 +80,23 @@ const t = useTranslations(locale);
               </p>
             ) : tier.annualPrice === null ? (
               <p class="flex items-baseline gap-1">
-                <span class="text-4xl font-bold">${tier.price}</span>
+                <span class="text-4xl font-bold">{formatPrice(locale, tier.price)}</span>
                 <span class="text-sm text-[var(--fg-subtle)]">{t('pricing.month')}</span>
               </p>
             ) : (
               <>
                 <p class="flex items-baseline gap-1" data-billing-price="monthly">
-                  <span class="text-4xl font-bold">${tier.price}</span>
+                  <span class="text-4xl font-bold">{formatPrice(locale, tier.price)}</span>
                   <span class="text-sm text-[var(--fg-subtle)]">{t('pricing.month')}</span>
                 </p>
                 <p class="flex items-baseline gap-1" data-billing-price="annual" hidden>
-                  <span class="text-4xl font-bold">${tier.annualPrice}</span>
+                  <span class="text-4xl font-bold">{formatPrice(locale, tier.annualPrice)}</span>
                   <span class="text-sm text-[var(--fg-subtle)]">{t('pricing.month')}</span>
                 </p>
                 <p class="mt-1 text-xs text-[var(--fg-subtle)]">
                   <span data-billing-caption="monthly">{t('pricing.billing.perMonthMonthly')}</span>
                   <span data-billing-caption="annual" hidden>
-                    {t('pricing.billing.perMonthAnnual')} (${tier.annualPrice * 12}{t('pricing.year')})
+                    {t('pricing.billing.perMonthAnnual')} ({formatPrice(locale, tier.annualPrice * 12)}{t('pricing.year')})
                   </span>
                 </p>
               </>

@@ -24,7 +24,7 @@ export const ui = {
     'nav.menu': 'Menü',
     'nav.skip': 'Zum Hauptinhalt springen',
 
-    'hero.eyebrow': 'Datenbank · Apps · Workflows · KI-Agenten',
+    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
     'hero.title': 'Die moderne Datenbank-Oberfläche für Teams',
     'hero.subtitle':
       'Beschreiben Sie, was Sie brauchen: KI-Agenten und Automatisierungen erledigen den Rest, auf echtem PostgreSQL. Vollständig verwaltet oder auf Ihren eigenen Servern.',
@@ -162,7 +162,6 @@ export const ui = {
     'pricing.billing.save': '1 month free',
     'pricing.billing.perMonthAnnual': 'billed annually',
     'pricing.billing.perMonthMonthly': 'billed monthly',
-    'pricing.billing.note': "Annual billing isn't available at checkout yet — indicative price, contact us to get it now.",
     '404.title': 'Seite nicht gefunden',
     '404.body': 'Diese Seite existiert nicht oder wurde verschoben.',
     '404.cta': 'Zurück zur Startseite',
@@ -178,7 +177,7 @@ export const ui = {
     'nav.menu': 'Menu',
     'nav.skip': 'Skip to main content',
 
-    'hero.eyebrow': 'Database · Apps · Workflows · AI agents',
+    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
     'hero.title': 'The modern database UI for teams',
     'hero.subtitle':
       'Describe what you need: AI agents and automations take it from there, on real PostgreSQL. Fully managed, or on your own servers.',
@@ -316,7 +315,6 @@ export const ui = {
     'pricing.billing.save': '1 month free',
     'pricing.billing.perMonthAnnual': 'billed annually',
     'pricing.billing.perMonthMonthly': 'billed monthly',
-    'pricing.billing.note': "Annual billing isn't available at checkout yet — indicative price, contact us to get it now.",
     '404.title': 'Page not found',
     '404.body': 'This page does not exist or has moved.',
     '404.cta': 'Back to home',
@@ -332,7 +330,7 @@ export const ui = {
     'nav.menu': 'Menú',
     'nav.skip': 'Ir al contenido principal',
 
-    'hero.eyebrow': 'Base de datos · Apps · Flujos de trabajo · Agentes IA',
+    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
     'hero.title': 'La interfaz moderna de base de datos para equipos',
     'hero.subtitle':
       'Describe lo que necesitas: agentes de IA y automatizaciones se encargan del resto, sobre PostgreSQL real. Totalmente gestionado, o en tus propios servidores.',
@@ -470,7 +468,6 @@ export const ui = {
     'pricing.billing.save': '1 month free',
     'pricing.billing.perMonthAnnual': 'billed annually',
     'pricing.billing.perMonthMonthly': 'billed monthly',
-    'pricing.billing.note': "Annual billing isn't available at checkout yet — indicative price, contact us to get it now.",
     '404.title': 'Página no encontrada',
     '404.body': 'Esta página no existe o se ha movido.',
     '404.cta': 'Volver al inicio',
@@ -486,7 +483,7 @@ export const ui = {
     'nav.menu': 'Menu',
     'nav.skip': 'Aller au contenu principal',
 
-    'hero.eyebrow': 'Base de données · Apps · Workflows · Agents IA',
+    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
     'hero.title': "L'interface moderne de base de données pour les équipes",
     'hero.subtitle':
       "Décrivez ce dont vous avez besoin : agents IA et automatisations s'occupent du reste, sur un vrai PostgreSQL. Entièrement infogéré, ou sur vos serveurs.",
@@ -624,7 +621,6 @@ export const ui = {
     'pricing.billing.save': '1 mois offert',
     'pricing.billing.perMonthAnnual': 'facturé annuellement',
     'pricing.billing.perMonthMonthly': 'facturé mensuellement',
-    'pricing.billing.note': "La facturation annuelle n'est pas encore disponible au paiement — prix indicatif, contactez-nous pour en bénéficier dès maintenant.",
     '404.title': 'Page introuvable',
     '404.body': "Cette page n'existe pas ou a été déplacée.",
     '404.cta': "Retour à l'accueil",
@@ -640,7 +636,7 @@ export const ui = {
     'nav.menu': 'Menu',
     'nav.skip': 'Vai al contenuto principale',
 
-    'hero.eyebrow': 'Database · App · Workflow · Agenti IA',
+    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
     'hero.title': "L'interfaccia moderna per database, pensata per i team",
     'hero.subtitle':
       'Descrivi ciò di cui hai bisogno: agenti IA e automazioni si occupano del resto, su PostgreSQL reale. Completamente gestito, oppure sui tuoi server.',
@@ -778,7 +774,6 @@ export const ui = {
     'pricing.billing.save': '1 month free',
     'pricing.billing.perMonthAnnual': 'billed annually',
     'pricing.billing.perMonthMonthly': 'billed monthly',
-    'pricing.billing.note': "Annual billing isn't available at checkout yet — indicative price, contact us to get it now.",
     '404.title': 'Pagina non trovata',
     '404.body': 'Questa pagina non esiste o è stata spostata.',
     '404.cta': 'Torna alla home',
@@ -794,7 +789,7 @@ export const ui = {
     'nav.menu': 'メニュー',
     'nav.skip': 'メインコンテンツへスキップ',
 
-    'hero.eyebrow': 'データベース・アプリ・ワークフロー・AIエージェント',
+    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
     'hero.title': 'チームのためのモダンなデータベースUI',
     'hero.subtitle':
       '必要なことを伝えるだけ。AIエージェントと自動化が残りを処理します。本物のPostgreSQL上で、フルマネージドでも自社サーバーでも。',
@@ -932,7 +927,6 @@ export const ui = {
     'pricing.billing.save': '1 month free',
     'pricing.billing.perMonthAnnual': 'billed annually',
     'pricing.billing.perMonthMonthly': 'billed monthly',
-    'pricing.billing.note': "Annual billing isn't available at checkout yet — indicative price, contact us to get it now.",
     '404.title': 'ページが見つかりません',
     '404.body': 'このページは存在しないか、移動しました。',
     '404.cta': 'ホームに戻る',
@@ -948,7 +942,7 @@ export const ui = {
     'nav.menu': 'Меню',
     'nav.skip': 'Перейти к основному содержимому',
 
-    'hero.eyebrow': 'База данных · Приложения · Рабочие процессы · ИИ-агенты',
+    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
     'hero.title': 'Современный интерфейс базы данных для команд',
     'hero.subtitle':
       'Опишите, что вам нужно: ИИ-агенты и автоматизации сделают остальное, на настоящем PostgreSQL. Полностью управляемое решение или на ваших серверах.',
@@ -1086,7 +1080,6 @@ export const ui = {
     'pricing.billing.save': '1 month free',
     'pricing.billing.perMonthAnnual': 'billed annually',
     'pricing.billing.perMonthMonthly': 'billed monthly',
-    'pricing.billing.note': "Annual billing isn't available at checkout yet — indicative price, contact us to get it now.",
     '404.title': 'Страница не найдена',
     '404.body': 'Эта страница не существует или была перемещена.',
     '404.cta': 'На главную',
@@ -1102,7 +1095,7 @@ export const ui = {
     'nav.menu': 'Menü',
     'nav.skip': 'Ana içeriğe geç',
 
-    'hero.eyebrow': 'Veritabanı · Uygulamalar · İş akışları · Yapay zeka ajanları',
+    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
     'hero.title': 'Ekipler için modern veritabanı arayüzü',
     'hero.subtitle':
       'İhtiyacınızı tarif edin: yapay zeka ajanları ve otomasyonlar gerisini halleder, gerçek PostgreSQL üzerinde. Tamamen yönetilen ya da kendi sunucularınızda.',
@@ -1240,7 +1233,6 @@ export const ui = {
     'pricing.billing.save': '1 month free',
     'pricing.billing.perMonthAnnual': 'billed annually',
     'pricing.billing.perMonthMonthly': 'billed monthly',
-    'pricing.billing.note': "Annual billing isn't available at checkout yet — indicative price, contact us to get it now.",
     '404.title': 'Sayfa bulunamadı',
     '404.body': 'Bu sayfa mevcut değil veya taşınmış.',
     '404.cta': 'Ana sayfaya dön',
@@ -1256,7 +1248,7 @@ export const ui = {
     'nav.menu': 'Меню',
     'nav.skip': 'Перейти до основного вмісту',
 
-    'hero.eyebrow': 'База даних · Застосунки · Робочі процеси · ШІ-агенти',
+    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
     'hero.title': 'Сучасний інтерфейс бази даних для команд',
     'hero.subtitle':
       'Опишіть, що вам потрібно: ШІ-агенти та автоматизації зроблять решту, на справжньому PostgreSQL. Повністю кероване рішення або на ваших серверах.',
@@ -1394,7 +1386,6 @@ export const ui = {
     'pricing.billing.save': '1 month free',
     'pricing.billing.perMonthAnnual': 'billed annually',
     'pricing.billing.perMonthMonthly': 'billed monthly',
-    'pricing.billing.note': "Annual billing isn't available at checkout yet — indicative price, contact us to get it now.",
     '404.title': 'Сторінку не знайдено',
     '404.body': 'Ця сторінка не існує або була переміщена.',
     '404.cta': 'На головну',
@@ -1410,7 +1401,7 @@ export const ui = {
     'nav.menu': '菜单',
     'nav.skip': '跳到主要内容',
 
-    'hero.eyebrow': '数据库 · 应用 · 工作流 · AI 智能体',
+    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
     'hero.title': '面向团队的现代数据库界面',
     'hero.subtitle': '描述您的需求：AI 智能体和自动化会完成剩下的工作，基于真实的 PostgreSQL。可完全托管，也可部署在您自己的服务器上。',
     'hero.cta.primary': '免费开始',
@@ -1546,7 +1537,6 @@ export const ui = {
     'pricing.billing.save': '1 month free',
     'pricing.billing.perMonthAnnual': 'billed annually',
     'pricing.billing.perMonthMonthly': 'billed monthly',
-    'pricing.billing.note': "Annual billing isn't available at checkout yet — indicative price, contact us to get it now.",
     '404.title': '页面未找到',
     '404.body': '此页面不存在或已被移动。',
     '404.cta': '返回首页',

@@ -79,7 +79,7 @@ export const FAQ: FaqItem[] = [
       en: 'How much does TblFlow cost?',
     }),
     answer: t9({
-      fr: "TblFlow Cloud compte quatre paliers. Le palier Gratuit couvre 1 base et 1 utilisateur. Le palier Pro est à 29 $ par mois et couvre 5 bases et 3 utilisateurs. Le palier Business est à 99 $ par mois et couvre 30 bases et 10 utilisateurs. Le palier Enterprise, sur devis, lève toutes les limites et couvre aussi le déploiement sur votre propre infrastructure ou en VPC dédié.",
+      fr: "TblFlow Cloud compte quatre paliers. Le palier Gratuit couvre 1 base et 1 utilisateur. Le palier Pro est à 29 € par mois et couvre 5 bases et 3 utilisateurs. Le palier Business est à 99 € par mois et couvre 30 bases et 10 utilisateurs. Le palier Enterprise, sur devis, lève toutes les limites et couvre aussi le déploiement sur votre propre infrastructure ou en VPC dédié.",
       en: 'TblFlow Cloud has four tiers. The Free tier covers 1 base and 1 user. The Pro tier is $29 per month and covers 5 bases and 3 users. The Business tier is $99 per month and covers 30 bases and 10 users. The Enterprise tier is quote-based, removes every limit, and also covers deployment on your own infrastructure or in a dedicated VPC.',
     }),
   },

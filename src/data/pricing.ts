@@ -20,15 +20,15 @@ export type TierId = 'free' | 'pro' | 'business' | 'enterprise';
 
 export interface Tier {
   id: TierId;
-  /** USD per month, billed monthly. `null` = quote-based. */
+  /** Per month, billed monthly. `null` = quote-based. Same number in EUR and
+   * USD — Stripe carries both currencies on each Price. */
   price: number | null;
   /**
-   * USD per month, billed annually — one month free (`round(price * 11 / 12)`).
+   * Per month, billed annually — one month free (`round(price * 11 / 12)`).
    * `null` for tiers with no monthly price to discount (Free, Enterprise).
    *
-   * Not yet wired to a real Stripe annual price — see `STRIPE_PRICE_ID_*_ANNUAL`
-   * in teable-ee. The toggle below reads this value but the checkout link still
-   * points at the monthly signup URL until those exist.
+   * Live in Stripe since 2026-09-01: 324/year (Pro) and 1092/year (Business),
+   * in EUR and USD, buyable at checkout without contacting sales.
    */
   annualPrice: number | null;
   featured: boolean;

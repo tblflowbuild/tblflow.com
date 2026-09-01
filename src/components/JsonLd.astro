@@ -10,7 +10,7 @@
  * the whole site — which is also what makes the data useful to answer engines,
  * not just to rich results.
  */
-import { ORG, SITE_URL, HREFLANG, type Locale } from '@/config';
+import { ORG, SITE_URL, HREFLANG, currencyCode, type Locale } from '@/config';
 import { absoluteUrl } from '@/i18n/utils';
 
 interface Breadcrumb {
@@ -45,6 +45,9 @@ interface Props {
 }
 
 const { locale, path, title, description, breadcrumbs, faq, article, product } = Astro.props;
+
+/** Stripe bills euro-zone visitors in EUR at the same number — see `formatPrice`. */
+const currency = currencyCode(locale);
 
 const pageUrl = absoluteUrl(path);
 const orgId = `${SITE_URL}/#organization`;
@@ -126,7 +129,7 @@ if (product) {
         '@type': 'Offer',
         name: 'Free',
         price: '0',
-        priceCurrency: 'USD',
+        priceCurrency: currency,
         description: '1 base, 1 space, 1 user, 1 GB storage, 5,000 rows per table, 100 AI agent runs/month.',
         url: `${SITE_URL}/${locale}/pricing`,
       },
@@ -134,7 +137,7 @@ if (product) {
         '@type': 'Offer',
         name: 'Pro',
         price: '29',
-        priceCurrency: 'USD',
+        priceCurrency: currency,
         description: '5 bases, 3 users, 100 GB storage, 100,000 rows per table, 5,000 AI agent runs/month.',
         url: `${SITE_URL}/${locale}/pricing`,
       },
@@ -142,14 +145,14 @@ if (product) {
         '@type': 'Offer',
         name: 'Business',
         price: '99',
-        priceCurrency: 'USD',
+        priceCurrency: currency,
         description: '30 bases, 10 users, 500 GB storage, 1,000,000 rows per table, SSO/SAML, white-label.',
         url: `${SITE_URL}/${locale}/pricing`,
       },
       {
         '@type': 'Offer',
         name: 'Enterprise',
-        priceCurrency: 'USD',
+        priceCurrency: currency,
         description:
           'Unlimited usage, on-premise or dedicated VPC deployment, SSO/SAML, 24/7 support.',
         url: `${SITE_URL}/${locale}/pricing`,
