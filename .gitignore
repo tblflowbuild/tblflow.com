@@ -20,3 +20,9 @@ node_modules/
 .vscode/*
 !.vscode/extensions.json
 .idea/
+
+# Agent / tool local config
+.claude/
+
+# git bundles — repo snapshots, which do not belong inside the repo
+*.bundle
