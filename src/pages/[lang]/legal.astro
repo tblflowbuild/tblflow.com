@@ -47,9 +47,9 @@ const breadcrumbs = [
       )
     }
 
-    <div class="prose-site reveal mt-10" lang="fr">
+    <div class="prose-site reveal mt-10">
       {
-        LEGAL_NOTICE_SECTIONS.map((section) => (
+        LEGAL_NOTICE_SECTIONS[locale].map((section) => (
           <section>
             <h2>{section.heading}</h2>
             {section.body.map((paragraph) => (

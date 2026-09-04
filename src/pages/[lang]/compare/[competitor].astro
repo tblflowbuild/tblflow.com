@@ -16,7 +16,7 @@ import { COMPARISON, COMPETITOR_LABELS, type Support } from '@/data/content';
 import { COMPETITOR_PAGES, COMPETITOR_SLUGS, type CompetitorSlug } from '@/data/competitors';
 import { useTranslations } from '@/i18n/ui';
 import { localePath } from '@/i18n/utils';
-import { LOCALES, t9, type Locale } from '@/config';
+import { LOCALES, type Locale } from '@/config';
 
 export function getStaticPaths() {
   return LOCALES.flatMap((lang) =>
@@ -41,41 +41,136 @@ const supportLabel: Record<Support, string> = {
 /** Rows where the two products actually differ, surfaced first in the copy. */
 const decisive = COMPARISON.filter((row) => row.tblflow === 'yes' && row[slug] !== 'yes');
 
-const metaSource = {
-  fr: {
-    title: `TblFlow vs ${rival} — comparatif complet (${new Date().getFullYear()})`,
-    description: `Comparatif détaillé entre TblFlow et ${rival} : ${COMPARISON.length} critères, différences de fond, et les cas où ${rival} reste le meilleur choix.`,
+const year = new Date().getFullYear();
+const n = COMPARISON.length;
+const d = decisive.length;
+
+/** All ten locales; the interpolated rival name and counts are the same
+ * everywhere, only the sentence around them changes. */
+const metaSource: Record<Locale, Record<string, string>> = {
+  de: {
+    title: `TblFlow vs ${rival} — vollständiger Vergleich (${year})`,
+    description: `Ausführlicher Vergleich von TblFlow und ${rival}: ${n} Kriterien, die inhaltlichen Unterschiede und die Fälle, in denen ${rival} die bessere Wahl bleibt.`,
     h1: `TblFlow vs ${rival}`,
-    tableTitle: `Les ${COMPARISON.length} critères, côte à côte`,
-    tableLede: `Chaque ligne est vérifiable dans les deux produits. ${decisive.length} critères séparent TblFlow de ${rival}.`,
-    diffTitle: 'Ce que le tableau ne dit pas',
-    honestTitle: `Quand choisir ${rival} plutôt que TblFlow`,
-    honestLede: 'Aucun produit ne gagne partout. Voici où celui-ci est le meilleur choix.',
-    back: 'Tous les comparatifs',
+    tableTitle: `Alle ${n} Kriterien nebeneinander`,
+    tableLede: `Jede Zeile ist in beiden Produkten überprüfbar. ${d} Kriterien trennen TblFlow von ${rival}.`,
+    diffTitle: 'Was die Tabelle nicht sagt',
+    honestTitle: `Wann ${rival} statt TblFlow zu wählen ist`,
+    honestLede: 'Kein Produkt gewinnt überall. Hier ist dieses die bessere Wahl.',
+    back: 'Alle Vergleiche',
     feature: t('compare.feature'),
   },
   en: {
-    title: `TblFlow vs ${rival} — full comparison (${new Date().getFullYear()})`,
-    description: `A detailed comparison of TblFlow and ${rival}: ${COMPARISON.length} criteria, the substantive differences, and where ${rival} is still the better choice.`,
+    title: `TblFlow vs ${rival} — full comparison (${year})`,
+    description: `A detailed comparison of TblFlow and ${rival}: ${n} criteria, the substantive differences, and where ${rival} is still the better choice.`,
     h1: `TblFlow vs ${rival}`,
-    tableTitle: `All ${COMPARISON.length} criteria, side by side`,
-    tableLede: `Every row is verifiable in both products. ${decisive.length} criteria separate TblFlow from ${rival}.`,
+    tableTitle: `All ${n} criteria, side by side`,
+    tableLede: `Every row is verifiable in both products. ${d} criteria separate TblFlow from ${rival}.`,
     diffTitle: 'What the table does not say',
     honestTitle: `When to choose ${rival} over TblFlow`,
     honestLede: 'No product wins everywhere. Here is where this one is the better call.',
     back: 'All comparisons',
     feature: t('compare.feature'),
   },
-} as const;
-// ponytail: only fr/en are hand-written for this per-competitor page; the other
-// 8 locales fall back to English until translated. Real translations replace
-// this field-by-field with no consumer-code changes needed.
-const meta = Object.fromEntries(
-  (Object.keys(metaSource.fr) as (keyof typeof metaSource.fr)[]).map((key) => [
-    key,
-    t9({ fr: metaSource.fr[key], en: metaSource.en[key] })[locale],
-  ])
-) as typeof metaSource.fr;
+  es: {
+    title: `TblFlow vs ${rival} — comparativa completa (${year})`,
+    description: `Comparativa detallada entre TblFlow y ${rival}: ${n} criterios, las diferencias de fondo y los casos en los que ${rival} sigue siendo la mejor opción.`,
+    h1: `TblFlow vs ${rival}`,
+    tableTitle: `Los ${n} criterios, uno al lado del otro`,
+    tableLede: `Cada fila es verificable en ambos productos. ${d} criterios separan TblFlow de ${rival}.`,
+    diffTitle: 'Lo que la tabla no dice',
+    honestTitle: `Cuándo elegir ${rival} en lugar de TblFlow`,
+    honestLede: 'Ningún producto gana en todo. Aquí es donde este es la mejor opción.',
+    back: 'Todas las comparativas',
+    feature: t('compare.feature'),
+  },
+  fr: {
+    title: `TblFlow vs ${rival} — comparatif complet (${year})`,
+    description: `Comparatif détaillé entre TblFlow et ${rival} : ${n} critères, différences de fond, et les cas où ${rival} reste le meilleur choix.`,
+    h1: `TblFlow vs ${rival}`,
+    tableTitle: `Les ${n} critères, côte à côte`,
+    tableLede: `Chaque ligne est vérifiable dans les deux produits. ${d} critères séparent TblFlow de ${rival}.`,
+    diffTitle: 'Ce que le tableau ne dit pas',
+    honestTitle: `Quand choisir ${rival} plutôt que TblFlow`,
+    honestLede: 'Aucun produit ne gagne partout. Voici où celui-ci est le meilleur choix.',
+    back: 'Tous les comparatifs',
+    feature: t('compare.feature'),
+  },
+  it: {
+    title: `TblFlow vs ${rival} — confronto completo (${year})`,
+    description: `Confronto dettagliato tra TblFlow e ${rival}: ${n} criteri, le differenze sostanziali e i casi in cui ${rival} resta la scelta migliore.`,
+    h1: `TblFlow vs ${rival}`,
+    tableTitle: `Tutti i ${n} criteri, uno accanto all’altro`,
+    tableLede: `Ogni riga è verificabile in entrambi i prodotti. ${d} criteri separano TblFlow da ${rival}.`,
+    diffTitle: 'Ciò che la tabella non dice',
+    honestTitle: `Quando scegliere ${rival} invece di TblFlow`,
+    honestLede: 'Nessun prodotto vince ovunque. Ecco dove questo è la scelta migliore.',
+    back: 'Tutti i confronti',
+    feature: t('compare.feature'),
+  },
+  ja: {
+    title: `TblFlow と ${rival} の比較 — 完全版（${year}）`,
+    description: `TblFlow と ${rival} の詳細比較：${n} の評価軸、本質的な違い、そして ${rival} のほうが適している場面。`,
+    h1: `TblFlow と ${rival}`,
+    tableTitle: `${n} の評価軸を並べて比較`,
+    tableLede: `どの行も両方の製品で確認できます。${d} の評価軸が TblFlow と ${rival} を分けます。`,
+    diffTitle: '表には表れないこと',
+    honestTitle: `TblFlow ではなく ${rival} を選ぶべきとき`,
+    honestLede: 'すべてで勝る製品はありません。こちらのほうが適している場面を挙げます。',
+    back: 'すべての比較',
+    feature: t('compare.feature'),
+  },
+  ru: {
+    title: `TblFlow против ${rival} — полное сравнение (${year})`,
+    description: `Подробное сравнение TblFlow и ${rival}: ${n} критериев, содержательные различия и случаи, где ${rival} остаётся лучшим выбором.`,
+    h1: `TblFlow против ${rival}`,
+    tableTitle: `Все ${n} критериев, рядом`,
+    tableLede: `Каждую строку можно проверить в обоих продуктах. ${d} критериев отделяют TblFlow от ${rival}.`,
+    diffTitle: 'Чего таблица не говорит',
+    honestTitle: `Когда выбрать ${rival}, а не TblFlow`,
+    honestLede: 'Ни один продукт не выигрывает во всём. Вот где лучше этот.',
+    back: 'Все сравнения',
+    feature: t('compare.feature'),
+  },
+  tr: {
+    title: `TblFlow ve ${rival} — tam karşılaştırma (${year})`,
+    description: `TblFlow ile ${rival} arasında ayrıntılı karşılaştırma: ${n} ölçüt, esas farklar ve ${rival} seçeneğinin hâlâ daha iyi olduğu durumlar.`,
+    h1: `TblFlow ve ${rival}`,
+    tableTitle: `${n} ölçütün tamamı, yan yana`,
+    tableLede: `Her satır iki üründe de doğrulanabilir. ${d} ölçüt TblFlow ile ${rival} arasını ayırıyor.`,
+    diffTitle: 'Tablonun söylemedikleri',
+    honestTitle: `TblFlow yerine ne zaman ${rival} seçilmeli`,
+    honestLede: 'Hiçbir ürün her alanda kazanmaz. İşte bunun daha iyi olduğu yerler.',
+    back: 'Tüm karşılaştırmalar',
+    feature: t('compare.feature'),
+  },
+  uk: {
+    title: `TblFlow проти ${rival} — повне порівняння (${year})`,
+    description: `Докладне порівняння TblFlow і ${rival}: ${n} критеріїв, змістовні відмінності та випадки, де ${rival} лишається кращим вибором.`,
+    h1: `TblFlow проти ${rival}`,
+    tableTitle: `Усі ${n} критеріїв, поруч`,
+    tableLede: `Кожен рядок можна перевірити в обох продуктах. ${d} критеріїв відділяють TblFlow від ${rival}.`,
+    diffTitle: 'Чого таблиця не каже',
+    honestTitle: `Коли обрати ${rival}, а не TblFlow`,
+    honestLede: 'Жоден продукт не виграє в усьому. Ось де кращий саме цей.',
+    back: 'Усі порівняння',
+    feature: t('compare.feature'),
+  },
+  zh: {
+    title: `TblFlow 对比 ${rival} — 完整对照（${year}）`,
+    description: `TblFlow 与 ${rival} 的详细对比：${n} 项标准、实质差异，以及 ${rival} 仍是更优选择的场景。`,
+    h1: `TblFlow 对比 ${rival}`,
+    tableTitle: `${n} 项标准，逐条并列`,
+    tableLede: `每一行都能在两个产品中验证。有 ${d} 项标准把 TblFlow 和 ${rival} 区分开。`,
+    diffTitle: '表格没说的部分',
+    honestTitle: `什么时候该选 ${rival} 而不是 TblFlow`,
+    honestLede: '没有哪个产品能在所有方面取胜。以下是它更合适的场景。',
+    back: '全部对比',
+    feature: t('compare.feature'),
+  },
+};
+
+const meta = metaSource[locale];
 
 const breadcrumbs = [
   { name: t('breadcrumbs.home'), path: localePath(locale) },
