@@ -7,7 +7,7 @@
  * and the loop has no visible seam. The duplicate is `aria-hidden` — a screen
  * reader should hear the seven steps once, not fourteen.
  */
-import { t9, type Locale } from '@/config';
+import { type Locale } from '@/config';
 
 interface Props {
   locale: Locale;
@@ -19,31 +19,31 @@ const { locale }: Props = Astro.props;
 const STEPS = [
   {
     icon: 'M4 6h16M4 12h16M4 18h10',
-    label: t9({ fr: 'Décrivez votre besoin', en: 'Describe what you need' }),
+    label: { de: 'Beschreiben Sie Ihren Bedarf', en: 'Describe what you need', es: 'Describe lo que necesitas', fr: 'Décrivez votre besoin', it: 'Descrivi ciò che ti serve', ja: '必要なことを伝える', ru: 'Опишите, что вам нужно', tr: 'Neye ihtiyacınız olduğunu anlatın', uk: 'Опишіть, що вам потрібно', zh: '描述你的需求' },
   },
   {
     icon: 'M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 7v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7',
-    label: t9({ fr: 'Schéma de données', en: 'Data schema' }),
+    label: { de: 'Datenschema', en: 'Data schema', es: 'Esquema de datos', fr: 'Schéma de données', it: 'Schema dei dati', ja: 'データスキーマ', ru: 'Схема данных', tr: 'Veri şeması', uk: 'Схема даних', zh: '数据结构' },
   },
   {
     icon: 'M3 5h18M3 12h18M3 19h18M8 5v14M16 5v14',
-    label: t9({ fr: 'Tables liées', en: 'Linked tables' }),
+    label: { de: 'Verknüpfte Tabellen', en: 'Linked tables', es: 'Tablas vinculadas', fr: 'Tables liées', it: 'Tabelle collegate', ja: 'リンクされたテーブル', ru: 'Связанные таблицы', tr: 'Bağlantılı tablolar', uk: 'Звʼязані таблиці', zh: '关联数据表' },
   },
   {
     icon: 'M4 4h7v7H4zM13 4h7v4h-7zM13 10h7v10h-7zM4 13h7v7H4z',
-    label: t9({ fr: 'Interfaces', en: 'Interfaces' }),
+    label: { de: 'Oberflächen', en: 'Interfaces', es: 'Interfaces', fr: 'Interfaces', it: 'Interfacce', ja: 'インターフェース', ru: 'Интерфейсы', tr: 'Arayüzler', uk: 'Інтерфейси', zh: '界面' },
   },
   {
     icon: 'M13 2 3 14h7l-1 8 10-12h-7z',
-    label: t9({ fr: 'Automatisations', en: 'Automations' }),
+    label: { de: 'Automatisierungen', en: 'Automations', es: 'Automatizaciones', fr: 'Automatisations', it: 'Automazioni', ja: '自動化', ru: 'Автоматизации', tr: 'Otomasyonlar', uk: 'Автоматизації', zh: '自动化' },
   },
   {
     icon: 'M12 2a5 5 0 0 1 5 5v2a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5zM5 20a7 7 0 0 1 14 0',
-    label: t9({ fr: 'Agents IA', en: 'AI agents' }),
+    label: { de: 'KI-Agenten', en: 'AI agents', es: 'Agentes de IA', fr: 'Agents IA', it: 'Agenti IA', ja: 'AI エージェント', ru: 'ИИ-агенты', tr: 'Yapay zekâ ajanları', uk: 'ШІ-агенти', zh: 'AI 智能体' },
   },
   {
     icon: 'M12 3a9 9 0 1 0 9 9M12 3v9l7 4M8 8h.01',
-    label: t9({ fr: 'Publication sur votre domaine', en: 'Published on your domain' }),
+    label: { de: 'Veröffentlichung auf Ihrer Domain', en: 'Published on your domain', es: 'Publicación en tu dominio', fr: 'Publication sur votre domaine', it: 'Pubblicazione sul tuo dominio', ja: '自社ドメインで公開', ru: 'Публикация на вашем домене', tr: 'Kendi alan adınızda yayın', uk: 'Публікація на вашому домені', zh: '发布到你的域名' },
   },
 ];
 ---

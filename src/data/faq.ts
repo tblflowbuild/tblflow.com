@@ -10,11 +10,11 @@ import { type Locale } from '@/config';
  * sentence, and avoids "see above" or "as mentioned". An answer that only makes
  * sense in page order is an answer that gets quoted wrongly or not at all.
  *
- * That is also why every entry carries all ten locales rather than falling back
- * to English through `t9()`: an answer engine serving a German query quoted the
- * English answer, and the pricing answer quoted dollars at a reader who is
- * billed in euros. Prices below follow the same rule as the pricing page —
- * same number, the locale's own currency.
+ * That is also why every entry carries all ten locales rather than filling the
+ * untranslated eight from English: an answer engine serving a German query
+ * quoted the English answer, and the pricing answer quoted dollars at a reader
+ * who is billed in euros. Prices below follow the same rule as the pricing
+ * page — same number, the locale's own currency.
  */
 
 export type FaqCategory = 'product' | 'pricing' | 'technical' | 'data';

@@ -5,7 +5,7 @@
  * became this site's AI gradient and the square texture its dot grid, so the
  * section reads as part of the page rather than as a pasted-in widget.
  */
-import { t9, type Locale } from '@/config';
+import { type Locale } from '@/config';
 
 interface Props {
   locale: Locale;
@@ -14,29 +14,55 @@ interface Props {
 const { locale }: Props = Astro.props;
 
 const STEPS = [
-  { label: t9({ fr: 'Analyse', en: 'Analysis' }), icon: '<circle cx="10" cy="10" r="6.5"/><line x1="7.5" y1="8" x2="12.5" y2="8"/><line x1="7.5" y1="11" x2="11" y2="11"/><line x1="15" y1="15" x2="20.5" y2="20.5"/>' },
-  { label: t9({ fr: 'Blueprint', en: 'Blueprint' }), icon: '<rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3 2.5"/><circle class="fill-icon" cx="9" cy="9" r="1.4"/><circle class="fill-icon" cx="15" cy="15" r="1.4"/><line x1="9.9" y1="9.9" x2="14.1" y2="14.1"/>' },
-  { label: t9({ fr: 'Tables', en: 'Tables' }), icon: '<rect x="3" y="3" width="18" height="18" rx="1.5"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/>' },
-  { label: t9({ fr: 'Liaisons', en: 'Relations' }), icon: '<rect x="2" y="8.5" width="7" height="7" rx="1"/><rect x="15" y="8.5" width="7" height="7" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><circle class="fill-icon" cx="12" cy="12" r="1.3"/>' },
-  { label: t9({ fr: 'Interface', en: 'Interface' }), icon: '<rect x="3" y="4" width="18" height="16" rx="1.5"/><line x1="3" y1="8.5" x2="21" y2="8.5"/><line x1="8" y1="8.5" x2="8" y2="20"/>' },
-  { label: t9({ fr: 'Automatisations', en: 'Automations' }), icon: '<path class="fill-icon" d="M13 3 6 13h5l-1 8 8-11h-5l1-7z"/>' },
-  { label: t9({ fr: 'Agents IA', en: 'AI agents' }), icon: '<path d="M12 2.6v2.6M12 18.8v2.6M2.6 12h2.6M18.8 12h2.6"/><path class="fill-icon" d="M12 7.2 13.6 10.4 16.8 12 13.6 13.6 12 16.8 10.4 13.6 7.2 12 10.4 10.4Z"/>' },
+  { label: { de: 'Analyse', en: 'Analysis', es: 'Análisis', fr: 'Analyse', it: 'Analisi', ja: '分析', ru: 'Анализ', tr: 'Analiz', uk: 'Аналіз', zh: '分析' }, icon: '<circle cx="10" cy="10" r="6.5"/><line x1="7.5" y1="8" x2="12.5" y2="8"/><line x1="7.5" y1="11" x2="11" y2="11"/><line x1="15" y1="15" x2="20.5" y2="20.5"/>' },
+  { label: { de: 'Blueprint', en: 'Blueprint', es: 'Blueprint', fr: 'Blueprint', it: 'Blueprint', ja: 'ブループリント', ru: 'Blueprint', tr: 'Blueprint', uk: 'Blueprint', zh: '蓝图' }, icon: '<rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3 2.5"/><circle class="fill-icon" cx="9" cy="9" r="1.4"/><circle class="fill-icon" cx="15" cy="15" r="1.4"/><line x1="9.9" y1="9.9" x2="14.1" y2="14.1"/>' },
+  { label: { de: 'Tabellen', en: 'Tables', es: 'Tablas', fr: 'Tables', it: 'Tabelle', ja: 'テーブル', ru: 'Таблицы', tr: 'Tablolar', uk: 'Таблиці', zh: '数据表' }, icon: '<rect x="3" y="3" width="18" height="18" rx="1.5"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/>' },
+  { label: { de: 'Beziehungen', en: 'Relations', es: 'Relaciones', fr: 'Liaisons', it: 'Relazioni', ja: 'リレーション', ru: 'Связи', tr: 'İlişkiler', uk: 'Звʼязки', zh: '关联' }, icon: '<rect x="2" y="8.5" width="7" height="7" rx="1"/><rect x="15" y="8.5" width="7" height="7" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><circle class="fill-icon" cx="12" cy="12" r="1.3"/>' },
+  { label: { de: 'Oberfläche', en: 'Interface', es: 'Interfaz', fr: 'Interface', it: 'Interfaccia', ja: 'インターフェース', ru: 'Интерфейс', tr: 'Arayüz', uk: 'Інтерфейс', zh: '界面' }, icon: '<rect x="3" y="4" width="18" height="16" rx="1.5"/><line x1="3" y1="8.5" x2="21" y2="8.5"/><line x1="8" y1="8.5" x2="8" y2="20"/>' },
+  { label: { de: 'Automatisierungen', en: 'Automations', es: 'Automatizaciones', fr: 'Automatisations', it: 'Automazioni', ja: '自動化', ru: 'Автоматизации', tr: 'Otomasyonlar', uk: 'Автоматизації', zh: '自动化' }, icon: '<path class="fill-icon" d="M13 3 6 13h5l-1 8 8-11h-5l1-7z"/>' },
+  { label: { de: 'KI-Agenten', en: 'AI agents', es: 'Agentes de IA', fr: 'Agents IA', it: 'Agenti IA', ja: 'AI エージェント', ru: 'ИИ-агенты', tr: 'Yapay zekâ ajanları', uk: 'ШІ-агенти', zh: 'AI 智能体' }, icon: '<path d="M12 2.6v2.6M12 18.8v2.6M2.6 12h2.6M18.8 12h2.6"/><path class="fill-icon" d="M12 7.2 13.6 10.4 16.8 12 13.6 13.6 12 16.8 10.4 13.6 7.2 12 10.4 10.4Z"/>' },
 ];
 
 const copy = {
-  eyebrow: t9({ fr: 'Pipeline de génération', en: 'Generation pipeline' }),
-  title: t9({
-    fr: "Du besoin à l'application, en une conversation",
+  eyebrow: { de: 'Generierungs-Pipeline', en: 'Generation pipeline', es: 'Pipeline de generación', fr: 'Pipeline de génération', it: 'Pipeline di generazione', ja: '生成パイプライン', ru: 'Конвейер генерации', tr: 'Üretim hattı', uk: 'Конвеєр генерації', zh: '生成流水线' },
+  title: {
+    de: 'Vom Bedarf zur App, in einem Gespräch',
     en: 'From a need to an app, in one conversation',
-  }),
-  sub: t9({
-    fr: 'Les données transitent d’étape en étape : chaque proposition est validée avant de passer à la suivante.',
+    es: 'De la necesidad a la aplicación, en una conversación',
+    fr: "Du besoin à l'application, en une conversation",
+    it: 'Dal bisogno all’app, in una conversazione',
+    ja: 'ニーズからアプリまで、ひとつの会話で',
+    ru: 'От задачи до приложения — за один разговор',
+    tr: 'İhtiyaçtan uygulamaya, tek bir sohbette',
+    uk: 'Від потреби до застосунку — за одну розмову',
+    zh: '从需求到应用，一次对话完成',
+  },
+  sub: {
+    de: 'Die Daten wandern von Stufe zu Stufe: Jeder Vorschlag wird freigegeben, bevor der nächste beginnt.',
     en: 'Data moves from stage to stage: every proposal is approved before the next one starts.',
-  }),
-  aria: t9({
-    fr: "Étapes de génération d'une application par l'IA : analyse, blueprint, tables, liaisons, interface, automatisations, agents IA",
+    es: 'Los datos pasan de etapa en etapa: cada propuesta se aprueba antes de empezar la siguiente.',
+    fr: 'Les données transitent d’étape en étape : chaque proposition est validée avant de passer à la suivante.',
+    it: 'I dati passano di fase in fase: ogni proposta viene approvata prima che inizi la successiva.',
+    ja: 'データは段階から段階へと流れます。各提案は、次に進む前に承認されます。',
+    ru: 'Данные идут от этапа к этапу: каждое предложение согласуется до начала следующего.',
+    tr: 'Veriler aşamadan aşamaya geçer: her öneri, bir sonraki başlamadan önce onaylanır.',
+    uk: 'Дані йдуть від етапу до етапу: кожна пропозиція погоджується до початку наступного.',
+    zh: '数据在各阶段之间流转：每一个提案都要先获批准，下一步才开始。',
+  },
+  /* Mirrors the seven STEPS labels above, in the same order — the ribbon is a
+     picture, so the label list is the only thing a screen reader gets. */
+  aria: {
+    de: 'Stufen der KI-App-Generierung: Analyse, Blueprint, Tabellen, Beziehungen, Oberfläche, Automatisierungen, KI-Agenten',
     en: 'Stages of AI app generation: analysis, blueprint, tables, relations, interface, automations, AI agents',
-  }),
+    es: 'Etapas de generación de una aplicación por IA: análisis, blueprint, tablas, relaciones, interfaz, automatizaciones, agentes de IA',
+    fr: "Étapes de génération d'une application par l'IA : analyse, blueprint, tables, liaisons, interface, automatisations, agents IA",
+    it: 'Fasi di generazione di un’app tramite IA: analisi, blueprint, tabelle, relazioni, interfaccia, automazioni, agenti IA',
+    ja: 'AI によるアプリ生成の各段階：分析、ブループリント、テーブル、リレーション、インターフェース、自動化、AI エージェント',
+    ru: 'Этапы генерации приложения ИИ: анализ, blueprint, таблицы, связи, интерфейс, автоматизации, ИИ-агенты',
+    tr: 'Yapay zekâ ile uygulama üretiminin aşamaları: analiz, blueprint, tablolar, ilişkiler, arayüz, otomasyonlar, yapay zekâ ajanları',
+    uk: 'Етапи генерації застосунку ШІ: аналіз, blueprint, таблиці, звʼязки, інтерфейс, автоматизації, ШІ-агенти',
+    zh: 'AI 生成应用的各个阶段：分析、蓝图、数据表、关联、界面、自动化、AI 智能体',
+  },
 };
 ---
 

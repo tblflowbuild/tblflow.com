@@ -15,11 +15,11 @@ import { HREFLANG, LOCALES, type Locale } from '@/config';
  * what a customer actually reads as a commercial promise, so it does not
  * appear here without the execution number attached.
  *
- * Every visible string carries all ten locales. `t9()` (fr/en authored, the
- * other eight falling back to English) is deliberately *not* used here: a
- * German visitor was reading "$29" on a card that charges euros, next to
- * English feature bullets. Because the fields are typed `Record<Locale, …>`,
- * a missing locale is a compile error rather than a silent English fallback.
+ * Every visible string carries all ten locales. These used to be authored
+ * fr/en only, with the other eight filled from English, so a German visitor
+ * read "$29" on a card that charges euros, next to English feature bullets.
+ * Because the fields are typed `Record<Locale, …>`, a missing locale is now a
+ * compile error rather than a silent English fallback.
  */
 
 /** The same string in every locale — product names, symbols, acronyms. */

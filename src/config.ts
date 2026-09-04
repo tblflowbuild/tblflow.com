@@ -85,17 +85,6 @@ export const ORG = {
   sameAs: [GITHUB_URL],
 } as const;
 
-/**
- * Fills the eight not-yet-translated locales with the English value, so a
- * `Record<Locale, string>` field can be authored with just `{ fr, en }` while
- * translation catches up. Every consumer keeps reading `field[locale]` exactly
- * as before — this only changes how the object is built, not how it's read.
- * A locale that falls back this way sees the real product copy in English
- * rather than a broken page or a fabricated translation.
- */
-export function t9<T>({ fr, en }: { fr: T; en: T }): Record<Locale, T> {
-  return { fr, en, de: en, es: en, it: en, ja: en, ru: en, tr: en, uk: en, zh: en };
-}
 
 /**
  * Stripe carries every Price in both EUR and USD at the *same* number

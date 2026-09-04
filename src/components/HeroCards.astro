@@ -13,7 +13,7 @@
  * `aria-hidden` — it illustrates what the copy above already states, and
  * narrating twenty fake cells to a screen reader would be noise.
  */
-import { t9, type Locale } from '@/config';
+import { type Locale } from '@/config';
 
 interface Props {
   locale: Locale;
@@ -21,15 +21,58 @@ interface Props {
 
 const { locale }: Props = Astro.props;
 
-const copy = t9({
+const COPY: Record<Locale, {
+  table: string; cols: string[]; rows: string[][];
+  agentTitle: string; agentBody: string; prompt: string; steps: string[];
+  tableFoot: string; appKicker: string; appTitle: string;
+  stats: string[][]; domain: string;
+}> = {
+  de: {
+    table: 'Tabelle · Leads',
+    cols: ['Kunde', 'Status', 'Score'],
+    rows: [['Aurora Ops', 'Qualifiziert', '87'], ['Nord Atelier', 'Ausstehend', '54'], ['Vela Studio', 'Qualifiziert', '91']],
+    agentTitle: 'Agent „Qualifizierung“',
+    agentBody: '3 Datensätze soeben angereichert',
+    prompt: 'Reichere die Leads an und entwirf eine Nachfassmail',
+    steps: ['Tabelle wird gelesen', 'Werkzeuge werden aufgerufen', 'Vorschlag bereit'],
+    tableFoot: 'In eine echte PostgreSQL-Tabelle geschrieben',
+    appKicker: 'Veröffentlichte App',
+    appTitle: 'Vertriebsportal',
+    stats: [['Aktive Deals', '18'], ['Abschlussquote', '32%']],
+    domain: 'portal.ihredomain.de',
+  },
+  en: {
+    table: 'Table · Leads',
+    cols: ['Account', 'Stage', 'Score'],
+    rows: [['Aurora Ops', 'Qualified', '87'], ['Nord Atelier', 'Pending', '54'], ['Vela Studio', 'Qualified', '91']],
+    agentTitle: '“Qualification” agent',
+    agentBody: '3 records enriched just now',
+    prompt: 'Enrich the leads and draft a follow-up',
+    steps: ['Reading the table', 'Calling tools', 'Proposal ready'],
+    tableFoot: 'Written to a real PostgreSQL table',
+    appKicker: 'Published app',
+    appTitle: 'Sales Portal',
+    stats: [['Active deals', '18'], ['Win rate', '32%']],
+    domain: 'portal.yourdomain.com',
+  },
+  es: {
+    table: 'Tabla · Prospectos',
+    cols: ['Cliente', 'Estado', 'Puntuación'],
+    rows: [['Aurora Ops', 'Cualificado', '87'], ['Nord Atelier', 'Pendiente', '54'], ['Vela Studio', 'Cualificado', '91']],
+    agentTitle: 'Agente «Cualificación»',
+    agentBody: '3 fichas enriquecidas ahora mismo',
+    prompt: 'Enriquece los prospectos y redacta un seguimiento',
+    steps: ['Leyendo la tabla', 'Llamando a las herramientas', 'Propuesta lista'],
+    tableFoot: 'Escrito en una tabla PostgreSQL real',
+    appKicker: 'Aplicación publicada',
+    appTitle: 'Portal Comercial',
+    stats: [['Tratos activos', '18'], ['Tasa de cierre', '32%']],
+    domain: 'portal.tudominio.es',
+  },
   fr: {
     table: 'Table · Prospects',
     cols: ['Client', 'Statut', 'Score'],
-    rows: [
-      ['Aurora Ops', 'Qualifié', '87'],
-      ['Nord Atelier', 'En attente', '54'],
-      ['Vela Studio', 'Qualifié', '91'],
-    ],
+    rows: [['Aurora Ops', 'Qualifié', '87'], ['Nord Atelier', 'En attente', '54'], ['Vela Studio', 'Qualifié', '91']],
     agentTitle: 'Agent « Qualification »',
     agentBody: '3 fiches enrichies à l’instant',
     prompt: 'Enrichis les prospects et propose une relance',
@@ -39,34 +82,96 @@ const copy = t9({
     tableFoot: 'Écrit dans une vraie table PostgreSQL',
     appKicker: 'Application publiée',
     appTitle: 'Portail Commercial',
-    stats: [
-      ['Deals actifs', '18'],
-      ['Conversion', '32%'],
-    ],
+    stats: [['Deals actifs', '18'], ['Conversion', '32%']],
     domain: 'portail.votredomaine.fr',
   },
-  en: {
-    table: 'Table · Leads',
-    cols: ['Account', 'Stage', 'Score'],
-    rows: [
-      ['Aurora Ops', 'Qualified', '87'],
-      ['Nord Atelier', 'Pending', '54'],
-      ['Vela Studio', 'Qualified', '91'],
-    ],
-    agentTitle: '“Qualification” agent',
-    agentBody: '3 records enriched just now',
-    prompt: 'Enrich the leads and draft a follow-up',
-    steps: ['Reading the table', 'Calling tools', 'Proposal ready'],
-    tableFoot: 'Written to a real PostgreSQL table',
-    appKicker: 'Published app',
-    appTitle: 'Sales Portal',
-    stats: [
-      ['Active deals', '18'],
-      ['Win rate', '32%'],
-    ],
-    domain: 'portal.yourdomain.com',
+  it: {
+    table: 'Tabella · Lead',
+    cols: ['Cliente', 'Stato', 'Punteggio'],
+    rows: [['Aurora Ops', 'Qualificato', '87'], ['Nord Atelier', 'In attesa', '54'], ['Vela Studio', 'Qualificato', '91']],
+    agentTitle: 'Agente «Qualificazione»',
+    agentBody: '3 record arricchiti proprio ora',
+    prompt: 'Arricchisci i lead e prepara un follow-up',
+    steps: ['Lettura della tabella', 'Chiamata degli strumenti', 'Proposta pronta'],
+    tableFoot: 'Scritto in una vera tabella PostgreSQL',
+    appKicker: 'App pubblicata',
+    appTitle: 'Portale Commerciale',
+    stats: [['Trattative attive', '18'], ['Tasso di chiusura', '32%']],
+    domain: 'portale.tuodominio.it',
   },
-})[locale];
+  ja: {
+    table: 'テーブル · リード',
+    cols: ['取引先', 'ステージ', 'スコア'],
+    rows: [['Aurora Ops', '有望', '87'], ['Nord Atelier', '保留', '54'], ['Vela Studio', '有望', '91']],
+    agentTitle: '「クオリフィケーション」エージェント',
+    agentBody: '3 件のレコードをたった今エンリッチ',
+    prompt: 'リードをエンリッチして、フォローアップの下書きを作成',
+    steps: ['テーブルを読み込み中', 'ツールを呼び出し中', '提案の準備完了'],
+    tableFoot: '実在する PostgreSQL テーブルに書き込み',
+    appKicker: '公開済みアプリ',
+    appTitle: '営業ポータル',
+    stats: [['進行中の商談', '18'], ['受注率', '32%']],
+    domain: 'portal.yourdomain.jp',
+  },
+  ru: {
+    table: 'Таблица · Лиды',
+    cols: ['Клиент', 'Этап', 'Оценка'],
+    rows: [['Aurora Ops', 'Квалифицирован', '87'], ['Nord Atelier', 'В ожидании', '54'], ['Vela Studio', 'Квалифицирован', '91']],
+    agentTitle: 'Агент «Квалификация»',
+    agentBody: '3 записи обогащены только что',
+    prompt: 'Обогати лиды и подготовь письмо для follow-up',
+    steps: ['Чтение таблицы', 'Вызов инструментов', 'Предложение готово'],
+    tableFoot: 'Записано в настоящую таблицу PostgreSQL',
+    appKicker: 'Опубликованное приложение',
+    appTitle: 'Портал продаж',
+    stats: [['Активные сделки', '18'], ['Доля выигранных', '32%']],
+    domain: 'portal.vashdomen.ru',
+  },
+  tr: {
+    table: 'Tablo · Potansiyeller',
+    cols: ['Müşteri', 'Aşama', 'Puan'],
+    rows: [['Aurora Ops', 'Nitelikli', '87'], ['Nord Atelier', 'Beklemede', '54'], ['Vela Studio', 'Nitelikli', '91']],
+    agentTitle: '«Nitelendirme» ajanı',
+    agentBody: '3 kayıt az önce zenginleştirildi',
+    prompt: 'Potansiyelleri zenginleştir ve bir takip mesajı taslağı hazırla',
+    steps: ['Tablo okunuyor', 'Araçlar çağrılıyor', 'Öneri hazır'],
+    tableFoot: 'Gerçek bir PostgreSQL tablosuna yazıldı',
+    appKicker: 'Yayımlanan uygulama',
+    appTitle: 'Satış Portalı',
+    stats: [['Aktif fırsatlar', '18'], ['Kazanma oranı', '32%']],
+    domain: 'portal.alanadiniz.com.tr',
+  },
+  uk: {
+    table: 'Таблиця · Ліди',
+    cols: ['Клієнт', 'Етап', 'Оцінка'],
+    rows: [['Aurora Ops', 'Кваліфікований', '87'], ['Nord Atelier', 'Очікує', '54'], ['Vela Studio', 'Кваліфікований', '91']],
+    agentTitle: 'Агент «Кваліфікація»',
+    agentBody: '3 записи щойно збагачено',
+    prompt: 'Збагати ліди та підготуй лист для follow-up',
+    steps: ['Читання таблиці', 'Виклик інструментів', 'Пропозиція готова'],
+    tableFoot: 'Записано у справжню таблицю PostgreSQL',
+    appKicker: 'Опублікований застосунок',
+    appTitle: 'Портал продажів',
+    stats: [['Активні угоди', '18'], ['Частка виграних', '32%']],
+    domain: 'portal.vashdomen.ua',
+  },
+  zh: {
+    table: '数据表 · 线索',
+    cols: ['客户', '阶段', '评分'],
+    rows: [['Aurora Ops', '已确认', '87'], ['Nord Atelier', '待处理', '54'], ['Vela Studio', '已确认', '91']],
+    agentTitle: '「资格判定」智能体',
+    agentBody: '刚刚丰富了 3 条记录',
+    prompt: '丰富这些线索，并起草一封跟进邮件',
+    steps: ['正在读取数据表', '正在调用工具', '提案已就绪'],
+    tableFoot: '已写入真实的 PostgreSQL 表',
+    appKicker: '已发布的应用',
+    appTitle: '销售门户',
+    stats: [['进行中的交易', '18'], ['赢单率', '32%']],
+    domain: 'portal.yourdomain.cn',
+  },
+};
+
+const copy = COPY[locale];
 ---
 
 <div class="card-stack flex items-center justify-center" aria-hidden="true">

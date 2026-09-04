@@ -8,9 +8,10 @@ import { LOCALES, type Locale } from '@/config';
  * fragments glued together by markup. Each `body` below reads as a standalone
  * claim for that reason.
  *
- * Every string carries all ten locales rather than falling back to English
- * through `t9()` — the home page was serving English body copy to eight of ten
- * locales. `Record<Locale, …>` makes a missing locale a compile error.
+ * Every string carries all ten locales. They used to be authored fr/en only,
+ * with the other eight filled from English by a helper, so the home page served
+ * English body copy to eight of ten locales. `Record<Locale, …>` makes a
+ * missing locale a compile error instead.
  */
 
 /** The same string in every locale — product terms that are not translated. */

@@ -15,9 +15,10 @@ import { COMPETITOR_LABELS, type Competitor } from '@/data/content';
  * engines assessing usefulness. Naming where the other tool genuinely wins is
  * what makes the rest credible.
  *
- * All ten locales are written out rather than falling back to English through
- * `t9()`. A comparison page is a page someone reads while deciding, in their
- * own language; served in English it argues for the competitor by default.
+ * All ten locales are written out rather than filling the untranslated eight
+ * from English. A comparison page is a page someone reads while deciding, in
+ * their own language; served in English it argues for the competitor by
+ * default.
  */
 export type CompetitorSlug = Exclude<Competitor, 'tblflow'>;
 
