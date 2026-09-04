@@ -6,7 +6,7 @@ import CtaBand from '@/components/CtaBand.astro';
 import { FAQ } from '@/data/faq';
 import { useTranslations } from '@/i18n/ui';
 import { localePath } from '@/i18n/utils';
-import { LOCALES, t9, type Locale } from '@/config';
+import { LOCALES, type Locale } from '@/config';
 
 export function getStaticPaths() {
   return LOCALES.map((lang) => ({ params: { lang } }));
@@ -15,17 +15,33 @@ export function getStaticPaths() {
 const locale = Astro.params.lang as Locale;
 const t = useTranslations(locale);
 
-// ponytail: fr/en hand-written, other 8 locales fall back to English via t9() until translated.
 const meta = {
-  title: t9({
-    fr: 'Tarifs TblFlow — Gratuit, Pro 29 €, Business 99 €, Enterprise',
+  title: {
+    de: 'TblFlow Preise — Kostenlos, Pro 29 €, Business 99 €, Enterprise',
     en: 'TblFlow pricing — Free, Pro $29, Business $99, Enterprise',
-  }),
-  description: t9({
-    fr: 'Quatre paliers : Gratuit (1 base, 1 utilisateur), Pro à 29 €/mois, Business à 99 €/mois, Enterprise sur devis avec déploiement auto-hébergé ou en VPC dédié.',
+    es: 'Precios de TblFlow — Gratis, Pro 29 €, Business 99 €, Enterprise',
+    fr: 'Tarifs TblFlow — Gratuit, Pro 29 €, Business 99 €, Enterprise',
+    it: 'Prezzi TblFlow — Gratuito, Pro 29 €, Business 99 €, Enterprise',
+    ja: 'TblFlow の料金 — 無料、Pro $29、Business $99、Enterprise',
+    ru: 'Тарифы TblFlow — бесплатный, Pro $29, Business $99, Enterprise',
+    tr: 'TblFlow fiyatları — Ücretsiz, Pro $29, Business $99, Enterprise',
+    uk: 'Тарифи TblFlow — безкоштовний, Pro $29, Business $99, Enterprise',
+    zh: 'TblFlow 价格 — 免费版、Pro $29、Business $99、Enterprise',
+  },
+  description: {
+    de: 'Vier Tarife: Kostenlos (1 Base, 1 Nutzer), Pro für 29 €/Monat, Business für 99 €/Monat, Enterprise auf Anfrage mit selbst gehosteter Installation oder dedizierter VPC.',
     en: 'Four tiers: Free (1 base, 1 user), Pro at $29/month, Business at $99/month, Enterprise on quote with self-hosted or dedicated VPC deployment.',
-  }),
+    es: 'Cuatro planes: Gratis (1 base, 1 usuario), Pro a 29 €/mes, Business a 99 €/mes, Enterprise a presupuesto con despliegue autoalojado o en VPC dedicada.',
+    fr: 'Quatre paliers : Gratuit (1 base, 1 utilisateur), Pro à 29 €/mois, Business à 99 €/mois, Enterprise sur devis avec déploiement auto-hébergé ou en VPC dédié.',
+    it: 'Quattro piani: Gratuito (1 base, 1 utente), Pro a 29 €/mese, Business a 99 €/mese, Enterprise su preventivo con deployment self-hosted o VPC dedicato.',
+    ja: '4 つのプラン: 無料（ベース 1、ユーザー 1）、Pro は月額 $29、Business は月額 $99、Enterprise は見積制でセルフホストまたは専用 VPC への配置に対応。',
+    ru: 'Четыре тарифа: бесплатный (1 база, 1 пользователь), Pro за $29/месяц, Business за $99/месяц, Enterprise по запросу с self-hosted или выделенным VPC.',
+    tr: 'Dört paket: Ücretsiz (1 base, 1 kullanıcı), ayda $29 ile Pro, ayda $99 ile Business, kendi sunucunuzda veya özel VPC dağıtımıyla teklife bağlı Enterprise.',
+    uk: 'Чотири тарифи: безкоштовний (1 база, 1 користувач), Pro за $29/місяць, Business за $99/місяць, Enterprise за запитом із self-hosted або виділеним VPC.',
+    zh: '四个套餐：免费版（1 个 base、1 位用户）、Pro 每月 $29、Business 每月 $99、Enterprise 按需报价，支持自托管或专属 VPC 部署。',
+  },
 };
+
 
 /** Pricing-related answers only — a FAQPage should match its page's topic. */
 const pricingFaq = FAQ.filter((item) => item.category === 'pricing').map((item) => ({

@@ -77,4 +77,39 @@ for (const locale of Object.keys(HREFLANG)) {
   }
 }
 
+// --- Language: no English left on a translated page ---------------------------
+//
+// The pricing data used to be authored in fr/en only, with the other eight
+// locales falling back to English (`t9()`), so a German visitor read English
+// feature bullets next to euro prices. Every string is translated now, and this
+// catches a regression — a new tier or quota row added with `t9()` again.
+//
+// Matching is word-boundaried and runs on the page with <script> blocks removed:
+// "localStorage" contains "Storage", and Italian "Annuale" starts with "Annual".
+// "white-label" is deliberately left untranslated in it/ru/tr/uk, where it is
+// the loanword actually used, so it is not on this list.
+const ENGLISH_ONLY = [
+  'For small teams that automate', 'For teams running their operations on it',
+  'For evaluating, and for personal projects', 'On your infrastructure or in a dedicated VPC',
+  'Get started', 'Contact us', 'rows per table', 'runs/month', 'Unlimited AI agents',
+  'billed annually', 'billed monthly', '1 month free', 'Rows per table',
+  'Free spaces per user', 'No monthly quota', 'Community support', 'Priority support',
+  'Email support', 'Four tiers:', 'How much does TblFlow cost',
+  'TblFlow Cloud has four tiers', 'no-code database platform',
+];
+
+for (const locale of Object.keys(HREFLANG)) {
+  if (locale === 'en') continue;
+  const html = readFileSync(new URL(`../dist/${locale}/pricing.html`, import.meta.url), 'utf8');
+  const prose = html.replace(/<script[\s\S]*?<\/script>/g, '');
+  for (const phrase of ENGLISH_ONLY) {
+    check(`${locale} not English`, () =>
+      assert.ok(
+        !new RegExp(`\\b${phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(prose),
+        `${locale}: untranslated English "${phrase}"`
+      )
+    );
+  }
+}
+
 console.log(`pricing: ${checks} checks passed across ${Object.keys(HREFLANG).length} locales`);
