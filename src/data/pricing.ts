@@ -24,13 +24,22 @@ export interface Tier {
    * USD — Stripe carries both currencies on each Price. */
   price: number | null;
   /**
-   * Per month, billed annually — one month free (`round(price * 11 / 12)`).
-   * `null` for tiers with no monthly price to discount (Free, Enterprise).
+   * Total for twelve months, billed annually: `price * 11`, i.e. one month
+   * genuinely free. `null` for tiers with no monthly price to discount (Free,
+   * Enterprise).
    *
-   * Live in Stripe since 2026-09-01: 324/year (Pro) and 1092/year (Business),
-   * in EUR and USD, buyable at checkout without contacting sales.
+   * Deliberately the *annual total*, not a rounded monthly equivalent. The
+   * previous shape (`round(price * 11 / 12)`, rendered × 12) made the site
+   * promise "1 month free" while charging 324 instead of 319 — a 6.9% discount
+   * sold as 8.3%. Any per-month figure shown to the visitor is derived from
+   * this, never the other way round; see `formatMonthlyEquivalent`.
+   *
+   * WARNING: Stripe still carries 324 and 1092 as of 2026-09-01. New annual
+   * Prices at 319/1089 (EUR and USD) must be created and the
+   * `STRIPE_PRICE_ID_*_ANNUAL` env vars pointed at them, or checkout charges
+   * more than this page shows.
    */
-  annualPrice: number | null;
+  annualTotal: number | null;
   featured: boolean;
   name: Record<Locale, string>;
   tagline: Record<Locale, string>;
@@ -44,7 +53,7 @@ export const TIERS: Tier[] = [
   {
     id: 'free',
     price: 0,
-    annualPrice: null,
+    annualTotal: null,
     featured: false,
     name: t9({ fr: 'Gratuit', en: 'Free' }),
     tagline: t9({
@@ -71,7 +80,7 @@ export const TIERS: Tier[] = [
   {
     id: 'pro',
     price: 29,
-    annualPrice: 27, // round(29 * 11 / 12) — one month free
+    annualTotal: 29 * 11, // 319 — one month free, exactly
     featured: true,
     name: t9({ fr: 'Pro', en: 'Pro' }),
     tagline: t9({
@@ -98,7 +107,7 @@ export const TIERS: Tier[] = [
   {
     id: 'business',
     price: 99,
-    annualPrice: 91, // round(99 * 11 / 12) — one month free
+    annualTotal: 99 * 11, // 1089 — one month free, exactly
     featured: false,
     name: t9({ fr: 'Business', en: 'Business' }),
     tagline: t9({
@@ -127,7 +136,7 @@ export const TIERS: Tier[] = [
   {
     id: 'enterprise',
     price: null,
-    annualPrice: null,
+    annualTotal: null,
     featured: false,
     name: t9({ fr: 'Enterprise', en: 'Enterprise' }),
     tagline: t9({

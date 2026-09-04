@@ -12,6 +12,7 @@
     "check": "astro check",
     "sync": "astro sync",
     "og": "node scripts/make-og-image.mjs",
+    "check:pricing": "astro build && node scripts/check-pricing.mjs",
     "deploy": "astro build && wrangler deploy"
   },
   "dependencies": {

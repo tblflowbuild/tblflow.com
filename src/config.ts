@@ -99,17 +99,43 @@ export function t9<T>({ fr, en }: { fr: T; en: T }): Record<Locale, T> {
 
 /**
  * Stripe carries every Price in both EUR and USD at the *same* number
- * (Pro 29/324, Business 99/1092), and bills each customer in their own
- * currency. So only the symbol is locale-dependent — never the amount.
- * ponytail: a flat euro-locale list, not Intl.NumberFormat — the amounts are
- * whole units with no grouping, and Intl would also drag in per-locale
- * decimal/space conventions we don't want to vary.
+ * (Pro 29/319, Business 99/1089), and bills each customer in their own
+ * currency. So only the formatting is locale-dependent — never the amount.
  */
 const EURO_LOCALES: readonly Locale[] = ['de', 'es', 'fr', 'it'];
 
 export const currencyCode = (locale: Locale): 'EUR' | 'USD' =>
   EURO_LOCALES.includes(locale) ? 'EUR' : 'USD';
 
-/** `29 €` in euro locales (symbol trails, per their typography), `$29` elsewhere. */
-export const formatPrice = (locale: Locale, amount: number): string =>
-  EURO_LOCALES.includes(locale) ? `${amount} €` : `$${amount}`;
+/**
+ * `29 €` / `1 089 €` / `26,58 €` in French, `$29` / `$1,089` / `$26.58` in
+ * English, and the right thing in the other eight — decimal mark, thousands
+ * separator and symbol placement all come from the locale.
+ *
+ * `narrowSymbol` matters: without it Ukrainian renders "319 USD" and Chinese
+ * "US$319". `minimumFractionDigits: 0` keeps whole amounts clean ("29 €", not
+ * "29,00 €") while still allowing the two decimals a monthly equivalent needs.
+ */
+export function formatPrice(locale: Locale, amount: number): string {
+  return new Intl.NumberFormat(HREFLANG[locale], {
+    style: 'currency',
+    currency: currencyCode(locale),
+    currencyDisplay: 'narrowSymbol',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  }).format(amount);
+}
+
+/**
+ * The per-month equivalent of an annual total, for the annual toggle.
+ *
+ * Prefixed with "≈" unless the division lands exactly on the cent: 1089 / 12
+ * is exactly 90.75, but 319 / 12 is 26.5833…, and "26,58 €/mois" next to
+ * "319 €/an" invites a multiplication that comes out at 318,96. The hedge is
+ * conditional rather than blanket because marking the exact one as approximate
+ * would be its own small lie.
+ */
+export function formatMonthlyEquivalent(locale: Locale, annualTotal: number): string {
+  const exact = Number.isInteger((annualTotal * 100) / 12);
+  return (exact ? '' : '≈ ') + formatPrice(locale, annualTotal / 12);
+}

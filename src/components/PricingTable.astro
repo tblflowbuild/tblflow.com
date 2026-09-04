@@ -1,7 +1,7 @@
 ---
 import { TIERS, QUOTAS, API_RATE_LIMIT_NOTE } from '@/data/pricing';
 import { useTranslations } from '@/i18n/ui';
-import { SUPPORT_EMAIL, formatPrice, type Locale } from '@/config';
+import { SUPPORT_EMAIL, formatPrice, formatMonthlyEquivalent, type Locale } from '@/config';
 
 interface Props {
   locale: Locale;
@@ -78,7 +78,7 @@ const t = useTranslations(locale);
               <p class="flex items-baseline gap-1">
                 <span class="text-3xl font-bold">{t('pricing.custom')}</span>
               </p>
-            ) : tier.annualPrice === null ? (
+            ) : tier.annualTotal === null ? (
               <p class="flex items-baseline gap-1">
                 <span class="text-4xl font-bold">{formatPrice(locale, tier.price)}</span>
                 <span class="text-sm text-[var(--fg-subtle)]">{t('pricing.month')}</span>
@@ -90,13 +90,16 @@ const t = useTranslations(locale);
                   <span class="text-sm text-[var(--fg-subtle)]">{t('pricing.month')}</span>
                 </p>
                 <p class="flex items-baseline gap-1" data-billing-price="annual" hidden>
-                  <span class="text-4xl font-bold">{formatPrice(locale, tier.annualPrice)}</span>
+                  <span class="text-4xl font-bold">
+                    {formatMonthlyEquivalent(locale, tier.annualTotal)}
+                  </span>
                   <span class="text-sm text-[var(--fg-subtle)]">{t('pricing.month')}</span>
                 </p>
                 <p class="mt-1 text-xs text-[var(--fg-subtle)]">
                   <span data-billing-caption="monthly">{t('pricing.billing.perMonthMonthly')}</span>
                   <span data-billing-caption="annual" hidden>
-                    {t('pricing.billing.perMonthAnnual')} ({formatPrice(locale, tier.annualPrice * 12)}{t('pricing.year')})
+                    {t('pricing.billing.perMonthAnnual')} ({formatPrice(locale, tier.annualTotal)}
+                    {t('pricing.year')})
                   </span>
                 </p>
               </>
