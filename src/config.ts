@@ -66,6 +66,23 @@ export const LOCALE_FLAG: Record<Locale, string> = {
 
 export const APP_URL = 'https://app.tblflow.com';
 
+/**
+ * The contractual documents live with the application, in the other repo, and
+ * are served from there. This site links to them and never restates them: it
+ * used to carry its own 14-article CGVU, which is precisely the setup where
+ * one copy gets amended and the other quietly does not.
+ *
+ * What stays here is what is genuinely about this site: the legal notice
+ * (its publisher and its host) and the privacy/cookie policies covering
+ * visitors and audience measurement.
+ */
+export const APP_LEGAL = {
+  terms: `${APP_URL}/legal/terms`,
+  privacy: `${APP_URL}/legal/privacy`,
+  dpa: `${APP_URL}/legal/dpa`,
+  notice: `${APP_URL}/legal/notice`,
+} as const;
+
 /** GA4 property. Never fetched until the visitor grants analytics consent —
  * see CookieConsent.astro. */
 export const GA_MEASUREMENT_ID = 'G-H4VC2RJFZY';

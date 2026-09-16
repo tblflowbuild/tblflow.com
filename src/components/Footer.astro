@@ -3,7 +3,7 @@ import Logo from './Logo.astro';
 import LangSwitcher from './LangSwitcher.astro';
 import { useTranslations } from '@/i18n/ui';
 import { localePath } from '@/i18n/utils';
-import { APP_URL, type Locale } from '@/config';
+import { APP_URL, APP_LEGAL, type Locale } from '@/config';
 
 interface Props {
   locale: Locale;
@@ -38,6 +38,12 @@ const columns: Array<{ title: string; links: Array<{ label: string; href: string
     title: t('footer.company'),
     links: [
       { label: t('footer.nav.contact'), href: 'mailto:contact@tblflow.com' },
+      /* The application's own documents, served from the app. This site links
+         to them rather than restating them — see APP_LEGAL in config.ts. */
+      { label: t('footer.nav.appTerms'), href: APP_LEGAL.terms },
+      { label: t('footer.nav.appPrivacy'), href: APP_LEGAL.privacy },
+      { label: t('footer.nav.appDpa'), href: APP_LEGAL.dpa },
+      { label: t('footer.nav.appNotice'), href: APP_LEGAL.notice },
     ],
   },
 ];
