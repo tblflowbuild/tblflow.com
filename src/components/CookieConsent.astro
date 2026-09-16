@@ -148,7 +148,18 @@ const t = useTranslations(locale);
       script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
       document.head.appendChild(script);
       gtag('js', new Date());
-      gtag('config', gaId, { anonymize_ip: true });
+      gtag('config', gaId, {
+        anonymize_ip: true,
+        /* 13 months, in seconds. GA4 asks for 2 years by default; Chrome caps
+           any cookie at 400 days anyway, so the observed lifetime was already
+           ~13 months there — but only there. Setting it explicitly makes the
+           duration true in every browser, and makes the figure published in
+           the cookie policy a fact rather than a hope. 390 days sits under the
+           400-day cap, so it is the effective value everywhere. */
+        cookie_expires: 33696000,
+        /* The site is HTTPS-only with HSTS; GA omits Secure by default. */
+        cookie_flags: 'SameSite=Lax;Secure',
+      });
     };
 
     const apply = (consent: Consent) => {

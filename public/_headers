@@ -16,7 +16,9 @@
 # site — but the hash MUST be regenerated (`shasum -a 256 | base64`, or the
 # browser console's blocked-by-CSP error, which prints the expected hash)
 # whenever that script's source changes, or the deployed page silently loses
-# that behaviour.
+# that behaviour. `npm run check:csp` diffs the built pages against this list
+# and fails on any mismatch — run it before every deploy rather than trusting
+# that nobody touched an inline script.
 #
 # Two external hosts are allowed beyond 'self', both consent-gated or
 # consent-exempt by design:
@@ -38,7 +40,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com 'sha256-rfNd9yH7gEkmlM1mjjhNfrxk/D1DDgOcYvoqTJIbT8A=' 'sha256-7koozjnq80s+xANrFjsx8+WXwgjadIcNV6cDoBoedJo=' 'sha256-FxQor8T4t8PipZb27gx3gSpz6hpSILI0uzglOCAYiEI=' 'sha256-GBPdk/app65fKpdZw4FQMXqOXxUnx4RmotWgPwsy4g8=' 'sha256-syXM7CFzLRVYS+J5LxIxgJnn1g8fgLIIabESWABCKYk=' 'sha256-I3+sle+q2E/OC1oYn+JZtpkgARFY4gZqoM9GafGYGZM=' 'sha256-0QXBmwN06khENvLU+v3XXhp3b8mc9HOTRYkfXf4PBB0='; script-src-elem 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com 'sha256-rfNd9yH7gEkmlM1mjjhNfrxk/D1DDgOcYvoqTJIbT8A=' 'sha256-7koozjnq80s+xANrFjsx8+WXwgjadIcNV6cDoBoedJo=' 'sha256-FxQor8T4t8PipZb27gx3gSpz6hpSILI0uzglOCAYiEI=' 'sha256-GBPdk/app65fKpdZw4FQMXqOXxUnx4RmotWgPwsy4g8=' 'sha256-syXM7CFzLRVYS+J5LxIxgJnn1g8fgLIIabESWABCKYk=' 'sha256-I3+sle+q2E/OC1oYn+JZtpkgARFY4gZqoM9GafGYGZM=' 'sha256-0QXBmwN06khENvLU+v3XXhp3b8mc9HOTRYkfXf4PBB0='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; connect-src 'self' https://static.cloudflareinsights.com https://*.google-analytics.com https://*.analytics.google.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com 'sha256-rfNd9yH7gEkmlM1mjjhNfrxk/D1DDgOcYvoqTJIbT8A=' 'sha256-7koozjnq80s+xANrFjsx8+WXwgjadIcNV6cDoBoedJo=' 'sha256-FxQor8T4t8PipZb27gx3gSpz6hpSILI0uzglOCAYiEI=' 'sha256-GBPdk/app65fKpdZw4FQMXqOXxUnx4RmotWgPwsy4g8=' 'sha256-+WmX5O0RCLu2JsqqT5L6fITCuh528TrS7Uu/0SgeayE=' 'sha256-D23c21UsLh4XBlnhmEKGxZFw4MYUUNNTPDt50/ObRbk=' 'sha256-I3+sle+q2E/OC1oYn+JZtpkgARFY4gZqoM9GafGYGZM=' 'sha256-0QXBmwN06khENvLU+v3XXhp3b8mc9HOTRYkfXf4PBB0='; script-src-elem 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com 'sha256-rfNd9yH7gEkmlM1mjjhNfrxk/D1DDgOcYvoqTJIbT8A=' 'sha256-7koozjnq80s+xANrFjsx8+WXwgjadIcNV6cDoBoedJo=' 'sha256-FxQor8T4t8PipZb27gx3gSpz6hpSILI0uzglOCAYiEI=' 'sha256-GBPdk/app65fKpdZw4FQMXqOXxUnx4RmotWgPwsy4g8=' 'sha256-+WmX5O0RCLu2JsqqT5L6fITCuh528TrS7Uu/0SgeayE=' 'sha256-D23c21UsLh4XBlnhmEKGxZFw4MYUUNNTPDt50/ObRbk=' 'sha256-I3+sle+q2E/OC1oYn+JZtpkgARFY4gZqoM9GafGYGZM=' 'sha256-0QXBmwN06khENvLU+v3XXhp3b8mc9HOTRYkfXf4PBB0='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; connect-src 'self' https://static.cloudflareinsights.com https://*.google-analytics.com https://*.analytics.google.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
 
 # Astro fingerprints everything under /_astro/, so it is safe to cache forever.
 /_astro/*
