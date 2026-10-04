@@ -1,11 +1,16 @@
 /**
- * Renders the default Open Graph image to PNG.
+ * Renders the two brand artefacts that cannot be Astro components: the default
+ * Open Graph card (PNG) and the standalone mark used as favicon, apple-touch
+ * icon and the `logo` of the Organization in the JSON-LD graph (SVG).
  *
- * PNG, not SVG, and that is the whole reason this script exists: most social and
- * chat platforms (Facebook, LinkedIn, Slack, X) do not render SVG previews at all,
- * so an `og:image` pointing at an SVG silently produces no card. Sharp rasterises
- * it once at build-authoring time and the PNG is committed, which keeps it off the
- * deploy-time critical path.
+ * PNG for the card, and that is the whole reason this script exists: most social
+ * and chat platforms (Facebook, LinkedIn, Slack, X) do not render SVG previews at
+ * all, so an `og:image` pointing at an SVG silently produces no card. Sharp
+ * rasterises it once at build-authoring time and the PNG is committed, which keeps
+ * it off the deploy-time critical path.
+ *
+ * Both draw the mark from `src/data/logo-mark.mjs`, the same module the Astro
+ * component uses — so the favicon cannot quietly fall a redesign behind.
  *
  * Run with: npm run og
  */
@@ -13,16 +18,24 @@ import sharp from 'sharp';
 import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
+import { MARK_VIEWBOX, markSvg } from '../src/data/logo-mark.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const out = resolve(here, '../public/images/og-default.png');
+const faviconOut = resolve(here, '../public/images/tblflow-logo.svg');
 
 const WIDTH = 1200;
 const HEIGHT = 630;
 
-/** The 2×2 mark, scaled and positioned for the card. */
-const tile = (x, y, fill) =>
-  `<rect x="${x}" y="${y}" width="66" height="66" rx="17" fill="${fill}"/>`;
+/**
+ * The mark, placed on the card. Its own coordinates run -172…172 on both axes
+ * (see MARK_VIEWBOX), so it is shifted to its own top-left corner before being
+ * scaled — a plain transform rather than a nested <svg>, which rasterisers
+ * handle less consistently.
+ */
+const MARK_SIZE = 150;
+const markScale = MARK_SIZE / 344;
+const markTransform = `translate(88, 96) scale(${markScale}) translate(172, 145)`;
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}">
   <defs>
@@ -46,11 +59,8 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${
   <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#bg)"/>
   <circle cx="985" cy="150" r="330" fill="url(#glow)"/>
 
-  <g transform="translate(88, 96)">
-    ${tile(0, 0, '#8b5cf6')}
-    ${tile(78, 0, '#4f46e5')}
-    ${tile(0, 78, '#0ea5e9')}
-    ${tile(78, 78, '#06b6d4')}
+  <g transform="${markTransform}">
+${markSvg({ gradientId: 'mark', indent: '    ' })}
   </g>
 
   <text x="88" y="330" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
@@ -71,3 +81,11 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${
 const png = await sharp(Buffer.from(svg)).png({ compressionLevel: 9 }).toBuffer();
 await writeFile(out, png);
 console.log(`Wrote ${out} (${(png.length / 1024).toFixed(1)} kB, ${WIDTH}×${HEIGHT})`);
+
+/* The standalone mark. Fixed gradient id, since nothing else shares the file. */
+const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${MARK_VIEWBOX}" width="344" height="344">
+${markSvg({ gradientId: 'g', indent: '  ' })}
+</svg>
+`;
+await writeFile(faviconOut, favicon);
+console.log(`Wrote ${faviconOut} (${(favicon.length / 1024).toFixed(1)} kB)`);
