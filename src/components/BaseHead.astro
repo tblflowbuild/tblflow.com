@@ -130,8 +130,20 @@ const ogImage = absoluteUrl(image);
 {publishedAt && <meta property="article:published_time" content={publishedAt.toISOString()} />}
 {updatedAt && <meta property="article:modified_time" content={updatedAt.toISOString()} />}
 
-<link rel="icon" type="image/svg+xml" href="/images/tblflow-logo.svg" />
-<link rel="apple-touch-icon" href="/images/tblflow-logo.svg" />
+{/*
+  Two icons, because they are rendered at sizes an order of magnitude apart.
+  The browser tab gets the floating box alone: the full four-box mark is a
+  smudge at 16px, verified by rendering both and comparing. The home screen
+  gets the full mark at 180px, where it reads and is worth showing.
+
+  PNG for apple-touch, not SVG: iOS ignores an SVG here, so the link that used
+  to point at the mark's SVG did nothing at all. It is opaque for the same
+  reason — iOS composites transparency onto black.
+
+  All three are generated from one geometry module by `npm run og`.
+*/}
+<link rel="icon" type="image/svg+xml" href="/images/tblflow-icon.svg" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 <meta name="theme-color" content="#4f46e5" />
 
 <link rel="sitemap" href="/sitemap-index.xml" />

@@ -269,15 +269,23 @@
     animation: fade-in 0.9s var(--ease-out-soft) both;
   }
 
-  /* Staggered logo tiles — the mark is a 2×2 grid of four independent tiles. */
+  /* Staggered logo boxes — the mark is four independent isometric boxes, three
+     resting and one floating above, and they land in paint order so the base
+     assembles before the top block arrives.
+
+     `nth-of-type`, not `nth-child`: the <svg> also contains <title> and <defs>,
+     which took child positions 1 and 2 and pushed the four boxes to 3…6. The
+     effect was that two boxes got the late delays, two got none, and the last
+     two popped first. `nth-of-type` counts <g> elements only, so the four
+     positions are the four boxes. */
   .logo-tile {
     animation: tile-pop 0.62s var(--ease-out-soft) both;
     transform-origin: center;
   }
-  .logo-tile:nth-child(1) { animation-delay: 0.02s; }
-  .logo-tile:nth-child(2) { animation-delay: 0.1s; }
-  .logo-tile:nth-child(3) { animation-delay: 0.18s; }
-  .logo-tile:nth-child(4) { animation-delay: 0.26s; }
+  .logo-tile:nth-of-type(1) { animation-delay: 0.02s; }
+  .logo-tile:nth-of-type(2) { animation-delay: 0.1s; }
+  .logo-tile:nth-of-type(3) { animation-delay: 0.18s; }
+  .logo-tile:nth-of-type(4) { animation-delay: 0.26s; }
 
   .animate-gradient {
     background-size: 220% 220%;
