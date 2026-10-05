@@ -18,11 +18,12 @@ import sharp from 'sharp';
 import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { MARK_VIEWBOX, markSvg } from '../src/data/logo-mark.mjs';
+import { ICON_BOXES, ICON_VIEWBOX, MARK_VIEWBOX, markSvg } from '../src/data/logo-mark.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const out = resolve(here, '../public/images/og-default.png');
-const faviconOut = resolve(here, '../public/images/tblflow-logo.svg');
+const markOut = resolve(here, '../public/images/tblflow-logo.svg');
+const iconOut = resolve(here, '../public/images/tblflow-icon.svg');
 
 const WIDTH = 1200;
 const HEIGHT = 630;
@@ -82,10 +83,18 @@ const png = await sharp(Buffer.from(svg)).png({ compressionLevel: 9 }).toBuffer(
 await writeFile(out, png);
 console.log(`Wrote ${out} (${(png.length / 1024).toFixed(1)} kB, ${WIDTH}×${HEIGHT})`);
 
-/* The standalone mark. Fixed gradient id, since nothing else shares the file. */
-const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${MARK_VIEWBOX}" width="344" height="344">
-${markSvg({ gradientId: 'g', indent: '  ' })}
-</svg>
-`;
-await writeFile(faviconOut, favicon);
-console.log(`Wrote ${faviconOut} (${(favicon.length / 1024).toFixed(1)} kB)`);
+/* Fixed gradient ids: nothing else shares these files. */
+const file = (viewBox, body) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" width="344" height="344">\n${body}\n</svg>\n`;
+
+/* The full mark: the Organization `logo` in the JSON-LD graph, and the
+   apple-touch icon, which is rendered at 180px where the full mark reads. */
+const mark = file(MARK_VIEWBOX, markSvg({ gradientId: 'g', indent: '  ' }));
+await writeFile(markOut, mark);
+console.log(`Wrote ${markOut} (${(mark.length / 1024).toFixed(1)} kB)`);
+
+/* The browser-tab favicon: the floating box alone, which is the only version
+   that survives 16px. See ICON_BOXES. */
+const icon = file(ICON_VIEWBOX, markSvg({ gradientId: 'g', indent: '  ', boxes: ICON_BOXES }));
+await writeFile(iconOut, icon);
+console.log(`Wrote ${iconOut} (${(icon.length / 1024).toFixed(1)} kB)`);

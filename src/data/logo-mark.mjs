@@ -65,13 +65,28 @@ export const MARK_BOXES = [
   { name: 'floating', points: box(0, -139), fill: { left: '#5312c3', right: '#3a0c87', top: null } },
 ];
 
+/**
+ * The floating box on its own, for the browser-tab favicon.
+ *
+ * The full mark does not survive 16px: four boxes of three faces each, with
+ * gaps between them, come out as a smudge — rendered and compared at 16, 20 and
+ * 32px before choosing this. The floating box alone keeps a readable silhouette
+ * and the one gradient face, so the tab still looks like TblFlow.
+ *
+ * Cropped tight rather than centred in the full mark's square: at 16px every
+ * unit of padding is a pixel of ink given away. The box spans 149 × 128, so the
+ * square is sized on the wider axis with three units of air either side.
+ */
+export const ICON_BOXES = MARK_BOXES.filter((b) => b.name === 'floating');
+export const ICON_VIEWBOX = '-77.5 -152.5 155 155';
+
 /** The mark as standalone SVG markup, for consumers outside Astro. */
-export const markSvg = ({ gradientId = 'g', indent = '' } = {}) =>
+export const markSvg = ({ gradientId = 'g', indent = '', boxes = MARK_BOXES } = {}) =>
   [
     `${indent}<defs><linearGradient id="${gradientId}" x1="0" y1="0" x2="1" y2="1">`,
     ...MARK_GRADIENT.map((s) => `${indent}  <stop offset="${s.offset}" stop-color="${s.color}"/>`),
     `${indent}</linearGradient></defs>`,
-    ...MARK_BOXES.flatMap((b) =>
+    ...boxes.flatMap((b) =>
       ['left', 'right', 'top'].map(
         (face) =>
           `${indent}<polygon points="${b.points[face]}" fill="${

@@ -130,7 +130,14 @@ const ogImage = absoluteUrl(image);
 {publishedAt && <meta property="article:published_time" content={publishedAt.toISOString()} />}
 {updatedAt && <meta property="article:modified_time" content={updatedAt.toISOString()} />}
 
-<link rel="icon" type="image/svg+xml" href="/images/tblflow-logo.svg" />
+{/*
+  Two icons, because they are rendered at sizes an order of magnitude apart.
+  The browser tab gets the floating box alone: the full four-box mark is a
+  smudge at 16px, verified by rendering both and comparing. The apple-touch
+  icon is rendered at 180px, where the full mark reads and is worth showing.
+  Both are generated from the same geometry by `npm run og`.
+*/}
+<link rel="icon" type="image/svg+xml" href="/images/tblflow-icon.svg" />
 <link rel="apple-touch-icon" href="/images/tblflow-logo.svg" />
 <meta name="theme-color" content="#4f46e5" />
 
