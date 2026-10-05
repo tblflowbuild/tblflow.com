@@ -24,6 +24,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const out = resolve(here, '../public/images/og-default.png');
 const markOut = resolve(here, '../public/images/tblflow-logo.svg');
 const iconOut = resolve(here, '../public/images/tblflow-icon.svg');
+const appleOut = resolve(here, '../public/images/apple-touch-icon.png');
 
 const WIDTH = 1200;
 const HEIGHT = 630;
@@ -98,3 +99,38 @@ console.log(`Wrote ${markOut} (${(mark.length / 1024).toFixed(1)} kB)`);
 const icon = file(ICON_VIEWBOX, markSvg({ gradientId: 'g', indent: '  ', boxes: ICON_BOXES }));
 await writeFile(iconOut, icon);
 console.log(`Wrote ${iconOut} (${(icon.length / 1024).toFixed(1)} kB)`);
+
+/*
+ * The apple-touch icon, as PNG and not SVG: iOS ignores an SVG here, so the
+ * previous `rel="apple-touch-icon"` pointing at the mark's SVG silently did
+ * nothing and the home screen fell back to a screenshot of the page.
+ *
+ * Opaque, because iOS does not honour transparency — it composites onto black,
+ * which would have turned the dark faces of the mark into a hole. The fill is
+ * the same #0b1020 the Open Graph card starts on, so the two generated raster
+ * artefacts read as one set.
+ *
+ * The mark takes 65% of the square. iOS masks the icon with a rounded
+ * superellipse and clips roughly the outer eighth, so a full-bleed mark would
+ * lose its corners.
+ */
+const APPLE = 180;
+const APPLE_MARK = Math.round(APPLE * 0.65);
+const appleInset = (APPLE - APPLE_MARK) / 2;
+const appleScale = APPLE_MARK / 344;
+const appleSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${APPLE}" height="${APPLE}" viewBox="0 0 ${APPLE} ${APPLE}">
+  <rect width="${APPLE}" height="${APPLE}" fill="#0b1020"/>
+  <g transform="translate(${appleInset}, ${appleInset}) scale(${appleScale}) translate(172, 145)">
+${markSvg({ gradientId: 'apple', indent: '    ' })}
+  </g>
+</svg>`;
+const applePng = await sharp(Buffer.from(appleSvg), { density: 600 })
+  .resize(APPLE, APPLE)
+  /* Flattened to three channels: the rect already covers every pixel, so the
+     alpha channel carried nothing but the chance of a renderer treating it as
+     meaningful. */
+  .flatten({ background: '#0b1020' })
+  .png({ compressionLevel: 9 })
+  .toBuffer();
+await writeFile(appleOut, applePng);
+console.log(`Wrote ${appleOut} (${(applePng.length / 1024).toFixed(1)} kB, ${APPLE}×${APPLE})`);
