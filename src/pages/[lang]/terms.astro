@@ -1,14 +1,19 @@
 ---
 /**
- * CGVU (terms of service) — same rationale as legal.astro: French contract
- * law, one authoritative French body reused on every locale route rather than
- * ten paraphrases of it.
+ * Signpost, not a contract.
+ *
+ * This page used to carry a full 14-article CGVU — a second copy of the
+ * agreement that actually governs the application. Two copies of one contract,
+ * in two repositories, diverge the first time only one is amended, and the
+ * visitor has no way to tell which one binds. So the page keeps its URL, its
+ * place in the footer and its search presence, and spends them pointing at the
+ * authoritative text instead of competing with it.
  */
 import Base from '@/layouts/Base.astro';
 import { useTranslations } from '@/i18n/ui';
 import { localePath } from '@/i18n/utils';
-import { LOCALES, type Locale } from '@/config';
-import { TERMS_TITLE, TERMS_NOTE, TERMS_SECTIONS, TERMS_LAST_UPDATED } from '@/data/legal';
+import { APP_LEGAL, LOCALES, type Locale } from '@/config';
+import { TERMS_TITLE, TERMS_SIGNPOST } from '@/data/legal';
 
 export function getStaticPaths() {
   return LOCALES.map((lang) => ({ params: { lang } }));
@@ -17,6 +22,7 @@ export function getStaticPaths() {
 const locale = Astro.params.lang as Locale;
 const t = useTranslations(locale);
 const path = localePath(locale, 'terms');
+const signpost = TERMS_SIGNPOST[locale];
 
 const breadcrumbs = [
   { name: t('breadcrumbs.home'), path: localePath(locale) },
@@ -27,35 +33,22 @@ const breadcrumbs = [
 <Base
   locale={locale}
   title={`${TERMS_TITLE[locale]} — TblFlow`}
-  description={TERMS_TITLE[locale]}
+  description={signpost.lede}
   path={path}
   breadcrumbs={breadcrumbs}
 >
-  <div class="mx-auto max-w-4xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
+  <div class="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-6 sm:pt-24">
     <h1 class="animate-enter text-4xl font-bold tracking-tight sm:text-5xl">
       {TERMS_TITLE[locale]}
     </h1>
 
-    <p class="animate-enter delay-1 mt-4 text-sm text-[var(--fg-subtle)]">
-      {TERMS_LAST_UPDATED[locale]}
-    </p>
-    {
-      TERMS_NOTE[locale] && (
-        <p class="animate-enter delay-1 mt-2 text-sm text-[var(--fg-subtle)]">{TERMS_NOTE[locale]}</p>
-      )
-    }
+    <p class="animate-enter delay-1 mt-6 text-lg text-[var(--fg-muted)]">{signpost.lede}</p>
 
-    <div class="prose-site reveal mt-10">
-      {
-        TERMS_SECTIONS[locale].map((section) => (
-          <section>
-            <h2>{section.heading}</h2>
-            {section.body.map((paragraph) => (
-              <p>{paragraph}</p>
-            ))}
-          </section>
-        ))
-      }
-    </div>
+    <a
+      href={APP_LEGAL.terms}
+      class="ai-gradient-bg animate-gradient animate-enter delay-2 mt-8 inline-block rounded-lg px-5 py-3 text-sm font-semibold text-white shadow-md shadow-indigo-500/20 transition-transform hover:-translate-y-px"
+    >
+      {signpost.cta}
+    </a>
   </div>
 </Base>
