@@ -1,4 +1,5 @@
-import { type Locale } from '@/config';
+import { LOCALES, type Locale } from '@/config';
+import { pm, type PmKey } from '@/data/processMap';
 
 /**
  * The FAQ is doing double duty and is written accordingly.
@@ -21,6 +22,8 @@ export type FaqCategory = 'product' | 'pricing' | 'technical' | 'data';
 
 export interface FaqItem {
   category: FaqCategory;
+  /** Tags the questions that also feed the dedicated process-map page's FAQPage schema. */
+  topic?: 'process-map';
   question: Record<Locale, string>;
   /** Plain text, no markup — it is injected into JSON-LD as well as rendered. */
   answer: Record<Locale, string>;
@@ -409,4 +412,15 @@ export const FAQ: FaqItem[] = [
       zh: 'TblFlow 按照符合 GDPR 的使用方式构建，提供审计日志、修订历史、精细权限和同意管理。在自托管或专属 Enterprise 部署下，你完全掌控数据所在位置，这让有数据驻留要求的组织更容易满足合规。',
     },
   },
+  ...([
+    [1, 'product'],
+    [2, 'pricing'],
+    [3, 'data'],
+    [4, 'product'],
+    [5, 'product'],
+  ] as const).map(([n, category]): FaqItem => {
+    const all = (key: PmKey) =>
+      Object.fromEntries(LOCALES.map((l) => [l, pm(l, key)])) as Record<Locale, string>;
+    return { category, topic: 'process-map', question: all(`faq.${n}.q`), answer: all(`faq.${n}.a`) };
+  }),
 ];

@@ -1,4 +1,5 @@
 import { HREFLANG, LOCALES, type Locale } from '@/config';
+import { PM_STRINGS } from '@/data/processMap';
 
 /**
  * SaaS Cloud tiers. Prices and quotas are transcribed from `PLAN_LIMITS` in
@@ -477,6 +478,16 @@ const NO_MONTHLY_QUOTA: Record<Locale, string> = {
 };
 
 export const QUOTAS: QuotaRow[] = [
+  {
+    // processMapEnable in plan-limits.ts: false on Free, true on Pro and above.
+    label: PM_STRINGS['pricing.row'],
+    values: {
+      free: NO,
+      pro: PM_STRINGS['pricing.yes'],
+      business: PM_STRINGS['pricing.yes'],
+      enterprise: PM_STRINGS['pricing.yes'],
+    },
+  },
   {
     label: {
       de: 'Bases', en: 'Bases', es: 'Bases', fr: 'Bases', it: 'Base',

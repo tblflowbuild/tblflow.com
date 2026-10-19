@@ -3,6 +3,7 @@ import Logo from './Logo.astro';
 import HeroCards from './HeroCards.astro';
 import StepsRibbon from './StepsRibbon.astro';
 import { useTranslations } from '@/i18n/ui';
+import { pm } from '@/data/processMap';
 import { APP_URL, type Locale } from '@/config';
 
 interface Props {
@@ -98,13 +99,13 @@ const proof = [
     <h1
       class="animate-enter delay-3 mx-auto mt-6 max-w-2xl text-2xl font-semibold text-balance sm:text-3xl"
     >
-      {t('hero.title')}
+      {pm(locale, 'home.hero.title')}
     </h1>
 
     <p
       class="animate-enter delay-4 mx-auto mt-4 max-w-2xl text-base text-[var(--fg-muted)] sm:text-lg"
     >
-      {t('hero.subtitle')}
+      {pm(locale, 'home.hero.subtitle')}
     </p>
 
     {/* One CTA, not the original pair — a Persuade-mode page needs a primary

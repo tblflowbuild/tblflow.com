@@ -1,0 +1,61 @@
+---
+/**
+ * Illustrative diagram of the process-map canvas: three steps run by a person,
+ * an automation and an AI agent, with a dashed red link marking manual re-keying.
+ * Drawn in SVG on purpose (no screenshot is shipped yet): it is labelled as an
+ * illustration, and it shows no figure that could be read as a measured cost.
+ */
+import { pm } from '@/data/processMap';
+import type { Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+
+const nodes = [
+  { x: 20, kind: 'viz.human', label: 'viz.step1', stroke: 'var(--color-ai-1)' },
+  { x: 250, kind: 'viz.automation', label: 'viz.step2', stroke: 'var(--color-ai-2)' },
+  { x: 480, kind: 'viz.agent', label: 'viz.step3', stroke: 'var(--color-ai-3)' },
+] as const;
+---
+
+<figure class="reveal mx-auto max-w-4xl">
+  <div class="card p-4 sm:p-6">
+    <svg
+      viewBox="0 0 700 170"
+      role="img"
+      aria-label={pm(locale, 'viz.alt')}
+      class="h-auto w-full"
+      font-family="inherit"
+    >
+      <defs>
+        <marker id="pm-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="var(--fg-muted)"></path>
+        </marker>
+        <marker id="pm-arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#dc2626"></path>
+        </marker>
+      </defs>
+
+      <line x1="200" y1="85" x2="248" y2="85" stroke="var(--fg-muted)" stroke-width="2" marker-end="url(#pm-arrow)"></line>
+      <line x1="430" y1="85" x2="478" y2="85" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#pm-arrow-red)"></line>
+      <text x="454" y="68" text-anchor="middle" font-size="12" fill="#dc2626">{pm(locale, 'viz.break')}</text>
+
+      {
+        nodes.map((n) => (
+          <g>
+            <rect x={n.x} y="45" width="180" height="80" rx="12" fill="var(--bg-raised)" stroke={n.stroke} stroke-width="2"></rect>
+            <text x={n.x + 90} y="76" text-anchor="middle" font-size="12" fill="var(--fg-muted)">
+              {pm(locale, n.kind)}
+            </text>
+            <text x={n.x + 90} y="102" text-anchor="middle" font-size="14" font-weight="600" fill="var(--fg)">
+              {pm(locale, n.label)}
+            </text>
+          </g>
+        ))
+      }
+    </svg>
+  </div>
+  <figcaption class="mt-3 text-center text-sm text-[var(--fg-subtle)]">{pm(locale, 'viz.caption')}</figcaption>
+</figure>
