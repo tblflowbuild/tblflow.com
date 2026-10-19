@@ -68,7 +68,25 @@ const breadcrumbs = [
   </section>
 
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <ProcessMapViz locale={locale} />
+    {
+      locale === 'fr' ? (
+        <figure class="reveal mx-auto max-w-5xl">
+          <img
+            src="/images/process-map/who-does-what-fr-dark.webp"
+            alt={pm(locale, 'shot.alt')}
+            width="1600"
+            height="938"
+            class="card h-auto w-full"
+            fetchpriority="high"
+          />
+          <figcaption class="mt-3 text-center text-sm text-[var(--fg-subtle)]">
+            {pm(locale, 'shot.caption')}
+          </figcaption>
+        </figure>
+      ) : (
+        <ProcessMapViz locale={locale} />
+      )
+    }
   </section>
 
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">

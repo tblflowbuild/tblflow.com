@@ -1314,6 +1314,30 @@ export const PM_STRINGS = {
     uk: "Для кроку чи інструмента ШІ отримує контекст карти й пропонує заміну засобами TblFlow (база й інтерфейс, автоматизація, агент ШІ або відтворення в браузері). Після вашої згоди він створює елементи вимкненими: вам потрібно їх перевірити й ввімкнути самостійно.",
     zh: "在某个步骤或工具上，AI 会获得图谱的上下文，并提出用 TblFlow 替换的方案（数据库与界面、自动化、AI 智能体或浏览器回放）。经您同意后，它会创建处于停用状态的内容，由您检查并启用。",
   },
+  "shot.alt": {
+    de: "Screenshot der TblFlow-Prozesslandkarte in der Ansicht „Wer macht was“: ein Continuous-Integration-Prozess mit menschlichen, automatisierten und KI-Agenten-Schritten sowie ein Übersichtsbanner (geschätzte Kosten, Brüche, mögliche Einsparungen).",
+    en: "Screenshot of TblFlow's process map, “Who does what” reading: a continuous-integration process with human, automated and AI-agent steps, and a summary banner (estimated cost, breaks, possible savings).",
+    es: "Captura del mapa de procesos de TblFlow, lectura «Quién hace qué»: un proceso de integración continua con pasos humanos, automatizados y de un agente de IA, y un banner de resumen (coste estimado, rupturas, ahorros posibles).",
+    fr: "Capture de la cartographie des processus de TblFlow, lecture « Qui fait quoi » : un processus d'intégration continue avec des étapes humaines, automatisées et confiées à un agent IA, et un bandeau de synthèse (coût estimé, ruptures, économies possibles).",
+    it: "Schermata della mappa dei processi di TblFlow, lettura «Chi fa cosa»: un processo di integrazione continua con passaggi umani, automatizzati e affidati a un agente IA, e un banner di sintesi (costo stimato, rotture, risparmi possibili).",
+    ja: "TblFlow のプロセスマップ「誰が何をするか」表示のスクリーンショット。人、自動化、AI エージェントのステップを持つ継続的インテグレーションのプロセスと、概要バナー（見積もりコスト、断絶、見込まれる節約）。",
+    ru: "Снимок экрана карты процессов TblFlow в режиме «Кто что делает»: процесс непрерывной интеграции с шагами человека, автоматизации и ИИ-агента и сводная панель (оценочные затраты, разрывы, возможная экономия).",
+    tr: "TblFlow süreç haritasının «Kim ne yapıyor» görünümünden ekran görüntüsü: insan, otomasyon ve yapay zekâ ajanı adımları olan bir sürekli entegrasyon süreci ve bir özet bandı (tahmini maliyet, kopukluklar, olası tasarruf).",
+    uk: "Знімок екрана карти процесів TblFlow у режимі «Хто що робить»: процес безперервної інтеграції з кроками людини, автоматизації та ШІ-агента і зведена панель (орієнтовні витрати, розриви, можлива економія).",
+    zh: "TblFlow 流程图谱“谁做什么”视图的截图：一个包含人工、自动化和 AI 智能体步骤的持续集成流程，以及汇总横幅（估算成本、断点、可能节省）。",
+  },
+  "shot.caption": {
+    de: "Screenshot der Prozesslandkarte von TblFlow selbst; einige Namen sind unkenntlich gemacht. Kosten sind Schätzungen.",
+    en: "Screenshot of TblFlow's own process map; some names are blurred. Costs are estimates.",
+    es: "Captura del propio mapa de procesos de TblFlow; algunos nombres están difuminados. Los costes son estimaciones.",
+    fr: "Capture de la cartographie de TblFlow lui-même ; certains noms sont floutés. Les coûts sont des estimations.",
+    it: "Schermata della mappa dei processi di TblFlow stessa; alcuni nomi sono sfocati. I costi sono stime.",
+    ja: "TblFlow 自身のプロセスマップのスクリーンショット。一部の名称はぼかしています。コストは見積もりです。",
+    ru: "Снимок карты процессов самого TblFlow; некоторые названия размыты. Затраты — оценки.",
+    tr: "TblFlow'un kendi süreç haritasından ekran görüntüsü; bazı adlar bulanıklaştırıldı. Maliyetler tahmindir.",
+    uk: "Знімок карти процесів самого TblFlow; деякі назви розмито. Витрати — оцінки.",
+    zh: "TblFlow 自身流程图谱的截图，部分名称已模糊处理。成本为估算值。",
+  },
 } as const satisfies Record<string, Record<Locale, string>>;
 
 export type PmKey = keyof typeof PM_STRINGS;
