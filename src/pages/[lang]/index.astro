@@ -13,6 +13,8 @@ import CtaBand from '@/components/CtaBand.astro';
 import { DIFFERENTIATORS, COMPETITOR_LABELS } from '@/data/content';
 import { COMPETITOR_SLUGS } from '@/data/competitors';
 import { FAQ } from '@/data/faq';
+import { pm } from '@/data/processMap';
+import ProcessMapTeaser from '@/components/ProcessMapTeaser.astro';
 import { useTranslations } from '@/i18n/ui';
 import { localePath } from '@/i18n/utils';
 import { LOCALES, type Locale } from '@/config';
@@ -25,57 +27,9 @@ const locale = Astro.params.lang as Locale;
 const t = useTranslations(locale);
 
 const meta = {
-  de: {
-    title: 'TblFlow — No-Code-Datenbank auf PostgreSQL, mit KI-Agenten',
-    description:
-      'No-Code-Datenbankplattform: Tabellenoberfläche auf echtem PostgreSQL, autonome KI-Agenten, Automatisierungen und semantische Suche. Verwaltet oder selbst gehostet, ohne Anbieterbindung.',
-  },
-  en: {
-    title: 'TblFlow — No-code database on PostgreSQL, with AI agents',
-    description:
-      'No-code database platform: a spreadsheet interface over real PostgreSQL, autonomous AI agents, automations and semantic search. Managed or self-hosted, with no vendor lock-in.',
-  },
-  es: {
-    title: 'TblFlow — Base de datos no-code sobre PostgreSQL, con agentes IA',
-    description:
-      'Plataforma de base de datos no-code: interfaz de hoja de cálculo sobre PostgreSQL real, agentes de IA autónomos, automatizaciones y búsqueda semántica. Gestionada o autoalojada, sin dependencia de proveedor.',
-  },
-  fr: {
-    title: 'TblFlow — Base de données no-code sur PostgreSQL, avec agents IA',
-    description:
-      "Plateforme no-code de base de données : interface tableur sur un vrai PostgreSQL, agents IA autonomes, automatisations et recherche sémantique. Infogéré ou auto-hébergé, sans verrouillage propriétaire.",
-  },
-  it: {
-    title: 'TblFlow — Database no-code su PostgreSQL, con agenti IA',
-    description:
-      'Piattaforma di database no-code: interfaccia a foglio di calcolo su PostgreSQL reale, agenti IA autonomi, automazioni e ricerca semantica. Gestita o self-hosted, senza vincoli con il fornitore.',
-  },
-  ja: {
-    title: 'TblFlow — AIエージェント搭載、PostgreSQL上のノーコードデータベース',
-    description:
-      '本物のPostgreSQL上にスプレッドシート型インターフェースを備えたノーコードデータベース。自律型AIエージェント、自動化、セマンティック検索。マネージドまたはセルフホストで、ベンダーロックインなし。',
-  },
-  ru: {
-    title: 'TblFlow — No-code база данных на PostgreSQL, с ИИ-агентами',
-    description:
-      'No-code платформа для баз данных: табличный интерфейс поверх настоящего PostgreSQL, автономные ИИ-агенты, автоматизации и семантический поиск. Управляемая или self-hosted, без привязки к поставщику.',
-  },
-  tr: {
-    title: 'TblFlow — Yapay zeka ajanlı, PostgreSQL üzerinde no-code veritabanı',
-    description:
-      'No-code veritabanı platformu: gerçek PostgreSQL üzerinde tablo arayüzü, otonom yapay zeka ajanları, otomasyonlar ve anlamsal arama. Yönetilen ya da kendi sunucunuzda, sağlayıcıya bağımlılık olmadan.',
-  },
-  uk: {
-    title: 'TblFlow — No-code база даних на PostgreSQL, зі ШІ-агентами',
-    description:
-      'No-code платформа для баз даних: табличний інтерфейс поверх справжнього PostgreSQL, автономні ШІ-агенти, автоматизації та семантичний пошук. Керована або self-hosted, без прив’язки до постачальника.',
-  },
-  zh: {
-    title: 'TblFlow — 基于 PostgreSQL 的无代码数据库，内置 AI 智能体',
-    description:
-      '无代码数据库平台：在真实 PostgreSQL 之上提供表格界面、自主 AI 智能体、自动化和语义搜索。可托管，也可自行部署，不锁定供应商。',
-  },
-} satisfies Record<Locale, { title: string; description: string }>;
+  title: pm(locale, 'home.meta.title'),
+  description: pm(locale, 'home.meta.description'),
+};
 
 /** Same strings the FAQ renders — one source, so text and schema cannot diverge. */
 const faqSchema = FAQ.map((item) => ({
@@ -86,8 +40,8 @@ const faqSchema = FAQ.map((item) => ({
 
 <Base
   locale={locale}
-  title={meta[locale].title}
-  description={meta[locale].description}
+  title={meta.title}
+  description={meta.description}
   path={localePath(locale)}
   faq={faqSchema}
   product
@@ -97,6 +51,8 @@ const faqSchema = FAQ.map((item) => ({
   <PipelineSection locale={locale} />
 
   <ProductShowcase locale={locale} />
+
+  <ProcessMapTeaser locale={locale} />
 
   <SurfacesGrid locale={locale} />
 

@@ -2,6 +2,7 @@
 import Logo from './Logo.astro';
 import LangSwitcher from './LangSwitcher.astro';
 import { useTranslations } from '@/i18n/ui';
+import { pm } from '@/data/processMap';
 import { localePath } from '@/i18n/utils';
 import { APP_URL, APP_LEGAL, type Locale } from '@/config';
 
@@ -17,6 +18,7 @@ const columns: Array<{ title: string; links: Array<{ label: string; href: string
   {
     title: t('footer.product'),
     links: [
+      { label: pm(locale, 'nav'), href: localePath(locale, 'process-map') },
       { label: t('nav.pricing'), href: localePath(locale, 'pricing') },
       { label: t('footer.nav.features'), href: `${localePath(locale)}#features` },
       { label: t('compare.title'), href: `${localePath(locale)}#comparison` },

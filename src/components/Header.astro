@@ -11,6 +11,7 @@ import Logo from './Logo.astro';
 import LangSwitcher from './LangSwitcher.astro';
 import ThemeSwitch from './ThemeSwitch.astro';
 import { useTranslations } from '@/i18n/ui';
+import { pm } from '@/data/processMap';
 import { localePath, pathWithoutLocale } from '@/i18n/utils';
 import { APP_URL, type Locale } from '@/config';
 
@@ -23,6 +24,7 @@ const t = useTranslations(locale);
 const current = pathWithoutLocale(Astro.url.pathname);
 
 const links: Array<{ label: string; href: string; match?: string; external?: boolean }> = [
+  { label: pm(locale, 'nav'), href: localePath(locale, 'process-map'), match: 'process-map' },
   { label: t('nav.pricing'), href: localePath(locale, 'pricing'), match: 'pricing' },
   { label: t('nav.blog'), href: localePath(locale, 'blog'), match: 'blog' },
   { label: t('nav.docs'), href: localePath(locale, 'docs'), match: 'docs' },

@@ -88,6 +88,8 @@ Full tier detail: ${SITE_URL}/en/pricing
 
 - [Home (English)](${SITE_URL}/en): product overview, feature surfaces, competitive comparison, FAQ.
 - [Home (French)](${SITE_URL}/fr): same content in French.
+- [Process map (English)](${SITE_URL}/en/process-map): map processes, spot breaks, estimate costs (estimates entered by the user), and have the AI propose a TblFlow replacement. Pro plan and above.
+- [Process map (French)](${SITE_URL}/fr/process-map)
 - [Pricing (English)](${SITE_URL}/en/pricing): four tiers with the full quota grid.
 - [Pricing (French)](${SITE_URL}/fr/pricing)
 - [Blog (English)](${SITE_URL}/en/blog)

@@ -83,6 +83,19 @@ ${[...rows, ...noteRows].join('\n')}`);
     [row.label.en, ...TIERS.map((t) => row.values[t.id].en)].join(' | ')
   );
 
+  sections.push(`## Process map
+
+Available on the Pro plan and above (not on Free). A page of each space where processes are drawn on a
+canvas (who does what: a person, an automation or an AI agent), read four ways: Who does what, Costs,
+Breaks, Data. It detects manual re-keying between tools, data with no master source, objects consumed
+but never produced, steps with no owner, no duration, orphaned or with no next step, and failing
+automations. Costs are estimates entered by the user (rates per role, subscriptions, API calls, AI
+tokens); real execution costs are not measured. "Replace" asks the AI to propose a TblFlow replacement
+(base and interface, automation, AI agent or browser replay) and creates everything inactive for the user
+to review and activate. The map is stored in ordinary PostgreSQL tables of the space; public sharing is
+read-only; human costs are visible to the space owner only.
+Page: ${SITE_URL}/en/process-map`);
+
   sections.push(`## Pricing
 
 TblFlow Cloud has four tiers. Self-hosted and dedicated VPC deployment is part of the Enterprise
