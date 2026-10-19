@@ -1338,6 +1338,18 @@ export const PM_STRINGS = {
     uk: "Знімок карти процесів самого TblFlow; деякі назви розмито. Витрати — оцінки.",
     zh: "TblFlow 自身流程图谱的截图，部分名称已模糊处理。成本为估算值。",
   },
+  "shot2.alt": {
+    de: "Screenshot der TblFlow-Prozesslandkarte in der Ansicht „Daten“: verbundene Schritte mit den genutzten Tools und ein Übersichtsbanner (geschätzte Kosten, Brüche, mögliche Einsparungen). Einige Namen sind unkenntlich gemacht.",
+    en: "Screenshot of TblFlow's process map, “Data” reading: linked steps with the tools they use, and a summary banner (estimated cost, breaks, possible savings). Some names are blurred.",
+    es: "Captura del mapa de procesos de TblFlow, lectura «Datos»: pasos enlazados con las herramientas que usan y un banner de resumen (coste estimado, rupturas, ahorros posibles). Algunos nombres están difuminados.",
+    fr: "Capture de la cartographie des processus de TblFlow, lecture « Données » : des étapes reliées avec les outils qu'elles utilisent, et un bandeau de synthèse (coût estimé, ruptures, économies possibles). Certains noms sont floutés.",
+    it: "Schermata della mappa dei processi di TblFlow, lettura «Dati»: passaggi collegati con gli strumenti che usano e un banner di sintesi (costo stimato, rotture, risparmi possibili). Alcuni nomi sono sfocati.",
+    ja: "TblFlow のプロセスマップ「データ」表示のスクリーンショット。ステップとそれぞれが使うツール、概要バナー（見積もりコスト、断絶、見込まれる節約）。一部の名称はぼかしています。",
+    ru: "Снимок экрана карты процессов TblFlow в режиме «Данные»: связанные шаги с используемыми инструментами и сводная панель (оценочные затраты, разрывы, возможная экономия). Некоторые названия размыты.",
+    tr: "TblFlow süreç haritasının «Veriler» görünümünden ekran görüntüsü: kullandıkları araçlarla bağlantılı adımlar ve bir özet bandı (tahmini maliyet, kopukluklar, olası tasarruf). Bazı adlar bulanıklaştırıldı.",
+    uk: "Знімок екрана карти процесів TblFlow у режимі «Дані»: пов'язані кроки з інструментами, які вони використовують, і зведена панель (орієнтовні витрати, розриви, можлива економія). Деякі назви розмито.",
+    zh: "TblFlow 流程图谱“数据”视图的截图：相互连接的步骤及其所用工具，以及汇总横幅（估算成本、断点、可能节省）。部分名称已模糊处理。",
+  },
 } as const satisfies Record<string, Record<Locale, string>>;
 
 export type PmKey = keyof typeof PM_STRINGS;
