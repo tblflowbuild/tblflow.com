@@ -24,7 +24,7 @@ export const ui = {
     'nav.menu': 'Menü',
     'nav.skip': 'Zum Hauptinhalt springen',
 
-    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
+    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
     'hero.title': 'Die moderne Datenbank-Oberfläche für Teams',
     'hero.subtitle':
       'Beschreiben Sie, was Sie brauchen: KI-Agenten und Automatisierungen erledigen den Rest, auf echtem PostgreSQL. Vollständig verwaltet oder auf Ihren eigenen Servern.',
@@ -181,7 +181,7 @@ export const ui = {
     'nav.menu': 'Menu',
     'nav.skip': 'Skip to main content',
 
-    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
+    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
     'hero.title': 'The modern database UI for teams',
     'hero.subtitle':
       'Describe what you need: AI agents and automations take it from there, on real PostgreSQL. Fully managed, or on your own servers.',
@@ -338,7 +338,7 @@ export const ui = {
     'nav.menu': 'Menú',
     'nav.skip': 'Ir al contenido principal',
 
-    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
+    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
     'hero.title': 'La interfaz moderna de base de datos para equipos',
     'hero.subtitle':
       'Describe lo que necesitas: agentes de IA y automatizaciones se encargan del resto, sobre PostgreSQL real. Totalmente gestionado, o en tus propios servidores.',
@@ -495,7 +495,7 @@ export const ui = {
     'nav.menu': 'Menu',
     'nav.skip': 'Aller au contenu principal',
 
-    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
+    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
     'hero.title': "L'interface moderne de base de données pour les équipes",
     'hero.subtitle':
       "Décrivez ce dont vous avez besoin : agents IA et automatisations s'occupent du reste, sur un vrai PostgreSQL. Entièrement infogéré, ou sur vos serveurs.",
@@ -652,7 +652,7 @@ export const ui = {
     'nav.menu': 'Menu',
     'nav.skip': 'Vai al contenuto principale',
 
-    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
+    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
     'hero.title': "L'interfaccia moderna per database, pensata per i team",
     'hero.subtitle':
       'Descrivi ciò di cui hai bisogno: agenti IA e automazioni si occupano del resto, su PostgreSQL reale. Completamente gestito, oppure sui tuoi server.',
@@ -809,7 +809,7 @@ export const ui = {
     'nav.menu': 'メニュー',
     'nav.skip': 'メインコンテンツへスキップ',
 
-    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
+    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
     'hero.title': 'チームのためのモダンなデータベースUI',
     'hero.subtitle':
       '必要なことを伝えるだけ。AIエージェントと自動化が残りを処理します。本物のPostgreSQL上で、フルマネージドでも自社サーバーでも。',
@@ -966,7 +966,7 @@ export const ui = {
     'nav.menu': 'Меню',
     'nav.skip': 'Перейти к основному содержимому',
 
-    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
+    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
     'hero.title': 'Современный интерфейс базы данных для команд',
     'hero.subtitle':
       'Опишите, что вам нужно: ИИ-агенты и автоматизации сделают остальное, на настоящем PostgreSQL. Полностью управляемое решение или на ваших серверах.',
@@ -1123,7 +1123,7 @@ export const ui = {
     'nav.menu': 'Menü',
     'nav.skip': 'Ana içeriğe geç',
 
-    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
+    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
     'hero.title': 'Ekipler için modern veritabanı arayüzü',
     'hero.subtitle':
       'İhtiyacınızı tarif edin: yapay zeka ajanları ve otomasyonlar gerisini halleder, gerçek PostgreSQL üzerinde. Tamamen yönetilen ya da kendi sunucularınızda.',
@@ -1280,7 +1280,7 @@ export const ui = {
     'nav.menu': 'Меню',
     'nav.skip': 'Перейти до основного вмісту',
 
-    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
+    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
     'hero.title': 'Сучасний інтерфейс бази даних для команд',
     'hero.subtitle':
       'Опишіть, що вам потрібно: ШІ-агенти та автоматизації зроблять решту, на справжньому PostgreSQL. Повністю кероване рішення або на ваших серверах.',
@@ -1437,7 +1437,7 @@ export const ui = {
     'nav.menu': '菜单',
     'nav.skip': '跳到主要内容',
 
-    'hero.eyebrow': 'Ask it, build it, automate it, own it.',
+    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
     'hero.title': '面向团队的现代数据库界面',
     'hero.subtitle': '描述您的需求：AI 智能体和自动化会完成剩下的工作，基于真实的 PostgreSQL。可完全托管，也可部署在您自己的服务器上。',
     'hero.cta.primary': '免费开始',

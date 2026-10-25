@@ -51,9 +51,11 @@ export const GET: APIRoute = async () => {
 
   const body = `# TblFlow
 
-> TblFlow is a no-code database platform that puts a spreadsheet-like interface over a real
-> PostgreSQL database, and adds autonomous AI agents, event-driven automations, semantic
-> document search and publishable custom apps on top of the same data. It is available as a
+> TblFlow is an AIOS (AI operating system) for teams, built on a no-code database platform: a
+> spreadsheet-like interface over a real PostgreSQL database, with autonomous AI agents,
+> event-driven automations, an AI connector generator, an AI browser agent (computer use),
+> AI-accelerated process mapping, semantic document search and publishable custom apps, all on
+> the same data. It is available as a
 > managed service at tblflow.com and, under the Enterprise tier, as a self-hosted or dedicated
 > VPC deployment with every feature unlocked.
 
@@ -68,6 +70,12 @@ export const GET: APIRoute = async () => {
 - AI agents: autonomous, with a planner, an executor, persistent entity/relation memory and a
   scheduler. They read and write records and act on connected services (Gmail, GitHub, Slack,
   Google Calendar, Drive, Meet).
+- AI connector generator: describe a service or give its API documentation and the AI generates
+  a connector, so agents and automations can act on tools that have no built-in integration.
+- AI browser agent (computer use): an agent drives a real browser to operate web apps that
+  expose no API, then writes the results back to your tables.
+- Process mapping, accelerated by AI: the AI drafts the map from a description, spots breaks and
+  proposes a TblFlow replacement (see Pages below).
 - AI providers: OpenAI, Anthropic, Google Gemini, Azure OpenAI, DeepSeek, Mistral, Groq, Cohere,
   any OpenAI-compatible endpoint, plus local models via Ollama and LM Studio. Configured per base
   with your own API keys.
