@@ -24,7 +24,7 @@ export const ui = {
     'nav.menu': 'Menü',
     'nav.skip': 'Zum Hauptinhalt springen',
 
-    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
+    'hero.eyebrow': "Für KMU, die mit Excel und zehn Tools arbeiten",
     'hero.title': 'Die moderne Datenbank-Oberfläche für Teams',
     'hero.subtitle':
       'Beschreiben Sie, was Sie brauchen: KI-Agenten und Automatisierungen erledigen den Rest, auf echtem PostgreSQL. Vollständig verwaltet oder auf Ihren eigenen Servern.',
@@ -70,8 +70,8 @@ export const ui = {
     'faq.empty': 'Keine Frage passt zu dieser Suche.',
     'faq.all': 'Alle',
 
-    'cta.title': 'Bereit, Ihre Daten in Software zu verwandeln?',
-    'cta.body': 'Erstellen Sie in wenigen Minuten Ihre erste Basis.',
+    'cta.title': "Bereit, nichts mehr doppelt einzugeben?",
+    'cta.body': "Starten Sie kostenlos ohne Kreditkarte oder testen Sie die Prozesslandkarte 14 Tage lang mit Pro.",
     'cta.primary': 'Kostenlos starten',
     'cta.secondary': 'Mit jemandem sprechen',
 
@@ -120,7 +120,7 @@ export const ui = {
     'views.kanban.done': 'Erledigt',
     'views.mock.submit': 'Absenden',
 
-    'footer.tagline': 'Die moderne Datenbank-Oberfläche für Teams. Auf echtem PostgreSQL.',
+    'footer.tagline': "Prozesse abbilden, Doppelerfassung abschaffen. Auf echtem PostgreSQL.",
     'footer.stack': 'Basiert auf PostgreSQL, NestJS und Next.js.',
 
     'breadcrumbs.home': 'Startseite',
@@ -181,7 +181,7 @@ export const ui = {
     'nav.menu': 'Menu',
     'nav.skip': 'Skip to main content',
 
-    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
+    'hero.eyebrow': "For SMBs running on spreadsheets and ten different tools",
     'hero.title': 'The modern database UI for teams',
     'hero.subtitle':
       'Describe what you need: AI agents and automations take it from there, on real PostgreSQL. Fully managed, or on your own servers.',
@@ -227,8 +227,8 @@ export const ui = {
     'faq.empty': 'No question matches that search.',
     'faq.all': 'All',
 
-    'cta.title': 'Ready to turn your data into software?',
-    'cta.body': 'Build your first base in minutes.',
+    'cta.title': "Ready to stop typing the same data twice?",
+    'cta.body': "Start free with no credit card, or try the process map with the 14-day Pro trial.",
     'cta.primary': 'Start for free',
     'cta.secondary': 'Talk to someone',
 
@@ -277,7 +277,7 @@ export const ui = {
     'views.kanban.done': 'Done',
     'views.mock.submit': 'Submit',
 
-    'footer.tagline': 'The modern database UI for teams. On real PostgreSQL.',
+    'footer.tagline': "Map your processes, remove manual re-entry. On real PostgreSQL.",
     'footer.stack': 'Built on PostgreSQL, NestJS and Next.js.',
 
     'breadcrumbs.home': 'Home',
@@ -338,7 +338,7 @@ export const ui = {
     'nav.menu': 'Menú',
     'nav.skip': 'Ir al contenido principal',
 
-    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
+    'hero.eyebrow': "Para pymes que funcionan con Excel y diez herramientas",
     'hero.title': 'La interfaz moderna de base de datos para equipos',
     'hero.subtitle':
       'Describe lo que necesitas: agentes de IA y automatizaciones se encargan del resto, sobre PostgreSQL real. Totalmente gestionado, o en tus propios servidores.',
@@ -384,8 +384,8 @@ export const ui = {
     'faq.empty': 'Ninguna pregunta coincide con esta búsqueda.',
     'faq.all': 'Todas',
 
-    'cta.title': '¿Listo para convertir sus datos en software?',
-    'cta.body': 'Cree su primera base en pocos minutos.',
+    'cta.title': "¿Listo para dejar de teclear dos veces los mismos datos?",
+    'cta.body': "Empieza gratis sin tarjeta, o prueba el mapa de procesos con la prueba Pro de 14 días.",
     'cta.primary': 'Empezar gratis',
     'cta.secondary': 'Hablar con alguien',
 
@@ -434,7 +434,7 @@ export const ui = {
     'views.kanban.done': 'Hecho',
     'views.mock.submit': 'Enviar',
 
-    'footer.tagline': 'La interfaz moderna de base de datos para equipos. Sobre PostgreSQL real.',
+    'footer.tagline': "Mapea tus procesos y deja de teclear dos veces. Sobre un PostgreSQL real.",
     'footer.stack': 'Creado con PostgreSQL, NestJS y Next.js.',
 
     'breadcrumbs.home': 'Inicio',
@@ -495,7 +495,7 @@ export const ui = {
     'nav.menu': 'Menu',
     'nav.skip': 'Aller au contenu principal',
 
-    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
+    'hero.eyebrow': "Pour les PME qui tournent sur Excel et dix outils",
     'hero.title': "L'interface moderne de base de données pour les équipes",
     'hero.subtitle':
       "Décrivez ce dont vous avez besoin : agents IA et automatisations s'occupent du reste, sur un vrai PostgreSQL. Entièrement infogéré, ou sur vos serveurs.",
@@ -541,8 +541,8 @@ export const ui = {
     'faq.empty': 'Aucune question ne correspond à cette recherche.',
     'faq.all': 'Tout',
 
-    'cta.title': 'Prêt à transformer vos données en logiciel ?',
-    'cta.body': 'Créez votre première base en quelques minutes.',
+    'cta.title': "Prêt à supprimer vos ressaisies ?",
+    'cta.body': "Démarrez gratuitement, sans carte bancaire, ou testez la cartographie avec l’essai Pro de 14 jours.",
     'cta.primary': 'Commencer gratuitement',
     'cta.secondary': 'Parler à quelqu’un',
 
@@ -591,7 +591,7 @@ export const ui = {
     'views.kanban.done': 'Terminé',
     'views.mock.submit': 'Envoyer',
 
-    'footer.tagline': 'L\'interface moderne de base de données pour les équipes. Sur un vrai PostgreSQL.',
+    'footer.tagline': "Cartographiez vos processus, supprimez les ressaisies. Sur un vrai PostgreSQL.",
     'footer.stack': 'Construit sur PostgreSQL, NestJS et Next.js.',
 
     'breadcrumbs.home': 'Accueil',
@@ -652,7 +652,7 @@ export const ui = {
     'nav.menu': 'Menu',
     'nav.skip': 'Vai al contenuto principale',
 
-    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
+    'hero.eyebrow': "Per le PMI che lavorano con Excel e dieci strumenti",
     'hero.title': "L'interfaccia moderna per database, pensata per i team",
     'hero.subtitle':
       'Descrivi ciò di cui hai bisogno: agenti IA e automazioni si occupano del resto, su PostgreSQL reale. Completamente gestito, oppure sui tuoi server.',
@@ -698,8 +698,8 @@ export const ui = {
     'faq.empty': 'Nessuna domanda corrisponde a questa ricerca.',
     'faq.all': 'Tutte',
 
-    'cta.title': 'Pronti a trasformare i vostri dati in software?',
-    'cta.body': 'Create la vostra prima base in pochi minuti.',
+    'cta.title': "Pronto a smettere di digitare due volte gli stessi dati?",
+    'cta.body': "Inizia gratis senza carta di credito, o prova la mappa dei processi con la prova Pro di 14 giorni.",
     'cta.primary': 'Inizia gratis',
     'cta.secondary': 'Parla con noi',
 
@@ -748,7 +748,7 @@ export const ui = {
     'views.kanban.done': 'Completato',
     'views.mock.submit': 'Invia',
 
-    'footer.tagline': 'L\'interfaccia moderna per database, pensata per i team. Su PostgreSQL reale.',
+    'footer.tagline': "Mappa i tuoi processi, elimina le doppie digitazioni. Su un vero PostgreSQL.",
     'footer.stack': 'Costruito su PostgreSQL, NestJS e Next.js.',
 
     'breadcrumbs.home': 'Home',
@@ -809,7 +809,7 @@ export const ui = {
     'nav.menu': 'メニュー',
     'nav.skip': 'メインコンテンツへスキップ',
 
-    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
+    'hero.eyebrow': "Excel と十数個のツールで回している中小企業のために",
     'hero.title': 'チームのためのモダンなデータベースUI',
     'hero.subtitle':
       '必要なことを伝えるだけ。AIエージェントと自動化が残りを処理します。本物のPostgreSQL上で、フルマネージドでも自社サーバーでも。',
@@ -855,8 +855,8 @@ export const ui = {
     'faq.empty': 'この検索に一致する質問はありません。',
     'faq.all': 'すべて',
 
-    'cta.title': 'データをソフトウェアに変える準備はできましたか？',
-    'cta.body': '数分で最初のベースを作成できます。',
+    'cta.title': "同じデータの二重入力を、もう終わりにしませんか？",
+    'cta.body': "カード不要で無料で始めるか、14 日間の Pro トライアルでプロセスマップをお試しください。",
     'cta.primary': '無料ではじめる',
     'cta.secondary': '相談する',
 
@@ -905,7 +905,7 @@ export const ui = {
     'views.kanban.done': '完了',
     'views.mock.submit': '送信',
 
-    'footer.tagline': 'チームのためのモダンなデータベースUI。本物のPostgreSQL上で。',
+    'footer.tagline': "プロセスを可視化し、二重入力をなくす。本物の PostgreSQL 上で。",
     'footer.stack': 'PostgreSQL、NestJS、Next.jsで構築。',
 
     'breadcrumbs.home': 'ホーム',
@@ -966,7 +966,7 @@ export const ui = {
     'nav.menu': 'Меню',
     'nav.skip': 'Перейти к основному содержимому',
 
-    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
+    'hero.eyebrow': "Для малого и среднего бизнеса, который работает в Excel и десятке сервисов",
     'hero.title': 'Современный интерфейс базы данных для команд',
     'hero.subtitle':
       'Опишите, что вам нужно: ИИ-агенты и автоматизации сделают остальное, на настоящем PostgreSQL. Полностью управляемое решение или на ваших серверах.',
@@ -1012,8 +1012,8 @@ export const ui = {
     'faq.empty': 'По этому запросу ничего не найдено.',
     'faq.all': 'Все',
 
-    'cta.title': 'Готовы превратить данные в программное обеспечение?',
-    'cta.body': 'Создайте свою первую базу за несколько минут.',
+    'cta.title': "Готовы перестать вводить одни и те же данные дважды?",
+    'cta.body': "Начните бесплатно без карты или попробуйте карту процессов в 14-дневном пробном периоде Pro.",
     'cta.primary': 'Начать бесплатно',
     'cta.secondary': 'Поговорить с нами',
 
@@ -1062,7 +1062,7 @@ export const ui = {
     'views.kanban.done': 'Готово',
     'views.mock.submit': 'Отправить',
 
-    'footer.tagline': 'Современный интерфейс базы данных для команд. На настоящем PostgreSQL.',
+    'footer.tagline': "Карта процессов без повторного ввода данных. На настоящем PostgreSQL.",
     'footer.stack': 'Построено на PostgreSQL, NestJS и Next.js.',
 
     'breadcrumbs.home': 'Главная',
@@ -1123,7 +1123,7 @@ export const ui = {
     'nav.menu': 'Menü',
     'nav.skip': 'Ana içeriğe geç',
 
-    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
+    'hero.eyebrow': "Excel ve on farklı araçla çalışan KOBİ'ler için",
     'hero.title': 'Ekipler için modern veritabanı arayüzü',
     'hero.subtitle':
       'İhtiyacınızı tarif edin: yapay zeka ajanları ve otomasyonlar gerisini halleder, gerçek PostgreSQL üzerinde. Tamamen yönetilen ya da kendi sunucularınızda.',
@@ -1169,8 +1169,8 @@ export const ui = {
     'faq.empty': 'Bu aramayla eşleşen soru yok.',
     'faq.all': 'Tümü',
 
-    'cta.title': 'Verilerinizi yazılıma dönüştürmeye hazır mısınız?',
-    'cta.body': 'İlk veritabanınızı birkaç dakikada oluşturun.',
+    'cta.title': "Aynı veriyi iki kez girmeyi bırakmaya hazır mısınız?",
+    'cta.body': "Kredi kartı olmadan ücretsiz başlayın veya süreç haritasını 14 günlük Pro denemesiyle test edin.",
     'cta.primary': 'Ücretsiz başla',
     'cta.secondary': 'Biriyle konuş',
 
@@ -1219,7 +1219,7 @@ export const ui = {
     'views.kanban.done': 'Tamamlandı',
     'views.mock.submit': 'Gönder',
 
-    'footer.tagline': 'Ekipler için modern veritabanı arayüzü. Gerçek PostgreSQL üzerinde.',
+    'footer.tagline': "Süreçlerinizi haritalayın, mükerrer veri girişini kaldırın. Gerçek PostgreSQL üzerinde.",
     'footer.stack': 'PostgreSQL, NestJS ve Next.js üzerine inşa edilmiştir.',
 
     'breadcrumbs.home': 'Ana sayfa',
@@ -1280,7 +1280,7 @@ export const ui = {
     'nav.menu': 'Меню',
     'nav.skip': 'Перейти до основного вмісту',
 
-    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
+    'hero.eyebrow': "Для малого й середнього бізнесу, що працює в Excel і десятку сервісів",
     'hero.title': 'Сучасний інтерфейс бази даних для команд',
     'hero.subtitle':
       'Опишіть, що вам потрібно: ШІ-агенти та автоматизації зроблять решту, на справжньому PostgreSQL. Повністю кероване рішення або на ваших серверах.',
@@ -1326,8 +1326,8 @@ export const ui = {
     'faq.empty': 'За цим запитом нічого не знайдено.',
     'faq.all': 'Усі',
 
-    'cta.title': 'Готові перетворити свої дані на програмне забезпечення?',
-    'cta.body': 'Створіть свою першу базу за кілька хвилин.',
+    'cta.title': "Готові припинити вводити ті самі дані двічі?",
+    'cta.body': "Почніть безкоштовно без картки або спробуйте карту процесів у 14-денному пробному періоді Pro.",
     'cta.primary': 'Почати безкоштовно',
     'cta.secondary': 'Поговорити з нами',
 
@@ -1376,7 +1376,7 @@ export const ui = {
     'views.kanban.done': 'Готово',
     'views.mock.submit': 'Надіслати',
 
-    'footer.tagline': 'Сучасний інтерфейс бази даних для команд. На справжньому PostgreSQL.',
+    'footer.tagline': "Карта процесів без повторного введення даних. На справжньому PostgreSQL.",
     'footer.stack': 'Побудовано на PostgreSQL, NestJS та Next.js.',
 
     'breadcrumbs.home': 'Головна',
@@ -1437,7 +1437,7 @@ export const ui = {
     'nav.menu': '菜单',
     'nav.skip': '跳到主要内容',
 
-    'hero.eyebrow': 'AIOS · Ask it, build it, automate it, own it.',
+    'hero.eyebrow': "为靠 Excel 和十几个工具运转的中小企业而生",
     'hero.title': '面向团队的现代数据库界面',
     'hero.subtitle': '描述您的需求：AI 智能体和自动化会完成剩下的工作，基于真实的 PostgreSQL。可完全托管，也可部署在您自己的服务器上。',
     'hero.cta.primary': '免费开始',
@@ -1481,8 +1481,8 @@ export const ui = {
     'faq.empty': '没有找到匹配的问题。',
     'faq.all': '全部',
 
-    'cta.title': '准备好将数据转化为软件了吗？',
-    'cta.body': '几分钟内创建您的第一个数据库。',
+    'cta.title': "准备好告别重复录入了吗？",
+    'cta.body': "无需信用卡即可免费开始，或通过 14 天 Pro 试用体验流程图谱。",
     'cta.primary': '免费开始',
     'cta.secondary': '联系我们',
 
@@ -1531,7 +1531,7 @@ export const ui = {
     'views.kanban.done': '已完成',
     'views.mock.submit': '提交',
 
-    'footer.tagline': '面向团队的现代数据库界面。基于真实 PostgreSQL。',
+    'footer.tagline': "梳理流程，消除重复录入。基于真正的 PostgreSQL。",
     'footer.stack': '基于 PostgreSQL、NestJS 和 Next.js 构建。',
 
     'breadcrumbs.home': '首页',
