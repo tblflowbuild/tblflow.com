@@ -1,12 +1,12 @@
 ---
-title: "Cartographie des processus"
+title: "Carto des process"
 translationKey: "process-map"
-description: "Créer la cartographie d'un espace, dessiner les processus, lire les ruptures et les coûts estimés, puis utiliser Remplacer pour faire proposer une alternative TblFlow."
+description: "Créer la Carto des process d'un espace, dessiner les processus, lire les ruptures et les coûts estimés, puis utiliser Remplacer pour faire proposer une alternative TblFlow."
 section: "Guides"
 order: 5
 ---
 
-La cartographie des processus est une page de votre espace où vous dessinez qui fait quoi, avec quels outils, puis lisez les ruptures et les coûts estimés. Elle demande le plan Pro ou supérieur.
+La Carto des process est une page de votre espace où vous dessinez qui fait quoi, avec quels outils, puis lisez les ruptures et les coûts estimés. Elle demande le plan Pro ou supérieur.
 
 ## Ouvrir ou créer la cartographie
 
