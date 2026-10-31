@@ -4,6 +4,7 @@ import HeroCards from './HeroCards.astro';
 import StepsRibbon from './StepsRibbon.astro';
 import { useTranslations } from '@/i18n/ui';
 import { pm } from '@/data/processMap';
+import { hm } from '@/data/home';
 import { APP_URL, type Locale } from '@/config';
 
 interface Props {
@@ -15,15 +16,16 @@ const t = useTranslations(locale);
 
 /**
  * Proof points sit directly under the CTA rather than further down the page.
- * They are concrete and quotable on purpose — "millions of rows", "28 field
- * types" — because vague superlatives are exactly what generative engines drop
- * when summarising a product.
+ * They speak to an owner or ops lead deciding whether to try it, and each one
+ * holds for the plan the CTA leads to: no "millions of rows" next to a free
+ * tier capped at 5,000.
  */
 const proof = [
-  { value: t('proof.rows.value'), label: t('proof.rows') },
-  { value: '6', label: t('proof.views') },
-  { value: '28', label: t('proof.fields') },
   { value: t('proof.deploy.value'), label: t('proof.deploy') },
+  { value: hm(locale, 'proof.trial.value'), label: hm(locale, 'proof.trial') },
+  { value: hm(locale, 'proof.free.value'), label: hm(locale, 'proof.free') },
+  // A word, not a number: one size down so it fits the four-column row.
+  { value: 'PostgreSQL', label: hm(locale, 'proof.data'), small: true },
 ];
 
 ---
@@ -108,16 +110,23 @@ const proof = [
       {pm(locale, 'home.hero.subtitle')}
     </p>
 
-    {/* One CTA, not the original pair — a Persuade-mode page needs a primary
-        action reachable without scrolling, but the pipeline demo right below
-        is the real pitch, so a secondary "see pricing" button here would only
-        compete with it. */}
+    {/* Free stays the default action. The trial link sits in the note under
+        it, because the process map the H1 promises is a Pro feature: saying
+        so here is what keeps the H1 and the button from contradicting each
+        other. */}
     <a
       href={`${APP_URL}/auth/signup`}
       class="ai-gradient-bg animate-gradient animate-enter delay-4 mt-9 inline-block rounded-xl px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5"
     >
       {t('hero.cta.primary')}
     </a>
+
+    <p class="animate-enter delay-4 mx-auto mt-4 max-w-xl text-sm text-[var(--fg-subtle)]">
+      {hm(locale, 'trial.note')}{' '}
+      <a href={`${APP_URL}/auth/signup?plan=pro-trial`} class="font-medium text-[var(--color-ai-2)] hover:underline">
+        {hm(locale, 'trial.link')}&nbsp;→
+      </a>
+    </p>
 
     <dl
       class="animate-enter delay-4 mx-auto mt-14 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4"
@@ -129,7 +138,7 @@ const proof = [
         proof.map((item) => (
           <div class="flex flex-col">
             <dt class="order-2 mt-1 text-xs text-[var(--fg-subtle)]">{item.label}</dt>
-            <dd class="ai-gradient-text order-1 text-2xl font-bold sm:text-3xl">{item.value}</dd>
+            <dd class:list={['ai-gradient-text order-1 font-bold', item.small ? 'text-xl leading-[2.25rem] sm:text-2xl' : 'text-2xl sm:text-3xl']}>{item.value}</dd>
           </div>
         ))
       }
