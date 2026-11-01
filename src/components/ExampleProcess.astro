@@ -1,0 +1,56 @@
+---
+import { hm } from '@/data/home';
+import type { Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+
+/* The process every SMB recognises: the same customer and amounts typed three
+   times. Illustrative, and labelled as such under the figure. */
+const steps = [1, 2, 3] as const;
+---
+
+<section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+  <header class="reveal max-w-2xl">
+    <p class="eyebrow">{hm(locale, 'example.eyebrow')}</p>
+    <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">{hm(locale, 'example.title')}</h2>
+    <p class="mt-3 text-lg text-[var(--fg-muted)]">{hm(locale, 'example.body')}</p>
+  </header>
+
+  <div class="mt-10 grid gap-6 lg:grid-cols-2">
+    <div class="reveal card p-6">
+      <p class="text-xs font-semibold uppercase tracking-wide text-[var(--fg-subtle)]">
+        {hm(locale, 'example.before')}
+      </p>
+      <ol class="mt-4 space-y-3">
+        {
+          steps.map((n) => (
+            <li>
+              {n > 1 && (
+                <p class="mb-3 ml-4 inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium text-red-500 shadow-[inset_0_0_0_1px_currentColor]">
+                  <span aria-hidden="true">↻</span>
+                  {hm(locale, 'example.break')}
+                </p>
+              )}
+              <div class="rounded-lg p-3 shadow-[inset_0_0_0_1px_var(--border)]">
+                <p class="text-sm font-semibold">{hm(locale, `example.step${n}.title` as const)}</p>
+                <p class="mt-1 text-sm text-[var(--fg-muted)]">{hm(locale, `example.step${n}.body` as const)}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+
+    <div class="reveal card flex flex-col p-6">
+      <p class="text-xs font-semibold uppercase tracking-wide text-[var(--color-ai-2)]">
+        {hm(locale, 'example.after')}
+      </p>
+      <p class="mt-4 text-base leading-relaxed">{hm(locale, 'example.afterBody')}</p>
+      <p class="ai-gradient-text mt-6 text-lg font-semibold">{hm(locale, 'example.calc')}</p>
+      <p class="mt-auto pt-6 text-xs text-[var(--fg-subtle)]">{hm(locale, 'example.disclaimer')}</p>
+    </div>
+  </div>
+</section>

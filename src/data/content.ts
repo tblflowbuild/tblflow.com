@@ -55,7 +55,7 @@ export const SURFACES: Feature[] = [
       de: 'Ein App Builder, um eine eigene Mini-App mit eigener Besucher-Authentifizierung und einer eingebetteten API zum Lesen und Schreiben von Datensätzen zu veröffentlichen.',
       en: 'An App Builder to publish a custom mini-app with its own visitor authentication and an injected API to read and write records.',
       es: 'Un App Builder para publicar una mini-aplicación propia con su propia autenticación de visitantes y una API inyectada para leer y escribir registros.',
-      fr: 'Un App Builder pour publier une mini-application personnalisée avec sa propre authentification visiteur et une API injectée pour lire et écrire des enregistrements.',
+      fr: 'Un générateur d’applications pour publier une mini-application personnalisée avec sa propre authentification visiteur et une API injectée pour lire et écrire des enregistrements.',
       it: "Un App Builder per pubblicare una mini-app personalizzata con la propria autenticazione dei visitatori e un'API iniettata per leggere e scrivere record.",
       ja: '独自の訪問者認証と、レコードの読み書き用に注入される API を備えたミニアプリを公開できる App Builder。',
       ru: 'App Builder для публикации собственного мини-приложения с отдельной аутентификацией посетителей и встроенным API для чтения и записи записей.',
@@ -67,7 +67,7 @@ export const SURFACES: Feature[] = [
   {
     icon: 'M13 2 3 14h7l-1 8 10-12h-7z',
     title: {
-      de: 'Automatisierungen', en: 'Automations', es: 'Automatizaciones', fr: 'Automations',
+      de: 'Automatisierungen', en: 'Automations', es: 'Automatizaciones', fr: 'Automatisations',
       it: 'Automazioni', ja: '自動化', ru: 'Автоматизации', tr: 'Otomasyonlar',
       uk: 'Автоматизації', zh: '自动化',
     },
@@ -88,7 +88,7 @@ export const SURFACES: Feature[] = [
     icon: 'M12 3a9 9 0 1 0 9 9M12 3v9l7 4M8 8h.01M16 16h.01',
     title: {
       de: 'Knowledge Graph', en: 'Knowledge graph', es: 'Grafo de conocimiento',
-      fr: 'Knowledge graph', it: 'Knowledge graph', ja: 'ナレッジグラフ',
+      fr: 'Graphe de connaissances', it: 'Grafo della conoscenza', ja: 'ナレッジグラフ',
       ru: 'Граф знаний', tr: 'Bilgi grafiği', uk: 'Граф знань', zh: '知识图谱',
     },
     body: {
@@ -107,7 +107,7 @@ export const SURFACES: Feature[] = [
   {
     icon: 'M12 2a5 5 0 0 1 5 5v2a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5zM5 20a7 7 0 0 1 14 0',
     title: {
-      de: 'KI-Agenten', en: 'AI Agents', es: 'Agentes de IA', fr: 'AI Agents',
+      de: 'KI-Agenten', en: 'AI Agents', es: 'Agentes de IA', fr: 'Agents IA',
       it: 'Agenti IA', ja: 'AI エージェント', ru: 'ИИ-агенты',
       tr: 'Yapay zekâ ajanları', uk: 'ШІ-агенти', zh: 'AI 智能体',
     },
@@ -126,7 +126,7 @@ export const SURFACES: Feature[] = [
   },
   {
     icon: 'M3 4h18v12H3zM8 20h8M12 16v4M10 8l5 3-2 .7-.8 2z',
-    title: all('Computer use'),
+    title: { ...all('Computer use'), fr: 'Pilotage du navigateur' },
     body: {
       de: 'Wenn ein Dienst keine API hat, steuert der Agent einen Browser: Er öffnet die Seite, füllt das Formular aus, nimmt das Ergebnis und schreibt es zurück in Ihre Tabelle. Jede Sitzung wird aufgezeichnet und bleibt überprüfbar.',
       en: 'When a service has no API, the agent drives a browser: it opens the page, fills the form, takes the result and writes it back to your table. Every session is recorded and stays auditable.',

@@ -1,0 +1,39 @@
+---
+import { hm } from '@/data/home';
+import { PUBLISHED_TESTIMONIALS } from '@/data/testimonials';
+import type { Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+{/* Renders nothing until at least one real, consented testimonial is published. */}
+{
+  PUBLISHED_TESTIMONIALS.length > 0 && (
+    <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <h2 class="reveal text-3xl font-bold tracking-tight sm:text-4xl">{hm(locale, 'testimonials.title')}</h2>
+      <ul class="mt-10 grid gap-6 md:grid-cols-2">
+        {PUBLISHED_TESTIMONIALS.map((item) => (
+          <li class="reveal card flex flex-col p-6">
+            {item.result && (
+              <p class="mb-4">
+                <span class="ai-gradient-text text-2xl font-bold">{item.result.value}</span>
+                <span class="ml-2 text-sm text-[var(--fg-muted)]">{item.result.label}</span>
+              </p>
+            )}
+            <blockquote lang={item.lang} class="text-base leading-relaxed">
+              {item.lang === 'fr' ? `« ${item.quote} »` : `“${item.quote}”`}
+            </blockquote>
+            <p class="mt-4 text-sm font-semibold">{item.name}</p>
+            <p class="text-sm text-[var(--fg-muted)]">
+              {item.role}, {item.company}
+            </p>
+            {item.result && <p class="mt-auto pt-4 text-xs text-[var(--fg-subtle)]">{item.result.source}</p>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
