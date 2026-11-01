@@ -113,7 +113,7 @@ const en = {
   'privacy.p3':
     'Purpose: to carry out the actions you ask the assistant for and to keep the service secure.',
   'privacy.p4':
-    'Retention: the content of conversations is not logged. An audit log keeps only the tool called, the time, the duration and the status of the call, for a period limited to what security and audit require.',
+    "Retention: the content of conversations is never recorded, nor are tool arguments and results. An audit log keeps, for each tool call, the user identifier, the tool name, the time, the duration in milliseconds and the status (success or error), for 6 months, after which it is purged automatically. Dynamically registered OAuth clients that remain unused are purged after 30 days.",
   'privacy.p5':
     'Sharing: tool results are passed to the assistant you connected (for example Claude, from Anthropic), which processes them to answer your request under its own privacy policy. Only connect spaces whose content you accept to have passed to the assistant.',
   'privacy.p6':

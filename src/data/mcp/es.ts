@@ -113,7 +113,7 @@ const es = {
   'privacy.p3':
     'Finalidad: ejecutar las acciones que pides al asistente y garantizar la seguridad del servicio.',
   'privacy.p4':
-    'Conservación: el contenido de las conversaciones no se registra. Un registro de auditoría conserva únicamente la herramienta invocada, la hora, la duración y el estado de la llamada, durante un periodo limitado a lo que exijan la seguridad y la auditoría.',
+    "Conservación: el contenido de las conversaciones, los argumentos y los resultados de las herramientas nunca se registran. Un registro de auditoría conserva, por cada llamada a una herramienta, el identificador del usuario, el nombre de la herramienta, la hora, la duración en milisegundos y el estado (éxito o error) durante 6 meses, y después se purga automáticamente. Los clientes OAuth registrados dinámicamente que no se utilizan se eliminan a los 30 días.",
   'privacy.p5':
     'Comunicación: los resultados de las herramientas se transmiten al asistente que hayas conectado (por ejemplo Claude, de Anthropic), que los trata para responder a tu solicitud conforme a su propia política de privacidad. Conecta únicamente los espacios cuyo contenido aceptes que se transmita al asistente.',
   'privacy.p6':

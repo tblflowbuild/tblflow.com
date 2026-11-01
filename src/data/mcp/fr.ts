@@ -117,7 +117,7 @@ const fr = {
   'privacy.p3':
     "Finalité : exécuter les actions que vous demandez à l'assistant et assurer la sécurité du service.",
   'privacy.p4':
-    "Conservation : le contenu des conversations n'est pas journalisé. Un journal d'audit conserve uniquement l'outil appelé, l'heure, la durée et l'état de l'appel, pendant une durée limitée à ce que nécessitent la sécurité et l'audit.",
+    "Conservation : le contenu des conversations n'est jamais enregistré, pas plus que les arguments et les résultats des outils. Un journal d'audit conserve, pour chaque appel d'outil, l'identifiant de l'utilisateur, le nom de l'outil, l'heure, la durée en millisecondes et l'état (succès ou erreur), pendant 6 mois, puis il est purgé automatiquement. Les clients OAuth enregistrés dynamiquement et restés inutilisés sont purgés après 30 jours.",
   'privacy.p5':
     "Partage : les résultats des outils sont transmis à l'assistant que vous avez connecté (par exemple Claude, d'Anthropic), qui les traite pour répondre à votre demande selon sa propre politique de confidentialité. Ne connectez que les espaces dont vous acceptez que le contenu soit transmis à l'assistant.",
   'privacy.p6':

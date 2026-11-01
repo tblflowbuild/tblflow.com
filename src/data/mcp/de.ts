@@ -113,7 +113,7 @@ const de = {
   'privacy.p3':
     'Zweck: die Aktionen auszuführen, die Sie vom Assistenten verlangen, und die Sicherheit des Dienstes zu gewährleisten.',
   'privacy.p4':
-    'Speicherdauer: Der Inhalt der Unterhaltungen wird nicht protokolliert. Ein Audit-Protokoll enthält nur das aufgerufene Tool, den Zeitpunkt, die Dauer und den Status des Aufrufs, und zwar nur so lange, wie es Sicherheit und Audit erfordern.',
+    "Aufbewahrung: Der Inhalt von Unterhaltungen sowie die Argumente und Ergebnisse der Tools werden nie gespeichert. Ein Audit-Protokoll speichert für jeden Tool-Aufruf die Kennung des Nutzers, den Namen des Tools, den Zeitpunkt, die Dauer in Millisekunden und den Status (Erfolg oder Fehler) für 6 Monate und wird danach automatisch gelöscht. Dynamisch registrierte OAuth-Clients, die ungenutzt bleiben, werden nach 30 Tagen gelöscht.",
   'privacy.p5':
     'Weitergabe: Die Ergebnisse der Tools werden an den Assistenten übermittelt, den Sie verbunden haben (zum Beispiel Claude von Anthropic), der sie nach seiner eigenen Datenschutzerklärung verarbeitet, um Ihre Anfrage zu beantworten. Verbinden Sie nur Spaces, deren Inhalt an den Assistenten übermittelt werden darf.',
   'privacy.p6':

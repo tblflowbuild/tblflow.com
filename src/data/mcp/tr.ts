@@ -113,7 +113,7 @@ const tr = {
   'privacy.p3':
     'Amaç: asistandan istediğiniz eylemleri yürütmek ve hizmetin güvenliğini sağlamak.',
   'privacy.p4':
-    'Saklama: konuşmaların içeriği günlüğe kaydedilmez. Bir denetim günlüğü yalnızca çağrılan aracı, saati, süreyi ve çağrının durumunu, güvenlik ve denetimin gerektirdiği süreyle sınırlı olarak saklar.',
+    "Saklama: Konuşmaların içeriği ile araçların argümanları ve sonuçları hiçbir zaman kaydedilmez. Bir denetim günlüğü, her araç çağrısı için kullanıcı kimliğini, aracın adını, zamanı, milisaniye cinsinden süreyi ve durumu (başarı veya hata) 6 ay boyunca saklar, ardından otomatik olarak silinir. Dinamik olarak kaydedilen ve kullanılmayan OAuth istemcileri 30 gün sonra silinir.",
   'privacy.p5':
     'Paylaşım: araç sonuçları, bağladığınız asistana (örneğin Anthropic’in Claude’una) iletilir; asistan bunları isteğinizi yanıtlamak için kendi gizlilik politikasına göre işler. Yalnızca içeriğinin asistana iletilmesini kabul ettiğiniz alanları bağlayın.',
   'privacy.p6':
