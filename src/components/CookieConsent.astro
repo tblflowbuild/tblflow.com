@@ -209,4 +209,12 @@ const t = useTranslations(locale);
       root.hidden = false;
     });
   }
+
+  /* Trial CTA clicks → GA4 `trial_click`. Not a second tracker: it reuses the
+     seeded `gtag`, which with analytics denied sends nothing identifying. */
+  document.addEventListener('click', (e) => {
+    const link = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href*="plan=pro-trial"]');
+    const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+    if (link && gtag) gtag('event', 'trial_click', { link_location: location.pathname });
+  });
 </script>
