@@ -451,6 +451,20 @@ const BASE_TIERS: Tier[] = [
   },
 ];
 
+/** Pro card line: the 14-day trial the signup buttons open (`?plan=pro-trial`). */
+const PRO_TRIAL_NOTE: Record<Locale, string> = {
+  de: '14 Tage kostenlos testen, ohne Karte; danach zurück zum Gratis-Tarif',
+  en: '14-day free trial, no card; then back to the Free plan',
+  es: 'Prueba gratuita de 14 días, sin tarjeta; después vuelve al plan Gratis',
+  fr: 'Essai gratuit de 14 jours, sans carte bancaire ; ensuite retour au plan Gratuit',
+  it: 'Prova gratuita di 14 giorni, senza carta; poi si torna al piano Gratuito',
+  ja: '14 日間の無料トライアル（カード不要）。終了後は無料プランに戻ります',
+  ru: '14 дней бесплатно, без карты; затем возврат на бесплатный тариф',
+  tr: '14 gün ücretsiz deneme, kart gerekmez; sonrasında Ücretsiz plana dönülür',
+  uk: '14 днів безкоштовно, без картки; потім повернення на безкоштовний тариф',
+  zh: '14 天免费试用，无需绑卡；试用结束后回到免费版',
+};
+
 /** Every tier includes the MCP server; the card says so, with that tier's rate limit. */
 export const TIERS: Tier[] = BASE_TIERS.map((tier) => ({
   ...tier,
@@ -458,6 +472,7 @@ export const TIERS: Tier[] = BASE_TIERS.map((tier) => ({
     LOCALES.map((l) => [
       l,
       [
+        ...(tier.id === 'pro' ? [PRO_TRIAL_NOTE[l]] : []),
         ...tier.highlights[l],
         mcp(l, 'pricing.highlight').replace('{n}', String(MCP_RATE_PER_MINUTE[tier.id])),
       ],
