@@ -1,4 +1,5 @@
 import { LOCALES, type Locale } from '@/config';
+import { mcp } from '@/data/mcp';
 
 /**
  * Content for the statutory/compliance pages (mentions légales, CGVU, privacy,
@@ -497,16 +498,16 @@ export const PRIVACY_LEDE: Record<Locale, string> = {
 
 /** Bump by hand whenever a PRIVACY_SECTIONS paragraph changes. */
 export const PRIVACY_LAST_UPDATED: Record<Locale, string> = {
-  de: 'Zuletzt aktualisiert: 16. September 2026.',
-  en: 'Last updated: September 16, 2026.',
-  es: 'Última actualización: 16 de septiembre de 2026.',
-  fr: 'Dernière mise à jour : 16 septembre 2026.',
-  it: 'Ultimo aggiornamento: 16 settembre 2026.',
-  ja: '最終更新：2026 年 9 月 16 日',
-  ru: 'Последнее обновление: 16 сентября 2026 г.',
-  tr: 'Son güncelleme: 16 Eylül 2026.',
-  uk: 'Останнє оновлення: 16 вересня 2026 р.',
-  zh: '最后更新：2026 年 9 月 16 日。',
+  de: 'Zuletzt aktualisiert: 1. November 2026.',
+  en: 'Last updated: November 1, 2026.',
+  es: 'Última actualización: 1 de noviembre de 2026.',
+  fr: 'Dernière mise à jour : 1er novembre 2026.',
+  it: 'Ultimo aggiornamento: 1° novembre 2026.',
+  ja: '最終更新：2026 年 11 月 1 日',
+  ru: 'Последнее обновление: 1 ноября 2026 г..',
+  tr: 'Son güncelleme: 1 Kasım 2026.',
+  uk: 'Останнє оновлення: 1 листопада 2026 р..',
+  zh: '最后更新：2026 年 11 月 1 日。',
 };
 
 const PRIVACY_HEADINGS: Record<Locale, string[]> = {
@@ -963,7 +964,23 @@ const PRIVACY_BODIES: Record<Locale, string[][]> = {
 export const PRIVACY_SECTIONS: Record<Locale, LegalSection[]> = Object.fromEntries(
   LOCALES.map((l) => [
     l,
-    PRIVACY_HEADINGS[l].map((heading, i) => ({ heading, body: PRIVACY_BODIES[l][i] })),
+    [
+      ...PRIVACY_HEADINGS[l].map((heading, i) => ({ heading, body: PRIVACY_BODIES[l][i] })),
+      // MCP server section: copy lives with the MCP strings; the contact is the
+      // same data-protection address as the rest of this policy.
+      {
+        heading: mcp(l, 'privacy.heading'),
+        body: [
+          mcp(l, 'privacy.p1'),
+          mcp(l, 'privacy.p2'),
+          mcp(l, 'privacy.p3'),
+          mcp(l, 'privacy.p4'),
+          mcp(l, 'privacy.p5'),
+          mcp(l, 'privacy.p6'),
+          `${mcp(l, 'privacy.p7')} ${COMPANY.privacy}.`,
+        ],
+      },
+    ],
   ])
 ) as Record<Locale, LegalSection[]>;
 
