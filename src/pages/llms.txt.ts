@@ -51,8 +51,8 @@ export const GET: APIRoute = async () => {
 
   const body = `# TblFlow
 
-> TblFlow is an AIOS (AI operating system) for teams, built on a no-code database platform: a
-> spreadsheet-like interface over a real PostgreSQL database, with autonomous AI agents,
+> TblFlow is a no-code database platform for small and mid-sized businesses that retype data
+> between spreadsheets and tools: a spreadsheet-like interface over a real PostgreSQL database, with autonomous AI agents,
 > event-driven automations, an AI connector generator, an AI browser agent (computer use),
 > AI-accelerated process mapping, semantic document search and publishable custom apps, all on
 > the same data. It is available as a
@@ -65,7 +65,7 @@ export const GET: APIRoute = async () => {
   client. There is no proprietary format and no sync layer, so a \`pg_dump\` is a complete export.
 - Field types: 28, including formula, rollup, conditional rollup, lookup via link, AI, button,
   attachment, user and rating.
-- View types: 6 — Grid, Kanban, Gallery, Calendar, Gantt, Form.
+- View types: 7 — Grid, Kanban, Gallery, Calendar, Gantt, Form, Plugin.
 - Formulas: 200+ functions.
 - AI agents: autonomous, with a planner, an executor, persistent entity/relation memory and a
   scheduler. They read and write records and act on connected services (Gmail, GitHub, Slack,
