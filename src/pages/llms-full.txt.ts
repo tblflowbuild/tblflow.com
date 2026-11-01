@@ -90,11 +90,28 @@ canvas (who does what: a person, an automation or an AI agent), read four ways: 
 Breaks, Data. It detects manual re-keying between tools, data with no master source, objects consumed
 but never produced, steps with no owner, no duration, orphaned or with no next step, and failing
 automations. Costs are estimates entered by the user (rates per role, subscriptions, API calls, AI
-tokens); real execution costs are not measured. "Replace" asks the AI to propose a TblFlow replacement
+tokens); the user can also enter measurements on steps and compare estimated and actual costs. "Replace" asks the AI to propose a TblFlow replacement
 (base and interface, automation, AI agent or browser replay) and creates everything inactive for the user
 to review and activate. The map is stored in ordinary PostgreSQL tables of the space; public sharing is
 read-only; human costs are visible to the space owner only.
 Page: ${SITE_URL}/en/process-map`);
+
+  sections.push(`## MCP server
+
+TblFlow runs an official remote MCP server at https://app.tblflow.com/mcp (Streamable HTTP, OAuth 2.1
+with the usual TblFlow sign-in). It is available from the Free tier, like the REST API, with rate limits
+of 60 / 120 / 300 / 600 requests per minute on Free / Pro / Business / Enterprise. It exposes 13 tools:
+list spaces and bases; describe a base's schema; list, filter and read records; search the knowledge graph
+(semantic and full-text); create and edit records; delete records (preview, then explicit confirmation,
+trash); create a table or a field; trigger an automation; run an AI agent. When connecting, the user
+chooses the reachable spaces and bases and the permissions (read by default; write, delete, schema and
+trigger are options), and existing TblFlow rights apply to every request. Automations and agents can only
+be triggered if their owner has exposed them. The content of conversations is not logged; only the tool
+called, the time, the duration and the status are kept. Tool results are passed to the assistant (Claude)
+to answer the user. Designed along ISO 27001 and ISO 42001 practices, GDPR and the AI Act; no
+certification has been obtained to date. Published in the official MCP registry as com.tblflow/tblflow
+(version 1.0.0); submission to the Claude connectors directory is coming; ChatGPT is not supported yet.
+Page: ${SITE_URL}/en/mcp`);
 
   sections.push(`## Pricing
 
