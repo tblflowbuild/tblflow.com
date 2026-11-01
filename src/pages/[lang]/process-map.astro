@@ -8,7 +8,7 @@ import { pm } from '@/data/processMap';
 import { ct } from '@/data/carto';
 import { useTranslations } from '@/i18n/ui';
 import { localePath } from '@/i18n/utils';
-import { APP_URL, LOCALES, type Locale } from '@/config';
+import { SIGNUP_TRIAL_URL, LOCALES, type Locale } from '@/config';
 
 export function getStaticPaths() {
   return LOCALES.map((lang) => ({ params: { lang } }));
@@ -54,7 +54,7 @@ const breadcrumbs = [
     </p>
     <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
       <a
-        href={`${APP_URL}/auth/signup`}
+        href={SIGNUP_TRIAL_URL}
         class="ai-gradient-bg animate-gradient w-full rounded-xl px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5 sm:w-auto"
       >
         {pm(locale, 'hero.cta.primary')}
