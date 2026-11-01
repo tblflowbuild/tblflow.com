@@ -4,7 +4,7 @@ import HeroCards from './HeroCards.astro';
 import StepsRibbon from './StepsRibbon.astro';
 import { useTranslations } from '@/i18n/ui';
 import { pm } from '@/data/processMap';
-import { APP_URL, type Locale } from '@/config';
+import { SIGNUP_TRIAL_URL, type Locale } from '@/config';
 
 interface Props {
   locale: Locale;
@@ -113,7 +113,7 @@ const proof = [
         is the real pitch, so a secondary "see pricing" button here would only
         compete with it. */}
     <a
-      href={`${APP_URL}/auth/signup`}
+      href={SIGNUP_TRIAL_URL}
       class="ai-gradient-bg animate-gradient animate-enter delay-4 mt-9 inline-block rounded-xl px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5"
     >
       {t('hero.cta.primary')}

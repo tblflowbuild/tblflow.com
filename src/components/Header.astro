@@ -13,7 +13,7 @@ import ThemeSwitch from './ThemeSwitch.astro';
 import { useTranslations } from '@/i18n/ui';
 import { pm } from '@/data/processMap';
 import { localePath, pathWithoutLocale } from '@/i18n/utils';
-import { APP_URL, type Locale } from '@/config';
+import { APP_URL, SIGNUP_TRIAL_URL, type Locale } from '@/config';
 
 interface Props {
   locale: Locale;
@@ -86,7 +86,7 @@ const isActive = (match?: string) => Boolean(match) && current.startsWith(match!
       </a>
 
       <a
-        href={`${APP_URL}/auth/signup`}
+        href={SIGNUP_TRIAL_URL}
         class="ai-gradient-bg animate-gradient hidden rounded-full px-4 py-2 text-sm font-semibold text-white shadow-sm transition-transform hover:-translate-y-px sm:block"
       >
         {t('nav.cta')}
@@ -139,7 +139,7 @@ const isActive = (match?: string) => Boolean(match) && current.startsWith(match!
           <div class="mt-2 border-t border-[var(--border)] pt-2">
             <LangSwitcher locale={locale} />
             <a
-              href={`${APP_URL}/auth/signup`}
+              href={SIGNUP_TRIAL_URL}
               class="ai-gradient-bg mt-2 block rounded-lg px-3 py-2 text-center text-sm font-semibold text-white"
             >
               {t('nav.cta')}

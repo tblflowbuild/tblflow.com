@@ -1,4 +1,4 @@
-import { HREFLANG, LOCALES, type Locale } from '@/config';
+import { HREFLANG, LOCALES, SIGNUP_TRIAL_URL, type Locale } from '@/config';
 import { PM_STRINGS } from '@/data/processMap';
 import { mcp, MCP_RATE_PER_MINUTE } from '@/data/mcp';
 
@@ -131,7 +131,7 @@ const BASE_TIERS: Tier[] = [
       zh: '用于试用和个人项目。',
     },
     cta: CTA_START,
-    ctaHref: 'https://app.tblflow.com/auth/signup',
+    ctaHref: SIGNUP_TRIAL_URL,
     highlights: {
       de: [
         '1 Base · 1 Space · 1 Nutzer',
@@ -214,7 +214,7 @@ const BASE_TIERS: Tier[] = [
       zh: '适合正在做自动化的小团队。',
     },
     cta: CTA_START,
-    ctaHref: 'https://app.tblflow.com/auth/signup?plan=pro',
+    ctaHref: SIGNUP_TRIAL_URL,
     highlights: {
       de: [
         '5 Bases · 3 Nutzer',

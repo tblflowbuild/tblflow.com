@@ -66,6 +66,9 @@ export const LOCALE_FLAG: Record<Locale, string> = {
 
 export const APP_URL = 'https://app.tblflow.com';
 
+/** 14-day Pro trial, no card: the app only opens it for this exact `plan` value (PRO_TRIAL_PLAN). */
+export const SIGNUP_TRIAL_URL = `${APP_URL}/auth/signup?plan=pro-trial`;
+
 /**
  * The contractual documents live with the application, in the other repo, and
  * are served from there. This site links to them and never restates them: it
