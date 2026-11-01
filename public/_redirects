@@ -12,6 +12,10 @@
 # Convenience aliases some visitors will type or that appear in older material.
 /pricing              /fr/pricing           302
 /blog                 /fr/blog              302
+/docs                 /fr/docs              302
+/mcp                  /fr/mcp               302
+/privacy              /en/privacy           302
+/confidentialite      /fr/privacy           301
 /tarifs               /fr/pricing           301
 /fr/prix              /fr/pricing           301
 

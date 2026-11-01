@@ -1,0 +1,247 @@
+---
+import Base from '@/layouts/Base.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { TIERS } from '@/data/pricing';
+import {
+  mcp,
+  mcpDocsSlug,
+  MCP_URL,
+  MCP_CLAUDE_CODE_COMMAND,
+  MCP_RATE_PER_MINUTE,
+  type McpKey,
+} from '@/data/mcp';
+import { useTranslations } from '@/i18n/ui';
+import { absoluteUrl, localePath } from '@/i18n/utils';
+import { LOCALES, SITE_URL, type Locale } from '@/config';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+const path = localePath(locale, 'mcp');
+
+const three = [1, 2, 3] as const;
+const five = [1, 2, 3, 4, 5] as const;
+const tools = [
+  { n: 1, perm: 'read' },
+  { n: 2, perm: 'read' },
+  { n: 3, perm: 'read' },
+  { n: 4, perm: 'read' },
+  { n: 5, perm: 'write' },
+  { n: 6, perm: 'delete' },
+  { n: 7, perm: 'schema' },
+  { n: 8, perm: 'trigger' },
+  { n: 9, perm: 'trigger' },
+] as const;
+const control = [1, 2, 3, 4, 5, 6] as const;
+
+/** Same strings the visible FAQ renders, so text and FAQPage schema cannot drift. */
+const faq = five.map((n) => ({
+  question: mcp(locale, `faq.${n}.q` as McpKey),
+  answer: mcp(locale, `faq.${n}.a` as McpKey),
+}));
+
+const breadcrumbs = [
+  { name: t('breadcrumbs.home'), path: localePath(locale) },
+  { name: mcp(locale, 'breadcrumb'), path },
+];
+
+const software = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  '@id': `${absoluteUrl(path)}#mcp-server`,
+  name: `TblFlow ${mcp(locale, 'breadcrumb')}`,
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Web',
+  description: mcp(locale, 'meta.description'),
+  url: absoluteUrl(path),
+  softwareHelp: absoluteUrl(localePath(locale, mcpDocsSlug(locale))),
+  publisher: { '@id': `${SITE_URL}/#organization` },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+};
+---
+
+<Base
+  locale={locale}
+  title={mcp(locale, 'meta.title')}
+  description={mcp(locale, 'meta.description')}
+  path={path}
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(software)} />
+
+  <section class="mx-auto max-w-4xl px-4 pt-16 text-center sm:px-6 sm:pt-24">
+    <p class="animate-enter text-sm font-semibold uppercase tracking-wide text-[var(--color-ai-2)]">
+      {mcp(locale, 'hero.eyebrow')}
+    </p>
+    <h1 class="animate-enter delay-1 mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+      {mcp(locale, 'hero.title')}
+    </h1>
+    <p class="animate-enter delay-2 mx-auto mt-4 max-w-2xl text-lg text-[var(--fg-muted)]">
+      {mcp(locale, 'hero.subtitle')}
+    </p>
+    <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <a
+        href="#connect"
+        class="ai-gradient-bg animate-gradient w-full rounded-xl px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5 sm:w-auto"
+      >
+        {mcp(locale, 'hero.cta.primary')}
+      </a>
+      <a
+        href={localePath(locale, mcpDocsSlug(locale))}
+        class="w-full rounded-xl border border-[var(--border-strong)] px-6 py-3.5 text-base font-semibold transition-colors hover:bg-[var(--bg-subtle)] sm:w-auto"
+      >
+        {mcp(locale, 'hero.cta.secondary')}
+      </a>
+    </div>
+    <p class="mt-4 text-sm text-[var(--fg-subtle)]">{mcp(locale, 'hero.note')}</p>
+    <p class="mt-6 text-xs font-medium uppercase tracking-wide text-[var(--fg-subtle)]">
+      {mcp(locale, 'hero.url.label')}
+    </p>
+    <p class="mx-auto mt-2 max-w-full overflow-x-auto rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] px-4 py-3 text-sm sm:inline-block">
+      <code>{MCP_URL}</code>
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <h2 class="reveal max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
+      {mcp(locale, 'benefits.title')}
+    </h2>
+    <ul class="mt-10 grid gap-6 sm:grid-cols-3">
+      {
+        three.map((n) => (
+          <li class="reveal card p-6">
+            <h3 class="text-base font-semibold">{mcp(locale, `benefits.${n}.title` as McpKey)}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
+              {mcp(locale, `benefits.${n}.body` as McpKey)}
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <header class="reveal max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{mcp(locale, 'tools.title')}</h2>
+      <p class="mt-3 text-lg text-[var(--fg-muted)]">{mcp(locale, 'tools.intro')}</p>
+    </header>
+    <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        tools.map(({ n, perm }) => (
+          <li class="reveal glass-card p-6">
+            <p class="text-xs font-semibold uppercase tracking-wide text-[var(--color-ai-2)]">
+              {mcp(locale, `tools.perm.${perm}` as McpKey)}
+            </p>
+            <h3 class="mt-2 text-base font-semibold">{mcp(locale, `tools.${n}.title` as McpKey)}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
+              {mcp(locale, `tools.${n}.body` as McpKey)}
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section id="connect" class="mx-auto max-w-6xl scroll-mt-24 px-4 py-16 sm:px-6">
+    <h2 class="reveal max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
+      {mcp(locale, 'steps.title')}
+    </h2>
+    <ol class="mt-10 grid gap-6 sm:grid-cols-3">
+      {
+        three.map((n) => (
+          <li class="reveal card p-6">
+            <span class="ai-gradient-bg inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-white" aria-hidden="true">
+              {n}
+            </span>
+            <h3 class="mt-3 text-base font-semibold">{mcp(locale, `steps.${n}.title` as McpKey)}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
+              {mcp(locale, `steps.${n}.body` as McpKey)}
+            </p>
+          </li>
+        ))
+      }
+    </ol>
+    <div class="reveal card mt-6 p-6">
+      <h3 class="text-base font-semibold">{mcp(locale, 'steps.code.title')}</h3>
+      <p class="mt-2 text-sm text-[var(--fg-muted)]">{mcp(locale, 'steps.code.body')}</p>
+      <pre class="mt-3 overflow-x-auto rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] px-4 py-3 text-sm"><code>{MCP_CLAUDE_CODE_COMMAND}</code></pre>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <h2 class="reveal max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
+      {mcp(locale, 'control.title')}
+    </h2>
+    <ul class="mt-8 grid gap-3 sm:grid-cols-2">
+      {
+        control.map((n) => (
+          <li class="reveal card flex items-start gap-3 p-4 text-sm">
+            <span class="ai-gradient-bg mt-1.5 h-2 w-2 shrink-0 rounded-full" aria-hidden="true"></span>
+            <span>{mcp(locale, `control.${n}` as McpKey)}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+    <header class="reveal">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{mcp(locale, 'limits.title')}</h2>
+      <p class="mt-3 text-lg text-[var(--fg-muted)]">{mcp(locale, 'limits.intro')}</p>
+    </header>
+    <div class="reveal card mt-8 overflow-x-auto">
+      <table class="w-full text-left text-sm">
+        <thead>
+          <tr class="border-b border-[var(--border)] text-[var(--fg-subtle)]">
+            <th scope="col" class="px-5 py-3 font-medium">{mcp(locale, 'limits.col.tier')}</th>
+            <th scope="col" class="px-5 py-3 font-medium">{mcp(locale, 'limits.col.rate')}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            TIERS.map((tier) => (
+              <tr class="border-b border-[var(--border)] last:border-0">
+                <th scope="row" class="px-5 py-3 font-semibold">{tier.name[locale]}</th>
+                <td class="px-5 py-3">{MCP_RATE_PER_MINUTE[tier.id]}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+    <div class="reveal card p-6 sm:p-8">
+      <h2 class="text-2xl font-bold tracking-tight">{mcp(locale, 'status.title')}</h2>
+      <p class="mt-2 text-[var(--fg-muted)]">{mcp(locale, 'status.body')}</p>
+    </div>
+  </section>
+
+  <section id="faq" class="mx-auto max-w-3xl scroll-mt-24 px-4 py-16 sm:px-6">
+    <h2 class="reveal text-3xl font-bold tracking-tight sm:text-4xl">{mcp(locale, 'faq.title')}</h2>
+    <ul class="mt-8 space-y-3">
+      {
+        faq.map((item) => (
+          <li class="reveal">
+            <details class="card group px-5 py-4">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-medium [&::-webkit-details-marker]:hidden">
+                <span>{item.question}</span>
+                <svg class="shrink-0 text-[var(--fg-subtle)] transition-transform duration-200 group-open:rotate-45" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </summary>
+              <p class="mt-3 text-sm leading-relaxed text-[var(--fg-muted)]">{item.answer}</p>
+            </details>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <CtaBand locale={locale} />
+</Base>
