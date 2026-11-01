@@ -1,8 +1,8 @@
 ---
 title: "Prozesslandkarte"
 translationKey: "process-map"
-description: "Erstellen Sie die Prozesslandkarte eines Spaces, zeichnen Sie die Prozesse, lesen Sie Brüche und geschätzte Kosten und lassen Sie sich mit Ersetzen von TblFlow eine Alternative vorschlagen."
-section: "Guides"
+description: "Erstellen Sie die Prozesslandkarte eines Spaces, zeichnen Sie die Prozesse, lesen Sie Brüche und geschätzte Kosten, nutzen Sie Ersetzen, verfolgen Sie Überprüfungen, messen Sie tatsächliche Kosten und berichten Sie an die Geschäftsführung."
+section: "Anleitungen"
 order: 5
 ---
 
@@ -35,6 +35,50 @@ Zu einem Schritt oder Tool gibt **Ersetzen** der KI den Kontext der Karte. Sie s
 
 Die KI schlägt vor und legt dann **inaktive** Elemente an. Prüfen und aktivieren Sie sie selbst: Vorher läuft nichts.
 
+## Überprüfungen verfolgen
+
+Jeder Prozess hat ein **Verfahrensblatt** (Canvas-Feld), eine **verantwortliche Person**, ein Datum der letzten Überprüfung, ein Datum der nächsten Überprüfung und einen **Status**. Dokumentation und Diagramm liegen am selben Ort und werden so gemeinsam korrigiert.
+
+## Bei veralteten Verfahren benachrichtigt werden
+
+Die Warnungen werden im Menü **Weitere Aktionen** des Canvas aktiviert und erfordern eine V2-Base. Jeden Montag um 7 Uhr (Serverzeit) listet eine E-Mail die Prozesse auf, deren nächste Überprüfung überfällig ist oder innerhalb von 14 Tagen ansteht. Archivierte Prozesse werden ignoriert, und es wird keine E-Mail gesendet, wenn nichts zu prüfen ist. Standardmäßig ist die Person Empfängerin, die die Warnungen aktiviert; Sie können die Empfänger ändern.
+
+## Monatsbericht erhalten
+
+Der Monatsbericht wird am 1. des Monats um 8 Uhr (Serverzeit) per E-Mail gesendet und erfordert ebenfalls eine V2-Base. Er enthält die Kosten, den möglichen Gewinn, die drei Prozesse mit dem größten Gewinn und die Anzahl überfälliger Überprüfungen. Beträge erscheinen nur, wenn der Eigentümer der Base sie aktiviert.
+
+## Schritte validieren
+
+Ein Schritt kann einen Validierungsstatus tragen (**zu validieren**, **validiert**, **zu überprüfen**), dazu die Person, die ihn validiert hat, das Datum und einen Kommentar. Ein Badge am Schritt im Canvas zeigt den Zustand auf einen Blick; die Details erscheinen beim Überfahren mit der Maus.
+
+## Geschätzt und tatsächlich vergleichen
+
+Erfassen Sie an jedem Schritt **Messwerte**: Minuten, Menge, Fehlerquote und die Quelle der Messung. Das Panel **Geschätzt vs. tatsächlich** vergleicht die Schätzung mit der Messung, **nur für die gemessenen Schritte**, und zeigt den Anteil gemessener Schritte, damit Sie wissen, wie belastbar die Summe ist. Es liefert außerdem eine Auswertung pro Prozess und pro Schritt, mit einem Link zum Schritt im Canvas. Die Kosten bleiben Eingaben Ihres Teams: TblFlow vergleicht sie, es misst sie nicht.
+
+## Vorher und nachher vergleichen
+
+Vor einer Änderung **frieren Sie die Karte ein**: TblFlow erstellt eine Kopie, die mit dem Datum benannt wird. Sobald die Änderung vorgenommen ist, öffnen Sie **Vorher / nachher** und vergleichen die **Gesamtkosten des Monats** und die **Anzahl der Schritte** zwischen der Kopie und der aktuellen Karte.
+
+## Verbesserungen verfolgen
+
+Das **Verbesserungsregister** verfolgt Ihre Ideen nach Status, mit den verknüpften Schritten, den Umsetzungskosten und dem angestrebten Gewinn.
+
+## Wo verlieren Sie Geld?
+
+Dieser Lesepfad ordnet Ihre Prozesse und anschließend deren Schritte nach möglichem Gewinn: Anteil am Gesamtgewinn, Kosten, Brüche und ein direkter Link zum Schritt im Canvas. Für Personen, die keine Beträge lesen dürfen, erfolgt die Rangfolge nach Anzahl der Brüche und weist deutlich darauf hin.
+
+## Der Geschäftsführung präsentieren
+
+Die **Führungsansicht** passt auf eine Leseseite, die sich als PDF drucken lässt: Kosten, möglicher Gewinn, die fünf Prozesse mit den größten Verlusten, Verbesserungen nach Status und überfällige Überprüfungen.
+
+## Mit einem Prozess aus der Vorlage starten
+
+Die **Bibliothek mit Prozessvorlagen** bietet 13 Prozesse, die Sie einzeln importieren können, nach Branche gruppiert: Kundenabrechnung, Recruiting, Reklamationen, Einkauf sowie Serien für Handel, Industrie und Logistik sowie für Buchhaltung und Recht. Jeder Prozess kommt mit seinen verketteten Schritten, beispielhaften Dauern und Häufigkeiten sowie Rollen ohne Sätze: Tragen Sie Ihre eigenen Kosten ein. Den gleichen Prozess zweimal zu importieren, erzeugt kein Duplikat. Die importierten Inhalte sind vorerst auf Französisch.
+
+## Das Modell aktualisieren
+
+Bestehende Karten wechseln über das Banner **Modell aktualisieren** zum aktualisierten Modell: TblFlow zeigt eine Vorschau der Änderungen und bittet um Bestätigung, bevor etwas angewendet wird.
+
 ## Teilen
 
-Ein öffentlicher Link zum Lesen gibt die Karte auf Wunsch frei. Geschützte sensible Felder bleiben ausgeblendet. Schalten Sie den Link ab, sobald Sie ihn nicht mehr brauchen.
+Ein öffentlicher Link zum Lesen gibt die Karte frei. Er ist **standardmäßig geschlossen**: Aktivieren Sie ihn bei Bedarf, und schalten Sie ihn ab, sobald Sie ihn nicht mehr brauchen. Geschützte sensible Felder bleiben ausgeblendet, und Beträge und Kostenfelder sind für alle ausgeblendet, die sie nicht lesen dürfen. `.tbl`-Export und Duplizieren werden verweigert, wenn ein Feld für die anfragende Person nicht lesbar ist.

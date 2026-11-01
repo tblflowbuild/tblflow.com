@@ -418,6 +418,9 @@ export const FAQ: FaqItem[] = [
     [3, 'data'],
     [4, 'product'],
     [5, 'product'],
+    [6, 'product'],
+    [7, 'product'],
+    [8, 'product'],
   ] as const).map(([n, category]): FaqItem => {
     const all = (key: PmKey) =>
       Object.fromEntries(LOCALES.map((l) => [l, pm(l, key)])) as Record<Locale, string>;

@@ -3,6 +3,7 @@ import Base from '@/layouts/Base.astro';
 import Hero from '@/components/Hero.astro';
 import SurfacesGrid from '@/components/SurfacesGrid.astro';
 import ProvidersStrip from '@/components/ProvidersStrip.astro';
+import McpBand from '@/components/McpBand.astro';
 import FeatureGrid from '@/components/FeatureGrid.astro';
 import PipelineSection from '@/components/PipelineSection.astro';
 import ProductShowcase from '@/components/ProductShowcase.astro';
@@ -66,6 +67,8 @@ const faqSchema = FAQ.map((item) => ({
   <SurfacesGrid locale={locale} />
 
   <ProvidersStrip locale={locale} />
+
+  <McpBand locale={locale} />
 
   <ViewsStrip
     locale={locale}
