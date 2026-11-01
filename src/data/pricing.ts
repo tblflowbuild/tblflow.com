@@ -1,5 +1,6 @@
 import { HREFLANG, LOCALES, type Locale } from '@/config';
 import { PM_STRINGS } from '@/data/processMap';
+import { mcp, MCP_RATE_PER_MINUTE } from '@/data/mcp';
 
 /**
  * SaaS Cloud tiers. Prices and quotas are transcribed from `PLAN_LIMITS` in
@@ -107,7 +108,7 @@ const CTA_CONTACT: Record<Locale, string> = {
   uk: "Зв'язатися з нами", zh: '联系我们',
 };
 
-export const TIERS: Tier[] = [
+const BASE_TIERS: Tier[] = [
   {
     id: 'free',
     price: 0,
@@ -450,6 +451,20 @@ export const TIERS: Tier[] = [
   },
 ];
 
+/** Every tier includes the MCP server; the card says so, with that tier's rate limit. */
+export const TIERS: Tier[] = BASE_TIERS.map((tier) => ({
+  ...tier,
+  highlights: Object.fromEntries(
+    LOCALES.map((l) => [
+      l,
+      [
+        ...tier.highlights[l],
+        mcp(l, 'pricing.highlight').replace('{n}', String(MCP_RATE_PER_MINUTE[tier.id])),
+      ],
+    ])
+  ) as Record<Locale, string[]>,
+}));
+
 /**
  * The full quota grid. Values are strings (not numbers) because the source
  * mixes exact figures and "Unlimited" — normalising them into numbers would
@@ -651,6 +666,16 @@ export const QUOTAS: QuotaRow[] = [
       pro: pct(99.5, 1),
       business: pct(99.9, 1),
       enterprise: pct(99.99, 2),
+    },
+  },
+  {
+    // Same figure as the MCP page: included on every tier, only the rate limit varies.
+    label: Object.fromEntries(LOCALES.map((l) => [l, mcp(l, 'pricing.row')])) as Record<Locale, string>,
+    values: {
+      free: num(MCP_RATE_PER_MINUTE.free),
+      pro: num(MCP_RATE_PER_MINUTE.pro),
+      business: num(MCP_RATE_PER_MINUTE.business),
+      enterprise: num(MCP_RATE_PER_MINUTE.enterprise),
     },
   },
 ];
