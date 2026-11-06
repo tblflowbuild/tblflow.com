@@ -28,7 +28,7 @@ Il pulsante **Pubblica**, in alto nell'interfaccia, apre tre impostazioni:
 - **Consenti le scritture sui dati** — disattivato per impostazione predefinita. Un'app in sola lettura non può rompere nulla; attivalo solo se i visitatori hanno davvero bisogno di creare o modificare record dall'app.
 - **Account visitatore** — attiva un sistema di account email + password limitato a questa applicazione, isolato dagli account TblFlow. È ciò che permette a un cliente esterno di accedere al proprio spazio senza mai toccare il tuo account TblFlow.
 
-Cliccando su **Pubblica — genera il link pubblico** si ottiene subito un URL funzionante. Il piano Business aggiunge un dominio personalizzato.
+Cliccando su **Pubblica — genera il link pubblico** si ottiene subito un URL funzionante. Il piano Team aggiunge un dominio personalizzato.
 
 ## Il codice resta tuo
 

@@ -96,7 +96,7 @@ Full tier detail: ${SITE_URL}/en/pricing
 
 - [Home (English)](${SITE_URL}/en): product overview, feature surfaces, competitive comparison, FAQ.
 - [Home (French)](${SITE_URL}/fr): same content in French.
-- [Process map (English)](${SITE_URL}/en/process-map): map processes, spot breaks, estimate costs (estimates entered by the user), and have the AI propose a TblFlow replacement. Pro plan and above.
+- [Process map (English)](${SITE_URL}/en/process-map): map processes, spot breaks, estimate costs (estimates entered by the user), and have the AI propose a TblFlow replacement. Free diagnosis; full map from the Essential plan.
 - [Process map (French)](${SITE_URL}/fr/process-map)
 - [MCP server (English)](${SITE_URL}/en/mcp): official remote MCP server (https://app.tblflow.com/mcp, Streamable HTTP, OAuth 2.1) that lets Claude query and edit TblFlow data under the user's rights. Included from the Free tier.
 - [MCP server (French)](${SITE_URL}/fr/mcp)

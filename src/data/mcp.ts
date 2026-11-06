@@ -22,7 +22,7 @@ export function mcp(locale: Locale, key: McpKey): string {
 export const MCP_URL = 'https://app.tblflow.com/mcp';
 export const MCP_CLAUDE_CODE_COMMAND = `claude mcp add --transport http tblflow ${MCP_URL}`;
 
-/** Requests per minute by tier, from the launch brief (Free / Pro / Business / Enterprise). */
+/** Requests per minute by tier, from the launch brief (Free / Essential / Team / Enterprise). */
 export const MCP_RATE_PER_MINUTE = { free: 60, pro: 120, business: 300, enterprise: 600 } as const;
 
 /** FR docs use a French slug, every other locale the English one. */

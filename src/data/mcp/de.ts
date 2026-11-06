@@ -94,7 +94,7 @@ const de = {
     'Noch nicht. Der Server ist in der offiziellen MCP-Registry veröffentlicht (com.tblflow/tblflow, Version 1.0.0) und verbindet sich mit Claude. Die Einreichung im Connector-Verzeichnis von Claude steht noch aus.',
   'faq.4.q': 'Ist der MCP-Server im Kostenlos-Tarif verfügbar?',
   'faq.4.a':
-    'Ja, ab dem Kostenlos-Tarif, wie die REST-API. Nur das Ratenlimit ändert sich: 60, 120, 300 und 600 Anfragen pro Minute für Kostenlos, Pro, Business und Enterprise.',
+    'Ja, ab dem Kostenlos-Tarif, wie die REST-API. Nur das Ratenlimit ändert sich: 60, 120, 300 und 600 Anfragen pro Minute für Kostenlos, Essential, Team und Enterprise.',
   'faq.5.q': 'Was kann Claude mit meinen Automatisierungen und Agenten tun?',
   'faq.5.a':
     'Es kann sie nur auslösen, wenn ihr Eigentümer sie freigegeben hat. Bei einer Automatisierung startet run_automation einen Probelauf mit Beispieldaten: Es werden keine Daten geändert.',

@@ -94,7 +94,7 @@ const en = {
     'Not yet. The server is published in the official MCP registry (com.tblflow/tblflow, version 1.0.0) and connects to Claude. Submission to the Claude connectors directory is coming.',
   'faq.4.q': 'Is the MCP server available on the Free plan?',
   'faq.4.a':
-    'Yes, from the Free tier, like the REST API. Only the rate limit changes: 60, 120, 300 and 600 requests per minute for Free, Pro, Business and Enterprise.',
+    'Yes, from the Free tier, like the REST API. Only the rate limit changes: 60, 120, 300 and 600 requests per minute for Free, Essential, Team and Enterprise.',
   'faq.5.q': 'What can Claude do with my automations and agents?',
   'faq.5.a':
     'It can only trigger them if their owner has exposed them. For an automation, run_automation runs a dry run with sample data: no data is modified.',

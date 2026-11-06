@@ -52,8 +52,8 @@ claude mcp add --transport http tblflow https://app.tblflow.com/mcp
 | 套餐 | 每分钟请求数 |
 | --- | --- |
 | 免费版 | 60 |
-| Pro | 120 |
-| Business | 300 |
+| Essential | 120 |
+| 团队版 | 300 |
 | Enterprise | 600 |
 
 ## 撤销访问权限

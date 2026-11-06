@@ -6,7 +6,7 @@ section: "Guides"
 order: 5
 ---
 
-La Carto des process est une page de votre espace où vous dessinez qui fait quoi, avec quels outils, puis lisez les ruptures et les coûts estimés. Elle demande le plan Pro ou supérieur.
+La Carto des process est une page de votre espace où vous dessinez qui fait quoi, avec quels outils, puis lisez les ruptures et les coûts estimés. Elle demande le plan Essentiel ou supérieur.
 
 ## Ouvrir ou créer la cartographie
 

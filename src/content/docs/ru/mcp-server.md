@@ -52,8 +52,8 @@ claude mcp add --transport http tblflow https://app.tblflow.com/mcp
 | Тариф | Запросов в минуту |
 | --- | --- |
 | Бесплатный | 60 |
-| Pro | 120 |
-| Business | 300 |
+| Essential | 120 |
+| Team | 300 |
 | Enterprise | 600 |
 
 ## Отзыв доступа

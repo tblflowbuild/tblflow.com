@@ -98,7 +98,7 @@ const fr = {
     "Pas encore. Le serveur est publié dans le registre MCP officiel (com.tblflow/tblflow, version 1.0.0) et se connecte à Claude. La soumission à l'annuaire de connecteurs de Claude est à venir.",
   'faq.4.q': 'Le serveur MCP est-il disponible dans le plan Gratuit ?',
   'faq.4.a':
-    "Oui, dès le palier Gratuit, comme l'API REST. Seule la limite de débit change : 60, 120, 300 et 600 requêtes par minute pour Gratuit, Pro, Business et Enterprise.",
+    "Oui, dès le palier Gratuit, comme l'API REST. Seule la limite de débit change : 60, 120, 300 et 600 requêtes par minute pour Gratuit, Essentiel, Équipe et Entreprise.",
   'faq.5.q': 'Que peut faire Claude avec mes automatisations et mes agents ?',
   'faq.5.a':
     "Il peut les déclencher uniquement si leur propriétaire les a exposés. Pour une automatisation, run_automation lance un test à blanc avec des données d'exemple : aucune donnée n'est modifiée.",

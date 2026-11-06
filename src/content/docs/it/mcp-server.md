@@ -52,8 +52,8 @@ Un'automazione o un agente può essere avviato da Claude solo se il suo propriet
 | Piano | Richieste al minuto |
 | --- | --- |
 | Gratuito | 60 |
-| Pro | 120 |
-| Business | 300 |
+| Essenziale | 120 |
+| Team | 300 |
 | Enterprise | 600 |
 
 ## Revocare l'accesso

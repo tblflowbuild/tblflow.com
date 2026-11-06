@@ -6,7 +6,7 @@ section: "Guide"
 order: 5
 ---
 
-La mappa dei processi è una pagina del tuo spazio in cui disegni chi fa cosa e con quali strumenti, poi leggi le rotture e i costi stimati. Richiede il piano Pro o superiore.
+La mappa dei processi è una pagina del tuo spazio in cui disegni chi fa cosa e con quali strumenti, poi leggi le rotture e i costi stimati. Richiede il piano Essenziale o superiore.
 
 ## Aprire o creare la mappa
 

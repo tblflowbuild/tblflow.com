@@ -52,8 +52,8 @@ Bir otomasyon veya ajan, yalnızca sahibi onu **kullanıma açtıysa** Claude'da
 | Plan | Dakika başına istek |
 | --- | --- |
 | Ücretsiz | 60 |
-| Pro | 120 |
-| Business | 300 |
+| Essential | 120 |
+| Team | 300 |
 | Enterprise | 600 |
 
 ## Erişimi iptal edin

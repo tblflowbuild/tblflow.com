@@ -52,8 +52,8 @@ Una automatización o un agente solo se puede activar desde Claude si su propiet
 | Plan | Solicitudes por minuto |
 | --- | --- |
 | Gratis | 60 |
-| Pro | 120 |
-| Business | 300 |
+| Esencial | 120 |
+| Equipo | 300 |
 | Enterprise | 600 |
 
 ## Revocar el acceso

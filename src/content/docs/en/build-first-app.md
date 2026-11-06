@@ -28,7 +28,7 @@ The **Publish** button, at the top of the interface, opens three settings:
 - **Allow data writes** — off by default. A read-only app can't break anything; only turn it on if visitors genuinely need to create or edit records from the app.
 - **Visitor accounts** — turns on an email + password account system scoped to this application, isolated from TblFlow accounts. This is what lets an external client sign in to their own space without ever touching your TblFlow account.
 
-Clicking **Publish — generate the public link** produces a working URL immediately. The Business tier adds a custom domain.
+Clicking **Publish — generate the public link** produces a working URL immediately. The Team tier adds a custom domain.
 
 ## The code stays yours
 

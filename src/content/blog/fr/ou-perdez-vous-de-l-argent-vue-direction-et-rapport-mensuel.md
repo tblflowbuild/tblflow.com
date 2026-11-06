@@ -37,5 +37,5 @@ Les montants ne sont affichés qu'aux personnes qui ont le droit de lire les cha
 autres, TblFlow classe par **nombre de ruptures** et le dit clairement, sans afficher de zéro
 trompeur. Un rapport mensuel avec montants ne peut être activé que par le propriétaire de la base.
 
-*Les coûts sont des estimations saisies ; la Carto des process est incluse dans les plans Pro,
-Business et Enterprise.*
+*Les coûts sont des estimations saisies ; la Carto des process est incluse dans les plans Essentiel,
+Équipe et Entreprise.*

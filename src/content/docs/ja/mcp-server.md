@@ -52,8 +52,8 @@ claude mcp add --transport http tblflow https://app.tblflow.com/mcp
 | プラン | 1分あたりのリクエスト数 |
 | --- | --- |
 | 無料 | 60 |
-| Pro | 120 |
-| Business | 300 |
+| Essential | 120 |
+| チーム | 300 |
 | Enterprise | 600 |
 
 ## アクセスを取り消す

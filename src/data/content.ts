@@ -185,16 +185,16 @@ export const DIFFERENTIATORS: Feature[] = [
       zh: '会行动的智能体，而不只是回答',
     },
     body: {
-      de: 'Airtable, Monday und Notion haben keine autonomen Agenten. TblFlow schon: Sie beobachten Ihre Daten und werden aktiv — eine E-Mail, wenn ein Deal die Phase wechselt, ein GitHub-Issue anlegen, jeden Freitag die Woche zusammenfassen.',
-      en: 'Airtable, Monday and Notion have no autonomous agents. TblFlow does: they watch your data and take action — email when a deal changes stage, open a GitHub issue, summarise the week every Friday.',
-      es: 'Airtable, Monday y Notion no tienen agentes autónomos. TblFlow sí: vigilan tus datos y actúan — enviar un email cuando un trato cambia de etapa, abrir una incidencia en GitHub, resumir la semana cada viernes.',
-      fr: "Airtable, Monday et Notion n'ont pas d'agents autonomes. TblFlow en a : ils surveillent vos données et déclenchent des actions — envoyer un email au changement d'étape d'un deal, ouvrir une issue GitHub, résumer la semaine chaque vendredi.",
-      it: "Airtable, Monday e Notion non hanno agenti autonomi. TblFlow sì: osservano i tuoi dati e agiscono — inviare un'email quando un'opportunità cambia fase, aprire una issue su GitHub, riassumere la settimana ogni venerdì.",
-      ja: 'Airtable、Monday、Notion に自律型エージェントはありません。TblFlow にはあります。データを監視して行動します。商談のステージが変わったらメールを送る、GitHub の issue を作る、毎週金曜に一週間をまとめる、といった具合です。',
-      ru: 'У Airtable, Monday и Notion нет автономных агентов. У TblFlow есть: они следят за данными и действуют — письмо при смене стадии сделки, создание issue в GitHub, сводка недели каждую пятницу.',
-      tr: "Airtable, Monday ve Notion'da otonom ajan yoktur. TblFlow'da vardır: verilerinizi izler ve harekete geçerler — bir fırsat aşama değiştirdiğinde e-posta göndermek, GitHub'da issue açmak, her cuma haftayı özetlemek.",
-      uk: 'В Airtable, Monday і Notion немає автономних агентів. У TblFlow є: вони стежать за даними й діють — лист, коли угода змінює стадію, створення issue в GitHub, зведення тижня щоп’ятниці.',
-      zh: 'Airtable、Monday 和 Notion 没有自主智能体。TblFlow 有：它们监控你的数据并采取行动 —— 交易阶段变化时发邮件、在 GitHub 上开 issue、每周五总结这一周。',
+      de: "Agenten, die auf Ihren Daten handeln: Sie lesen und schreiben in Ihre Tabellen, unter Ihren Rechten, und Sie bestätigen jede sensible Aktion. Zum Beispiel: eine E-Mail, wenn ein Deal die Phase wechselt, ein GitHub-Issue anlegen, jeden Freitag die Woche zusammenfassen.",
+      en: "Agents that act on your data: they read and write your tables, under your rights, and you approve every sensitive action. For example: an email when a deal changes stage, a GitHub issue, a summary of the week every Friday.",
+      es: "Agentes que actúan sobre tus datos: leen y escriben en tus tablas, con tus permisos, y tú validas cada acción sensible. Por ejemplo: un email cuando un trato cambia de etapa, una incidencia en GitHub, un resumen de la semana cada viernes.",
+      fr: "Des agents qui agissent sur vos données : ils lisent et écrivent dans vos tables, sous vos droits, et vous validez chaque action sensible. Par exemple : un email au changement d'étape d'un deal, une issue GitHub, un résumé de la semaine chaque vendredi.",
+      it: "Agenti che agiscono sui tuoi dati: leggono e scrivono nelle tue tabelle, con i tuoi permessi, e tu approvi ogni azione sensibile. Per esempio: un'email quando un'opportunità cambia fase, una issue su GitHub, un riepilogo della settimana ogni venerdì.",
+      ja: "データに対して動くエージェント：あなたの権限のもとでテーブルを読み書きし、機微な操作はすべてあなたが承認します。例：商談のステージが変わったらメールを送る、GitHub の issue を作る、毎週金曜に一週間をまとめる。",
+      ru: "Агенты, которые действуют на ваших данных: они читают и записывают ваши таблицы под вашими правами, а каждое чувствительное действие вы подтверждаете. Например: письмо при смене стадии сделки, issue в GitHub, сводка недели каждую пятницу.",
+      tr: "Verileriniz üzerinde hareket eden ajanlar: tablolarınızı sizin yetkilerinizle okur ve yazar, hassas her işlemi siz onaylarsınız. Örneğin: bir fırsat aşama değiştirdiğinde e-posta, GitHub’da issue, her cuma haftanın özeti.",
+      uk: "Агенти, які діють на ваших даних: вони читають і записують ваші таблиці з вашими правами, а кожну чутливу дію ви підтверджуєте. Наприклад: лист, коли угода змінює стадію, issue в GitHub, зведення тижня щоп’ятниці.",
+      zh: "能作用于你数据的智能体：它们在你的权限下读写你的数据表，每个敏感操作都由你审批。例如：交易阶段变化时发邮件、在 GitHub 上开 issue、每周五总结这一周。",
     },
   },
   {
@@ -530,11 +530,9 @@ export const COMPARISON_NOTES: Array<{
      * the TblFlow row follows the visitor's currency, because that is the one
      * we actually bill.
      *
-     * FIXME(tommy): the TblFlow figure disagrees with the pricing page. Pro is
-     * 29 for 3 seats (~10/user) and Business 99 for 10 seats (~10/user), so
-     * "15–30" overstates our own price against every competitor in this table.
-     * Transcribed as-is from SALES-POSITIONING-2026.md rather than silently
-     * corrected — changing a competitive claim is a call for you, not for me.
+     * TblFlow row: the grid of 2026-11 is 39 for 5 people (Essentiel) and 119
+     * for 15 people (Team), both about 8 per person, so the cell reads about 8.
+     * The competitor figures are published list prices, transcribed as they were.
      */
     values: {
       airtable: all('$10–20'),
@@ -544,8 +542,8 @@ export const COMPARISON_NOTES: Array<{
       notion: all('$8–15'),
       salesforce: all('$100+'),
       tblflow: {
-        de: '15–30 €', en: '$15–30', es: '15–30 €', fr: '15–30 €', it: '15–30 €',
-        ja: '$15–30', ru: '15–30 $', tr: '$15–30', uk: '15–30 $', zh: '$15–30',
+        de: '≈ 8 €', en: '≈ $8', es: '≈ 8 €', fr: '≈ 8 €', it: '≈ 8 €',
+        ja: '≈ $8', ru: '≈ 8 $', tr: '≈ $8', uk: '≈ 8 $', zh: '≈ $8',
       },
     },
   },

@@ -94,7 +94,7 @@ const tr = {
     'Henüz değil. Sunucu resmî MCP kayıt defterinde yayımlanmıştır (com.tblflow/tblflow, sürüm 1.0.0) ve Claude’a bağlanır. Claude bağlayıcı dizinine başvuru yakında yapılacak.',
   'faq.4.q': 'MCP sunucusu Ücretsiz planda kullanılabilir mi?',
   'faq.4.a':
-    'Evet, REST API gibi Ücretsiz plandan itibaren. Yalnızca hız sınırı değişir: Ücretsiz, Pro, Business ve Enterprise için dakikada 60, 120, 300 ve 600 istek.',
+    'Evet, REST API gibi Ücretsiz plandan itibaren. Yalnızca hız sınırı değişir: Ücretsiz, Essential, Team ve Enterprise için dakikada 60, 120, 300 ve 600 istek.',
   'faq.5.q': 'Claude otomasyonlarım ve ajanlarımla neler yapabilir?',
   'faq.5.a':
     'Onları yalnızca sahipleri kullanıma açtıysa tetikleyebilir. Bir otomasyon için run_automation, örnek verilerle bir deneme çalıştırması başlatır: hiçbir veri değiştirilmez.',

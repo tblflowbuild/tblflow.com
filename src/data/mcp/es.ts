@@ -94,7 +94,7 @@ const es = {
     'Todavía no. El servidor está publicado en el registro MCP oficial (com.tblflow/tblflow, versión 1.0.0) y se conecta a Claude. El envío al directorio de conectores de Claude está pendiente.',
   'faq.4.q': '¿Está disponible el servidor MCP en el plan Gratis?',
   'faq.4.a':
-    'Sí, desde el plan Gratis, como la API REST. Solo cambia el límite de velocidad: 60, 120, 300 y 600 solicitudes por minuto para Gratis, Pro, Business y Enterprise.',
+    'Sí, desde el plan Gratis, como la API REST. Solo cambia el límite de velocidad: 60, 120, 300 y 600 solicitudes por minuto para Gratis, Esencial, Equipo y Enterprise.',
   'faq.5.q': '¿Qué puede hacer Claude con mis automatizaciones y mis agentes?',
   'faq.5.a':
     'Solo puede activarlos si su propietario los ha expuesto. En el caso de una automatización, run_automation lanza una prueba en seco con datos de ejemplo: no se modifica ningún dato.',

@@ -39,4 +39,4 @@ Elles passent au modèle à jour avec le bandeau **« Mettre à jour le modèle 
 aperçu des changements et demande confirmation avant d'appliquer quoi que ce soit.
 
 *Le contenu importé est en français pour l'instant. La Carto des process est incluse dans les plans
-Pro, Business et Enterprise.*
+Essentiel, Équipe et Entreprise.*

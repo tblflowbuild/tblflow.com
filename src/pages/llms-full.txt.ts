@@ -85,7 +85,7 @@ ${[...rows, ...noteRows].join('\n')}`);
 
   sections.push(`## Process map
 
-Available on the Pro plan and above (not on Free). A page of each space where processes are drawn on a
+Full map from the Essential plan; a one-process diagnosis is free. A page of each space where processes are drawn on a
 canvas (who does what: a person, an automation or an AI agent), read four ways: Who does what, Costs,
 Breaks, Data. It detects manual re-keying between tools, data with no master source, objects consumed
 but never produced, steps with no owner, no duration, orphaned or with no next step, and failing
@@ -100,7 +100,7 @@ Page: ${SITE_URL}/en/process-map`);
 
 TblFlow runs an official remote MCP server at https://app.tblflow.com/mcp (Streamable HTTP, OAuth 2.1
 with the usual TblFlow sign-in). It is available from the Free tier, like the REST API, with rate limits
-of 60 / 120 / 300 / 600 requests per minute on Free / Pro / Business / Enterprise. It exposes 13 tools:
+of 60 / 120 / 300 / 600 requests per minute on Free / Essential / Team / Enterprise. It exposes 13 tools:
 list spaces and bases; describe a base's schema; list, filter and read records; search the knowledge graph
 (semantic and full-text); create and edit records; delete records (preview, then explicit confirmation,
 trash); create a table or a field; trigger an automation; run an AI agent. When connecting, the user

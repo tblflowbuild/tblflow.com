@@ -6,7 +6,7 @@ section: "Guías"
 order: 5
 ---
 
-El mapa de procesos es una página de tu espacio donde dibujas quién hace qué y con qué herramientas, y después lees las rupturas y los costes estimados. Requiere el plan Pro o superior.
+El mapa de procesos es una página de tu espacio donde dibujas quién hace qué y con qué herramientas, y después lees las rupturas y los costes estimados. Requiere el plan Esencial o superior.
 
 ## Abrir o crear el mapa
 

@@ -52,8 +52,8 @@ An automation or an agent can only be triggered from Claude if its owner has **e
 | Tier | Requests per minute |
 | --- | --- |
 | Free | 60 |
-| Pro | 120 |
-| Business | 300 |
+| Essential | 120 |
+| Team | 300 |
 | Enterprise | 600 |
 
 ## Revoke access

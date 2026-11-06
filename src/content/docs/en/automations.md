@@ -39,7 +39,7 @@ Every run is kept with its trigger, the input and output of each step, and the r
 
 ## Quotas
 
-Monthly runs depend on the tier; they are unlimited from the Business tier up and when self-hosting. One run is one trigger, however many steps it contains.
+Monthly runs depend on the tier; they are unlimited from the Team tier up and when self-hosting. One run is one trigger, however many steps it contains.
 
 ## Automation or agent?
 

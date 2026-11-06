@@ -39,7 +39,7 @@ Cada ejecución se conserva con su disparador, la entrada y la salida de cada pa
 
 ## Cuotas
 
-Las ejecuciones mensuales dependen del plan; son ilimitadas a partir del plan Business y con alojamiento propio. Una ejecución equivale a un disparador, sea cual sea el número de pasos que contenga.
+Las ejecuciones mensuales dependen del plan; son ilimitadas a partir del plan Equipo y con alojamiento propio. Una ejecución equivale a un disparador, sea cual sea el número de pasos que contenga.
 
 ## ¿Automatización o agente?
 

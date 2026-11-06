@@ -28,7 +28,7 @@ El botón **Publicar**, en la parte superior de la interfaz, abre tres ajustes:
 - **Permitir escritura de datos** — desactivado por defecto. Una aplicación de solo lectura no puede romper nada; actívalo solo si los visitantes necesitan realmente crear o editar registros desde la aplicación.
 - **Cuentas de visitantes** — activa un sistema de cuentas con correo y contraseña propio de esta aplicación, aislado de las cuentas de TblFlow. Es lo que permite a un cliente externo iniciar sesión en su propio espacio sin tocar nunca tu cuenta de TblFlow.
 
-Al hacer clic en **Publicar — generar el enlace público** se produce al instante una URL operativa. El plan Business añade un dominio personalizado.
+Al hacer clic en **Publicar — generar el enlace público** se produce al instante una URL operativa. El plan Equipo añade un dominio personalizado.
 
 ## El código sigue siendo tuyo
 

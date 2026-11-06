@@ -52,8 +52,8 @@ Eine Automatisierung oder ein Agent lässt sich nur dann aus Claude auslösen, w
 | Tarif | Anfragen pro Minute |
 | --- | --- |
 | Kostenlos | 60 |
-| Pro | 120 |
-| Business | 300 |
+| Essential | 120 |
+| Team | 300 |
 | Enterprise | 600 |
 
 ## Zugriff widerrufen

@@ -39,7 +39,7 @@ Jeder Lauf wird mit seinem Trigger, der Eingabe und Ausgabe jedes Schritts und d
 
 ## Kontingente
 
-Die monatlichen Läufe hängen vom Tarif ab; ab dem Business-Tarif und beim Selbsthosting sind sie unbegrenzt. Ein Lauf ist ein Trigger, egal wie viele Schritte er enthält.
+Die monatlichen Läufe hängen vom Tarif ab; ab dem Team-Tarif und beim Selbsthosting sind sie unbegrenzt. Ein Lauf ist ein Trigger, egal wie viele Schritte er enthält.
 
 ## Automatisierung oder Agent?
 

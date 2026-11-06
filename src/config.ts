@@ -66,7 +66,7 @@ export const LOCALE_FLAG: Record<Locale, string> = {
 
 export const APP_URL = 'https://app.tblflow.com';
 
-/** 14-day Pro trial, no card: the app only opens it for this exact `plan` value (PRO_TRIAL_PLAN). */
+/** 14-day Essential trial, no card: the app only opens it for this exact `plan` value (PRO_TRIAL_PLAN). */
 export const SIGNUP_TRIAL_URL = `${APP_URL}/auth/signup?plan=pro-trial`;
 
 /**
@@ -108,7 +108,7 @@ export const ORG = {
 
 /**
  * Stripe carries every Price in both EUR and USD at the *same* number
- * (Pro 29/319, Business 99/1089), and bills each customer in their own
+ * (Essential 39/390, Team 119/1190, Enterprise 399/3990), and bills each customer in their own
  * currency. So only the formatting is locale-dependent — never the amount.
  */
 const EURO_LOCALES: readonly Locale[] = ['de', 'es', 'fr', 'it'];

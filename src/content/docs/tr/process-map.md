@@ -6,7 +6,7 @@ section: "Kılavuzlar"
 order: 5
 ---
 
-Süreç haritası, alanınızda kimin ne yaptığını ve hangi araçlarla yaptığını çizdiğiniz, ardından kopuklukları ve tahmini maliyetleri okuduğunuz bir sayfadır. Pro veya üzeri plan gerektirir.
+Süreç haritası, alanınızda kimin ne yaptığını ve hangi araçlarla yaptığını çizdiğiniz, ardından kopuklukları ve tahmini maliyetleri okuduğunuz bir sayfadır. Essential veya üzeri plan gerektirir.
 
 ## Haritayı açın veya oluşturun
 
