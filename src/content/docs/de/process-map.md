@@ -6,7 +6,7 @@ section: "Anleitungen"
 order: 5
 ---
 
-Die Prozesslandkarte ist eine Seite in Ihrem Space, auf der Sie zeichnen, wer was mit welchen Tools macht, und anschließend die Brüche und die geschätzten Kosten ablesen. Sie erfordert den Essential-Tarif oder höher.
+Die Prozesslandkarte ist eine Seite in Ihrem Space, auf der Sie zeichnen, wer was mit welchen Tools macht, und anschließend die Brüche und die geschätzten Kosten ablesen. Ein Prozess lässt sich kostenlos diagnostizieren: mit sichtbaren geschätzten Kosten, ohne Schaltfläche „Ersetzen“ und ohne monatlichen Bericht. Die vollständige Karte gibt es ab dem Essential-Tarif.
 
 ## Karte öffnen oder erstellen
 

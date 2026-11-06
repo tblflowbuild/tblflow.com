@@ -6,7 +6,7 @@ section: "Guides"
 order: 5
 ---
 
-The process map is a page in your space where you draw who does what and with which tools, then read the breaks and the estimated costs. It requires the Essential plan or higher.
+The process map is a page in your space where you draw who does what and with which tools, then read the breaks and the estimated costs. One process can be diagnosed for free, with its estimated costs visible, without the Replace button and without the monthly report. The full map starts at the Essential plan.
 
 ## Open or create the map
 

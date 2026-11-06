@@ -6,7 +6,7 @@ section: "Guide"
 order: 5
 ---
 
-La mappa dei processi è una pagina del tuo spazio in cui disegni chi fa cosa e con quali strumenti, poi leggi le rotture e i costi stimati. Richiede il piano Essenziale o superiore.
+La mappa dei processi è una pagina del tuo spazio in cui disegni chi fa cosa e con quali strumenti, poi leggi le rotture e i costi stimati. Un processo si può diagnosticare gratuitamente, con i costi stimati visibili, senza il pulsante «Sostituisci» e senza il report mensile. La mappa completa parte dal piano Essenziale.
 
 ## Aprire o creare la mappa
 

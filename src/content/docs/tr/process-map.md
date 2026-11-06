@@ -6,7 +6,7 @@ section: "Kılavuzlar"
 order: 5
 ---
 
-Süreç haritası, alanınızda kimin ne yaptığını ve hangi araçlarla yaptığını çizdiğiniz, ardından kopuklukları ve tahmini maliyetleri okuduğunuz bir sayfadır. Essential veya üzeri plan gerektirir.
+Süreç haritası, alanınızda kimin ne yaptığını ve hangi araçlarla yaptığını çizdiğiniz, ardından kopuklukları ve tahmini maliyetleri okuduğunuz bir sayfadır. Bir süreç ücretsiz teşhis edilebilir: tahmini maliyetler görünür, «Değiştir» düğmesi ve aylık rapor yoktur. Tam harita Essential planından itibaren kullanılabilir.
 
 ## Haritayı açın veya oluşturun
 

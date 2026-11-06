@@ -463,7 +463,7 @@ export const COMPARISON: CompareRow[] = [
       ru: 'Автономные ИИ-агенты', tr: 'Otonom yapay zekâ ajanları',
       uk: 'Автономні ШІ-агенти', zh: '自主 AI 智能体',
     },
-    airtable: 'no', baserow: 'no', nocodb: 'no', monday: 'no', notion: 'no', salesforce: 'partial', tblflow: 'yes',
+    airtable: 'yes', baserow: 'no', nocodb: 'no', monday: 'yes', notion: 'yes', salesforce: 'partial', tblflow: 'yes',
   },
   {
     feature: {
