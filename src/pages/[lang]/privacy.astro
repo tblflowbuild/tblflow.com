@@ -27,7 +27,7 @@ const breadcrumbs = [
   breadcrumbs={breadcrumbs}
 >
   <div class="mx-auto max-w-4xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
-    <h1 class="animate-enter text-4xl font-bold tracking-tight sm:text-5xl">
+    <h1 class="animate-enter text-4xl font-medium sm:text-5xl">
       {PRIVACY_TITLE[locale]}
     </h1>
     <p class="animate-enter delay-1 mt-4 max-w-2xl text-lg text-[var(--fg-muted)]">
@@ -37,7 +37,7 @@ const breadcrumbs = [
       {PRIVACY_LAST_UPDATED[locale]}
     </p>
 
-    <div class="prose-site reveal mt-10">
+    <div class="prose-site mt-10">
       {
         PRIVACY_SECTIONS[locale].map((section) => (
           <section>

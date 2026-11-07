@@ -43,10 +43,10 @@ const breadcrumbs = [
   faq={faqSchema}
 >
   <section class="mx-auto max-w-4xl px-4 pt-16 text-center sm:px-6 sm:pt-24">
-    <p class="animate-enter text-sm font-semibold uppercase tracking-wide text-[var(--color-ai-2)]">
+    <p class="animate-enter text-sm font-medium text-[var(--color-ai-2)]">
       {pm(locale, 'hero.eyebrow')}
     </p>
-    <h1 class="animate-enter delay-1 mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+    <h1 class="animate-enter delay-1 mt-3 text-4xl font-medium sm:text-5xl">
       {pm(locale, 'hero.title')}
     </h1>
     <p class="animate-enter delay-2 mx-auto mt-4 max-w-2xl text-lg text-[var(--fg-muted)]">
@@ -55,13 +55,13 @@ const breadcrumbs = [
     <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
       <a
         href={SIGNUP_TRIAL_URL}
-        class="ai-gradient-bg animate-gradient w-full rounded-xl px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5 sm:w-auto"
+        class="ai-gradient-bg w-full rounded-lg px-6 py-3 text-base font-medium text-white sm:w-auto"
       >
         {pm(locale, 'hero.cta.primary')}
       </a>
       <a
         href={localePath(locale, 'pricing')}
-        class="w-full rounded-xl border border-[var(--border-strong)] px-6 py-3.5 text-base font-semibold transition-colors hover:bg-[var(--bg-subtle)] sm:w-auto"
+        class="w-full rounded-lg border border-[var(--border-strong)] px-6 py-3 text-base font-medium transition-colors hover:bg-[var(--bg-subtle)] sm:w-auto"
       >
         {pm(locale, 'hero.cta.secondary')}
       </a>
@@ -72,7 +72,7 @@ const breadcrumbs = [
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
     {
       locale === 'fr' ? (
-        <figure class="reveal mx-auto max-w-5xl">
+        <figure class="mx-auto max-w-5xl">
           <img
             src="/images/process-map/who-does-what-fr-dark.webp"
             alt={pm(locale, 'shot.alt')}
@@ -92,15 +92,15 @@ const breadcrumbs = [
   </section>
 
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <header class="reveal max-w-2xl">
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{pm(locale, 'problem.title')}</h2>
+    <header class="max-w-2xl">
+      <h2 class="text-3xl font-medium sm:text-4xl">{pm(locale, 'problem.title')}</h2>
       <p class="mt-3 text-lg text-[var(--fg-muted)]">{pm(locale, 'problem.intro')}</p>
     </header>
     <ul class="mt-10 grid gap-6 sm:grid-cols-2">
       {
         four.map((n) => (
-          <li class="reveal card p-6">
-            <h3 class="text-base font-semibold">{pm(locale, `problem.${n}.title` as const)}</h3>
+          <li class="card p-6">
+            <h3 class="text-base font-medium">{pm(locale, `problem.${n}.title` as const)}</h3>
             <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
               {pm(locale, `problem.${n}.body` as const)}
             </p>
@@ -111,15 +111,15 @@ const breadcrumbs = [
   </section>
 
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <h2 class="reveal text-3xl font-bold tracking-tight sm:text-4xl">{pm(locale, 'how.title')}</h2>
+    <h2 class="text-3xl font-medium sm:text-4xl">{pm(locale, 'how.title')}</h2>
     <ol class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {
         four.map((n) => (
-          <li class="reveal card p-6">
-            <span class="ai-gradient-bg inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-white" aria-hidden="true">
+          <li class="card p-6">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full font-mono text-sm tabular-nums text-[var(--fg-muted)] ring-1 ring-[var(--border-strong)]" aria-hidden="true">
               {n}
             </span>
-            <h3 class="mt-3 text-base font-semibold">{pm(locale, `how.${n}.title` as const)}</h3>
+            <h3 class="mt-3 text-base font-medium">{pm(locale, `how.${n}.title` as const)}</h3>
             <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
               {pm(locale, `how.${n}.body` as const)}
             </p>
@@ -130,15 +130,15 @@ const breadcrumbs = [
   </section>
 
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <header class="reveal max-w-2xl">
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{pm(locale, 'lenses.title')}</h2>
+    <header class="max-w-2xl">
+      <h2 class="text-3xl font-medium sm:text-4xl">{pm(locale, 'lenses.title')}</h2>
       <p class="mt-3 text-lg text-[var(--fg-muted)]">{pm(locale, 'lenses.intro')}</p>
     </header>
     <ul class="mt-10 grid gap-6 sm:grid-cols-2">
       {
         four.map((n) => (
-          <li class="reveal glass-card p-6">
-            <h3 class="text-base font-semibold">{pm(locale, `lenses.${n}.title` as const)}</h3>
+          <li class="card p-6">
+            <h3 class="text-base font-medium">{pm(locale, `lenses.${n}.title` as const)}</h3>
             <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
               {pm(locale, `lenses.${n}.body` as const)}
             </p>
@@ -149,15 +149,15 @@ const breadcrumbs = [
   </section>
 
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <header class="reveal max-w-2xl">
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{pm(locale, 'breaks.title')}</h2>
+    <header class="max-w-2xl">
+      <h2 class="text-3xl font-medium sm:text-4xl">{pm(locale, 'breaks.title')}</h2>
       <p class="mt-3 text-lg text-[var(--fg-muted)]">{pm(locale, 'breaks.intro')}</p>
     </header>
     <ul class="mt-8 grid gap-3 sm:grid-cols-2">
       {
         seven.map((n) => (
-          <li class="reveal card flex items-start gap-3 p-4 text-sm">
-            <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-red-600" aria-hidden="true"></span>
+          <li class="card flex items-start gap-3 p-4 text-sm">
+            <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-red-600" aria-hidden="true"></span>
             <span>{pm(locale, `breaks.${n}` as const)}</span>
           </li>
         ))
@@ -166,30 +166,30 @@ const breadcrumbs = [
   </section>
 
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <header class="reveal max-w-2xl">
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{pm(locale, 'replace.title')}</h2>
+    <header class="max-w-2xl">
+      <h2 class="text-3xl font-medium sm:text-4xl">{pm(locale, 'replace.title')}</h2>
       <p class="mt-3 text-lg text-[var(--fg-muted)]">{pm(locale, 'replace.intro')}</p>
     </header>
     <ul class="mt-8 grid gap-3 sm:grid-cols-2">
       {
         four.map((n) => (
-          <li class="reveal card p-4 text-sm font-medium">{pm(locale, `replace.map.${n}` as const)}</li>
+          <li class="card p-4 text-sm font-medium">{pm(locale, `replace.map.${n}` as const)}</li>
         ))
       }
     </ul>
-    <div class="reveal glass-card mt-8 p-6">
-      <h3 class="text-base font-semibold">{pm(locale, 'replace.rule.title')}</h3>
+    <div class="card mt-8 p-6">
+      <h3 class="text-base font-medium">{pm(locale, 'replace.rule.title')}</h3>
       <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">{pm(locale, 'replace.rule.body')}</p>
     </div>
   </section>
 
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <h2 class="reveal max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">{pm(locale, 'data.title')}</h2>
+    <h2 class="max-w-2xl text-3xl font-medium sm:text-4xl">{pm(locale, 'data.title')}</h2>
     <ul class="mt-10 grid gap-6 sm:grid-cols-2">
       {
         four.map((n) => (
-          <li class="reveal card p-6">
-            <h3 class="text-base font-semibold">{pm(locale, `data.${n}.title` as const)}</h3>
+          <li class="card p-6">
+            <h3 class="text-base font-medium">{pm(locale, `data.${n}.title` as const)}</h3>
             <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
               {pm(locale, `data.${n}.body` as const)}
             </p>
@@ -200,15 +200,15 @@ const breadcrumbs = [
   </section>
 
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <h2 class="reveal max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">{pm(locale, 'paths.title')}</h2>
+    <h2 class="max-w-2xl text-3xl font-medium sm:text-4xl">{pm(locale, 'paths.title')}</h2>
     <ul class="mt-10 grid gap-6 sm:grid-cols-3">
       {
         three.map((n) => (
-          <li class="reveal card p-6">
-            <p class="text-xs font-semibold uppercase tracking-wide text-[var(--color-ai-2)]">
+          <li class="card p-6">
+            <p class="text-xs font-medium text-[var(--color-ai-2)]">
               {pm(locale, `paths.${n}.label` as const)}
             </p>
-            <h3 class="mt-2 text-base font-semibold">{pm(locale, `paths.${n}.title` as const)}</h3>
+            <h3 class="mt-2 text-base font-medium">{pm(locale, `paths.${n}.title` as const)}</h3>
             <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
               {pm(locale, `paths.${n}.body` as const)}
             </p>
@@ -219,7 +219,7 @@ const breadcrumbs = [
     <p class="mt-6">
       <a
         href={localePath(locale, locale === 'fr' ? 'docs/cartographie-processus' : 'docs/process-map')}
-        class="text-sm font-semibold text-[var(--color-ai-2)] underline underline-offset-4"
+        class="text-sm font-medium text-[var(--color-ai-2)] underline underline-offset-4"
       >
         {pm(locale, 'paths.cta')}
       </a>
@@ -227,15 +227,15 @@ const breadcrumbs = [
   </section>
 
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <header class="reveal max-w-2xl">
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{ct(locale, 'track.title')}</h2>
+    <header class="max-w-2xl">
+      <h2 class="text-3xl font-medium sm:text-4xl">{ct(locale, 'track.title')}</h2>
       <p class="mt-3 text-lg text-[var(--fg-muted)]">{ct(locale, 'track.intro')}</p>
     </header>
     <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
         five.map((n) => (
-          <li class="reveal glass-card p-6">
-            <h3 class="text-base font-semibold">{ct(locale, `track.${n}.title` as const)}</h3>
+          <li class="card p-6">
+            <h3 class="text-base font-medium">{ct(locale, `track.${n}.title` as const)}</h3>
             <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
               {ct(locale, `track.${n}.body` as const)}
             </p>
@@ -246,7 +246,7 @@ const breadcrumbs = [
     <p class="mt-6">
       <a
         href={localePath(locale, 'changelog')}
-        class="text-sm font-semibold text-[var(--color-ai-2)] underline underline-offset-4"
+        class="text-sm font-medium text-[var(--color-ai-2)] underline underline-offset-4"
       >
         {ct(locale, 'track.cta')}
       </a>
@@ -254,12 +254,12 @@ const breadcrumbs = [
   </section>
 
   <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-    <div class="reveal card p-6 sm:p-8">
-      <h2 class="text-2xl font-bold tracking-tight">{pm(locale, 'plan.title')}</h2>
+    <div class="card p-6 sm:p-8">
+      <h2 class="text-2xl font-medium">{pm(locale, 'plan.title')}</h2>
       <p class="mt-2 text-[var(--fg-muted)]">{pm(locale, 'plan.body')}</p>
       <a
         href={localePath(locale, 'pricing')}
-        class="mt-5 inline-block rounded-xl border border-[var(--border-strong)] px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-[var(--bg-subtle)]"
+        class="mt-5 inline-block rounded-lg border border-[var(--border-strong)] px-5 py-2 text-sm font-medium transition-colors hover:bg-[var(--bg-subtle)]"
       >
         {pm(locale, 'plan.cta')}
       </a>

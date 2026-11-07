@@ -1,22 +1,12 @@
 ---
 import Base from '@/layouts/Base.astro';
 import Hero from '@/components/Hero.astro';
-import SurfacesGrid from '@/components/SurfacesGrid.astro';
-import ProvidersStrip from '@/components/ProvidersStrip.astro';
-import McpBand from '@/components/McpBand.astro';
-import FeatureGrid from '@/components/FeatureGrid.astro';
-import PipelineSection from '@/components/PipelineSection.astro';
-import ProductShowcase from '@/components/ProductShowcase.astro';
-import ViewsStrip from '@/components/ViewsStrip.astro';
+import Journey from '@/components/Journey.astro';
 import PricingTable from '@/components/PricingTable.astro';
 import Faq from '@/components/Faq.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import { DIFFERENTIATORS, COMPETITOR_LABELS } from '@/data/content';
-import { COMPETITOR_SLUGS } from '@/data/competitors';
 import { FAQ } from '@/data/faq';
 import { pm } from '@/data/processMap';
-import ProcessMapTeaser from '@/components/ProcessMapTeaser.astro';
-import ExampleProcess from '@/components/ExampleProcess.astro';
 import Testimonials from '@/components/Testimonials.astro';
 import { useTranslations } from '@/i18n/ui';
 import { localePath } from '@/i18n/utils';
@@ -51,79 +41,24 @@ const faqSchema = FAQ.map((item) => ({
 >
   <Hero locale={locale} />
 
-  {/* Who it is for and what it finds come first: the visitor is an owner or
-      ops lead, so the process map and a process they recognise lead, and the
-      build pipeline and screenshots follow as the "how". */}
-  <ProcessMapTeaser locale={locale} />
-
-  <ExampleProcess locale={locale} />
+  {/* The story in the order a company lives it, from the problem to the time
+      handed back to the team. The detail pages (views, surfaces, MCP,
+      comparisons) are linked from the header, the footer and the pricing. */}
+  <Journey locale={locale} />
 
   <Testimonials locale={locale} />
 
-  <PipelineSection locale={locale} />
-
-  <ProductShowcase locale={locale} />
-
-  <SurfacesGrid locale={locale} />
-
-  <ProvidersStrip locale={locale} />
-
-  <McpBand locale={locale} />
-
-  <ViewsStrip
-    locale={locale}
-    title={t('views.title6')}
-    subtitle={t('views.subtitle6')}
-  />
-
-  <FeatureGrid
-    locale={locale}
-    id="why"
-    title={t('why.title')}
-    subtitle={t('why.subtitle')}
-    items={DIFFERENTIATORS}
-    moody
-  />
-
-  {/* The full grid moved to /compare: seven columns of ✓ and ✗ is a reference
-      table, and a reference table is a page, not a homepage section. What stays
-      here is the link into it — dropping the section outright would leave the
-      six comparison pages reachable only from the footer. */}
-  <section id="comparison" class="mx-auto max-w-6xl scroll-mt-24 px-4 py-20 sm:px-6">
-    <header class="reveal max-w-2xl">
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{t('compare.title')}</h2>
-      <p class="mt-3 text-lg text-[var(--fg-muted)]">{t('compare.lede')}</p>
-    </header>
-
-    <ul class="mt-8 flex flex-wrap gap-2">
-      {
-        COMPETITOR_SLUGS.map((slug) => (
-          <li class="reveal">
-            <a
-              href={localePath(locale, `compare/${slug}`)}
-              class="inline-flex rounded-full px-4 py-2 text-sm font-medium text-[var(--fg-muted)] shadow-[inset_0_0_0_1px_var(--border)] transition-colors hover:text-[var(--fg)] hover:shadow-[inset_0_0_0_1px_var(--border-strong)]"
-            >
-              TblFlow vs {COMPETITOR_LABELS[slug]}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-
-    <a
-      href={localePath(locale, 'compare')}
-      class="reveal mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-ai-2)] hover:underline"
-    >
-      {t('compare.seeAll')}
-      <span aria-hidden="true">→</span>
-    </a>
-  </section>
-
-
-  <div class="mx-auto max-w-6xl px-4 pt-10 sm:px-6">
-    <header class="reveal max-w-2xl">
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{t('pricing.title')}</h2>
+  <div class="mx-auto max-w-6xl border-t border-[var(--border)] px-4 pt-16 sm:px-6 sm:pt-20">
+    <header class="max-w-2xl">
+      <h2 class="text-3xl font-medium sm:text-4xl">{t('pricing.title')}</h2>
       <p class="mt-3 text-lg text-[var(--fg-muted)]">{t('pricing.subtitle')}</p>
+      <a
+        href={localePath(locale, 'compare')}
+        class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-ai-2)] hover:underline"
+      >
+        {t('compare.seeAll')}
+        <span aria-hidden="true">→</span>
+      </a>
     </header>
   </div>
   <PricingTable locale={locale} showQuotas={false} />
