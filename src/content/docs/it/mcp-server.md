@@ -25,19 +25,21 @@ URL del server: `https://app.tblflow.com/mcp`
 claude mcp add --transport http tblflow https://app.tblflow.com/mcp
 ```
 
-## I 13 strumenti
+## I 23 strumenti
 
-Il server espone 13 strumenti, raggruppati così:
+Il server espone 23 strumenti, raggruppati così:
 
-- **Esplorare**: elencare i tuoi spazi e le tue basi.
-- **Capire**: descrivere lo schema di una base.
+- **Esplorare**: elencare i tuoi spazi e le tue basi, le viste di una tabella e i membri di uno spazio.
+- **Capire**: descrivere lo schema di una base, leggere la mappa dei processi di uno spazio.
 - **Leggere**: elencare, filtrare e leggere i record.
+- **Calcolare**: calcolare statistiche su una tabella (somma, media, minimo, massimo, conteggio), con filtro e raggruppamento, senza leggere tutte le righe.
 - **Cercare**: cercare nel knowledge graph, con ricerca semantica e full-text.
 - **Creare e modificare**: creare e modificare i record.
-- **Eliminare**: eliminare i record, con un'anteprima e poi una conferma esplicita. I record vanno nel cestino.
-- **Strutturare**: creare una tabella o un campo.
-- **Automatizzare**: avviare un'automazione.
-- **Delegare**: avviare un agente IA.
+- **Importare**: importare un CSV, in una tabella esistente o in una nuova tabella.
+- **Eliminare e ripristinare**: eliminare record o un campo, con un'anteprima e poi una conferma esplicita; elencare il cestino e ripristinare ciò che è stato eliminato.
+- **Strutturare**: creare una tabella, creare o rinominare un campo.
+- **Automatizzare**: elencare le automazioni e gli agenti esposti, avviare un'automazione.
+- **Delegare**: avviare un agente IA e seguire lo stato delle sue ultime esecuzioni.
 
 ## Permessi e scelta degli spazi
 
@@ -55,6 +57,10 @@ Un'automazione o un agente può essere avviato da Claude solo se il suo propriet
 | Essenziale | 120 |
 | Team | 300 |
 | Enterprise | 600 |
+
+## Da un terminale
+
+La [CLI di TblFlow](/it/docs/cli) fornisce anche un server MCP locale (`tblflow mcp serve`), per i client che avviano un processo sul tuo computer. Serve inoltre a importare un CSV o a esportare una tabella da riga di comando.
 
 ## Revocare l'accesso
 

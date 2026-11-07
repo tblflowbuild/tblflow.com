@@ -25,19 +25,21 @@ Sunucu URL'si: `https://app.tblflow.com/mcp`
 claude mcp add --transport http tblflow https://app.tblflow.com/mcp
 ```
 
-## 13 araç
+## 23 araç
 
-Sunucu, aşağıdaki gibi gruplanan 13 araç sunar:
+Sunucu, aşağıdaki gibi gruplanan 23 araç sunar:
 
-- **Keşfetmek**: alanlarınızı ve tabanlarınızı listelemek.
-- **Anlamak**: bir tabanın şemasını açıklamak.
+- **Keşfetmek**: alanlarınızı ve tabanlarınızı, bir tablonun görünümlerini ve bir alanın üyelerini listelemek.
+- **Anlamak**: bir tabanın şemasını açıklamak, bir alanın süreç haritasını okumak.
 - **Okumak**: kayıtları listelemek, filtrelemek ve okumak.
+- **Hesaplamak**: tüm satırları okumadan, filtre ve gruplamayla bir tablo üzerinde istatistikler (toplam, ortalama, minimum, maksimum, sayım) hesaplamak.
 - **Aramak**: knowledge graph içinde anlamsal ve tam metin aramasıyla arama yapmak.
 - **Oluşturmak ve düzenlemek**: kayıt oluşturmak ve düzenlemek.
-- **Silmek**: kayıtları silmek; önce bir önizleme, ardından açık bir onay. Kayıtlar çöp kutusuna gider.
-- **Yapılandırmak**: bir tablo veya alan oluşturmak.
-- **Otomatikleştirmek**: bir otomasyonu tetiklemek.
-- **Devretmek**: bir yapay zeka ajanı çalıştırmak.
+- **İçe aktarmak**: bir CSV'yi mevcut bir tabloya veya yeni bir tabloya içe aktarmak.
+- **Silmek ve geri yüklemek**: kayıtları veya bir alanı silmek; önce bir önizleme, ardından açık bir onay; çöp kutusunu listelemek ve silinenleri geri yüklemek.
+- **Yapılandırmak**: bir tablo oluşturmak, bir alan oluşturmak veya yeniden adlandırmak.
+- **Otomatikleştirmek**: kullanıma açılmış otomasyonları ve ajanları listelemek, bir otomasyonu tetiklemek.
+- **Devretmek**: bir yapay zeka ajanı çalıştırmak ve son çalıştırmalarının durumunu izlemek.
 
 ## İzinler ve alan seçimi
 
@@ -55,6 +57,10 @@ Bir otomasyon veya ajan, yalnızca sahibi onu **kullanıma açtıysa** Claude'da
 | Essential | 120 |
 | Team | 300 |
 | Enterprise | 600 |
+
+## Bir terminalden
+
+[TblFlow CLI](/tr/docs/cli), bilgisayarınızda bir işlem başlatan istemciler için yerel bir MCP sunucusu (`tblflow mcp serve`) da sağlar. Ayrıca komut satırından bir CSV'yi içe aktarmak veya bir tabloyu dışa aktarmak için de kullanılır.
 
 ## Erişimi iptal edin
 

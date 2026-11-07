@@ -25,19 +25,21 @@ Server URL: `https://app.tblflow.com/mcp`
 claude mcp add --transport http tblflow https://app.tblflow.com/mcp
 ```
 
-## The 13 tools
+## The 23 tools
 
-The server exposes 13 tools, grouped as follows:
+The server exposes 23 tools, grouped as follows:
 
-- **Explore**: list your spaces and your bases.
-- **Understand**: describe a base's schema.
+- **Explore**: list your spaces and your bases, a table's views and a space's members.
+- **Understand**: describe a base's schema, read a space's process map.
 - **Read**: list, filter and read records.
+- **Calculate**: compute statistics on a table (sum, average, minimum, maximum, count), with filter and grouping, without reading every row.
 - **Search**: search the knowledge graph, both semantic and full-text.
 - **Create and edit**: create and edit records.
-- **Delete**: delete records, with a preview and then an explicit confirmation. Records go to the trash.
-- **Structure**: create a table or a field.
-- **Automate**: trigger an automation.
-- **Delegate**: run an AI agent.
+- **Import**: import a CSV, into an existing table or a new table.
+- **Delete and restore**: delete records or a field, with a preview and then an explicit confirmation; list the trash and restore what was deleted.
+- **Structure**: create a table, create or rename a field.
+- **Automate**: list the exposed automations and agents, trigger an automation.
+- **Delegate**: run an AI agent and follow the status of its latest runs.
 
 ## Permissions and space selection
 
@@ -55,6 +57,10 @@ An automation or an agent can only be triggered from Claude if its owner has **e
 | Essential | 120 |
 | Team | 300 |
 | Enterprise | 600 |
+
+## From a terminal
+
+The [TblFlow CLI](/en/docs/cli) also provides a local MCP server (`tblflow mcp serve`), for clients that launch a process on your machine. It is also used to import a CSV or export a table from the command line.
 
 ## Revoke access
 
