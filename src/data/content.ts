@@ -113,9 +113,9 @@ export const SURFACES: Feature[] = [
     },
     body: {
       de: 'Autonome Agenten mit Planer, Executor, persistentem Gedächtnis und Scheduler. Sie lesen und schreiben Ihre Daten und handeln über Ihre verbundenen Dienste hinweg — Gmail, GitHub, Slack, Google Kalender.',
-      en: 'Autonomous agents with a planner, an executor, persistent memory and a scheduler. They read and write your data, and act across your connected services — Gmail, GitHub, Slack, Google Calendar.',
+      en: 'Agents with a planner, an executor, persistent memory and a scheduler. They read and write your data and act across your connected services — Gmail, GitHub, Slack, Google Calendar — under your approval.',
       es: 'Agentes autónomos con planificador, ejecutor, memoria persistente y programador. Leen y escriben tus datos y actúan sobre tus servicios conectados: Gmail, GitHub, Slack, Google Calendar.',
-      fr: "Des agents autonomes avec planificateur, exécuteur, mémoire persistante et ordonnanceur. Ils lisent et écrivent dans vos données, et agissent sur vos services connectés — Gmail, GitHub, Slack, Google Calendar.",
+      fr: "Des agents avec planificateur, exécuteur, mémoire persistante et ordonnanceur. Ils lisent et écrivent dans vos données et agissent sur vos services connectés — Gmail, GitHub, Slack, Google Agenda —, sous votre validation.",
       it: 'Agenti autonomi con pianificatore, esecutore, memoria persistente e scheduler. Leggono e scrivono i tuoi dati e agiscono sui servizi collegati — Gmail, GitHub, Slack, Google Calendar.',
       ja: 'プランナー、実行エンジン、永続メモリ、スケジューラを備えた自律型エージェント。データを読み書きし、連携サービス（Gmail、GitHub、Slack、Google カレンダー）をまたいで動作します。',
       ru: 'Автономные агенты с планировщиком, исполнителем, постоянной памятью и планировщиком запусков. Они читают и пишут ваши данные и действуют в подключённых сервисах — Gmail, GitHub, Slack, Google Календарь.',
