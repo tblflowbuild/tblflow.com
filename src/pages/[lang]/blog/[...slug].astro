@@ -2,7 +2,7 @@
 import Base from '@/layouts/Base.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import { useTranslations } from '@/i18n/ui';
-import { localePath, formatDate, isoDate, readingTime } from '@/i18n/utils';
+import { localePath, formatDate, isoDate, readingTime, brandTitle } from '@/i18n/utils';
 import { isLocale, type Locale } from '@/config';
 
 export async function getStaticPaths() {
@@ -41,7 +41,7 @@ const toc = headings.filter((heading) => heading.depth === 2 || heading.depth ==
 
 <Base
   locale={locale}
-  title={`${post.data.title} — TblFlow`}
+  title={brandTitle(post.data.title)}
   description={post.data.description}
   path={path}
   image={post.data.image}

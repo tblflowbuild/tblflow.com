@@ -1,7 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import { useTranslations } from '@/i18n/ui';
-import { localePath } from '@/i18n/utils';
+import { localePath, brandTitle } from '@/i18n/utils';
 import { LOCALES, type Locale } from '@/config';
 import { PRIVACY_TITLE, PRIVACY_LEDE, PRIVACY_SECTIONS, PRIVACY_LAST_UPDATED } from '@/data/legal';
 
@@ -21,7 +21,7 @@ const breadcrumbs = [
 
 <Base
   locale={locale}
-  title={`${PRIVACY_TITLE[locale]} — TblFlow`}
+  title={brandTitle(PRIVACY_TITLE[locale])}
   description={PRIVACY_LEDE[locale]}
   path={path}
   breadcrumbs={breadcrumbs}

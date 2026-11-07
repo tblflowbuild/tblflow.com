@@ -9,7 +9,7 @@
 import Base from '@/layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
 import { useTranslations } from '@/i18n/ui';
-import { localePath, formatDate, isoDate } from '@/i18n/utils';
+import { localePath, formatDate, isoDate, brandTitle } from '@/i18n/utils';
 import { LOCALES, type Locale } from '@/config';
 
 export function getStaticPaths() {
@@ -47,7 +47,7 @@ const breadcrumbs = [
 
 <Base
   locale={locale}
-  title={`${t('changelog.title')} — TblFlow`}
+  title={brandTitle(t('changelog.title'))}
   description={t('changelog.subtitle')}
   path={localePath(locale, 'changelog')}
   breadcrumbs={breadcrumbs}

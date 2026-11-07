@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Marketing site and blog for tblflow.com \u2014 Astro, 10 languages, deployed as a Cloudflare Worker (static assets)",
+  "description": "Marketing site and blog for tblflow.com — Astro, 10 languages, deployed as a Cloudflare Worker (static assets)",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -15,7 +15,8 @@
     "check:pricing": "astro build && node scripts/check-pricing.mjs",
     "check:csp": "astro build && node scripts/check-csp.mjs",
     "deploy": "astro build && wrangler deploy",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "check:meta": "node scripts/check-meta.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "4.0.19",
