@@ -1,13 +1,88 @@
 /* ---------------------------------------------------------------------------
- * TblFlow app surfaces, for the product scenes of the home journey.
+ * TblFlow app surfaces, for the product scenes of the site.
  *
- * The scenes reproduce the real app, so they use the app's own dark theme
- * whatever the site theme is: values from the app's shadcn `.dark` tokens
- * (packages/ui-lib/src/shadcn/global.shadcn.css) and resource colours
- * (apps/nextjs-app/src/styles/global.css). Mono is the app's JetBrains Mono
- * stack.
+ * The scenes reproduce the real app and follow the site theme, as the app
+ * itself does: light values from the app's shadcn `:root` tokens and resource
+ * colours, dark values from its `.dark` tokens
+ * (packages/ui-lib/src/shadcn/global.shadcn.css,
+ * apps/nextjs-app/src/styles/global.css). Mono is the app's JetBrains Mono
+ * stack. Light is the default; the dark set is declared once and applied from
+ * the same two selectors as the site palette (global.css).
  * ------------------------------------------------------------------------- */
 .tf-app {
+  --tf-bg: #ffffff;
+  --tf-grid-bg: #f9fafb;
+  --tf-head: #f9fafb;
+  --tf-card: #ffffff;
+  --tf-popover: #f3f4f6;
+  --tf-muted-bg: rgb(0 0 0 / 0.04);
+  --tf-border: rgb(0 0 0 / 0.08);
+  --tf-border-high: rgb(0 0 0 / 0.12);
+  --tf-fg: #030712;
+  --tf-muted: #6b7280;
+  --tf-primary: #111827;
+  --tf-on-primary: #f9fafb;
+  --tf-destructive: #dc2626;
+  --tf-success: #05964f;
+  --tf-positive: #047857;
+  --tf-positive-bg: rgb(5 150 79 / 0.1);
+  --tf-warning: #b45309;
+  --tf-info: #2563eb;
+  --tf-automation: #b6790c;
+  --tf-agent: #c4267a;
+  --tf-table: #0e7c86;
+  --tf-note-border: rgb(124 58 237 / 0.25);
+  --tf-note-bg: rgb(124 58 237 / 0.06);
+  --tf-dot: #e5e7eb;
+  --tf-shadow: 0 8px 24px rgb(17 24 39 / 0.08);
+  --tf-step-shadow: 0 1px 3px rgb(17 24 39 / 0.08);
+  --tf-scheme: light;
+  --tf-mono: 'JetBrains Mono', 'SF Mono', 'Roboto Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+
+  color-scheme: var(--tf-scheme);
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--tf-border-high);
+  background: var(--tf-bg);
+  color: var(--tf-fg);
+  font-size: 13px;
+  line-height: 1.4;
+  box-shadow: var(--tf-shadow);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .tf-app {
+    --tf-bg: #131415;
+    --tf-grid-bg: #0c0d10;
+    --tf-head: #15161a;
+    --tf-card: #18191b;
+    --tf-popover: #232425;
+    --tf-muted-bg: rgb(255 255 255 / 0.04);
+    --tf-border: rgb(255 255 255 / 0.08);
+    --tf-border-high: rgb(255 255 255 / 0.12);
+    --tf-fg: #d6dbe0;
+    --tf-muted: #8a8c8f;
+    --tf-primary: #dfe3e7;
+    --tf-on-primary: #18181b;
+    --tf-destructive: #ef4444;
+    --tf-success: #05964f;
+    --tf-positive: #34d399;
+    --tf-positive-bg: rgb(5 150 79 / 0.2);
+    --tf-warning: #f59e0b;
+    --tf-info: #60a5fa;
+    --tf-automation: #e3ac4c;
+    --tf-agent: #ec6cab;
+    --tf-table: #34c6bb;
+    --tf-note-border: rgb(76 29 149 / 0.4);
+    --tf-note-bg: rgb(46 16 101 / 0.2);
+    --tf-dot: #2c303a;
+    /* On the dark page the window lifts off with a light rim and a deep shadow. */
+    --tf-shadow: 0 0 0 1px rgb(255 255 255 / 0.04), 0 16px 40px rgb(0 0 0 / 0.55);
+    --tf-step-shadow: 0 4px 12px rgb(0 0 0 / 0.3);
+    --tf-scheme: dark;
+  }
+}
+:root[data-theme='dark'] .tf-app {
   --tf-bg: #131415;
   --tf-grid-bg: #0c0d10;
   --tf-head: #15161a;
@@ -19,26 +94,23 @@
   --tf-fg: #d6dbe0;
   --tf-muted: #8a8c8f;
   --tf-primary: #dfe3e7;
+  --tf-on-primary: #18181b;
   --tf-destructive: #ef4444;
   --tf-success: #05964f;
+  --tf-positive: #34d399;
+  --tf-positive-bg: rgb(5 150 79 / 0.2);
   --tf-warning: #f59e0b;
   --tf-info: #60a5fa;
   --tf-automation: #e3ac4c;
   --tf-agent: #ec6cab;
   --tf-table: #34c6bb;
+  --tf-note-border: rgb(76 29 149 / 0.4);
+  --tf-note-bg: rgb(46 16 101 / 0.2);
   --tf-dot: #2c303a;
-  --tf-mono: 'JetBrains Mono', 'SF Mono', 'Roboto Mono', Menlo, Consolas, 'Liberation Mono', monospace;
-
-  color-scheme: dark;
-  position: relative;
-  overflow: hidden;
-  border-radius: 14px;
-  border: 1px solid var(--tf-border-high);
-  background: var(--tf-bg);
-  color: var(--tf-fg);
-  font-size: 13px;
-  line-height: 1.4;
-  box-shadow: 0 8px 24px rgb(17 24 39 / 0.12);
+  /* On the dark page the window lifts off with a light rim and a deep shadow. */
+  --tf-shadow: 0 0 0 1px rgb(255 255 255 / 0.04), 0 16px 40px rgb(0 0 0 / 0.55);
+  --tf-step-shadow: 0 4px 12px rgb(0 0 0 / 0.3);
+  --tf-scheme: dark;
 }
 .tf-app *,
 .tf-app *::before,
@@ -98,7 +170,7 @@
   border-radius: 12px;
   border: 1px solid var(--tf-border);
   background: var(--tf-card);
-  box-shadow: 0 4px 12px rgb(0 0 0 / 0.3);
+  box-shadow: var(--tf-step-shadow);
 }
 .tf-step[data-exec='automation'] {
   --exec: var(--tf-automation);
@@ -140,7 +212,8 @@
   height: 20px;
   padding: 0 6px;
   border-radius: 999px;
-  background: var(--tf-destructive);
+  /* One step darker than --tf-destructive, so the white count reads at 4.5:1 in both themes. */
+  background: #dc2626;
   color: #fff;
   font-size: 11px;
   font-weight: 600;
@@ -192,7 +265,7 @@
   padding: 0 12px;
   border-radius: 8px;
   background: var(--tf-primary);
-  color: #18181b;
+  color: var(--tf-on-primary);
   font-weight: 500;
   cursor: pointer;
   transition: opacity 150ms var(--ease-out-soft);

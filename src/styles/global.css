@@ -101,18 +101,9 @@
   --accent-hover: #6366f1;
 }
 
-/* The home introduction is dark in both themes, with the dark roles of the
-   site, so the app window below it sits in its own light. */
+/* The home introduction follows the site theme like the rest of the page;
+   only its bottom rule sets it apart from the journey that follows. */
 .intro-dark {
-  --bg: #0b0d14;
-  --bg-subtle: #11141c;
-  --bg-raised: #141822;
-  --fg: #eef0f5;
-  --fg-muted: #a3a9b8;
-  --fg-subtle: #7a8296;
-  --border: rgb(238 240 245 / 0.08);
-  --border-strong: rgb(238 240 245 / 0.14);
-  color-scheme: dark;
   background-color: var(--bg);
   color: var(--fg);
   border-bottom: 1px solid var(--border);
