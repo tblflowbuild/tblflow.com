@@ -6,16 +6,13 @@
  * coded view of the product on the other, so the page reads top to bottom as
  * a timeline. Then what the customer keeps whatever happens.
  *
- * The views are illustrations with fictional data, drawn in HTML rather than
- * screenshots so they stay legible in ten languages and both themes.
+ * Each step shows a reproduction of the real TblFlow screen it describes,
+ * with fictional data, animated on scroll (see scenes/ProductScene.astro and
+ * scripts/scenes.ts).
  */
-import ProcessMapViz from './ProcessMapViz.astro';
+import ProductScene from './scenes/ProductScene.astro';
 import { JOURNEY } from '@/data/journey';
-import { PIPELINE_STEPS } from '@/data/pipeline';
-import { HERO_DEMO, HERO_DEMO_QUOTES } from '@/data/heroDemo';
-import { hm } from '@/data/home';
-import { pm } from '@/data/processMap';
-import { formatPrice, type Locale } from '@/config';
+import type { Locale } from '@/config';
 
 interface Props {
   locale: Locale;
@@ -23,13 +20,9 @@ interface Props {
 
 const { locale } = Astro.props;
 const copy = JOURNEY[locale];
-const chain = [1, 2, 3] as const;
-const tools = ['Google Sheets', 'Gmail', 'Slack'];
 const mark = (i: number) => String(i + 1).padStart(2, '0');
-/** The one quote that gets typed three times in step 01. */
-const retyped = HERO_DEMO_QUOTES[0];
-
-const FILE_ICON = 'M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5';
+/** Steps whose screen is wide in the app (the map canvas): text above, screen full width. */
+const WIDE = [2];
 ---
 
 <div id="parcours">
@@ -37,7 +30,7 @@ const FILE_ICON = 'M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14
     copy.steps.map((step, i) => (
       <section class="border-t border-[var(--border)]" aria-labelledby={`etape-${i + 1}`}>
         <div class="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-12 lg:items-center lg:gap-12">
-          <div class="lg:col-span-5">
+          <div class:list={[WIDE.includes(i) ? 'lg:col-span-8' : 'lg:col-span-5']}>
             <p class="font-mono text-sm text-[var(--fg-subtle)] tabular-nums">
               {mark(i)} · {step.label}
             </p>
@@ -47,144 +40,8 @@ const FILE_ICON = 'M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14
             <p class="mt-4 text-lg text-[var(--fg-muted)]">{step.body}</p>
           </div>
 
-          <div class="lg:col-span-7">
-            {/* 01 · The same customer and amount typed into three tools. */}
-            {i === 0 && (
-              <div class="card p-6" aria-hidden="true">
-                <ol class="flex flex-col items-stretch gap-3 md:flex-row md:items-center md:gap-0">
-                  {chain.map((n) => (
-                    <>
-                      {n > 1 && (
-                        <li class="hw-break">
-                          <span>{hm(locale, 'example.break')}</span>
-                        </li>
-                      )}
-                      <li class="hw-node">
-                        <p class="text-xs text-[var(--fg-subtle)]">{pm(locale, 'viz.human')}</p>
-                        <p class="mt-1 text-sm font-medium">{hm(locale, `example.step${n}.title` as const)}</p>
-                        <p class="mt-2 border-t border-[var(--border)] pt-2 font-mono text-xs text-[var(--fg-muted)] tabular-nums">
-                          {retyped.client} · {formatPrice(locale, retyped.amount)}
-                        </p>
-                      </li>
-                    </>
-                  ))}
-                </ol>
-                <p class="corner-ticks mt-6 px-4 py-3 font-mono text-sm tabular-nums" style="--tick: 0.75rem;">
-                  {hm(locale, 'example.calc')}
-                </p>
-              </div>
-            )}
-
-            {/* 02 · Procedures uploaded and indexed, tools connected. */}
-            {i === 1 && (
-              <div class="card overflow-hidden" aria-hidden="true">
-                <p class="border-b border-[var(--border)] px-6 py-3 text-xs text-[var(--fg-subtle)]">{copy.docs.files}</p>
-                <ul class="divide-y divide-[var(--border)]">
-                  {copy.docs.names.map((name) => (
-                    <li class="flex items-center gap-3 px-6 py-3">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="shrink-0 text-[var(--fg-subtle)]">
-                        <path d={FILE_ICON} stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                      <span class="min-w-0 flex-1 truncate font-mono text-sm">{name}</span>
-                      <span class="flex items-center gap-2 text-xs text-[var(--fg-muted)]">
-                        <span class="h-2 w-2 rounded-full bg-[#16a34a]" />
-                        {copy.docs.indexed}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <div class="border-t border-[var(--border)] px-6 py-4">
-                  <p class="text-xs text-[var(--fg-subtle)]">{copy.docs.tools}</p>
-                  <ul class="mt-2 flex flex-wrap gap-2">
-                    {tools.map((tool) => (
-                      <li class="rounded-md bg-[var(--bg-subtle)] px-2 py-1 text-sm text-[var(--fg-muted)]">{tool}</li>
-                    ))}
-                  </ul>
-                </div>
-                <p class="border-t border-[var(--border)] bg-[var(--bg-subtle)] px-6 py-3 font-mono text-xs text-[var(--fg-muted)]">
-                  {copy.docs.status}
-                </p>
-              </div>
-            )}
-
-            {/* 03 · The process map. */}
-            {i === 2 && <ProcessMapViz locale={locale} />}
-
-            {/* 04 · What TblFlow builds from the map. */}
-            {i === 3 && (
-              <div class="card p-6" aria-hidden="true">
-                <ol class="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7 lg:gap-2">
-                  {PIPELINE_STEPS.map((p, n) => (
-                    <li class="flex flex-col items-center gap-2 text-center">
-                      <span class="pipeline__cell" style="--cell: 3rem;">
-                        <svg viewBox="0 0 24 24" set:html={p.icon} />
-                      </span>
-                      <span class="font-mono text-xs text-[var(--fg-subtle)] tabular-nums">{mark(n)}</span>
-                      <span class="text-xs">{p.label[locale]}</span>
-                    </li>
-                  ))}
-                </ol>
-                <p class="mt-6 border-t border-[var(--border)] pt-4 text-xs text-[var(--fg-muted)]">
-                  {HERO_DEMO[locale].tableFoot}
-                </p>
-              </div>
-            )}
-
-            {/* 05 · A rule, no AI involved. */}
-            {i === 4 && (
-              <div class="card p-6" aria-hidden="true">
-                <p class="text-xs text-[var(--fg-subtle)]">{copy.auto.when}</p>
-                <p class="mt-2 rounded-lg px-4 py-3 text-sm shadow-[inset_0_0_0_1px_var(--border-strong)]">
-                  {copy.auto.trigger}
-                </p>
-                <p class="mt-4 text-xs text-[var(--fg-subtle)]">{copy.auto.then}</p>
-                <ol class="mt-2 space-y-2">
-                  {copy.auto.actions.map((action, n) => (
-                    <li class="flex items-center gap-3 rounded-lg bg-[var(--bg-subtle)] px-4 py-3 text-sm">
-                      <span class="font-mono text-xs text-[var(--fg-subtle)] tabular-nums">{mark(n)}</span>
-                      {action}
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            )}
-
-            {/* 06 · An agent grounded on tables and procedures, waiting for approval. */}
-            {i === 5 && (
-              <div class="card p-6" aria-hidden="true">
-                <p class="ml-auto max-w-md rounded-lg bg-[var(--bg-subtle)] px-4 py-3 text-sm">{copy.agent.prompt}</p>
-                <p class="mt-6 text-xs text-[var(--fg-subtle)]">{copy.agent.sources}</p>
-                <ul class="mt-2 flex flex-wrap gap-2">
-                  {copy.agent.items.map((source) => (
-                    <li class="rounded-md px-2 py-1 font-mono text-xs text-[var(--fg-muted)] shadow-[inset_0_0_0_1px_var(--border)]">
-                      {source}
-                    </li>
-                  ))}
-                </ul>
-                <p class="mt-6 flex items-center gap-2 border-t border-[var(--border)] pt-4 text-sm text-[var(--fg-muted)]">
-                  <span class="h-2 w-2 rounded-full bg-[#d97706]" />
-                  {copy.agent.status}
-                </p>
-              </div>
-            )}
-
-            {/* 07 · Who does what from now on. */}
-            {i === 6 && (
-              <div class="card grid overflow-hidden sm:grid-cols-2" aria-hidden="true">
-                <div class="p-6">
-                  <p class="text-xs text-[var(--fg-subtle)]">{copy.split.agents}</p>
-                  <ul class="mt-3 space-y-2 text-sm text-[var(--fg-muted)]">
-                    {copy.split.agentItems.map((item) => <li>{item}</li>)}
-                  </ul>
-                </div>
-                <div class="border-t border-[var(--border)] bg-[var(--bg-subtle)] p-6 sm:border-t-0 sm:border-l">
-                  <p class="text-xs text-[var(--fg-subtle)]">{copy.split.team}</p>
-                  <ul class="mt-3 space-y-2 text-sm font-medium">
-                    {copy.split.teamItems.map((item) => <li>{item}</li>)}
-                  </ul>
-                </div>
-              </div>
-            )}
+          <div class:list={[WIDE.includes(i) ? 'lg:col-span-12' : 'lg:col-span-7']}>
+            <ProductScene locale={locale} step={i} />
           </div>
         </div>
       </section>
@@ -208,3 +65,7 @@ const FILE_ICON = 'M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14
     </div>
   </section>
 </div>
+
+<script>
+  import '@/scripts/scenes';
+</script>

@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './app-ui.css';
 
 /*
  * Design tokens.
@@ -606,34 +607,4 @@ button.ai-gradient-bg:hover {
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
-}
-
-/* ---------------------------------------------------------------------------
- * Build stages (journey step 04): one outlined cell per stage, its size set
- * by `--cell` on the element.
- * ------------------------------------------------------------------------- */
-.pipeline__cell {
-  position: relative;
-  width: var(--cell);
-  height: var(--cell);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--fg-subtle);
-  background: var(--bg-raised);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-}
-.pipeline__cell svg {
-  width: 50%;
-  height: 50%;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.pipeline__cell .fill-icon {
-  fill: currentColor;
-  stroke: none;
 }
