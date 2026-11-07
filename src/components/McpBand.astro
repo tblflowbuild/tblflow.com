@@ -16,7 +16,7 @@ const { locale }: Props = Astro.props;
 ---
 
 <section class="mx-auto max-w-6xl px-4 pb-14 sm:px-6">
-  <div class="reveal flex flex-col items-center gap-4 text-center">
+  <div class="flex flex-col items-center gap-4 text-center">
     <p class="text-sm font-medium text-[var(--fg-muted)]">{mcp(locale, 'home.line')}</p>
     <a
       href={localePath(locale, 'mcp')}

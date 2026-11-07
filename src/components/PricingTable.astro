@@ -20,7 +20,7 @@ const t = useTranslations(locale);
     checkout since 2026-09-01; the annual one is one month free, computed in
     `pricing.ts`.
   */}
-  <div class="reveal mb-8 flex flex-col items-center gap-2">
+  <div class="mb-8 flex flex-col items-center gap-2">
     <div class="inline-flex rounded-full border border-[var(--border-strong)] p-1 text-sm">
       <button
         type="button"
@@ -55,7 +55,7 @@ const t = useTranslations(locale);
       TIERS.map((tier) => (
         <li
           class:list={[
-            'reveal card relative flex flex-col p-6 lg:row-span-5 lg:grid lg:grid-rows-subgrid lg:gap-0',
+            'card relative flex flex-col p-6 lg:row-span-5 lg:grid lg:grid-rows-subgrid lg:gap-0',
             tier.featured && 'ring-1 ring-[var(--fg-subtle)]',
           ]}
         >
@@ -146,7 +146,7 @@ const t = useTranslations(locale);
 
   {
     showQuotas && (
-      <div class="reveal mt-16">
+      <div class="mt-16">
         <h3 class="text-xl font-medium">{t('pricing.compare')}</h3>
         <div class="mt-6 overflow-x-auto">
           <table class="w-full min-w-[42rem] border-collapse text-sm">
@@ -194,7 +194,7 @@ const t = useTranslations(locale);
 
   {/* Self-hosting is the strongest differentiator against every competitor in the
       comparison table, so it gets its own panel rather than a footnote. */}
-  <aside class="reveal card mt-12 overflow-hidden p-0">
+  <aside class="card mt-12 overflow-hidden p-0">
     <div class="grid gap-6 p-7 sm:grid-cols-[1fr_auto] sm:items-center">
       <div>
         <h3 class="text-lg font-medium">{t('pricing.selfhost.title')}</h3>

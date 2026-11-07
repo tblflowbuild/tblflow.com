@@ -69,19 +69,16 @@ const copy = {
 <section id="pipeline" class="pipeline relative isolate scroll-mt-24 overflow-hidden py-24">
 
   <div class="mx-auto max-w-6xl px-4 sm:px-6">
-    <header class="reveal mx-auto max-w-2xl text-center">
+    <header class="mx-auto max-w-2xl text-center">
       <p class="eyebrow justify-center">{copy.eyebrow[locale]}</p>
       <h2 class="mt-5 text-3xl font-medium sm:text-4xl">{copy.title[locale]}</h2>
       <p class="mt-4 text-lg text-[var(--fg-muted)]">{copy.sub[locale]}</p>
     </header>
 
     {/* Scrolls inside its own container, so the page body never moves sideways. */}
-    <div class="reveal mt-16 overflow-x-auto pt-6 pb-2" aria-label={copy.aria[locale]}>
+    <div class="mt-16 overflow-x-auto pt-6 pb-2" aria-label={copy.aria[locale]}>
       <div class="pipeline__row">
-        <div class="pipeline__line" aria-hidden="true">
-          <div class="pipeline__fill"></div>
-          <div class="pipeline__pulse"></div>
-        </div>
+        <div class="pipeline__line" aria-hidden="true"></div>
 
         {
           STEPS.map((step, i) => (

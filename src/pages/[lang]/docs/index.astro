@@ -111,7 +111,7 @@ const slugOf = (id: string) => id.replace(`${locale}/`, '');
             </h2>
             <ul class="mt-4 space-y-3">
               {entries.map((page) => (
-                <li class="reveal">
+                <li>
                   <a
                     href={localePath(locale, `docs/${slugOf(page.id)}`)}
                     class="card group block p-6 transition-colors hover:border-[var(--border-strong)]"

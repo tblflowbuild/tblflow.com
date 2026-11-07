@@ -29,14 +29,14 @@ const [grid, kanban, gallery, calendar, gantt, form] = VIEWS;
 
 <section id="views">
   <div class="mx-auto max-w-6xl scroll-mt-24 px-4 py-20 sm:px-6">
-    <header class="reveal max-w-2xl">
+    <header class="max-w-2xl">
       <h2 class="text-3xl font-medium sm:text-4xl">{title}</h2>
       <p class="mt-3 text-lg text-[var(--fg-muted)]">{subtitle}</p>
     </header>
 
     <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {/* Grille */}
-      <li class="reveal card overflow-hidden">
+      <li class="card overflow-hidden">
         <div class="vt-stage" aria-hidden="true">
           <div class="vt-grid">
             {Array.from({ length: 15 }).map((_, i) => (
@@ -52,7 +52,7 @@ const [grid, kanban, gallery, calendar, gantt, form] = VIEWS;
       </li>
 
       {/* Kanban */}
-      <li class="reveal card overflow-hidden">
+      <li class="card overflow-hidden">
         <div class="vt-stage" aria-hidden="true">
           <div class="vt-kanban">
             <div class="vt-kcol">
@@ -78,7 +78,7 @@ const [grid, kanban, gallery, calendar, gantt, form] = VIEWS;
       </li>
 
       {/* Galerie */}
-      <li class="reveal card overflow-hidden">
+      <li class="card overflow-hidden">
         <div class="vt-stage" aria-hidden="true">
           <div class="vt-gallery">
             {Array.from({ length: 6 }).map(() => (
@@ -99,7 +99,7 @@ const [grid, kanban, gallery, calendar, gantt, form] = VIEWS;
       </li>
 
       {/* Calendrier */}
-      <li class="reveal card overflow-hidden">
+      <li class="card overflow-hidden">
         <div class="vt-stage" aria-hidden="true">
           <div class="vt-cal">
             <div class="vt-cal-sweep"></div>
@@ -118,7 +118,7 @@ const [grid, kanban, gallery, calendar, gantt, form] = VIEWS;
       </li>
 
       {/* Gantt */}
-      <li class="reveal card overflow-hidden">
+      <li class="card overflow-hidden">
         <div class="vt-stage" aria-hidden="true">
           <div class="vt-gantt">
             <div class="vt-today"></div>
@@ -141,7 +141,7 @@ const [grid, kanban, gallery, calendar, gantt, form] = VIEWS;
       </li>
 
       {/* Formulaire */}
-      <li class="reveal card overflow-hidden">
+      <li class="card overflow-hidden">
         <div class="vt-stage" aria-hidden="true">
           <div class="vt-form">
             <div class="vt-form-url">

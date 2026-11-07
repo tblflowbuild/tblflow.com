@@ -28,7 +28,7 @@ const { locale, id, title, subtitle, items, moody = false } = Astro.props;
   ]}
 >
 
-  <header class="reveal max-w-2xl">
+  <header class="max-w-2xl">
     <h2 class="text-3xl font-medium sm:text-4xl">{title}</h2>
     <p class="mt-3 text-lg text-[var(--fg-muted)]">{subtitle}</p>
   </header>
@@ -38,7 +38,7 @@ const { locale, id, title, subtitle, items, moody = false } = Astro.props;
       items.map((item) => (
         <li
           class:list={[
-            'reveal group p-6 transition-colors hover:border-[var(--border-strong)]',
+            'group p-6 transition-colors hover:border-[var(--border-strong)]',
             'card',
           ]}
         >

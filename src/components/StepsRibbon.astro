@@ -1,11 +1,6 @@
 ---
 /**
- * The steps an AI-generated app goes through, as a continuous ribbon.
- *
- * The list is rendered twice into one track: the animation slides the track by
- * exactly half its width, so the moment it snaps back the frame is identical
- * and the loop has no visible seam. The duplicate is `aria-hidden` — a screen
- * reader should hear the seven steps once, not fourteen.
+ * The steps an AI-generated app goes through, laid out once in a wrapped row.
  */
 import { type Locale } from '@/config';
 
@@ -51,29 +46,21 @@ const STEPS = [
 <div class="marquee py-2">
   <ul class="marquee__track">
     {
-      [0, 1].map((pass) => (
-        <>
-          {STEPS.map((step) => (
-            <li
-              class="flex shrink-0 items-center gap-2 pr-8"
-              aria-hidden={pass === 1 ? 'true' : undefined}
-            >
-              <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--bg-subtle)] text-[var(--fg-muted)] ring-1 ring-[var(--border)]">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d={step.icon}
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <span class="text-sm whitespace-nowrap text-[var(--fg-muted)]">{step.label[locale]}</span>
-              <span class="ml-6 h-1 w-1 shrink-0 rounded-full bg-[var(--border-strong)]" />
-            </li>
-          ))}
-        </>
+      STEPS.map((step) => (
+        <li class="flex shrink-0 items-center gap-2">
+          <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--bg-subtle)] text-[var(--fg-muted)] ring-1 ring-[var(--border)]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d={step.icon}
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span class="text-sm whitespace-nowrap text-[var(--fg-muted)]">{step.label[locale]}</span>
+          </li>
       ))
     }
   </ul>

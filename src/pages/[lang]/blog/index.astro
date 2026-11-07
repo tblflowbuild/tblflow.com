@@ -144,7 +144,6 @@ const breadcrumbs = [
           <ul class="mt-6 space-y-4">
           {posts.map((post) => (
             <li
-              class="reveal"
               data-blog-item
               data-blog-tags={post.data.tags.join(' ')}
               data-blog-text={`${post.data.title} ${post.data.description}`.toLowerCase()}

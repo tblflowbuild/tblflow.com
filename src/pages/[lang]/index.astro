@@ -90,7 +90,7 @@ const faqSchema = FAQ.map((item) => ({
       here is the link into it — dropping the section outright would leave the
       six comparison pages reachable only from the footer. */}
   <section id="comparison" class="mx-auto max-w-6xl scroll-mt-24 px-4 py-20 sm:px-6">
-    <header class="reveal max-w-2xl">
+    <header class="max-w-2xl">
       <h2 class="text-3xl font-medium sm:text-4xl">{t('compare.title')}</h2>
       <p class="mt-3 text-lg text-[var(--fg-muted)]">{t('compare.lede')}</p>
     </header>
@@ -98,7 +98,7 @@ const faqSchema = FAQ.map((item) => ({
     <ul class="mt-8 flex flex-wrap gap-2">
       {
         COMPETITOR_SLUGS.map((slug) => (
-          <li class="reveal">
+          <li>
             <a
               href={localePath(locale, `compare/${slug}`)}
               class="inline-flex rounded-full px-4 py-2 text-sm font-medium text-[var(--fg-muted)] shadow-[inset_0_0_0_1px_var(--border)] transition-colors hover:text-[var(--fg)] hover:shadow-[inset_0_0_0_1px_var(--border-strong)]"
@@ -112,7 +112,7 @@ const faqSchema = FAQ.map((item) => ({
 
     <a
       href={localePath(locale, 'compare')}
-      class="reveal mt-6 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-ai-2)] hover:underline"
+      class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-ai-2)] hover:underline"
     >
       {t('compare.seeAll')}
       <span aria-hidden="true">→</span>
@@ -121,7 +121,7 @@ const faqSchema = FAQ.map((item) => ({
 
 
   <div class="mx-auto max-w-6xl px-4 pt-10 sm:px-6">
-    <header class="reveal max-w-2xl">
+    <header class="max-w-2xl">
       <h2 class="text-3xl font-medium sm:text-4xl">{t('pricing.title')}</h2>
       <p class="mt-3 text-lg text-[var(--fg-muted)]">{t('pricing.subtitle')}</p>
     </header>
