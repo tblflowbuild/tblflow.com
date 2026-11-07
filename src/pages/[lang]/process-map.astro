@@ -55,7 +55,7 @@ const breadcrumbs = [
     <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
       <a
         href={SIGNUP_TRIAL_URL}
-        class="ai-gradient-bg animate-gradient w-full rounded-xl px-6 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5 sm:w-auto"
+        class="ai-gradient-bg w-full rounded-xl px-6 py-3 text-base font-semibold text-white sm:w-auto"
       >
         {pm(locale, 'hero.cta.primary')}
       </a>
@@ -116,7 +116,7 @@ const breadcrumbs = [
       {
         four.map((n) => (
           <li class="reveal card p-6">
-            <span class="ai-gradient-bg inline-flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-white" aria-hidden="true">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full font-mono text-sm tabular-nums text-[var(--fg-muted)] ring-1 ring-[var(--border-strong)]" aria-hidden="true">
               {n}
             </span>
             <h3 class="mt-3 text-base font-semibold">{pm(locale, `how.${n}.title` as const)}</h3>
@@ -137,7 +137,7 @@ const breadcrumbs = [
     <ul class="mt-10 grid gap-6 sm:grid-cols-2">
       {
         four.map((n) => (
-          <li class="reveal glass-card p-6">
+          <li class="reveal card p-6">
             <h3 class="text-base font-semibold">{pm(locale, `lenses.${n}.title` as const)}</h3>
             <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
               {pm(locale, `lenses.${n}.body` as const)}
@@ -177,7 +177,7 @@ const breadcrumbs = [
         ))
       }
     </ul>
-    <div class="reveal glass-card mt-8 p-6">
+    <div class="reveal card mt-8 p-6">
       <h3 class="text-base font-semibold">{pm(locale, 'replace.rule.title')}</h3>
       <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">{pm(locale, 'replace.rule.body')}</p>
     </div>
@@ -234,7 +234,7 @@ const breadcrumbs = [
     <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
         five.map((n) => (
-          <li class="reveal glass-card p-6">
+          <li class="reveal card p-6">
             <h3 class="text-base font-semibold">{ct(locale, `track.${n}.title` as const)}</h3>
             <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
               {ct(locale, `track.${n}.body` as const)}

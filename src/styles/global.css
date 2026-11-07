@@ -3,11 +3,10 @@
 /*
  * Design tokens.
  *
- * The AI gradient (violet → indigo → sky → cyan) and the neutral scale are
- * carried over verbatim from the app's `global.css` so the site and the product
- * read as one brand. Per the app's own design-system note, the gradient is
- * reserved for AI-related surfaces — it is a wayfinding signal, not decoration,
- * and spending it on generic CTAs is what makes it stop meaning anything.
+ * `--color-ai-2` is the brand indigo and the only accent in the chrome: the
+ * primary action, the active link and the focus ring. `--color-ai-1/3/4` are
+ * kept for one job only, telling apart the three kinds of step on the process
+ * map (person, automation, agent). They never form a gradient.
  */
 @theme {
   --color-ai-1: #7c3aed;
@@ -51,19 +50,20 @@
 :root {
   color-scheme: light dark;
 
-  --bg: #ffffff;
-  --bg-subtle: #f8fafc;
+  /* Ink ramp: neutrals with a slight blue cast, the colour of tracing paper
+     and plan ink. Surfaces stay neutral; the indigo accent is the only hue in
+     the chrome. */
+  --bg: #f5f7fa;
+  --bg-subtle: #eceff4;
   --bg-raised: #ffffff;
-  --fg: #0f172a;
-  --fg-muted: #475569;
-  --fg-subtle: #64748b;
-  --border: rgb(0 0 0 / 0.08);
-  --border-strong: rgb(0 0 0 / 0.14);
-  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px -12px rgb(15 23 42 / 0.12);
-  /* Peak of `.shimmer-text`'s sheen. On light backgrounds a pure-white peak
-     would wash out to near-invisible; mixing toward `--fg` instead keeps the
-     band legible. Dark mode overrides this to true white below. */
-  --shimmer-peak: color-mix(in oklab, var(--fg) 55%, white);
+  --fg: #111827;
+  --fg-muted: #4b5565;
+  --fg-subtle: #6b7487;
+  --border: rgb(17 24 39 / 0.08);
+  --border-strong: rgb(17 24 39 / 0.14);
+  --shadow-card: 0 1px 2px rgb(17 24 39 / 0.05);
+  /* Darker step of the brand indigo for hover on the accent fill. */
+  --accent-hover: #4338ca;
 }
 
 /*
@@ -77,33 +77,30 @@
  */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    /* A near-black *navy*, not a near-black grey — the blue cast is what makes
-       the glow and gradient-text treatments below read as "lit" rather than
-       merely "dim". */
-    --bg: #05060a;
-    --bg-subtle: #0a0c12;
-    --bg-raised: #10131c;
-    --fg: #e8ecf1;
-    --fg-muted: #9aa6b6;
-    --fg-subtle: #7c8798;
-    --border: rgb(255 255 255 / 0.09);
-    --border-strong: rgb(255 255 255 / 0.16);
-    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
-    --shimmer-peak: #ffffff;
+    --bg: #0b0d14;
+    --bg-subtle: #11141c;
+    --bg-raised: #141822;
+    --fg: #eef0f5;
+    --fg-muted: #a3a9b8;
+    --fg-subtle: #7a8296;
+    --border: rgb(238 240 245 / 0.08);
+    --border-strong: rgb(238 240 245 / 0.14);
+    --shadow-card: none;
+    --accent-hover: #6366f1;
   }
 }
 
 :root[data-theme='dark'] {
-  --bg: #05060a;
-  --bg-subtle: #0a0c12;
-  --bg-raised: #10131c;
-  --fg: #e8ecf1;
-  --fg-muted: #9aa6b6;
-  --fg-subtle: #7c8798;
-  --border: rgb(255 255 255 / 0.09);
-  --border-strong: rgb(255 255 255 / 0.16);
-  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
-  --shimmer-peak: #ffffff;
+  --bg: #0b0d14;
+  --bg-subtle: #11141c;
+  --bg-raised: #141822;
+  --fg: #eef0f5;
+  --fg-muted: #a3a9b8;
+  --fg-subtle: #7a8296;
+  --border: rgb(238 240 245 / 0.08);
+  --border-strong: rgb(238 240 245 / 0.14);
+  --shadow-card: none;
+  --accent-hover: #6366f1;
 }
 
 @layer base {
@@ -371,27 +368,16 @@
  * Component primitives
  * ------------------------------------------------------------------------- */
 
-.ai-gradient-text {
-  background-image: linear-gradient(
-    100deg,
-    var(--color-ai-1),
-    var(--color-ai-2),
-    var(--color-ai-3),
-    var(--color-ai-4)
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
+/* The accent fill. The name is historical: it is a flat brand indigo now,
+   with a darker step on hover, and never a gradient. */
 .ai-gradient-bg {
-  background-image: linear-gradient(
-    100deg,
-    var(--color-ai-1),
-    var(--color-ai-2),
-    var(--color-ai-3),
-    var(--color-ai-4)
-  );
+  background-color: var(--color-ai-2);
+  color: #fff;
+  transition: background-color 150ms var(--ease-out-soft);
+}
+a.ai-gradient-bg:hover,
+button.ai-gradient-bg:hover {
+  background-color: var(--accent-hover);
 }
 
 .card {
@@ -401,37 +387,12 @@
   box-shadow: var(--shadow-card);
 }
 
-/* A quiet gradient wash for the odd card in an otherwise-identical grid — see
- * SurfacesGrid.astro. Two tints in six cards is enough to break the "six
- * identical dark boxes" rhythm without turning the grid into a mood board. */
-.sf-tint {
-  background-image: radial-gradient(
-    ellipse 140% 100% at 100% 0%,
-    color-mix(in oklab, var(--color-ai-2) 14%, transparent),
-    transparent 60%
-  );
-}
-
 /* ---------------------------------------------------------------------------
- * "Blueprint" motifs — a faint dot-grid, corner crosshair ticks, and a soft
- * top-down glow. Reserved for section backdrops (hero, closing CTA, the "why"
- * panel) rather than applied globally: the whole point is that they mark a
- * handful of moments as deliberately staged, which stops working if every
- * section has them.
+ * Plan marks: four small crosshairs at the corners of a `position: relative`
+ * container, the way a technical drawing marks its sheet. The site's signature,
+ * used on the process map and the key figures only. Sized off the container
+ * via `em`, so one `font-size` on the parent scales the whole motif.
  * ------------------------------------------------------------------------- */
-
-/* Dot grid, not line grid — matches the canvas background used in the app
-   itself (base map, space view), so the marketing site's backdrop reads as
-   the same surface rather than a generic decorative pattern. */
-.bg-grid {
-  background-image: radial-gradient(var(--fg) 1px, transparent 1px);
-  background-size: 24px 24px;
-  opacity: 0.15;
-}
-
-/* Four small crosshairs at the corners of a `position: relative` container,
-   the way a design tool marks an artboard. Sized off the container via `em`
-   so one `font-size` on the parent scales the whole motif. */
 .corner-ticks {
   --tick: 0.6em;
   position: relative;
@@ -456,86 +417,6 @@
   right: 0;
 }
 
-.spotlight {
-  background: radial-gradient(
-    ellipse 60% 50% at 50% 0%,
-    color-mix(in oklab, var(--color-ai-2) 20%, transparent),
-    transparent 70%
-  );
-}
-
-/* Frosted panel for floating product mockups — distinct from `.card`, which is
-   opaque and used for content. This one is meant to look like it's hovering
-   over the glow behind it. */
-.glass-card {
-  background-color: color-mix(in oklab, var(--bg-raised) 70%, transparent);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
-
-/* Metallic headline text: a gradient wide enough that only part of it shows at
-   a time, so shifting `background-position` moves a bright band through the
-   letters. The band is what `title-charge` animates; at rest the visible window
-   sits on the calm left end. Distinct from `.ai-gradient-text`, which stays
-   reserved for AI-surface wayfinding per the design-system note above — this
-   one is a typographic finish, not a signal. */
-.shimmer-text {
-  position: relative;
-  /* Contains the bloom copy below: without a stacking context its `z-index: -1`
-     would drop it behind the section backdrop instead of behind the letters. */
-  isolation: isolate;
-  /*
-   * Base colour is `--fg` across the whole ramp, with a brighter band at the
-   * centre — not a muted-to-bright ramp. A display element that rests on the
-   * muted end ends up dimmer than the body copy beneath it, which inverts the
-   * hierarchy: the biggest thing on the page has to be the brightest. Here the
-   * type is fully lit at any background-position and the animation only slides
-   * a specular highlight through it.
-   */
-  background-image: linear-gradient(
-    100deg,
-    var(--fg) 0%,
-    var(--fg) 34%,
-    var(--shimmer-peak) 50%,
-    var(--fg) 66%,
-    var(--fg) 100%
-  );
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/*
- * Overspill bloom.
- *
- * `background-clip: text` can only ever paint *inside* the glyphs, so on its own
- * the headline reads as coloured-in rather than lit — real light spills past
- * whatever it strikes. This is a blurred duplicate of the same clipped gradient
- * sitting behind the letters; the blur is what escapes the glyph edges.
- *
- * The copy comes from `data-text` rather than a second element in the markup, so
- * there is exactly one copy of the string in the DOM for assistive tech to read.
- */
-.shimmer-text[data-text]::before {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image: inherit;
-  background-size: inherit;
-  background-position: inherit;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: blur(14px);
-  opacity: 0.28;
-  pointer-events: none;
-}
-
 /* Small caps label flanked by hairlines, e.g. "— Introducing —". */
 .eyebrow {
   display: inline-flex;
@@ -553,26 +434,6 @@
   width: 1.5em;
   height: 1px;
   background: var(--border-strong);
-}
-
-/* ---------------------------------------------------------------------------
- * Hexagon field.
- *
- * A port of the `animate-ui` HexagonBackground, which is a React component that
- * renders a few hundred DOM nodes. Here the whole field is one element: the hex
- * lattice is an SVG tile used as a *mask*, painted with `--fg`. Mask rather than
- * background-image because a data-URI cannot read CSS variables — masking keeps
- * a single asset that follows the theme instead of one hardcoded colour per
- * theme, and it stays one node instead of 300.
- * ------------------------------------------------------------------------- */
-.hex-bg {
-  --hex-size: 56px 100px;
-  background-color: var(--fg);
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E");
-  -webkit-mask-size: var(--hex-size);
-  mask-size: var(--hex-size);
-  opacity: 0.07;
 }
 
 /* ---------------------------------------------------------------------------
@@ -777,7 +638,7 @@
   width: 7px;
   height: 7px;
   border-radius: 999px;
-  background-color: var(--color-ai-3);
+  background-color: var(--fg-subtle);
 }
 @media (prefers-reduced-motion: no-preference) {
   .pulse-dot {
@@ -843,7 +704,7 @@
   margin-top: 0.4em;
 }
 .prose-site blockquote {
-  border-left: 3px solid var(--color-ai-2);
+  border-left: 3px solid var(--border-strong);
   padding-left: 1em;
   font-style: italic;
   color: var(--fg-muted);
@@ -946,7 +807,7 @@
   position: absolute;
   inset: 0;
   width: 0;
-  background: linear-gradient(90deg, transparent, var(--color-ai-3));
+  background: var(--border-strong);
 }
 .pipeline__pulse {
   position: absolute;
@@ -956,8 +817,7 @@
   height: 11px;
   margin: -5.5px 0 0 -5.5px;
   border-radius: 50%;
-  background: var(--color-ai-1);
-  box-shadow: 0 0 8px 1px var(--color-ai-1), 0 0 22px 6px var(--color-ai-2);
+  background: var(--fg-subtle);
 }
 .pipeline__item {
   display: flex;
@@ -1143,8 +1003,8 @@
   position: absolute;
   width: calc((100% - 28%) / 5);
   height: calc((100% - 28%) / 3);
-  border: 1.5px solid var(--color-ai-2);
-  background: color-mix(in oklab, var(--color-ai-2) 14%, transparent);
+  border: 1.5px solid var(--fg-muted);
+  background: color-mix(in oklab, var(--fg-muted) 14%, transparent);
 }
 @media (prefers-reduced-motion: no-preference) {
   .vt-select {
@@ -1198,7 +1058,7 @@
   position: absolute;
   width: calc((100% - 24% - 16%) / 3);
   height: 12%;
-  border: 1.5px solid var(--color-ai-2);
+  border: 1.5px solid var(--fg-muted);
   border-radius: 3px;
   background: var(--bg-raised);
 }
@@ -1281,7 +1141,7 @@
   top: 12%;
   bottom: 12%;
   width: calc((100% - 24%) / 7);
-  background: var(--color-ai-2);
+  background: var(--fg-muted);
   opacity: 0.12;
 }
 .vt-cal-dot {
@@ -1289,7 +1149,7 @@
   width: 10%;
   height: 10%;
   border-radius: 50%;
-  background: var(--color-ai-3);
+  background: var(--fg-subtle);
   opacity: 0;
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -1330,10 +1190,10 @@
   top: 0;
   height: 100%;
   border-radius: 2px;
-  background: var(--color-ai-3);
+  background: var(--fg-subtle);
 }
 .vt-bar--critical {
-  background: var(--color-ai-2);
+  background: var(--fg-muted);
 }
 .vt-elbow {
   position: absolute;
@@ -1345,9 +1205,8 @@
   top: 0;
   bottom: 0;
   width: 1.5px;
-  background: var(--color-ai-2);
+  background: var(--fg-muted);
   opacity: 0.8;
-  box-shadow: 0 0 6px var(--color-ai-2);
 }
 @media (prefers-reduced-motion: no-preference) {
   .vt-today {
@@ -1409,7 +1268,7 @@
   position: absolute;
   inset: 0;
   width: 0%;
-  background: var(--color-ai-2);
+  background: var(--fg-muted);
   opacity: 0.16;
 }
 .vt-submit {
@@ -1417,7 +1276,7 @@
   margin-top: 2%;
   padding: 4% 12%;
   border-radius: 3px;
-  background: var(--color-ai-2);
+  background: var(--fg-muted);
   color: white;
   font-size: 0.6rem;
   font-weight: 700;
@@ -1501,7 +1360,7 @@
   z-index: 3;
 }
 .sf-net-node--core svg {
-  stroke: var(--color-ai-2);
+  stroke: var(--fg-muted);
 }
 .sf-net-pulse {
   position: absolute;
@@ -1511,8 +1370,7 @@
   height: 6px;
   margin: -3px 0 0 -3px;
   border-radius: 50%;
-  background: var(--color-ai-2);
-  box-shadow: 0 0 8px 1px var(--color-ai-2);
+  background: var(--fg-muted);
   opacity: 0;
 }
 
@@ -1530,7 +1388,7 @@
   position: relative;
 }
 .sf-tb-cell--formula {
-  background: color-mix(in oklab, var(--color-ai-3) 8%, transparent);
+  background: color-mix(in oklab, var(--fg-subtle) 8%, transparent);
 }
 .sf-tb-target::after {
   content: 'Σ';
@@ -1540,7 +1398,7 @@
   align-items: center;
   justify-content: center;
   font-size: 0.7rem;
-  color: var(--color-ai-3);
+  color: var(--fg-subtle);
   opacity: 0;
 }
 .sf-tb-db {
@@ -1552,7 +1410,7 @@
 }
 .sf-tb-db svg {
   width: 100%;
-  stroke: var(--color-ai-3);
+  stroke: var(--fg-subtle);
   fill: none;
   stroke-width: 1.5;
 }
@@ -1595,7 +1453,7 @@
 }
 .sf-db-widget--chart span {
   flex: 1;
-  background: var(--color-ai-3);
+  background: var(--fg-subtle);
   opacity: 0.55;
   border-radius: 1px;
 }
@@ -1627,7 +1485,7 @@
 }
 .sf-db-lock svg {
   width: 100%;
-  stroke: var(--color-ai-2);
+  stroke: var(--fg-muted);
   fill: none;
   stroke-width: 1.6;
 }
@@ -1638,7 +1496,7 @@
   transform: translateX(-50%);
   font-family: var(--font-mono);
   font-size: 0.55rem;
-  color: var(--color-ai-3);
+  color: var(--fg-subtle);
   opacity: 0;
   letter-spacing: 0.05em;
   white-space: nowrap;
@@ -1702,8 +1560,7 @@
   height: 8px;
   margin: -4px 0 0 -4px;
   border-radius: 50%;
-  background: var(--color-ai-2);
-  box-shadow: 0 0 10px 2px var(--color-ai-2);
+  background: var(--fg-muted);
 }
 @media (prefers-reduced-motion: no-preference) {
   .sf-au-pulse { animation: sf-au-travel 7s linear infinite; }
@@ -1731,7 +1588,7 @@
   margin-left: -12%;
   margin-top: -12%;
   border-radius: 50%;
-  border: 1.5px solid var(--color-ai-2);
+  border: 1.5px solid var(--fg-muted);
   opacity: 0;
 }
 .sf-net-node--kg {
@@ -1825,7 +1682,7 @@
   position: absolute;
   inset: 0;
   width: 0%;
-  background: var(--color-ai-2);
+  background: var(--fg-muted);
   opacity: 0.16;
 }
 .sf-cu-cursor {
@@ -1846,7 +1703,7 @@
   right: 14%;
   font-family: var(--font-mono);
   font-size: 0.55rem;
-  color: var(--color-ai-3);
+  color: var(--fg-subtle);
   opacity: 0;
   white-space: nowrap;
 }

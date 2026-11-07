@@ -45,11 +45,11 @@ const { locale, id, title, subtitle, items, moody = false } = Astro.props;
         <li
           class:list={[
             'reveal group p-6 transition-shadow hover:shadow-lg',
-            moody ? 'glass-card' : 'card',
+            moody ? 'card' : 'card',
           ]}
         >
           <div
-            class="ai-gradient-bg inline-flex h-10 w-10 items-center justify-center rounded-lg text-white transition-transform duration-300 group-hover:scale-110"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--bg-subtle)] text-[var(--fg-muted)] ring-1 ring-[var(--border)]"
             aria-hidden="true"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">

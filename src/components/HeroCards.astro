@@ -177,8 +177,8 @@ const copy = COPY[locale];
 <div class="card-stack flex items-center justify-center" aria-hidden="true">
   {/* Left — the agent doing the writing. */}
   <div class="stack-card stack-card--left hidden w-72 shrink-0 md:block">
-    <div class="glass-card flex h-60 flex-col overflow-hidden">
-      <div class="ai-gradient-bg animate-gradient p-4 text-white">
+    <div class="card flex h-60 flex-col overflow-hidden">
+      <div class="border-b border-[var(--border)] p-4">
         <p class="text-[10px] font-semibold tracking-wide uppercase opacity-80">
           {copy.agentTitle}
         </p>
@@ -213,7 +213,7 @@ const copy = COPY[locale];
       tall, which read as a ragged row rather than a deck — and left the front
       card shorter than the one behind it. */}
   <div class="stack-card stack-card--center w-full max-w-[22rem] shrink-0">
-    <div class="glass-card flex h-[17rem] flex-col overflow-hidden">
+    <div class="card flex h-[17rem] flex-col overflow-hidden">
       <div class="flex items-center gap-2 border-b border-[var(--border)] px-3 py-2">
         <span class="h-2 w-2 rounded-full bg-[var(--fg-subtle)] opacity-40"></span>
         <span class="h-2 w-2 rounded-full bg-[var(--fg-subtle)] opacity-40"></span>
@@ -244,7 +244,7 @@ const copy = COPY[locale];
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" class="shrink-0">
           <path
             d="M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 7v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7"
-            stroke="var(--color-ai-3)"
+            stroke="var(--fg-subtle)"
             stroke-width="1.8"
             stroke-linecap="round"
             stroke-linejoin="round"></path>
@@ -256,7 +256,7 @@ const copy = COPY[locale];
 
   {/* Right — what gets published, on the customer's own domain. */}
   <div class="stack-card stack-card--right hidden w-72 shrink-0 md:block">
-    <div class="glass-card flex h-60 flex-col overflow-hidden">
+    <div class="card flex h-60 flex-col overflow-hidden">
       <div class="border-b border-[var(--border)] px-4 py-3">
         <p class="text-[10px] tracking-wide text-[var(--fg-subtle)] uppercase">
           {copy.appKicker}
@@ -280,7 +280,7 @@ const copy = COPY[locale];
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" class="shrink-0">
             <path
               d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z"
-              stroke="var(--color-ai-3)"
+              stroke="var(--fg-subtle)"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"></path>

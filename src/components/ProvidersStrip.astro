@@ -36,7 +36,7 @@ const PROVIDERS = ['OpenAI', 'Anthropic', 'Google', 'Mistral', 'Ollama'];
       PROVIDERS.map((name) => (
         <li class="group flex items-center gap-2 rounded-full border border-[var(--border)] px-4 py-2 text-sm text-[var(--fg-muted)] transition-colors hover:border-[var(--border-strong)] hover:text-[var(--fg)]">
           <span
-            class="ai-gradient-bg flex h-5 w-5 shrink-0 items-center justify-center rounded-md text-[10px] font-bold text-white opacity-70 transition-opacity group-hover:opacity-100"
+            class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-[var(--bg-subtle)] text-xs font-medium text-[var(--fg-muted)]"
             aria-hidden="true"
           >
             {name[0]}
