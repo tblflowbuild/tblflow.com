@@ -13,17 +13,17 @@ const de = {
     forNav: 'Für wen?',
     useCasesNav: 'Anwendungsfälle',
     forIndex: {
-      metaTitle: 'Für wen ist TblFlow? Geschäftsführung, Finanzen, Vertriebsinnendienst, Industrie, Handel, Kanzleien',
+      metaTitle: 'Für wen ist TblFlow? Geschäftsführung, Finanzen, Handel',
       metaDescription:
-        'TblFlow richtet sich an KMU, die dieselben Informationen von Tool zu Tool neu erfassen: Geschäftsführung, Finanzen, Vertriebsinnendienst, Industrie, Handel und Kanzleien.',
+        'TblFlow ist für KMU, die Informationen von Tool zu Tool neu erfassen: Geschäftsführung, Finanzen, Vertriebsinnendienst, Industrie, Handel, Kanzleien.',
       title: 'Für wen?',
       subtitle:
         'Für KMU, die mit Excel und rund zehn Tools arbeiten. Jeder Bereich erfasst etwas anderes doppelt: Hier sehen Sie, was TblFlow für Ihren ändert.',
     },
     useCasesIndex: {
-      metaTitle: 'TblFlow-Anwendungsfälle: vom Angebot zum Zahlungseingang, Einkauf, Abschluss, Bestand, Qualität',
+      metaTitle: 'TblFlow-Anwendungsfälle: vom Angebot zum Zahlungseingang',
       metaDescription:
-        'Sechs durchgängige Abläufe, in denen dieselbe Information von Tool zu Tool neu erfasst wird, und wie TblFlow sie abbildet, automatisiert und Agenten unter Ihrer Freigabe übergibt.',
+        'Sechs durchgängige Abläufe mit Neuerfassung von Tool zu Tool und wie TblFlow sie abbildet, automatisiert und Agenten unter Ihrer Freigabe übergibt.',
       title: 'Anwendungsfälle',
       subtitle:
         'Sechs Abläufe, in denen dieselbe Information von Hand zu Hand und von Tool zu Tool wandert. Zu jedem: was er heute kostet und was TblFlow daraus macht.',
@@ -51,7 +51,7 @@ const de = {
       card: 'Angebot, Auftrag, Rechnung und Mahnung ohne erneute Erfassung zwischen den Tools.',
       metaTitle: 'Vom Angebot zum Zahlungseingang ohne Neuerfassung | TblFlow',
       metaDescription:
-        'Das Angebot in Word, der Auftrag in Excel, die Rechnung anderswo: TblFlow verbindet Angebot, Auftrag, Rechnung und Mahnung in einer einzigen Datenbank, mit Automatisierungen und Agenten unter Ihrer Freigabe.',
+        'Angebot in Word, Auftrag in Excel, Rechnung anderswo: TblFlow verbindet Angebot, Auftrag, Rechnung und Mahnung in einer Datenbank.',
       eyebrow: 'Anwendungsfall · Vertrieb und Fakturierung',
       title: 'Vom Angebot zum Zahlungseingang, ohne denselben Betrag viermal abzutippen',
       subtitle:
@@ -126,9 +126,9 @@ const de = {
     'procure-to-pay': {
       nav: 'Vom Bedarf zur Lieferantenzahlung',
       card: 'Bestellanforderungen, Bestellungen, Wareneingänge und Lieferantenrechnungen verbunden.',
-      metaTitle: 'Einkauf und Lieferantenrechnungen ohne Neuerfassung | TblFlow',
+      metaTitle: 'Einkauf und Lieferantenrechnungen ohne Neuerfassung',
       metaDescription:
-        'Bestellanforderung, Bestellung, Wareneingang, Lieferantenrechnung: TblFlow verbindet jeden Schritt in einer einzigen Datenbank und bereitet den Abgleich unter Ihrer Freigabe vor.',
+        'Bestellanforderung, Bestellung, Wareneingang, Lieferantenrechnung: TblFlow verbindet jeden Schritt in einer Datenbank und bereitet den Abgleich vor.',
       eyebrow: 'Anwendungsfall · Einkauf und Kreditorenbuchhaltung',
       title: 'Vom Bedarf zur Lieferantenzahlung, jede Rechnung mit ihrer Bestellung abgeglichen',
       subtitle:
@@ -203,9 +203,9 @@ const de = {
     'financial-close': {
       nav: 'Abschluss und Finanzsteuerung',
       card: 'Margen, EBITDA und Budget gegen Ist, ohne jeden Monat Exporte abzutippen.',
-      metaTitle: 'Monatsabschluss, Margen und EBITDA ohne abgetippte Tabellen | TblFlow',
+      metaTitle: 'Monatsabschluss, Margen und EBITDA ohne Abtippen | TblFlow',
       metaDescription:
-        'Importieren Sie Ihre Buchhaltungsexporte, lassen Sie Formeln Margen, EBITDA und Budget gegen Ist neu berechnen, und erhalten Sie jeden Monat eine Zusammenfassung zur Freigabe.',
+        'Importieren Sie Buchhaltungsexporte, lassen Sie Formeln Margen, EBITDA und Budget gegen Ist neu berechnen und prüfen Sie eine Monatszusammenfassung.',
       eyebrow: 'Anwendungsfall · Finanzen und Controlling',
       title: 'Der Monatsabschluss, ohne dieselben Exporte in dieselben Tabellen zu kopieren',
       subtitle:
@@ -280,9 +280,9 @@ const de = {
     'stock-to-shipping': {
       nav: 'Vom Bestand zum Versand',
       card: 'Inventuren, Schwellen, Nachschub und Kommissionierung in einer einzigen Datenbank.',
-      metaTitle: 'Bestände, Inventuren und Nachschub ohne Neuerfassung | TblFlow',
+      metaTitle: 'Bestand, Inventur und Nachschub ohne Neuerfassung | TblFlow',
       metaDescription:
-        'Permanente Inventur, Schwellenwert-Warnungen, Nachschubbestellungen, Kommissionierung und Versand: TblFlow verbindet Ihre Artikel, Bewegungen und Bestellungen unter Ihrer Freigabe.',
+        'Permanente Inventur, Schwellenwert-Warnungen, Nachschub, Kommissionierung und Versand: TblFlow verbindet Artikel, Bewegungen und Bestellungen.',
       eyebrow: 'Anwendungsfall · Bestand und Logistik',
       title: 'Vom Bestand zum Versand, ohne in drei Dateien neu zu zählen',
       subtitle:
@@ -357,9 +357,9 @@ const de = {
     quality: {
       nav: 'Qualität und Abweichungen',
       card: 'Prüfungen, Abweichungen und Korrekturmaßnahmen durchgängig verfolgt.',
-      metaTitle: 'Abweichungen und Korrekturmaßnahmen ohne Papierformulare | TblFlow',
+      metaTitle: 'Abweichungen und Korrekturmaßnahmen ohne Papier | TblFlow',
       metaDescription:
-        'Prüfung, Erfassung, Entscheidung, Korrekturmaßnahme: TblFlow verknüpft jede Abweichung mit ihrer Charge, ihren Nacharbeitskosten und ihrer Maßnahme und bereitet die Erinnerungen unter Ihrer Freigabe vor.',
+        'Prüfung, Erfassung, Entscheidung, Korrekturmaßnahme: TblFlow verknüpft jede Abweichung mit Charge, Nacharbeitskosten und Maßnahme und bereitet Erinnerungen vor.',
       eyebrow: 'Anwendungsfall · Qualität und Produktion',
       title: 'Jede Abweichung verfolgt bis zu ihrer Korrekturmaßnahme',
       subtitle:
@@ -513,9 +513,9 @@ const de = {
     leaders: {
       nav: 'Geschäftsführung',
       card: 'Sehen, was die Neuerfassungen kosten, und entscheiden, was übergeben wird.',
-      metaTitle: 'TblFlow für die Geschäftsführung im KMU: Sehen Sie, was Ihre Neuerfassungen kosten',
+      metaTitle: 'TblFlow für die Geschäftsführung: was Neuerfassungen kosten',
       metaDescription:
-        'Eine Karte Ihrer Prozesse mit ihren geschätzten Kosten, die Liste der Prozesse, in denen Sie am meisten verlieren, eine druckbare Geschäftsführungsansicht und ein Monatsbericht.',
+        'Eine Karte Ihrer Prozesse mit geschätzten Kosten, die Prozesse mit den größten Verlusten, eine druckbare Geschäftsführungsansicht und ein Monatsbericht.',
       eyebrow: 'Für wen · Geschäftsführung',
       title: 'Sehen Sie, was Ihre Neuerfassungen Sie kosten, und entscheiden Sie dann, was übergeben wird',
       subtitle:
@@ -555,9 +555,9 @@ const de = {
     finance: {
       nav: 'Finanzen und Buchhaltung',
       card: 'Einkauf, Rechnungen, Abschluss und Steuerung, ohne Exporte abzutippen.',
-      metaTitle: 'TblFlow für die Finanzabteilung: Rechnungen, Abschluss und Steuerung ohne Neuerfassung',
+      metaTitle: 'TblFlow für die Finanzabteilung: Rechnungen und Abschluss',
       metaDescription:
-        'Für Finanzleitung, Controlling und Buchhaltung: abgeglichene Lieferantenrechnungen, Kundenzahlungsplan, neu berechnete Margen und EBITDA, vorbereitete Monatszusammenfassung.',
+        'Für Finanzleitung, Controlling und Buchhaltung: abgeglichene Lieferantenrechnungen, Kundenzahlungsplan, neu berechnete Margen und EBITDA, Monatszusammenfassung.',
       eyebrow: 'Für wen · Finanzen und Buchhaltung',
       title: 'Die Finanzsteuerung, die zwischen Ihrer Buchhaltung und Ihren Tabellen fehlt',
       subtitle:
@@ -597,9 +597,9 @@ const de = {
     'sales-admin': {
       nav: 'Vertriebsinnendienst',
       card: 'Vom Angebot zur Rechnung, ohne Aufträge abzutippen.',
-      metaTitle: 'TblFlow für den Vertriebsinnendienst: vom Angebot zur Rechnung ohne Neuerfassung',
+      metaTitle: 'TblFlow für den Vertriebsinnendienst: Angebot bis Rechnung',
       metaDescription:
-        'Angebote, Aufträge, Rechnungen und Mahnungen in einer einzigen Datenbank verbunden: Der Innendienst erfasst einmal, die Automatisierungen erledigen den Rest, die Agenten bereiten die Mahnungen vor.',
+        'Angebote, Aufträge, Rechnungen und Mahnungen in einer Datenbank: Der Innendienst erfasst einmal, Automatisierungen erledigen den Rest, Agenten bereiten vor.',
       eyebrow: 'Für wen · Vertriebsinnendienst',
       title: 'Erfassen Sie den Auftrag einmal, nicht in jedem Tool',
       subtitle:
@@ -639,7 +639,7 @@ const de = {
     manufacturing: {
       nav: 'Industrie und Produktion',
       card: 'Qualität, Beschaffung und Bestände rund um das ERP gesteuert.',
-      metaTitle: 'TblFlow für die Industrie: Qualität, Beschaffung und Bestände rund um das ERP',
+      metaTitle: 'TblFlow für die Industrie: Qualität, Beschaffung, Bestände',
       metaDescription:
         'Abweichungen, Materialbeschaffung, Bestände und Versand rund um Ihr ERP verbunden, mit geschätzten Nacharbeitskosten und Agenten unter Ihrer Freigabe.',
       eyebrow: 'Für wen · Industrie und Produktion',
@@ -681,9 +681,9 @@ const de = {
     retail: {
       nav: 'Handel und Vertrieb',
       card: 'Bestände, Nachschub, Aufträge und Kundendienst in einer einzigen Datenbank.',
-      metaTitle: 'TblFlow für den Handel: Bestände, Nachschub und Kundendienst ohne Neuerfassung',
+      metaTitle: 'TblFlow für den Handel: Bestände, Nachschub, Kundendienst',
       metaDescription:
-        'Permanente Inventuren, Schwellenwert-Warnungen, Nachschubbestellungen, Kommissionierung und Kundendienst in einer einzigen Datenbank verbunden, mit Agenten, die vorbereiten, und Ihnen, der freigibt.',
+        'Permanente Inventuren, Schwellenwert-Warnungen, Nachschub, Kommissionierung und Kundendienst in einer Datenbank verbunden. Agenten bereiten vor, Sie geben frei.',
       eyebrow: 'Für wen · Handel und Vertrieb',
       title: 'Bestände, Nachschub und Kundendienst in einer einzigen Datenbank',
       subtitle:
@@ -723,7 +723,7 @@ const de = {
     firms: {
       nav: 'Kanzleien und Dienstleister',
       card: 'Mandate, Akten, Zeiten und Fakturierung ohne abgetippte Tabellen.',
-      metaTitle: 'TblFlow für Kanzleien und Dienstleistungsunternehmen: Mandate, Akten und Margen',
+      metaTitle: 'TblFlow für Kanzleien und Dienstleister: Mandate und Akten',
       metaDescription:
         'Für Beratung, Steuerberatung und Rechtsberatung: verfolgte Mandate und Akten, Marge je Mandat, Fakturierung und Mahnungen, indexierte Verfahren.',
       eyebrow: 'Für wen · Kanzleien und Dienstleister',

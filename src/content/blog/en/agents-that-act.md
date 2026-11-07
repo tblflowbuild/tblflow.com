@@ -1,7 +1,7 @@
 ---
 title: "An agent that acts is not a chatbot with write access"
 translationKey: "agents-that-act"
-description: "Giving a model permission to change your data does not make it a reliable agent. What else it takes: persistent memory, a proposal cycle, and a human in the loop at the right points."
+description: "Write access does not make a model a reliable agent. What else it takes: persistent memory, a proposal cycle, and a human in the loop at the right points."
 publishedAt: 2026-08-05
 author: "TblFlow"
 tags: ["ai", "agents"]

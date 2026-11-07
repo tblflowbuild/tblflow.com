@@ -1,7 +1,7 @@
 ---
 title: "Ihre erste App erstellen"
 translationKey: "first-app"
-description: "Veröffentlichen Sie eine Team-App aus einer TblFlow-Base: von der KI generiert oder von Hand gebaut, mit Besucher-Authentifizierung, Schreibkontrolle für Daten und öffentlichem Link."
+description: "Veröffentlichen Sie eine Team-App aus einer TblFlow-Base, per KI generiert oder von Hand gebaut, mit Besucher-Authentifizierung und öffentlichem Link."
 section: "Anleitungen"
 order: 5
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Mappa dei processi"
 translationKey: "process-map"
-description: "Crea la mappa dei processi di uno spazio, disegna i processi, leggi le rotture e i costi stimati, usa Sostituisci, poi segui le revisioni, misura i costi reali e riferisci alla direzione."
+description: "Crea la mappa dei processi di uno spazio, leggi le rotture e i costi stimati, usa Sostituisci e segui le revisioni e i costi reali."
 section: "Guide"
 order: 5
 ---

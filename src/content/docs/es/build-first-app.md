@@ -1,7 +1,7 @@
 ---
 title: "Crea tu primera aplicación"
 translationKey: "first-app"
-description: "Publica una aplicación de negocio a partir de una base de TblFlow: generada con IA o construida a mano, con autenticación de visitantes, control de escritura de datos y un enlace público."
+description: "Publica una aplicación de negocio a partir de una base de TblFlow: generada con IA o a mano, con autenticación de visitantes y un enlace público."
 section: "Guías"
 order: 5
 ---

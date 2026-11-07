@@ -1,7 +1,7 @@
 ---
 title: "Mapa de procesos"
 translationKey: "process-map"
-description: "Crea el mapa de procesos de un espacio, dibuja los procesos, lee las rupturas y los costes estimados, usa Reemplazar, y después haz el seguimiento de las revisiones, mide los costes reales e informa a la dirección."
+description: "Crea el mapa de procesos de un espacio, lee las rupturas y los costes estimados, usa Reemplazar y haz el seguimiento de las revisiones y de los costes reales."
 section: "Guías"
 order: 5
 ---

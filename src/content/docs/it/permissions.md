@@ -1,7 +1,7 @@
 ---
 title: "Autorizzazioni e ruoli"
 translationKey: "permissions"
-description: "Gestire le autorizzazioni in TblFlow: i cinque ruoli predefiniti e i loro diritti, la creazione di ruoli personalizzati su uno spazio, una base o una tabella, e le regole da conoscere."
+description: "Gestire le autorizzazioni in TblFlow: i cinque ruoli predefiniti e i loro diritti, e la creazione di ruoli personalizzati su spazio, base o tabella."
 section: "Guide"
 order: 7
 ---

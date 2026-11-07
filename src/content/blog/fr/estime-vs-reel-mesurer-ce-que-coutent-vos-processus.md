@@ -1,5 +1,5 @@
 ---
-title: "Estimé vs réel : arrêtez de deviner ce que coûtent vos processus"
+title: "Estimé vs réel : cessez de deviner le coût de vos processus"
 translationKey: "carto-measure"
 description: "Saisissez des mesures sur vos étapes et comparez-les à l'estimation, avec avant/après pour prouver un gain."
 publishedAt: 2026-11-05

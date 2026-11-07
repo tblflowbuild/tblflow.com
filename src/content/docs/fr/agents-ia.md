@@ -1,7 +1,7 @@
 ---
 title: "Agents IA"
 translationKey: "ai-agents"
-description: "Configurer un agent TblFlow : fournisseur de modèle, périmètre d'outils, mémoire persistante, planification et propositions soumises à validation avant écriture."
+description: "Configurer un agent TblFlow : fournisseur de modèle, périmètre d'outils, mémoire persistante, planification et propositions validées avant écriture."
 section: "Guides"
 order: 4
 ---

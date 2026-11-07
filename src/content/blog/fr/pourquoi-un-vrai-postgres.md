@@ -1,7 +1,7 @@
 ---
-title: "Pourquoi TblFlow écrit dans un vrai Postgres, et ce que ça change"
+title: "Pourquoi un vrai Postgres sous TblFlow, et ce que ça change"
 translationKey: "real-postgres"
-description: "La plupart des bases no-code stockent vos données dans un format à elles. TblFlow crée une vraie table PostgreSQL par table. Voici les conséquences concrètes, y compris les moins agréables."
+description: "La plupart des bases no-code stockent vos données dans un format propriétaire. TblFlow crée une vraie table PostgreSQL par table : voici les conséquences."
 publishedAt: 2026-08-12
 author: "TblFlow"
 tags: ["postgresql", "architecture"]

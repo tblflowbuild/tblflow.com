@@ -1,7 +1,7 @@
 ---
 title: "Carto des process"
 translationKey: "process-map"
-description: "Créer la Carto des process d'un espace, dessiner les processus, lire les ruptures et les coûts estimés, utiliser Remplacer, puis suivre les revues, mesurer le réel et présenter les résultats à la direction."
+description: "Créer la Carto des process d'un espace, dessiner les processus, lire ruptures et coûts estimés, utiliser Remplacer, suivre les revues et rendre compte."
 section: "Guides"
 order: 5
 ---

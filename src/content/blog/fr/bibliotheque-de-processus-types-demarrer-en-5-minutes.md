@@ -1,5 +1,5 @@
 ---
-title: "Bibliothèque de processus types : partez d'un modèle, pas d'une page blanche"
+title: "Bibliothèque de processus types : partez d'un modèle"
 translationKey: "carto-library"
 description: "13 processus prêts à importer, par secteur, et une validation par étape pour savoir ce qui est approuvé."
 publishedAt: 2026-11-12

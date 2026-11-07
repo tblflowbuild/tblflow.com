@@ -1,7 +1,7 @@
 ---
 title: "Quand il n'y a pas d'API : l'agent prend le navigateur"
 translationKey: "no-api"
-description: "La moitié des outils d'une PME n'expose aucune API exploitable. Voici comment nos agents pilotent un navigateur à la place, et les garde-fous sans lesquels cette approche est une mauvaise idée."
+description: "La moitié des outils d'une PME n'expose aucune API exploitable. Voici comment nos agents pilotent un navigateur à la place, et les garde-fous nécessaires."
 publishedAt: 2026-08-14
 author: "TblFlow"
 tags: ["ia", "agents", "automatisation"]

@@ -1,7 +1,7 @@
 ---
 title: "Otomasyonlar"
 translationKey: "automations"
-description: "Bir TblFlow iş akışı oluşturma: olay ve cron tetikleyicileri, koşullu adımlar, dışarıya yapılan çağrılar ve insan onayı adımları, yeniden oynatılabilir bir çalıştırma günlüğüyle."
+description: "TblFlow iş akışı oluşturma: olay ve cron tetikleyicileri, koşullu adımlar, dışarıya çağrılar, insan onayı adımları ve yeniden oynatılabilir çalıştırma günlüğü."
 section: "Kılavuzlar"
 order: 3
 ---

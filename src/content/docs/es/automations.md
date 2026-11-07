@@ -1,7 +1,7 @@
 ---
 title: "Automatizaciones"
 translationKey: "automations"
-description: "Crear un flujo de trabajo en TblFlow: disparadores por evento y cron, pasos condicionales, llamadas salientes y pasos de aprobación humana, con un registro de ejecuciones reproducible."
+description: "Crear un flujo de trabajo en TblFlow: disparadores por evento y cron, pasos condicionales, llamadas salientes y aprobación humana, con registro de ejecuciones."
 section: "Guías"
 order: 3
 ---

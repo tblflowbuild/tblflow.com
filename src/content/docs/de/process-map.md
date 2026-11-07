@@ -1,7 +1,7 @@
 ---
 title: "Prozesslandkarte"
 translationKey: "process-map"
-description: "Erstellen Sie die Prozesslandkarte eines Spaces, zeichnen Sie die Prozesse, lesen Sie Brüche und geschätzte Kosten, nutzen Sie Ersetzen, verfolgen Sie Überprüfungen, messen Sie tatsächliche Kosten und berichten Sie an die Geschäftsführung."
+description: "Die Prozesslandkarte eines Spaces erstellen, Prozesse zeichnen, Brüche und geschätzte Kosten lesen, Ersetzen nutzen und der Geschäftsführung berichten."
 section: "Anleitungen"
 order: 5
 ---

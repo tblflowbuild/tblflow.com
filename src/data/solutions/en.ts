@@ -13,17 +13,17 @@ const en = {
     forNav: 'Who is it for?',
     useCasesNav: 'Use cases',
     forIndex: {
-      metaTitle: 'Who is TblFlow for? Executives, finance, sales admin, industry, retail, firms',
+      metaTitle: 'Who is TblFlow for? Finance, sales admin, industry, retail',
       metaDescription:
-        'TblFlow is for small and mid-sized businesses that re-enter the same information from one tool to the next: executives, finance, sales administration, industry, retail and professional firms.',
+        'TblFlow is for small and mid-sized businesses that re-enter the same data from tool to tool: executives, finance, sales admin, industry, retail and firms.',
       title: 'Who is it for?',
       subtitle:
         'For businesses that run on Excel and a dozen tools. Each role re-enters something different: here is what TblFlow changes for yours.',
     },
     useCasesIndex: {
-      metaTitle: 'TblFlow use cases: quote to cash, purchasing, month-end close, stock, quality',
+      metaTitle: 'TblFlow use cases: quote to cash, purchasing, close, stock',
       metaDescription:
-        'Six end-to-end flows where the same information is re-entered from tool to tool, and how TblFlow maps them, automates them and hands them to agents under your approval.',
+        'Six end-to-end flows where the same data is re-entered from tool to tool, and how TblFlow maps and automates them, with agents under your approval.',
       title: 'Use cases',
       subtitle:
         'Six flows where the same information passes from hand to hand and tool to tool. For each one: what it costs today, and what TblFlow does with it.',
@@ -51,7 +51,7 @@ const en = {
       card: 'Quote, order, invoice and reminder without re-entry between tools.',
       metaTitle: 'From quote to cash without re-entry | TblFlow',
       metaDescription:
-        'The quote in Word, the order in Excel, the invoice somewhere else: TblFlow links the quote, the order, the invoice and the reminder in a single database, with automations and agents under your approval.',
+        'The quote in Word, the order in Excel, the invoice elsewhere: TblFlow links quote, order, invoice and reminder in one database, with agents under your approval.',
       eyebrow: 'Use case · Sales and invoicing',
       title: 'From quote to cash, without retyping the same amount four times',
       subtitle:
@@ -203,7 +203,7 @@ const en = {
     'financial-close': {
       nav: 'Close and financial reporting',
       card: 'Margins, EBITDA and budget versus actual, without copying exports every month.',
-      metaTitle: 'Month-end close, margins and EBITDA without copied spreadsheets | TblFlow',
+      metaTitle: 'Month-end close and EBITDA without copied sheets | TblFlow',
       metaDescription:
         'Import your accounting exports, let formulas recalculate margins, EBITDA and budget versus actual, and receive a summary to approve each month.',
       eyebrow: 'Use case · Finance and management control',
@@ -357,9 +357,9 @@ const en = {
     quality: {
       nav: 'Quality and non-conformities',
       card: 'Inspections, non-conformities and corrective actions tracked end to end.',
-      metaTitle: 'Non-conformities and corrective actions without paper forms | TblFlow',
+      metaTitle: 'Non-conformities and corrective actions, paperless | TblFlow',
       metaDescription:
-        'Inspection, recording, decision, corrective action: TblFlow links each non-conformity to its batch, its rework cost and its action, and prepares reminders under your approval.',
+        'Inspection, decision, corrective action: TblFlow links each non-conformity to its batch, rework cost and action, and prepares reminders under your approval.',
       eyebrow: 'Use case · Quality and production',
       title: 'Every non-conformity tracked through to its corrective action',
       subtitle:
@@ -513,7 +513,7 @@ const en = {
     leaders: {
       nav: 'Executives',
       card: 'See what re-entry costs, and decide what to hand off.',
-      metaTitle: 'TblFlow for business executives: see what your re-entry costs',
+      metaTitle: 'TblFlow for executives: see what your re-entry costs',
       metaDescription:
         'A map of your processes with their estimated costs, the list of processes where you lose the most, a printable executive view and a monthly report.',
       eyebrow: 'Who it is for · Executives',
@@ -555,7 +555,7 @@ const en = {
     finance: {
       nav: 'Finance and accounting',
       card: 'Purchasing, invoices, close and reporting without copying exports.',
-      metaTitle: 'TblFlow for finance: invoices, close and reporting without re-entry',
+      metaTitle: 'TblFlow for finance: invoices and close without re-entry',
       metaDescription:
         'For the CFO, management control and accounting: supplier invoices matched, customer payment schedule, margins and EBITDA recalculated, monthly summary prepared.',
       eyebrow: 'Who it is for · Finance and accounting',
@@ -597,7 +597,7 @@ const en = {
     'sales-admin': {
       nav: 'Sales administration',
       card: 'From quote to invoice without copying orders.',
-      metaTitle: 'TblFlow for sales administration: from quote to invoice without re-entry',
+      metaTitle: 'TblFlow for sales admin: quote to invoice without re-entry',
       metaDescription:
         'Quotes, orders, invoices and reminders linked in a single database: sales admin enters once, automations do the rest, agents prepare the reminders.',
       eyebrow: 'Who it is for · Sales administration',
@@ -639,7 +639,7 @@ const en = {
     manufacturing: {
       nav: 'Industry and production',
       card: 'Quality, procurement and stock managed around the ERP.',
-      metaTitle: 'TblFlow for industry: quality, procurement and stock around the ERP',
+      metaTitle: 'TblFlow for industry: quality, procurement, stock, ERP',
       metaDescription:
         'Non-conformities, materials procurement, stock and shipping linked around your ERP, with the cost of rework estimated and agents under your approval.',
       eyebrow: 'Who it is for · Industry and production',
@@ -681,7 +681,7 @@ const en = {
     retail: {
       nav: 'Retail and distribution',
       card: 'Stock, restocking, orders and after-sales in a single database.',
-      metaTitle: 'TblFlow for retail: stock, restocking and after-sales without re-entry',
+      metaTitle: 'TblFlow for retail: stock, restocking and after-sales',
       metaDescription:
         'Cycle counts, threshold alerts, restock orders, picking and after-sales linked in a single database, with agents that prepare and you who approve.',
       eyebrow: 'Who it is for · Retail and distribution',
@@ -723,7 +723,7 @@ const en = {
     firms: {
       nav: 'Firms and services',
       card: 'Engagements, files, time and invoicing without copied spreadsheets.',
-      metaTitle: 'TblFlow for firms and service companies: engagements, files and margins',
+      metaTitle: 'TblFlow for firms: engagements, files and margins',
       metaDescription:
         'For consulting, accounting and legal: engagements and files tracked, margin per engagement, invoicing and reminders, indexed procedures.',
       eyebrow: 'Who it is for · Firms and services',

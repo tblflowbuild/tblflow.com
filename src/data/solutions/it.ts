@@ -13,17 +13,17 @@ const it = {
     forNav: 'Per chi',
     useCasesNav: 'Casi d’uso',
     forIndex: {
-      metaTitle: 'Per chi è TblFlow? Direzione, finanza, amministrazione vendite, industria, commercio, studi',
+      metaTitle: 'Per chi è TblFlow? Direzione, finanza, industria, commercio',
       metaDescription:
-        'TblFlow è pensato per le PMI che ridigitano le stesse informazioni da uno strumento all’altro: direzione, finanza, amministrazione vendite, industria, commercio e studi professionali.',
+        'TblFlow è pensato per le PMI che ridigitano le stesse informazioni da uno strumento all’altro: direzione, finanza, vendite, industria, commercio e studi.',
       title: 'Per chi',
       subtitle:
         'Per le PMI che vanno avanti con Excel e una decina di strumenti. Ogni funzione ridigita qualcosa di diverso: ecco cosa cambia TblFlow per la vostra.',
     },
     useCasesIndex: {
-      metaTitle: 'Casi d’uso TblFlow: dal preventivo all’incasso, acquisti, chiusura, scorte, qualità',
+      metaTitle: 'Casi d’uso TblFlow: preventivo, acquisti, chiusura, scorte',
       metaDescription:
-        'Sei flussi completi in cui la stessa informazione viene ridigitata da uno strumento all’altro, e come TblFlow li mappa, li automatizza e li affida ad agenti sotto la vostra approvazione.',
+        'Sei flussi in cui la stessa informazione viene ridigitata da uno strumento all’altro, e come TblFlow li mappa, li automatizza e li affida ad agenti.',
       title: 'Casi d’uso',
       subtitle:
         'Sei flussi in cui la stessa informazione passa di mano in mano e di strumento in strumento. Per ciascuno: quanto costa oggi e cosa ne fa TblFlow.',
@@ -49,9 +49,9 @@ const it = {
     'quote-to-cash': {
       nav: 'Dal preventivo all’incasso',
       card: 'Preventivo, ordine, fattura e sollecito senza doppie digitazioni tra gli strumenti.',
-      metaTitle: 'Dal preventivo all’incasso senza doppie digitazioni | TblFlow',
+      metaTitle: 'Dal preventivo all’incasso senza doppie digitazioni',
       metaDescription:
-        'Il preventivo in Word, l’ordine in Excel, la fattura altrove: TblFlow collega preventivo, ordine, fattura e sollecito in un’unica base, con automazioni e agenti sotto approvazione.',
+        'Il preventivo in Word, l’ordine in Excel, la fattura altrove: TblFlow li collega in un’unica base, con automazioni e agenti sotto approvazione.',
       eyebrow: 'Caso d’uso · Vendite e fatturazione',
       title: 'Dal preventivo all’incasso, senza digitare lo stesso importo quattro volte',
       subtitle:
@@ -126,9 +126,9 @@ const it = {
     'procure-to-pay': {
       nav: 'Dal fabbisogno al pagamento del fornitore',
       card: 'Richieste d’acquisto, ordini, ricevimenti e fatture fornitori collegati.',
-      metaTitle: 'Acquisti e fatture fornitori senza doppie digitazioni | TblFlow',
+      metaTitle: 'Acquisti e fatture fornitori senza doppie digitazioni',
       metaDescription:
-        'Richiesta d’acquisto, ordine, ricevimento, fattura fornitore: TblFlow collega ogni passaggio in un’unica base e prepara la riconciliazione, sotto la vostra approvazione.',
+        'Richiesta d’acquisto, ordine, ricevimento, fattura fornitore: TblFlow collega ogni passaggio in un’unica base e prepara la riconciliazione, sotto approvazione.',
       eyebrow: 'Caso d’uso · Acquisti e contabilità fornitori',
       title: 'Dal fabbisogno al pagamento del fornitore, ogni fattura riconciliata con il suo ordine',
       subtitle:
@@ -203,9 +203,9 @@ const it = {
     'financial-close': {
       nav: 'Chiusura e controllo finanziario',
       card: 'Margini, EBITDA e budget contro consuntivo, senza ricopiare ogni mese gli export.',
-      metaTitle: 'Chiusura mensile, margini ed EBITDA senza fogli di calcolo ricopiati | TblFlow',
+      metaTitle: 'Chiusura mensile, margini ed EBITDA senza fogli ricopiati',
       metaDescription:
-        'Importate i vostri export contabili, lasciate che le formule ricalcolino margini, EBITDA e budget contro consuntivo, e ricevete ogni mese una sintesi da approvare.',
+        'Importate gli export contabili, lasciate che le formule ricalcolino margini, EBITDA e budget contro consuntivo, e ricevete ogni mese una sintesi da approvare.',
       eyebrow: 'Caso d’uso · Finanza e controllo di gestione',
       title: 'La chiusura del mese senza ricopiare gli stessi export negli stessi fogli di calcolo',
       subtitle:
@@ -280,9 +280,9 @@ const it = {
     'stock-to-shipping': {
       nav: 'Dalla scorta alla spedizione',
       card: 'Inventari, soglie, riordino e preparazione in un’unica base.',
-      metaTitle: 'Scorte, inventari e riordino senza doppie digitazioni | TblFlow',
+      metaTitle: 'Scorte, inventari e riordino senza doppie digitazioni',
       metaDescription:
-        'Inventario a rotazione, avvisi di soglia, ordini di riordino, preparazione e spedizione: TblFlow collega articoli, movimenti e ordini, sotto la vostra approvazione.',
+        'Inventario a rotazione, avvisi di soglia, ordini di riordino, preparazione e spedizione: TblFlow collega articoli, movimenti e ordini, con approvazione.',
       eyebrow: 'Caso d’uso · Scorte e logistica',
       title: 'Dalla scorta alla spedizione, senza ricontare in tre file',
       subtitle:
@@ -357,9 +357,9 @@ const it = {
     quality: {
       nav: 'Qualità e non conformità',
       card: 'Controlli, non conformità e azioni correttive seguiti dall’inizio alla fine.',
-      metaTitle: 'Non conformità e azioni correttive senza schede cartacee | TblFlow',
+      metaTitle: 'Non conformità e azioni correttive senza schede cartacee',
       metaDescription:
-        'Controllo, registrazione, decisione, azione correttiva: TblFlow collega ogni non conformità al suo lotto, al costo di rilavorazione e alla sua azione, e prepara i solleciti sotto la vostra approvazione.',
+        'Controllo, registrazione, decisione, azione correttiva: TblFlow collega ogni non conformità a lotto, costo di rilavorazione e azione, e prepara i solleciti.',
       eyebrow: 'Caso d’uso · Qualità e produzione',
       title: 'Ogni non conformità seguita fino alla sua azione correttiva',
       subtitle:
@@ -513,7 +513,7 @@ const it = {
     leaders: {
       nav: 'Direzione',
       card: 'Vedere quanto costano le doppie digitazioni e decidere cosa affidare.',
-      metaTitle: 'TblFlow per la direzione delle PMI: vedete quanto costano le vostre doppie digitazioni',
+      metaTitle: 'TblFlow per la direzione: il costo delle doppie digitazioni',
       metaDescription:
         'Una mappa dei vostri processi con i costi stimati, l’elenco dei processi in cui perdete di più, una vista direzione stampabile e un report mensile.',
       eyebrow: 'Per chi · Direzione',
@@ -555,9 +555,9 @@ const it = {
     finance: {
       nav: 'Finanza e contabilità',
       card: 'Acquisti, fatture, chiusura e controllo senza ricopiare gli export.',
-      metaTitle: 'TblFlow per la finanza: fatture, chiusura e controllo senza doppie digitazioni',
+      metaTitle: 'TblFlow per la finanza: fatture, chiusura e controllo',
       metaDescription:
-        'Per il CFO, il controllo di gestione e la contabilità: fatture fornitori riconciliate, scadenziario clienti, margini ed EBITDA ricalcolati, sintesi mensile preparata.',
+        'Per il CFO, il controllo di gestione e la contabilità: fatture fornitori riconciliate, scadenziario clienti, margini ed EBITDA ricalcolati, sintesi mensile.',
       eyebrow: 'Per chi · Finanza e contabilità',
       title: 'Il controllo finanziario che manca tra la vostra contabilità e i vostri fogli di calcolo',
       subtitle:
@@ -597,9 +597,9 @@ const it = {
     'sales-admin': {
       nav: 'Amministrazione vendite',
       card: 'Dal preventivo alla fattura senza ricopiare gli ordini.',
-      metaTitle: 'TblFlow per l’amministrazione vendite: dal preventivo alla fattura senza doppie digitazioni',
+      metaTitle: 'Amministrazione vendite: dal preventivo alla fattura',
       metaDescription:
-        'Preventivi, ordini, fatture e solleciti collegati in un’unica base: l’amministrazione vendite digita una volta, le automazioni fanno il resto, gli agenti preparano i solleciti.',
+        'Preventivi, ordini, fatture e solleciti in un’unica base: si digita una volta, le automazioni fanno il resto e gli agenti preparano i solleciti.',
       eyebrow: 'Per chi · Amministrazione vendite',
       title: 'Digitate l’ordine una volta, non in ogni strumento',
       subtitle:
@@ -639,9 +639,9 @@ const it = {
     manufacturing: {
       nav: 'Industria e produzione',
       card: 'Qualità, approvvigionamento e scorte gestiti attorno all’ERP.',
-      metaTitle: 'TblFlow per l’industria: qualità, approvvigionamento e scorte attorno all’ERP',
+      metaTitle: 'TblFlow per l’industria: qualità, scorte, approvvigionamento',
       metaDescription:
-        'Non conformità, approvvigionamento materiali, scorte e spedizione collegati attorno al vostro ERP, con il costo delle rilavorazioni stimato e agenti sotto approvazione.',
+        'Non conformità, approvvigionamento, scorte e spedizione collegati attorno al vostro ERP, con il costo delle rilavorazioni stimato e agenti sotto approvazione.',
       eyebrow: 'Per chi · Industria e produzione',
       title: 'Governate il reparto attorno al vostro ERP, senza sostituirlo',
       subtitle:
@@ -681,9 +681,9 @@ const it = {
     retail: {
       nav: 'Commercio e distribuzione',
       card: 'Scorte, riordino, ordini e assistenza post-vendita in un’unica base.',
-      metaTitle: 'TblFlow per il commercio: scorte, riordino e assistenza post-vendita senza doppie digitazioni',
+      metaTitle: 'TblFlow per il commercio: scorte, riordino e post-vendita',
       metaDescription:
-        'Inventari a rotazione, avvisi di soglia, ordini di riordino, preparazione e assistenza post-vendita collegati in un’unica base, con agenti che preparano e voi che approvate.',
+        'Inventari a rotazione, avvisi di soglia, ordini di riordino, preparazione e post-vendita collegati in una base, con agenti che preparano e voi che approvate.',
       eyebrow: 'Per chi · Commercio e distribuzione',
       title: 'Scorte, riordino e assistenza post-vendita in un’unica base',
       subtitle:
@@ -723,7 +723,7 @@ const it = {
     firms: {
       nav: 'Studi e servizi',
       card: 'Incarichi, pratiche, tempi e fatturazione senza fogli di calcolo ricopiati.',
-      metaTitle: 'TblFlow per studi e società di servizi: incarichi, pratiche e margini',
+      metaTitle: 'TblFlow per studi e servizi: incarichi, pratiche e margini',
       metaDescription:
         'Per consulenza, commercialisti e studi legali: incarichi e pratiche seguiti, margine per incarico, fatturazione e solleciti, procedure indicizzate.',
       eyebrow: 'Per chi · Studi e servizi',

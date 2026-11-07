@@ -484,15 +484,15 @@ export const PRIVACY_TITLE: Record<Locale, string> = {
 };
 
 export const PRIVACY_LEDE: Record<Locale, string> = {
-  de: 'Diese Erklärung betrifft ausschließlich die Website tblflow.com: was ein Besucher sieht, die Reichweitenmessung und die von ihm angestoßenen E-Mail-Kontakte. Die TblFlow-Anwendung hat ihre eigenen Dokumente.',
-  en: 'This policy covers the tblflow.com site only: what a visitor sees, audience measurement, and the email exchanges they start. The TblFlow application has its own documents.',
-  es: 'Esta política se refiere únicamente al sitio tblflow.com: lo que ve un visitante, la medición de audiencia y los intercambios por email que inicia. La aplicación TblFlow tiene sus propios documentos.',
-  fr: "Cette politique porte uniquement sur le site tblflow.com : ce que voit un visiteur, la mesure d'audience, et les échanges par email qu'il engage. L'application TblFlow a ses propres documents.",
-  it: 'Questa informativa riguarda unicamente il sito tblflow.com: ciò che vede un visitatore, la misurazione del traffico e gli scambi via email che avvia. L’applicazione TblFlow ha documenti propri.',
-  ja: '本ポリシーは tblflow.com のサイトのみを対象とします。訪問者が目にするもの、アクセス測定、および訪問者から始まるメールのやり取りです。TblFlow アプリケーションには別の文書があります。',
-  ru: 'Эта политика касается только сайта tblflow.com: того, что видит посетитель, аналитики и переписки по электронной почте, которую он начинает. У приложения TblFlow свои документы.',
-  tr: 'Bu politika yalnızca tblflow.com sitesini kapsar: bir ziyaretçinin gördükleri, trafik ölçümü ve başlattığı e-posta yazışmaları. TblFlow uygulamasının kendi belgeleri vardır.',
-  uk: 'Ця політика стосується лише сайту tblflow.com: того, що бачить відвідувач, аналітики та листування електронною поштою, яке він розпочинає. Застосунок TblFlow має власні документи.',
+  de: 'Diese Erklärung gilt nur für tblflow.com: was Besucher sehen, die Reichweitenmessung und E-Mail-Kontakte von Besuchern. Die Anwendung hat eigene Dokumente.',
+  en: 'This policy covers the tblflow.com site only: what visitors see, audience measurement and the emails they send. The TblFlow application has its own documents.',
+  es: 'Esta política cubre solo el sitio tblflow.com: lo que ve el visitante, la medición de audiencia y los emails que inicia. La aplicación tiene sus documentos.',
+  fr: "Cette politique porte sur le site tblflow.com : ce que voit un visiteur, la mesure d'audience, les échanges par email. L'application a ses propres documents.",
+  it: 'Questa informativa riguarda solo il sito tblflow.com: ciò che vede il visitatore, la misurazione del traffico e le email che avvia. L’app ha documenti propri.',
+  ja: '本ポリシーは tblflow.com のサイトのみが対象です。訪問者が目にするもの、アクセス測定、訪問者から始まるメールのやり取りを扱います。アプリには別の文書があります。',
+  ru: 'Политика касается только сайта tblflow.com: что видит посетитель, аналитика и переписка по электронной почте, которую он начинает. У приложения свои документы.',
+  tr: 'Bu politika yalnızca tblflow.com sitesini kapsar: ziyaretçinin gördükleri, trafik ölçümü ve başlattığı e-posta yazışmaları. Uygulamanın kendi belgeleri vardır.',
+  uk: 'Політика стосується лише сайту tblflow.com: того, що бачить відвідувач, аналітики та листування, яке він розпочинає. Застосунок TblFlow має власні документи.',
   zh: '本政策仅涉及 tblflow.com 网站：访问者所见的内容、流量统计，以及访问者主动发起的邮件往来。TblFlow 应用有其独立的文件。',
 };
 
@@ -1131,7 +1131,7 @@ export const TERMS_TITLE: Record<Locale, string> = {
  */
 export const TERMS_SIGNPOST: Record<Locale, { lede: string; cta: string }> = {
   de: {
-    lede: 'Die Allgemeinen Geschäfts- und Nutzungsbedingungen von TblFlow werden zusammen mit der Anwendung veröffentlicht. Maßgeblich ist ausschließlich die dort veröffentlichte Fassung.',
+    lede: 'Die Allgemeinen Geschäfts- und Nutzungsbedingungen von TblFlow werden mit der Anwendung veröffentlicht. Maßgeblich ist allein die dort veröffentlichte Fassung.',
     cta: 'Bedingungen lesen',
   },
   en: {

@@ -13,17 +13,17 @@ const fr = {
     forNav: 'Pour qui ?',
     useCasesNav: "Cas d'usage",
     forIndex: {
-      metaTitle: 'Pour qui est TblFlow ? Dirigeants, finance, ADV, industrie, commerce, cabinets',
+      metaTitle: 'Pour qui est TblFlow ? Dirigeants, finance, ADV, industrie',
       metaDescription:
-        "TblFlow s'adresse aux PME qui ressaisissent les mêmes informations d'un outil à l'autre : dirigeants, finance, administration des ventes, industrie, commerce et cabinets.",
+        "TblFlow s'adresse aux PME qui ressaisissent les mêmes informations d'un outil à l'autre : dirigeants, finance, ventes, industrie, commerce et cabinets.",
       title: 'Pour qui ?',
       subtitle:
         "Pour les PME qui tournent sur Excel et une dizaine d'outils. Chaque métier y ressaisit autre chose : voici ce que TblFlow change pour le vôtre.",
     },
     useCasesIndex: {
-      metaTitle: "Cas d'usage TblFlow : du devis à l'encaissement, achats, clôture, stocks, qualité",
+      metaTitle: "Cas d'usage TblFlow : du devis à l'encaissement, achats",
       metaDescription:
-        "Six flux de bout en bout où la même information est ressaisie d'outil en outil, et comment TblFlow les cartographie, les automatise et les confie à des agents sous votre validation.",
+        "Six flux où la même information est ressaisie d'outil en outil, et comment TblFlow les cartographie, les automatise et les confie à des agents validés par vous.",
       title: "Cas d'usage",
       subtitle:
         "Six flux où la même information passe de main en main et d'outil en outil. Pour chacun : ce qu'il coûte aujourd'hui, et ce que TblFlow en fait.",
@@ -51,7 +51,7 @@ const fr = {
       card: 'Devis, commande, facture et relance sans ressaisie entre les outils.',
       metaTitle: "Du devis à l'encaissement sans ressaisie | TblFlow",
       metaDescription:
-        "Le devis dans Word, la commande dans Excel, la facture ailleurs : TblFlow relie le devis, la commande, la facture et la relance dans une seule base, avec automatisations et agents sous validation.",
+        "Le devis dans Word, la commande dans Excel, la facture ailleurs : TblFlow relie devis, commande, facture et relance dans une base, avec agents sous validation.",
       eyebrow: "Cas d'usage · Ventes et facturation",
       title: "Du devis à l'encaissement, sans retaper le même montant quatre fois",
       subtitle:
@@ -203,7 +203,7 @@ const fr = {
     'financial-close': {
       nav: 'Clôture et pilotage financier',
       card: "Marges, EBITDA et budget contre réel, sans recopier les exports chaque mois.",
-      metaTitle: 'Clôture mensuelle, marges et EBITDA sans tableurs recopiés | TblFlow',
+      metaTitle: 'Clôture mensuelle, marges et EBITDA sans tableurs | TblFlow',
       metaDescription:
         'Importez vos exports comptables, laissez les formules recalculer marges, EBITDA et budget contre réel, et recevez chaque mois une synthèse à valider.',
       eyebrow: "Cas d'usage · Finance et contrôle de gestion",
@@ -282,7 +282,7 @@ const fr = {
       card: 'Inventaires, seuils, réassort et préparation dans une seule base.',
       metaTitle: 'Stocks, inventaires et réassort sans ressaisie | TblFlow',
       metaDescription:
-        "Inventaire tournant, alertes de seuil, commandes de réassort, préparation et expédition : TblFlow relie vos articles, vos mouvements et vos commandes, sous votre validation.",
+        "Inventaire tournant, alertes de seuil, commandes de réassort, préparation et expédition : TblFlow relie articles, mouvements et commandes sous validation.",
       eyebrow: "Cas d'usage · Stocks et logistique",
       title: "Du stock à l'expédition, sans recompter dans trois fichiers",
       subtitle:
@@ -357,9 +357,9 @@ const fr = {
     quality: {
       nav: 'Qualité et non-conformités',
       card: 'Contrôles, non-conformités et actions correctives suivis de bout en bout.',
-      metaTitle: 'Non-conformités et actions correctives sans fiches papier | TblFlow',
+      metaTitle: 'Non-conformités et actions correctives sans papier | TblFlow',
       metaDescription:
-        "Contrôle, enregistrement, décision, action corrective : TblFlow relie chaque non-conformité à son lot, son coût de reprise et son action, et prépare les relances sous votre validation.",
+        "Contrôle, enregistrement, décision, action corrective : TblFlow relie chaque non-conformité à son lot, son coût de reprise et son action, relances à valider.",
       eyebrow: "Cas d'usage · Qualité et production",
       title: 'Chaque non-conformité suivie jusqu’à son action corrective',
       subtitle:
@@ -513,7 +513,7 @@ const fr = {
     leaders: {
       nav: 'Dirigeants',
       card: 'Voir ce que les ressaisies coûtent, et décider quoi confier.',
-      metaTitle: 'TblFlow pour les dirigeants de PME : voyez ce que coûtent vos ressaisies',
+      metaTitle: 'TblFlow pour les dirigeants : le coût de vos ressaisies',
       metaDescription:
         "Une carte de vos processus avec leurs coûts estimés, la liste des processus où vous perdez le plus, une vue direction imprimable et un rapport mensuel.",
       eyebrow: 'Pour qui · Dirigeants',
@@ -555,9 +555,9 @@ const fr = {
     finance: {
       nav: 'Finance et comptabilité',
       card: 'Achats, factures, clôture et pilotage sans recopier les exports.',
-      metaTitle: 'TblFlow pour la finance : factures, clôture et pilotage sans ressaisie',
+      metaTitle: 'TblFlow pour la finance : factures, clôture et pilotage',
       metaDescription:
-        "Pour le DAF, le contrôle de gestion et la comptabilité : factures fournisseurs rapprochées, échéancier client, marges et EBITDA recalculés, synthèse mensuelle préparée.",
+        "Pour le DAF, le contrôle de gestion et la comptabilité : factures fournisseurs rapprochées, échéancier client, marges et EBITDA recalculés, synthèse mensuelle.",
       eyebrow: 'Pour qui · Finance et comptabilité',
       title: 'Le pilotage financier qui manque entre votre comptabilité et vos tableurs',
       subtitle:
@@ -597,7 +597,7 @@ const fr = {
     'sales-admin': {
       nav: 'Administration des ventes',
       card: 'Du devis à la facture sans recopier les commandes.',
-      metaTitle: "TblFlow pour l'administration des ventes : du devis à la facture sans ressaisie",
+      metaTitle: "TblFlow pour l'ADV : du devis à la facture sans ressaisie",
       metaDescription:
         'Devis, commandes, factures et relances reliés dans une seule base : l’ADV saisit une fois, les automatisations font le reste, les agents préparent les relances.',
       eyebrow: 'Pour qui · Administration des ventes',
@@ -639,7 +639,7 @@ const fr = {
     manufacturing: {
       nav: 'Industrie et production',
       card: "Qualité, approvisionnement et stocks pilotés autour de l'ERP.",
-      metaTitle: "TblFlow pour l'industrie : qualité, approvisionnement et stocks autour de l'ERP",
+      metaTitle: "TblFlow pour l'industrie : qualité, achats et stocks",
       metaDescription:
         "Non-conformités, approvisionnement matières, stocks et expédition reliés autour de votre ERP, avec le coût des reprises estimé et des agents sous validation.",
       eyebrow: 'Pour qui · Industrie et production',
@@ -681,9 +681,9 @@ const fr = {
     retail: {
       nav: 'Commerce et distribution',
       card: 'Stocks, réassort, commandes et SAV dans une seule base.',
-      metaTitle: 'TblFlow pour le commerce : stocks, réassort et SAV sans ressaisie',
+      metaTitle: 'TblFlow pour le commerce : stocks, réassort et SAV',
       metaDescription:
-        'Inventaires tournants, alertes de seuil, commandes de réassort, préparation et SAV reliés dans une seule base, avec des agents qui préparent, et vous qui validez.',
+        'Inventaires tournants, alertes de seuil, commandes de réassort, préparation et SAV reliés dans une base, avec des agents qui préparent et vous qui validez.',
       eyebrow: 'Pour qui · Commerce et distribution',
       title: 'Stocks, réassort et SAV dans une seule base',
       subtitle:
@@ -723,7 +723,7 @@ const fr = {
     firms: {
       nav: 'Cabinets et services',
       card: 'Missions, dossiers, temps et facturation sans tableurs recopiés.',
-      metaTitle: 'TblFlow pour les cabinets et sociétés de services : missions, dossiers et marges',
+      metaTitle: 'TblFlow pour les cabinets : missions, dossiers et marges',
       metaDescription:
         'Pour le conseil, l’expertise comptable et le juridique : missions et dossiers suivis, marge par mission, facturation et relances, procédures indexées.',
       eyebrow: 'Pour qui · Cabinets et services',

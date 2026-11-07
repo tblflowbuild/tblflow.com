@@ -1,7 +1,7 @@
 ---
 title: "Agentes de IA"
 translationKey: "ai-agents"
-description: "Configurar un agente de TblFlow: proveedor de modelo, alcance de las herramientas, memoria persistente en grafo, programación y propuestas que requieren aprobación antes de escribir nada."
+description: "Configurar un agente de TblFlow: proveedor de modelo, alcance de herramientas, memoria en grafo, programación y propuestas que requieren aprobación."
 section: "Guías"
 order: 4
 ---
