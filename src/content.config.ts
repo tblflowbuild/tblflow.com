@@ -85,7 +85,7 @@ const changelog = defineCollection({
      */
     translationKey: z.string().optional(),
     /** Drives the coloured pill shown next to the entry's date. */
-    type: z.enum(['feature', 'improvement', 'fix']),
+    type: z.enum(['feature', 'improvement', 'fix', 'security']),
   }),
 });
 

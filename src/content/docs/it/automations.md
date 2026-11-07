@@ -39,7 +39,7 @@ Ogni esecuzione viene conservata con il suo trigger, l'input e l'output di ogni 
 
 ## Quote
 
-Le esecuzioni mensili dipendono dal piano; sono illimitate dal piano Business in su e in self-hosting. Un'esecuzione corrisponde a un trigger, a prescindere dal numero di fasi che contiene.
+Le esecuzioni mensili dipendono dal piano: 500 nel Gratuito, 25.000 nell'Essenziale, 250.000 nel Team, illimitate in Enterprise e in self-hosting. Un'esecuzione corrisponde a un trigger, a prescindere dal numero di fasi che contiene.
 
 ## Automazione o agente?
 

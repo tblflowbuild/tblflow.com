@@ -1,7 +1,7 @@
 ---
 title: "Ihre erste App erstellen"
 translationKey: "first-app"
-description: "Veröffentlichen Sie eine Business-App aus einer TblFlow-Base: von der KI generiert oder von Hand gebaut, mit Besucher-Authentifizierung, Schreibkontrolle für Daten und öffentlichem Link."
+description: "Veröffentlichen Sie eine Team-App aus einer TblFlow-Base: von der KI generiert oder von Hand gebaut, mit Besucher-Authentifizierung, Schreibkontrolle für Daten und öffentlichem Link."
 section: "Anleitungen"
 order: 5
 ---
@@ -28,7 +28,7 @@ Die Schaltfläche **Veröffentlichen** oben in der Oberfläche öffnet drei Eins
 - **Datenschreibzugriff erlauben** — standardmäßig aus. Eine App nur zum Lesen kann nichts kaputt machen; aktivieren Sie die Option nur, wenn Besucher tatsächlich Datensätze aus der App heraus erstellen oder bearbeiten müssen.
 - **Besucherkonten** — aktiviert ein Kontosystem mit E-Mail und Passwort, das auf diese Anwendung beschränkt und von den TblFlow-Konten getrennt ist. So kann sich ein externer Kunde in seinem eigenen Bereich anmelden, ohne je Ihr TblFlow-Konto zu berühren.
 
-Ein Klick auf **Veröffentlichen — öffentlichen Link generieren** erzeugt sofort eine funktionierende URL. Der Business-Tarif ergänzt eine eigene Domain.
+Ein Klick auf **Veröffentlichen — öffentlichen Link generieren** erzeugt sofort eine funktionierende URL. Der Team-Tarif ergänzt eine eigene Domain.
 
 ## Der Code bleibt Ihrer
 

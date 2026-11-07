@@ -39,7 +39,7 @@ Her çalıştırma; tetikleyicisi, her adımın girdisi ve çıktısı ve varsa 
 
 ## Kotalar
 
-Aylık çalıştırma sayısı plana bağlıdır; Business planından itibaren ve kendi sunucunuzda barındırırken sınırsızdır. Bir çalıştırma, kaç adım içerirse içersin, bir tetikleyicidir.
+Aylık çalıştırma sayısı plana bağlıdır: Ücretsiz'de 500, Essential'da 25.000, Team'de 250.000; Enterprise'da ve kendi sunucunuzda barındırırken sınırsızdır. Bir çalıştırma, kaç adım içerirse içersin, bir tetikleyicidir.
 
 ## Otomasyon mu, ajan mı?
 

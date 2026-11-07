@@ -24,13 +24,13 @@ const de = {
   'benefits.3.title': 'Die Kontrolle behalten',
   'benefits.3.body':
     'Bei der Verbindung wählen Sie die zugänglichen Spaces und Bases sowie die Berechtigungen. Ihre TblFlow-Rechte gelten für jede Anfrage.',
-  'tools.title': '13 Tools, einfach erklärt',
+  'tools.title': '23 Tools, einfach erklärt',
   'tools.intro':
     'Das kann Claude tun. Die sensibleren Fähigkeiten sind Optionen, die Sie bei der Verbindung aktivieren.',
   'tools.1.title': 'Erkunden',
-  'tools.1.body': 'Ihre Spaces und Ihre Bases auflisten.',
+  'tools.1.body': 'Ihre Spaces, Ihre Bases, die Ansichten einer Tabelle und die Mitglieder eines Spaces auflisten.',
   'tools.2.title': 'Verstehen',
-  'tools.2.body': 'Das Schema einer Base beschreiben.',
+  'tools.2.body': 'Das Schema einer Base beschreiben und die Prozesslandkarte eines Spaces lesen.',
   'tools.3.title': 'Lesen',
   'tools.3.body': 'Datensätze auflisten, filtern und lesen.',
   'tools.4.title': 'Suchen',
@@ -41,11 +41,21 @@ const de = {
   'tools.6.body':
     'Datensätze löschen: zuerst eine Vorschau, dann eine ausdrückliche Bestätigung. Die Datensätze landen im Papierkorb.',
   'tools.7.title': 'Strukturieren',
-  'tools.7.body': 'Eine Tabelle oder ein Feld anlegen.',
+  'tools.7.body': 'Eine Tabelle anlegen, ein Feld anlegen oder umbenennen.',
   'tools.8.title': 'Automatisieren',
-  'tools.8.body': 'Eine Automatisierung auslösen, sofern ihr Eigentümer sie freigegeben hat.',
+  'tools.8.body':
+    'Freigegebene Automatisierungen und Agenten auflisten und eine Automatisierung auslösen, sofern ihr Eigentümer sie freigegeben hat.',
   'tools.9.title': 'Delegieren',
-  'tools.9.body': 'Einen KI-Agenten starten, sofern sein Eigentümer ihn freigegeben hat.',
+  'tools.9.body':
+    'Einen KI-Agenten starten, sofern sein Eigentümer ihn freigegeben hat, und den Status seiner letzten Ausführungen verfolgen.',
+  'tools.10.title': 'Berechnen',
+  'tools.10.body':
+    'Summe, Durchschnitt, Minimum, Maximum und Anzahl zu einer Tabelle, mit Filter und Gruppierung, ohne alle Zeilen zu lesen.',
+  'tools.11.title': 'Importieren',
+  'tools.11.body': 'Eine CSV-Datei in eine bestehende oder in eine neue Tabelle importieren.',
+  'tools.12.title': 'Wiederherstellen',
+  'tools.12.body':
+    'Ein Feld löschen, den Papierkorb auflisten und Gelöschtes wiederherstellen, nach Vorschau und Bestätigung.',
   'tools.perm.read': 'Lesen (Standard)',
   'tools.perm.write': 'Schreiben (Option)',
   'tools.perm.delete': 'Löschen (Option)',
@@ -94,7 +104,7 @@ const de = {
     'Noch nicht. Der Server ist in der offiziellen MCP-Registry veröffentlicht (com.tblflow/tblflow, Version 1.0.0) und verbindet sich mit Claude. Die Einreichung im Connector-Verzeichnis von Claude steht noch aus.',
   'faq.4.q': 'Ist der MCP-Server im Kostenlos-Tarif verfügbar?',
   'faq.4.a':
-    'Ja, ab dem Kostenlos-Tarif, wie die REST-API. Nur das Ratenlimit ändert sich: 60, 120, 300 und 600 Anfragen pro Minute für Kostenlos, Pro, Business und Enterprise.',
+    'Ja, ab dem Kostenlos-Tarif, wie die REST-API. Nur das Ratenlimit ändert sich: 60, 120, 300 und 600 Anfragen pro Minute für Kostenlos, Essential, Team und Enterprise.',
   'faq.5.q': 'Was kann Claude mit meinen Automatisierungen und Agenten tun?',
   'faq.5.a':
     'Es kann sie nur auslösen, wenn ihr Eigentümer sie freigegeben hat. Bei einer Automatisierung startet run_automation einen Probelauf mit Beispieldaten: Es werden keine Daten geändert.',

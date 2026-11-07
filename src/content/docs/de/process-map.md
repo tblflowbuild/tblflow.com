@@ -6,7 +6,7 @@ section: "Anleitungen"
 order: 5
 ---
 
-Die Prozesslandkarte ist eine Seite in Ihrem Space, auf der Sie zeichnen, wer was mit welchen Tools macht, und anschließend die Brüche und die geschätzten Kosten ablesen. Sie erfordert den Pro-Tarif oder höher.
+Die Prozesslandkarte ist eine Seite in Ihrem Space, auf der Sie zeichnen, wer was mit welchen Tools macht, und anschließend die Brüche und die geschätzten Kosten ablesen. Ein Prozess lässt sich kostenlos diagnostizieren: mit sichtbaren geschätzten Kosten, ohne Schaltfläche „Ersetzen“, ohne monatlichen Bericht und ohne Vergleich von Schätzung und Messung. Diese Funktionen bleiben sichtbar, aber gesperrt. Die vollständige Karte gibt es ab dem Essential-Tarif.
 
 ## Karte öffnen oder erstellen
 
@@ -19,6 +19,20 @@ Beim ersten Öffnen erstellt ein Klick die Karte. Sie wählen, ob sie **mit Beis
 Ziehen Sie, um das Canvas zu verschieben, und zoomen Sie mit dem Mausrad. Ein Klick wählt einen Schritt aus; ein Doppelklick oder die Leertaste öffnet seinen Datensatz. Eingabe erstellt den nächsten Schritt, Tab einen Zweig, F2 benennt um.
 
 Schneller geht es, wenn Sie ein Dokument importieren, die Fragen des Assistenten beantworten oder Ihre Automatisierungs-Tools verbinden. Jeder Schritt wird von einer Person, einer Automatisierung oder einem KI-Agenten ausgeführt.
+
+### Die Begriffe an Ihre Branche anpassen
+
+In den Einstellungen des Canvas passt im Abschnitt **Vokabular** eine Voreinstellung die Wörter „Kunde“ und „Auftrag“ an Ihr Geschäft an:
+
+| Voreinstellung | Kunde | Auftrag |
+|---|---|---|
+| Dienstleistung und Beratung | Kunde | Mandat |
+| Handel und E-Commerce | Kunde | Bestellung |
+| Industrie und Logistik | Kunde | Fertigungsauftrag |
+| Buchhaltung und Recht | Kunde | Akte |
+| Gesundheit und Pflege | Patient | Akte |
+
+Nur die angezeigten Wörter ändern sich: Tabellen und Felder werden nicht umbenannt.
 
 ## Eine Ansicht wählen
 
@@ -54,6 +68,8 @@ Ein Schritt kann einen Validierungsstatus tragen (**zu validieren**, **validiert
 ## Geschätzt und tatsächlich vergleichen
 
 Erfassen Sie an jedem Schritt **Messwerte**: Minuten, Menge, Fehlerquote und die Quelle der Messung. Das Panel **Geschätzt vs. tatsächlich** vergleicht die Schätzung mit der Messung, **nur für die gemessenen Schritte**, und zeigt den Anteil gemessener Schritte, damit Sie wissen, wie belastbar die Summe ist. Es liefert außerdem eine Auswertung pro Prozess und pro Schritt, mit einem Link zum Schritt im Canvas. Die Kosten bleiben Eingaben Ihres Teams: TblFlow vergleicht sie, es misst sie nicht.
+
+Bei einem Schritt, der von einer Automatisierung ausgeführt wird, füllt die Schaltfläche **Aus der Automatisierung importieren** die Messwerte anhand der Ausführungen der letzten 30 Tage: durchschnittliche Dauer in Minuten, Menge pro Monat und Fehlerquote. Eine Vorschau zeigt vorher und nachher, und vor Ihrer Bestätigung wird nichts geschrieben. Der Import ersetzt von Hand erfasste Messwerte. Er wird nicht angeboten bei einem menschlichen oder externen Schritt oder bei einem Schritt, den ein Agent übernimmt, und auch nicht, wenn die Automatisierung in 30 Tagen keine Ausführung hatte.
 
 ## Vorher und nachher vergleichen
 

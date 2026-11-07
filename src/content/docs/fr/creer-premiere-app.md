@@ -28,7 +28,7 @@ Le bouton **Publier**, en haut de l'interface, ouvre trois réglages :
 - **Autoriser l'écriture des données** — désactivé par défaut. Une app en lecture seule ne peut rien casser ; ne l'activez que si des visiteurs doivent réellement créer ou modifier des enregistrements depuis l'app.
 - **Comptes visiteurs** — active un système de comptes email + mot de passe propre à cette application, isolé des comptes TblFlow. C'est ce qui permet à un client externe de se connecter à son propre espace sans jamais avoir accès à votre compte TblFlow.
 
-Cliquer sur **Publier — générer le lien public** produit une URL fonctionnelle immédiatement. Le palier Business ajoute un domaine personnalisé.
+Cliquer sur **Publier — générer le lien public** produit une URL fonctionnelle immédiatement. Le palier Équipe ajoute un domaine personnalisé.
 
 ## Le code reste à vous
 

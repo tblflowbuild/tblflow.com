@@ -39,7 +39,7 @@ Jeder Lauf wird mit seinem Trigger, der Eingabe und Ausgabe jedes Schritts und d
 
 ## Kontingente
 
-Die monatlichen Läufe hängen vom Tarif ab; ab dem Business-Tarif und beim Selbsthosting sind sie unbegrenzt. Ein Lauf ist ein Trigger, egal wie viele Schritte er enthält.
+Die monatlichen Läufe hängen vom Tarif ab: 500 im Kostenlos-Tarif, 25.000 im Essential-Tarif, 250.000 im Team-Tarif, unbegrenzt im Enterprise-Tarif und beim Selbsthosting. Ein Lauf ist ein Trigger, egal wie viele Schritte er enthält.
 
 ## Automatisierung oder Agent?
 

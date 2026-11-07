@@ -28,7 +28,7 @@ Arayüzün üstündeki **Yayınla** düğmesi üç ayar açar:
 - **Veri yazmaya izin ver** — varsayılan olarak kapalıdır. Salt okunur bir uygulama hiçbir şeyi bozamaz; bunu yalnızca ziyaretçilerin uygulamadan kayıt oluşturması veya düzenlemesi gerçekten gerekiyorsa açın.
 - **Ziyaretçi hesapları** — bu uygulamaya özgü, TblFlow hesaplarından yalıtılmış bir e-posta + parola hesap sistemi açar. Dışarıdan bir müşterinin, TblFlow hesabınıza hiç dokunmadan kendi alanında oturum açmasını sağlayan budur.
 
-**Yayınla — herkese açık bağlantıyı oluştur**'a tıklamak hemen çalışan bir URL üretir. Business planı özel bir alan adı ekler.
+**Yayınla — herkese açık bağlantıyı oluştur**'a tıklamak hemen çalışan bir URL üretir. Team planı özel bir alan adı ekler.
 
 ## Kod sizde kalır
 

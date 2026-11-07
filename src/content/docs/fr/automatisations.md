@@ -39,7 +39,7 @@ Chaque exécution est conservée avec son déclencheur, la valeur d'entrée et d
 
 ## Quotas
 
-Le nombre d'exécutions mensuelles dépend du palier ; il est illimité à partir du palier Business et en auto-hébergement. Une exécution correspond à un déclenchement, quel que soit le nombre d'étapes.
+Le nombre d'exécutions mensuelles dépend du palier : 500 sur Gratuit, 25 000 sur Essentiel, 250 000 sur Équipe, illimité sur Entreprise et en auto-hébergement. Une exécution correspond à un déclenchement, quel que soit le nombre d'étapes.
 
 ## Automatisation ou agent ?
 

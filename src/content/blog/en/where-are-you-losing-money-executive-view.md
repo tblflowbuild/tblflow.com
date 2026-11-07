@@ -30,4 +30,4 @@ Switch on the **monthly report**: on the 1st of each month at 8:00 (server time)
 
 Amounts are only shown to people who have the right to read the cost fields. For everyone else, TblFlow ranks by **number of breaks** and says so clearly, without showing a misleading zero. A monthly report with amounts can only be switched on by the base owner.
 
-*Costs are entered estimates; the process map is included in the Pro, Business and Enterprise plans.*
+*Costs are entered estimates; the process map is included in the Essential, Team and Enterprise plans.*

@@ -25,4 +25,4 @@ You choose the recipients; by default it is the person who switches the alerts o
 2. Switch on the staleness alerts.
 3. When the email arrives, open the sheet, review it, then push the date back.
 
-*Alerts require a V2 base, and the process map is included in the Pro, Business and Enterprise plans.*
+*Alerts require a V2 base, and the process map is included in the Essential, Team and Enterprise plans.*

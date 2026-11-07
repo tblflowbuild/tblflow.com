@@ -1,0 +1,168 @@
+---
+/**
+ * One use case: an end-to-end flow where the same data is retyped from tool to
+ * tool. The page is the home journey in short (docs/positionnement.md): the
+ * flow today, how TblFlow takes it over, what you build, what TblFlow does not
+ * do, what you keep, then the requests you would type and the FAQ.
+ */
+import Base from '@/layouts/Base.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import FlowScene from '@/components/scenes/FlowScene.astro';
+import { SOLUTIONS, USE_CASE_SLUGS, audiencesOf, type UseCaseSlug } from '@/data/solutions';
+import { JOURNEY } from '@/data/journey';
+import { localePath } from '@/i18n/utils';
+import { LOCALES, SIGNUP_TRIAL_URL, type Locale } from '@/config';
+
+export function getStaticPaths() {
+  return LOCALES.flatMap((lang) => USE_CASE_SLUGS.map((slug) => ({ params: { lang, slug } })));
+}
+
+const locale = Astro.params.lang as Locale;
+const slug = Astro.params.slug as UseCaseSlug;
+const { ui, useCases, audiences } = SOLUTIONS[locale];
+const page = useCases[slug];
+const keep = JOURNEY[locale].keep;
+const mark = (i: number) => String(i + 1).padStart(2, '0');
+const path = localePath(locale, `use-cases/${slug}`);
+---
+
+<Base
+  locale={locale}
+  title={page.metaTitle}
+  description={page.metaDescription}
+  path={path}
+  breadcrumbs={[
+    { name: ui.useCasesNav, path: localePath(locale, 'use-cases') },
+    { name: page.nav, path },
+  ]}
+  faq={page.faq.map((f) => ({ question: f.q, answer: f.a }))}
+>
+  <section class="mx-auto max-w-6xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20">
+    <p class="text-sm text-[var(--fg-subtle)]">
+      <a href={localePath(locale, 'use-cases')} class="hover:underline">{ui.useCasesNav}</a>
+    </p>
+    <p class="mt-6 font-mono text-sm text-[var(--fg-subtle)]">{page.eyebrow}</p>
+    <h1 class="mt-3 max-w-3xl text-4xl font-medium text-balance sm:text-5xl">{page.title}</h1>
+    <p class="mt-5 max-w-2xl text-lg text-[var(--fg-muted)]">{page.subtitle}</p>
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <a href={SIGNUP_TRIAL_URL} class="ai-gradient-bg rounded-lg px-6 py-3 text-center text-base font-medium text-white">
+        {ui.cta}
+      </a>
+      <a href={localePath(locale, 'process-map')} class="rounded-lg border border-[var(--border-strong)] px-6 py-3 text-center text-base font-medium transition-colors hover:bg-[var(--bg-subtle)]">
+        {ui.secondaryCta}
+      </a>
+    </div>
+  </section>
+
+  {/* Today: the flow with its dashed, retyped links. */}
+  <section class="border-t border-[var(--border)]" aria-labelledby="aujourdhui">
+    <div class="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12">
+      <div class="lg:col-span-8">
+        <p class="font-mono text-sm text-[var(--fg-subtle)]">{ui.today}</p>
+        <h2 id="aujourdhui" class="mt-3 text-3xl font-medium sm:text-4xl">{page.problem.title}</h2>
+        <p class="mt-4 text-lg text-[var(--fg-muted)]">{page.problem.body}</p>
+      </div>
+      <div class="lg:col-span-12">
+        <FlowScene locale={locale} flow={page.flow} mode="today" exampleLabel={ui.example} />
+      </div>
+    </div>
+  </section>
+
+  {/* How TblFlow takes it over: the journey in four steps. */}
+  <section class="border-t border-[var(--border)]" aria-labelledby="comment">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <h2 id="comment" class="text-3xl font-medium sm:text-4xl">{ui.journeyTitle}</h2>
+      <ol class="mt-10 grid gap-8 md:grid-cols-2">
+        {page.journey.map((step, i) => (
+          <li class="border-t border-[var(--border-strong)] pt-4">
+            <p class="font-mono text-sm text-[var(--fg-subtle)] tabular-nums">{mark(i)} · {step.label}</p>
+            <h3 class="mt-2 text-xl font-medium">{step.title}</h3>
+            <p class="mt-2 text-[var(--fg-muted)]">{step.body}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="mt-10 max-w-2xl text-sm text-[var(--fg-subtle)]">{ui.planNote}</p>
+    </div>
+  </section>
+
+  {/* With TblFlow: who runs each step, and what you build. */}
+  <section class="border-t border-[var(--border)]" aria-labelledby="avec">
+    <div class="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-start">
+      <div class="lg:col-span-5">
+        <p class="font-mono text-sm text-[var(--fg-subtle)]">{ui.withTblflow}</p>
+        <h2 id="avec" class="mt-3 text-3xl font-medium sm:text-4xl">{page.build.title}</h2>
+        <ul class="mt-8 space-y-6">
+          {page.build.items.map((item) => (
+            <li>
+              <h3 class="text-base font-medium">{item.title}</h3>
+              <p class="mt-1 text-[var(--fg-muted)]">{item.body}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="lg:col-span-7">
+        <FlowScene locale={locale} flow={page.flow} mode="after" exampleLabel={ui.example} />
+      </div>
+    </div>
+  </section>
+
+  {/* What TblFlow does not do, then what you keep whatever happens. */}
+  <section class="border-t border-[var(--border)]" aria-labelledby="limites">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <h2 id="limites" class="text-3xl font-medium sm:text-4xl">{ui.limitsTitle}</h2>
+      <p class="mt-4 max-w-3xl text-lg text-[var(--fg-muted)]">{page.limits}</p>
+      <h3 class="mt-14 text-xl font-medium">{keep.title}</h3>
+      <ul class="mt-6 grid gap-6 md:grid-cols-3">
+        {keep.items.map((item) => (
+          <li class="border-t border-[var(--border-strong)] pt-4">
+            <h4 class="text-base font-medium">{item.title}</h4>
+            <p class="mt-2 text-[var(--fg-muted)]">{item.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  {/* Requests in the user's own words: below the fold, never a prompt box hero. */}
+  <section class="border-t border-[var(--border)]" aria-labelledby="demandes">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <h2 id="demandes" class="text-3xl font-medium sm:text-4xl">{ui.promptsTitle}</h2>
+      <p class="mt-3 text-[var(--fg-muted)]">{ui.promptsNote}</p>
+      <ul class="mt-8 grid gap-4 md:grid-cols-3">
+        {page.prompts.map((prompt) => (
+          <li class="card p-5 text-sm">{prompt}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="border-t border-[var(--border)]" aria-labelledby="faq">
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+      <h2 id="faq" class="text-3xl font-medium sm:text-4xl">{ui.faqTitle}</h2>
+      <div class="mt-8 divide-y divide-[var(--border)] border-y border-[var(--border)]">
+        {page.faq.map((f) => (
+          <details class="py-4">
+            <summary class="cursor-pointer font-medium">{f.q}</summary>
+            <p class="mt-3 text-[var(--fg-muted)]">{f.a}</p>
+          </details>
+        ))}
+      </div>
+      <h3 class="mt-12 text-sm text-[var(--fg-subtle)]">{ui.audiencesFor}</h3>
+      <ul class="mt-3 flex flex-wrap gap-2">
+        {audiencesOf(slug).map((a) => (
+          <li>
+            <a href={localePath(locale, `for/${a}`)} class="inline-block rounded-lg border border-[var(--border-strong)] px-3 py-1.5 text-sm transition-colors hover:bg-[var(--bg-subtle)]">
+              {audiences[a].nav}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand locale={locale} />
+</Base>
+
+<script>
+  import '@/scripts/scenes';
+</script>

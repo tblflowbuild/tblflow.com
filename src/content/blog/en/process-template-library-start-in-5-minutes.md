@@ -28,4 +28,4 @@ Each step can now carry a **validation status** (to validate, validated, to revi
 
 They move to the updated model through the **"Update the model"** banner: TblFlow shows a preview of the changes and asks for confirmation before applying anything.
 
-*The imported content is in French for now. The process map is included in the Pro, Business and Enterprise plans.*
+*The imported content is in French for now. The process map is included in the Essential, Team and Enterprise plans.*

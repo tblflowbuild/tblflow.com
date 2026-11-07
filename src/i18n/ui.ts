@@ -51,6 +51,9 @@ export const ui = {
 
     'pricing.title': 'Preise',
     'pricing.subtitle': 'Kostenlos starten. Wechseln Sie den Tarif, sobald Ihr Team wächst.',
+    'pricing.perTeam': "Preis pro Team, nicht pro Person",
+    'pricing.from': "Ab",
+    'pricing.seatExtra': "+{price} / Monat pro weiterer Person",
     'pricing.year': '/Jahr',
     'pricing.month': '/Monat',
     'pricing.free': 'Kostenlos',
@@ -71,7 +74,7 @@ export const ui = {
     'faq.all': 'Alle',
 
     'cta.title': "Bereit, nichts mehr doppelt einzugeben?",
-    'cta.body': "Starten Sie kostenlos ohne Kreditkarte oder testen Sie die Prozesslandkarte 14 Tage lang mit Pro.",
+    'cta.body': "Starten Sie kostenlos ohne Kreditkarte. Die Diagnose Ihrer Prozesse ist im kostenlosen Tarif enthalten.",
     'cta.primary': 'Kostenlos starten',
     'cta.secondary': 'Mit jemandem sprechen',
 
@@ -148,6 +151,7 @@ export const ui = {
     'changelog.type.feature': 'Neu',
     'changelog.type.improvement': 'Verbesserung',
     'changelog.type.fix': 'Fehlerbehebung',
+    'changelog.type.security': 'Sicherheit',
     'footer.nav.changelog': 'Changelog',
     'footer.terms': 'AGB',
     'surfaces.agents.providers': 'OpenAI, Anthropic, Google, Azure, DeepSeek, Mistral, Groq, Cohere oder Ihre eigenen lokalen Modelle über Ollama und LM Studio.',
@@ -163,7 +167,7 @@ export const ui = {
     'blog.noResults': 'Keine Artikel entsprechen diesem Filter.',
     'pricing.billing.monthly': 'Monatlich',
     'pricing.billing.annual': 'Jährlich',
-    'pricing.billing.save': '1 Monat gratis',
+    'pricing.billing.save': "2 Monate gratis",
     'pricing.billing.perMonthAnnual': 'jährlich abgerechnet',
     'pricing.billing.perMonthMonthly': 'monatlich abgerechnet',
     '404.title': 'Seite nicht gefunden',
@@ -208,6 +212,9 @@ export const ui = {
 
     'pricing.title': 'Pricing',
     'pricing.subtitle': 'Start free. Move up a tier when your team grows.',
+    'pricing.perTeam': "Price per team, not per person",
+    'pricing.from': "From",
+    'pricing.seatExtra': "+{price} / month per additional person",
     'pricing.year': '/year',
     'pricing.month': '/month',
     'pricing.free': 'Free',
@@ -228,7 +235,7 @@ export const ui = {
     'faq.all': 'All',
 
     'cta.title': "Ready to stop typing the same data twice?",
-    'cta.body': "Start free with no credit card, or try the process map with the 14-day Pro trial.",
+    'cta.body': "Start free with no credit card. A diagnosis of your processes is included in the free plan.",
     'cta.primary': 'Start for free',
     'cta.secondary': 'Talk to someone',
 
@@ -305,6 +312,7 @@ export const ui = {
     'changelog.type.feature': 'New',
     'changelog.type.improvement': 'Improvement',
     'changelog.type.fix': 'Fix',
+    'changelog.type.security': 'Security',
     'footer.nav.changelog': 'Changelog',
     'footer.terms': 'Terms',
     'surfaces.agents.providers': 'OpenAI, Anthropic, Google, Azure, DeepSeek, Mistral, Groq, Cohere, or your own local models via Ollama and LM Studio.',
@@ -320,7 +328,7 @@ export const ui = {
     'blog.noResults': 'No articles match this filter.',
     'pricing.billing.monthly': 'Monthly',
     'pricing.billing.annual': 'Annual',
-    'pricing.billing.save': '1 month free',
+    'pricing.billing.save': "2 months free",
     'pricing.billing.perMonthAnnual': 'billed annually',
     'pricing.billing.perMonthMonthly': 'billed monthly',
     '404.title': 'Page not found',
@@ -365,6 +373,9 @@ export const ui = {
 
     'pricing.title': 'Precios',
     'pricing.subtitle': 'Empiece gratis. Cambie de plan cuando su equipo crezca.',
+    'pricing.perTeam': "Precio por equipo, no por persona",
+    'pricing.from': "Desde",
+    'pricing.seatExtra': "+{price} / mes por persona adicional",
     'pricing.year': '/año',
     'pricing.month': '/mes',
     'pricing.free': 'Gratis',
@@ -385,7 +396,7 @@ export const ui = {
     'faq.all': 'Todas',
 
     'cta.title': "¿Listo para dejar de teclear dos veces los mismos datos?",
-    'cta.body': "Empieza gratis sin tarjeta, o prueba el mapa de procesos con la prueba Pro de 14 días.",
+    'cta.body': "Empieza gratis sin tarjeta. El diagnóstico de tus procesos está incluido en el plan gratuito.",
     'cta.primary': 'Empezar gratis',
     'cta.secondary': 'Hablar con alguien',
 
@@ -462,6 +473,7 @@ export const ui = {
     'changelog.type.feature': 'Novedad',
     'changelog.type.improvement': 'Mejora',
     'changelog.type.fix': 'Corrección',
+    'changelog.type.security': 'Seguridad',
     'footer.nav.changelog': 'Changelog',
     'footer.terms': 'Términos',
     'surfaces.agents.providers': 'OpenAI, Anthropic, Google, Azure, DeepSeek, Mistral, Groq, Cohere o tus propios modelos locales mediante Ollama y LM Studio.',
@@ -477,7 +489,7 @@ export const ui = {
     'blog.noResults': 'Ningún artículo coincide con este filtro.',
     'pricing.billing.monthly': 'Mensual',
     'pricing.billing.annual': 'Anual',
-    'pricing.billing.save': '1 mes gratis',
+    'pricing.billing.save': "2 meses gratis",
     'pricing.billing.perMonthAnnual': 'facturación anual',
     'pricing.billing.perMonthMonthly': 'facturación mensual',
     '404.title': 'Página no encontrada',
@@ -522,6 +534,9 @@ export const ui = {
 
     'pricing.title': 'Tarifs',
     'pricing.subtitle': 'Commencez gratuitement. Changez de palier quand votre équipe grandit.',
+    'pricing.perTeam': "Prix par équipe, pas par personne",
+    'pricing.from': "À partir de",
+    'pricing.seatExtra': "+{price} / mois par personne supplémentaire",
     'pricing.year': '/an',
     'pricing.month': '/mois',
     'pricing.free': 'Gratuit',
@@ -532,7 +547,7 @@ export const ui = {
     'pricing.compare': 'Comparer les paliers en détail',
     'pricing.selfhost.title': 'Besoin d’auto-hébergement ?',
     'pricing.selfhost.body':
-      'Le déploiement sur votre propre infrastructure ou en VPC dédié fait partie du palier Enterprise, sur devis, avec toutes les fonctionnalités débloquées.',
+      'Le déploiement sur votre propre infrastructure ou en VPC dédié fait partie du palier Entreprise, sur devis, avec toutes les fonctionnalités débloquées.',
     'pricing.selfhost.cta': 'Contacter le support',
 
     'faq.title': 'Questions fréquentes',
@@ -542,7 +557,7 @@ export const ui = {
     'faq.all': 'Tout',
 
     'cta.title': "Prêt à supprimer vos ressaisies ?",
-    'cta.body': "Démarrez gratuitement, sans carte bancaire, ou testez la cartographie avec l’essai Pro de 14 jours.",
+    'cta.body': "Démarrez gratuitement, sans carte bancaire. Diagnostic de vos processus inclus dans le plan gratuit.",
     'cta.primary': 'Commencer gratuitement',
     'cta.secondary': 'Parler à quelqu’un',
 
@@ -619,6 +634,7 @@ export const ui = {
     'changelog.type.feature': 'Nouveauté',
     'changelog.type.improvement': 'Amélioration',
     'changelog.type.fix': 'Correction',
+    'changelog.type.security': 'Sécurité',
     'footer.nav.changelog': 'Changelog',
     'footer.terms': 'CGV/CGU',
     'surfaces.agents.providers': 'OpenAI, Anthropic, Google, Azure, DeepSeek, Mistral, Groq, Cohere, ou vos modèles locaux via Ollama et LM Studio.',
@@ -634,7 +650,7 @@ export const ui = {
     'blog.noResults': 'Aucun article ne correspond à ce filtre.',
     'pricing.billing.monthly': 'Mensuel',
     'pricing.billing.annual': 'Annuel',
-    'pricing.billing.save': '1 mois offert',
+    'pricing.billing.save': "2 mois offerts",
     'pricing.billing.perMonthAnnual': 'facturé annuellement',
     'pricing.billing.perMonthMonthly': 'facturé mensuellement',
     '404.title': 'Page introuvable',
@@ -679,6 +695,9 @@ export const ui = {
 
     'pricing.title': 'Prezzi',
     'pricing.subtitle': 'Iniziate gratis. Cambiate piano quando il team cresce.',
+    'pricing.perTeam': "Prezzo per team, non per persona",
+    'pricing.from': "Da",
+    'pricing.seatExtra': "+{price} / mese per persona aggiuntiva",
     'pricing.year': '/anno',
     'pricing.month': '/mese',
     'pricing.free': 'Gratuito',
@@ -699,7 +718,7 @@ export const ui = {
     'faq.all': 'Tutte',
 
     'cta.title': "Pronto a smettere di digitare due volte gli stessi dati?",
-    'cta.body': "Inizia gratis senza carta di credito, o prova la mappa dei processi con la prova Pro di 14 giorni.",
+    'cta.body': "Inizia gratis senza carta di credito. La diagnosi dei tuoi processi è inclusa nel piano gratuito.",
     'cta.primary': 'Inizia gratis',
     'cta.secondary': 'Parla con noi',
 
@@ -776,6 +795,7 @@ export const ui = {
     'changelog.type.feature': 'Novità',
     'changelog.type.improvement': 'Miglioramento',
     'changelog.type.fix': 'Correzione',
+    'changelog.type.security': 'Sicurezza',
     'footer.nav.changelog': 'Changelog',
     'footer.terms': 'Termini',
     'surfaces.agents.providers': 'OpenAI, Anthropic, Google, Azure, DeepSeek, Mistral, Groq, Cohere o i tuoi modelli locali tramite Ollama e LM Studio.',
@@ -791,7 +811,7 @@ export const ui = {
     'blog.noResults': 'Nessun articolo corrisponde a questo filtro.',
     'pricing.billing.monthly': 'Mensile',
     'pricing.billing.annual': 'Annuale',
-    'pricing.billing.save': '1 mese gratis',
+    'pricing.billing.save': "2 mesi gratis",
     'pricing.billing.perMonthAnnual': 'fatturazione annuale',
     'pricing.billing.perMonthMonthly': 'fatturazione mensile',
     '404.title': 'Pagina non trovata',
@@ -836,6 +856,9 @@ export const ui = {
 
     'pricing.title': '料金',
     'pricing.subtitle': '無料ではじめて、チームの成長に合わせてプランを変更できます。',
+    'pricing.perTeam': "料金はチーム単位、1人ごとではありません",
+    'pricing.from': "〜",
+    'pricing.seatExtra': "追加ユーザー 1 名につき +{price} / 月",
     'pricing.year': '/年',
     'pricing.month': '/月',
     'pricing.free': '無料',
@@ -856,7 +879,7 @@ export const ui = {
     'faq.all': 'すべて',
 
     'cta.title': "同じデータの二重入力を、もう終わりにしませんか？",
-    'cta.body': "カード不要で無料で始めるか、14 日間の Pro トライアルでプロセスマップをお試しください。",
+    'cta.body': "カード不要で無料で始められます。プロセスの診断は無料プランに含まれます。",
     'cta.primary': '無料ではじめる',
     'cta.secondary': '相談する',
 
@@ -933,6 +956,7 @@ export const ui = {
     'changelog.type.feature': '新機能',
     'changelog.type.improvement': '改善',
     'changelog.type.fix': '修正',
+    'changelog.type.security': 'セキュリティ',
     'footer.nav.changelog': '更新履歴',
     'footer.terms': '利用規約',
     'surfaces.agents.providers': 'OpenAI、Anthropic、Google、Azure、DeepSeek、Mistral、Groq、Cohere、または Ollama や LM Studio 経由の自前のローカルモデル。',
@@ -948,7 +972,7 @@ export const ui = {
     'blog.noResults': 'この条件に一致する記事はありません。',
     'pricing.billing.monthly': '月額',
     'pricing.billing.annual': '年額',
-    'pricing.billing.save': '1 か月無料',
+    'pricing.billing.save': "2 か月無料",
     'pricing.billing.perMonthAnnual': '年額請求',
     'pricing.billing.perMonthMonthly': '月額請求',
     '404.title': 'ページが見つかりません',
@@ -993,6 +1017,9 @@ export const ui = {
 
     'pricing.title': 'Тарифы',
     'pricing.subtitle': 'Начните бесплатно. Меняйте тариф по мере роста команды.',
+    'pricing.perTeam': "Цена за команду, а не за человека",
+    'pricing.from': "От",
+    'pricing.seatExtra': "+{price} / мес за каждого доп. участника",
     'pricing.year': '/год',
     'pricing.month': '/мес',
     'pricing.free': 'Бесплатно',
@@ -1013,7 +1040,7 @@ export const ui = {
     'faq.all': 'Все',
 
     'cta.title': "Готовы перестать вводить одни и те же данные дважды?",
-    'cta.body': "Начните бесплатно без карты или попробуйте карту процессов в 14-дневном пробном периоде Pro.",
+    'cta.body': "Начните бесплатно, без карты. Диагностика процессов входит в бесплатный тариф.",
     'cta.primary': 'Начать бесплатно',
     'cta.secondary': 'Поговорить с нами',
 
@@ -1090,6 +1117,7 @@ export const ui = {
     'changelog.type.feature': 'Новое',
     'changelog.type.improvement': 'Улучшение',
     'changelog.type.fix': 'Исправление',
+    'changelog.type.security': 'Безопасность',
     'footer.nav.changelog': 'Журнал изменений',
     'footer.terms': 'Условия',
     'surfaces.agents.providers': 'OpenAI, Anthropic, Google, Azure, DeepSeek, Mistral, Groq, Cohere или ваши локальные модели через Ollama и LM Studio.',
@@ -1105,7 +1133,7 @@ export const ui = {
     'blog.noResults': 'Нет статей, соответствующих этому фильтру.',
     'pricing.billing.monthly': 'Ежемесячно',
     'pricing.billing.annual': 'Ежегодно',
-    'pricing.billing.save': '1 месяц бесплатно',
+    'pricing.billing.save': "2 месяца бесплатно",
     'pricing.billing.perMonthAnnual': 'оплата раз в год',
     'pricing.billing.perMonthMonthly': 'оплата раз в месяц',
     '404.title': 'Страница не найдена',
@@ -1150,6 +1178,9 @@ export const ui = {
 
     'pricing.title': 'Fiyatlandırma',
     'pricing.subtitle': 'Ücretsiz başlayın. Ekibiniz büyüdükçe plan değiştirin.',
+    'pricing.perTeam': "Kişi başına değil, ekip başına fiyat",
+    'pricing.from': "Başlangıç",
+    'pricing.seatExtra': "Ek kişi başına +{price} / ay",
     'pricing.year': '/yıl',
     'pricing.month': '/ay',
     'pricing.free': 'Ücretsiz',
@@ -1170,7 +1201,7 @@ export const ui = {
     'faq.all': 'Tümü',
 
     'cta.title': "Aynı veriyi iki kez girmeyi bırakmaya hazır mısınız?",
-    'cta.body': "Kredi kartı olmadan ücretsiz başlayın veya süreç haritasını 14 günlük Pro denemesiyle test edin.",
+    'cta.body': "Kredi kartı olmadan ücretsiz başlayın. Süreçlerinizin teşhisi ücretsiz pakete dahildir.",
     'cta.primary': 'Ücretsiz başla',
     'cta.secondary': 'Biriyle konuş',
 
@@ -1247,6 +1278,7 @@ export const ui = {
     'changelog.type.feature': 'Yeni',
     'changelog.type.improvement': 'İyileştirme',
     'changelog.type.fix': 'Düzeltme',
+    'changelog.type.security': 'Güvenlik',
     'footer.nav.changelog': 'Changelog',
     'footer.terms': 'Şartlar',
     'surfaces.agents.providers': 'OpenAI, Anthropic, Google, Azure, DeepSeek, Mistral, Groq, Cohere veya Ollama ve LM Studio üzerinden kendi yerel modelleriniz.',
@@ -1262,7 +1294,7 @@ export const ui = {
     'blog.noResults': 'Bu filtreye uyan makale yok.',
     'pricing.billing.monthly': 'Aylık',
     'pricing.billing.annual': 'Yıllık',
-    'pricing.billing.save': '1 ay ücretsiz',
+    'pricing.billing.save': "2 ay ücretsiz",
     'pricing.billing.perMonthAnnual': 'yıllık faturalandırılır',
     'pricing.billing.perMonthMonthly': 'aylık faturalandırılır',
     '404.title': 'Sayfa bulunamadı',
@@ -1307,6 +1339,9 @@ export const ui = {
 
     'pricing.title': 'Ціни',
     'pricing.subtitle': 'Почніть безкоштовно. Змінюйте тариф у міру зростання команди.',
+    'pricing.perTeam': "Ціна за команду, а не за людину",
+    'pricing.from': "Від",
+    'pricing.seatExtra': "+{price} / міс за кожного додаткового користувача",
     'pricing.year': '/рік',
     'pricing.month': '/міс',
     'pricing.free': 'Безкоштовно',
@@ -1327,7 +1362,7 @@ export const ui = {
     'faq.all': 'Усі',
 
     'cta.title': "Готові припинити вводити ті самі дані двічі?",
-    'cta.body': "Почніть безкоштовно без картки або спробуйте карту процесів у 14-денному пробному періоді Pro.",
+    'cta.body': "Почніть безкоштовно, без картки. Діагностика процесів входить до безкоштовного тарифу.",
     'cta.primary': 'Почати безкоштовно',
     'cta.secondary': 'Поговорити з нами',
 
@@ -1404,6 +1439,7 @@ export const ui = {
     'changelog.type.feature': 'Нове',
     'changelog.type.improvement': 'Покращення',
     'changelog.type.fix': 'Виправлення',
+    'changelog.type.security': 'Безпека',
     'footer.nav.changelog': 'Журнал змін',
     'footer.terms': 'Умови',
     'surfaces.agents.providers': 'OpenAI, Anthropic, Google, Azure, DeepSeek, Mistral, Groq, Cohere або ваші локальні моделі через Ollama та LM Studio.',
@@ -1419,7 +1455,7 @@ export const ui = {
     'blog.noResults': 'Немає статей, що відповідають цьому фільтру.',
     'pricing.billing.monthly': 'Щомісяця',
     'pricing.billing.annual': 'Щороку',
-    'pricing.billing.save': '1 місяць безкоштовно',
+    'pricing.billing.save': "2 місяці безкоштовно",
     'pricing.billing.perMonthAnnual': 'оплата раз на рік',
     'pricing.billing.perMonthMonthly': 'оплата раз на місяць',
     '404.title': 'Сторінку не знайдено',
@@ -1463,6 +1499,9 @@ export const ui = {
 
     'pricing.title': '价格',
     'pricing.subtitle': '免费开始，随团队成长升级方案。',
+    'pricing.perTeam': "按团队计价，而非按人头",
+    'pricing.from': "起",
+    'pricing.seatExtra': "每增加 1 人 +{price} / 月",
     'pricing.year': '/年',
     'pricing.month': '/月',
     'pricing.free': '免费',
@@ -1482,7 +1521,7 @@ export const ui = {
     'faq.all': '全部',
 
     'cta.title': "准备好告别重复录入了吗？",
-    'cta.body': "无需信用卡即可免费开始，或通过 14 天 Pro 试用体验流程图谱。",
+    'cta.body': "无需信用卡即可免费开始。流程诊断包含在免费版中。",
     'cta.primary': '免费开始',
     'cta.secondary': '联系我们',
 
@@ -1559,6 +1598,7 @@ export const ui = {
     'changelog.type.feature': '新功能',
     'changelog.type.improvement': '改进',
     'changelog.type.fix': '修复',
+    'changelog.type.security': '安全',
     'footer.nav.changelog': '更新日志',
     'footer.terms': '服务条款',
     'surfaces.agents.providers': 'OpenAI、Anthropic、Google、Azure、DeepSeek、Mistral、Groq、Cohere，或通过 Ollama 和 LM Studio 接入你自己的本地模型。',
@@ -1574,7 +1614,7 @@ export const ui = {
     'blog.noResults': '没有符合此筛选条件的文章。',
     'pricing.billing.monthly': '按月',
     'pricing.billing.annual': '按年',
-    'pricing.billing.save': '1 个月免费',
+    'pricing.billing.save': "2 个月免费",
     'pricing.billing.perMonthAnnual': '按年计费',
     'pricing.billing.perMonthMonthly': '按月计费',
     '404.title': '页面未找到',

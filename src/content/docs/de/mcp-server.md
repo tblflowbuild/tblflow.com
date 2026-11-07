@@ -25,19 +25,21 @@ Server-URL: `https://app.tblflow.com/mcp`
 claude mcp add --transport http tblflow https://app.tblflow.com/mcp
 ```
 
-## Die 13 Tools
+## Die 23 Tools
 
-Der Server stellt 13 Tools bereit, die wie folgt gruppiert sind:
+Der Server stellt 23 Tools bereit, die wie folgt gruppiert sind:
 
-- **Erkunden**: Ihre Spaces und Ihre Bases auflisten.
-- **Verstehen**: das Schema einer Base beschreiben.
+- **Erkunden**: Ihre Spaces und Ihre Bases, die Ansichten einer Tabelle und die Mitglieder eines Spaces auflisten.
+- **Verstehen**: das Schema einer Base beschreiben, die Prozesslandkarte eines Spaces lesen.
 - **Lesen**: Datensätze auflisten, filtern und lesen.
+- **Berechnen**: Statistiken zu einer Tabelle berechnen (Summe, Durchschnitt, Minimum, Maximum, Anzahl), mit Filter und Gruppierung, ohne alle Zeilen zu lesen.
 - **Suchen**: den knowledge graph durchsuchen, per semantischer Suche und Volltextsuche.
 - **Anlegen und ändern**: Datensätze anlegen und ändern.
-- **Löschen**: Datensätze löschen, mit einer Vorschau und anschließend einer ausdrücklichen Bestätigung. Die Datensätze landen im Papierkorb.
-- **Strukturieren**: eine Tabelle oder ein Feld anlegen.
-- **Automatisieren**: eine Automatisierung auslösen.
-- **Delegieren**: einen KI-Agenten starten.
+- **Importieren**: eine CSV-Datei importieren, in eine bestehende oder in eine neue Tabelle.
+- **Löschen und wiederherstellen**: Datensätze oder ein Feld löschen, mit einer Vorschau und anschließend einer ausdrücklichen Bestätigung; den Papierkorb auflisten und Gelöschtes wiederherstellen.
+- **Strukturieren**: eine Tabelle anlegen, ein Feld anlegen oder umbenennen.
+- **Automatisieren**: freigegebene Automatisierungen und Agenten auflisten, eine Automatisierung auslösen.
+- **Delegieren**: einen KI-Agenten starten und den Status seiner letzten Ausführungen verfolgen.
 
 ## Berechtigungen und Auswahl der Spaces
 
@@ -52,9 +54,13 @@ Eine Automatisierung oder ein Agent lässt sich nur dann aus Claude auslösen, w
 | Tarif | Anfragen pro Minute |
 | --- | --- |
 | Kostenlos | 60 |
-| Pro | 120 |
-| Business | 300 |
+| Essential | 120 |
+| Team | 300 |
 | Enterprise | 600 |
+
+## Vom Terminal aus
+
+Das [TblFlow-CLI](/de/docs/cli) stellt außerdem einen lokalen MCP-Server bereit (`tblflow mcp serve`), für Clients, die einen Prozess auf Ihrem Rechner starten. Es dient auch dazu, eine CSV-Datei zu importieren oder eine Tabelle auf der Kommandozeile zu exportieren.
 
 ## Zugriff widerrufen
 

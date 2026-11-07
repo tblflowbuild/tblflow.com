@@ -25,19 +25,21 @@ URL du serveur : `https://app.tblflow.com/mcp`
 claude mcp add --transport http tblflow https://app.tblflow.com/mcp
 ```
 
-## Les 13 outils
+## Les 23 outils
 
-Le serveur expose 13 outils, qui se regroupent ainsi :
+Le serveur expose 23 outils, qui se regroupent ainsi :
 
-- **Explorer** : lister vos espaces et vos bases.
-- **Comprendre** : décrire le schéma d'une base.
+- **Explorer** : lister vos espaces et vos bases, les vues d'une table et les membres d'un espace.
+- **Comprendre** : décrire le schéma d'une base, lire la carte des process d'un espace.
 - **Lire** : lister, filtrer et lire des enregistrements.
+- **Calculer** : calculer des statistiques sur une table (somme, moyenne, minimum, maximum, comptage), avec filtre et regroupement, sans lire toutes les lignes.
 - **Rechercher** : chercher dans le knowledge graph, en recherche sémantique et en plein texte.
 - **Créer et modifier** : créer et modifier des enregistrements.
-- **Supprimer** : supprimer des enregistrements, avec un aperçu puis une confirmation explicite. Les enregistrements vont à la corbeille.
-- **Structurer** : créer une table ou un champ.
-- **Automatiser** : déclencher une automatisation.
-- **Déléguer** : lancer un agent IA.
+- **Importer** : importer un CSV, dans une table existante ou dans une nouvelle table.
+- **Supprimer et restaurer** : supprimer des enregistrements ou un champ, avec un aperçu puis une confirmation explicite ; lister la corbeille et restaurer ce qui a été supprimé.
+- **Structurer** : créer une table, créer ou renommer un champ.
+- **Automatiser** : lister les automatisations et agents exposés, déclencher une automatisation.
+- **Déléguer** : lancer un agent IA et suivre l'état de ses dernières exécutions.
 
 ## Permissions et choix des espaces
 
@@ -52,9 +54,13 @@ Une automatisation ou un agent n'est déclenchable depuis Claude que si son prop
 | Palier | Requêtes par minute |
 | --- | --- |
 | Gratuit | 60 |
-| Pro | 120 |
-| Business | 300 |
+| Essentiel | 120 |
+| Équipe | 300 |
 | Enterprise | 600 |
+
+## Depuis un terminal
+
+Le [CLI TblFlow](/fr/docs/cli) fournit aussi un serveur MCP local (`tblflow mcp serve`), pour les clients qui lancent un processus sur votre poste. Il sert également à importer un CSV ou à exporter une table en ligne de commande.
 
 ## Révoquer l'accès
 

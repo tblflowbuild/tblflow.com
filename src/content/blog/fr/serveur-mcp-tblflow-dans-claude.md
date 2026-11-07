@@ -35,7 +35,7 @@ Une suppression passe par un aperçu puis par une confirmation explicite, et les
 
 Côté données, le contenu des conversations n'est pas journalisé : seuls l'outil appelé, l'heure, la durée et l'état sont conservés. Les résultats des outils sont transmis à l'assistant, Claude, pour répondre à votre demande. Le serveur est conçu selon les pratiques ISO 27001 et ISO 42001, le RGPD et l'AI Act ; aucune certification n'est acquise à ce jour.
 
-Les limites de débit dépendent du palier : 60, 120, 300 et 600 requêtes par minute pour Gratuit, Pro, Business et Enterprise.
+Les limites de débit dépendent du palier : 60, 120, 300 et 600 requêtes par minute pour Gratuit, Essentiel, Équipe et Entreprise.
 
 ## Comment le connecter
 

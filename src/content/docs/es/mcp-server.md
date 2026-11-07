@@ -25,19 +25,21 @@ URL del servidor: `https://app.tblflow.com/mcp`
 claude mcp add --transport http tblflow https://app.tblflow.com/mcp
 ```
 
-## Las 13 herramientas
+## Las 23 herramientas
 
-El servidor expone 13 herramientas, agrupadas así:
+El servidor expone 23 herramientas, agrupadas así:
 
-- **Explorar**: listar tus espacios y tus bases.
-- **Comprender**: describir el esquema de una base.
+- **Explorar**: listar tus espacios y tus bases, las vistas de una tabla y los miembros de un espacio.
+- **Comprender**: describir el esquema de una base, leer el mapa de procesos de un espacio.
 - **Leer**: listar, filtrar y leer registros.
+- **Calcular**: calcular estadísticas sobre una tabla (suma, media, mínimo, máximo, recuento), con filtro y agrupación, sin leer todas las filas.
 - **Buscar**: buscar en el knowledge graph, con búsqueda semántica y de texto completo.
 - **Crear y modificar**: crear y modificar registros.
-- **Eliminar**: eliminar registros, con una vista previa y después una confirmación explícita. Los registros van a la papelera.
-- **Estructurar**: crear una tabla o un campo.
-- **Automatizar**: activar una automatización.
-- **Delegar**: ejecutar un agente de IA.
+- **Importar**: importar un CSV, en una tabla existente o en una tabla nueva.
+- **Eliminar y restaurar**: eliminar registros o un campo, con una vista previa y después una confirmación explícita; listar la papelera y restaurar lo que se ha eliminado.
+- **Estructurar**: crear una tabla, crear o renombrar un campo.
+- **Automatizar**: listar las automatizaciones y los agentes expuestos, activar una automatización.
+- **Delegar**: ejecutar un agente de IA y consultar el estado de sus últimas ejecuciones.
 
 ## Permisos y selección de espacios
 
@@ -52,9 +54,13 @@ Una automatización o un agente solo se puede activar desde Claude si su propiet
 | Plan | Solicitudes por minuto |
 | --- | --- |
 | Gratis | 60 |
-| Pro | 120 |
-| Business | 300 |
+| Esencial | 120 |
+| Equipo | 300 |
 | Enterprise | 600 |
+
+## Desde un terminal
+
+La [CLI de TblFlow](/es/docs/cli) también ofrece un servidor MCP local (`tblflow mcp serve`), para los clientes que lanzan un proceso en tu equipo. También sirve para importar un CSV o exportar una tabla desde la línea de comandos.
 
 ## Revocar el acceso
 
