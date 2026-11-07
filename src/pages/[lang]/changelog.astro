@@ -29,12 +29,14 @@ const typeStyle = {
   feature: 'text-[var(--color-ai-2)]',
   improvement: 'text-[var(--fg-muted)]',
   fix: 'text-[var(--fg-subtle)]',
+  security: 'font-semibold text-[var(--fg)]',
 } as const;
 
 const typeLabel = {
   feature: t('changelog.type.feature'),
   improvement: t('changelog.type.improvement'),
   fix: t('changelog.type.fix'),
+  security: t('changelog.type.security'),
 } as const;
 
 const breadcrumbs = [
