@@ -9,13 +9,14 @@
  * window in the markup because CSS can only look forward: `:checked ~` picks
  * the panel and the active tab.
  *
- * Sample data is fictional and the figure under the map is the same
- * illustrative calculation as the example section further down.
+ * One fictional story runs through the four views (see heroDemo.ts): the
+ * quotes typed by hand on the map are the rows of the table, the agent
+ * invoices the accepted ones, the portal shows what is left to invoice.
  */
 import { pm } from '@/data/processMap';
 import { hm } from '@/data/home';
-import { HERO_DEMO } from '@/data/heroDemo';
-import type { Locale } from '@/config';
+import { HERO_DEMO, HERO_DEMO_QUOTES } from '@/data/heroDemo';
+import { formatPrice, type Locale } from '@/config';
 
 interface Props {
   locale: Locale;
@@ -23,6 +24,8 @@ interface Props {
 
 const { locale } = Astro.props;
 const copy = HERO_DEMO[locale];
+const accepted = HERO_DEMO_QUOTES.filter((q) => q.accepted);
+const toInvoice = accepted.reduce((sum, q) => sum + q.amount, 0);
 
 const tabs = [
   { id: 'map', label: pm(locale, 'nav') },
@@ -96,12 +99,12 @@ const steps = [1, 2, 3] as const;
           <div class="hcell"></div>
           {copy.cols.map((c) => <div class="hcell">{c}</div>)}
           {
-            copy.rows.map((row, i) => (
+            HERO_DEMO_QUOTES.map((quote, i) => (
               <>
                 <div class="rcell">{i + 1}</div>
-                <div>{row[0]}</div>
-                <div class:list={['filling', `d${i + 1}`]}>{row[1]}</div>
-                <div class:list={['filling', `d${i + 2}`]}>{row[2]}</div>
+                <div>{quote.client}</div>
+                <div class:list={['filling', `d${i + 1}`]}>{quote.accepted ? copy.accepted : copy.sent}</div>
+                <div class:list={['filling', 'justify-end tabular-nums', `d${i + 2}`]}>{formatPrice(locale, quote.amount)}</div>
               </>
             ))
           }
@@ -133,7 +136,10 @@ const steps = [1, 2, 3] as const;
         <p class="text-base font-medium">{copy.appTitle}</p>
         <dl class="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-lg bg-[var(--border)]">
           {
-            copy.stats.map(([label, value]) => (
+            [
+              [copy.stats[0], String(accepted.length)],
+              [copy.stats[1], formatPrice(locale, toInvoice)],
+            ].map(([label, value]) => (
               <div class="flex flex-col bg-[var(--bg-raised)] px-4 py-3">
                 <dt class="order-2 text-xs text-[var(--fg-subtle)]">{label}</dt>
                 <dd class="order-1 text-2xl font-medium tabular-nums">{value}</dd>
