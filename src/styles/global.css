@@ -421,6 +421,26 @@ button.ai-gradient-bg:hover {
   background: var(--tf-popover);
   color: var(--tf-fg);
 }
+/* The table view fills the window like the other views: full width, roomier
+   rows than the compact table used elsewhere. */
+.hw-panel--table .demo-grid {
+  grid-template-columns: 2rem repeat(3, minmax(0, 1fr));
+}
+.hw-panel--table .demo-grid > * {
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px;
+  font-size: 13px;
+}
+@media (min-width: 640px) {
+  .hw-panel--table .demo-grid {
+    grid-template-columns: 2.5rem repeat(3, minmax(0, 1fr));
+  }
+  .hw-panel--table .demo-grid > * {
+    padding: 8px 16px;
+  }
+}
+
 /* While the tabs play on their own, the active one shows the time left. */
 .hw-tab {
   position: relative;
