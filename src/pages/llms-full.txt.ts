@@ -33,7 +33,7 @@ Generated from the site's own content. For the indexed version, see ${SITE_URL}/
 
 TblFlow is a no-code database platform that presents a spreadsheet-like interface over a real
 PostgreSQL database. Teams build tables, interfaces and dashboards, automations, a document
-library with semantic search, and autonomous AI agents — all on the same data.
+library with semantic search, and AI agents that act under human approval — all on the same data.
 
 Every cell written in TblFlow goes into a real physical PostgreSQL table. There is no proprietary
 format and no synchronisation layer: the table you see in TblFlow is the table in Postgres, and

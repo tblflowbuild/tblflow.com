@@ -12,6 +12,7 @@ import LangSwitcher from './LangSwitcher.astro';
 import ThemeSwitch from './ThemeSwitch.astro';
 import { useTranslations } from '@/i18n/ui';
 import { pm } from '@/data/processMap';
+import { SOLUTIONS } from '@/data/solutions';
 import { localePath, pathWithoutLocale } from '@/i18n/utils';
 import { APP_URL, SIGNUP_TRIAL_URL, type Locale } from '@/config';
 
@@ -25,6 +26,8 @@ const current = pathWithoutLocale(Astro.url.pathname);
 
 const links: Array<{ label: string; href: string; match?: string; external?: boolean }> = [
   { label: pm(locale, 'nav'), href: localePath(locale, 'process-map'), match: 'process-map' },
+  { label: SOLUTIONS[locale].ui.forNav, href: localePath(locale, 'for'), match: 'for' },
+  { label: SOLUTIONS[locale].ui.useCasesNav, href: localePath(locale, 'use-cases'), match: 'use-cases' },
   { label: t('nav.pricing'), href: localePath(locale, 'pricing'), match: 'pricing' },
   { label: t('nav.blog'), href: localePath(locale, 'blog'), match: 'blog' },
   { label: t('nav.docs'), href: localePath(locale, 'docs'), match: 'docs' },
@@ -52,7 +55,7 @@ const isActive = (match?: string) => Boolean(match) && current.startsWith(match!
       <span class="text-base">TblFlow</span>
     </a>
 
-    <nav aria-label={t('nav.product')} class="ml-auto hidden items-center gap-1 md:flex">
+    <nav aria-label={t('nav.product')} class="ml-auto hidden items-center gap-1 xl:flex">
       {
         links.map((link) => (
           <a
@@ -60,7 +63,7 @@ const isActive = (match?: string) => Boolean(match) && current.startsWith(match!
             aria-current={isActive(link.match) ? 'page' : undefined}
             rel={link.external ? 'noopener' : undefined}
             class:list={[
-              'rounded-md px-3 py-2 text-sm font-medium transition-colors',
+              'rounded-md px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors',
               isActive(link.match)
                 ? 'text-[var(--fg)]'
                 : 'text-[var(--fg-muted)] hover:text-[var(--fg)]',
@@ -72,7 +75,7 @@ const isActive = (match?: string) => Boolean(match) && current.startsWith(match!
       }
     </nav>
 
-    <div class="ml-auto flex items-center gap-2 md:ml-0">
+    <div class="ml-auto flex items-center gap-2 xl:ml-0">
       <LangSwitcher locale={locale} class="hidden sm:block" />
 
       <ThemeSwitch locale={locale} />
@@ -92,7 +95,7 @@ const isActive = (match?: string) => Boolean(match) && current.startsWith(match!
       </a>
 
       {/* Mobile disclosure */}
-      <details class="group relative md:hidden">
+      <details class="group relative xl:hidden">
         <summary
           class="flex cursor-pointer list-none items-center rounded-lg border border-[var(--border)] p-2 [&::-webkit-details-marker]:hidden"
           aria-label={t('nav.menu')}

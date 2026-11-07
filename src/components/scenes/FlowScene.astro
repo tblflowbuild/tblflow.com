@@ -1,0 +1,119 @@
+---
+/**
+ * The home page's first and last scenes, driven by data instead of the quote
+ * story: a flow as it runs today (one tool per step, the same data retyped on
+ * every dashed link) or once TblFlow is in place (each step run by a person,
+ * an automation or an agent). Used by the use case and audience pages; played
+ * on scroll by scripts/scenes.ts like the home scenes.
+ */
+import { APP_UI } from '@/data/appUi';
+import { APP_ICON } from '@/data/appIcons';
+import type { Exec, Flow } from '@/data/solutions';
+import type { Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+  flow: Flow;
+  mode: 'today' | 'after';
+  exampleLabel: string;
+}
+
+const { locale, flow, mode, exampleLabel } = Astro.props;
+const ui = APP_UI[locale];
+const ICON = APP_ICON;
+
+const EXEC: Record<Exec, { label: string; icon: string; attr?: string }> = {
+  human: { label: ui.human, icon: ICON.user },
+  automation: { label: ui.automation, icon: ICON.zap, attr: 'automation' },
+  agent: { label: ui.agent, icon: ICON.bot, attr: 'agent' },
+};
+const counts = (['human', 'automation', 'agent'] as const).map((e) => ({
+  exec: e,
+  n: flow.steps.filter((s) => s.after === e).length,
+}));
+---
+
+<div data-scene data-step={mode === 'today' ? 0 : 6}>
+  <div class="tf-app">
+    {mode === 'today' && (
+      <div class="tf-top flex-wrap">
+        <span class="tf-pill"><b>TblFlow</b></span>
+        <span class="tf-pill gap-1 px-1" aria-hidden="true">
+          {[ui.lensWho, ui.lensCosts, ui.lensRuptures, ui.lensData].map((label, i) => (
+            <span class:list={['tf-tab inline-flex items-center', i === 3 && 'bg-[var(--tf-popover)]']}>{label}</span>
+          ))}
+        </span>
+      </div>
+    )}
+    <div class="tf-canvas p-4 sm:p-6">
+      {mode === 'today' ? (
+        <>
+          <ol class="flex flex-col items-stretch md:flex-row md:items-center">
+            {flow.steps.map((step, i) => (
+              <>
+                {i > 0 && (
+                  <li class="relative flex h-12 items-center justify-center md:h-auto md:w-16 md:flex-none" aria-hidden="true">
+                    <span class="sc-wipe sc-wipe--smooth block h-full border-l-[1.5px] border-dashed border-[var(--tf-destructive)] md:h-0 md:w-full md:border-t-[1.5px] md:border-l-0" style={`--d:${600 + i * 350}; --t:500ms`}></span>
+                  </li>
+                )}
+                <li class="tf-step sc-rise md:min-w-0 md:flex-1" style={`--d:${i * 250}`}>
+                  <span class="tf-step__icon" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d={ICON.user} stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                  </span>
+                  <span class="min-w-0">
+                    <span class="block font-semibold">{step.title}</span>
+                    <span class="block text-xs tf-muted">{ui.human} · {ui.entry}</span>
+                    <span class="mt-1 flex items-center gap-1 text-xs tf-muted">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={ICON.wrench} stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
+                      {step.tool}
+                    </span>
+                  </span>
+                  {i > 0 && <span class="tf-step__badge sc-fade" style={`--d:${1100 + i * 350}`} aria-hidden="true">1</span>}
+                </li>
+              </>
+            ))}
+          </ol>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <p class="sc-rise flex items-center gap-2 text-xs tf-muted" style="--d:1900">
+              <span class="w-4 border-t-[1.5px] border-dashed border-[var(--tf-destructive)]" aria-hidden="true"></span>
+              {ui.legendBroken} · <span class="tf-mono text-[var(--tf-destructive)]">{flow.rekeyed}</span>
+            </p>
+            <p class="corner-ticks sc-rise tf-mono px-4 py-3 text-sm tabular-nums sm:max-w-sm" style="--tick: 0.75rem; --d:2200">
+              {exampleLabel} : {flow.calc}
+            </p>
+          </div>
+        </>
+      ) : (
+        <>
+          <div class="tf-kpi sm:max-w-md">
+            <p class="tf-kpi__label">{ui.distribution}</p>
+            <div class="mt-2 flex h-1.5 overflow-hidden rounded-full bg-[var(--tf-border-high)]">
+              {counts.filter((c) => c.n > 0).map((c, i) => (
+                <span
+                  class:list={['sc-grow h-full', c.exec === 'human' ? 'bg-[var(--tf-muted)]' : c.exec === 'automation' ? 'bg-[var(--tf-automation)]' : 'bg-[var(--tf-agent)]']}
+                  style={`width:${(c.n / flow.steps.length) * 100}%; --d:${300 + i * 400}`}
+                ></span>
+              ))}
+            </div>
+            <p class="mt-2 flex flex-wrap gap-x-3 text-xs tf-muted">
+              {counts.map((c) => <span>{EXEC[c.exec].label} {c.n}</span>)}
+            </p>
+          </div>
+          <ol class:list={['mt-6 grid gap-3', flow.steps.length === 4 ? 'sm:grid-cols-2' : 'md:grid-cols-3']}>
+            {flow.steps.map((step, i) => (
+              <li class="tf-step sc-rise" data-exec={EXEC[step.after].attr} style={`--d:${300 + i * 300}`}>
+                <span class="tf-step__icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d={EXEC[step.after].icon} stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </span>
+                <span class="min-w-0">
+                  <span class="block truncate font-semibold">{step.title}</span>
+                  <span class="block truncate text-xs tf-muted">{EXEC[step.after].label}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </>
+      )}
+    </div>
+  </div>
+</div>

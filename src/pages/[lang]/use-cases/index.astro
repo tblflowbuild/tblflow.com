@@ -1,0 +1,51 @@
+---
+/** Index of the use cases: six end-to-end flows, plus the two existing product pages they rely on. */
+import Base from '@/layouts/Base.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { SOLUTIONS, USE_CASE_SLUGS } from '@/data/solutions';
+import { pm } from '@/data/processMap';
+import { mcp } from '@/data/mcp';
+import { localePath } from '@/i18n/utils';
+import { LOCALES, type Locale } from '@/config';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const { ui, useCases } = SOLUTIONS[locale];
+const path = localePath(locale, 'use-cases');
+const more = [
+  { href: localePath(locale, 'process-map'), title: pm(locale, 'nav'), body: pm(locale, 'meta.description') },
+  { href: localePath(locale, 'mcp'), title: mcp(locale, 'nav'), body: mcp(locale, 'meta.description') },
+];
+---
+
+<Base locale={locale} title={ui.useCasesIndex.metaTitle} description={ui.useCasesIndex.metaDescription} path={path} breadcrumbs={[{ name: ui.useCasesNav, path }]}>
+  <section class="mx-auto max-w-6xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20">
+    <h1 class="text-4xl font-medium sm:text-5xl">{ui.useCasesIndex.title}</h1>
+    <p class="mt-5 max-w-2xl text-lg text-[var(--fg-muted)]">{ui.useCasesIndex.subtitle}</p>
+  </section>
+  <section class="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
+    <ul class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {USE_CASE_SLUGS.map((slug) => (
+        <li>
+          <a href={localePath(locale, `use-cases/${slug}`)} class="card block h-full p-6 transition-colors hover:bg-[var(--bg-subtle)]">
+            <p class="font-mono text-xs text-[var(--fg-subtle)]">{useCases[slug].eyebrow}</p>
+            <h2 class="mt-2 text-lg font-medium">{useCases[slug].nav}</h2>
+            <p class="mt-2 text-sm text-[var(--fg-muted)]">{useCases[slug].card}</p>
+          </a>
+        </li>
+      ))}
+      {more.map((m) => (
+        <li>
+          <a href={m.href} class="card block h-full p-6 transition-colors hover:bg-[var(--bg-subtle)]">
+            <h2 class="text-lg font-medium">{m.title}</h2>
+            <p class="mt-2 text-sm text-[var(--fg-muted)]">{m.body}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+  <CtaBand locale={locale} />
+</Base>
