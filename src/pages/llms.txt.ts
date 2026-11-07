@@ -102,6 +102,8 @@ Full tier detail: ${SITE_URL}/en/pricing
 - [MCP server (English)](${SITE_URL}/en/mcp): official remote MCP server (https://app.tblflow.com/mcp, Streamable HTTP, OAuth 2.1) that lets Claude query and edit TblFlow data under the user's rights. Included from the Free tier.
 - [MCP server (French)](${SITE_URL}/fr/mcp)
 - [CLI (English)](${SITE_URL}/en/docs/cli): the TblFlow command-line tool, npm package @tblflow/cli (MIT): device-code or service-token sign-in, records, CSV import and export, exposed automations and agents, and a local MCP server (\`tblflow mcp serve\`).
+- [Use cases (English)](${SITE_URL}/en/use-cases): six end-to-end flows where the same data is retyped from tool to tool (quote to cash, procure to pay, financial close with margins and EBITDA, stock to shipping, quality and non-conformities, internal procedures), each with what TblFlow does not do.
+- [Who it is for (English)](${SITE_URL}/en/for): SME leaders, finance and accounting, sales administration, manufacturing, retail and distribution, professional services firms.
 - [Pricing (English)](${SITE_URL}/en/pricing): four tiers with the full quota grid.
 - [Pricing (French)](${SITE_URL}/fr/pricing)
 - [Blog (English)](${SITE_URL}/en/blog)
