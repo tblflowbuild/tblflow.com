@@ -1,6 +1,6 @@
 ---
 import Logo from './Logo.astro';
-import HeroCards from './HeroCards.astro';
+import HeroWindow from './HeroWindow.astro';
 import StepsRibbon from './StepsRibbon.astro';
 import { useTranslations } from '@/i18n/ui';
 import { pm } from '@/data/processMap';
@@ -87,18 +87,13 @@ const proof = [
       }
     </dl>
 
-    {/* Three panels — the table, the agent writing into it, the app it
-        publishes to. Replaces the single mockup: one card showed the output,
-        the deck shows the chain that produces it. */}
   </div>
 
-  {/* The deck is wider than the copy column. Nested inside it, a child wider
-      than its parent stretches the parent's content box and shifts every
-      centred element in it — measured at 46px off-centre. So it gets its own
-      container instead. */}
+  {/* The product window is wider than the copy column, so it gets its own
+      container rather than stretching the centred one. */}
   <div class="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
-    <div class="animate-enter delay-4 mt-4">
-      <HeroCards locale={locale} />
+    <div class="animate-enter delay-4 mx-auto mt-4 max-w-4xl">
+      <HeroWindow locale={locale} />
     </div>
 
     <div class="mt-16">

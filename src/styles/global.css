@@ -358,18 +358,79 @@ button.ai-gradient-bg:hover {
 }
 
 /* ---------------------------------------------------------------------------
- * Hero cards: three panels side by side, flat like sheets laid on a drawing
- * table. The table sits in the middle and is the widest; below the width where
- * three fit, only the table stays.
+ * Hero window: one product window, four views switched by native radios
+ * (see HeroWindow.astro). Panels share one minimum height so switching never
+ * moves the page below.
  * ------------------------------------------------------------------------- */
-.card-stack {
-  gap: 1rem;
+.hw-tab {
+  flex: none;
+  cursor: pointer;
+  padding: 0.75rem 0.75rem;
+  margin-bottom: -1px;
+  border-bottom: 2px solid transparent;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  color: var(--fg-muted);
+  transition: color 150ms var(--ease-out-soft), border-color 150ms var(--ease-out-soft);
 }
-@media (max-width: 860px) {
-  .stack-card--left,
-  .stack-card--right {
-    display: none;
+.hw-tab:hover {
+  color: var(--fg);
+}
+.hw-panel {
+  display: none;
+  min-height: 15rem;
+  padding: 1.5rem;
+}
+#hw-map:checked ~ .hw-window .hw-panel--map,
+#hw-table:checked ~ .hw-window .hw-panel--table,
+#hw-agent:checked ~ .hw-window .hw-panel--agent,
+#hw-app:checked ~ .hw-window .hw-panel--app {
+  display: block;
+}
+#hw-map:checked ~ .hw-window label[for='hw-map'],
+#hw-table:checked ~ .hw-window label[for='hw-table'],
+#hw-agent:checked ~ .hw-window label[for='hw-agent'],
+#hw-app:checked ~ .hw-window label[for='hw-app'] {
+  color: var(--fg);
+  border-bottom-color: var(--color-ai-2);
+}
+#hw-map:focus-visible ~ .hw-window label[for='hw-map'],
+#hw-table:focus-visible ~ .hw-window label[for='hw-table'],
+#hw-agent:focus-visible ~ .hw-window label[for='hw-agent'],
+#hw-app:focus-visible ~ .hw-window label[for='hw-app'] {
+  outline: 2px solid var(--color-ai-2);
+  outline-offset: -4px;
+  border-radius: 6px;
+}
+.hw-node {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: var(--bg-raised);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-ai-1) 60%, var(--bg-raised));
+}
+/* A re-keying between two steps: the dashed red link of the process map. */
+.hw-break {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #dc2626;
+}
+@media (min-width: 768px) {
+  .hw-break {
+    flex: 0 0 7rem;
+    flex-direction: column;
+    gap: 0.25rem;
   }
+  .hw-break::after {
+    content: '';
+    width: 100%;
+    border-top: 1.5px dashed currentColor;
+  }
+}
+.hw-panel--table .demo-grid {
+  max-width: 32rem;
 }
 
 /* ---------------------------------------------------------------------------
@@ -445,12 +506,6 @@ button.ai-gradient-bg:hover {
   }
 }
 
-.pulse-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background-color: var(--fg-subtle);
-}
 
 /* Long-form article styling — applied to rendered markdown. */
 .prose-site {

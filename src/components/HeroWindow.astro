@@ -1,0 +1,158 @@
+---
+/**
+ * The product window under the hero: one TblFlow window, four views of the
+ * same work. The process map finds the re-keying, the table replaces it, the
+ * agent fills the table, the app publishes it.
+ *
+ * Tabs are native radio buttons, so they switch with a click or the arrow
+ * keys and need no script (and no new CSP hash). The radios sit before the
+ * window in the markup because CSS can only look forward: `:checked ~` picks
+ * the panel and the active tab.
+ *
+ * Sample data is fictional and the figure under the map is the same
+ * illustrative calculation as the example section further down.
+ */
+import { pm } from '@/data/processMap';
+import { hm } from '@/data/home';
+import { HERO_DEMO } from '@/data/heroDemo';
+import type { Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = HERO_DEMO[locale];
+
+const tabs = [
+  { id: 'map', label: pm(locale, 'nav') },
+  { id: 'table', label: copy.table },
+  { id: 'agent', label: copy.agentTitle },
+  { id: 'app', label: copy.appKicker },
+] as const;
+
+const steps = [1, 2, 3] as const;
+---
+
+<div class="hw">
+  {
+    tabs.map((tab, i) => (
+      <input
+        type="radio"
+        name="hero-window"
+        id={`hw-${tab.id}`}
+        class="hw-radio sr-only"
+        checked={i === 0}
+      />
+    ))
+  }
+
+  <div class="hw-window card overflow-hidden">
+    <div class="flex items-center gap-2 border-b border-[var(--border)] px-4 py-3" aria-hidden="true">
+      <span class="h-2 w-2 rounded-full bg-[var(--fg-subtle)] opacity-40"></span>
+      <span class="h-2 w-2 rounded-full bg-[var(--fg-subtle)] opacity-40"></span>
+      <span class="h-2 w-2 rounded-full bg-[var(--fg-subtle)] opacity-40"></span>
+      <span class="ml-2 text-xs text-[var(--fg-subtle)]">TblFlow</span>
+    </div>
+
+    <div class="hw-tabs flex gap-1 overflow-x-auto border-b border-[var(--border)] px-2">
+      {
+        tabs.map((tab) => (
+          <label for={`hw-${tab.id}`} class="hw-tab">
+            {tab.label}
+          </label>
+        ))
+      }
+    </div>
+
+    <div class="hw-panels">
+      {/* 1. The process map: three steps typed by hand, two re-keyings. */}
+      <section class="hw-panel hw-panel--map">
+        <ol class="flex flex-col items-stretch gap-3 md:flex-row md:items-center md:gap-0">
+          {
+            steps.map((n) => (
+              <>
+                {n > 1 && (
+                  <li class="hw-break">
+                    <span>{hm(locale, 'example.break')}</span>
+                  </li>
+                )}
+                <li class="hw-node">
+                  <p class="text-xs text-[var(--fg-subtle)]">{pm(locale, 'viz.human')}</p>
+                  <p class="mt-1 text-sm font-medium">{hm(locale, `example.step${n}.title` as const)}</p>
+                </li>
+              </>
+            ))
+          }
+        </ol>
+        <p class="corner-ticks mt-6 px-4 py-3 font-mono text-sm tabular-nums" style="--tick: 0.75rem;">
+          {hm(locale, 'example.calc')}
+        </p>
+      </section>
+
+      {/* 2. The table that replaces the re-keying, cells filling in. */}
+      <section class="hw-panel hw-panel--table">
+        <div class="demo-grid">
+          <div class="hcell"></div>
+          {copy.cols.map((c) => <div class="hcell">{c}</div>)}
+          {
+            copy.rows.map((row, i) => (
+              <>
+                <div class="rcell">{i + 1}</div>
+                <div>{row[0]}</div>
+                <div class:list={['filling', `d${i + 1}`]}>{row[1]}</div>
+                <div class:list={['filling', `d${i + 2}`]}>{row[2]}</div>
+              </>
+            ))
+          }
+        </div>
+        <p class="mt-4 text-xs text-[var(--fg-muted)]">{copy.tableFoot}</p>
+      </section>
+
+      {/* 3. The agent writing into the table. */}
+      <section class="hw-panel hw-panel--agent">
+        <p class="ml-auto max-w-md rounded-lg bg-[var(--bg-subtle)] px-4 py-3 text-sm">{copy.prompt}</p>
+        <ol class="mt-4 space-y-2">
+          {
+            copy.steps.map((step, i) => (
+              <li class="flex items-center gap-3 text-sm text-[var(--fg-muted)]">
+                <span class="w-5 font-mono text-xs text-[var(--fg-subtle)] tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+                {step}
+              </li>
+            ))
+          }
+        </ol>
+        <p class="mt-4 flex items-center gap-2 border-t border-[var(--border)] pt-4 text-xs text-[var(--fg-muted)]">
+          <span class="h-2 w-2 rounded-full bg-[#16a34a]" aria-hidden="true"></span>
+          {copy.agentBody}
+        </p>
+      </section>
+
+      {/* 4. The app published on the customer's own domain. */}
+      <section class="hw-panel hw-panel--app">
+        <p class="text-base font-medium">{copy.appTitle}</p>
+        <dl class="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-lg bg-[var(--border)]">
+          {
+            copy.stats.map(([label, value]) => (
+              <div class="flex flex-col bg-[var(--bg-raised)] px-4 py-3">
+                <dt class="order-2 text-xs text-[var(--fg-subtle)]">{label}</dt>
+                <dd class="order-1 text-2xl font-medium tabular-nums">{value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+        <p class="mt-4 inline-flex items-center gap-2 rounded-md bg-[var(--bg-subtle)] px-2 py-1 font-mono text-xs text-[var(--fg-muted)]">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+          {copy.domain}
+        </p>
+      </section>
+    </div>
+  </div>
+</div>

@@ -1,27 +1,11 @@
----
+import type { Locale } from '@/config';
+
 /**
- * The three-panel deck under the hero: one card per surface a generated app is
- * made of — the agent that writes, the table it writes into, the dashboard it
- * publishes to.
- *
- * The table sits at the front of the deck. It is the product's actual subject;
- * the agent and the published app are what happens either side of it, so they
- * read better turned away at the edges than competing for the centre.
- *
- * Static mockups rather than screenshots: they stay crisp at any density, never
- * go stale when the real UI moves, and cost nothing to load. The whole deck is
- * `aria-hidden` — it illustrates what the copy above already states, and
- * narrating twenty fake cells to a screen reader would be noise.
+ * Plausible sample data for the product window in the hero: one table of
+ * leads, the agent that enriches it and the app it publishes to. Fictional
+ * names and figures, shown as an illustration.
  */
-import { type Locale } from '@/config';
-
-interface Props {
-  locale: Locale;
-}
-
-const { locale }: Props = Astro.props;
-
-const COPY: Record<Locale, {
+export const HERO_DEMO: Record<Locale, {
   table: string; cols: string[]; rows: string[][];
   agentTitle: string; agentBody: string; prompt: string; steps: string[];
   tableFoot: string; appKicker: string; appTitle: string;
@@ -170,124 +154,3 @@ const COPY: Record<Locale, {
     domain: 'portal.yourdomain.cn',
   },
 };
-
-const copy = COPY[locale];
----
-
-<div class="card-stack flex items-center justify-center" aria-hidden="true">
-  {/* Left — the agent doing the writing. */}
-  <div class="stack-card stack-card--left hidden w-72 shrink-0 md:block">
-    <div class="card flex h-60 flex-col overflow-hidden">
-      <div class="border-b border-[var(--border)] p-4">
-        <p class="text-xs font-medium opacity-80">
-          {copy.agentTitle}
-        </p>
-        <p class="mt-1 text-sm font-medium">{copy.prompt}</p>
-      </div>
-
-      <ul class="flex-1 space-y-2 p-4">
-        {
-          copy.steps.map((step, i) => (
-            <li class="flex items-center gap-2 text-xs text-[var(--fg-muted)]">
-              <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[var(--bg-subtle)] text-xs text-[var(--fg-subtle)]">
-                {i + 1}
-              </span>
-              {step}
-            </li>
-          ))
-        }
-      </ul>
-
-      <div
-        class="flex items-center gap-2 border-t border-[var(--border)] px-4 py-3 text-xs text-[var(--fg-muted)]"
-      >
-        <span class="pulse-dot"></span>
-        {copy.agentBody}
-      </div>
-    </div>
-  </div>
-
-  {/* Centre — the table, cells lighting up as the agent writes into them.
-      Both side cards carry an explicit, identical height; the centre is larger
-      on both axes. Left to their content the three ended up 226 / 219 / 182px
-      tall, which read as a ragged row rather than a deck — and left the front
-      card shorter than the one behind it. */}
-  <div class="stack-card stack-card--center w-full max-w-[22rem] shrink-0">
-    <div class="card flex h-[17rem] flex-col overflow-hidden">
-      <div class="flex items-center gap-2 border-b border-[var(--border)] px-3 py-2">
-        <span class="h-2 w-2 rounded-full bg-[var(--fg-subtle)] opacity-40"></span>
-        <span class="h-2 w-2 rounded-full bg-[var(--fg-subtle)] opacity-40"></span>
-        <span class="h-2 w-2 rounded-full bg-[var(--fg-subtle)] opacity-40"></span>
-        <span class="ml-2 text-xs text-[var(--fg-subtle)]">{copy.table}</span>
-      </div>
-
-      <div class="flex-1 p-3">
-        <div class="demo-grid h-full">
-          <div class="hcell"></div>
-          {copy.cols.map((c) => <div class="hcell">{c}</div>)}
-          {
-            copy.rows.map((row, i) => (
-              <>
-                <div class="rcell">{i + 1}</div>
-                <div>{row[0]}</div>
-                <div class:list={['filling', `d${i + 1}`]}>{row[1]}</div>
-                <div class:list={['filling', `d${i + 2}`]}>{row[2]}</div>
-              </>
-            ))
-          }
-        </div>
-      </div>
-
-      <div
-        class="flex items-center gap-2 border-t border-[var(--border)] px-4 py-3 text-xs text-[var(--fg-muted)]"
-      >
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" class="shrink-0">
-          <path
-            d="M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 7v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7"
-            stroke="var(--fg-subtle)"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"></path>
-        </svg>
-        {copy.tableFoot}
-      </div>
-    </div>
-  </div>
-
-  {/* Right — what gets published, on the customer's own domain. */}
-  <div class="stack-card stack-card--right hidden w-72 shrink-0 md:block">
-    <div class="card flex h-60 flex-col overflow-hidden">
-      <div class="border-b border-[var(--border)] px-4 py-3">
-        <p class="text-xs text-[var(--fg-subtle)]">
-          {copy.appKicker}
-        </p>
-        <p class="mt-1 text-sm font-medium">{copy.appTitle}</p>
-      </div>
-
-      <div class="grid flex-1 grid-cols-2 gap-px bg-[var(--border)]">
-        {
-          copy.stats.map(([label, value]) => (
-            <div class="bg-[var(--bg-raised)] px-3 py-3">
-              <p class="text-xs text-[var(--fg-subtle)]">{label}</p>
-              <p class="mt-1 text-lg font-medium">{value}</p>
-            </div>
-          ))
-        }
-      </div>
-
-      <div class="px-4 py-3">
-        <div class="flex items-center gap-2 rounded-md bg-[var(--bg-subtle)] px-2 py-2">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" class="shrink-0">
-            <path
-              d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z"
-              stroke="var(--fg-subtle)"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-          <span class="font-mono text-xs text-[var(--fg-muted)]">{copy.domain}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
