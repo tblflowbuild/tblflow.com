@@ -100,6 +100,7 @@ Full tier detail: ${SITE_URL}/en/pricing
 - [Process map (French)](${SITE_URL}/fr/process-map)
 - [MCP server (English)](${SITE_URL}/en/mcp): official remote MCP server (https://app.tblflow.com/mcp, Streamable HTTP, OAuth 2.1) that lets Claude query and edit TblFlow data under the user's rights. Included from the Free tier.
 - [MCP server (French)](${SITE_URL}/fr/mcp)
+- [CLI (English)](${SITE_URL}/en/docs/cli): the TblFlow command-line tool, npm package @tblflow/cli (MIT): device-code or service-token sign-in, records, CSV import and export, exposed automations and agents, and a local MCP server (\`tblflow mcp serve\`).
 - [Pricing (English)](${SITE_URL}/en/pricing): four tiers with the full quota grid.
 - [Pricing (French)](${SITE_URL}/fr/pricing)
 - [Blog (English)](${SITE_URL}/en/blog)

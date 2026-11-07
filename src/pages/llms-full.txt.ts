@@ -100,10 +100,15 @@ Page: ${SITE_URL}/en/process-map`);
 
 TblFlow runs an official remote MCP server at https://app.tblflow.com/mcp (Streamable HTTP, OAuth 2.1
 with the usual TblFlow sign-in). It is available from the Free tier, like the REST API, with rate limits
-of 60 / 120 / 300 / 600 requests per minute on Free / Essential / Team / Enterprise. It exposes 13 tools:
-list spaces and bases; describe a base's schema; list, filter and read records; search the knowledge graph
-(semantic and full-text); create and edit records; delete records (preview, then explicit confirmation,
-trash); create a table or a field; trigger an automation; run an AI agent. When connecting, the user
+of 60 / 120 / 300 / 600 requests per minute on Free / Essential / Team / Enterprise. It exposes 23 tools:
+list spaces, bases, a table's views and a space's members; describe a base's schema; read a space's process
+map; list, filter and read records; compute statistics on a table (sum, average, min, max, count, with
+filter and grouping); search the knowledge graph (semantic and full-text); create and edit records; import
+a CSV into an existing or a new table; delete records or a field (preview, then explicit confirmation,
+trash); list a table's trash and restore; create a table, create or rename a field; list exposed
+automations and agents; trigger an automation; run an AI agent and check its latest runs. A local MCP
+server (stdio) is also available through the TblFlow CLI (npm package @tblflow/cli, command
+\`tblflow mcp serve\`). When connecting, the user
 chooses the reachable spaces and bases and the permissions (read by default; write, delete, schema and
 trigger are options), and existing TblFlow rights apply to every request. Automations and agents can only
 be triggered if their owner has exposed them. The content of conversations is not logged; only the tool
@@ -112,6 +117,18 @@ to answer the user. Designed along ISO 27001 and ISO 42001 practices, GDPR and t
 certification has been obtained to date. Published in the official MCP registry as com.tblflow/tblflow
 (version 1.0.0); submission to the Claude connectors directory is coming; ChatGPT is not supported yet.
 Page: ${SITE_URL}/en/mcp`);
+
+  sections.push(`## CLI
+
+The TblFlow CLI is published on npm as @tblflow/cli (MIT licence, Node.js 20 or later, no third-party
+dependency, no telemetry). Install with \`npm install -g @tblflow/cli\`. Sign-in: \`tblflow login\` (device
+code approved in the browser, token kept in the system keychain) or, in CI, a space service token in the
+\`TBLFLOW_TOKEN\` environment variable. Commands: list bases and tables; list, read, create, update and
+delete records (delete shows a preview and needs \`--confirm\`); import a CSV into a table or into a new table
+(\`tblflow import --new-table\`, with \`--dry-run\`); export a table or a view to CSV; run an exposed automation
+or agent; call the REST API; and \`tblflow mcp serve\`, a local MCP server over stdio for clients such as
+Claude Code or Cursor.
+Docs: ${SITE_URL}/en/docs/cli`);
 
   sections.push(`## Pricing
 
