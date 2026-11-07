@@ -1,52 +1,47 @@
 ---
 /**
- * Home introduction, in the manner of a product launch page: the product
- * name, the signature in one line, one action, then a large window of the
- * app whose tabs play on their own. The band is dark whatever the site theme
- * (`.intro-dark`), so the app window sits in its own light; the journey that
- * follows returns to the site theme.
+ * Home introduction, composed as a scene: the isometric mark very large in
+ * the background on the left, the app window over its right half and across
+ * three quarters of the page, the name and the signature just above the
+ * window. No button here: the header's action is enough.
  *
- * What the intro used to say (the re-keying headline, the trial note, the
- * proof figures) now lives in the journey and on the pricing page; the page
- * <title> and description still carry the re-keying promise for search.
+ * The band is dark whatever the site theme (`.intro-dark`), so the app window
+ * sits in its own light; the journey that follows returns to the site theme.
+ * On small screens the mark moves behind the title, dimmed, and the window
+ * takes the full width.
+ *
+ * The page <title> and description still carry the re-keying promise for
+ * search; the journey's step 01 tells it in full.
  */
 import Logo from './Logo.astro';
 import HeroWindow from './HeroWindow.astro';
-import { useTranslations } from '@/i18n/ui';
 import { JOURNEY } from '@/data/journey';
-import { SIGNUP_TRIAL_URL, type Locale } from '@/config';
+import type { Locale } from '@/config';
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
-const t = useTranslations(locale);
 ---
 
-<section class="intro-dark">
-  <div class="mx-auto max-w-4xl px-4 pt-16 text-center sm:px-6 sm:pt-24">
-    <h1
-      class="animate-enter delay-1 flex items-center justify-center gap-4 text-5xl leading-none font-medium tracking-[-0.03em] sm:gap-5 sm:text-7xl"
-    >
-      <Logo size={64} animate />
-      TblFlow
-    </h1>
+<section class="intro-dark relative overflow-hidden">
+  <div class="relative mx-auto max-w-7xl px-4 pt-12 pb-16 sm:px-6 sm:pt-20 sm:pb-24">
+    <div class="intro-mark animate-enter-fade" aria-hidden="true">
+      <Logo size={640} animate />
+    </div>
 
-    <p class="animate-enter delay-2 mx-auto mt-6 max-w-2xl text-lg text-balance text-[var(--fg-muted)] sm:text-xl">
-      {JOURNEY[locale].signature}
-    </p>
+    <div class="relative lg:ml-[25%]">
+      <h1 class="animate-enter delay-1 text-center text-5xl leading-none font-medium tracking-[-0.03em] sm:text-7xl lg:text-left">
+        TblFlow
+      </h1>
+      <p class="animate-enter delay-2 mt-4 text-center text-lg text-balance text-[var(--fg-muted)] sm:text-xl lg:text-left">
+        {JOURNEY[locale].signature}
+      </p>
 
-    <a
-      href={SIGNUP_TRIAL_URL}
-      class="ai-gradient-bg animate-enter delay-3 mt-8 inline-block rounded-lg px-6 py-3 text-base font-medium text-white"
-    >
-      {t('hero.cta.primary')}
-    </a>
-  </div>
-
-  {/* The window is wider than the copy column, so it gets its own container. */}
-  <div class="animate-enter delay-4 mx-auto max-w-6xl px-4 pt-12 pb-16 sm:px-6 sm:pt-16 sm:pb-24">
-    <HeroWindow locale={locale} />
+      <div class="animate-enter delay-3 mt-10 sm:mt-12">
+        <HeroWindow locale={locale} />
+      </div>
+    </div>
   </div>
 </section>

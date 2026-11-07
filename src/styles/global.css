@@ -118,6 +118,36 @@
   border-bottom: 1px solid var(--border);
 }
 
+/* The large mark of the introduction. On wide screens it sits in the
+   background on the left, half covered by the app window; below that it
+   moves behind the title, dimmed, so the title stays readable. */
+/* The dimming sits on the drawing, not the wrapper: the wrapper's entrance
+   animation ends at full opacity and would cancel it. */
+.intro-mark {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 20rem;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.intro-mark svg {
+  width: 100%;
+  height: auto;
+  opacity: 0.18;
+}
+@media (min-width: 1024px) {
+  .intro-mark {
+    top: 11rem;
+    left: -3rem;
+    width: 40%;
+    transform: none;
+  }
+  .intro-mark svg {
+    opacity: 1;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
