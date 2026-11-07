@@ -8,17 +8,13 @@ interface Props {
   title: string;
   subtitle: string;
   items: Feature[];
-  /** The "staged" treatment — dot-grid backdrop, corner ticks, glass cards —
-   * reserved for the section that argues *why* TblFlow, so it reads as a
-   * deliberate high point rather than losing its effect through repetition. */
-  moody?: boolean;
 }
 
 /* Two columns only: the sole remaining caller is the "why" (differentiators)
    section, whose longer copy needs the room. The three-column, short-blurb
    variant this used to also support went with the "features" section it
    served, replaced by SurfacesGrid.astro's illustrated cards. */
-const { locale, id, title, subtitle, items, moody = false } = Astro.props;
+const { locale, id, title, subtitle, items } = Astro.props;
 ---
 
 <section
