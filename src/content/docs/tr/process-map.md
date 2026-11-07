@@ -6,7 +6,7 @@ section: "Kılavuzlar"
 order: 5
 ---
 
-Süreç haritası, alanınızda kimin ne yaptığını ve hangi araçlarla yaptığını çizdiğiniz, ardından kopuklukları ve tahmini maliyetleri okuduğunuz bir sayfadır. Bir süreç ücretsiz teşhis edilebilir: tahmini maliyetler görünür, «Değiştir» düğmesi ve aylık rapor yoktur. Tam harita Essential planından itibaren kullanılabilir.
+Süreç haritası, alanınızda kimin ne yaptığını ve hangi araçlarla yaptığını çizdiğiniz, ardından kopuklukları ve tahmini maliyetleri okuduğunuz bir sayfadır. Bir süreç ücretsiz teşhis edilebilir: tahmini maliyetleri görünür, ancak «Değiştir» düğmesi, aylık rapor ve tahminin gerçekle karşılaştırılması yoktur. Bu işlevler görünür kalır, ancak kilitlidir. Tam harita Essential planından itibaren kullanılabilir.
 
 ## Haritayı açın veya oluşturun
 
@@ -19,6 +19,20 @@ Her alanda en fazla bir süreç haritası bulunur. Alanın sağ taraftaki rozeti
 Tuvali kaydırmak için sürükleyin, yakınlaştırmak için tekerleği kullanın. Bir adımı seçmek için tıklayın; çift tıklama veya Boşluk tuşu kaydını açar. Enter sonraki adımı, Tab bir dalı oluşturur, F2 yeniden adlandırır.
 
 Daha hızlı ilerlemek için bir belge içe aktarın, asistanın sorularını yanıtlayın veya otomasyon araçlarınızı bağlayın. Her adımı bir insan, bir otomasyon veya bir yapay zeka ajanı üstlenir.
+
+### Sözcük dağarcığını sektörünüze uyarlayın
+
+Canvas ayarlarında **Sözcük dağarcığı** bölümünde, bir hazır ayar «müşteri» ve «sipariş» sözcüklerini mesleğinize uyarlar:
+
+| Hazır ayar | Müşteri | Sipariş |
+|---|---|---|
+| Hizmet ve danışmanlık | Müşteri | Görev |
+| Ticaret ve e-ticaret | Müşteri | Sipariş |
+| Sanayi ve lojistik | Müşteri | Üretim emri |
+| Muhasebe ve hukuk | Müşteri | Dosya |
+| Sağlık ve bakım | Hasta | Dosya |
+
+Yalnızca görüntülenen sözcükler değişir: tabloların ve alanların adları değiştirilmez.
 
 ## Bir okuma biçimi seçin
 
@@ -54,6 +68,8 @@ Bir adım bir doğrulama durumu (**doğrulanacak**, **doğrulandı**, **gözden 
 ## Tahmin ve gerçeği karşılaştırın
 
 Her adıma **ölçümler** girin: dakika, hacim, hata oranı ve ölçümün kaynağı. **Tahmin ve gerçek** paneli tahmini ölçümle **yalnızca ölçülen adımlarda** karşılaştırır ve ölçülen adımların oranını gösterir; böylece toplama ne kadar güvenebileceğinizi bilirsiniz. Ayrıca süreç başına ve adım başına bir okuma sunar, canvas'taki adıma bir bağlantıyla birlikte. Maliyetler ekibinizin girdiği veriler olarak kalır: TblFlow bunları karşılaştırır, ölçmez.
+
+Bir otomasyon tarafından yürütülen bir adımda **Otomasyondan içe aktar** düğmesi, ölçümleri son 30 günlük çalıştırmalardan doldurur: dakika cinsinden ortalama süre, aylık hacim ve başarısızlık oranı. Bir önizleme öncesini ve sonrasını gösterir; siz onaylamadan hiçbir şey yazılmaz. İçe aktarma, elle girilen ölçümlerin yerine geçer. İnsan, harici veya bir ajan tarafından yürütülen adımlar için ya da otomasyonun 30 gün içinde hiç çalıştırması yoksa sunulmaz.
 
 ## Önce ve sonrayı karşılaştırın
 

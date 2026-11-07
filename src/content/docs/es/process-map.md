@@ -6,7 +6,7 @@ section: "Guías"
 order: 5
 ---
 
-El mapa de procesos es una página de tu espacio donde dibujas quién hace qué y con qué herramientas, y después lees las rupturas y los costes estimados. Un proceso se puede diagnosticar gratis, con los costes estimados visibles, sin el botón «Reemplazar» y sin el informe mensual. El mapa completo empieza en el plan Esencial.
+El mapa de procesos es una página de tu espacio donde dibujas quién hace qué y con qué herramientas, y después lees las rupturas y los costes estimados. Un proceso se puede diagnosticar gratis, con los costes estimados visibles, sin el botón «Reemplazar», sin el informe mensual y sin la comparación de lo estimado con lo real. Estas funciones siguen visibles, bloqueadas. El mapa completo empieza en el plan Esencial.
 
 ## Abrir o crear el mapa
 
@@ -19,6 +19,20 @@ La primera vez que lo abres, un clic crea el mapa. Eliges crearlo **con ejemplos
 Arrastra para desplazar el lienzo y usa la rueda para ampliar. Haz clic en un paso para seleccionarlo; con doble clic o Espacio se abre su registro. Intro crea el paso siguiente, Tab una rama y F2 lo renombra.
 
 Para ir más rápido, importa un documento, responde a las preguntas del asistente o conecta tus herramientas de automatización. Cada paso lo lleva a cabo una persona, una automatización o un agente de IA.
+
+### Adaptar el vocabulario a tu sector
+
+En los ajustes del lienzo, sección **Vocabulario**, un preajuste adapta las palabras «cliente» y «pedido» a tu actividad:
+
+| Preajuste | Cliente | Pedido |
+|---|---|---|
+| Servicios y consultoría | Cliente | Misión |
+| Comercio y e-commerce | Cliente | Pedido |
+| Industria y logística | Cliente | Orden de fabricación |
+| Contabilidad y asuntos jurídicos | Cliente | Expediente |
+| Salud y cuidados | Paciente | Expediente |
+
+Solo cambian las palabras que se muestran: las tablas y los campos no se renombran.
 
 ## Elegir una lectura
 
@@ -54,6 +68,8 @@ Un paso puede llevar un estado de validación (**por validar**, **validado**, **
 ## Comparar estimado y real
 
 En cada paso, introduce **mediciones**: minutos, volumen, tasa de error y la fuente de la medición. El panel **Estimado vs real** compara la estimación con la medición, **solo en los pasos medidos**, y muestra la proporción de pasos medidos, para que sepas cuánta confianza merece el total. También ofrece una lectura por proceso y por paso, con un enlace al paso en el lienzo. Los costes siguen siendo datos introducidos por tu equipo: TblFlow los compara, no los mide.
+
+En un paso ejecutado por una automatización, el botón **Importar desde la automatización** rellena las mediciones a partir de los últimos 30 días de ejecuciones: duración media en minutos, volumen al mes y tasa de fallos. Una vista previa muestra el antes y el después, y no se escribe nada hasta que lo confirmes. La importación sustituye las mediciones introducidas a mano. No se ofrece para un paso humano, externo o a cargo de un agente, ni cuando la automatización no tiene ninguna ejecución en 30 días.
 
 ## Comparar antes y después
 

@@ -6,7 +6,7 @@ section: "Guides"
 order: 5
 ---
 
-La Carto des process est une page de votre espace où vous dessinez qui fait quoi, avec quels outils, puis lisez les ruptures et les coûts estimés. Un processus se diagnostique gratuitement, avec ses coûts estimés visibles, sans bouton « Remplacer » ni rapport mensuel. La carte complète demande le plan Essentiel ou supérieur.
+La Carto des process est une page de votre espace où vous dessinez qui fait quoi, avec quels outils, puis lisez les ruptures et les coûts estimés. Un processus se diagnostique gratuitement, avec ses coûts estimés visibles, sans bouton « Remplacer », sans rapport mensuel et sans comparaison de l’estimé au réel. Ces fonctions restent visibles, verrouillées. La carte complète demande le plan Essentiel ou supérieur.
 
 ## Ouvrir ou créer la cartographie
 
@@ -19,6 +19,20 @@ Chaque espace a au plus une cartographie. Vous y accédez par l'icône de la pas
 Le canvas se déplace en le glissant et se zoome à la molette. Cliquez une étape pour la sélectionner ; double-clic ou Espace ouvre sa fiche. Entrée crée l'étape suivante, Tab une branche, F2 renomme.
 
 Pour aller plus vite, importez un document, répondez aux questions de l'assistant ou connectez vos outils d'automatisation. Chaque étape est portée par un humain, une automatisation ou un agent IA.
+
+### Adapter le vocabulaire à votre secteur
+
+Dans les réglages du canvas, section **Vocabulaire**, un préréglage adapte les mots « client » et « commande » à votre métier :
+
+| Préréglage | Client | Commande |
+|---|---|---|
+| Services et conseil | Client | Mission |
+| Commerce et e-commerce | Client | Commande |
+| Industrie et logistique | Client | Ordre de fabrication |
+| Comptabilité et juridique | Client | Dossier |
+| Santé et soins | Patient | Dossier |
+
+Seuls les mots affichés changent : les tables et les champs ne sont pas renommés.
 
 ## Choisir une lecture
 
@@ -54,6 +68,8 @@ Une étape peut porter un statut de validation (**à valider**, **validée**, **
 ## Comparer l'estimé au réel
 
 Sur chaque étape, saisissez des **mesures** : minutes, volume, taux d'erreur et source de la mesure. Le panneau **Estimé vs réel** compare l'estimé au mesuré, **sur les seules étapes mesurées**, et indique la part des étapes mesurées, pour savoir quelle confiance accorder au total. Il propose aussi une lecture par processus et par étape, avec un lien vers l'étape dans le canvas. Les coûts restent des saisies de votre équipe : TblFlow les compare, il ne les mesure pas.
+
+Sur une étape exécutée par une automatisation, le bouton **Importer depuis l'automatisation** remplit les mesures à partir des 30 derniers jours d'exécutions : durée moyenne en minutes, volume par mois et taux d'échec. Un aperçu montre l'avant et l'après, et rien n'est écrit avant votre confirmation. L'import remplace les mesures saisies à la main. Il n'est pas proposé pour une étape humaine, externe ou assurée par un agent, ni quand l'automatisation n'a aucune exécution sur 30 jours.
 
 ## Comparer avant et après
 

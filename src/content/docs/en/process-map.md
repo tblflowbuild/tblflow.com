@@ -6,7 +6,7 @@ section: "Guides"
 order: 5
 ---
 
-The process map is a page in your space where you draw who does what and with which tools, then read the breaks and the estimated costs. One process can be diagnosed for free, with its estimated costs visible, without the Replace button and without the monthly report. The full map starts at the Essential plan.
+The process map is a page in your space where you draw who does what and with which tools, then read the breaks and the estimated costs. One process can be diagnosed for free, with its estimated costs visible, without the Replace button, without the monthly report and without the comparison of estimated and actual. These features stay visible, locked. The full map starts at the Essential plan.
 
 ## Open or create the map
 
@@ -19,6 +19,20 @@ On first open, one click creates the map. You choose to create it **with example
 Drag to pan the canvas and use the wheel to zoom. Click a step to select it; double-click or Space opens its record. Enter creates the next step, Tab a branch, F2 renames.
 
 To go faster, import a document, answer the assistant's questions or connect your automation tools. Each step is carried by a person, an automation or an AI agent.
+
+### Adapt the vocabulary to your industry
+
+In the canvas settings, under **Vocabulary**, a preset adapts the words "customer" and "order" to your trade:
+
+| Preset | Customer | Order |
+|---|---|---|
+| Services and consulting | Client | Engagement |
+| Retail and e-commerce | Customer | Order |
+| Industry and logistics | Customer | Manufacturing order |
+| Accounting and legal | Client | Case file |
+| Healthcare and care | Patient | Case file |
+
+Only the displayed words change: tables and fields are not renamed.
 
 ## Choose a reading
 
@@ -54,6 +68,8 @@ A step can carry a validation status (**to validate**, **validated**, **to revie
 ## Compare estimated and actual
 
 On each step, enter **measurements**: minutes, volume, error rate and the source of the measurement. The **Estimated vs actual** panel compares the estimate with the measurement, **on the measured steps only**, and shows the share of measured steps, so you know how much confidence the total deserves. It also gives a reading per process and per step, with a link to the step in the canvas. Costs remain entries made by your team: TblFlow compares them, it does not measure them.
+
+On a step run by an automation, the **Import from the automation** button fills in the measurements from the last 30 days of runs: average duration in minutes, volume per month and failure rate. A preview shows before and after, and nothing is written until you confirm. The import replaces measurements entered by hand. It is not offered for a human step, an external step or a step handled by an agent, nor when the automation has no run in the last 30 days.
 
 ## Compare before and after
 

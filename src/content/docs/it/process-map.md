@@ -6,7 +6,7 @@ section: "Guide"
 order: 5
 ---
 
-La mappa dei processi è una pagina del tuo spazio in cui disegni chi fa cosa e con quali strumenti, poi leggi le rotture e i costi stimati. Un processo si può diagnosticare gratuitamente, con i costi stimati visibili, senza il pulsante «Sostituisci» e senza il report mensile. La mappa completa parte dal piano Essenziale.
+La mappa dei processi è una pagina del tuo spazio in cui disegni chi fa cosa e con quali strumenti, poi leggi le rotture e i costi stimati. Un processo si può diagnosticare gratuitamente, con i costi stimati visibili, senza il pulsante «Sostituisci», senza il report mensile e senza il confronto tra stimato e reale. Queste funzioni restano visibili, bloccate. La mappa completa parte dal piano Essenziale.
 
 ## Aprire o creare la mappa
 
@@ -19,6 +19,20 @@ Alla prima apertura, un clic crea la mappa. Scegli di crearla **con degli esempi
 Trascina per spostare la tela e usa la rotellina per ingrandire. Clicca su una fase per selezionarla; doppio clic o Spazio ne apre la scheda. Invio crea la fase successiva, Tab un ramo, F2 la rinomina.
 
 Per fare più in fretta, importa un documento, rispondi alle domande dell'assistente o collega i tuoi strumenti di automazione. Ogni fase è affidata a una persona, a un'automazione o a un agente IA.
+
+### Adattare il vocabolario al tuo settore
+
+Nelle impostazioni del canvas, sezione **Vocabolario**, un preset adatta le parole «cliente» e «ordine» al tuo mestiere:
+
+| Preset | Cliente | Ordine |
+|---|---|---|
+| Servizi e consulenza | Cliente | Incarico |
+| Commercio ed e-commerce | Cliente | Ordine |
+| Industria e logistica | Cliente | Ordine di produzione |
+| Contabilità e area legale | Cliente | Pratica |
+| Sanità e cure | Paziente | Cartella |
+
+Cambiano solo le parole mostrate: le tabelle e i campi non vengono rinominati.
 
 ## Scegliere una lettura
 
@@ -54,6 +68,8 @@ Una fase può avere uno stato di convalida (**da convalidare**, **convalidata**,
 ## Confrontare stimato e reale
 
 Su ogni fase, inserisci delle **misurazioni**: minuti, volume, tasso di errore e fonte della misurazione. Il pannello **Stimato vs reale** confronta la stima con la misurazione, **solo sulle fasi misurate**, e mostra la quota di fasi misurate, così sai quanta fiducia dare al totale. Fornisce anche una lettura per processo e per fase, con un link alla fase nel canvas. I costi restano inserimenti fatti dal tuo team: TblFlow li confronta, non li misura.
+
+Su una fase eseguita da un'automazione, il pulsante **Importa dall'automazione** compila le misurazioni a partire dagli ultimi 30 giorni di esecuzioni: durata media in minuti, volume al mese e tasso di errore. Un'anteprima mostra il prima e il dopo, e non viene scritto nulla prima della tua conferma. L'importazione sostituisce le misurazioni inserite a mano. Non è disponibile per una fase umana, esterna o affidata a un agente, né quando l'automazione non ha alcuna esecuzione negli ultimi 30 giorni.
 
 ## Confrontare prima e dopo
 
