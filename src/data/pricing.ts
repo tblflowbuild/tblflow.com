@@ -58,6 +58,17 @@ const pct = (value: number, digits: number): Record<Locale, string> =>
   ) as Record<Locale, string>;
 
 /** Gigabytes, with the unit spelled the way each language spells it. */
+const mb = (value: number): Record<Locale, string> => {
+  const unit: Record<Locale, string> = {
+    de: 'MB', en: 'MB', es: 'MB', fr: 'Mo', it: 'MB',
+    ja: 'MB', ru: 'МБ', tr: 'MB', uk: 'МБ', zh: 'MB',
+  };
+  const n = num(value);
+  return Object.fromEntries(
+    LOCALES.map((l) => [l, `${n[l]} ${unit[l]}`])
+  ) as Record<Locale, string>;
+};
+
 const gb = (value: number): Record<Locale, string> => {
   const unit: Record<Locale, string> = {
     de: 'GB', en: 'GB', es: 'GB', fr: 'Go', it: 'GB',
@@ -627,6 +638,16 @@ export const QUOTAS: QuotaRow[] = [
       tr: 'Depolama', uk: 'Сховище', zh: '存储',
     },
     values: { free: gb(1), pro: gb(100), business: gb(500), enterprise: UNLIMITED },
+  },
+  {
+    // Document library media (plan-limits.ts: total per space), separate from the database storage above.
+    label: {
+      de: 'Medien (Dokumentbibliothek)', en: 'Media (document library)', es: 'Medios (biblioteca de documentos)',
+      fr: 'Médias (bibliothèque de documents)', it: 'Media (libreria di documenti)', ja: 'メディア（ドキュメントライブラリ）',
+      ru: 'Медиа (библиотека документов)', tr: 'Medya (belge kitaplığı)', uk: 'Медіа (бібліотека документів)',
+      zh: '媒体（文档库）',
+    },
+    values: { free: mb(200), pro: gb(20), business: gb(100), enterprise: UNLIMITED },
   },
   {
     label: {
