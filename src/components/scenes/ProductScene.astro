@@ -13,7 +13,7 @@
  */
 import { APP_UI, fill } from '@/data/appUi';
 import { JOURNEY } from '@/data/journey';
-import { HERO_DEMO, HERO_DEMO_QUOTES } from '@/data/heroDemo';
+import { HERO_DEMO, HERO_DEMO_FIGURES, HERO_DEMO_QUOTES, HERO_DEMO_TOOLS } from '@/data/heroDemo';
 import { hm } from '@/data/home';
 import { APP_ICON } from '@/data/appIcons';
 import { formatPrice, type Locale } from '@/config';
@@ -36,18 +36,14 @@ const REPLAY: Record<Locale, string> = {
 };
 
 /** Monthly figures of the example (13 h a month of re-keying). */
-const MONTHLY_COST = 520;
-const STEP_COST = [173, 173, 174];
-const REALIZED = 347;
-const COVERED = 67;
+const { monthlyCost: MONTHLY_COST, stepCost: STEP_COST, realized: REALIZED, covered: COVERED } = HERO_DEMO_FIGURES;
 
 const perMonth = (amount: number) => fill(ui.perMonth, { amount: formatPrice(locale, amount) });
 /** The finished text with its figure replaced by `#`, for the count-up. */
 const countTemplate = (text: string, n: number) => text.replace(String(n), '#');
 const stepTitle = (n: 1 | 2 | 3) => hm(locale, `example.step${n}.title` as const);
 const steps = [1, 2, 3] as const;
-/** The tool each step of the problem is typed into (fictional, common SMB tools). */
-const PROBLEM_TOOLS = ['Word', 'Excel', 'Google Sheets'];
+const PROBLEM_TOOLS = HERO_DEMO_TOOLS;
 
 const ICON = APP_ICON;
 ---

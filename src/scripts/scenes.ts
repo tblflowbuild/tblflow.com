@@ -65,9 +65,9 @@ for (const scene of scenes) {
 }
 
 /**
- * Hero window: the tabs play on their own, one every HERO_TAB_MS, while the
- * window is on screen and the page is visible. The first pointer or key
- * inside the window hands control to the visitor for good.
+ * Hero window: the before / after switch plays on its own, one side every
+ * HERO_TAB_MS, while the window is on screen and the page is visible. The
+ * first pointer or key inside the window hands control to the visitor.
  */
 const HERO_TAB_MS = 5000;
 
@@ -91,6 +91,8 @@ function autoplayHeroTabs(hero: HTMLElement): void {
   }).observe(hero);
   hero.style.setProperty('--hw-cycle', `${HERO_TAB_MS}ms`);
   hero.setAttribute('data-auto', '');
+  // The markup shows the last state (after TblFlow); the story starts before.
+  radios[0].checked = true;
 }
 
 const heroWindow = document.querySelector<HTMLElement>('.hw');

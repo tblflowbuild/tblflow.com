@@ -406,11 +406,13 @@ button.ai-gradient-bg:hover {
 }
 
 /* ---------------------------------------------------------------------------
- * Hero window: the TblFlow app (see app-ui.css), four views switched by
- * native radios (see HeroWindow.astro). The tabs are the app's lens pills.
- * Panels share one minimum height so switching never moves the page below.
+ * Hero window: one process map, before and after TblFlow (HeroWindow.astro).
+ * Two native radios drive it; the switch labels are the app's lens pills.
+ * `.hw-b` shows before, `.hw-a` after; cards change in place: the executor
+ * stripe grows, the icon takes the executor colour.
  * ------------------------------------------------------------------------- */
 .hw-tab {
+  position: relative;
   display: inline-flex;
   flex: none;
   align-items: center;
@@ -425,61 +427,20 @@ button.ai-gradient-bg:hover {
 .hw-tab:hover {
   color: var(--tf-fg);
 }
-.hw-panel {
-  display: none;
-  min-height: 15rem;
-  padding: 1.5rem;
-}
-@media (min-width: 640px) {
-  .hw-panel {
-    min-height: 20rem;
-    padding: 2rem;
-  }
-}
-#hw-map:checked ~ .hw-window .hw-panel--map,
-#hw-table:checked ~ .hw-window .hw-panel--table,
-#hw-agent:checked ~ .hw-window .hw-panel--agent,
-#hw-app:checked ~ .hw-window .hw-panel--app {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-#hw-map:checked ~ .hw-window label[for='hw-map'],
-#hw-table:checked ~ .hw-window label[for='hw-table'],
-#hw-agent:checked ~ .hw-window label[for='hw-agent'],
-#hw-app:checked ~ .hw-window label[for='hw-app'] {
+#hw-before:checked ~ .hw-window label[for='hw-before'],
+#hw-after:checked ~ .hw-window label[for='hw-after'] {
   background: var(--tf-popover);
   color: var(--tf-fg);
 }
-/* The table view fills the window like the other views: full width, roomier
-   rows than the compact table used elsewhere. */
-.hw-panel--table .demo-grid {
-  grid-template-columns: 2rem repeat(3, minmax(0, 1fr));
+#hw-before:focus-visible ~ .hw-window label[for='hw-before'],
+#hw-after:focus-visible ~ .hw-window label[for='hw-after'] {
+  outline: 2px solid var(--color-ai-2);
+  outline-offset: 2px;
 }
-.hw-panel--table .demo-grid > * {
-  min-width: 0;
-  min-height: 44px;
-  padding: 8px;
-  font-size: 13px;
-}
-@media (min-width: 640px) {
-  .hw-panel--table .demo-grid {
-    grid-template-columns: 2.5rem repeat(3, minmax(0, 1fr));
-  }
-  .hw-panel--table .demo-grid > * {
-    padding: 8px 16px;
-  }
-}
-
-/* While the tabs play on their own, the active one shows the time left. */
-.hw-tab {
-  position: relative;
-}
+/* While the switch plays on its own, the active side shows the time left. */
 .hw[data-auto] :is(
-    #hw-map:checked ~ .hw-window label[for='hw-map'],
-    #hw-table:checked ~ .hw-window label[for='hw-table'],
-    #hw-agent:checked ~ .hw-window label[for='hw-agent'],
-    #hw-app:checked ~ .hw-window label[for='hw-app']
+    #hw-before:checked ~ .hw-window label[for='hw-before'],
+    #hw-after:checked ~ .hw-window label[for='hw-after']
   )::after {
   content: '';
   position: absolute;
@@ -493,75 +454,53 @@ button.ai-gradient-bg:hover {
   transform-origin: left center;
   animation: sc-grow var(--hw-cycle, 5000ms) linear both;
 }
-#hw-map:focus-visible ~ .hw-window label[for='hw-map'],
-#hw-table:focus-visible ~ .hw-window label[for='hw-table'],
-#hw-agent:focus-visible ~ .hw-window label[for='hw-agent'],
-#hw-app:focus-visible ~ .hw-window label[for='hw-app'] {
-  outline: 2px solid var(--color-ai-2);
-  outline-offset: 2px;
-}
 
-/* ---------------------------------------------------------------------------
- * "Table animée" — cells lighting up in sequence, as if an agent were filling
- * them in. One keyframe, five staggered delays: the cascade comes from
- * `animation-delay`, not from the animation. The long dead plateau after 45% is
- * what spaces the waves out instead of leaving the grid blinking.
- *
- * Ported from the source artifact onto the site's own tokens — its palette was
- * a teal unrelated to this brand.
- * ------------------------------------------------------------------------- */
-.demo-grid {
-  display: grid;
-  grid-template-columns: 1.75rem repeat(3, 1fr);
-  gap: 1px;
-  background-color: var(--border);
-  border: 1px solid var(--border);
-}
-.demo-grid > * {
-  background-color: var(--bg-raised);
-  padding: 4px 8px;
-  font-size: 12px;
-  line-height: 16px;
-  color: var(--fg-muted);
+.hw-stage {
   display: flex;
-  align-items: center;
-  min-height: 28px;
-}
-.demo-grid .hcell,
-.demo-grid .rcell {
-  background-color: var(--bg-subtle);
-  color: var(--fg-subtle);
-  font-family: var(--font-mono);
+  flex-direction: column;
   justify-content: center;
+  min-height: 20rem;
+  padding: 1.5rem;
 }
-@media (prefers-reduced-motion: no-preference) {
-  .demo-grid .filling {
-    animation: fillcell 5.5s var(--ease-out-soft) infinite;
-  }
-  .demo-grid .d1 { animation-delay: 0.2s; }
-  .demo-grid .d2 { animation-delay: 0.9s; }
-  .demo-grid .d3 { animation-delay: 1.6s; }
-  .demo-grid .d4 { animation-delay: 2.3s; }
-  .demo-grid .d5 { animation-delay: 3s; }
-}
-@keyframes fillcell {
-  0% {
-    background-color: var(--bg-raised);
-    box-shadow: none;
-  }
-  8%,
-  30% {
-    background-color: color-mix(in oklab, var(--color-ai-2) 16%, var(--bg-raised));
-    /* inset, so a lit cell never nudges the grid by a pixel */
-    box-shadow: inset 0 0 0 1.5px var(--color-ai-2);
-  }
-  45%,
-  100% {
-    background-color: var(--bg-raised);
-    box-shadow: none;
+@media (min-width: 640px) {
+  .hw-stage {
+    padding: 2rem;
   }
 }
 
+/* The inactive state fades out and leaves the accessibility tree. */
+.hw-a,
+.hw-b {
+  transition: opacity 400ms var(--ease-out-soft), visibility 400ms;
+}
+#hw-after:checked ~ .hw-window .hw-b,
+#hw-before:checked ~ .hw-window .hw-a {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hw-step::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 12px 0 0 12px;
+  background: var(--exec, transparent);
+  transform: scaleY(0);
+  transition: transform 400ms var(--ease-out-soft);
+}
+.hw-step .tf-step__icon {
+  transition: background-color 400ms var(--ease-out-soft), color 400ms var(--ease-out-soft);
+}
+#hw-after:checked ~ .hw-window .hw-step::before {
+  transform: scaleY(1);
+}
+#hw-after:checked ~ .hw-window .hw-step[style] .tf-step__icon {
+  background: color-mix(in oklab, var(--exec) 12%, transparent);
+  color: var(--exec);
+}
 
 /* Long-form article styling — applied to rendered markdown. */
 .prose-site {

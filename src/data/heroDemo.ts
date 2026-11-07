@@ -181,3 +181,17 @@ export const HERO_DEMO: Record<Locale, {
     domain: 'portal.yourdomain.cn',
   },
 };
+
+/**
+ * Monthly figures of the example, shared by the hero (before / after) and the
+ * journey: 13 hours a month of re-keying, then two of three steps covered.
+ */
+export const HERO_DEMO_FIGURES = {
+  monthlyCost: 520,
+  stepCost: [173, 173, 174],
+  realized: 347,
+  covered: 67,
+} as const;
+
+/** The tool each step of the example is typed into before TblFlow (fictional, common SMB tools). */
+export const HERO_DEMO_TOOLS = ['Word', 'Excel', 'Google Sheets'] as const;

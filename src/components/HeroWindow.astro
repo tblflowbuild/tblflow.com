@@ -1,24 +1,22 @@
 ---
 /**
- * The product window under the hero: the TblFlow app itself (dark app theme,
- * the app's own labels, see app-ui.css and appUi.ts), four views of the same
- * work. The process map finds the re-keying, the table replaces it, the agent
- * fills the table, the app publishes it.
+ * The product window under the hero: one TblFlow process map in two states,
+ * before and after TblFlow. A switch in the window's toolbar flips it; the
+ * cards stay where they are and change in place (executor stripe, icon,
+ * subtitle), the re-keyings turn into plain links and the banner swaps cost
+ * for gain. The app's own theme and labels (app-ui.css, appUi.ts).
  *
- * Tabs are native radio buttons, so they switch with a click or the arrow
- * keys and need no script. The radios sit before the window in the markup
- * because CSS can only look forward: `:checked ~` picks the panel and the
- * active tab.
+ * The switch is two native radio buttons, so it works with a click or the
+ * arrow keys and needs no script; scenes.ts only plays it on its own. The
+ * radios sit before the window because CSS can only look forward. Without
+ * script the window shows the "after" state, the one the page argues for.
  *
- * One fictional story runs through the four views (see heroDemo.ts): the
- * quotes typed by hand on the map are the rows of the table, the agent
- * invoices the accepted ones, the portal shows what is left to invoice.
+ * Same fictional story and figures as the journey (heroDemo.ts).
  */
-import { pm } from '@/data/processMap';
 import { hm } from '@/data/home';
-import { APP_UI } from '@/data/appUi';
+import { APP_UI, fill } from '@/data/appUi';
 import { APP_ICON as ICON } from '@/data/appIcons';
-import { HERO_DEMO, HERO_DEMO_QUOTES } from '@/data/heroDemo';
+import { HERO_DEMO_FIGURES as FIG, HERO_DEMO_TOOLS } from '@/data/heroDemo';
 import { formatPrice, type Locale } from '@/config';
 
 interface Props {
@@ -26,154 +24,116 @@ interface Props {
 }
 
 const { locale } = Astro.props;
-const copy = HERO_DEMO[locale];
 const ui = APP_UI[locale];
-const quotes = HERO_DEMO_QUOTES;
-const accepted = quotes.filter((q) => q.accepted);
-const toInvoice = accepted.reduce((sum, q) => sum + q.amount, 0);
 
-const tabs = [
-  { id: 'map', label: pm(locale, 'nav') },
-  { id: 'table', label: copy.table },
-  { id: 'agent', label: copy.agentTitle },
-  { id: 'app', label: copy.appKicker },
-] as const;
+const SWITCH: Record<Locale, [before: string, after: string]> = {
+  de: ['Ohne TblFlow', 'Mit TblFlow'],
+  en: ['Without TblFlow', 'With TblFlow'],
+  es: ['Sin TblFlow', 'Con TblFlow'],
+  fr: ['Sans TblFlow', 'Avec TblFlow'],
+  it: ['Senza TblFlow', 'Con TblFlow'],
+  ja: ['TblFlow なし', 'TblFlow あり'],
+  ru: ['Без TblFlow', 'С TblFlow'],
+  tr: ['TblFlow olmadan', 'TblFlow ile'],
+  uk: ['Без TblFlow', 'З TblFlow'],
+  zh: ['使用 TblFlow 前', '使用 TblFlow 后'],
+};
+const [beforeLabel, afterLabel] = SWITCH[locale];
 
-const steps = [1, 2, 3] as const;
+const perMonth = (amount: number) => fill(ui.perMonth, { amount: formatPrice(locale, amount) });
+
+/** After TblFlow: the quote stays human, the order is automated, the invoice goes to an agent. */
+const STEPS = [
+  { n: 1 as const, exec: undefined, icon: ICON.user, after: `${ui.human} · ${ui.entry}` },
+  { n: 2 as const, exec: 'var(--tf-automation)', icon: ICON.zap, after: ui.automation },
+  { n: 3 as const, exec: 'var(--tf-agent)', icon: ICON.bot, after: ui.agent },
+];
 ---
 
 <div class="hw">
-  {
-    tabs.map((tab, i) => (
-      <input
-        type="radio"
-        name="hero-window"
-        id={`hw-${tab.id}`}
-        class="hw-radio sr-only"
-        checked={i === 0}
-      />
-    ))
-  }
+  <input type="radio" name="hero-window" id="hw-before" class="hw-radio sr-only" />
+  <input type="radio" name="hero-window" id="hw-after" class="hw-radio sr-only" checked />
 
   <div class="hw-window tf-app text-left">
     <div class="tf-top">
       <span class="tf-pill hidden sm:inline-flex" aria-hidden="true"><b>TblFlow</b></span>
-      <div class="tf-pill min-w-0 gap-1 overflow-x-auto px-1">
-        {
-          tabs.map((tab) => (
-            <label for={`hw-${tab.id}`} class="hw-tab">
-              {tab.label}
-            </label>
-          ))
-        }
+      <div class="tf-pill gap-1 px-1">
+        <label for="hw-before" class="hw-tab">{beforeLabel}</label>
+        <label for="hw-after" class="hw-tab">{afterLabel}</label>
       </div>
     </div>
 
-    <div class="hw-panels">
-      {/* 1. The process map: three steps typed by hand, two re-keyings. */}
-      <section class="hw-panel hw-panel--map tf-canvas">
-        <ol class="flex flex-col items-stretch md:flex-row md:items-center">
-          {
-            steps.map((n) => (
-              <>
-                {n > 1 && (
-                  <li class="relative flex h-10 items-center justify-center md:h-auto md:w-24 md:flex-none">
-                    <span class="block h-full border-l-[1.5px] border-dashed border-[var(--tf-destructive)] md:h-0 md:w-full md:border-t-[1.5px] md:border-l-0" aria-hidden="true"></span>
-                    <span class="absolute bg-[var(--tf-bg)] px-1 text-xs text-[var(--tf-destructive)] md:-top-5">
-                      {hm(locale, 'example.break')}
+    <div class="hw-stage tf-canvas">
+      {/* Banner: cost and ruptures before, gain and coverage after. */}
+      <div class="grid gap-2 sm:max-w-2xl sm:grid-cols-3">
+        <div class="tf-kpi sc-stack">
+          <div class="hw-b">
+            <p class="tf-kpi__label">{ui.cost}</p>
+            <p class="tf-kpi__value">{perMonth(FIG.monthlyCost)}</p>
+          </div>
+          <div class="hw-a">
+            <p class="tf-kpi__label">{ui.realized}</p>
+            <p class="tf-kpi__value text-[#34d399]">{perMonth(FIG.realized)}</p>
+          </div>
+        </div>
+        <div class="tf-kpi">
+          <p class="tf-kpi__label">{ui.ruptures}</p>
+          <p class="tf-kpi__value sc-stack">
+            <span class="hw-b text-[var(--tf-destructive)]">2</span>
+            <span class="hw-a">0</span>
+          </p>
+        </div>
+        <div class="tf-kpi">
+          <p class="tf-kpi__label">{ui.covered}</p>
+          <p class="tf-kpi__value sc-stack">
+            <span class="hw-b">0 %</span>
+            <span class="hw-a">{FIG.covered} %</span>
+          </p>
+        </div>
+      </div>
+
+      {/* The same three steps; links and cards change in place. */}
+      <ol class="mt-8 flex flex-col items-stretch md:flex-row md:items-center">
+        {
+          STEPS.map((step, i) => (
+            <>
+              {i > 0 && (
+                <li class="relative flex h-12 items-center justify-center md:h-auto md:w-28 md:flex-none">
+                  <span class="hw-b absolute inset-0 flex items-center justify-center" aria-hidden="true">
+                    <span class="block h-full border-l-[1.5px] border-dashed border-[var(--tf-destructive)] md:h-0 md:w-full md:border-t-[1.5px] md:border-l-0"></span>
+                  </span>
+                  <span class="hw-a absolute inset-0 flex items-center justify-center" aria-hidden="true">
+                    <span class="block h-full border-l-[1.25px] border-[var(--tf-muted)] md:h-0 md:w-full md:border-t-[1.25px] md:border-l-0"></span>
+                  </span>
+                  <span class="hw-b relative bg-[var(--tf-bg)] px-1 text-xs text-[var(--tf-destructive)] md:absolute md:-top-5">
+                    {hm(locale, 'example.break')}
+                  </span>
+                </li>
+              )}
+              <li class="tf-step hw-step md:flex-1" style={step.exec ? `--exec:${step.exec}` : undefined}>
+                <span class="tf-step__icon sc-stack" aria-hidden="true">
+                  <svg class="hw-b" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d={ICON.user} stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                  <svg class="hw-a" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d={step.icon} stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </span>
+                <span class="min-w-0">
+                  <span class="block font-semibold">{hm(locale, `example.step${step.n}.title` as const)}</span>
+                  <span class="sc-stack text-xs tf-muted">
+                    <span class="hw-b">
+                      {ui.human} · {ui.entry}
+                      <span class="mt-1 flex items-center gap-1">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={ICON.wrench} stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
+                        {HERO_DEMO_TOOLS[i]}
+                      </span>
                     </span>
-                  </li>
-                )}
-                <li class="tf-step md:flex-1">
-                  <span class="tf-step__icon" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d={ICON.user} stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                    <span class="hw-a">{step.after}</span>
                   </span>
-                  <span class="min-w-0">
-                    <span class="block font-semibold">{hm(locale, `example.step${n}.title` as const)}</span>
-                    <span class="block text-xs tf-muted">{ui.human} · {ui.entry}</span>
-                  </span>
-                  {n > 1 && <span class="tf-step__badge" aria-hidden="true">1</span>}
-                </li>
-              </>
-            ))
-          }
-        </ol>
-        <p class="corner-ticks tf-mono mt-6 px-4 py-3 text-sm tabular-nums" style="--tick: 0.75rem;">
-          {hm(locale, 'example.calc')}
-        </p>
-      </section>
-
-      {/* 2. The table that replaces the re-keying, cells filling in. */}
-      <section class="hw-panel hw-panel--table">
-        <div class="demo-grid">
-          <div class="hcell"></div>
-          {copy.cols.map((c) => <div class="hcell">{c}</div>)}
-          {
-            quotes.map((quote, i) => (
-              <>
-                <div class="rcell">{i + 1}</div>
-                <div>{quote.client}</div>
-                <div class:list={['filling', `d${i + 1}`]}>
-                  <span class:list={['rounded px-1.5 py-0.5', quote.accepted ? 'bg-[#05964f33] text-[#34d399]' : 'bg-[var(--tf-muted-bg)] tf-muted']}>
-                    {quote.accepted ? copy.accepted : copy.sent}
-                  </span>
-                </div>
-                <div class:list={['filling', 'justify-end tabular-nums', `d${i + 2}`]}>{formatPrice(locale, quote.amount)}</div>
-              </>
-            ))
-          }
-        </div>
-        <p class="mt-4 text-xs tf-muted">{copy.tableFoot}</p>
-      </section>
-
-      {/* 3. The agent writing into the table: tool calls, then the result. */}
-      <section class="hw-panel hw-panel--agent">
-        <p class="ml-auto max-w-md rounded-lg border bg-[var(--tf-muted-bg)] px-3 py-2">{copy.prompt}</p>
-        <div class="mt-3 flex gap-2">
-          <span class="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-[#4f46e5] text-white" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d={ICON.sparkles} stroke="currentColor" stroke-width="2" stroke-linejoin="round" /></svg>
-          </span>
-          <ol class="min-w-0 flex-1 space-y-2">
-            {
-              copy.steps.map((step) => (
-                <li class="flex items-center gap-2 rounded-md border bg-[var(--tf-muted-bg)] px-2 py-1.5 text-xs">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" class="flex-none text-[#34d399]" aria-hidden="true"><path d={ICON.check} stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
-                  {step}
-                </li>
-              ))
-            }
-          </ol>
-        </div>
-        <p class="mt-4 flex items-center gap-2 border-t pt-4 text-xs tf-muted">
-          <span class="h-2 w-2 rounded-full bg-[var(--tf-success)]" aria-hidden="true"></span>
-          {copy.agentBody}
-        </p>
-      </section>
-
-      {/* 4. The app published on the customer's own domain. */}
-      <section class="hw-panel hw-panel--app">
-        <p class="tf-pill self-start">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={ICON.lock} stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
-          <span class="tf-mono text-xs">{copy.domain}</span>
-        </p>
-        <p class="mt-4 flex items-center gap-2 text-base font-medium">
-          <span class="h-2 w-2 rounded-full bg-[#a48bff]" aria-hidden="true"></span>
-          {copy.appTitle}
-        </p>
-        <dl class="mt-4 grid grid-cols-2 gap-2 sm:max-w-md">
-          {
-            [
-              [copy.stats[0], String(accepted.length)],
-              [copy.stats[1], formatPrice(locale, toInvoice)],
-            ].map(([label, value]) => (
-              <div class="tf-kpi flex flex-col">
-                <dt class="tf-kpi__label order-1">{label}</dt>
-                <dd class="tf-kpi__value order-2">{value}</dd>
-              </div>
-            ))
-          }
-        </dl>
-      </section>
+                </span>
+                {i > 0 && <span class="tf-step__badge hw-b" aria-hidden="true">1</span>}
+              </li>
+            </>
+          ))
+        }
+      </ol>
     </div>
   </div>
 </div>
