@@ -427,19 +427,6 @@ button.ai-gradient-bg:hover {
 }
 
 /* ---------------------------------------------------------------------------
- * Bubble navbar — the floating pill the app uses, rather than a full-width bar
- * welded to the top edge.
- * ------------------------------------------------------------------------- */
-.nav-bubble {
-  border-radius: 999px;
-  background-color: color-mix(in oklab, var(--bg-raised) 78%, transparent);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-card);
-  backdrop-filter: blur(14px) saturate(1.4);
-  -webkit-backdrop-filter: blur(14px) saturate(1.4);
-}
-
-/* ---------------------------------------------------------------------------
  * Theme switch — a real <button role="switch">, so it is operable by keyboard
  * and announces its state. The thumb slides; the two icons cross-fade.
  * ------------------------------------------------------------------------- */
@@ -492,40 +479,13 @@ button.ai-gradient-bg:hover {
 }
 
 /* ---------------------------------------------------------------------------
- * Hero card stack — three product panels, the outer two pushed back and turned
- * on their Y axis so the middle one reads as the front of a deck.
+ * Hero cards: three panels side by side, flat like sheets laid on a drawing
+ * table. The table sits in the middle and is the widest; below the width where
+ * three fit, only the table stays.
  * ------------------------------------------------------------------------- */
 .card-stack {
-  perspective: 1200px;
-  perspective-origin: 50% 40%;
+  gap: 1rem;
 }
-.stack-card {
-  transform-style: preserve-3d;
-  transition: transform 0.5s var(--ease-out-soft);
-}
-/* The outer two overlap inward, so the deck reads as one object rather than
-   three cards in a row. Negative margins, not gaps. */
-.stack-card--left {
-  transform: translateZ(-50px) rotateY(10deg);
-  margin-right: -3.5rem;
-}
-.stack-card--right {
-  transform: translateZ(-50px) rotateY(-10deg);
-  margin-left: -3.5rem;
-}
-.stack-card--center {
-  z-index: 1;
-}
-@media (hover: hover) {
-  .card-stack:hover .stack-card--left {
-    transform: translateZ(-30px) rotateY(7deg);
-  }
-  .card-stack:hover .stack-card--right {
-    transform: translateZ(-30px) rotateY(-7deg);
-  }
-}
-/* Below the fold-out width the deck stops being legible: drop to the front
-   card alone rather than shrinking three unreadable ones. */
 @media (max-width: 860px) {
   .stack-card--left,
   .stack-card--right {

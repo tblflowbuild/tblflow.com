@@ -30,13 +30,13 @@ const proof = [
 
 ---
 
-<section class="corner-ticks relative isolate mx-2 overflow-hidden sm:mx-4" style="--tick: 1.4rem;">
-  <div class="mx-auto max-w-4xl px-4 pt-10 text-center sm:px-6 sm:pt-14">
+<section class="relative">
+  <div class="mx-auto max-w-4xl px-4 pt-12 text-center sm:px-6 sm:pt-16">
     <div class="animate-enter-fade flex justify-center">
-      <Logo size={72} animate title="TblFlow" />
+      <Logo size={48} animate title="TblFlow" />
     </div>
 
-    <p class="eyebrow animate-enter delay-1 mt-8 justify-center">
+    <p class="eyebrow animate-enter delay-1 mt-6 justify-center">
       {t('hero.eyebrow')}
     </p>
 
@@ -58,7 +58,7 @@ const proof = [
         other. */}
     <a
       href={SIGNUP_TRIAL_URL}
-      class="ai-gradient-bg animate-enter delay-4 mt-9 inline-block rounded-xl px-6 py-3 text-base font-medium text-white"
+      class="ai-gradient-bg animate-enter delay-4 mt-8 inline-block rounded-lg px-6 py-3 text-base font-medium text-white"
     >
       {t('hero.cta.primary')}
     </a>
@@ -71,7 +71,8 @@ const proof = [
     </p>
 
     <dl
-      class="animate-enter delay-4 mx-auto mt-14 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4"
+      class="animate-enter delay-4 corner-ticks mx-auto mt-12 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-8 px-6 py-6 sm:grid-cols-4"
+      style="--tick: 1rem;"
     >
       {
         /* dt must precede dd in the markup, but the number should read first
@@ -80,7 +81,7 @@ const proof = [
         proof.map((item) => (
           <div class="flex flex-col">
             <dt class="order-2 mt-1 text-xs text-[var(--fg-subtle)]">{item.label}</dt>
-            <dd class:list={['order-1 font-mono font-medium tabular-nums', item.small ? 'text-xl leading-9 sm:text-2xl' : 'text-2xl sm:text-3xl']}>{item.value}</dd>
+            <dd class:list={['order-1 font-medium tabular-nums', item.small ? 'text-xl leading-9 sm:text-2xl' : 'text-2xl sm:text-3xl']}>{item.value}</dd>
           </div>
         ))
       }
@@ -96,7 +97,7 @@ const proof = [
       centred element in it — measured at 46px off-centre. So it gets its own
       container instead. */}
   <div class="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
-    <div class="animate-enter delay-4">
+    <div class="animate-enter delay-4 mt-4">
       <HeroCards locale={locale} />
     </div>
 

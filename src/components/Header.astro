@@ -40,11 +40,10 @@ const isActive = (match?: string) => Boolean(match) && current.startsWith(match!
   {t('nav.skip')}
 </a>
 
-{/* Floating pill rather than a full-width bar welded to the top edge — the same
-    shape the app uses for its own toolbars. The outer element stays sticky and
-    transparent; the bubble is the inner one, so the blur has a gap to sit in. */}
-<header class="sticky top-0 z-40 px-3 pt-3 sm:px-4 sm:pt-4">
-  <div class="nav-bubble mx-auto flex h-14 max-w-5xl items-center gap-3 px-4 sm:px-5">
+{/* A full-width bar on an opaque page background, with one hairline under
+    it: no blur, no floating pill. */}
+<header class="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--bg)]">
+  <div class="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4 sm:px-6">
     <a
       href={localePath(locale)}
       class="flex shrink-0 items-center gap-2 font-medium"
@@ -80,14 +79,14 @@ const isActive = (match?: string) => Boolean(match) && current.startsWith(match!
 
       <a
         href={`${APP_URL}/auth/login`}
-        class="hidden rounded-full px-3 py-2 text-sm font-medium text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)] sm:block"
+        class="hidden rounded-lg px-3 py-2 text-sm font-medium text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)] sm:block"
       >
         {t('nav.login')}
       </a>
 
       <a
         href={SIGNUP_TRIAL_URL}
-        class="ai-gradient-bg hidden rounded-full px-4 py-2 text-sm font-medium text-white sm:block"
+        class="ai-gradient-bg hidden h-9 items-center rounded-lg px-4 text-sm font-medium text-white sm:inline-flex"
       >
         {t('nav.cta')}
       </a>
