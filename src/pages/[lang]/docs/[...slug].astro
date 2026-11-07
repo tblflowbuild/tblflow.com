@@ -62,7 +62,7 @@ const toc = headings.filter((heading) => heading.depth === 2 || heading.depth ==
   <article class="mx-auto max-w-4xl px-4 pt-14 sm:px-6 sm:pt-20">
     <a
       href={localePath(locale, 'docs')}
-      class="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)]"
+      class="inline-flex items-center gap-2 text-sm font-medium text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)]"
     >
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path
@@ -98,7 +98,7 @@ const toc = headings.filter((heading) => heading.depth === 2 || heading.depth ==
           <h2 id="toc-heading" class="text-xs font-semibold tracking-wide uppercase">
             {t('docs.toc')}
           </h2>
-          <ol class="mt-3 space-y-1.5 text-sm">
+          <ol class="mt-3 space-y-2 text-sm">
             {toc.map((heading) => (
               <li class:list={[heading.depth === 3 && 'pl-4']}>
                 <a

@@ -116,7 +116,7 @@ const proof = [
         other. */}
     <a
       href={SIGNUP_TRIAL_URL}
-      class="ai-gradient-bg animate-gradient animate-enter delay-4 mt-9 inline-block rounded-xl px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5"
+      class="ai-gradient-bg animate-gradient animate-enter delay-4 mt-9 inline-block rounded-xl px-6 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5"
     >
       {t('hero.cta.primary')}
     </a>
@@ -138,7 +138,7 @@ const proof = [
         proof.map((item) => (
           <div class="flex flex-col">
             <dt class="order-2 mt-1 text-xs text-[var(--fg-subtle)]">{item.label}</dt>
-            <dd class:list={['ai-gradient-text order-1 font-bold', item.small ? 'text-xl leading-[2.25rem] sm:text-2xl' : 'text-2xl sm:text-3xl']}>{item.value}</dd>
+            <dd class:list={['ai-gradient-text order-1 font-bold', item.small ? 'text-xl leading-9 sm:text-2xl' : 'text-2xl sm:text-3xl']}>{item.value}</dd>
           </div>
         ))
       }

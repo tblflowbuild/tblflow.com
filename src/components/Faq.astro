@@ -52,7 +52,7 @@ const t = useTranslations(locale);
           type="button"
           data-faq-filter="all"
           aria-pressed="true"
-          class="rounded-full border border-[var(--border-strong)] px-3 py-1.5 text-xs font-medium transition-colors aria-pressed:bg-[var(--fg)] aria-pressed:text-[var(--bg)]"
+          class="rounded-full border border-[var(--border-strong)] px-3 py-2 text-xs font-medium transition-colors aria-pressed:bg-[var(--fg)] aria-pressed:text-[var(--bg)]"
         >
           {t('faq.all')}
         </button>
@@ -62,7 +62,7 @@ const t = useTranslations(locale);
               type="button"
               data-faq-filter={category.id}
               aria-pressed="false"
-              class="rounded-full border border-[var(--border-strong)] px-3 py-1.5 text-xs font-medium transition-colors aria-pressed:bg-[var(--fg)] aria-pressed:text-[var(--bg)]"
+              class="rounded-full border border-[var(--border-strong)] px-3 py-2 text-xs font-medium transition-colors aria-pressed:bg-[var(--fg)] aria-pressed:text-[var(--bg)]"
             >
               {category.label[locale]}
             </button>

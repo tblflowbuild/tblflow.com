@@ -86,13 +86,13 @@ const software = {
     <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
       <a
         href="#connect"
-        class="ai-gradient-bg animate-gradient w-full rounded-xl px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5 sm:w-auto"
+        class="ai-gradient-bg animate-gradient w-full rounded-xl px-6 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5 sm:w-auto"
       >
         {mcp(locale, 'hero.cta.primary')}
       </a>
       <a
         href={localePath(locale, mcpDocsSlug(locale))}
-        class="w-full rounded-xl border border-[var(--border-strong)] px-6 py-3.5 text-base font-semibold transition-colors hover:bg-[var(--bg-subtle)] sm:w-auto"
+        class="w-full rounded-xl border border-[var(--border-strong)] px-6 py-3 text-base font-semibold transition-colors hover:bg-[var(--bg-subtle)] sm:w-auto"
       >
         {mcp(locale, 'hero.cta.secondary')}
       </a>
@@ -180,7 +180,7 @@ const software = {
       {
         control.map((n) => (
           <li class="reveal card flex items-start gap-3 p-4 text-sm">
-            <span class="ai-gradient-bg mt-1.5 h-2 w-2 shrink-0 rounded-full" aria-hidden="true"></span>
+            <span class="ai-gradient-bg mt-2 h-2 w-2 shrink-0 rounded-full" aria-hidden="true"></span>
             <span>{mcp(locale, `control.${n}` as McpKey)}</span>
           </li>
         ))

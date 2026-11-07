@@ -26,7 +26,7 @@ const t = useTranslations(locale);
         type="button"
         data-billing-toggle="monthly"
         aria-pressed="true"
-        class="rounded-full px-4 py-1.5 font-medium transition-colors aria-pressed:bg-[var(--fg)] aria-pressed:text-[var(--bg)]"
+        class="rounded-full px-4 py-2 font-medium transition-colors aria-pressed:bg-[var(--fg)] aria-pressed:text-[var(--bg)]"
       >
         {t('pricing.billing.monthly')}
       </button>
@@ -34,10 +34,10 @@ const t = useTranslations(locale);
         type="button"
         data-billing-toggle="annual"
         aria-pressed="false"
-        class="flex items-center gap-1.5 rounded-full px-4 py-1.5 font-medium transition-colors aria-pressed:bg-[var(--fg)] aria-pressed:text-[var(--bg)]"
+        class="flex items-center gap-2 rounded-full px-4 py-2 font-medium transition-colors aria-pressed:bg-[var(--fg)] aria-pressed:text-[var(--bg)]"
       >
         {t('pricing.billing.annual')}
-        <span class="ai-gradient-bg rounded-full px-2 py-0.5 text-[10px] font-semibold text-white">
+        <span class="ai-gradient-bg rounded-full px-2 py-1 text-[10px] font-semibold text-white">
           {t('pricing.billing.save')}
         </span>
       </button>
@@ -109,7 +109,7 @@ const t = useTranslations(locale);
           <a
             href={tier.ctaHref}
             class:list={[
-              'mt-6 block rounded-lg px-4 py-2.5 text-center text-sm font-semibold transition-transform hover:-translate-y-px',
+              'mt-6 block rounded-lg px-4 py-2 text-center text-sm font-semibold transition-transform hover:-translate-y-px',
               tier.featured
                 ? 'ai-gradient-bg animate-gradient text-white shadow-md shadow-indigo-500/20'
                 : 'border border-[var(--border-strong)] hover:bg-[var(--bg-subtle)]',
@@ -118,11 +118,11 @@ const t = useTranslations(locale);
             {tier.cta[locale]}
           </a>
 
-          <ul class="mt-6 space-y-2.5 text-sm">
+          <ul class="mt-6 space-y-3 text-sm">
             {tier.highlights[locale].map((line) => (
-              <li class="flex gap-2.5">
+              <li class="flex gap-2">
                 <svg
-                  class="mt-0.5 shrink-0 text-[var(--color-ai-2)]"
+                  class="mt-1 shrink-0 text-[var(--color-ai-2)]"
                   width="16"
                   height="16"
                   viewBox="0 0 24 24"
@@ -205,7 +205,7 @@ const t = useTranslations(locale);
       </div>
       <a
         href={`mailto:${SUPPORT_EMAIL}`}
-        class="justify-self-start rounded-lg border border-[var(--border-strong)] px-5 py-2.5 text-sm font-semibold whitespace-nowrap transition-colors hover:bg-[var(--bg-subtle)] sm:justify-self-end"
+        class="justify-self-start rounded-lg border border-[var(--border-strong)] px-5 py-2 text-sm font-semibold whitespace-nowrap transition-colors hover:bg-[var(--bg-subtle)] sm:justify-self-end"
       >
         {t('pricing.selfhost.cta')}
       </a>

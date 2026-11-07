@@ -188,7 +188,7 @@ const copy = COPY[locale];
       <ul class="flex-1 space-y-2 p-4">
         {
           copy.steps.map((step, i) => (
-            <li class="flex items-center gap-2.5 text-xs text-[var(--fg-muted)]">
+            <li class="flex items-center gap-2 text-xs text-[var(--fg-muted)]">
               <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[var(--bg-subtle)] text-[9px] text-[var(--fg-subtle)]">
                 {i + 1}
               </span>
@@ -214,11 +214,11 @@ const copy = COPY[locale];
       card shorter than the one behind it. */}
   <div class="stack-card stack-card--center w-full max-w-[22rem] shrink-0">
     <div class="glass-card flex h-[17rem] flex-col overflow-hidden">
-      <div class="flex items-center gap-1.5 border-b border-[var(--border)] px-3 py-2.5">
+      <div class="flex items-center gap-2 border-b border-[var(--border)] px-3 py-2">
         <span class="h-2 w-2 rounded-full bg-[var(--fg-subtle)] opacity-40"></span>
         <span class="h-2 w-2 rounded-full bg-[var(--fg-subtle)] opacity-40"></span>
         <span class="h-2 w-2 rounded-full bg-[var(--fg-subtle)] opacity-40"></span>
-        <span class="ml-1.5 text-[11px] text-[var(--fg-subtle)]">{copy.table}</span>
+        <span class="ml-2 text-[11px] text-[var(--fg-subtle)]">{copy.table}</span>
       </div>
 
       <div class="flex-1 p-3">
@@ -261,7 +261,7 @@ const copy = COPY[locale];
         <p class="text-[10px] tracking-wide text-[var(--fg-subtle)] uppercase">
           {copy.appKicker}
         </p>
-        <p class="mt-0.5 text-sm font-semibold">{copy.appTitle}</p>
+        <p class="mt-1 text-sm font-semibold">{copy.appTitle}</p>
       </div>
 
       <div class="grid flex-1 grid-cols-2 gap-px bg-[var(--border)]">
@@ -269,14 +269,14 @@ const copy = COPY[locale];
           copy.stats.map(([label, value]) => (
             <div class="bg-[var(--bg-raised)] px-3 py-3">
               <p class="text-[9px] tracking-wide text-[var(--fg-subtle)] uppercase">{label}</p>
-              <p class="mt-0.5 text-lg font-semibold">{value}</p>
+              <p class="mt-1 text-lg font-semibold">{value}</p>
             </div>
           ))
         }
       </div>
 
       <div class="px-4 py-3">
-        <div class="flex items-center gap-2 rounded-md bg-[var(--bg-subtle)] px-2.5 py-1.5">
+        <div class="flex items-center gap-2 rounded-md bg-[var(--bg-subtle)] px-2 py-2">
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" class="shrink-0">
             <path
               d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z"

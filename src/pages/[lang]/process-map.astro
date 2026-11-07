@@ -55,13 +55,13 @@ const breadcrumbs = [
     <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
       <a
         href={SIGNUP_TRIAL_URL}
-        class="ai-gradient-bg animate-gradient w-full rounded-xl px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5 sm:w-auto"
+        class="ai-gradient-bg animate-gradient w-full rounded-xl px-6 py-3 text-base font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:-translate-y-0.5 sm:w-auto"
       >
         {pm(locale, 'hero.cta.primary')}
       </a>
       <a
         href={localePath(locale, 'pricing')}
-        class="w-full rounded-xl border border-[var(--border-strong)] px-6 py-3.5 text-base font-semibold transition-colors hover:bg-[var(--bg-subtle)] sm:w-auto"
+        class="w-full rounded-xl border border-[var(--border-strong)] px-6 py-3 text-base font-semibold transition-colors hover:bg-[var(--bg-subtle)] sm:w-auto"
       >
         {pm(locale, 'hero.cta.secondary')}
       </a>
@@ -157,7 +157,7 @@ const breadcrumbs = [
       {
         seven.map((n) => (
           <li class="reveal card flex items-start gap-3 p-4 text-sm">
-            <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-red-600" aria-hidden="true"></span>
+            <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-red-600" aria-hidden="true"></span>
             <span>{pm(locale, `breaks.${n}` as const)}</span>
           </li>
         ))
@@ -259,7 +259,7 @@ const breadcrumbs = [
       <p class="mt-2 text-[var(--fg-muted)]">{pm(locale, 'plan.body')}</p>
       <a
         href={localePath(locale, 'pricing')}
-        class="mt-5 inline-block rounded-xl border border-[var(--border-strong)] px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-[var(--bg-subtle)]"
+        class="mt-5 inline-block rounded-xl border border-[var(--border-strong)] px-5 py-2 text-sm font-semibold transition-colors hover:bg-[var(--bg-subtle)]"
       >
         {pm(locale, 'plan.cta')}
       </a>
