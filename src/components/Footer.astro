@@ -4,6 +4,7 @@ import LangSwitcher from './LangSwitcher.astro';
 import { useTranslations } from '@/i18n/ui';
 import { pm } from '@/data/processMap';
 import { mcp } from '@/data/mcp';
+import { SOLUTIONS, USE_CASE_SLUGS, AUDIENCE_SLUGS } from '@/data/solutions';
 import { localePath } from '@/i18n/utils';
 import { APP_URL, APP_LEGAL, type Locale } from '@/config';
 
@@ -15,7 +16,16 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 const year = new Date().getFullYear();
 
+const sol = SOLUTIONS[locale];
 const columns: Array<{ title: string; links: Array<{ label: string; href: string }> }> = [
+  {
+    title: sol.ui.useCasesNav,
+    links: USE_CASE_SLUGS.map((slug) => ({ label: sol.useCases[slug].nav, href: localePath(locale, `use-cases/${slug}`) })),
+  },
+  {
+    title: sol.ui.forNav,
+    links: AUDIENCE_SLUGS.map((slug) => ({ label: sol.audiences[slug].nav, href: localePath(locale, `for/${slug}`) })),
+  },
   {
     title: t('footer.product'),
     links: [
@@ -55,7 +65,7 @@ const columns: Array<{ title: string; links: Array<{ label: string; href: string
 
 <footer class="mt-24 border-t border-[var(--border)] bg-[var(--bg-subtle)]">
   <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-    <div class="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+    <div class="grid gap-10 md:grid-cols-3 lg:grid-cols-[1.4fr_repeat(5,1fr)]">
       <div>
         <a href={localePath(locale)} class="flex items-center gap-2 font-medium">
           <Logo size={28} title="TblFlow" />

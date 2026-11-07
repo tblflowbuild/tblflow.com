@@ -1,0 +1,150 @@
+---
+/**
+ * One audience inside the SME: what it retypes today, the before/after of its
+ * main flow, what it builds, the use cases that concern it, then what the
+ * customer keeps and the FAQ. Same journey and refusals as the home page.
+ */
+import Base from '@/layouts/Base.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import FlowScene from '@/components/scenes/FlowScene.astro';
+import { AUDIENCE_SLUGS, AUDIENCE_USE_CASES, SOLUTIONS, type AudienceSlug } from '@/data/solutions';
+import { JOURNEY } from '@/data/journey';
+import { localePath } from '@/i18n/utils';
+import { LOCALES, SIGNUP_TRIAL_URL, type Locale } from '@/config';
+
+export function getStaticPaths() {
+  return LOCALES.flatMap((lang) => AUDIENCE_SLUGS.map((slug) => ({ params: { lang, slug } })));
+}
+
+const locale = Astro.params.lang as Locale;
+const slug = Astro.params.slug as AudienceSlug;
+const { ui, useCases, audiences } = SOLUTIONS[locale];
+const page = audiences[slug];
+const related = AUDIENCE_USE_CASES[slug];
+const main = useCases[related[0]];
+const keep = JOURNEY[locale].keep;
+const path = localePath(locale, `for/${slug}`);
+---
+
+<Base
+  locale={locale}
+  title={page.metaTitle}
+  description={page.metaDescription}
+  path={path}
+  breadcrumbs={[
+    { name: ui.forNav, path: localePath(locale, 'for') },
+    { name: page.nav, path },
+  ]}
+  faq={page.faq.map((f) => ({ question: f.q, answer: f.a }))}
+>
+  <section class="mx-auto max-w-6xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20">
+    <p class="text-sm text-[var(--fg-subtle)]">
+      <a href={localePath(locale, 'for')} class="hover:underline">{ui.forNav}</a>
+    </p>
+    <p class="mt-6 font-mono text-sm text-[var(--fg-subtle)]">{page.eyebrow}</p>
+    <h1 class="mt-3 max-w-3xl text-4xl font-medium text-balance sm:text-5xl">{page.title}</h1>
+    <p class="mt-5 max-w-2xl text-lg text-[var(--fg-muted)]">{page.subtitle}</p>
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <a href={SIGNUP_TRIAL_URL} class="ai-gradient-bg rounded-lg px-6 py-3 text-center text-base font-medium text-white">
+        {ui.cta}
+      </a>
+      <a href={localePath(locale, 'process-map')} class="rounded-lg border border-[var(--border-strong)] px-6 py-3 text-center text-base font-medium transition-colors hover:bg-[var(--bg-subtle)]">
+        {ui.secondaryCta}
+      </a>
+    </div>
+  </section>
+
+  <section class="border-t border-[var(--border)]" aria-labelledby="couts">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <h2 id="couts" class="text-3xl font-medium sm:text-4xl">{page.pains.title}</h2>
+      <ul class="mt-10 grid gap-6 md:grid-cols-3">
+        {page.pains.items.map((item) => (
+          <li class="border-t border-[var(--border-strong)] pt-4">
+            <h3 class="text-base font-medium">{item.title}</h3>
+            <p class="mt-2 text-[var(--fg-muted)]">{item.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  {/* The audience's main flow, today then with TblFlow. */}
+  <section class="border-t border-[var(--border)]" aria-labelledby="flux">
+    <div class="mx-auto max-w-6xl space-y-6 px-4 py-16 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="font-mono text-sm text-[var(--fg-subtle)]">{ui.today}</p>
+        <h2 id="flux" class="mt-3 text-3xl font-medium sm:text-4xl">{main.nav}</h2>
+        <p class="mt-4 text-lg text-[var(--fg-muted)]">{main.problem.body}</p>
+      </div>
+      <FlowScene locale={locale} flow={main.flow} mode="today" exampleLabel={ui.example} />
+      <p class="pt-6 font-mono text-sm text-[var(--fg-subtle)]">{ui.withTblflow}</p>
+      <FlowScene locale={locale} flow={main.flow} mode="after" exampleLabel={ui.example} />
+    </div>
+  </section>
+
+  <section class="border-t border-[var(--border)]" aria-labelledby="construire">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <h2 id="construire" class="text-3xl font-medium sm:text-4xl">{page.build.title}</h2>
+      <ul class="mt-10 grid gap-6 md:grid-cols-3">
+        {page.build.items.map((item) => (
+          <li class="card p-6">
+            <h3 class="text-base font-medium">{item.title}</h3>
+            <p class="mt-2 text-[var(--fg-muted)]">{item.body}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-8 max-w-2xl text-sm text-[var(--fg-subtle)]">{ui.planNote}</p>
+    </div>
+  </section>
+
+  <section class="border-t border-[var(--border)]" aria-labelledby="cas">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <h2 id="cas" class="text-3xl font-medium sm:text-4xl">{ui.useCasesFor}</h2>
+      <ul class="mt-10 grid gap-4 md:grid-cols-3">
+        {related.map((u) => (
+          <li>
+            <a href={localePath(locale, `use-cases/${u}`)} class="card block h-full p-6 transition-colors hover:bg-[var(--bg-subtle)]">
+              <h3 class="text-base font-medium">{useCases[u].nav}</h3>
+              <p class="mt-2 text-sm text-[var(--fg-muted)]">{useCases[u].card}</p>
+              <p class="mt-4 text-sm font-medium text-[var(--color-ai-2)]">{ui.more} <span aria-hidden="true">→</span></p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="border-t border-[var(--border)]" aria-labelledby="garder">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <h2 id="garder" class="text-3xl font-medium sm:text-4xl">{keep.title}</h2>
+      <ul class="mt-10 grid gap-6 md:grid-cols-3">
+        {keep.items.map((item) => (
+          <li class="border-t border-[var(--border-strong)] pt-4">
+            <h3 class="text-base font-medium">{item.title}</h3>
+            <p class="mt-2 text-[var(--fg-muted)]">{item.body}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="border-t border-[var(--border)]" aria-labelledby="faq">
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+      <h2 id="faq" class="text-3xl font-medium sm:text-4xl">{ui.faqTitle}</h2>
+      <div class="mt-8 divide-y divide-[var(--border)] border-y border-[var(--border)]">
+        {page.faq.map((f) => (
+          <details class="py-4">
+            <summary class="cursor-pointer font-medium">{f.q}</summary>
+            <p class="mt-3 text-[var(--fg-muted)]">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand locale={locale} />
+</Base>
+
+<script>
+  import '@/scripts/scenes';
+</script>

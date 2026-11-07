@@ -1,0 +1,39 @@
+---
+/** Index of the audiences: the roles inside the SME that retype the most. */
+import Base from '@/layouts/Base.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { AUDIENCE_SLUGS, AUDIENCE_USE_CASES, SOLUTIONS } from '@/data/solutions';
+import { localePath } from '@/i18n/utils';
+import { LOCALES, type Locale } from '@/config';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const { ui, audiences, useCases } = SOLUTIONS[locale];
+const path = localePath(locale, 'for');
+---
+
+<Base locale={locale} title={ui.forIndex.metaTitle} description={ui.forIndex.metaDescription} path={path} breadcrumbs={[{ name: ui.forNav, path }]}>
+  <section class="mx-auto max-w-6xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20">
+    <h1 class="text-4xl font-medium sm:text-5xl">{ui.forIndex.title}</h1>
+    <p class="mt-5 max-w-2xl text-lg text-[var(--fg-muted)]">{ui.forIndex.subtitle}</p>
+  </section>
+  <section class="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
+    <ul class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {AUDIENCE_SLUGS.map((slug) => (
+        <li>
+          <a href={localePath(locale, `for/${slug}`)} class="card block h-full p-6 transition-colors hover:bg-[var(--bg-subtle)]">
+            <h2 class="text-lg font-medium">{audiences[slug].nav}</h2>
+            <p class="mt-2 text-sm text-[var(--fg-muted)]">{audiences[slug].card}</p>
+            <ul class="mt-4 space-y-1 text-xs text-[var(--fg-subtle)]">
+              {AUDIENCE_USE_CASES[slug].map((u) => <li>{useCases[u].nav}</li>)}
+            </ul>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+  <CtaBand locale={locale} />
+</Base>
