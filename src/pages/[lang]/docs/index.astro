@@ -114,7 +114,7 @@ const slugOf = (id: string) => id.replace(`${locale}/`, '');
                 <li class="reveal">
                   <a
                     href={localePath(locale, `docs/${slugOf(page.id)}`)}
-                    class="card group block p-6 transition-shadow hover:shadow-lg"
+                    class="card group block p-6 transition-colors hover:border-[var(--border-strong)]"
                   >
                     <h3 class="text-lg font-medium transition-colors group-hover:text-[var(--color-ai-2)]">
                       {page.data.title}

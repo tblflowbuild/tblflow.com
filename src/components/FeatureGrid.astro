@@ -25,14 +25,8 @@ const { locale, id, title, subtitle, items, moody = false } = Astro.props;
   id={id}
   class:list={[
     'relative mx-auto max-w-6xl scroll-mt-24 px-4 py-20 sm:px-6',
-    moody && 'corner-ticks',
   ]}
-  style={moody ? '--tick: 1.25rem;' : undefined}
 >
-  {/* No local grid/glow here any more — the page-wide layer in Base.astro
-      already supplies both, continuously, behind this section and its
-      neighbours. `moody` now marks this section with corner ticks and glass
-      cards only, which is enough to still read as the staged one. */}
 
   <header class="reveal max-w-2xl">
     <h2 class="text-3xl font-medium sm:text-4xl">{title}</h2>
@@ -44,8 +38,8 @@ const { locale, id, title, subtitle, items, moody = false } = Astro.props;
       items.map((item) => (
         <li
           class:list={[
-            'reveal group p-6 transition-shadow hover:shadow-lg',
-            moody ? 'card' : 'card',
+            'reveal group p-6 transition-colors hover:border-[var(--border-strong)]',
+            'card',
           ]}
         >
           <div

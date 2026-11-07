@@ -19,7 +19,7 @@ const { locale } = Astro.props;
           <li class="reveal card flex flex-col p-6">
             {item.result && (
               <p class="mb-4">
-                <span class="text-2xl font-medium">{item.result.value}</span>
+                <span class="text-2xl font-medium tabular-nums">{item.result.value}</span>
                 <span class="ml-2 text-sm text-[var(--fg-muted)]">{item.result.label}</span>
               </p>
             )}

@@ -111,7 +111,7 @@ const breadcrumbs = [
                 data-blog-search
                 placeholder={t('blog.search')}
                 autocomplete="off"
-                class="w-full rounded-xl border border-[var(--border-strong)] bg-[var(--bg-raised)] px-4 py-3 text-sm outline-none focus:border-transparent"
+                class="w-full rounded-lg border border-[var(--border-strong)] bg-[var(--bg-raised)] px-4 py-3 text-sm outline-none focus:border-transparent"
               />
             </label>
 
@@ -151,7 +151,7 @@ const breadcrumbs = [
             >
               <a
                 href={localePath(locale, `blog/${slugOf(post.id)}`)}
-                class="card group block p-6 transition-shadow hover:shadow-lg"
+                class="card group block p-6 transition-colors hover:border-[var(--border-strong)]"
               >
                 <div class="flex flex-wrap items-center gap-3 text-xs text-[var(--fg-subtle)]">
                   <time datetime={isoDate(post.data.publishedAt)}>
