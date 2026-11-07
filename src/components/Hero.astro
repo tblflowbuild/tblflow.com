@@ -1,9 +1,18 @@
 ---
+/**
+ * Home introduction, in the manner of a product launch page: the product
+ * name, the signature in one line, one action, then a large window of the
+ * app whose tabs play on their own. The band is dark whatever the site theme
+ * (`.intro-dark`), so the app window sits in its own light; the journey that
+ * follows returns to the site theme.
+ *
+ * What the intro used to say (the re-keying headline, the trial note, the
+ * proof figures) now lives in the journey and on the pricing page; the page
+ * <title> and description still carry the re-keying promise for search.
+ */
 import Logo from './Logo.astro';
 import HeroWindow from './HeroWindow.astro';
 import { useTranslations } from '@/i18n/ui';
-import { pm } from '@/data/processMap';
-import { hm } from '@/data/home';
 import { JOURNEY } from '@/data/journey';
 import { SIGNUP_TRIAL_URL, type Locale } from '@/config';
 
@@ -13,89 +22,31 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = useTranslations(locale);
-
-/**
- * Proof points sit directly under the CTA rather than further down the page.
- * They speak to an owner or ops lead deciding whether to try it, and each one
- * holds for the plan the CTA leads to: no "millions of rows" next to a free
- * tier capped at 5,000.
- */
-const proof = [
-  { value: t('proof.deploy.value'), label: t('proof.deploy') },
-  { value: hm(locale, 'proof.trial.value'), label: hm(locale, 'proof.trial') },
-  { value: hm(locale, 'proof.free.value'), label: hm(locale, 'proof.free') },
-  // A word, not a number: one size down so it fits the four-column row.
-  { value: 'PostgreSQL', label: hm(locale, 'proof.data'), small: true },
-];
-
 ---
 
-<section class="relative">
-  <div class="mx-auto max-w-4xl px-4 pt-12 text-center sm:px-6 sm:pt-16">
-    <div class="animate-enter-fade flex justify-center">
-      <Logo size={48} animate title="TblFlow" />
-    </div>
+<section class="intro-dark">
+  <div class="mx-auto max-w-4xl px-4 pt-16 text-center sm:px-6 sm:pt-24">
+    <h1
+      class="animate-enter delay-1 flex items-center justify-center gap-4 text-5xl leading-none font-medium tracking-[-0.03em] sm:gap-5 sm:text-7xl"
+    >
+      <Logo size={64} animate />
+      TblFlow
+    </h1>
 
-    <p class="eyebrow animate-enter delay-1 mt-6 justify-center">
+    <p class="animate-enter delay-2 mx-auto mt-6 max-w-2xl text-lg text-balance text-[var(--fg-muted)] sm:text-xl">
       {JOURNEY[locale].signature}
     </p>
 
-    <h1
-      class="animate-enter delay-3 mx-auto mt-6 max-w-3xl text-4xl leading-[1.1] font-medium text-balance sm:text-5xl sm:tracking-[-0.02em]"
-    >
-      {pm(locale, 'home.hero.title')}
-    </h1>
-
-    <p
-      class="animate-enter delay-4 mx-auto mt-4 max-w-2xl text-base text-[var(--fg-muted)] sm:text-lg"
-    >
-      {pm(locale, 'home.hero.subtitle')}
-    </p>
-
-    {/* Free stays the default action. The trial link sits in the note under
-        it, because the process map the H1 promises is a Pro feature: saying
-        so here is what keeps the H1 and the button from contradicting each
-        other. */}
     <a
       href={SIGNUP_TRIAL_URL}
-      class="ai-gradient-bg animate-enter delay-4 mt-8 inline-block rounded-lg px-6 py-3 text-base font-medium text-white"
+      class="ai-gradient-bg animate-enter delay-3 mt-8 inline-block rounded-lg px-6 py-3 text-base font-medium text-white"
     >
       {t('hero.cta.primary')}
     </a>
-
-    <p class="animate-enter delay-4 mx-auto mt-4 max-w-xl text-sm text-[var(--fg-subtle)]">
-      {hm(locale, 'trial.note')}{' '}
-      <a href={SIGNUP_TRIAL_URL} class="font-medium text-[var(--color-ai-2)] hover:underline">
-        {hm(locale, 'trial.link')}&nbsp;→
-      </a>
-    </p>
-
-    <dl
-      class="animate-enter delay-4 corner-ticks mx-auto mt-12 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-8 px-6 py-6 sm:grid-cols-4"
-      style="--tick: 1rem;"
-    >
-      {
-        /* dt must precede dd in the markup, but the number should read first
-           visually — hence the flex-column order swap rather than a duplicated,
-           visually-hidden label (which made screen readers announce it twice). */
-        proof.map((item) => (
-          <div class="flex flex-col">
-            <dt class="order-2 mt-1 text-xs text-[var(--fg-subtle)]">{item.label}</dt>
-            <dd class:list={['order-1 font-medium tabular-nums', item.small ? 'text-xl leading-9 sm:text-2xl' : 'text-2xl sm:text-3xl']}>{item.value}</dd>
-          </div>
-        ))
-      }
-    </dl>
-
   </div>
 
-  {/* The product window is wider than the copy column, so it gets its own
-      container rather than stretching the centred one. */}
-  <div class="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
-    <div class="animate-enter delay-4 mx-auto mt-4 max-w-4xl">
-      <HeroWindow locale={locale} />
-    </div>
-
-
+  {/* The window is wider than the copy column, so it gets its own container. */}
+  <div class="animate-enter delay-4 mx-auto max-w-6xl px-4 pt-12 pb-16 sm:px-6 sm:pt-16 sm:pb-24">
+    <HeroWindow locale={locale} />
   </div>
 </section>

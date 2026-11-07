@@ -101,6 +101,23 @@
   --accent-hover: #6366f1;
 }
 
+/* The home introduction is dark in both themes, with the dark roles of the
+   site, so the app window below it sits in its own light. */
+.intro-dark {
+  --bg: #0b0d14;
+  --bg-subtle: #11141c;
+  --bg-raised: #141822;
+  --fg: #eef0f5;
+  --fg-muted: #a3a9b8;
+  --fg-subtle: #7a8296;
+  --border: rgb(238 240 245 / 0.08);
+  --border-strong: rgb(238 240 245 / 0.14);
+  color-scheme: dark;
+  background-color: var(--bg);
+  color: var(--fg);
+  border-bottom: 1px solid var(--border);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -383,11 +400,19 @@ button.ai-gradient-bg:hover {
   min-height: 15rem;
   padding: 1.5rem;
 }
+@media (min-width: 640px) {
+  .hw-panel {
+    min-height: 20rem;
+    padding: 2rem;
+  }
+}
 #hw-map:checked ~ .hw-window .hw-panel--map,
 #hw-table:checked ~ .hw-window .hw-panel--table,
 #hw-agent:checked ~ .hw-window .hw-panel--agent,
 #hw-app:checked ~ .hw-window .hw-panel--app {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 #hw-map:checked ~ .hw-window label[for='hw-map'],
 #hw-table:checked ~ .hw-window label[for='hw-table'],
@@ -395,6 +420,28 @@ button.ai-gradient-bg:hover {
 #hw-app:checked ~ .hw-window label[for='hw-app'] {
   background: var(--tf-popover);
   color: var(--tf-fg);
+}
+/* While the tabs play on their own, the active one shows the time left. */
+.hw-tab {
+  position: relative;
+}
+.hw[data-auto] :is(
+    #hw-map:checked ~ .hw-window label[for='hw-map'],
+    #hw-table:checked ~ .hw-window label[for='hw-table'],
+    #hw-agent:checked ~ .hw-window label[for='hw-agent'],
+    #hw-app:checked ~ .hw-window label[for='hw-app']
+  )::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 3px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--tf-fg);
+  opacity: 0.5;
+  transform-origin: left center;
+  animation: sc-grow var(--hw-cycle, 5000ms) linear both;
 }
 #hw-map:focus-visible ~ .hw-window label[for='hw-map'],
 #hw-table:focus-visible ~ .hw-window label[for='hw-table'],
