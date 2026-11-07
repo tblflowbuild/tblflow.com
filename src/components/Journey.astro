@@ -22,7 +22,7 @@ const { locale } = Astro.props;
 const copy = JOURNEY[locale];
 const mark = (i: number) => String(i + 1).padStart(2, '0');
 /** Steps whose screen is wide in the app (the map canvas): text above, screen full width. */
-const WIDE = [2];
+const WIDE = [0, 2];
 ---
 
 <div id="parcours">

@@ -7,7 +7,7 @@ import type { Locale } from '@/config';
  * document import panel are hard-coded in French in the app; their labels are
  * translated here. Placeholders like {{n}} are filled with `fill()`.
  */
-export type AppUiKey = 'lensWho' | 'lensCosts' | 'lensRuptures' | 'lensData' | 'human' | 'automation' | 'agent' | 'cost' | 'ruptures' | 'savings' | 'realized' | 'covered' | 'distribution' | 'perMonth' | 'entry' | 'retyping' | 'knowledgeBase' | 'newDocument' | 'import' | 'indexed' | 'analyzing' | 'stTables' | 'stLinks' | 'stSub' | 'stRelationData' | 'stQuality' | 'stAgents' | 'stDone' | 'reportDone' | 'accept' | 'accepted' | 'placeholder' | 'outResults' | 'onUpdate' | 'ifCond' | 'updateRec' | 'sendMail' | 'trigger' | 'action' | 'logic' | 'indexing' | 'test';
+export type AppUiKey = 'lensWho' | 'lensCosts' | 'lensRuptures' | 'lensData' | 'human' | 'automation' | 'agent' | 'cost' | 'ruptures' | 'savings' | 'realized' | 'covered' | 'distribution' | 'perMonth' | 'entry' | 'retyping' | 'knowledgeBase' | 'newDocument' | 'import' | 'indexed' | 'analyzing' | 'stTables' | 'stLinks' | 'stSub' | 'stRelationData' | 'stQuality' | 'stAgents' | 'stDone' | 'reportDone' | 'accept' | 'accepted' | 'placeholder' | 'outResults' | 'onUpdate' | 'ifCond' | 'updateRec' | 'sendMail' | 'trigger' | 'action' | 'logic' | 'indexing' | 'test' | 'legendTitle' | 'legendBroken' | 'legendTool' | 'legendObject';
 
 export const APP_UI: Record<Locale, Record<AppUiKey, string>> = {
   "de": {
@@ -52,7 +52,11 @@ export const APP_UI: Record<Locale, Record<AppUiKey, string>> = {
     "action": "Aktion",
     "logic": "Logik",
     "indexing": "Indexierung läuft…",
-    "test": "Testen"
+    "test": "Testen",
+    "legendTitle": "Legende",
+    "legendBroken": "Rot gestrichelt = von Hand neu eingegebene Daten",
+    "legendTool": "Verwendetes Tool",
+    "legendObject": "Kantenbeschriftung = übergebene Daten"
   },
   "en": {
     "lensWho": "Who does what",
@@ -96,7 +100,11 @@ export const APP_UI: Record<Locale, Record<AppUiKey, string>> = {
     "action": "Action",
     "logic": "Logic",
     "indexing": "Indexing…",
-    "test": "Test"
+    "test": "Test",
+    "legendTitle": "Legend",
+    "legendBroken": "Dashed red = data re-entered by hand",
+    "legendTool": "Tool used",
+    "legendObject": "Edge label = data passed on"
   },
   "es": {
     "lensWho": "Quién hace qué",
@@ -140,7 +148,11 @@ export const APP_UI: Record<Locale, Record<AppUiKey, string>> = {
     "action": "Acción",
     "logic": "Lógica",
     "indexing": "Indexando…",
-    "test": "Probar"
+    "test": "Probar",
+    "legendTitle": "Leyenda",
+    "legendBroken": "Rojo discontinuo = dato reintroducido a mano",
+    "legendTool": "Herramienta utilizada",
+    "legendObject": "Etiqueta de arista = dato transmitido"
   },
   "fr": {
     "lensWho": "Qui fait quoi",
@@ -184,7 +196,11 @@ export const APP_UI: Record<Locale, Record<AppUiKey, string>> = {
     "action": "Action",
     "logic": "Logique",
     "indexing": "Indexation en cours…",
-    "test": "Tester"
+    "test": "Tester",
+    "legendTitle": "Légende",
+    "legendBroken": "Rouge pointillé = donnée ressaisie à la main",
+    "legendTool": "Outil utilisé",
+    "legendObject": "Libellé d'arête = donnée transmise"
   },
   "it": {
     "lensWho": "Chi fa cosa",
@@ -228,7 +244,11 @@ export const APP_UI: Record<Locale, Record<AppUiKey, string>> = {
     "action": "Azione",
     "logic": "Logica",
     "indexing": "Indicizzazione in corso…",
-    "test": "Prova"
+    "test": "Prova",
+    "legendTitle": "Legenda",
+    "legendBroken": "Rosso tratteggiato = dato reinserito a mano",
+    "legendTool": "Strumento utilizzato",
+    "legendObject": "Etichetta dell'arco = dato trasmesso"
   },
   "ja": {
     "lensWho": "誰が何をするか",
@@ -272,7 +292,11 @@ export const APP_UI: Record<Locale, Record<AppUiKey, string>> = {
     "action": "アクション",
     "logic": "ロジック",
     "indexing": "インデックス作成中…",
-    "test": "テスト"
+    "test": "テスト",
+    "legendTitle": "凡例",
+    "legendBroken": "赤の点線 = 手で再入力されたデータ",
+    "legendTool": "使用ツール",
+    "legendObject": "線のラベル = 受け渡されるデータ"
   },
   "ru": {
     "lensWho": "Кто что делает",
@@ -316,7 +340,11 @@ export const APP_UI: Record<Locale, Record<AppUiKey, string>> = {
     "action": "Действие",
     "logic": "Логика",
     "indexing": "Индексация…",
-    "test": "Проверить"
+    "test": "Проверить",
+    "legendTitle": "Легенда",
+    "legendBroken": "Красный пунктир = данные, введённые вручную повторно",
+    "legendTool": "Используемый инструмент",
+    "legendObject": "Подпись связи = передаваемые данные"
   },
   "tr": {
     "lensWho": "Kim ne yapıyor",
@@ -360,7 +388,11 @@ export const APP_UI: Record<Locale, Record<AppUiKey, string>> = {
     "action": "Eylem",
     "logic": "Mantık",
     "indexing": "Dizinleniyor…",
-    "test": "Test et"
+    "test": "Test et",
+    "legendTitle": "Açıklama",
+    "legendBroken": "Kırmızı kesikli = elle yeniden girilen veri",
+    "legendTool": "Kullanılan araç",
+    "legendObject": "Bağlantı etiketi = aktarılan veri"
   },
   "uk": {
     "lensWho": "Хто що робить",
@@ -404,7 +436,11 @@ export const APP_UI: Record<Locale, Record<AppUiKey, string>> = {
     "action": "Дія",
     "logic": "Логіка",
     "indexing": "Індексація…",
-    "test": "Перевірити"
+    "test": "Перевірити",
+    "legendTitle": "Легенда",
+    "legendBroken": "Червоний пунктир = дані, повторно введені вручну",
+    "legendTool": "Використаний інструмент",
+    "legendObject": "Підпис зв'язку = передані дані"
   },
   "zh": {
     "lensWho": "谁做什么",
@@ -448,7 +484,11 @@ export const APP_UI: Record<Locale, Record<AppUiKey, string>> = {
     "action": "操作",
     "logic": "逻辑",
     "indexing": "正在索引…",
-    "test": "测试"
+    "test": "测试",
+    "legendTitle": "图例",
+    "legendBroken": "红色虚线 = 手工重复录入的数据",
+    "legendTool": "使用的工具",
+    "legendObject": "连线标签 = 传递的数据"
   }
 };
 

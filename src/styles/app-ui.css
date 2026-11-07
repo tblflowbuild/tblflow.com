@@ -29,6 +29,17 @@
   --tf-dot: #2c303a;
   --tf-mono: 'JetBrains Mono', 'SF Mono', 'Roboto Mono', Menlo, Consolas, 'Liberation Mono', monospace;
 
+  /* Site roles remapped to the app, so shared pieces (the filling table)
+     take the app's look inside a window. */
+  --bg: var(--tf-bg);
+  --bg-subtle: var(--tf-head);
+  --bg-raised: var(--tf-grid-bg);
+  --fg: var(--tf-fg);
+  --fg-muted: var(--tf-fg);
+  --fg-subtle: var(--tf-muted);
+  --border: var(--tf-border);
+  --border-strong: var(--tf-border-high);
+
   color-scheme: dark;
   position: relative;
   overflow: hidden;
@@ -365,4 +376,9 @@
 }
 [data-armed] .tf-spin {
   animation: tf-spin 800ms linear infinite;
+}
+
+/* The filling table inside the app: mono cells, as in the app's grid. */
+.tf-app .demo-grid > * {
+  font-family: var(--tf-mono);
 }
