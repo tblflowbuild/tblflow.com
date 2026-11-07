@@ -1,10 +1,10 @@
 ---
 import Logo from './Logo.astro';
 import HeroWindow from './HeroWindow.astro';
-import StepsRibbon from './StepsRibbon.astro';
 import { useTranslations } from '@/i18n/ui';
 import { pm } from '@/data/processMap';
 import { hm } from '@/data/home';
+import { JOURNEY } from '@/data/journey';
 import { SIGNUP_TRIAL_URL, type Locale } from '@/config';
 
 interface Props {
@@ -37,7 +37,7 @@ const proof = [
     </div>
 
     <p class="eyebrow animate-enter delay-1 mt-6 justify-center">
-      {t('hero.eyebrow')}
+      {JOURNEY[locale].signature}
     </p>
 
     <h1
@@ -96,9 +96,6 @@ const proof = [
       <HeroWindow locale={locale} />
     </div>
 
-    <div class="mt-16">
-      <StepsRibbon locale={locale} />
-    </div>
 
   </div>
 </section>

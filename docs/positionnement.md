@@ -67,6 +67,19 @@ Traductions à faire relire par une personne de chaque langue avant publication.
 
 ## Où elle apparaît sur le site
 
-- En accroche du hero, au-dessus du titre.
-- En titre de la section « Ce que vous gardez », suivie des trois refus.
-- En signature du pied de page, à côté du logo.
+- En accroche du hero, au-dessus du titre (version avec virgule).
+- En titre de l'étape 07 du parcours, « Rendre du temps » (version avec point), juste avant « Ce que vous gardez » et les trois refus.
+
+## Déroulé de l'accueil
+
+Validé le 7 novembre 2026 : un parcours chronologique en 7 étapes, dans l'ordre où une entreprise le vit (`src/components/Journey.astro`, textes dans `src/data/journey.ts`).
+
+1. Le problème : la même information ressaisie d'un outil à l'autre.
+2. Comprendre : procédures déposées en PDF ou Markdown, outils connectés, documentation indexée dans DocIndex.
+3. Cartographier : TblFlow génère la carte, on l'affine, les coûts sont estimés.
+4. Construire : analyse, plan, tables, liaisons, interface, automatisations, agents ; règles métier intégrées, outils restants connectés, données importées, anciennes applications décommissionnées.
+5. Automatiser : les automatisations d'abord, là où une règle suffit.
+6. Confier aux agents : des agents fondés sur les tables et les procédures internes, sous validation humaine.
+7. Rendre du temps : redéfinir les actions à forte valeur ajoutée et accompagner le changement.
+
+Suivent « Ce que vous gardez » (les trois refus), les tarifs avec le lien vers le comparatif, la FAQ et l'appel à l'action final.
