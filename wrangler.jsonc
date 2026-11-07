@@ -8,9 +8,14 @@
 
   // `astro build` output. `_headers` and `_redirects` in public/ are honoured by
   // Workers static assets, so the CSP and the `/` → `/fr` redirect still apply.
+  // Entry Worker: 301 from www to the bare domain, then the assets (worker/index.js).
+  "main": "worker/index.js",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    // The host check has to run before an asset is served, or www keeps answering 200.
+    "run_worker_first": true
   },
 
   "observability": {

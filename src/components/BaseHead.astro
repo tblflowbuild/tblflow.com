@@ -109,7 +109,8 @@ const ogImage = absoluteUrl(image);
 
 {/* hreflang: every locale, plus x-default, and each page points at itself too —
     a self-referencing alternate is required for the set to validate. */}
-{alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
+{/* A noindex page (the 404) has no language variants to announce. */}
+{!noindex && alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
 
 <meta property="og:type" content={ogType} />
 <meta property="og:site_name" content="TblFlow" />

@@ -27,7 +27,9 @@ interface Props {
 
 const { locale, class: className = '' } = Astro.props;
 const t = useTranslations(locale);
-const bare = await barePathsFor(Astro.url.pathname);
+// The 404 has no counterpart per locale: each language links to its home page.
+const is404 = /\/404(\.html)?$/.test(Astro.url.pathname);
+const bare = is404 ? null : await barePathsFor(Astro.url.pathname);
 ---
 
 <details class:list={['group relative', className]}>
@@ -61,7 +63,7 @@ const bare = await barePathsFor(Astro.url.pathname);
           return (
             <li>
               <a
-                href={localePath(code, bare[code])}
+                href={localePath(code, bare ? bare[code] : '')}
                 hreflang={HREFLANG[code]}
                 lang={HREFLANG[code]}
                 aria-current={isCurrent ? 'true' : undefined}
