@@ -1,0 +1,445 @@
+---
+/**
+ * One product scene per journey step, drawn after the real TblFlow screens
+ * (dark app theme, the app's own labels in every language, see appUi.ts):
+ *  0 the same quote retyped in three tools, 1 DocIndex knowledge base,
+ *  2 process map with clickable lenses, 3 AI generation then the grid,
+ *  4 workflow editor (its "Test" button replays the run), 5 agent chat with
+ *  an "Accept" button, 6 the map once steps are covered.
+ *
+ * The markup is the finished frame; scenes.ts arms and plays it on scroll.
+ * `--d` is each element's start in ms. Data is fictional and the same story
+ * as the hero window: three quotes, two accepted.
+ */
+import { APP_UI, fill } from '@/data/appUi';
+import { JOURNEY } from '@/data/journey';
+import { HERO_DEMO, HERO_DEMO_FIGURES, HERO_DEMO_QUOTES, HERO_DEMO_TOOLS } from '@/data/heroDemo';
+import { hm } from '@/data/home';
+import { APP_ICON } from '@/data/appIcons';
+import { formatPrice, type Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+  step: number;
+}
+
+const { locale, step } = Astro.props;
+const ui = APP_UI[locale];
+const copy = JOURNEY[locale];
+const demo = HERO_DEMO[locale];
+const quotes = HERO_DEMO_QUOTES;
+const accepted = quotes.filter((q) => q.accepted);
+
+const REPLAY: Record<Locale, string> = {
+  de: 'Erneut abspielen', en: 'Replay', es: 'Repetir', fr: 'Rejouer', it: 'Riproduci',
+  ja: 'もう一度再生', ru: 'Повторить', tr: 'Yeniden oynat', uk: 'Повторити', zh: '重新播放',
+};
+
+/** Monthly figures of the example (13 h a month of re-keying). */
+const { monthlyCost: MONTHLY_COST, stepCost: STEP_COST, realized: REALIZED, covered: COVERED } = HERO_DEMO_FIGURES;
+
+const perMonth = (amount: number) => fill(ui.perMonth, { amount: formatPrice(locale, amount) });
+/** The finished text with its figure replaced by `#`, for the count-up. */
+const countTemplate = (text: string, n: number) => text.replace(String(n), '#');
+const stepTitle = (n: 1 | 2 | 3) => hm(locale, `example.step${n}.title` as const);
+const steps = [1, 2, 3] as const;
+const PROBLEM_TOOLS = HERO_DEMO_TOOLS;
+
+const ICON = APP_ICON;
+---
+
+<div data-scene data-step={step}>
+  {/* 0 · The problem, as the map's "Data" lens shows it: one tool per step,
+      the same data retyped on every link. */}
+  {step === 0 && (
+    <div class="tf-app">
+      <div class="tf-top flex-wrap">
+        <span class="tf-pill"><b>TblFlow</b></span>
+        <span class="tf-pill gap-1 px-1" aria-hidden="true">
+          {[ui.lensWho, ui.lensCosts, ui.lensRuptures, ui.lensData].map((label, i) => (
+            <span class:list={['tf-tab inline-flex items-center', i === 3 && 'bg-[var(--tf-popover)]']}>{label}</span>
+          ))}
+        </span>
+      </div>
+      <div class="tf-canvas p-4 sm:p-6">
+        <ol class="flex flex-col items-stretch md:flex-row md:items-center">
+          {steps.map((n, i) => (
+            <>
+              {n > 1 && (
+                <li class="relative flex h-14 items-center justify-center md:h-auto md:w-44 md:flex-none" aria-hidden="true">
+                  <span class="sc-wipe sc-wipe--smooth block h-full border-l-[1.5px] border-dashed border-[var(--tf-destructive)] md:h-0 md:w-full md:border-t-[1.5px] md:border-l-0" style={`--d:${700 + i * 400}; --t:500ms`}></span>
+                  <span class="sc-wipe tf-mono absolute rounded bg-[var(--tf-bg)] px-1 text-xs whitespace-nowrap text-[var(--tf-destructive)] md:-top-5" style={`--d:${900 + i * 400}; --n:20; --t:700ms`}>
+                    {quotes[0].client} · {formatPrice(locale, quotes[0].amount)}
+                  </span>
+                </li>
+              )}
+              <li class="tf-step sc-rise md:flex-1" style={`--d:${i * 300}`}>
+                <span class="tf-step__icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d={ICON.user} stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </span>
+                <span class="min-w-0">
+                  <span class="block font-semibold">{stepTitle(n)}</span>
+                  <span class="block text-xs tf-muted">{ui.human} · {ui.entry}</span>
+                  <span class="mt-1 flex items-center gap-1 text-xs tf-muted">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={ICON.wrench} stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
+                    {PROBLEM_TOOLS[i]}
+                  </span>
+                </span>
+                {n > 1 && <span class="tf-step__badge sc-fade" style={`--d:${1300 + i * 400}`} aria-hidden="true">1</span>}
+              </li>
+            </>
+          ))}
+        </ol>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div class="tf-card sc-rise p-3 text-xs" style="--d:2100">
+            <p class="tf-kpi__label">{ui.legendTitle}</p>
+            <ul class="mt-2 space-y-1 tf-muted">
+              <li class="flex items-center gap-2">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={ICON.wrench} stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
+                {ui.legendTool}
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-3 border-t-[1.5px] border-dashed border-[var(--tf-destructive)]" aria-hidden="true"></span>
+                {ui.legendBroken}
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="tf-mono text-xs leading-none" aria-hidden="true">abc</span>
+                {ui.legendObject}
+              </li>
+            </ul>
+          </div>
+          <p class="corner-ticks sc-rise tf-mono px-4 py-3 text-sm tabular-nums sm:max-w-sm" style="--tick: 0.75rem; --d:2400">
+            {hm(locale, 'example.calc')}
+          </p>
+        </div>
+      </div>
+    </div>
+  )}
+
+  {/* 1 · DocIndex: procedures uploaded, indexed one by one; tools connected. */}
+  {step === 1 && (
+    <div class="tf-app">
+      <div class="tf-top">
+        <span class="tf-pill">TblFlow <span aria-hidden="true">›</span> <b>{ui.knowledgeBase}</b></span>
+        <span class="ml-auto hidden gap-2 sm:flex" aria-hidden="true">
+          <span class="tf-pill">{ui.newDocument}</span>
+          <span class="tf-pill">{ui.import}</span>
+        </span>
+      </div>
+      <div class="p-4">
+        <p class="flex items-center gap-2 px-2 py-1 tf-muted">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={ICON.folder} stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
+          {copy.docs.files}
+        </p>
+        <ul class="mt-1">
+          {copy.docs.names.map((name, i) => (
+            <li class="sc-rise flex items-center gap-3 rounded-lg px-2 py-2 pl-8" style={`--d:${i * 450}`}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="shrink-0 tf-muted" aria-hidden="true"><path d={ICON.file} stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
+              <span class="tf-mono min-w-0 flex-1 truncate">{name}</span>
+              <span class="sc-stack shrink-0 text-xs" style={`--d:${i * 450 + 1300}`}>
+                <span class="sc-only-armed flex items-center gap-2 tf-muted" aria-hidden="true">
+                  <span class="h-1 w-12 overflow-hidden rounded-full bg-[var(--tf-border-high)]">
+                    <span class="sc-grow block h-full bg-[var(--tf-info)]" style={`--d:${i * 450 + 200}; --t:1100ms`}></span>
+                  </span>
+                  {ui.indexing}
+                </span>
+                <span class="flex items-center gap-2 tf-muted">
+                  <span class="h-1.5 w-1.5 rounded-full bg-[var(--tf-success)]"></span>
+                  {ui.indexed}
+                </span>
+              </span>
+            </li>
+          ))}
+        </ul>
+        <div class="sc-rise mt-4 border-t pt-4" style="--d:2400">
+          <p class="text-xs tf-muted">{copy.docs.tools}</p>
+          <ul class="mt-2 flex flex-wrap gap-2">
+            {['Google Sheets', 'Gmail', 'Slack'].map((tool) => (
+              <li class="tf-pill">
+                <span class="h-1.5 w-1.5 rounded-full bg-[var(--tf-success)]"></span>
+                <b>{tool}</b>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <p class="sc-fade tf-mono border-t px-4 py-2 text-xs tf-muted" style="--d:2700">{copy.docs.status}</p>
+    </div>
+  )}
+
+  {/* 2 · Process map: banner, three steps, two re-keyings; lenses are live. */}
+  {step === 2 && (
+    <div class="tf-app">
+      <div class="tf-top flex-wrap">
+        <span class="tf-pill"><b>TblFlow</b></span>
+        <span class="tf-pill gap-1 px-1" role="group" aria-label={ui.lensWho}>
+          {[
+            ['who', ui.lensWho],
+            ['costs', ui.lensCosts],
+            ['ruptures', ui.lensRuptures],
+            ['data', ui.lensData],
+          ].map(([id, label], i) => (
+            <button type="button" class="tf-tab" data-tab={id} aria-pressed={i === 0 ? 'true' : 'false'}>{label}</button>
+          ))}
+        </span>
+      </div>
+      <div class="tf-canvas p-4 sm:p-6">
+        <div class="grid gap-2 sm:max-w-xl sm:grid-cols-3">
+          <div class="tf-kpi sc-rise" style="--d:0">
+            <p class="tf-kpi__label">{ui.cost}</p>
+            <p class="tf-kpi__value" data-count-to={MONTHLY_COST} data-count-delay="1500" data-count-template={countTemplate(perMonth(MONTHLY_COST), MONTHLY_COST)}>{perMonth(MONTHLY_COST)}</p>
+          </div>
+          <div class="tf-kpi sc-rise" style="--d:100">
+            <p class="tf-kpi__label">{ui.ruptures}</p>
+            <p class="tf-kpi__value text-[var(--tf-destructive)]" data-count-to="2" data-count-delay="1500">2</p>
+          </div>
+          <div class="tf-kpi sc-rise" style="--d:200">
+            <p class="tf-kpi__label">{ui.savings}</p>
+            <p class="tf-kpi__value text-[#34d399]" data-count-to={MONTHLY_COST} data-count-delay="1500" data-count-template={countTemplate(perMonth(MONTHLY_COST), MONTHLY_COST)}>{perMonth(MONTHLY_COST)}</p>
+          </div>
+        </div>
+        <ol class="mt-8 flex flex-col items-stretch md:flex-row md:items-center">
+          {steps.map((n, i) => (
+            <>
+              {n > 1 && (
+                <li class="relative flex h-10 items-center justify-center md:h-auto md:w-40 md:flex-none" aria-hidden="true">
+                  <span class="sc-wipe sc-wipe--smooth block h-full border-l-[1.5px] border-dashed border-[var(--tf-destructive)] md:h-0 md:w-full md:border-t-[1.5px] md:border-l-0" style={`--d:${900 + i * 200}; --t:500ms`}></span>
+                  <span class="sc-fade absolute bg-[var(--tf-bg)] px-1 text-xs whitespace-nowrap text-[var(--tf-destructive)] md:-top-5" style={`--d:${1100 + i * 200}`}>
+                    <span data-lens="who costs data">{hm(locale, 'example.break')}</span>
+                    <span data-lens="ruptures">{fill(ui.retyping, { n: 1 })}</span>
+                  </span>
+                </li>
+              )}
+              <li class="tf-step sc-rise md:flex-1 md:px-3" style={`--d:${300 + i * 250}`}>
+                <span class="tf-step__icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d={ICON.user} stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </span>
+                <span class="min-w-0">
+                  <span class="block font-semibold">{stepTitle(n)}</span>
+                  <span class="block text-xs tf-muted">
+                    <span data-lens="who ruptures">{ui.human} · {ui.entry}</span>
+                    <span data-lens="costs" class="tf-mono">{perMonth(STEP_COST[i])}</span>
+                    <span data-lens="data" class="tf-mono">{quotes[0].client} · {formatPrice(locale, quotes[0].amount)}</span>
+                  </span>
+                </span>
+                {n > 1 && <span class="tf-step__badge sc-fade" style={`--d:${1300 + i * 200}`} aria-hidden="true">1</span>}
+              </li>
+            </>
+          ))}
+        </ol>
+      </div>
+    </div>
+  )}
+
+  {/* 3 · AI generation: the seven stages, then the generated grid. */}
+  {step === 3 && (
+    <div class="tf-app">
+      <div class="tf-top">
+        <span class="tf-pill">TblFlow <span aria-hidden="true">›</span> <b>{demo.table}</b></span>
+      </div>
+      <div class="p-4 sm:p-6">
+        <p class="sc-stack text-sm" style="--d:2600">
+          <span class="sc-only-armed flex items-center gap-2 tf-muted">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={ICON.sparkles} stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
+            {ui.analyzing}
+          </span>
+          <span class="flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-[#34d399]" aria-hidden="true"><path d={ICON.check} stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            {ui.reportDone}
+          </span>
+        </p>
+        <ol class="mt-5 grid grid-cols-7 items-start">
+          {[ui.stTables, ui.stLinks, ui.stSub, ui.stRelationData, ui.stQuality, ui.stAgents, ui.stDone].map((label, i) => (
+            <li class="relative flex flex-col items-center gap-2 text-center">
+              {i > 0 && (
+                <span class="absolute top-[9px] right-1/2 h-0.5 w-full bg-[var(--tf-border-high)]" aria-hidden="true">
+                  <span class="sc-grow block h-full bg-[var(--tf-primary)]" style={`--d:${i * 330}; --t:300ms`}></span>
+                </span>
+              )}
+              <span class="sc-stack relative z-10" style={`--d:${i * 330 + 280}`} aria-hidden="true">
+                <span class="sc-only-armed h-5 w-5 rounded-full border-2 border-[var(--tf-border-high)] bg-[var(--tf-bg)]"></span>
+                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-[var(--tf-primary)] text-[#18181b]">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d={ICON.check} stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </span>
+              </span>
+              <span class="hidden px-1 text-[12px] leading-tight hyphens-auto tf-muted [overflow-wrap:anywhere] sm:block">{label}</span>
+            </li>
+          ))}
+        </ol>
+        <div class="sc-rise mt-6 overflow-hidden rounded-lg border bg-[var(--tf-grid-bg)]" style="--d:2700">
+          <div class="tf-mono grid grid-cols-[2rem_1fr_1fr_1fr] bg-[var(--tf-head)] text-xs tf-muted">
+            <span class="border-r px-2 py-2"></span>
+            {demo.cols.map((c) => <span class="truncate border-r px-3 py-2 last:border-r-0">{c}</span>)}
+          </div>
+          {quotes.map((q, i) => (
+            <div class="sc-rise tf-mono grid grid-cols-[2rem_1fr_1fr_1fr] border-t text-xs" style={`--d:${2900 + i * 150}`}>
+              <span class="border-r px-2 py-2 text-center tf-muted">{i + 1}</span>
+              <span class="truncate border-r px-3 py-2">{q.client}</span>
+              <span class="truncate border-r px-3 py-2">
+                <span class:list={['rounded px-1.5 py-0.5', q.accepted ? 'bg-[#05964f33] text-[#34d399]' : 'bg-[var(--tf-muted-bg)] tf-muted']}>{q.accepted ? demo.accepted : demo.sent}</span>
+              </span>
+              <span class="truncate px-3 py-2 text-right tabular-nums">{formatPrice(locale, q.amount)}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )}
+
+  {/* 4 · Workflow editor; its "Test" button replays the run down the flow. */}
+  {step === 4 && (
+    <div class="tf-app">
+      <div class="tf-top">
+        <span class="tf-pill">TblFlow <span aria-hidden="true">›</span> <b>{demo.table}</b></span>
+        <button type="button" class="tf-btn ml-auto" data-replay>{ui.test}</button>
+      </div>
+      <ol class="tf-canvas flex flex-col items-center px-4 py-6">
+        {[
+          { icon: ICON.refresh, bg: 'var(--tf-success)', title: ui.onUpdate, desc: demo.table, badge: ui.trigger },
+          { icon: ICON.branch, bg: '#6366f1', title: ui.ifCond, desc: `${demo.cols[1]} = ${demo.accepted}`, badge: ui.logic },
+          { icon: ICON.edit, bg: 'var(--tf-warning)', title: ui.updateRec, desc: copy.auto.actions[0], badge: ui.action },
+          { icon: ICON.mail, bg: 'var(--tf-info)', title: ui.sendMail, desc: copy.auto.actions[1], badge: ui.action },
+        ].map((card, i) => (
+          <>
+            {i > 0 && (
+              <li class="relative h-8 w-px bg-[var(--tf-border-high)]" aria-hidden="true">
+                <span class="sc-grow-y absolute inset-0 bg-[var(--tf-success)]" style={`--d:${700 + i * 500}; --t:300ms`}></span>
+              </li>
+            )}
+            <li class="sc-rise tf-card relative flex w-full max-w-sm items-center gap-3 px-3 py-2" style={`--d:${i * 150}`}>
+              <span class="flex h-9 w-9 flex-none items-center justify-center rounded-full text-white" style={`background:${card.bg}`} aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d={card.icon} stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </span>
+              <span class="min-w-0 flex-1">
+                <span class="block text-sm">{i + 1}. {card.title}</span>
+                <span class="block truncate text-xs tf-muted">{card.desc}</span>
+              </span>
+              <span class="sc-stack flex-none text-xs" style={`--d:${900 + i * 500}`}>
+                <span class="sc-only-armed rounded-full border px-2 py-0.5 tf-muted">{card.badge}</span>
+                <span class="flex items-center gap-1 rounded-full border px-2 py-0.5 tf-muted">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" class="text-[#34d399]" aria-hidden="true"><path d={ICON.check} stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                  {card.badge}
+                </span>
+              </span>
+            </li>
+          </>
+        ))}
+      </ol>
+    </div>
+  )}
+
+  {/* 5 · Agent chat: tool calls on the table and the procedure, then a proposal to accept. */}
+  {step === 5 && (
+    <div class="tf-app">
+      <div class="tf-top">
+        <span class="tf-pill">
+          <span class="h-2 w-2 rounded-full bg-[var(--tf-agent)]" aria-hidden="true"></span>
+          <b>{demo.agentTitle}</b>
+        </span>
+      </div>
+      <div class="space-y-3 p-4">
+        <p class="sc-rise ml-auto max-w-[85%] rounded-lg border bg-[var(--tf-muted-bg)] px-3 py-2" style="--d:0">{copy.agent.prompt}</p>
+        <div class="flex gap-2">
+          <span class="sc-fade mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-[#4f46e5] text-white" style="--d:400" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d={ICON.sparkles} stroke="currentColor" stroke-width="2" stroke-linejoin="round" /></svg>
+          </span>
+          <div class="min-w-0 flex-1 space-y-2">
+            {copy.agent.items.map((source, i) => (
+              <p class="sc-rise flex items-center gap-2 rounded-md border bg-[var(--tf-muted-bg)] px-2 py-1.5 text-xs" style={`--d:${500 + i * 600}`}>
+                <span class="sc-stack" style={`--d:${1000 + i * 600}`} aria-hidden="true">
+                  <span class="sc-only-armed tf-spin h-3 w-3 rounded-full border-2 border-[var(--tf-border-high)] border-t-[var(--tf-fg)]"></span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" class="text-[#34d399]"><path d={ICON.check} stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </span>
+                <span class="tf-mono truncate">{source}</span>
+                <span class="ml-auto shrink-0 tf-muted">{fill(ui.outResults, { n: i === 0 ? accepted.length : 1 })}</span>
+              </p>
+            ))}
+            <div class="sc-rise rounded-lg border border-[#4c1d9566] bg-[#2e106533] p-3" style="--d:1900">
+              <p class="text-xs tf-muted">{copy.agent.status}</p>
+              <ul class="tf-mono mt-2 space-y-1 text-xs">
+                {accepted.map((q) => <li>{q.client} · {formatPrice(locale, q.amount)}</li>)}
+              </ul>
+              <div class="mt-3 flex items-center gap-2">
+                <button type="button" class="tf-btn tf-when-pending" data-approve>{ui.accept}</button>
+                <span class="tf-when-approved flex items-center gap-1 text-xs text-[#34d399]" role="status">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={ICON.check} stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                  {ui.accepted}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="rounded-lg border px-3 py-2 tf-muted" aria-hidden="true">{ui.placeholder}</p>
+      </div>
+    </div>
+  )}
+
+  {/* 6 · The map once covered: executors shift, coverage and gain climb. */}
+  {step === 6 && (
+    <div class="space-y-4">
+      <div class="tf-app">
+        <div class="tf-canvas p-4 sm:p-6">
+          <div class="grid grid-cols-2 gap-2 sm:max-w-md">
+            <div class="tf-kpi">
+              <p class="tf-kpi__label">{ui.realized}</p>
+              <p class="tf-kpi__value text-[#34d399]" data-count-to={REALIZED} data-count-delay="600" data-count-template={countTemplate(perMonth(REALIZED), REALIZED)}>{perMonth(REALIZED)}</p>
+            </div>
+            <div class="tf-kpi">
+              <p class="tf-kpi__label">{ui.covered}</p>
+              <p class="tf-kpi__value" data-count-to={COVERED} data-count-delay="600" data-count-template="# %">{COVERED} %</p>
+            </div>
+          </div>
+          <div class="tf-kpi mt-2 sm:max-w-md">
+            <p class="tf-kpi__label">{ui.distribution}</p>
+            <div class="mt-2 flex h-1.5 overflow-hidden rounded-full bg-[var(--tf-border-high)]">
+              <span class="sc-grow h-full w-1/3 bg-[var(--tf-muted)]" style="--d:300"></span>
+              <span class="sc-grow h-full w-1/3 bg-[var(--tf-automation)]" style="--d:700"></span>
+              <span class="sc-grow h-full w-1/3 bg-[var(--tf-agent)]" style="--d:1100"></span>
+            </div>
+            <p class="mt-2 flex flex-wrap gap-x-3 text-xs tf-muted">
+              <span>{ui.human} 1</span><span>{ui.automation} 1</span><span>{ui.agent} 1</span>
+            </p>
+          </div>
+          <ol class="mt-6 grid gap-3 md:grid-cols-3">
+            {[
+              { n: 1 as const, exec: undefined, icon: ICON.user, sub: ui.human },
+              { n: 2 as const, exec: 'automation', icon: ICON.zap, sub: ui.automation },
+              { n: 3 as const, exec: 'agent', icon: ICON.bot, sub: ui.agent },
+            ].map((s, i) => (
+              <li class="tf-step sc-rise" data-exec={s.exec} style={`--d:${300 + i * 400}`}>
+                <span class="tf-step__icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d={s.icon} stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </span>
+                <span class="min-w-0">
+                  <span class="block truncate font-semibold">{stepTitle(s.n)}</span>
+                  <span class="block truncate text-xs tf-muted">{s.sub}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+      <div class="card grid overflow-hidden sm:grid-cols-2">
+        <div class="p-6">
+          <p class="text-xs text-[var(--fg-subtle)]">{copy.split.agents}</p>
+          <ul class="mt-3 space-y-2 text-sm text-[var(--fg-muted)]">
+            {copy.split.agentItems.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div class="border-t border-[var(--border)] bg-[var(--bg-subtle)] p-6 sm:border-t-0 sm:border-l">
+          <p class="text-xs text-[var(--fg-subtle)]">{copy.split.team}</p>
+          <ul class="mt-3 space-y-2 text-sm font-medium">
+            {copy.split.teamItems.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  )}
+
+  {step !== 4 && (
+    <button type="button" class="sc-replay" data-replay>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d={ICON.refresh} stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      {REPLAY[locale]}
+    </button>
+  )}
+</div>

@@ -13,20 +13,20 @@ const { locale } = Astro.props;
 {
   PUBLISHED_TESTIMONIALS.length > 0 && (
     <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-      <h2 class="reveal text-3xl font-bold tracking-tight sm:text-4xl">{hm(locale, 'testimonials.title')}</h2>
+      <h2 class="text-3xl font-medium sm:text-4xl">{hm(locale, 'testimonials.title')}</h2>
       <ul class="mt-10 grid gap-6 md:grid-cols-2">
         {PUBLISHED_TESTIMONIALS.map((item) => (
-          <li class="reveal card flex flex-col p-6">
+          <li class="card flex flex-col p-6">
             {item.result && (
               <p class="mb-4">
-                <span class="ai-gradient-text text-2xl font-bold">{item.result.value}</span>
+                <span class="text-2xl font-medium tabular-nums">{item.result.value}</span>
                 <span class="ml-2 text-sm text-[var(--fg-muted)]">{item.result.label}</span>
               </p>
             )}
             <blockquote lang={item.lang} class="text-base leading-relaxed">
               {item.lang === 'fr' ? `« ${item.quote} »` : `“${item.quote}”`}
             </blockquote>
-            <p class="mt-4 text-sm font-semibold">{item.name}</p>
+            <p class="mt-4 text-sm font-medium">{item.name}</p>
             <p class="text-sm text-[var(--fg-muted)]">
               {item.role}, {item.company}
             </p>

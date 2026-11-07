@@ -1,0 +1,368 @@
+/* ---------------------------------------------------------------------------
+ * TblFlow app surfaces, for the product scenes of the home journey.
+ *
+ * The scenes reproduce the real app, so they use the app's own dark theme
+ * whatever the site theme is: values from the app's shadcn `.dark` tokens
+ * (packages/ui-lib/src/shadcn/global.shadcn.css) and resource colours
+ * (apps/nextjs-app/src/styles/global.css). Mono is the app's JetBrains Mono
+ * stack.
+ * ------------------------------------------------------------------------- */
+.tf-app {
+  --tf-bg: #131415;
+  --tf-grid-bg: #0c0d10;
+  --tf-head: #15161a;
+  --tf-card: #18191b;
+  --tf-popover: #232425;
+  --tf-muted-bg: rgb(255 255 255 / 0.04);
+  --tf-border: rgb(255 255 255 / 0.08);
+  --tf-border-high: rgb(255 255 255 / 0.12);
+  --tf-fg: #d6dbe0;
+  --tf-muted: #8a8c8f;
+  --tf-primary: #dfe3e7;
+  --tf-destructive: #ef4444;
+  --tf-success: #05964f;
+  --tf-warning: #f59e0b;
+  --tf-info: #60a5fa;
+  --tf-automation: #e3ac4c;
+  --tf-agent: #ec6cab;
+  --tf-table: #34c6bb;
+  --tf-dot: #2c303a;
+  --tf-mono: 'JetBrains Mono', 'SF Mono', 'Roboto Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+
+  color-scheme: dark;
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--tf-border-high);
+  background: var(--tf-bg);
+  color: var(--tf-fg);
+  font-size: 13px;
+  line-height: 1.4;
+  box-shadow: 0 8px 24px rgb(17 24 39 / 0.12);
+}
+.tf-app *,
+.tf-app *::before,
+.tf-app *::after {
+  border-color: var(--tf-border);
+}
+
+/* Window chrome: breadcrumb pill on the left, action pill on the right. */
+.tf-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--tf-border);
+}
+.tf-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--tf-border);
+  background: var(--tf-card);
+  color: var(--tf-muted);
+  white-space: nowrap;
+}
+.tf-pill b {
+  color: var(--tf-fg);
+  font-weight: 500;
+}
+.tf-canvas {
+  background-color: var(--tf-bg);
+  background-image: radial-gradient(var(--tf-dot) 1.4px, transparent 1.4px);
+  background-size: 26px 26px;
+}
+.tf-mono {
+  font-family: var(--tf-mono);
+}
+.tf-muted {
+  color: var(--tf-muted);
+}
+.tf-card {
+  border-radius: 12px;
+  border: 1px solid var(--tf-border);
+  background: var(--tf-card);
+}
+
+/* Process map step: 4px executor stripe, 36px tinted icon square. */
+.tf-step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--tf-border);
+  background: var(--tf-card);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.3);
+}
+.tf-step[data-exec='automation'] {
+  --exec: var(--tf-automation);
+}
+.tf-step[data-exec='agent'] {
+  --exec: var(--tf-agent);
+}
+.tf-step[data-exec='automation']::before,
+.tf-step[data-exec='agent']::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 12px 0 0 12px;
+  background: var(--exec);
+}
+.tf-step__icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--tf-muted-bg);
+  color: var(--tf-muted);
+}
+.tf-step[data-exec] .tf-step__icon {
+  background: color-mix(in oklab, var(--exec, var(--tf-muted)) 12%, transparent);
+  color: var(--exec, var(--tf-muted));
+}
+.tf-step__badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--tf-destructive);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+}
+.tf-kpi {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--tf-border);
+  background: var(--tf-card);
+}
+.tf-kpi__label {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--tf-muted);
+}
+.tf-kpi__value {
+  margin-top: 2px;
+  font-size: 18px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Lens tabs on the process map, real buttons in the scene. */
+.tf-tab {
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: var(--tf-fg);
+  cursor: pointer;
+  transition: background-color 150ms var(--ease-out-soft);
+}
+.tf-tab:hover,
+.tf-tab[aria-pressed='true'] {
+  background: var(--tf-popover);
+}
+.tf-tab:focus-visible,
+.tf-btn:focus-visible {
+  outline: 2px solid var(--color-ai-2);
+  outline-offset: 2px;
+}
+.tf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: var(--tf-primary);
+  color: #18181b;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 150ms var(--ease-out-soft);
+}
+.tf-btn:hover {
+  opacity: 0.9;
+}
+.tf-btn--ghost {
+  background: transparent;
+  color: var(--tf-muted);
+  border: 1px solid var(--tf-border);
+}
+
+/* Map lenses: each `[data-lens]` element shows only under its own lens. */
+[data-scene] [data-lens] {
+  display: none;
+}
+[data-scene]:not([data-view]) [data-lens~='who'],
+[data-scene][data-view='who'] [data-lens~='who'],
+[data-scene][data-view='costs'] [data-lens~='costs'],
+[data-scene][data-view='ruptures'] [data-lens~='ruptures'],
+[data-scene][data-view='data'] [data-lens~='data'] {
+  display: revert;
+}
+
+/* Approval: the draft swaps to its accepted state. */
+[data-scene] .tf-when-approved,
+[data-scene][data-approved] .tf-when-pending {
+  display: none;
+}
+[data-scene][data-approved] .tf-when-approved {
+  display: inline-flex;
+}
+
+/* ---------------------------------------------------------------------------
+ * Scene choreography.
+ *
+ * The markup is the finished frame. When the script arms a scene, the moving
+ * parts reset to their first frame; `[data-play]` then runs them, each after
+ * its own `--d` (ms). Reduced motion never arms a scene, so it keeps the
+ * finished frame.
+ * ------------------------------------------------------------------------- */
+@keyframes sc-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes sc-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes sc-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes sc-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes sc-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.sc-stack {
+  display: grid;
+}
+.sc-stack > * {
+  grid-area: 1 / 1;
+}
+/* Transitional states (spinner, "Indexing…") exist only while armed. */
+.sc-only-armed {
+  visibility: hidden;
+}
+[data-armed] .sc-only-armed {
+  visibility: visible;
+}
+
+[data-armed]:not([data-play]) :is(.sc-rise, .sc-fade, .sc-wipe, .sc-grow),
+[data-armed]:not([data-play]) .sc-only-armed + * {
+  opacity: 0;
+}
+
+[data-play] .sc-rise {
+  animation: sc-rise 400ms var(--ease-out-soft) both;
+  animation-delay: calc(var(--d, 0) * 1ms);
+}
+[data-play] .sc-fade {
+  animation: sc-fade 300ms var(--ease-out-soft) both;
+  animation-delay: calc(var(--d, 0) * 1ms);
+}
+[data-play] .sc-wipe {
+  animation: sc-wipe var(--t, 600ms) steps(var(--n, 12), end) both;
+  animation-delay: calc(var(--d, 0) * 1ms);
+}
+[data-play] .sc-wipe--smooth {
+  animation-timing-function: var(--ease-out-soft);
+}
+[data-play] .sc-grow {
+  transform-origin: left center;
+  animation: sc-grow var(--t, 800ms) var(--ease-out-soft) both;
+  animation-delay: calc(var(--d, 0) * 1ms);
+}
+/* A transitional label hands over to the final one at `--d`. */
+[data-play] .sc-only-armed {
+  animation: sc-out 200ms linear forwards;
+  animation-delay: calc(var(--d, 0) * 1ms);
+}
+[data-play] .sc-only-armed + * {
+  animation: sc-fade 300ms var(--ease-out-soft) both;
+  animation-delay: calc(var(--d, 0) * 1ms);
+}
+
+/* Replay control under each scene. */
+.sc-replay {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 0.875rem;
+  color: var(--fg-subtle);
+  cursor: pointer;
+  transition: color 150ms var(--ease-out-soft);
+}
+.sc-replay:hover {
+  color: var(--fg);
+}
+
+/* Connector between workflow cards: fills top to bottom as the run passes. */
+@keyframes sc-grow-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+[data-armed]:not([data-play]) .sc-grow-y {
+  opacity: 0;
+}
+[data-play] .sc-grow-y {
+  transform-origin: center top;
+  animation: sc-grow-y var(--t, 300ms) var(--ease-out-soft) both;
+  animation-delay: calc(var(--d, 0) * 1ms);
+}
+/* Tool call in progress; only ever visible while a scene plays. */
+@keyframes tf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+[data-armed] .tf-spin {
+  animation: tf-spin 800ms linear infinite;
+}

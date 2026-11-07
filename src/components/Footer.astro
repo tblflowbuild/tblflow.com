@@ -56,8 +56,8 @@ const columns: Array<{ title: string; links: Array<{ label: string; href: string
 <footer class="mt-24 border-t border-[var(--border)] bg-[var(--bg-subtle)]">
   <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
     <div class="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
-      <div class="reveal">
-        <a href={localePath(locale)} class="flex items-center gap-2.5 font-semibold tracking-tight">
+      <div>
+        <a href={localePath(locale)} class="flex items-center gap-2 font-medium">
           <Logo size={28} title="TblFlow" />
           <span>TblFlow</span>
         </a>
@@ -66,9 +66,9 @@ const columns: Array<{ title: string; links: Array<{ label: string; href: string
       </div>
 
       {
-        columns.map((column, i) => (
-          <div class:list={['reveal', `delay-${Math.min(i + 1, 4)}`]}>
-            <h2 class="text-xs font-semibold tracking-wide text-[var(--fg)] uppercase">
+        columns.map((column) => (
+          <div>
+            <h2 class="text-xs font-medium text-[var(--fg)]">
               {column.title}
             </h2>
             <ul class="mt-3 space-y-2">
@@ -89,7 +89,7 @@ const columns: Array<{ title: string; links: Array<{ label: string; href: string
     </div>
 
     <div
-      class="reveal mt-12 flex flex-col gap-3 border-t border-[var(--border)] pt-6 text-xs text-[var(--fg-subtle)] sm:flex-row sm:items-center sm:justify-between"
+      class="mt-12 flex flex-col gap-3 border-t border-[var(--border)] pt-6 text-xs text-[var(--fg-subtle)] sm:flex-row sm:items-center sm:justify-between"
     >
       <p>&copy; {year} TblFlow. {t('footer.rights')}</p>
 
