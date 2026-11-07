@@ -41,7 +41,7 @@ const proof = [
     </p>
 
     <h1
-      class="animate-enter delay-3 mx-auto mt-6 max-w-2xl text-2xl font-semibold text-balance sm:text-3xl"
+      class="animate-enter delay-3 mx-auto mt-6 max-w-3xl text-4xl leading-[1.1] font-medium text-balance sm:text-5xl sm:tracking-[-0.02em]"
     >
       {pm(locale, 'home.hero.title')}
     </h1>
@@ -58,7 +58,7 @@ const proof = [
         other. */}
     <a
       href={SIGNUP_TRIAL_URL}
-      class="ai-gradient-bg animate-enter delay-4 mt-9 inline-block rounded-xl px-6 py-3 text-base font-semibold text-white"
+      class="ai-gradient-bg animate-enter delay-4 mt-9 inline-block rounded-xl px-6 py-3 text-base font-medium text-white"
     >
       {t('hero.cta.primary')}
     </a>
@@ -80,7 +80,7 @@ const proof = [
         proof.map((item) => (
           <div class="flex flex-col">
             <dt class="order-2 mt-1 text-xs text-[var(--fg-subtle)]">{item.label}</dt>
-            <dd class:list={['order-1 font-bold', item.small ? 'text-xl leading-9 sm:text-2xl' : 'text-2xl sm:text-3xl']}>{item.value}</dd>
+            <dd class:list={['order-1 font-mono font-medium tabular-nums', item.small ? 'text-xl leading-9 sm:text-2xl' : 'text-2xl sm:text-3xl']}>{item.value}</dd>
           </div>
         ))
       }

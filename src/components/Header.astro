@@ -47,7 +47,7 @@ const isActive = (match?: string) => Boolean(match) && current.startsWith(match!
   <div class="nav-bubble mx-auto flex h-14 max-w-5xl items-center gap-3 px-4 sm:px-5">
     <a
       href={localePath(locale)}
-      class="flex shrink-0 items-center gap-2 font-semibold tracking-tight"
+      class="flex shrink-0 items-center gap-2 font-medium"
     >
       <Logo size={28} title="TblFlow" />
       <span class="text-base">TblFlow</span>
@@ -87,7 +87,7 @@ const isActive = (match?: string) => Boolean(match) && current.startsWith(match!
 
       <a
         href={SIGNUP_TRIAL_URL}
-        class="ai-gradient-bg hidden rounded-full px-4 py-2 text-sm font-semibold text-white sm:block"
+        class="ai-gradient-bg hidden rounded-full px-4 py-2 text-sm font-medium text-white sm:block"
       >
         {t('nav.cta')}
       </a>
@@ -140,7 +140,7 @@ const isActive = (match?: string) => Boolean(match) && current.startsWith(match!
             <LangSwitcher locale={locale} />
             <a
               href={SIGNUP_TRIAL_URL}
-              class="ai-gradient-bg mt-2 block rounded-lg px-3 py-2 text-center text-sm font-semibold text-white"
+              class="ai-gradient-bg mt-2 block rounded-lg px-3 py-2 text-center text-sm font-medium text-white"
             >
               {t('nav.cta')}
             </a>

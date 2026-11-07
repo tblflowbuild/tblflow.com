@@ -37,7 +37,7 @@ const t = useTranslations(locale);
     aria-labelledby="cookie-consent-title"
   >
     <p class="text-xs leading-snug text-[var(--fg-muted)] sm:flex-1">
-      <strong id="cookie-consent-title" class="font-semibold text-[var(--fg)]">{t('consent.title')}</strong>
+      <strong id="cookie-consent-title" class="font-medium text-[var(--fg)]">{t('consent.title')}</strong>
       {' '}
       {t('consent.body')}
     </p>
@@ -60,7 +60,7 @@ const t = useTranslations(locale);
       <button
         type="button"
         data-consent-save
-        class="ai-gradient-bg rounded-md px-3 py-2 text-xs font-semibold text-white"
+        class="ai-gradient-bg rounded-md px-3 py-2 text-xs font-medium text-white"
         hidden
       >
         {t('consent.save')}
@@ -68,7 +68,7 @@ const t = useTranslations(locale);
       <button
         type="button"
         data-consent-accept
-        class="ai-gradient-bg rounded-md px-3 py-2 text-xs font-semibold text-white"
+        class="ai-gradient-bg rounded-md px-3 py-2 text-xs font-medium text-white"
       >
         {t('consent.acceptAll')}
       </button>

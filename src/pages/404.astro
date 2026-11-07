@@ -20,16 +20,16 @@ import { localePath } from '@/i18n/utils';
   noindex
 >
   <div class="mx-auto flex max-w-2xl flex-col items-center px-4 py-28 text-center sm:px-6">
-    <p class="text-7xl font-bold">404</p>
+    <p class="text-7xl font-medium">404</p>
 
     {
       LOCALES.map((locale) => (
         <div class="mt-10 first:mt-8" lang={HREFLANG[locale]}>
-          <h1 class="text-xl font-semibold">{ui[locale]['404.title']}</h1>
+          <h1 class="text-xl font-medium">{ui[locale]['404.title']}</h1>
           <p class="mt-2 text-[var(--fg-muted)]">{ui[locale]['404.body']}</p>
           <a
             href={localePath(locale)}
-            class="mt-4 inline-block rounded-lg border border-[var(--border-strong)] px-5 py-2 text-sm font-semibold transition-colors hover:bg-[var(--bg-subtle)]"
+            class="mt-4 inline-block rounded-lg border border-[var(--border-strong)] px-5 py-2 text-sm font-medium transition-colors hover:bg-[var(--bg-subtle)]"
           >
             {ui[locale]['404.cta']}
           </a>

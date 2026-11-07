@@ -65,7 +65,7 @@ const t = useTranslations(locale);
             </span>
           )}
 
-          <h3 class="text-lg font-semibold">{tier.name[locale]}</h3>
+          <h3 class="text-lg font-medium">{tier.name[locale]}</h3>
           <p class="mt-1 text-sm text-[var(--fg-muted)]">{tier.tagline[locale]}</p>
 
           {/* The Free tier shows "$0"/"0 €", not the word "Free" — the tier is
@@ -74,21 +74,21 @@ const t = useTranslations(locale);
           <div class="mt-5">
             {tier.price === null ? (
               <p class="flex items-baseline gap-1">
-                <span class="text-3xl font-bold">{t('pricing.custom')}</span>
+                <span class="text-3xl font-medium tabular-nums">{t('pricing.custom')}</span>
               </p>
             ) : tier.annualTotal === null ? (
               <p class="flex items-baseline gap-1">
-                <span class="text-4xl font-bold">{formatPrice(locale, tier.price)}</span>
+                <span class="text-4xl font-medium tabular-nums">{formatPrice(locale, tier.price)}</span>
                 <span class="text-sm text-[var(--fg-subtle)]">{t('pricing.month')}</span>
               </p>
             ) : (
               <>
                 <p class="flex items-baseline gap-1" data-billing-price="monthly">
-                  <span class="text-4xl font-bold">{formatPrice(locale, tier.price)}</span>
+                  <span class="text-4xl font-medium tabular-nums">{formatPrice(locale, tier.price)}</span>
                   <span class="text-sm text-[var(--fg-subtle)]">{t('pricing.month')}</span>
                 </p>
                 <p class="flex items-baseline gap-1" data-billing-price="annual" hidden>
-                  <span class="text-4xl font-bold">
+                  <span class="text-4xl font-medium tabular-nums">
                     {formatMonthlyEquivalent(locale, tier.annualTotal)}
                   </span>
                   <span class="text-sm text-[var(--fg-subtle)]">{t('pricing.month')}</span>
@@ -107,7 +107,7 @@ const t = useTranslations(locale);
           <a
             href={tier.ctaHref}
             class:list={[
-              'mt-6 block rounded-lg px-4 py-2 text-center text-sm font-semibold transition-colors',
+              'mt-6 block rounded-lg px-4 py-2 text-center text-sm font-medium transition-colors',
               tier.featured
                 ? 'ai-gradient-bg text-white'
                 : 'border border-[var(--border-strong)] hover:bg-[var(--bg-subtle)]',
@@ -147,18 +147,18 @@ const t = useTranslations(locale);
   {
     showQuotas && (
       <div class="reveal mt-16">
-        <h3 class="text-xl font-semibold tracking-tight">{t('pricing.compare')}</h3>
+        <h3 class="text-xl font-medium">{t('pricing.compare')}</h3>
         <div class="mt-6 overflow-x-auto">
           <table class="w-full min-w-[42rem] border-collapse text-sm">
             <caption class="sr-only-focusable absolute">{t('pricing.compare')}</caption>
             <thead>
               <tr class="border-b border-[var(--border-strong)]">
-                <th scope="col" class="py-3 pr-4 text-left font-semibold" />
+                <th scope="col" class="py-3 pr-4 text-left font-medium" />
                 {TIERS.map((tier) => (
                   <th
                     scope="col"
                     class:list={[
-                      'px-3 py-3 text-center font-semibold whitespace-nowrap',
+                      'px-3 py-3 text-center font-medium whitespace-nowrap',
                     ]}
                   >
                     {tier.name[locale]}
@@ -197,12 +197,12 @@ const t = useTranslations(locale);
   <aside class="reveal card mt-12 overflow-hidden p-0">
     <div class="grid gap-6 p-7 sm:grid-cols-[1fr_auto] sm:items-center">
       <div>
-        <h3 class="text-lg font-semibold">{t('pricing.selfhost.title')}</h3>
+        <h3 class="text-lg font-medium">{t('pricing.selfhost.title')}</h3>
         <p class="mt-2 max-w-2xl text-sm text-[var(--fg-muted)]">{t('pricing.selfhost.body')}</p>
       </div>
       <a
         href={`mailto:${SUPPORT_EMAIL}`}
-        class="justify-self-start rounded-lg border border-[var(--border-strong)] px-5 py-2 text-sm font-semibold whitespace-nowrap transition-colors hover:bg-[var(--bg-subtle)] sm:justify-self-end"
+        class="justify-self-start rounded-lg border border-[var(--border-strong)] px-5 py-2 text-sm font-medium whitespace-nowrap transition-colors hover:bg-[var(--bg-subtle)] sm:justify-self-end"
       >
         {t('pricing.selfhost.cta')}
       </a>

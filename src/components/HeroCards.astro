@@ -179,17 +179,17 @@ const copy = COPY[locale];
   <div class="stack-card stack-card--left hidden w-72 shrink-0 md:block">
     <div class="card flex h-60 flex-col overflow-hidden">
       <div class="border-b border-[var(--border)] p-4">
-        <p class="text-[10px] font-semibold tracking-wide uppercase opacity-80">
+        <p class="text-xs font-medium opacity-80">
           {copy.agentTitle}
         </p>
-        <p class="mt-1 text-sm font-semibold">{copy.prompt}</p>
+        <p class="mt-1 text-sm font-medium">{copy.prompt}</p>
       </div>
 
       <ul class="flex-1 space-y-2 p-4">
         {
           copy.steps.map((step, i) => (
             <li class="flex items-center gap-2 text-xs text-[var(--fg-muted)]">
-              <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[var(--bg-subtle)] text-[9px] text-[var(--fg-subtle)]">
+              <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[var(--bg-subtle)] text-xs text-[var(--fg-subtle)]">
                 {i + 1}
               </span>
               {step}
@@ -218,7 +218,7 @@ const copy = COPY[locale];
         <span class="h-2 w-2 rounded-full bg-[var(--fg-subtle)] opacity-40"></span>
         <span class="h-2 w-2 rounded-full bg-[var(--fg-subtle)] opacity-40"></span>
         <span class="h-2 w-2 rounded-full bg-[var(--fg-subtle)] opacity-40"></span>
-        <span class="ml-2 text-[11px] text-[var(--fg-subtle)]">{copy.table}</span>
+        <span class="ml-2 text-xs text-[var(--fg-subtle)]">{copy.table}</span>
       </div>
 
       <div class="flex-1 p-3">
@@ -258,18 +258,18 @@ const copy = COPY[locale];
   <div class="stack-card stack-card--right hidden w-72 shrink-0 md:block">
     <div class="card flex h-60 flex-col overflow-hidden">
       <div class="border-b border-[var(--border)] px-4 py-3">
-        <p class="text-[10px] tracking-wide text-[var(--fg-subtle)] uppercase">
+        <p class="text-xs text-[var(--fg-subtle)]">
           {copy.appKicker}
         </p>
-        <p class="mt-1 text-sm font-semibold">{copy.appTitle}</p>
+        <p class="mt-1 text-sm font-medium">{copy.appTitle}</p>
       </div>
 
       <div class="grid flex-1 grid-cols-2 gap-px bg-[var(--border)]">
         {
           copy.stats.map(([label, value]) => (
             <div class="bg-[var(--bg-raised)] px-3 py-3">
-              <p class="text-[9px] tracking-wide text-[var(--fg-subtle)] uppercase">{label}</p>
-              <p class="mt-1 text-lg font-semibold">{value}</p>
+              <p class="text-xs text-[var(--fg-subtle)]">{label}</p>
+              <p class="mt-1 text-lg font-medium">{value}</p>
             </div>
           ))
         }
@@ -285,7 +285,7 @@ const copy = COPY[locale];
               stroke-linecap="round"
               stroke-linejoin="round"></path>
           </svg>
-          <span class="font-mono text-[10px] text-[var(--fg-muted)]">{copy.domain}</span>
+          <span class="font-mono text-xs text-[var(--fg-muted)]">{copy.domain}</span>
         </div>
       </div>
     </div>

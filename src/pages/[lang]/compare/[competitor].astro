@@ -202,7 +202,7 @@ const breadcrumbs = [
       {meta.back}
     </a>
 
-    <h1 class="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">{meta.h1}</h1>
+    <h1 class="mt-6 text-4xl font-medium sm:text-5xl">{meta.h1}</h1>
 
     {/* The answer first, in one paragraph. A comparison page that makes the
         reader scroll to a table before telling them anything gets abandoned,
@@ -211,7 +211,7 @@ const breadcrumbs = [
   </div>
 
   <section class="mx-auto max-w-4xl scroll-mt-24 px-4 py-16 sm:px-6" id="table">
-    <h2 class="reveal text-2xl font-bold tracking-tight sm:text-3xl">{meta.tableTitle}</h2>
+    <h2 class="reveal text-2xl font-medium sm:text-3xl">{meta.tableTitle}</h2>
     <p class="reveal mt-3 text-[var(--fg-muted)]">{meta.tableLede}</p>
 
     {/* Horizontal scroll stays inside this container, so the page body never
@@ -221,9 +221,9 @@ const breadcrumbs = [
         <caption class="sr-only-focusable absolute">{meta.title}</caption>
         <thead>
           <tr class="border-b border-[var(--border-strong)] text-left">
-            <th scope="col" class="py-3 pr-4 font-semibold">{meta.feature}</th>
-            <th scope="col" class="px-4 py-3 font-semibold">TblFlow</th>
-            <th scope="col" class="px-4 py-3 font-semibold">{rival}</th>
+            <th scope="col" class="py-3 pr-4 font-medium">{meta.feature}</th>
+            <th scope="col" class="px-4 py-3 font-medium">TblFlow</th>
+            <th scope="col" class="px-4 py-3 font-medium">{rival}</th>
           </tr>
         </thead>
         <tbody>
@@ -270,13 +270,13 @@ const breadcrumbs = [
   </section>
 
   <section class="mx-auto max-w-4xl px-4 pb-16 sm:px-6">
-    <h2 class="reveal text-2xl font-bold tracking-tight sm:text-3xl">{meta.diffTitle}</h2>
+    <h2 class="reveal text-2xl font-medium sm:text-3xl">{meta.diffTitle}</h2>
 
     <div class="mt-8 grid gap-6 sm:grid-cols-3">
       {
         page.differences.map((diff) => (
           <div class="reveal card p-6">
-            <h3 class="text-base font-semibold">{diff.title[locale]}</h3>
+            <h3 class="text-base font-medium">{diff.title[locale]}</h3>
             <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">{diff.body[locale]}</p>
           </div>
         ))
@@ -289,7 +289,7 @@ const breadcrumbs = [
       advert. */}
   <section class="mx-auto max-w-4xl px-4 pb-20 sm:px-6">
     <div class="reveal card p-7 sm:p-9">
-      <h2 class="text-2xl font-bold tracking-tight">{meta.honestTitle}</h2>
+      <h2 class="text-2xl font-medium">{meta.honestTitle}</h2>
       <p class="mt-2 text-sm text-[var(--fg-subtle)]">{meta.honestLede}</p>
       <p class="mt-5 leading-relaxed text-[var(--fg-muted)]">{page.honest[locale]}</p>
     </div>
