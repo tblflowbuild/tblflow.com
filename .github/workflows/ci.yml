@@ -1,12 +1,14 @@
-name: Deploy to Cloudflare
+name: CI
 
+# Le déploiement est fait par Cloudflare Workers Builds ; ce workflow ne fait que vérifier.
 on:
   push:
     branches: [main]
+  pull_request: {}
   workflow_dispatch: {}
 
 jobs:
-  deploy:
+  check:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -21,9 +23,3 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npx astro check
-
-      - uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy
