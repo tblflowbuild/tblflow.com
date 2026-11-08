@@ -33,7 +33,7 @@ Le serveur expose 23 outils, qui se regroupent ainsi :
 - **Comprendre** : décrire le schéma d'une base, lire la carte des process d'un espace.
 - **Lire** : lister, filtrer et lire des enregistrements.
 - **Calculer** : calculer des statistiques sur une table (somme, moyenne, minimum, maximum, comptage), avec filtre et regroupement, sans lire toutes les lignes.
-- **Rechercher** : chercher dans le knowledge graph, en recherche sémantique et en plein texte.
+- **Rechercher** : chercher dans le graphe de connaissances, en recherche sémantique et en plein texte.
 - **Créer et modifier** : créer et modifier des enregistrements.
 - **Importer** : importer un CSV, dans une table existante ou dans une nouvelle table.
 - **Supprimer et restaurer** : supprimer des enregistrements ou un champ, avec un aperçu puis une confirmation explicite ; lister la corbeille et restaurer ce qui a été supprimé.
@@ -56,7 +56,7 @@ Une automatisation ou un agent n'est déclenchable depuis Claude que si son prop
 | Gratuit | 60 |
 | Essentiel | 120 |
 | Équipe | 300 |
-| Enterprise | 600 |
+| Entreprise | 600 |
 
 ## Depuis un terminal
 

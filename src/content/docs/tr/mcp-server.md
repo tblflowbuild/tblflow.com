@@ -17,7 +17,7 @@ Sunucu URL'si: `https://app.tblflow.com/mcp`
 1. **Ayarlar → Bağlayıcılar → Özel bağlayıcı ekle**'yi açın.
 2. `https://app.tblflow.com/mcp` URL'sini girin.
 3. TblFlow hesabınızla giriş yapın.
-4. Erişilebilecek alanları ve tabanları, ardından izinleri seçin.
+4. Erişilebilecek alanları ve veritabanlarını, ardından izinleri seçin.
 
 ### Claude Code
 
@@ -29,21 +29,21 @@ claude mcp add --transport http tblflow https://app.tblflow.com/mcp
 
 Sunucu, aşağıdaki gibi gruplanan 23 araç sunar:
 
-- **Keşfetmek**: alanlarınızı ve tabanlarınızı, bir tablonun görünümlerini ve bir alanın üyelerini listelemek.
-- **Anlamak**: bir tabanın şemasını açıklamak, bir alanın süreç haritasını okumak.
+- **Keşfetmek**: alanlarınızı ve veritabanlarınızı, bir tablonun görünümlerini ve bir alanın üyelerini listelemek.
+- **Anlamak**: bir veritabanının şemasını açıklamak, bir alanın süreç haritasını okumak.
 - **Okumak**: kayıtları listelemek, filtrelemek ve okumak.
 - **Hesaplamak**: tüm satırları okumadan, filtre ve gruplamayla bir tablo üzerinde istatistikler (toplam, ortalama, minimum, maksimum, sayım) hesaplamak.
-- **Aramak**: knowledge graph içinde anlamsal ve tam metin aramasıyla arama yapmak.
+- **Aramak**: bilgi grafiği içinde anlamsal ve tam metin aramasıyla arama yapmak.
 - **Oluşturmak ve düzenlemek**: kayıt oluşturmak ve düzenlemek.
 - **İçe aktarmak**: bir CSV'yi mevcut bir tabloya veya yeni bir tabloya içe aktarmak.
 - **Silmek ve geri yüklemek**: kayıtları veya bir alanı silmek; önce bir önizleme, ardından açık bir onay; çöp kutusunu listelemek ve silinenleri geri yüklemek.
 - **Yapılandırmak**: bir tablo oluşturmak, bir alan oluşturmak veya yeniden adlandırmak.
 - **Otomatikleştirmek**: kullanıma açılmış otomasyonları ve ajanları listelemek, bir otomasyonu tetiklemek.
-- **Devretmek**: bir yapay zeka ajanı çalıştırmak ve son çalıştırmalarının durumunu izlemek.
+- **Devretmek**: bir yapay zekâ ajanı çalıştırmak ve son çalıştırmalarının durumunu izlemek.
 
 ## İzinler ve alan seçimi
 
-Bağlanırken erişilebilecek alanları ve tabanları ve izinleri siz seçersiniz. **Okuma** varsayılan olarak açıktır; **yazma**, **silme**, **şema** ve **tetikleme** seçeneklerdir. Mevcut TblFlow yetkileriniz her istekte geçerlidir: Claude hiçbir zaman sizin yapabildiğinizden fazlasını yapamaz.
+Bağlanırken erişilebilecek alanları ve veritabanlarını ve izinleri siz seçersiniz. **Okuma** varsayılan olarak açıktır; **yazma**, **silme**, **şema** ve **tetikleme** seçeneklerdir. Mevcut TblFlow yetkileriniz her istekte geçerlidir: Claude hiçbir zaman sizin yapabildiğinizden fazlasını yapamaz.
 
 ## Bir otomasyonu veya ajanı kullanıma açın
 
@@ -68,8 +68,8 @@ Claude ayarlarında bağlayıcıyı kaldırın: Claude TblFlow verilerinize eri�
 
 ## Sorun giderme
 
-- **Yetkilendirme hatası**: bağlayıcıyı yeniden bağlayın, ardından alanın veya tabanın sizin seçtiğiniz biri olduğunu, gereken iznin (yazma, silme, şema veya tetikleme) açık olduğunu ve TblFlow yetkilerinizin buna izin verdiğini kontrol edin.
-- **Bir ajan başlamıyor**: tabanda yapay zeka yapılandırılmış olmalı ve ajan sahibi tarafından kullanıma açılmış olmalıdır.
+- **Yetkilendirme hatası**: bağlayıcıyı yeniden bağlayın, ardından alanın veya veritabanının sizin seçtiğiniz biri olduğunu, gereken iznin (yazma, silme, şema veya tetikleme) açık olduğunu ve TblFlow yetkilerinizin buna izin verdiğini kontrol edin.
+- **Bir ajan başlamıyor**: veritabanında yapay zekâ yapılandırılmış olmalı ve ajan sahibi tarafından kullanıma açılmış olmalıdır.
 - **`run_automation` hiçbir şeyi değiştirmiyor**: örnek verilerle bir deneme çalıştırmasıdır. Hiçbir veri değiştirilmez.
 
 ## Veriler ve gizlilik

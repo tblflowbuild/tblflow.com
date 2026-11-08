@@ -80,7 +80,7 @@ const gb = (value: number): Record<Locale, string> => {
   ) as Record<Locale, string>;
 };
 
-/** A monthly add-on per extra person: "+7 €/mois", "+$7/month". */
+/** A monthly add-on per extra person: "+7 €/mois", "+€7/month". */
 const MONTH_SUFFIX: Record<Locale, string> = {
   de: '/Monat', en: '/month', es: '/mes', fr: '/mois', it: '/mese',
   ja: '/月', ru: '/мес', tr: '/ay', uk: '/міс', zh: '/月',
@@ -97,7 +97,7 @@ export interface Tier {
   id: TierId;
   /**
    * Per month, billed monthly, for the included people. `null` = quote-based.
-   * Same number in EUR and USD — Stripe carries both currencies on each Price.
+   * In EUR in every locale — Stripe bills in euros only.
    */
   price: number | null;
   /** True when `price` is a starting price ("à partir de"): Enterprise, bought online up to 50 people. */
@@ -113,7 +113,7 @@ export interface Tier {
    * this, never the other way round; see `formatMonthlyEquivalent`.
    *
    * WARNING: the annual Prices must match this grid — 390 (Essentiel), 1190
-   * (Équipe), 3990 (Entreprise), in EUR and USD — and the monthly add-on per
+   * (Équipe), 3990 (Entreprise), in EUR — and the monthly add-on per
    * person (`seatPrice`) must exist as a Stripe Price too. Until they do,
    * checkout charges something other than what this page shows.
    */
@@ -182,61 +182,61 @@ const BASE_TIERS: Tier[] = [
       de: [
         '2 Personen inklusive · 1 Base · 1 Space',
         '1 GB Speicher · 5.000 Zeilen pro Tabelle',
-        'Unbegrenzt viele KI-Agenten und Automatisierungen — 100 Ausführungen/Monat',
+        'Unbegrenzt viele KI-Agenten und Automatisierungen — 100 Agenten- und 500 Automatisierungs-Ausführungen/Monat',
         'Community-Support',
       ],
       en: [
         '2 people included · 1 base · 1 space',
         '1 GB storage · 5,000 rows per table',
-        'Unlimited AI agents and automations — 100 runs/month',
+        'Unlimited AI agents and automations — 100 agent runs and 500 automation runs/month',
         'Community support',
       ],
       es: [
         '2 personas incluidas · 1 base · 1 espacio',
         '1 GB de almacenamiento · 5000 filas por tabla',
-        'Agentes de IA y automatizaciones ilimitados en número — 100 ejecuciones/mes',
+        'Agentes de IA y automatizaciones ilimitados en número — 100 ejecuciones de agentes y 500 de automatizaciones/mes',
         'Soporte de la comunidad',
       ],
       fr: [
         '2 personnes incluses · 1 base · 1 espace',
         '1 Go de stockage · 5 000 lignes par table',
-        'Agents IA et automatisations illimités en nombre — 100 exécutions/mois',
+        'Agents IA et automatisations illimités en nombre — 100 exécutions d’agents et 500 d’automatisations/mois',
         'Support communautaire',
       ],
       it: [
         '2 persone incluse · 1 base · 1 spazio',
         '1 GB di spazio · 5000 righe per tabella',
-        'Agenti IA e automazioni illimitati nel numero — 100 esecuzioni/mese',
+        'Agenti IA e automazioni illimitati nel numero — 100 esecuzioni di agenti e 500 di automazioni/mese',
         'Supporto della community',
       ],
       ja: [
         '2 名まで含む · ベース 1 · スペース 1',
         'ストレージ 1 GB · 1 テーブルあたり 5,000 行',
-        'AI エージェントと自動化は数に制限なし — 月 100 回の実行',
+        'AI エージェントと自動化は数に制限なし — 月にエージェント 100 回・自動化 500 回の実行',
         'コミュニティサポート',
       ],
       ru: [
         '2 участника включено · 1 база · 1 пространство',
         '1 ГБ хранилища · 5 000 строк на таблицу',
-        'Неограниченное число ИИ-агентов и автоматизаций — 100 запусков/месяц',
+        'Неограниченное число ИИ-агентов и автоматизаций — 100 запусков агентов и 500 запусков автоматизаций/месяц',
         'Поддержка сообщества',
       ],
       tr: [
-        '2 kişi dahil · 1 base · 1 alan',
+        '2 kişi dahil · 1 veritabanı · 1 alan',
         '1 GB depolama · tablo başına 5.000 satır',
-        'Sayıca sınırsız yapay zekâ ajanı ve otomasyon — ayda 100 çalıştırma',
+        'Sayıca sınırsız yapay zekâ ajanı ve otomasyon — ayda 100 ajan ve 500 otomasyon çalıştırması',
         'Topluluk desteği',
       ],
       uk: [
         '2 особи включено · 1 база · 1 простір',
         '1 ГБ сховища · 5 000 рядків на таблицю',
-        'Необмежена кількість ШІ-агентів та автоматизацій — 100 запусків/місяць',
+        'Необмежена кількість ШІ-агентів та автоматизацій — 100 запусків агентів і 500 запусків автоматизацій/місяць',
         'Підтримка спільноти',
       ],
       zh: [
         '含 2 位成员 · 1 个 base · 1 个空间',
         '1 GB 存储 · 每表 5,000 行',
-        'AI 智能体与自动化数量不限 — 每月 100 次运行',
+        'AI 智能体与自动化数量不限——每月智能体运行 100 次、自动化运行 500 次',
         '社区支持',
       ],
     },
@@ -268,61 +268,61 @@ const BASE_TIERS: Tier[] = [
       de: [
         '5 Personen inklusive · 5 Bases',
         '100 GB Speicher · 100.000 Zeilen pro Tabelle',
-        'Unbegrenzt viele KI-Agenten und Automatisierungen — 5.000 Ausführungen/Monat',
+        'Unbegrenzt viele KI-Agenten und Automatisierungen — 5.000 Agenten- und 25.000 Automatisierungs-Ausführungen/Monat',
         'E-Mail-Support · SLA 99,5 %',
       ],
       en: [
         '5 people included · 5 bases',
         '100 GB storage · 100,000 rows per table',
-        'Unlimited AI agents and automations — 5,000 runs/month',
+        'Unlimited AI agents and automations — 5,000 agent runs and 25,000 automation runs/month',
         'Email support · 99.5% SLA',
       ],
       es: [
         '5 personas incluidas · 5 bases',
         '100 GB de almacenamiento · 100.000 filas por tabla',
-        'Agentes de IA y automatizaciones ilimitados en número — 5000 ejecuciones/mes',
+        'Agentes de IA y automatizaciones ilimitados en número — 5000 ejecuciones de agentes y 25.000 de automatizaciones/mes',
         'Soporte por email · SLA del 99,5 %',
       ],
       fr: [
         '5 personnes incluses · 5 bases',
         '100 Go de stockage · 100 000 lignes par table',
-        'Agents IA et automatisations illimités en nombre — 5 000 exécutions/mois',
-        'Support par email · SLA 99,5 %',
+        'Agents IA et automatisations illimités en nombre — 5 000 exécutions d’agents et 25 000 d’automatisations/mois',
+        'Support par e-mail · SLA 99,5 %',
       ],
       it: [
         '5 persone incluse · 5 base',
         '100 GB di spazio · 100.000 righe per tabella',
-        'Agenti IA e automazioni illimitati nel numero — 5000 esecuzioni/mese',
+        'Agenti IA e automazioni illimitati nel numero — 5000 esecuzioni di agenti e 25.000 di automazioni/mese',
         'Supporto via email · SLA 99,5%',
       ],
       ja: [
         '5 名まで含む · ベース 5',
         'ストレージ 100 GB · 1 テーブルあたり 100,000 行',
-        'AI エージェントと自動化は数に制限なし — 月 5,000 回の実行',
+        'AI エージェントと自動化は数に制限なし — 月にエージェント 5,000 回・自動化 25,000 回の実行',
         'メールサポート · SLA 99.5%',
       ],
       ru: [
         '5 участников включено · 5 баз',
         '100 ГБ хранилища · 100 000 строк на таблицу',
-        'Неограниченное число ИИ-агентов и автоматизаций — 5 000 запусков/месяц',
+        'Неограниченное число ИИ-агентов и автоматизаций — 5 000 запусков агентов и 25 000 запусков автоматизаций/месяц',
         'Поддержка по email · SLA 99,5 %',
       ],
       tr: [
-        '5 kişi dahil · 5 base',
+        '5 kişi dahil · 5 veritabanı',
         '100 GB depolama · tablo başına 100.000 satır',
-        'Sayıca sınırsız yapay zekâ ajanı ve otomasyon — ayda 5.000 çalıştırma',
+        'Sayıca sınırsız yapay zekâ ajanı ve otomasyon — ayda 5.000 ajan ve 25.000 otomasyon çalıştırması',
         'E-posta desteği · %99,5 SLA',
       ],
       uk: [
         '5 осіб включено · 5 баз',
         '100 ГБ сховища · 100 000 рядків на таблицю',
-        'Необмежена кількість ШІ-агентів та автоматизацій — 5 000 запусків/місяць',
+        'Необмежена кількість ШІ-агентів та автоматизацій — 5 000 запусків агентів і 25 000 запусків автоматизацій/місяць',
         'Підтримка електронною поштою · SLA 99,5%',
       ],
       zh: [
         '含 5 位成员 · 5 个 base',
         '100 GB 存储 · 每表 100,000 行',
-        'AI 智能体与自动化数量不限 — 每月 5,000 次运行',
+        'AI 智能体与自动化数量不限——每月智能体运行 5,000 次、自动化运行 25,000 次',
         '邮件支持 · 99.5% SLA',
       ],
     },
@@ -354,70 +354,70 @@ const BASE_TIERS: Tier[] = [
       de: [
         '15 Personen inklusive · 30 Bases',
         '500 GB Speicher · 1.000.000 Zeilen pro Tabelle',
-        'Unbegrenzt viele KI-Agenten und Automatisierungen — 50.000 Ausführungen/Monat',
+        'Unbegrenzt viele KI-Agenten und Automatisierungen — 50.000 Agenten- und 250.000 Automatisierungs-Ausführungen/Monat',
         'SSO / SAML · White-Label · erweitertes Audit',
         'Priorisierter Support · SLA 99,9 %',
       ],
       en: [
         '15 people included · 30 bases',
         '500 GB storage · 1,000,000 rows per table',
-        'Unlimited AI agents and automations — 50,000 runs/month',
+        'Unlimited AI agents and automations — 50,000 agent runs and 250,000 automation runs/month',
         'SSO / SAML · white-label · advanced audit',
         'Priority support · 99.9% SLA',
       ],
       es: [
         '15 personas incluidas · 30 bases',
         '500 GB de almacenamiento · 1.000.000 de filas por tabla',
-        'Agentes de IA y automatizaciones ilimitados en número — 50.000 ejecuciones/mes',
+        'Agentes de IA y automatizaciones ilimitados en número — 50.000 ejecuciones de agentes y 250.000 de automatizaciones/mes',
         'SSO / SAML · marca blanca · auditoría avanzada',
         'Soporte prioritario · SLA del 99,9 %',
       ],
       fr: [
         '15 personnes incluses · 30 bases',
         '500 Go de stockage · 1 000 000 lignes par table',
-        'Agents IA et automatisations illimités en nombre — 50 000 exécutions/mois',
+        'Agents IA et automatisations illimités en nombre — 50 000 exécutions d’agents et 250 000 d’automatisations/mois',
         'SSO / SAML · marque blanche · audit avancé',
         'Support prioritaire · SLA 99,9 %',
       ],
       it: [
         '15 persone incluse · 30 base',
         '500 GB di spazio · 1.000.000 di righe per tabella',
-        'Agenti IA e automazioni illimitati nel numero — 50.000 esecuzioni/mese',
+        'Agenti IA e automazioni illimitati nel numero — 50.000 esecuzioni di agenti e 250.000 di automazioni/mese',
         'SSO / SAML · white-label · audit avanzato',
         'Supporto prioritario · SLA 99,9%',
       ],
       ja: [
         '15 名まで含む · ベース 30',
         'ストレージ 500 GB · 1 テーブルあたり 1,000,000 行',
-        'AI エージェントと自動化は数に制限なし — 月 50,000 回の実行',
+        'AI エージェントと自動化は数に制限なし — 月にエージェント 50,000 回・自動化 250,000 回の実行',
         'SSO / SAML · ホワイトラベル · 高度な監査',
         '優先サポート · SLA 99.9%',
       ],
       ru: [
         '15 участников включено · 30 баз',
         '500 ГБ хранилища · 1 000 000 строк на таблицу',
-        'Неограниченное число ИИ-агентов и автоматизаций — 50 000 запусков/месяц',
+        'Неограниченное число ИИ-агентов и автоматизаций — 50 000 запусков агентов и 250 000 запусков автоматизаций/месяц',
         'SSO / SAML · white-label · расширенный аудит',
         'Приоритетная поддержка · SLA 99,9 %',
       ],
       tr: [
-        '15 kişi dahil · 30 base',
+        '15 kişi dahil · 30 veritabanı',
         '500 GB depolama · tablo başına 1.000.000 satır',
-        'Sayıca sınırsız yapay zekâ ajanı ve otomasyon — ayda 50.000 çalıştırma',
+        'Sayıca sınırsız yapay zekâ ajanı ve otomasyon — ayda 50.000 ajan ve 250.000 otomasyon çalıştırması',
         'SSO / SAML · white-label · gelişmiş denetim',
         'Öncelikli destek · %99,9 SLA',
       ],
       uk: [
         '15 осіб включено · 30 баз',
         '500 ГБ сховища · 1 000 000 рядків на таблицю',
-        'Необмежена кількість ШІ-агентів та автоматизацій — 50 000 запусків/місяць',
+        'Необмежена кількість ШІ-агентів та автоматизацій — 50 000 запусків агентів і 250 000 запусків автоматизацій/місяць',
         'SSO / SAML · white-label · розширений аудит',
         'Пріоритетна підтримка · SLA 99,9%',
       ],
       zh: [
         '含 15 位成员 · 30 个 base',
         '500 GB 存储 · 每表 1,000,000 行',
-        'AI 智能体与自动化数量不限 — 每月 50,000 次运行',
+        'AI 智能体与自动化数量不限——每月智能体运行 50,000 次、自动化运行 250,000 次',
         'SSO / SAML · 白标 · 高级审计',
         '优先支持 · 99.9% SLA',
       ],
@@ -442,7 +442,7 @@ const BASE_TIERS: Tier[] = [
       ru: 'На вашей инфраструктуре или в выделенном VPC.',
       tr: "Kendi altyapınızda veya özel bir VPC'de.",
       uk: 'На вашій інфраструктурі або у виділеному VPC.',
-      zh: '部署在你的基础设施或专属 VPC 中。',
+      zh: '部署在您的基础设施或专属 VPC 中。',
     },
     cta: CTA_START,
     ctaHref: `${APP_URL}/auth/signup?plan=enterprise`,
@@ -491,8 +491,8 @@ const BASE_TIERS: Tier[] = [
       ],
       tr: [
         '50 kişiye kadar çevrimiçi satın alınabilir',
-        '50 kişinin üzerinde, kendi sunucu veya VPC: teklife bağlı',
-        'Base, satır ve depolama sınırsız · SSO / SAML · white-label',
+        '50 kişinin üzerinde, kendi sunucunuz veya VPC: teklife bağlı',
+        'Veritabanı, satır ve depolama sınırsız · SSO / SAML · white-label',
         '7/24 özel destek · %99,99 SLA',
       ],
       uk: [
@@ -516,7 +516,7 @@ const PRO_TRIAL_NOTE: Record<Locale, string> = {
   de: '14 Tage Essential testen, ohne Karte; danach zurück zum Kostenlos-Tarif',
   en: '14-day Essential trial, no card; then back to the Free plan',
   es: 'Prueba de Esencial de 14 días, sin tarjeta; después vuelve al plan Gratis',
-  fr: 'Essai Essentiel de 14 jours, sans carte bancaire ; ensuite retour au plan Gratuit',
+  fr: 'Essai Essentiel de 14 jours, sans carte bancaire ; ensuite retour au palier Gratuit',
   it: 'Prova Essenziale di 14 giorni, senza carta; poi si torna al piano Gratuito',
   ja: 'Essential の 14 日間無料トライアル（カード不要）。終了後は無料プランに戻ります',
   ru: '14 дней Essential бесплатно, без карты; затем возврат на бесплатный тариф',
@@ -607,7 +607,7 @@ export const QUOTAS: QuotaRow[] = [
   {
     label: {
       de: 'Bases', en: 'Bases', es: 'Bases', fr: 'Bases', it: 'Base',
-      ja: 'ベース', ru: 'Базы', tr: "Base'ler", uk: 'Бази', zh: 'Base 数量',
+      ja: 'ベース', ru: 'Базы', tr: 'Veritabanları', uk: 'Бази', zh: '数据库数量',
     },
     values: { free: num(1), pro: num(5), business: num(30), enterprise: UNLIMITED },
   },
@@ -711,7 +711,7 @@ export const QUOTAS: QuotaRow[] = [
   {
     label: {
       de: 'Computer use — Wiedergaben / Monat', en: 'Computer use — replays / month',
-      es: 'Computer use — repeticiones / mes', fr: 'Computer use — replays / mois',
+      es: 'Computer use — repeticiones / mes', fr: 'Computer use — rejeux / mois',
       it: 'Computer use — replay / mese', ja: 'Computer use — リプレイ / 月',
       ru: 'Computer use — повторов / месяц', tr: 'Computer use — tekrar / ay',
       uk: 'Computer use — повторів / місяць', zh: 'Computer use — 回放 / 月',
@@ -799,13 +799,13 @@ export const QUOTAS: QuotaRow[] = [
  * still applies (`BACKEND_THROTTLE_LIMIT`/`BACKEND_THROTTLE_TTL_MS`). */
 export const API_RATE_LIMIT_NOTE: Record<Locale, string> = {
   de: 'Kein Monatskontingent für API-Anfragen, es gilt jedoch für alle Tarife ein globales Ratenlimit von standardmäßig 100 Anfragen pro Minute.',
-  en: 'No monthly quota on API requests, but a global rate limit of 100 requests per minute by default applies across every tier.',
+  en: 'No monthly quota on API requests, but a global rate limit of 100 requests per minute by default applies across every plan.',
   es: 'Sin cuota mensual en las solicitudes de API, pero se aplica un límite de tasa global de 100 solicitudes por minuto por defecto en todos los planes.',
   fr: 'Aucun quota mensuel sur les requêtes API, mais une limitation de débit globale de 100 requêtes par minute par défaut s’applique à tous les paliers.',
   it: 'Nessuna quota mensile sulle richieste API, ma su tutti i piani si applica un limite di frequenza globale di 100 richieste al minuto per impostazione predefinita.',
   ja: 'API リクエストに月間上限はありませんが、既定で毎分 100 リクエストという全体のレート制限がすべてのプランに適用されます。',
   ru: 'Месячной квоты на запросы к API нет, но для всех тарифов действует общее ограничение — по умолчанию 100 запросов в минуту.',
-  tr: 'API isteklerinde aylık kota yoktur, ancak tüm paketlerde varsayılan olarak dakikada 100 istek şeklinde genel bir hız sınırı geçerlidir.',
+  tr: 'API isteklerinde aylık kota yoktur, ancak tüm planlarda varsayılan olarak dakikada 100 istek şeklinde genel bir hız sınırı geçerlidir.',
   uk: 'Місячної квоти на запити до API немає, але для всіх тарифів діє загальне обмеження — за замовчуванням 100 запитів на хвилину.',
   zh: 'API 请求没有月度配额，但所有套餐都适用全局速率限制，默认为每分钟 100 次请求。',
 };
@@ -817,7 +817,7 @@ export const CARTO_FREE_NOTE: Record<Locale, string> = {
   es: 'Gratis: diagnóstico de un proceso con los costes estimados visibles, sin el botón «Reemplazar» y sin el informe mensual.',
   fr: 'Gratuit : diagnostic d’un processus avec les coûts estimés visibles, sans le bouton « Remplacer » ni le rapport mensuel.',
   it: 'Gratuito: diagnosi di un processo con i costi stimati visibili, senza il pulsante «Sostituisci» e senza il report mensile.',
-  ja: '無料：1 つのプロセスの診断を行い、推定コストを表示します。「置き換え」ボタンと月次レポートは含まれません。',
+  ja: '無料：1 つのプロセスの診断を行い、推定コストを表示します。「置き換える」ボタンと月次レポートは含まれません。',
   ru: 'Бесплатно: диагностика одного процесса с видимой оценкой затрат, без кнопки «Заменить» и без ежемесячного отчёта.',
   tr: 'Ücretsiz: tek bir sürecin teşhisi, tahmini maliyetler görünür; «Değiştir» düğmesi ve aylık rapor yok.',
   uk: 'Безкоштовно: діагностика одного процесу з видимими оцінками витрат, без кнопки «Замінити» та без щомісячного звіту.',

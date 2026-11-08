@@ -14,4 +14,4 @@ La bibliothèque de documents accueille maintenant tous vos fichiers, pas seulem
 - **Texte indexé** : le texte des PDF, Word et PowerPoint est extrait et indexé, donc trouvable par la recherche.
 - **Dans l'éditeur** : la commande « / » propose « Média de la bibliothèque » pour insérer un fichier dans un document.
 
-L'espace de stockage des médias dépend de l'offre : 200 Mo en Gratuit, 20 Go en Essentiel, 100 Go en Équipe, sans limite en Entreprise. Voir les [tarifs](/fr/pricing).
+L'espace de stockage des médias dépend du palier : 200 Mo en Gratuit, 20 Go en Essentiel, 100 Go en Équipe, sans limite en Entreprise. Voir les [tarifs](/fr/pricing).

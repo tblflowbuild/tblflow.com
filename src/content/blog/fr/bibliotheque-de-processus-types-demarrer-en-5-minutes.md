@@ -38,5 +38,5 @@ d'un coup d'œil, et le détail apparaît au survol.
 Elles passent au modèle à jour avec le bandeau **« Mettre à jour le modèle »** : TblFlow affiche un
 aperçu des changements et demande confirmation avant d'appliquer quoi que ce soit.
 
-*Le contenu importé est en français pour l'instant. La Carto des process est incluse dans les plans
+*Le contenu importé est en français pour l'instant. La Carto des process est incluse dans les paliers
 Essentiel, Équipe et Entreprise.*

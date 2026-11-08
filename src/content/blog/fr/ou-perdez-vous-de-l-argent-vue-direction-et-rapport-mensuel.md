@@ -1,7 +1,7 @@
 ---
 title: "« Où perdez-vous de l'argent ? » : la réponse en une page"
 translationKey: "carto-executive"
-description: "Classement des fuites, vue direction imprimable en PDF et rapport mensuel par courriel."
+description: "Classement des fuites, vue direction imprimable en PDF et rapport mensuel par e-mail."
 publishedAt: 2026-11-10
 author: "TblFlow"
 tags: ["carto-des-process", "direction", "pilotage"]
@@ -27,9 +27,9 @@ La **vue direction** tient sur une page, lisible à l'écran et **imprimable en 
 
 ## Un rapport mensuel dans la boîte mail
 
-Activez le **rapport mensuel** : le 1er de chaque mois à 8 h (heure du serveur), un courriel résume le
+Activez le **rapport mensuel** : le 1er de chaque mois à 8 h (heure du serveur), un e-mail résume le
 coût, le gain potentiel, les trois processus au plus gros gain et le nombre de revues en retard. Pas de
-courriel quand il n'y a rien à signaler.
+e-mail quand il n'y a rien à signaler.
 
 ## Les montants restent protégés
 
@@ -37,5 +37,5 @@ Les montants ne sont affichés qu'aux personnes qui ont le droit de lire les cha
 autres, TblFlow classe par **nombre de ruptures** et le dit clairement, sans afficher de zéro
 trompeur. Un rapport mensuel avec montants ne peut être activé que par le propriétaire de la base.
 
-*Les coûts sont des estimations saisies ; la Carto des process est incluse dans les plans Essentiel,
+*Les coûts sont des estimations saisies ; la Carto des process est incluse dans les paliers Essentiel,
 Équipe et Entreprise.*

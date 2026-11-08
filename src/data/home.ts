@@ -25,13 +25,13 @@ export const HOME_STRINGS = {
   },
   "trial.note": {
     de: "Keine Kreditkarte. Die Diagnose Ihrer Prozesse ist im kostenlosen Tarif enthalten.",
-    en: "No credit card. A diagnosis of your processes is included in the free plan.",
-    es: "Sin tarjeta de crédito. El diagnóstico de tus procesos está incluido en el plan gratuito.",
-    fr: "Sans carte bancaire. Diagnostic de vos processus inclus dans le plan gratuit.",
+    en: "No credit card. A diagnosis of your processes is included in the Free plan.",
+    es: "Sin tarjeta de crédito. El diagnóstico de tus procesos está incluido en el plan Gratis.",
+    fr: "Sans carte bancaire. Diagnostic de vos processus inclus dans le palier gratuit.",
     it: "Senza carta di credito. La diagnosi dei tuoi processi è inclusa nel piano gratuito.",
     ja: "クレジットカード不要。プロセスの診断は無料プランに含まれます。",
     ru: "Без банковской карты. Диагностика процессов входит в бесплатный тариф.",
-    tr: "Kredi kartı gerekmez. Süreçlerinizin teşhisi ücretsiz pakete dahildir.",
+    tr: "Kredi kartı gerekmez. Süreçlerinizin teşhisi ücretsiz plana dahildir.",
     uk: "Без банківської картки. Діагностика процесів входить до безкоштовного тарифу.",
     zh: "无需信用卡。流程诊断包含在免费版中。",
   },
@@ -55,7 +55,7 @@ export const HOME_STRINGS = {
     zh: "Essential 试用，含流程图谱",
   },
   "proof.free.value": {
-    de: "Kostenlos", en: "Free", es: "Gratis", fr: "Gratuit", it: "Gratis",
+    de: "Kostenlos", en: "Free", es: "Gratis", fr: "Gratuit", it: "Gratuito",
     ja: "無料", ru: "Бесплатно", tr: "Ücretsiz", uk: "Безкоштовно", zh: "免费",
   },
   "proof.free": {
@@ -142,7 +142,7 @@ export const HOME_STRINGS = {
   },
   "example.step2.body": {
     de: "Vom Vertriebsinnendienst erneut in Excel erfasst.",
-    en: "Re-typed into a spreadsheet by sales admin.",
+    en: "Retyped into a spreadsheet by sales admin.",
     es: "Tecleado de nuevo en Excel por administración de ventas.",
     fr: "Ressaisie dans Excel par l’administration des ventes.",
     it: "Ridigitato in Excel dall’amministrazione vendite.",
@@ -158,7 +158,7 @@ export const HOME_STRINGS = {
   },
   "example.step3.body": {
     de: "Von der Buchhaltung erneut in der Rechnungssoftware erfasst.",
-    en: "Re-typed into the invoicing software by accounting.",
+    en: "Retyped into the invoicing software by accounting.",
     es: "Tecleado de nuevo en el software de facturación por contabilidad.",
     fr: "Ressaisie dans le logiciel de facturation par la comptabilité.",
     it: "Ridigitato nel software di fatturazione dalla contabilità.",
@@ -169,7 +169,7 @@ export const HOME_STRINGS = {
     zh: "财务重新录入开票软件。",
   },
   "example.break": {
-    de: "Doppelerfassung", en: "Re-entry", es: "Doble introducción", fr: "Ressaisie", it: "Doppia digitazione",
+    de: "Neuerfassung", en: "Re-entry", es: "Doble introducción", fr: "Ressaisie", it: "Doppia digitazione",
     ja: "二重入力", ru: "Повторный ввод", tr: "Mükerrer giriş", uk: "Повторне введення", zh: "重复录入",
   },
   "example.afterBody": {
@@ -185,7 +185,7 @@ export const HOME_STRINGS = {
     zh: "客户和订单只用一张表。报价被接受后自动生成订单，自动化流程准备发票，AI 智能体跟进未回复的报价。每一步仍由人工确认。",
   },
   "example.calc": {
-    de: "Rechenbeispiel: 40 Angebote pro Monat × 2 Doppelerfassungen × 10 Minuten ≈ 13 Stunden pro Monat.",
+    de: "Rechenbeispiel: 40 Angebote pro Monat × 2 Neuerfassungen × 10 Minuten ≈ 13 Stunden pro Monat.",
     en: "Worked figure: 40 quotes a month × 2 re-entries × 10 minutes ≈ 13 hours a month.",
     es: "Cálculo de ejemplo: 40 presupuestos al mes × 2 reintroducciones × 10 minutos ≈ 13 horas al mes.",
     fr: "Calcul d’exemple : 40 devis par mois × 2 ressaisies × 10 minutes ≈ 13 heures par mois.",

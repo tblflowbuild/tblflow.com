@@ -40,7 +40,7 @@ format and no synchronisation layer: the table you see in TblFlow is the table i
 any SQL client can query it directly.
 
 TblFlow is available as a managed service at tblflow.com, and as a self-hosted or dedicated VPC
-deployment on customer infrastructure under the Enterprise tier, on quote, with every feature
+deployment on customer infrastructure under the Enterprise plan, on quote, with every feature
 unlocked.`);
 
   sections.push(`## Product surfaces
@@ -99,7 +99,7 @@ Page: ${SITE_URL}/en/process-map`);
   sections.push(`## MCP server
 
 TblFlow runs an official remote MCP server at https://app.tblflow.com/mcp (Streamable HTTP, OAuth 2.1
-with the usual TblFlow sign-in). It is available from the Free tier, like the REST API, with rate limits
+with the usual TblFlow sign-in). It is available from the Free plan, like the REST API, with rate limits
 of 60 / 120 / 300 / 600 requests per minute on Free / Essential / Team / Enterprise. It exposes 23 tools:
 list spaces, bases, a table's views and a space's members; describe a base's schema; read a space's process
 map; list, filter and read records; compute statistics on a table (sum, average, min, max, count, with
@@ -113,7 +113,7 @@ chooses the reachable spaces and bases and the permissions (read by default; wri
 trigger are options), and existing TblFlow rights apply to every request. Automations and agents can only
 be triggered if their owner has exposed them. The content of conversations is not logged; only the tool
 called, the time, the duration and the status are kept. Tool results are passed to the assistant (Claude)
-to answer the user. Designed along ISO 27001 and ISO 42001 practices, GDPR and the AI Act; no
+to answer the user. Designed in line with ISO 27001 and ISO 42001 practices, GDPR and the AI Act; no
 certification has been obtained to date. Published in the official MCP registry as com.tblflow/tblflow
 (version 1.0.0); submission to the Claude connectors directory is coming; ChatGPT is not supported yet.
 Page: ${SITE_URL}/en/mcp`);
@@ -132,16 +132,16 @@ Docs: ${SITE_URL}/en/docs/cli`);
 
   sections.push(`## Pricing
 
-TblFlow Cloud has four tiers. Self-hosted and dedicated VPC deployment is part of the Enterprise
-tier, on quote.
+TblFlow Cloud has four plans. Self-hosted and dedicated VPC deployment is part of the Enterprise
+plan, on quote.
 
 ${tierHeader}
 ${tierDivider}
 ${priceRow}
 ${quotaRows.join('\n')}
 
-Enterprise Dedicated is priced per seat annually ($100-300/user/year, minimum 10 seats) or by
-concurrent users ($2-5k/month for up to 50 concurrent users). Add-ons include SSO/SAML,
+Enterprise Dedicated is priced per seat annually (€100–300/user/year, minimum 10 seats) or by
+concurrent users (€2–5k/month for up to 50 concurrent users). Add-ons include SSO/SAML,
 white-label, dedicated support and a 99.99% SLA.`);
 
   sections.push(`## Frequently asked questions

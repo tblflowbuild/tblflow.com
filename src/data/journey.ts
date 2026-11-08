@@ -223,38 +223,38 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
     "steps": [
       {
         "label": "El problema",
-        "title": "Sus datos ya existen. Lo que no hacen es circular.",
+        "title": "Tus datos ya existen. Lo que no hacen es circular.",
         "body": "Un presupuesto en una herramienta, el pedido en una hoja de cálculo, la factura en una tercera: la misma información se introduce varias veces, por personas cuyo oficio es otro."
       },
       {
         "label": "Comprender",
-        "title": "Empiece por hacer que TblFlow entienda su empresa",
-        "body": "Suba sus procedimientos en PDF o Markdown y conecte las herramientas que ya utiliza. DocIndex indexa esa documentación: su equipo la consulta y la IA trabaja con ella."
+        "title": "Empieza por hacer que TblFlow entienda tu empresa",
+        "body": "Sube tus procedimientos en PDF o Markdown y conecta las herramientas que ya utilizas. DocIndex indexa esa documentación: tu equipo la consulta y la IA trabaja con ella."
       },
       {
         "label": "Cartografiar",
-        "title": "Obtenga el mapa de sus procesos y afínelo",
-        "body": "TblFlow genera el mapa a partir de sus documentos y herramientas: quién hace qué, con qué herramienta, dónde se vuelve a introducir la información. Usted lo corrige y completa, introduce volúmenes y tarifas, y TblFlow estima lo que cuesta cada paso."
+        "title": "Obtén el mapa de tus procesos y afínalo",
+        "body": "TblFlow genera el mapa a partir de tus documentos y herramientas: quién hace qué, con qué herramienta, dónde se vuelve a introducir la información. Tú lo corriges y completas, introduces volúmenes y tarifas, y TblFlow estima lo que cuesta cada paso."
       },
       {
         "label": "Construir",
-        "title": "TblFlow genera las tablas que sustituyen a sus herramientas",
-        "body": "A partir del mapa: análisis, blueprint, tablas, relaciones, interfaz, automatizaciones, agentes. Sus reglas de negocio se integran, sus demás herramientas siguen conectadas para no cortar los flujos, sus datos se importan y las aplicaciones antiguas pueden retirarse."
+        "title": "TblFlow genera las tablas que sustituyen a tus herramientas",
+        "body": "A partir del mapa: análisis, blueprint, tablas, relaciones, interfaz, automatizaciones, agentes. Tus reglas de negocio se integran, tus demás herramientas siguen conectadas para no cortar los flujos, tus datos se importan y las aplicaciones antiguas pueden retirarse."
       },
       {
         "label": "Automatizar",
-        "title": "Automatice primero lo que sigue una regla",
+        "title": "Automatiza primero lo que sigue una regla",
         "body": "Cuando un paso obedece a una regla sencilla, basta una automatización: previsible, rápida y sin llamar a la IA. Los agentes llegan después, donde hay que leer, valorar o redactar."
       },
       {
         "label": "Confiar a agentes",
-        "title": "Confíe el resto a agentes que conocen su casa",
-        "body": "Los agentes se basan en sus tablas y en los procedimientos internos indexados en DocIndex. Ellos proponen, usted valida: nada se activa sin su acuerdo."
+        "title": "Confía el resto a agentes que conocen tu casa",
+        "body": "Los agentes se basan en tus tablas y en los procedimientos internos indexados en DocIndex. Ellos proponen, tú validas: nada se activa sin tu acuerdo."
       },
       {
         "label": "Devolver tiempo",
         "title": "Las tareas repetitivas, a los agentes. Las relaciones, a las personas.",
-        "body": "El tiempo liberado se reinvierte donde su equipo marca la diferencia: la relación con el cliente, el asesoramiento, la decisión. Redefina los roles con ellos y acompañe el cambio."
+        "body": "El tiempo liberado se reinvierte donde tu equipo marca la diferencia: la relación con el cliente, el asesoramiento, la decisión. Redefine los roles con ellos y acompaña el cambio."
       }
     ],
     "docs": {
@@ -288,7 +288,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
     },
     "split": {
       "agents": "Confiado a los agentes",
-      "team": "En manos de su equipo",
+      "team": "En manos de tu equipo",
       "agentItems": [
         "Registro de pedidos",
         "Recordatorios de facturas",
@@ -301,15 +301,15 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       ]
     },
     "keep": {
-      "title": "Lo que conserva",
+      "title": "Lo que conservas",
       "items": [
         {
-          "title": "Sus datos",
+          "title": "Tus datos",
           "body": "En un PostgreSQL real, exportable y autoalojable."
         },
         {
           "title": "La decisión",
-          "body": "Lo que genera la IA queda inactivo hasta que usted lo valida."
+          "body": "Lo que genera la IA queda inactivo hasta que lo validas."
         },
         {
           "title": "La legibilidad",
@@ -423,38 +423,38 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
     "steps": [
       {
         "label": "Il problema",
-        "title": "I vostri dati esistono già. Solo che non circolano.",
+        "title": "I tuoi dati esistono già. Solo che non circolano.",
         "body": "Un preventivo in uno strumento, l’ordine in un foglio di calcolo, la fattura in un terzo: la stessa informazione viene digitata più volte, da persone che di mestiere fanno altro."
       },
       {
         "label": "Capire",
-        "title": "Iniziate facendo capire a TblFlow la vostra azienda",
-        "body": "Caricate le vostre procedure in PDF o Markdown e collegate gli strumenti che già usate. DocIndex indicizza questa documentazione: il team la consulta, l’IA la utilizza."
+        "title": "Inizia facendo capire a TblFlow la tua azienda",
+        "body": "Carica le tue procedure in PDF o Markdown e collega gli strumenti che già usi. DocIndex indicizza questa documentazione: il team la consulta, l’IA la utilizza."
       },
       {
         "label": "Mappare",
-        "title": "Ottenete la mappa dei vostri processi, poi affinatela",
-        "body": "TblFlow genera la mappa dai vostri documenti e strumenti: chi fa cosa, con quale strumento, dove l’informazione viene ridigitata. Voi la correggete e completate, inserite volumi e tariffe, e TblFlow stima quanto costa ogni passaggio."
+        "title": "Ottieni la mappa dei tuoi processi, poi affinala",
+        "body": "TblFlow genera la mappa dai tuoi documenti e strumenti: chi fa cosa, con quale strumento, dove l’informazione viene ridigitata. Tu la correggi e completi, inserisci volumi e tariffe, e TblFlow stima quanto costa ogni passaggio."
       },
       {
         "label": "Costruire",
-        "title": "TblFlow genera le tabelle che sostituiscono i vostri strumenti",
+        "title": "TblFlow genera le tabelle che sostituiscono i tuoi strumenti",
         "body": "A partire dalla mappa: analisi, blueprint, tabelle, relazioni, interfaccia, automazioni, agenti. Le regole di business sono integrate, gli altri strumenti restano collegati per non interrompere i flussi, i dati vengono importati e le vecchie applicazioni possono essere dismesse."
       },
       {
         "label": "Automatizzare",
-        "title": "Automatizzate prima ciò che segue una regola",
+        "title": "Automatizza prima ciò che segue una regola",
         "body": "Quando un passaggio segue una regola semplice, basta un’automazione: prevedibile, veloce, senza chiamate all’IA. Gli agenti arrivano dopo, dove bisogna leggere, valutare o scrivere."
       },
       {
         "label": "Affidare agli agenti",
-        "title": "Affidate il resto ad agenti che conoscono la vostra azienda",
-        "body": "Gli agenti si basano sulle vostre tabelle e sulle procedure interne indicizzate in DocIndex. Propongono, voi approvate: nulla si attiva senza il vostro consenso."
+        "title": "Affida il resto ad agenti che conoscono la tua azienda",
+        "body": "Gli agenti si basano sulle tue tabelle e sulle procedure interne indicizzate in DocIndex. Propongono, tu approvi: nulla si attiva senza il tuo consenso."
       },
       {
         "label": "Restituire tempo",
         "title": "I compiti ripetitivi agli agenti. Le relazioni alle persone.",
-        "body": "Il tempo liberato si reinveste dove il vostro team fa la differenza: la relazione con il cliente, la consulenza, la decisione. Ridefinite i ruoli insieme e accompagnate il cambiamento."
+        "body": "Il tempo liberato si reinveste dove il tuo team fa la differenza: la relazione con il cliente, la consulenza, la decisione. Ridefinisci i ruoli insieme al team e accompagna il cambiamento."
       }
     ],
     "docs": {
@@ -488,7 +488,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
     },
     "split": {
       "agents": "Affidato agli agenti",
-      "team": "Al vostro team",
+      "team": "Al tuo team",
       "agentItems": [
         "Inserimento degli ordini",
         "Solleciti delle fatture",
@@ -501,15 +501,15 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       ]
     },
     "keep": {
-      "title": "Ciò che conservate",
+      "title": "Ciò che conservi",
       "items": [
         {
-          "title": "I vostri dati",
+          "title": "I tuoi dati",
           "body": "In un vero PostgreSQL, esportabile e self-hosted."
         },
         {
           "title": "La decisione",
-          "body": "Ciò che l’IA genera resta inattivo finché non lo approvate."
+          "body": "Ciò che l’IA genera resta inattivo finché non lo approvi."
         },
         {
           "title": "La leggibilità",
@@ -839,7 +839,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       {
         "label": "Побудувати",
         "title": "TblFlow створює таблиці, які замінять ваші інструменти",
-        "body": "На основі карти: аналіз, blueprint, таблиці, звʼязки, інтерфейс, автоматизації, агенти. Бізнес-правила вбудовано, інші інструменти лишаються підключеними, щоб потоки не переривалися, дані імпортуються, а старі застосунки можна вивести з експлуатації."
+        "body": "На основі карти: аналіз, blueprint, таблиці, зв’язки, інтерфейс, автоматизації, агенти. Бізнес-правила вбудовано, інші інструменти лишаються підключеними, щоб потоки не переривалися, дані імпортуються, а старі застосунки можна вивести з експлуатації."
       },
       {
         "label": "Автоматизувати",
@@ -854,7 +854,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       {
         "label": "Повернути час",
         "title": "Рутинні завдання — агентам. Стосунки — людям.",
-        "body": "Вивільнений час іде туди, де ваша команда незамінна: стосунки з клієнтами, консультації, рішення. Перегляньте ролі разом із командою та проведіть зміни."
+        "body": "Вивільнений час іде туди, де ваша команда незамінна: стосунки з клієнтами, консультації, рішення. Перегляньте ролі разом із командою та супроводжуйте зміни."
       }
     ],
     "docs": {
@@ -928,18 +928,18 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       },
       {
         "label": "理解",
-        "title": "先让 TblFlow 理解你的企业",
-        "body": "以 PDF 或 Markdown 上传你的流程文档，并连接你已经在用的工具。DocIndex 会为这些文档建立索引：团队可以检索，AI 可以直接利用。"
+        "title": "先让 TblFlow 理解您的企业",
+        "body": "以 PDF 或 Markdown 上传您的流程文档，并连接您已经在用的工具。DocIndex 会为这些文档建立索引：团队可以检索，AI 可以直接利用。"
       },
       {
-        "label": "绘制地图",
-        "title": "获得流程地图，再逐步完善",
-        "body": "TblFlow 根据你的文档和工具生成流程地图：谁在做什么、用的是哪个工具、信息在哪里被重复录入。你来修正和补充，填写业务量和费率，TblFlow 估算每个环节的成本。"
+        "label": "绘制图谱",
+        "title": "获得流程图谱，再逐步完善",
+        "body": "TblFlow 根据您的文档和工具生成流程图谱：谁在做什么、用的是哪个工具、信息在哪里被重复录入。您来修正和补充，填写业务量和费率，TblFlow 估算每个环节的成本。"
       },
       {
         "label": "构建",
-        "title": "TblFlow 生成数据表，取代你现有的工具",
-        "body": "以地图为基础：分析、蓝图、数据表、关联、界面、自动化、智能体。业务规则内置其中，其他工具保持连接，流程不会中断；数据导入后，旧的应用即可下线。"
+        "title": "TblFlow 生成数据表，取代您现有的工具",
+        "body": "以图谱为基础：分析、蓝图、数据表、关联、界面、自动化、智能体。业务规则内置其中，其他工具保持连接，流程不会中断；数据导入后，旧的应用即可下线。"
       },
       {
         "label": "自动化",
@@ -948,8 +948,8 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       },
       {
         "label": "交给智能体",
-        "title": "其余的，交给了解你企业的智能体",
-        "body": "智能体以你的数据表和在 DocIndex 中建立索引的内部流程为依据。它们提出方案，由你审批：未经你同意，什么都不会启动。"
+        "title": "其余的，交给了解您企业的智能体",
+        "body": "智能体以您的数据表和在 DocIndex 中建立索引的内部流程为依据。它们提出方案，由您审批：未经您同意，什么都不会启动。"
       },
       {
         "label": "把时间还给团队",
@@ -1001,19 +1001,19 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       ]
     },
     "keep": {
-      "title": "你始终掌握的",
+      "title": "您始终掌握的",
       "items": [
         {
-          "title": "你的数据",
+          "title": "您的数据",
           "body": "保存在真正的 PostgreSQL 中，可导出，也可自托管。"
         },
         {
           "title": "决定权",
-          "body": "AI 生成的一切，在你审批之前都不会启用。"
+          "body": "AI 生成的一切，在您审批之前都不会启用。"
         },
         {
           "title": "可读性",
-          "body": "一切都清晰可读：在 SQL 里、在 DocIndex 中、在地图上。"
+          "body": "一切都清晰可读：在 SQL 里、在 DocIndex 中、在图谱上。"
         }
       ]
     }

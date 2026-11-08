@@ -13,7 +13,7 @@ C'est le rôle du serveur MCP officiel de TblFlow. MCP (Model Context Protocol) 
 
 ## Ce que fait le serveur
 
-Le serveur expose 13 outils. Claude peut lister vos espaces et vos bases, décrire le schéma d'une base, lister, filtrer et lire des enregistrements, et chercher dans le knowledge graph en recherche sémantique et en plein texte. Selon les permissions que vous accordez, il peut aussi créer et modifier des enregistrements, supprimer des enregistrements, créer une table ou un champ, déclencher une automatisation et lancer un agent IA.
+Le serveur expose 13 outils. Claude peut lister vos espaces et vos bases, décrire le schéma d'une base, lister, filtrer et lire des enregistrements, et chercher dans le graphe de connaissances en recherche sémantique et en plein texte. Selon les permissions que vous accordez, il peut aussi créer et modifier des enregistrements, supprimer des enregistrements, créer une table ou un champ, déclencher une automatisation et lancer un agent IA.
 
 Le serveur est distant, en Streamable HTTP, avec une authentification OAuth 2.1 : vous vous connectez avec votre compte TblFlow habituel. Il est disponible dès le palier Gratuit, comme l'API REST.
 
@@ -25,7 +25,7 @@ Ces exemples illustrent l'usage ; les phrases sont des demandes que vous pourrie
 
 **Créer des enregistrements.** « Ajoute ces trois contacts à ma base Prospects. » Avec la permission d'écriture, Claude crée les enregistrements ; vous les retrouvez dans TblFlow.
 
-**Retrouver un document.** « Dans quel document parle-t-on de la clause de résiliation ? » Claude cherche dans le knowledge graph, en recherche sémantique et en plein texte, et vous indique où lire.
+**Retrouver un document.** « Dans quel document parle-t-on de la clause de résiliation ? » Claude cherche dans le graphe de connaissances, en recherche sémantique et en plein texte, et vous indique où lire.
 
 ## Ce que vous contrôlez
 

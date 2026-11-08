@@ -6,7 +6,7 @@ section: "Kılavuzlar"
 order: 8
 ---
 
-TblFlow CLI, tabanlarınızı bir terminalden yönetir: kayıt okuma ve yazma, CSV içe aktarma ve dışa aktarma, kullanıma açılmış otomasyon ve ajanları çalıştırma ve yerel bir MCP istemcisini (Claude Code, Cursor…) verilerinize bağlama. npm'de `@tblflow/cli` adıyla, MIT lisansı altında yayımlanır.
+TblFlow CLI, veritabanlarınızı bir terminalden yönetir: kayıt okuma ve yazma, CSV içe aktarma ve dışa aktarma, kullanıma açılmış otomasyon ve ajanları çalıştırma ve yerel bir MCP istemcisini (Claude Code, Cursor…) verilerinize bağlama. npm'de `@tblflow/cli` adıyla, MIT lisansı altında yayımlanır.
 
 Node.js 20 veya üstünü gerektirir ve üçüncü taraf bağımlılığı yoktur.
 
@@ -56,8 +56,8 @@ Varsayılan olarak CLI `https://app.tblflow.com` ile konuşur. Başka bir sunucu
 
 | Komut | Etki |
 |---|---|
-| `bases` | Erişilebilir alanlar ve tabanlar |
-| `tables <baseId>` | Bir tabanın tabloları |
+| `bases` | Erişilebilir alanlar ve veritabanları |
+| `tables <baseId>` | Bir veritabanının tabloları |
 | `records list <tableId>` | `--take N` (en fazla 100), `--skip N`, `--fields a,b`, `--where "Alan=v"`, `--sort "Alan:desc"` |
 | `records get <tableId> <recordId>` | Bir kaydı okur |
 | `records create <tableId>` | `--data '<json>'` veya `--file f.json` (en fazla 50) |

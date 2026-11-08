@@ -14,7 +14,7 @@ Le autorizzazioni decidono chi può vedere, modificare o amministrare cosa in Tb
 |---|---|
 | **Azione** | Un diritto singolo, per esempio modificare un record o configurare i permessi di una base. |
 | **Ruolo predefinito** | Uno dei cinque ruoli fissi: proprietario, creatore, editor, commentatore, lettore. Non si possono modificare. |
-| **Matrice di permessi** | Un insieme di ruoli con un nome, su uno spazio, una base o una tabella. Nell'interfaccia si chiama « Permission ». |
+| **Matrice di permessi** | Un insieme di ruoli con un nome, su uno spazio, una base o una tabella. Nell'interfaccia si chiama «Permission». |
 | **Ruolo personalizzato** | Un ruolo che nomini in una matrice, con l'elenco di azioni che scegli. |
 | **Assegnazione** | Il legame tra un ruolo personalizzato e un utente. |
 
@@ -89,7 +89,7 @@ Esistono due azioni: **assegnare un ruolo predefinito** e **creare un ruolo pers
 
 ### Assegnare un ruolo predefinito
 
-A livello di spazio o di base, invita un utente (via e-mail o tramite link) scegliendo il suo ruolo. Serve poter invitare a quel livello e, per assegnare un ruolo su uno spazio, avere il diritto « assegnare un ruolo ».
+A livello di spazio o di base, invita un utente (via e-mail o tramite link) scegliendo il suo ruolo. Serve poter invitare a quel livello e, per assegnare un ruolo su uno spazio, avere il diritto «assegnare un ruolo».
 
 ### Creare un ruolo personalizzato
 

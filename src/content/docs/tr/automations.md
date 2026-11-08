@@ -6,7 +6,7 @@ section: "Kılavuzlar"
 order: 3
 ---
 
-Otomasyon, bir tabana bağlı bir iş akışıdır: bir tetikleyici, ardından bir adım dizisi. Sunucu tarafında çalışır; kimsenin sekme açık tutmadığı zamanlarda da.
+Otomasyon, bir veritabanına bağlı bir iş akışıdır: bir tetikleyici, ardından bir adım dizisi. Sunucu tarafında çalışır; kimsenin sekme açık tutmadığı zamanlarda da.
 
 ## Tetikleyiciler
 
@@ -15,7 +15,7 @@ Otomasyon, bir tabana bağlı bir iş akışıdır: bir tetikleyici, ardından b
 | Kayıt oluşturuldu | izlenen tabloya bir satır eklendiğinde |
 | Kayıt güncellendi | izlenen bir alanın değeri değiştiğinde |
 | Kayıt koşulu karşılıyor | bir satır bir filtrenin kapsamına girdiğinde |
-| Cron | belirtilen zamanlamada (cron ifadesi, taban saat dilimi) |
+| Cron | belirtilen zamanlamada (cron ifadesi, veritabanı saat dilimi) |
 | Webhook | oluşturulan URL'ye bir HTTP çağrısı ulaştığında |
 | Manuel | biri bir Düğme alanına tıkladığında |
 

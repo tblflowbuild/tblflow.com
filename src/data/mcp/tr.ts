@@ -17,24 +17,24 @@ const tr = {
   'benefits.title': 'Ne değişiyor',
   'benefits.1.title': 'Verilerinizi sorgulayın',
   'benefits.1.body':
-    'Sorularınızı Claude’a sorun: tabanlarınızın şemasını okur, kayıtları filtreler ve knowledge graph içinde anlamsal ve tam metin aramasıyla arama yapar.',
+    'Sorularınızı Claude’a sorun: veritabanlarınızın şemasını okur, kayıtları filtreler ve bilgi grafiği içinde anlamsal ve tam metin aramasıyla arama yapar.',
   'benefits.2.title': 'Konuşmadan eyleme geçin',
   'benefits.2.body':
-    'Claude’dan ayrılmadan kayıt oluşturun ve düzenleyin, bir tablo veya alan ekleyin, bir otomasyonu tetikleyin ya da bir yapay zeka ajanı çalıştırın.',
+    'Claude’dan ayrılmadan kayıt oluşturun ve düzenleyin, bir tablo veya alan ekleyin, bir otomasyonu tetikleyin ya da bir yapay zekâ ajanı çalıştırın.',
   'benefits.3.title': 'Kontrol sizde kalsın',
   'benefits.3.body':
-    'Bağlanırken erişilebilecek alanları, tabanları ve izinleri siz seçersiniz. TblFlow yetkileriniz her istekte geçerlidir.',
+    'Bağlanırken erişilebilecek alanları, veritabanlarını ve izinleri siz seçersiniz. TblFlow yetkileriniz her istekte geçerlidir.',
   'tools.title': '23 araç, sade bir dille',
   'tools.intro':
     'Claude’un yapabilecekleri şunlardır. En hassas yetenekler, bağlanırken sizin etkinleştirdiğiniz seçeneklerdir.',
   'tools.1.title': 'Keşfetmek',
-  'tools.1.body': 'Alanlarınızı, tabanlarınızı, bir tablonun görünümlerini ve bir alanın üyelerini listelemek.',
+  'tools.1.body': 'Alanlarınızı, veritabanlarınızı, bir tablonun görünümlerini ve bir alanın üyelerini listelemek.',
   'tools.2.title': 'Anlamak',
-  'tools.2.body': 'Bir tabanın şemasını açıklamak ve bir alanın süreç haritasını okumak.',
+  'tools.2.body': 'Bir veritabanının şemasını açıklamak ve bir alanın süreç haritasını okumak.',
   'tools.3.title': 'Okumak',
   'tools.3.body': 'Kayıtları listelemek, filtrelemek ve okumak.',
   'tools.4.title': 'Aramak',
-  'tools.4.body': 'Knowledge graph içinde anlamsal ve tam metin aramasıyla arama yapmak.',
+  'tools.4.body': 'Bilgi grafiği içinde anlamsal ve tam metin aramasıyla arama yapmak.',
   'tools.5.title': 'Oluşturmak ve düzenlemek',
   'tools.5.body': 'Kayıt oluşturmak ve düzenlemek.',
   'tools.6.title': 'Silmek',
@@ -45,7 +45,7 @@ const tr = {
   'tools.8.title': 'Otomatikleştirmek',
   'tools.8.body': 'Kullanıma açılmış otomasyonları ve ajanları listelemek, sahibi kullanıma açtıysa bir otomasyonu tetiklemek.',
   'tools.9.title': 'Devretmek',
-  'tools.9.body': 'Sahibi kullanıma açtıysa bir yapay zeka ajanı çalıştırmak, ardından son çalıştırmalarının durumunu izlemek.',
+  'tools.9.body': 'Sahibi kullanıma açtıysa bir yapay zekâ ajanı çalıştırmak, ardından son çalıştırmalarının durumunu izlemek.',
   'tools.10.title': 'Hesaplamak',
   'tools.10.body': 'Tüm satırları okumadan, filtre ve gruplamayla bir tablo üzerinde toplam, ortalama, minimum, maksimum ve sayım hesaplamak.',
   'tools.11.title': 'İçe aktarmak',
@@ -65,12 +65,12 @@ const tr = {
   'steps.2.body': 'Olağan TblFlow hesabınızla giriş yapın (OAuth 2.1).',
   'steps.3.title': 'Alanları seçin',
   'steps.3.body':
-    'Erişilebilecek alanları ve tabanları, ardından izinleri seçin. Okuma varsayılan olarak etkindir.',
+    'Erişilebilecek alanları ve veritabanlarını, ardından izinleri seçin. Okuma varsayılan olarak etkindir.',
   'steps.code.title': 'Claude Code ile',
   'steps.code.body': 'Tek bir komut yeterli:',
   'control.title': 'Neyi kontrol edersiniz',
   'control.1':
-    'Claude’un neyi göreceğini siz seçersiniz: alanlar, tabanlar ve izinler. Varsayılan olarak okuma; yazma, silme, şema ve tetikleme seçeneklerdir.',
+    'Claude’un neyi göreceğini siz seçersiniz: alanlar, veritabanları ve izinler. Varsayılan olarak okuma; yazma, silme, şema ve tetikleme seçeneklerdir.',
   'control.2': 'Mevcut TblFlow yetkileriniz her istekte geçerlidir.',
   'control.3':
     'Otomasyonlar ve ajanlar yalnızca sahipleri kullanıma açtıysa tetiklenebilir.',
@@ -91,7 +91,7 @@ const tr = {
   'faq.title': 'Sık sorulan sorular',
   'faq.1.q': 'Verilerimi kim görür?',
   'faq.1.a':
-    'Bağlanırken erişilebilecek alanları ve tabanları siz seçersiniz ve TblFlow yetkileriniz her istekte geçerlidir. Araç sonuçları, isteğinizi yanıtlamak için asistana (Claude) iletilir. TblFlow konuşmaların içeriğini günlüğe kaydetmez: yalnızca çağrılan araç, saat, süre ve durum saklanır.',
+    'Bağlanırken erişilebilecek alanları ve veritabanlarını siz seçersiniz ve TblFlow yetkileriniz her istekte geçerlidir. Araç sonuçları, isteğinizi yanıtlamak için asistana (Claude) iletilir. TblFlow konuşmaların içeriğini günlüğe kaydetmez: yalnızca çağrılan araç, saat, süre ve durum saklanır.',
   'faq.2.q': 'Erişimi iptal edebilir miyim?',
   'faq.2.a':
     'Evet. Claude ayarlarında bağlayıcıyı kaldırın: Claude TblFlow verilerinize erişmeyi bırakır.',
@@ -113,9 +113,9 @@ const tr = {
   'pricing.highlight': 'MCP sunucusu dahil: dakikada {n} istek',
   'privacy.heading': 'MCP sunucusu',
   'privacy.p1':
-    'Bu bölüm, Claude gibi bir yapay zeka asistanının TblFlow alanınıza erişmesini sağlayan TblFlow MCP sunucusuna (https://app.tblflow.com/mcp) özgü işlemeleri açıklar. Sunucu uygulamanın bir parçasıdır: belgeleri (şartlar, gizlilik politikası, veri işleme sözleşmesi) app.tblflow.com adresinde yayımlanır.',
+    'Bu bölüm, Claude gibi bir yapay zekâ asistanının TblFlow alanınıza erişmesini sağlayan TblFlow MCP sunucusuna (https://app.tblflow.com/mcp) özgü işlemeleri açıklar. Sunucu uygulamanın bir parçasıdır: belgeleri (şartlar, gizlilik politikası, veri işleme sözleşmesi) app.tblflow.com adresinde yayımlanır.',
   'privacy.p2':
-    'İşlenen veriler: bağlanırken TblFlow kimliğiniz (OAuth 2.1) ve seçtiğiniz alanlar, tabanlar ve izinler; her çağrıda, istenen aracın yetkileriniz çerçevesinde okuduğu veya yazdığı alanınızdaki veriler.',
+    'İşlenen veriler: bağlanırken TblFlow kimliğiniz (OAuth 2.1) ve seçtiğiniz alanlar, veritabanları ve izinler; her çağrıda, istenen aracın yetkileriniz çerçevesinde okuduğu veya yazdığı alanınızdaki veriler.',
   'privacy.p3':
     'Amaç: asistandan istediğiniz eylemleri yürütmek ve hizmetin güvenliğini sağlamak.',
   'privacy.p4':

@@ -17,7 +17,7 @@ const es = {
   'benefits.title': 'Qué cambia',
   'benefits.1.title': 'Consultar tus datos',
   'benefits.1.body':
-    'Hazle tus preguntas a Claude: lee el esquema de tus bases, filtra los registros y busca en el knowledge graph, con búsqueda semántica y de texto completo.',
+    'Hazle tus preguntas a Claude: lee el esquema de tus bases, filtra los registros y busca en el grafo de conocimiento, con búsqueda semántica y de texto completo.',
   'benefits.2.title': 'Actuar desde la conversación',
   'benefits.2.body':
     'Crea y modifica registros, añade una tabla o un campo, activa una automatización o ejecuta un agente de IA, sin salir de Claude.',
@@ -34,7 +34,7 @@ const es = {
   'tools.3.title': 'Leer',
   'tools.3.body': 'Listar, filtrar y leer registros.',
   'tools.4.title': 'Buscar',
-  'tools.4.body': 'Buscar en el knowledge graph, con búsqueda semántica y de texto completo.',
+  'tools.4.body': 'Buscar en el grafo de conocimiento, con búsqueda semántica y de texto completo.',
   'tools.5.title': 'Crear y modificar',
   'tools.5.body': 'Crear y modificar registros.',
   'tools.6.title': 'Eliminar',

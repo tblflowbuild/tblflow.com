@@ -21,7 +21,7 @@ const fr = {
   'benefits.title': 'Ce que ça change',
   'benefits.1.title': 'Interroger vos données',
   'benefits.1.body':
-    "Posez vos questions à Claude : il lit le schéma de vos bases, filtre les enregistrements et cherche dans le knowledge graph, en recherche sémantique et en plein texte.",
+    "Posez vos questions à Claude : il lit le schéma de vos bases, filtre les enregistrements et cherche dans le graphe de connaissances, en recherche sémantique et en plein texte.",
   'benefits.2.title': 'Agir depuis la conversation',
   'benefits.2.body':
     "Créez et modifiez des enregistrements, ajoutez une table ou un champ, déclenchez une automatisation ou lancez un agent IA, sans quitter Claude.",
@@ -38,7 +38,7 @@ const fr = {
   'tools.3.title': 'Lire',
   'tools.3.body': 'Lister, filtrer et lire des enregistrements.',
   'tools.4.title': 'Rechercher',
-  'tools.4.body': 'Chercher dans le knowledge graph, en recherche sémantique et en plein texte.',
+  'tools.4.body': 'Chercher dans le graphe de connaissances, en recherche sémantique et en plein texte.',
   'tools.5.title': 'Créer et modifier',
   'tools.5.body': 'Créer et modifier des enregistrements.',
   'tools.6.title': 'Supprimer',
@@ -102,7 +102,7 @@ const fr = {
   'faq.3.q': 'ChatGPT est-il pris en charge ?',
   'faq.3.a':
     "Pas encore. Le serveur est publié dans le registre MCP officiel (com.tblflow/tblflow, version 1.0.0) et se connecte à Claude. La soumission à l'annuaire de connecteurs de Claude est à venir.",
-  'faq.4.q': 'Le serveur MCP est-il disponible dans le plan Gratuit ?',
+  'faq.4.q': 'Le serveur MCP est-il disponible dans le palier Gratuit ?',
   'faq.4.a':
     "Oui, dès le palier Gratuit, comme l'API REST. Seule la limite de débit change : 60, 120, 300 et 600 requêtes par minute pour Gratuit, Essentiel, Équipe et Entreprise.",
   'faq.5.q': 'Que peut faire Claude avec mes automatisations et mes agents ?',

@@ -5,13 +5,13 @@ translationKey: "carto-suivi"
 type: "feature"
 ---
 
-La « Cartographie des processus » devient la **Carto des process** dans l'interface, et ne se contente plus de dessiner : elle sert maintenant à mesurer, suivre dans le temps et piloter. Les coûts restent des **estimations que vous saisissez**, pas des mesures. La Carto des process est réservée aux plans Pro, Business et Enterprise.
+La « Cartographie des processus » devient la **Carto des process** dans l'interface, et ne se contente plus de dessiner : elle sert maintenant à mesurer, suivre dans le temps et piloter. Les coûts restent des **estimations que vous saisissez**, pas des mesures. La Carto des process est réservée aux paliers Pro, Business et Enterprise.
 
 **Suivre dans le temps**
 
 - **Fiche procédure** sur chaque processus (champ Canvas), avec propriétaire, dates de revue et statut.
-- **Alertes de péremption** : un courriel chaque lundi à 7 h (heure du serveur) liste les processus dont la prochaine revue est dépassée ou tombe dans les 14 jours. Aucun courriel s'il n'y a rien à relire. Les destinataires sont modifiables ; activation depuis le menu « Plus d'actions » du canvas. Une base V2 est nécessaire.
-- **Rapport mensuel par courriel** : le 1er du mois à 8 h, coût, gain potentiel, les trois processus au plus gros gain et les revues en retard. Les montants n'y figurent que si le propriétaire de la base l'active. Une base V2 est nécessaire.
+- **Alertes de péremption** : un e-mail chaque lundi à 7 h (heure du serveur) liste les processus dont la prochaine revue est dépassée ou tombe dans les 14 jours. Aucun e-mail s'il n'y a rien à relire. Les destinataires sont modifiables ; activation depuis le menu « Plus d'actions » du canvas. Une base V2 est nécessaire.
+- **Rapport mensuel par e-mail** : le 1er du mois à 8 h, coût, gain potentiel, les trois processus au plus gros gain et les revues en retard. Les montants n'y figurent que si le propriétaire de la base l'active. Une base V2 est nécessaire.
 - **Validation par étape** : statut (à valider, validée, à revoir), validé par, date et commentaire, avec un badge sur l'étape dans le canvas.
 
 **Mesurer et comparer**

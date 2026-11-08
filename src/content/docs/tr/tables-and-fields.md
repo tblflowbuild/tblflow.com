@@ -18,7 +18,7 @@ Bir TblFlow tablosu gerçek bir PostgreSQL tablosudur. Bir alan gerçek bir süt
 
 **Hesaplanan** — Formül (200'den fazla işlev), Otomatik numara, Oluşturulma zamanı, Son değiştirilme zamanı, Oluşturan, Son değiştiren. Düzenlenemezler: yazma sırasında yeniden hesaplanırlar.
 
-**Etkin** — Ek, Düğme, Yapay zeka. Yapay zeka alanı tabanda yapılandırılmış modeli çağırır ve yanıtı hücreye yazar.
+**Etkin** — Ek, Düğme, Yapay zekâ. Yapay zekâ alanı veritabanında yapılandırılmış modeli çağırır ve yanıtı hücreye yazar.
 
 ## İki tabloyu bağlama
 
@@ -46,7 +46,7 @@ Bir formül yan etki üretemez: başka bir tabloya yazma yok, ağ çağrısı yo
 
 ## Postgres'te bu neye benzer
 
-Her taban bir şemadır, her tablo fiziksel bir tablo, her alan türü belirli bir sütun. `psql`'i, bir ORM'yi veya bir BI aracını aynı örneğe yönlendirip verilerinizi doğrudan okuyabilirsiniz: dışa aktarma yok, eşitleme katmanı yok, çoğaltma gecikmesi yok.
+Her veritabanı bir şemadır, her tablo fiziksel bir tablo, her alan türü belirli bir sütun. `psql`'i, bir ORM'yi veya bir BI aracını aynı örneğe yönlendirip verilerinizi doğrudan okuyabilirsiniz: dışa aktarma yok, eşitleme katmanı yok, çoğaltma gecikmesi yok.
 
 Pratik sonucu: bir `pg_dump`, başka bir yerde de kullanılabilen eksiksiz bir yedektir. Burada "kilitlenme yok"un anlamı budur.
 
@@ -54,4 +54,4 @@ Pratik sonucu: bir `pg_dump`, başka bir yerde de kullanılabilen eksiksiz bir y
 
 - Bir alanı yeniden adlandırmak etiketini değiştirir, formüllerin kullandığı başvuruyu değiştirmez: hiçbir şey bozulmaz.
 - Bir alanın türünü değiştirmek bir dönüştürme dener ve kaybolacak değerler konusunda sizi uyarır.
-- Bir alanı silmek sütunu kaldırır. İşlem günlüğe kaydedilir, ancak tabanın çöp kutusunun ötesinde geri alınamaz.
+- Bir alanı silmek sütunu kaldırır. İşlem günlüğe kaydedilir, ancak veritabanının çöp kutusunun ötesinde geri alınamaz.

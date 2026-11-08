@@ -17,7 +17,7 @@ Avant les mécanismes internes, une question plus simple : quand a-t-on seulemen
 
 Trois cas, trois réponses différentes :
 
-- **La règle est connue et ne change pas** — « quand un statut passe à Gagné, envoyer un email de bienvenue ». Une [automatisation](/fr/docs/automatisations) suffit : même entrée, même chemin, même résultat, et c'est plus prévisible qu'un agent pour ce cas précis.
+- **La règle est connue et ne change pas** — « quand un statut passe à Gagné, envoyer un e-mail de bienvenue ». Une [automatisation](/fr/docs/automatisations) suffit : même entrée, même chemin, même résultat, et c'est plus prévisible qu'un agent pour ce cas précis.
 - **La décision dépend du contenu, au cas par cas** — trier des demandes entrantes hétérogènes, qualifier un prospect selon ce qu'il a écrit, résumer une semaine d'activité. Personne n'écrira une règle qui couvre tous les cas à l'avance : c'est exactement le travail d'un agent.
 - **C'est ponctuel, ou ça arrive une fois** — pas besoin d'agent ni d'automatisation, faites-le à la main. Un mécanisme qui surveille en permanence pour une action qui n'arrivera qu'une fois est une dépense inutile.
 
@@ -47,4 +47,4 @@ Les agents TblFlow maintiennent un graphe entité/relation persistant : les enti
 
 Rien de tout ça ne résout le problème de fond : un modèle peut se tromper avec assurance. Le cycle de proposition transforme une erreur silencieuse en erreur visible, ce qui est un vrai progrès — mais si vous acceptez les propositions sans les lire, vous avez reconstruit le problème que le mécanisme évitait.
 
-C'est aussi pour ça qu'un garde-fou d'approbation humaine existe sur les étapes sensibles des automatisations. Un agent qui envoie des emails à des clients réels n'est pas un endroit pour l'optimisme.
+C'est aussi pour ça qu'un garde-fou d'approbation humaine existe sur les étapes sensibles des automatisations. Un agent qui envoie des e-mails à des clients réels n'est pas un endroit pour l'optimisme.

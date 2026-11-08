@@ -33,7 +33,7 @@ Il server espone 23 strumenti, raggruppati così:
 - **Capire**: descrivere lo schema di una base, leggere la mappa dei processi di uno spazio.
 - **Leggere**: elencare, filtrare e leggere i record.
 - **Calcolare**: calcolare statistiche su una tabella (somma, media, minimo, massimo, conteggio), con filtro e raggruppamento, senza leggere tutte le righe.
-- **Cercare**: cercare nel knowledge graph, con ricerca semantica e full-text.
+- **Cercare**: cercare nel grafo della conoscenza, con ricerca semantica e full-text.
 - **Creare e modificare**: creare e modificare i record.
 - **Importare**: importare un CSV, in una tabella esistente o in una nuova tabella.
 - **Eliminare e ripristinare**: eliminare record o un campo, con un'anteprima e poi una conferma esplicita; elencare il cestino e ripristinare ciò che è stato eliminato.

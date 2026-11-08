@@ -6,7 +6,7 @@ section: "Guides"
 order: 5
 ---
 
-La Carto des process est une page de votre espace où vous dessinez qui fait quoi, avec quels outils, puis lisez les ruptures et les coûts estimés. Un processus se diagnostique gratuitement, avec ses coûts estimés visibles, sans bouton « Remplacer », sans rapport mensuel et sans comparaison de l’estimé au réel. Ces fonctions restent visibles, verrouillées. La carte complète demande le plan Essentiel ou supérieur.
+La Carto des process est une page de votre espace où vous dessinez qui fait quoi, avec quels outils, puis lisez les ruptures et les coûts estimés. Un processus se diagnostique gratuitement, avec ses coûts estimés visibles, sans bouton « Remplacer », sans rapport mensuel et sans comparaison de l’estimé au réel. Ces fonctions restent visibles, verrouillées. La carte complète demande le palier Essentiel ou supérieur.
 
 ## Ouvrir ou créer la cartographie
 
@@ -55,11 +55,11 @@ Chaque processus porte une **fiche procédure** (champ Canvas), un **propriétai
 
 ## Être alerté des procédures périmées
 
-Les alertes s'activent depuis le menu **Plus d'actions** du canvas et demandent une base V2. Chaque lundi à 7 h (heure du serveur), un courriel liste les processus dont la prochaine revue est dépassée ou tombe dans les 14 jours. Les processus archivés sont ignorés, et aucun courriel ne part s'il n'y a rien à relire. Par défaut, le destinataire est la personne qui active les alertes ; vous pouvez modifier les destinataires.
+Les alertes s'activent depuis le menu **Plus d'actions** du canvas et demandent une base V2. Chaque lundi à 7 h (heure du serveur), un e-mail liste les processus dont la prochaine revue est dépassée ou tombe dans les 14 jours. Les processus archivés sont ignorés, et aucun e-mail ne part s'il n'y a rien à relire. Par défaut, le destinataire est la personne qui active les alertes ; vous pouvez modifier les destinataires.
 
 ## Recevoir un rapport mensuel
 
-Le rapport mensuel part le 1er du mois à 8 h (heure du serveur), par courriel, et demande lui aussi une base V2. Il donne le coût, le gain potentiel, les trois processus au plus gros gain et le nombre de revues en retard. Les montants n'y figurent que si le propriétaire de la base l'active.
+Le rapport mensuel part le 1er du mois à 8 h (heure du serveur), par e-mail, et demande lui aussi une base V2. Il donne le coût, le gain potentiel, les trois processus au plus gros gain et le nombre de revues en retard. Les montants n'y figurent que si le propriétaire de la base l'active.
 
 ## Valider les étapes
 

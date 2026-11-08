@@ -1,7 +1,7 @@
 ---
 title: "Procédures périmées : la Carto des process vous prévient"
 translationKey: "carto-alerts"
-description: "Une fiche procédure par processus, un propriétaire, une date de revue, et un courriel chaque lundi quand une relecture est due."
+description: "Une fiche procédure par processus, un propriétaire, une date de revue, et un e-mail chaque lundi quand une relecture est due."
 publishedAt: 2026-11-03
 author: "TblFlow"
 tags: ["carto-des-process", "procédures", "qualité"]
@@ -18,12 +18,12 @@ directement dans le canvas, à côté du schéma des étapes. Le processus a aus
 une **date de dernière revue**, une **prochaine revue** et un **statut**. La documentation et le
 schéma vivent au même endroit, donc ils se corrigent ensemble.
 
-## Un courriel quand une revue est due
+## Un e-mail quand une revue est due
 
 Une fois les alertes activées depuis le menu « Plus d'actions » du canvas, TblFlow envoie **chaque
-lundi à 7 h** (heure du serveur) un courriel qui liste les processus dont la prochaine revue est
+lundi à 7 h** (heure du serveur) un e-mail qui liste les processus dont la prochaine revue est
 **dépassée ou prévue dans les 14 jours**. Les processus archivés sont ignorés. S'il n'y a rien à
-relire, **aucun courriel ne part** : pas de bruit inutile.
+relire, **aucun e-mail ne part** : pas de bruit inutile.
 
 Vous choisissez les destinataires, par défaut la personne qui active les alertes. Elle peut les
 modifier dans la fenêtre prévue pour cela.
@@ -32,7 +32,7 @@ modifier dans la fenêtre prévue pour cela.
 
 1. Renseignez une prochaine revue sur vos processus les plus critiques.
 2. Activez les alertes de péremption.
-3. Quand le courriel arrive, ouvrez la fiche, relisez, puis repoussez la date.
+3. Quand l'e-mail arrive, ouvrez la fiche, relisez, puis repoussez la date.
 
-*Les alertes demandent une base V2 et la Carto des process est incluse dans les plans Essentiel, Équipe
-et Enterprise.*
+*Les alertes demandent une base V2 et la Carto des process est incluse dans les paliers Essentiel, Équipe
+et Entreprise.*

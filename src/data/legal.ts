@@ -504,9 +504,9 @@ export const PRIVACY_LAST_UPDATED: Record<Locale, string> = {
   fr: 'Dernière mise à jour : 1er novembre 2026.',
   it: 'Ultimo aggiornamento: 1° novembre 2026.',
   ja: '最終更新：2026 年 11 月 1 日',
-  ru: 'Последнее обновление: 1 ноября 2026 г..',
+  ru: 'Последнее обновление: 1 ноября 2026 г.',
   tr: 'Son güncelleme: 1 Kasım 2026.',
-  uk: 'Останнє оновлення: 1 листопада 2026 р..',
+  uk: 'Останнє оновлення: 1 листопада 2026 р.',
   zh: '最后更新：2026 年 11 月 1 日。',
 };
 
@@ -919,7 +919,7 @@ const PRIVACY_BODIES: Record<Locale, string[][]> = {
   ],
   zh: [
     [
-      `${COMPANY.name}，法国${COMPANY.form}，${COMPANY.address}，注册号 ${COMPANY.siren}（${COMPANY.rcs}）。电话：${COMPANY.phone}。`,
+      `${COMPANY.name}，法国 ${COMPANY.form}，${COMPANY.address}，注册号 ${COMPANY.siren}（${COMPANY.rcs}）。电话：${COMPANY.phone}。`,
       `数据保护联系方式：${COMPANY.privacy}。`,
     ],
     [
@@ -934,7 +934,7 @@ const PRIVACY_BODIES: Record<Locale, string[][]> = {
     ],
     [
       '目的：了解哪些页面被阅读、访问者如何到达本站，以指导内容方向。不作广告用途，不做用户画像。',
-      '法律依据：您的同意（GDPR 第 6.1.a 条）。在您接受之前，不会加载任何 Google 代码，也不会写入任何 Cookie。您可随时通过页脚的「Cookie 设置」链接更改该选择。',
+      '法律依据：您的同意（GDPR 第 6.1.a 条）。在您接受之前，不会加载任何 Google 代码，也不会写入任何 Cookie。您可随时通过页脚的“Cookie 设置”链接更改该选择。',
       `受托处理方：${GOOGLE_IE}。`,
       '向欧盟境外的传输：数据可能传输至位于美国的 Google LLC。该传输依据欧盟委员会于 2023 年 7 月 10 日在欧盟–美国数据隐私框架下作出的充分性认定，Google LLC 已就该框架取得认证。',
       '期限：用户数据与事件数据在 Google Analytics 中保存 14 个月，且不会因新活动而重置。写入您设备的追踪标识（_ga、_ga_*）期限为 13 个月。',
@@ -1107,7 +1107,7 @@ export const COOKIES_MANAGE_NOTE: Record<Locale, string> = {
   ru: 'Вы можете передумать в любой момент по ссылке «Настройки cookie» в подвале страницы: она снова откроет панель согласия с вашим текущим выбором. В любом случае мы автоматически спрашиваем повторно каждые 6 месяцев, согласно рекомендациям CNIL.',
   tr: 'Sayfa altındaki «Çerezleri yönet» bağlantısıyla istediğiniz zaman fikrinizi değiştirebilirsiniz; bağlantı, mevcut seçiminizle onay panelini yeniden açar. Her hâlükârda, CNIL tavsiyelerine uygun olarak 6 ayda bir otomatik olarak yeniden soruyoruz.',
   uk: 'Ви можете передумати будь-коли за посиланням «Керувати файлами cookie» в підвалі сторінки: воно знову відкриє панель згоди з вашим поточним вибором. У будь-якому разі ми автоматично запитуємо повторно кожні 6 місяців, згідно з рекомендаціями CNIL.',
-  zh: '您可以随时通过页脚的「Cookie 设置」链接更改选择，该链接会以您当前的选择重新打开同意面板。无论如何，依据 CNIL 的建议，我们每 6 个月会自动再次询问。',
+  zh: '您可以随时通过页脚的“Cookie 设置”链接更改选择，该链接会以您当前的选择重新打开同意面板。无论如何，依据 CNIL 的建议，我们每 6 个月会自动再次询问。',
 };
 
 export const TERMS_TITLE: Record<Locale, string> = {

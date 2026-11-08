@@ -7,7 +7,7 @@ author: "TblFlow"
 tags: ["auto-hébergement", "postgresql"]
 ---
 
-Il faut être précis sur ce point, parce que la confusion coûte cher aux deux parties d'une négociation : l'auto-hébergement TblFlow **n'est pas gratuit**. Il fait partie du palier Enterprise, sur devis. Ce texte n'est pas là pour dire le contraire.
+Il faut être précis sur ce point, parce que la confusion coûte cher aux deux parties d'une négociation : l'auto-hébergement TblFlow **n'est pas gratuit**. Il fait partie du palier Entreprise, sur devis. Ce texte n'est pas là pour dire le contraire.
 
 Ce qui est vrai, en revanche, et gratuit sur tous les paliers y compris le palier Gratuit : vos données vivent dans un schéma PostgreSQL standard, et un `pg_dump` en est une sauvegarde complète, réutilisable ailleurs sans conversion.
 
@@ -23,4 +23,4 @@ Un fournisseur qui garde vos données dans un format propriétaire négocie en p
 
 ## Ce que ça ne change pas
 
-La réversibilité des données n'est pas une garantie de service, de support ou de disponibilité — ces engagements-là restent définis par le palier souscrit et, pour l'Enterprise, par le contrat signé séparément. Un `pg_dump` vous rend vos données ; il ne vous rend pas le temps d'ingénierie nécessaire pour les héberger ailleurs.
+La réversibilité des données n'est pas une garantie de service, de support ou de disponibilité — ces engagements-là restent définis par le palier souscrit et, pour l'Entreprise, par le contrat signé séparément. Un `pg_dump` vous rend vos données ; il ne vous rend pas le temps d'ingénierie nécessaire pour les héberger ailleurs.

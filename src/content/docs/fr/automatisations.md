@@ -23,7 +23,7 @@ Un déclencheur « modifié » restreint aux champs qui vous intéressent évite
 
 ## Étapes
 
-Les étapes disponibles : créer / mettre à jour / supprimer un enregistrement, rechercher des enregistrements, envoyer un email, appeler une URL, exécuter une branche conditionnelle, itérer sur une liste, attendre, demander une approbation, appeler un agent.
+Les étapes disponibles : créer / mettre à jour / supprimer un enregistrement, rechercher des enregistrements, envoyer un e-mail, appeler une URL, exécuter une branche conditionnelle, itérer sur une liste, attendre, demander une approbation, appeler un agent.
 
 Chaque étape reçoit la sortie des précédentes. Vous référencez une valeur avec la notation `{{étape.champ}}`, et l'éditeur propose les champs réellement disponibles à ce point du workflow.
 
@@ -31,7 +31,7 @@ Chaque étape reçoit la sortie des précédentes. Vous référencez une valeur 
 
 L'étape **Approbation** met l'exécution en pause et notifie les personnes désignées. Le workflow reprend à l'acceptation, s'arrête au refus, et expire après le délai que vous fixez.
 
-Placez-la avant toute étape qui parle à l'extérieur — email client, appel d'API facturé, publication. Une automatisation qui se trompe en interne se corrige ; une automatisation qui se trompe chez un client se rattrape beaucoup moins bien.
+Placez-la avant toute étape qui parle à l'extérieur — e-mail client, appel d'API facturé, publication. Une automatisation qui se trompe en interne se corrige ; une automatisation qui se trompe chez un client se rattrape beaucoup moins bien.
 
 ## Journal d'exécution
 

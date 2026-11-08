@@ -34,7 +34,7 @@ Memory is inspectable and editable. When an agent has learned something wrong, y
 
 ## Scheduling
 
-An agent can run on demand, on a schedule (cron), or be called as a step inside an [automation](/en/docs/automations). Monthly agent runs depend on the tier.
+An agent can run on demand, on a schedule (cron), or be called as a step inside an [automation](/en/docs/automations). Monthly agent runs depend on the plan.
 
 ## Practices that hold up
 

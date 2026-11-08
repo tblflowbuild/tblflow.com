@@ -683,7 +683,7 @@ const en = {
       card: 'Stock, restocking, orders and after-sales in a single database.',
       metaTitle: 'TblFlow for retail: stock, restocking and after-sales',
       metaDescription:
-        'Cycle counts, threshold alerts, restock orders, picking and after-sales linked in a single database, with agents that prepare and you who approve.',
+        'Cycle counts, threshold alerts, restock orders, picking and after-sales linked in a single database, where agents prepare and you approve.',
       eyebrow: 'Who it is for · Retail and distribution',
       title: 'Stock, restocking and after-sales in a single database',
       subtitle:

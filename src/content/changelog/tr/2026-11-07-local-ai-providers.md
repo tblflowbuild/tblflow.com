@@ -1,5 +1,5 @@
 ---
-title: "HTTPS ile kullanıma açılan yerel yapay zeka sağlayıcıları"
+title: "HTTPS ile kullanıma açılan yerel yapay zekâ sağlayıcıları"
 date: 2026-11-07
 translationKey: "local-ai-providers"
 type: "improvement"

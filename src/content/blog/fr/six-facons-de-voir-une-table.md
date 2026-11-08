@@ -7,7 +7,7 @@ author: "TblFlow"
 tags: ["vues", "produit"]
 ---
 
-Le réflexe le plus commun face à « l'équipe commerciale veut un Kanban et l'équipe support veut une grille » est de créer deux tables et de les synchroniser. C'est le mauvais réflexe : dès qu'il y a deux copies, il y a une question de laquelle fait foi.
+Le réflexe le plus commun face à « l'équipe commerciale veut un Kanban et l'équipe support veut une grille » est de créer deux tables et de les synchroniser. C'est le mauvais réflexe : dès qu'il y a deux copies, se pose la question de savoir laquelle fait foi.
 
 Une vue TblFlow n'est pas une copie, c'est une lecture. Changer de vue ne déplace aucune donnée ; ça change seulement comment la même ligne est présentée, filtrée, groupée.
 

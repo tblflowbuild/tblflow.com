@@ -11,11 +11,11 @@ Une recherche plein texte trouve un document parce qu'il contient les mots de la
 
 ## Deux recherches, fusionnées
 
-TblFlow indexe chaque document markdown à la fois en plein texte et en vecteurs sémantiques via `pgvector`. La recherche plein texte reste imbattable sur un identifiant exact, une référence, un nom propre. La recherche sémantique retrouve un passage pertinent même sans recouvrement de vocabulaire. Les deux résultats sont fusionnés par reciprocal rank fusion plutôt que de forcer un choix entre les deux : un document qui score bien sur l'un des deux mécanismes remonte, sans que l'autre le pénalise.
+TblFlow indexe chaque document Markdown à la fois en plein texte et en vecteurs sémantiques via `pgvector`. La recherche plein texte reste imbattable sur un identifiant exact, une référence, un nom propre. La recherche sémantique retrouve un passage pertinent même sans recouvrement de vocabulaire. Les deux résultats sont fusionnés par reciprocal rank fusion plutôt que de forcer un choix entre les deux : un document qui score bien sur l'un des deux mécanismes remonte, sans que l'autre le pénalise.
 
 ## Le chunking respecte la structure du document
 
-Découper un markdown en blocs de taille fixe casse régulièrement une liste ou un tableau au milieu, et le fragment qui en résulte ne veut plus rien dire seul. Le découpage s'aligne sur la structure du document — titres, listes, tableaux — de sorte qu'un chunk retrouvé reste une unité de sens complète, pas une coupure arbitraire.
+Découper un Markdown en blocs de taille fixe casse régulièrement une liste ou un tableau au milieu, et le fragment qui en résulte ne veut plus rien dire seul. Le découpage s'aligne sur la structure du document — titres, listes, tableaux — de sorte qu'un chunk retrouvé reste une unité de sens complète, pas une coupure arbitraire.
 
 ## Un graphe, pas juste une liste de résultats
 

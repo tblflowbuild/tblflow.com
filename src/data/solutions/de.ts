@@ -243,7 +243,7 @@ const de = {
         {
           label: 'Automatisieren, dann übergeben',
           title: 'Die Zusammenfassung vorbereitet, der Kommentar freigegeben',
-          body: 'Eine Automatisierung rechnet neu und benachrichtigt, sobald der Import erfolgt ist. Ein Agent verfasst die Monatszusammenfassung aus den Tabellen: Veränderungen, Posten im Auge zu behalten. Sie lesen sie durch, bevor sie rausgeht.',
+          body: 'Eine Automatisierung rechnet neu und benachrichtigt, sobald der Import erfolgt ist. Ein Agent verfasst die Monatszusammenfassung aus den Tabellen: Veränderungen, im Auge zu behaltende Posten. Sie lesen sie durch, bevor sie rausgeht.',
         },
       ],
       build: {
@@ -617,7 +617,7 @@ const de = {
         items: [
           { title: 'Eine Pipeline von Angebot zu Auftrag', body: 'Der Angebotsstatus löst den Auftrag aus, mit denselben Positionen.' },
           { title: 'Eine Auftragsverfolgung', body: 'Wo jeder Auftrag steht, für das ganze Team nach seinen Rechten sichtbar.' },
-          { title: 'Bereite Mahnungen', body: 'Ein Agent bereitet die Mahnungen nach Ihrem Verfahren vor; Sie geben frei.' },
+          { title: 'Vorbereitete Mahnungen', body: 'Ein Agent bereitet die Mahnungen nach Ihrem Verfahren vor; Sie geben frei.' },
         ],
       },
       faq: [

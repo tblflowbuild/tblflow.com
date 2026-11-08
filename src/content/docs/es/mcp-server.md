@@ -33,7 +33,7 @@ El servidor expone 23 herramientas, agrupadas así:
 - **Comprender**: describir el esquema de una base, leer el mapa de procesos de un espacio.
 - **Leer**: listar, filtrar y leer registros.
 - **Calcular**: calcular estadísticas sobre una tabla (suma, media, mínimo, máximo, recuento), con filtro y agrupación, sin leer todas las filas.
-- **Buscar**: buscar en el knowledge graph, con búsqueda semántica y de texto completo.
+- **Buscar**: buscar en el grafo de conocimiento, con búsqueda semántica y de texto completo.
 - **Crear y modificar**: crear y modificar registros.
 - **Importar**: importar un CSV, en una tabla existente o en una tabla nueva.
 - **Eliminar y restaurar**: eliminar registros o un campo, con una vista previa y después una confirmación explícita; listar la papelera y restaurar lo que se ha eliminado.
