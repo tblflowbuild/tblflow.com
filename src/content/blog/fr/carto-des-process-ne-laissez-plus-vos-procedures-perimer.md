@@ -35,4 +35,4 @@ modifier dans la fenêtre prévue pour cela.
 3. Quand le courriel arrive, ouvrez la fiche, relisez, puis repoussez la date.
 
 *Les alertes demandent une base V2 et la Carto des process est incluse dans les plans Essentiel, Équipe
-et Enterprise.*
+et Entreprise.*

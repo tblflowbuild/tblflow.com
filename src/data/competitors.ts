@@ -285,7 +285,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
       {
         title: {
           de: 'Unterstützung mehrerer Datenbank-Engines', en: 'Multi-engine support',
-          es: 'Soporte multi-motor', fr: 'Support multi-SGBD', it: 'Supporto multi-motore',
+          es: 'Soporte multi-motor', fr: 'Prise en charge multi-SGBD', it: 'Supporto multi-motore',
           ja: '複数 DB エンジンへの対応', ru: 'Поддержка нескольких СУБД',
           tr: 'Çoklu motor desteği', uk: 'Підтримка кількох СУБД', zh: '多数据库引擎支持',
         },
@@ -327,7 +327,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
       de: 'Wenn Sie bereits eine Produktionsdatenbank haben und Nicht-Technikern schlicht eine Oberfläche darauf geben wollen, ohne das Schema anzufassen oder irgendetwas zu migrieren, tut NocoDB genau das und TblFlow ist das falsche Werkzeug. Es ist außerdem das einzige der beiden, das MySQL und SQL Server unterstützt.',
       en: 'If you already have a production database and simply want to give non-technical people an interface onto it, without touching the schema or migrating anything, NocoDB does exactly that and TblFlow is the wrong tool. It is also the only one of the two supporting MySQL and SQL Server.',
       es: 'Si ya tienes una base en producción y solo quieres dar a gente no técnica una interfaz sobre ella, sin tocar el esquema ni migrar nada, NocoDB hace exactamente eso y TblFlow es la herramienta equivocada. Además es el único de los dos que admite MySQL y SQL Server.',
-      fr: "Si vous avez déjà une base en production et que vous voulez simplement donner à des non-techniciens une interface dessus, sans toucher au schéma ni migrer quoi que ce soit, NocoDB fait exactement ça et TblFlow est le mauvais outil. C'est aussi le seul des deux à supporter MySQL et SQL Server.",
+      fr: "Si vous avez déjà une base en production et que vous voulez simplement donner à des non-techniciens une interface dessus, sans toucher au schéma ni migrer quoi que ce soit, NocoDB fait exactement ça et TblFlow est le mauvais outil. C'est aussi le seul des deux à prendre en charge MySQL et SQL Server.",
       it: 'Se hai già un database in produzione e vuoi semplicemente dare a persone non tecniche un\'interfaccia sopra, senza toccare lo schema né migrare nulla, NocoDB fa esattamente questo e TblFlow è lo strumento sbagliato. È anche l\'unico dei due a supportare MySQL e SQL Server.',
       ja: 'すでに本番のデータベースがあり、スキーマに手を入れず、何も移行せずに、非エンジニアへインターフェースを与えたいだけなら、NocoDB がまさにそれをします。TblFlow は適した道具ではありません。MySQL と SQL Server に対応しているのも、2 つのうち NocoDB だけです。',
       ru: 'Если у вас уже есть боевая база и вы просто хотите дать нетехническим людям интерфейс к ней, не трогая схему и ничего не мигрируя, NocoDB делает ровно это, а TblFlow — неподходящий инструмент. К тому же из двух только он поддерживает MySQL и SQL Server.',

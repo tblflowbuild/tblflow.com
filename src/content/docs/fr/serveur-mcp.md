@@ -56,7 +56,7 @@ Une automatisation ou un agent n'est déclenchable depuis Claude que si son prop
 | Gratuit | 60 |
 | Essentiel | 120 |
 | Équipe | 300 |
-| Enterprise | 600 |
+| Entreprise | 600 |
 
 ## Depuis un terminal
 

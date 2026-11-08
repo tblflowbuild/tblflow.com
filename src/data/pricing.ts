@@ -711,7 +711,7 @@ export const QUOTAS: QuotaRow[] = [
   {
     label: {
       de: 'Computer use — Wiedergaben / Monat', en: 'Computer use — replays / month',
-      es: 'Computer use — repeticiones / mes', fr: 'Computer use — replays / mois',
+      es: 'Computer use — repeticiones / mes', fr: 'Computer use — rejeux / mois',
       it: 'Computer use — replay / mese', ja: 'Computer use — リプレイ / 月',
       ru: 'Computer use — повторов / месяц', tr: 'Computer use — tekrar / ay',
       uk: 'Computer use — повторів / місяць', zh: 'Computer use — 回放 / 月',

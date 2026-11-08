@@ -473,7 +473,7 @@ const fr = {
         },
         {
           label: 'Automatiser, puis confier',
-          title: 'Les revues rappelées, les questions répondues',
+          title: 'Les revues rappelées, les réponses apportées',
           body: "Chaque lundi, un courriel liste les procédures dont la revue est dépassée ou proche. Les agents s'appuient sur vos procédures indexées pour répondre et pour agir selon vos règles.",
         },
       ],
@@ -524,7 +524,7 @@ const fr = {
         title: 'Ce qui vous coûte aujourd’hui',
         items: [
           { title: 'Des heures invisibles', body: 'La même information retapée d’un outil à l’autre ne figure dans aucun tableau de bord.' },
-          { title: 'Des outils en doublon', body: 'Une dizaine d’abonnements dont personne ne sait lesquels sont encore utiles.' },
+          { title: 'Des outils en doublon', body: 'Une dizaine d’abonnements, sans que personne sache lesquels sont encore utiles.' },
           { title: 'Des décisions à l’aveugle', body: 'Les chiffres arrivent tard, recopiés, et chacun a sa version.' },
         ],
       },
@@ -734,7 +734,7 @@ const fr = {
         title: 'Ce qui vous coûte aujourd’hui',
         items: [
           { title: 'Des marges devinées', body: 'Le temps passé et la facturation vivent dans des fichiers séparés.' },
-          { title: 'Des dossiers éparpillés', body: 'Pièces, échéances et relances justificatifs dans la messagerie.' },
+          { title: 'Des dossiers éparpillés', body: 'Pièces, échéances et relances de justificatifs dans la messagerie.' },
           { title: 'Des procédures orales', body: 'Le savoir-faire du cabinet tient dans la tête de quelques personnes.' },
         ],
       },

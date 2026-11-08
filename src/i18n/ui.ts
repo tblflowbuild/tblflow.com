@@ -645,7 +645,7 @@ export const ui = {
     'showcase.subtitle': "Pas des maquettes : des captures de l'interface réelle, avec de vraies données.",
     'showcase.table.caption': 'Une table de contacts, avec ses champs et ses statuts, directement dans la grille.',
     'showcase.schema.caption': "Le schéma relationnel d'une base, généré et modifiable, avec l'assistant IA à côté.",
-    'blog.search': 'Rechercher un article...',
+    'blog.search': 'Rechercher un article…',
     'blog.filterAll': 'Tous',
     'blog.noResults': 'Aucun article ne correspond à ce filtre.',
     'pricing.billing.monthly': 'Mensuel',

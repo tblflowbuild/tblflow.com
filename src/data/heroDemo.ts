@@ -86,7 +86,7 @@ export const HERO_DEMO: Record<Locale, {
     agentBody: '2 factures créées sans ressaisie',
     tableFoot: 'Écrit dans une vraie table PostgreSQL',
     appKicker: 'Application publiée',
-    appTitle: 'Portail Client',
+    appTitle: 'Portail client',
     stats: ['Devis acceptés', 'À facturer'],
     domain: 'portail.votredomaine.fr',
   },
