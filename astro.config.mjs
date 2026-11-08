@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import typoFr from './integrations/typo-fr.mjs';
 
 const SITE_URL = 'https://tblflow.com';
 
@@ -54,6 +55,9 @@ export default defineConfig({
         return path !== '' && !path.includes('/404');
       },
     }),
+    // French non-breaking spaces (before ? ! ; :, inside « », before € and %),
+    // applied to the built French pages only — see integrations/typo-fr.mjs.
+    typoFr(),
   ],
 
   vite: {
