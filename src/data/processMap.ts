@@ -744,7 +744,7 @@ export const PM_STRINGS = {
     es: "Conector → automatización",
     fr: "Connecteur → automatisation",
     it: "Connettore → automazione",
-    ja: "コネクター → 自動化",
+    ja: "コネクタ → 自動化",
     ru: "Коннектор → автоматизация",
     tr: "Bağlayıcı → otomasyon",
     uk: "Конектор → автоматизація",

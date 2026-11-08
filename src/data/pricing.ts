@@ -817,7 +817,7 @@ export const CARTO_FREE_NOTE: Record<Locale, string> = {
   es: 'Gratis: diagnóstico de un proceso con los costes estimados visibles, sin el botón «Reemplazar» y sin el informe mensual.',
   fr: 'Gratuit : diagnostic d’un processus avec les coûts estimés visibles, sans le bouton « Remplacer » ni le rapport mensuel.',
   it: 'Gratuito: diagnosi di un processo con i costi stimati visibili, senza il pulsante «Sostituisci» e senza il report mensile.',
-  ja: '無料：1 つのプロセスの診断を行い、推定コストを表示します。「置き換え」ボタンと月次レポートは含まれません。',
+  ja: '無料：1 つのプロセスの診断を行い、推定コストを表示します。「置き換える」ボタンと月次レポートは含まれません。',
   ru: 'Бесплатно: диагностика одного процесса с видимой оценкой затрат, без кнопки «Заменить» и без ежемесячного отчёта.',
   tr: 'Ücretsiz: tek bir sürecin teşhisi, tahmini maliyetler görünür; «Değiştir» düğmesi ve aylık rapor yok.',
   uk: 'Безкоштовно: діагностика одного процесу з видимими оцінками витрат, без кнопки «Замінити» та без щомісячного звіту.',
