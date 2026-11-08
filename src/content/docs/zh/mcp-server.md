@@ -56,7 +56,7 @@ claude mcp add --transport http tblflow https://app.tblflow.com/mcp
 | 免费版 | 60 |
 | Essential | 120 |
 | 团队版 | 300 |
-| Enterprise | 600 |
+| 企业版 | 600 |
 
 ## 从终端使用
 

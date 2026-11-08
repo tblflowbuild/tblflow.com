@@ -60,7 +60,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
       ru: 'Airtable и TblFlow покрывают одно и то же поле — таблицы, представления, автоматизации. Разница ниже: Airtable хранит данные в собственном формате, TblFlow пишет в настоящую таблицу PostgreSQL, которую можно запрашивать на SQL.',
       tr: 'Airtable ve TblFlow aynı alanı kapsar — tablolar, görünümler, otomasyonlar. Fark alttadır: Airtable verilerinizi kendi biçiminde saklar, TblFlow ise SQL ile sorgulayabileceğiniz gerçek bir PostgreSQL tablosuna yazar.',
       uk: 'Airtable і TblFlow покривають те саме поле — таблиці, подання, автоматизації. Різниця нижче: Airtable зберігає дані у власному форматі, TblFlow пише у справжню таблицю PostgreSQL, яку можна запитувати мовою SQL.',
-      zh: 'Airtable 和 TblFlow 覆盖同一片领域 —— 数据表、视图、自动化。差别在底层：Airtable 用自有格式存储你的数据，TblFlow 写入的是可以用 SQL 查询的真实 PostgreSQL 表。',
+      zh: 'Airtable 和 TblFlow 覆盖同一片领域 —— 数据表、视图、自动化。差别在底层：Airtable 用自有格式存储您的数据，TblFlow 写入的是可以用 SQL 查询的真实 PostgreSQL 表。',
     },
     differences: [
       {
@@ -81,7 +81,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
           ru: 'В Airtable экспорт — это CSV или вызов API: копия, снятая в конкретный момент. В TblFlow `pg_dump` — это сама база, восстановимая в другом месте. Разница между «можно выгрузить свои данные» и «вы от них никогда и не были отделены».',
           tr: "Airtable'da dışa aktarma bir CSV ya da bir API çağrısıdır: belirli bir anda alınmış bir kopya. TblFlow'da ise `pg_dump` veritabanının kendisidir ve başka bir yerde geri yüklenebilir. Verilerinizi çıkarabilmek ile onlardan hiç ayrılmamış olmak arasındaki fark budur.",
           uk: 'В Airtable експорт — це CSV або виклик API: копія, знята в певний момент. У TblFlow `pg_dump` — це сама база, яку можна відновити деінде. Це різниця між «можна дістати свої дані» і «ви від них ніколи й не були відділені».',
-          zh: '在 Airtable，导出是一个 CSV 或一次 API 调用：某个时刻的一份拷贝。在 TblFlow，一个 `pg_dump` 就是数据库本身，可以在别处直接还原。这是「能把数据取出来」和「从未与数据分离」之间的区别。',
+          zh: '在 Airtable，导出是一个 CSV 或一次 API 调用：某个时刻的一份拷贝。在 TblFlow，一个 `pg_dump` 就是数据库本身，可以在别处直接还原。这是“能把数据取出来”和“从未与数据分离”之间的区别。',
         },
       },
       {
@@ -104,7 +104,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
           ru: 'Автоматизации Airtable выполняют написанную вами последовательность. Агенты TblFlow сами решают, какие шаги делать, исходя из цели, с постоянной памятью и предложениями, требующими согласования. У обоих есть место; но только второе справляется там, где правило зависит от содержимого.',
           tr: 'Airtable otomasyonları, yazdığınız adım dizisini çalıştırır. TblFlow ajanları bir hedeften yola çıkarak adımlarına kendileri karar verir; kalıcı belleğe sahiptir ve önerileri onaya sunar. İkisinin de yeri vardır; ancak kuralın içeriğe bağlı olduğu durumları yalnızca ikincisi karşılar.',
           uk: 'Автоматизації Airtable виконують написану вами послідовність. Агенти TblFlow самі вирішують кроки, виходячи з мети, мають постійну памʼять і подають пропозиції на погодження. Обидва мають своє місце; але лише друге працює там, де правило залежить від змісту.',
-          zh: 'Airtable 的自动化按你写好的步骤顺序执行。TblFlow 的智能体从目标出发自行决定步骤，具备持久记忆，提案需经审批。两者各有用武之地；但只有后者能应对规则取决于内容的情况。',
+          zh: 'Airtable 的自动化按您写好的步骤顺序执行。TblFlow 的智能体从目标出发自行决定步骤，具备持久记忆，提案需经审批。两者各有用武之地；但只有后者能应对规则取决于内容的情况。',
         },
       },
       {
@@ -138,7 +138,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
       ru: 'У Airtable гораздо богаче экосистема расширений и шаблонов и большое сообщество. Если готовый шаблон закрывает вашу задачу, а вопрос хранения вас не волнует, с Airtable вы стартуете быстрее.',
       tr: 'Airtable çok daha zengin bir eklenti ve şablon ekosistemine ve geniş bir topluluğa sahiptir. Mevcut bir şablon ihtiyacınızı karşılıyorsa ve depolama meselesi sizi ilgilendirmiyorsa, Airtable ile daha hızlı başlarsınız.',
       uk: 'В Airtable значно багатша екосистема розширень і шаблонів та велика спільнота. Якщо готовий шаблон закриває ваше завдання, а питання зберігання вас не турбує, з Airtable ви стартуєте швидше.',
-      zh: 'Airtable 拥有丰富得多的扩展与模板生态，以及庞大的社区。如果现成模板能满足你的需求，而存储问题你并不在意，用 Airtable 会更快上手。',
+      zh: 'Airtable 拥有丰富得多的扩展与模板生态，以及庞大的社区。如果现成模板能满足您的需求，而存储问题您并不在意，用 Airtable 会更快上手。',
     },
   },
 
@@ -179,7 +179,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
           ru: 'Это главный разрыв. У Baserow нет автономных агентов, постоянной памяти и векторного поиска. Если вам нужна аккуратная self-hosted база для совместной работы, этот разрыв вам ничего не стоит; если нужно делегировать повторяющуюся работу — он решающий.',
           tr: 'Asıl boşluk budur. Baserow’da otonom ajan, kalıcı bellek ve vektör araması yoktur. İhtiyacınız temiz, kendi sunucunuzda barındırılan işbirlikçi bir veritabanıysa bu boşluğun size maliyeti yoktur; tekrar eden işi devretmekse, belirleyicidir.',
           uk: 'Це головний розрив. У Baserow немає ані автономних агентів, ані постійної памʼяті, ані векторного пошуку. Якщо вам потрібна охайна self-hosted база для спільної роботи, цей розрив вам нічого не коштує; якщо треба делегувати повторювану роботу — він вирішальний.',
-          zh: '这是主要差距。Baserow 没有自主智能体、没有持久记忆、没有向量搜索。如果你要的是一个干净的自托管协作数据库，这个差距对你毫无代价；如果你要的是把重复工作交出去，它就是决定性的。',
+          zh: '这是主要差距。Baserow 没有自主智能体、没有持久记忆、没有向量搜索。如果您要的是一个干净的自托管协作数据库，这个差距对您毫无代价；如果您要的是把重复工作交出去，它就是决定性的。',
         },
       },
       {
@@ -199,7 +199,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
           ru: 'Baserow отдаёт формы и общие представления. TblFlow публикует полноценное приложение на вашем домене, с аутентификацией посетителей и встроенным API — данные становятся продуктом, которым могут пользоваться люди без учётной записи в инструменте.',
           tr: 'Baserow formlar ve paylaşılan görünümler sunar. TblFlow ise kendi alan adınızda, ziyaretçi kimlik doğrulaması ve enjekte edilmiş bir API ile eksiksiz bir uygulama yayımlar — veri, araçta hesabı olmayan kişilerin de kullanabileceği bir ürüne dönüşür.',
           uk: 'Baserow надає форми та спільні подання. TblFlow публікує повноцінний застосунок на вашому домені, з автентифікацією відвідувачів і вбудованим API — дані стають продуктом, яким можуть користуватися люди без облікового запису в інструменті.',
-          zh: 'Baserow 提供表单和共享视图。TblFlow 会在你自己的域名上发布一个完整应用，带访客认证和注入的 API —— 数据变成一个产品，让没有该工具账号的人也能使用。',
+          zh: 'Baserow 提供表单和共享视图。TblFlow 会在您自己的域名上发布一个完整应用，带访客认证和注入的 API —— 数据变成一个产品，让没有该工具账号的人也能使用。',
         },
       },
       {
@@ -258,7 +258,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
       ru: 'NocoDB подключается к базе, которая у вас уже есть — MySQL, Postgres, SQLite — и надевает на неё интерфейс электронной таблицы. TblFlow создаёт базу и управляет ею. Отправная точка разная: одеть существующую базу или построить новую вместе с агентами и приложениями.',
       tr: 'NocoDB, halihazırda sahip olduğunuz bir veritabanına — MySQL, Postgres, SQLite — bağlanır ve üzerine elektronik tablo arayüzü koyar. TblFlow ise veritabanını kendisi oluşturur ve yönetir. Başlangıç noktası farklıdır: mevcut bir veritabanını giydirmek ya da ajanları ve uygulamalarıyla birlikte yeni bir tane kurmak.',
       uk: 'NocoDB підключається до бази, яка у вас уже є — MySQL, Postgres, SQLite — і надягає на неї інтерфейс електронної таблиці. TblFlow створює базу й керує нею. Відправна точка різна: вдягнути наявну базу чи побудувати нову разом з агентами та застосунками.',
-      zh: 'NocoDB 连接到你已有的数据库 —— MySQL、Postgres、SQLite —— 并在上面加一层电子表格界面。TblFlow 则创建并驱动数据库。起点不同：是给已有数据库套上外壳，还是连同智能体和应用一起从头搭建。',
+      zh: 'NocoDB 连接到您已有的数据库 —— MySQL、Postgres、SQLite —— 并在上面加一层电子表格界面。TblFlow 则创建并驱动数据库。起点不同：是给已有数据库套上外壳，还是连同智能体和应用一起从头搭建。',
     },
     differences: [
       {
@@ -319,7 +319,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
           ru: 'NocoDB даёт представления, формы и автоматизации. TblFlow добавляет агентов с постоянной памятью и согласуемыми предложениями, библиотеку документов с семантическим поиском и публикацию приложений на вашем домене.',
           tr: 'NocoDB görünümler, formlar ve otomasyonlar sunar. TblFlow bunlara kalıcı belleğe ve onaylanan önerilere sahip ajanları, anlamsal aramalı bir doküman kitaplığını ve kendi alan adınızda uygulama yayımlamayı ekler.',
           uk: 'NocoDB дає подання, форми та автоматизації. TblFlow додає агентів із постійною памʼяттю та погоджуваними пропозиціями, бібліотеку документів із семантичним пошуком і публікацію застосунків на вашому домені.',
-          zh: 'NocoDB 提供视图、表单和自动化。TblFlow 增加了具备持久记忆和待审批提案的智能体、带语义搜索的文档库，以及在你自己域名上发布应用的能力。',
+          zh: 'NocoDB 提供视图、表单和自动化。TblFlow 增加了具备持久记忆和待审批提案的智能体、带语义搜索的文档库，以及在您自己域名上发布应用的能力。',
         },
       },
     ],
@@ -333,7 +333,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
       ru: 'Если у вас уже есть боевая база и вы просто хотите дать нетехническим людям интерфейс к ней, не трогая схему и ничего не мигрируя, NocoDB делает ровно это, а TblFlow — неподходящий инструмент. К тому же из двух только он поддерживает MySQL и SQL Server.',
       tr: "Halihazırda üretimde bir veritabanınız varsa ve şemaya dokunmadan, hiçbir şeyi taşımadan teknik olmayan kişilere onun üzerinde bir arayüz vermek istiyorsanız, NocoDB tam olarak bunu yapar ve TblFlow yanlış araçtır. Ayrıca ikisi içinde MySQL ve SQL Server'ı destekleyen tek seçenektir.",
       uk: 'Якщо у вас уже є бойова база й ви просто хочете дати нетехнічним людям інтерфейс до неї, не чіпаючи схему й нічого не мігруючи, NocoDB робить саме це, а TblFlow — невідповідний інструмент. До того ж із двох лише він підтримує MySQL і SQL Server.',
-      zh: '如果你已经有一个生产数据库，只是想给非技术人员一个操作界面，不动 schema、不迁移任何东西，那么 NocoDB 正是干这个的，TblFlow 是错的工具。它也是两者中唯一支持 MySQL 和 SQL Server 的。',
+      zh: '如果您已经有一个生产数据库，只是想给非技术人员一个操作界面，不动 schema、不迁移任何东西，那么 NocoDB 正是干这个的，TblFlow 是错的工具。它也是两者中唯一支持 MySQL 和 SQL Server 的。',
     },
   },
 
@@ -396,7 +396,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
           ru: 'Monday предоставляет GraphQL API; любая аналитика идёт через него или через BI-коннектор. С TblFlow ваш BI-инструмент смотрит прямо в экземпляр Postgres — без посредника и без задержки синхронизации.',
           tr: "Monday bir GraphQL API sunar; her analiz oradan ya da bir BI bağlayıcısından geçer. TblFlow'da BI aracınız doğrudan Postgres örneğini işaret eder — aracı yok, senkronizasyon gecikmesi yok.",
           uk: 'Monday надає GraphQL API; будь-яка аналітика йде через нього або через BI-конектор. З TblFlow ваш BI-інструмент дивиться прямо в екземпляр Postgres — без посередника й без затримки синхронізації.',
-          zh: 'Monday 提供 GraphQL API；任何分析都要经过它或经过 BI 连接器。用 TblFlow，你的 BI 工具直接指向 Postgres 实例 —— 没有中间层，也没有同步延迟。',
+          zh: 'Monday 提供 GraphQL API；任何分析都要经过它或经过 BI 连接器。用 TblFlow，您的 BI 工具直接指向 Postgres 实例 —— 没有中间层，也没有同步延迟。',
         },
       },
       {
@@ -429,7 +429,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
       ru: 'Для чистого отслеживания проектов — планирование команды, загрузка, зависимости, отчётность по портфелю — Monday полнее и быстрее в деле. Если ваша задача заканчивается на управлении проектами, TblFlow попросит вас построить то, что Monday уже даёт из коробки.',
       tr: 'Saf proje takibi için — ekip planlaması, iş yükü, bağımlılıklar, portföy raporlaması — Monday daha eksiksiz ve daha hazırdır. İhtiyacınız proje yönetiminde bitiyorsa, TblFlow sizden Monday’in zaten sunduğunu kurmanızı isteyecektir.',
       uk: 'Для чистого стеження за проєктами — планування команди, завантаження, залежності, звітність за портфелем — Monday повніший і швидший у справі. Якщо ваше завдання завершується на керуванні проєктами, TblFlow попросить вас побудувати те, що Monday уже дає з коробки.',
-      zh: '就纯粹的项目跟踪而言 —— 团队排期、工作量、依赖关系、组合报表 —— Monday 更完整、更即开即用。如果你的需求止步于项目管理，TblFlow 会要求你自己搭出 Monday 已经自带的东西。',
+      zh: '就纯粹的项目跟踪而言 —— 团队排期、工作量、依赖关系、组合报表 —— Monday 更完整、更即开即用。如果您的需求止步于项目管理，TblFlow 会要求您自己搭出 Monday 已经自带的东西。',
     },
   },
 
@@ -501,7 +501,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
           it: 'Ricerca semantica sui tuoi documenti', ja: '自分のドキュメントに対するセマンティック検索',
           ru: 'Семантический поиск по вашим документам',
           tr: 'Dokümanlarınız üzerinde anlamsal arama',
-          uk: 'Семантичний пошук по ваших документах', zh: '面向你的文档的语义搜索',
+          uk: 'Семантичний пошук по ваших документах', zh: '面向您的文档的语义搜索',
         },
         body: {
           de: 'Beide Produkte haben eine Dokumentbibliothek. TblFlow ergänzt eine Vektor- und Volltextsuche, verschmolzen per Reciprocal Rank Fusion, sowie einen Linkgraph zwischen Dokumenten — genug, um einen Agenten zu versorgen, nicht nur einen suchenden Menschen.',
@@ -606,7 +606,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
           ru: 'Salesforce существует только как управляемый сервис, без варианта self-hosting. Тариф Enterprise у TblFlow, по запросу, разворачивается на вашей инфраструктуре или в вашем VPC — а это меняет разговор с DPO или командой комплаенса.',
           tr: "Salesforce yalnızca yönetilen hizmet olarak vardır, kendi sunucunuzda barındırma seçeneği yoktur. TblFlow'un teklife bağlı Enterprise paketi, kendi altyapınıza veya kendi VPC'nize dağıtılır — bu da bir DPO ya da uyum ekibiyle yapılan konuşmayı değiştirir.",
           uk: 'Salesforce існує лише як керований сервіс, без варіанта self-hosting. Тариф Enterprise у TblFlow, за запитом, розгортається на вашій інфраструктурі або у вашому VPC — а це змінює розмову з DPO чи командою комплаєнсу.',
-          zh: 'Salesforce 只有托管形态，没有自托管选项。TblFlow 的 Enterprise 套餐按需报价，可部署在你自己的基础设施或你的 VPC 中 —— 这会改变你与 DPO 或合规团队的对话。',
+          zh: 'Salesforce 只有托管形态，没有自托管选项。TblFlow 的 Enterprise 套餐按需报价，可部署在您自己的基础设施或您的 VPC 中 —— 这会改变您与 DPO 或合规团队的对话。',
         },
       },
     ],

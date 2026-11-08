@@ -137,7 +137,7 @@ export const SURFACES: Feature[] = [
       ru: 'Если у сервиса нет API, агент управляет браузером: открывает страницу, заполняет форму, забирает результат и записывает его в вашу таблицу. Каждая сессия записывается и остаётся проверяемой.',
       tr: "Bir servisin API'si yoksa ajan bir tarayıcıyı sürer: sayfayı açar, formu doldurur, sonucu alır ve tablonuza geri yazar. Her oturum kaydedilir ve denetlenebilir kalır.",
       uk: 'Якщо у сервісу немає API, агент керує браузером: відкриває сторінку, заповнює форму, забирає результат і записує його у вашу таблицю. Кожна сесія записується й лишається перевірною.',
-      zh: '当某个服务没有 API 时，智能体会驱动浏览器：打开页面、填写表单、取得结果并写回你的表。每次会话都会被记录，可供审计。',
+      zh: '当某个服务没有 API 时，智能体会驱动浏览器：打开页面、填写表单、取得结果并写回您的表。每次会话都会被记录，可供审计。',
     },
   },
 ];
@@ -167,7 +167,7 @@ export const DIFFERENTIATORS: Feature[] = [
       ru: 'Таблица, которую вы видите в TblFlow, — это и есть таблица в Postgres. Можно направить любой SQL-клиент на тот же экземпляр и запрашивать данные напрямую. Посредника нет.',
       tr: "TblFlow'da gördüğünüz tablo, Postgres'teki tablonun ta kendisidir. Aynı örneğe herhangi bir SQL istemcisi bağlayıp verilerinizi doğrudan sorgulayabilirsiniz. Arada bir aracı yoktur.",
       uk: 'Таблиця, яку ви бачите в TblFlow, — це і є таблиця в Postgres. Можна спрямувати будь-який SQL-клієнт на той самий екземпляр і запитувати дані напряму. Посередника немає.',
-      zh: '你在 TblFlow 里看到的表，就是 Postgres 里的那张表。你可以把任意 SQL 客户端连到同一个实例，直接查询数据。中间没有任何一层。',
+      zh: '您在 TblFlow 里看到的表，就是 Postgres 里的那张表。您可以把任意 SQL 客户端连到同一个实例，直接查询数据。中间没有任何一层。',
     },
   },
   {
@@ -194,7 +194,7 @@ export const DIFFERENTIATORS: Feature[] = [
       ru: "Агенты, которые действуют на ваших данных: они читают и записывают ваши таблицы под вашими правами, а каждое чувствительное действие вы подтверждаете. Например: письмо при смене стадии сделки, issue в GitHub, сводка недели каждую пятницу.",
       tr: "Verileriniz üzerinde hareket eden ajanlar: tablolarınızı sizin yetkilerinizle okur ve yazar, hassas her işlemi siz onaylarsınız. Örneğin: bir fırsat aşama değiştirdiğinde e-posta, GitHub’da issue, her cuma haftanın özeti.",
       uk: "Агенти, які діють на ваших даних: вони читають і записують ваші таблиці з вашими правами, а кожну чутливу дію ви підтверджуєте. Наприклад: лист, коли угода змінює стадію, issue в GitHub, зведення тижня щоп’ятниці.",
-      zh: "能作用于你数据的智能体：它们在你的权限下读写你的数据表，每个敏感操作都由你审批。例如：交易阶段变化时发邮件、在 GitHub 上开 issue、每周五总结这一周。",
+      zh: "能作用于您数据的智能体：它们在您的权限下读写您的数据表，每个敏感操作都由您审批。例如：交易阶段变化时发邮件、在 GitHub 上开 issue、每周五总结这一周。",
     },
   },
   {
@@ -221,7 +221,7 @@ export const DIFFERENTIATORS: Feature[] = [
       ru: 'Тариф Enterprise разворачивается на вашей инфраструктуре или в выделенном VPC, по запросу, со всеми функциями. Данные остаются в стандартном Postgres: pg_dump — это полная резервная копия, пригодная для использования в другом месте без конвертации.',
       tr: "Enterprise paketi, teklife bağlı olarak kendi altyapınıza veya özel bir VPC'ye dağıtılır ve tüm özellikler açıktır. Verileriniz standart Postgres'te kalır: bir pg_dump eksiksiz bir yedektir ve başka bir yerde dönüştürme olmadan kullanılabilir.",
       uk: 'Тариф Enterprise розгортається на вашій інфраструктурі або у виділеному VPC, за запитом, з усіма функціями. Дані лишаються у стандартному Postgres: pg_dump — це повна резервна копія, придатна до використання деінде без конвертації.',
-      zh: 'Enterprise 套餐按需报价，可部署在你自己的基础设施或专属 VPC 中，全部功能解锁。你的数据保留在标准 Postgres 中：一个 pg_dump 就是完整备份，无需转换即可在别处使用。',
+      zh: 'Enterprise 套餐按需报价，可部署在您自己的基础设施或专属 VPC 中，全部功能解锁。您的数据保留在标准 Postgres 中：一个 pg_dump 就是完整备份，无需转换即可在别处使用。',
     },
   },
   {
@@ -275,7 +275,7 @@ export const DIFFERENTIATORS: Feature[] = [
       ru: 'Каждая база, созданная в TblFlow, автоматически доступна через документированный REST API (OpenAPI) с аутентификацией по токену. Для этого не нужно повышать тариф — доступно уже на бесплатном.',
       tr: "TblFlow'da oluşturduğunuz her base, token kimlik doğrulamalı, belgelenmiş bir REST API (OpenAPI) üzerinden otomatik olarak erişilebilir. Bunun için paket yükseltmeye gerek yok — ücretsiz paketten itibaren kullanılabilir.",
       uk: 'Кожна база, створена в TblFlow, автоматично доступна через документований REST API (OpenAPI) з автентифікацією за токеном. Для цього не треба підвищувати тариф — доступно вже на безкоштовному.',
-      zh: '你在 TblFlow 中创建的每一个 base，都自动可通过带 token 认证、有文档的 REST API（OpenAPI）访问。无需升级套餐 —— 从免费版起即可使用。',
+      zh: '您在 TblFlow 中创建的每一个 base，都自动可通过带 token 认证、有文档的 REST API（OpenAPI）访问。无需升级套餐 —— 从免费版起即可使用。',
     },
   },
 ];

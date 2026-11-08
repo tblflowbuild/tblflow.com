@@ -112,7 +112,7 @@ export const FAQ: FaqItem[] = [
       ru: 'TblFlow отличается от Airtable по четырём пунктам. Во-первых, данные лежат в настоящей базе PostgreSQL, которую можно запрашивать на SQL из любого клиента, тогда как Airtable не даёт SQL-доступа. Во-вторых, ИИ-агенты TblFlow действуют на ваши данные и подключённые сервисы под вашими правами, а каждое чувствительное действие вы подтверждаете. В-третьих, добавляется семантический поиск по библиотеке документов. В-четвёртых, TblFlow можно развернуть на своей инфраструктуре, чего Airtable не предлагает.',
       tr: "TblFlow, Airtable'dan dört noktada ayrılır. Birincisi, veriler herhangi bir istemciden SQL ile sorgulayabileceğiniz gerçek bir PostgreSQL veritabanında durur; Airtable SQL erişimi sunmaz. İkincisi, TblFlow'un yapay zekâ ajanları verileriniz ve bağlı servisleriniz üzerinde sizin yetkilerinizle çalışır ve hassas her işlemi siz onaylarsınız. Üçüncüsü, bir doküman kitaplığı üzerinde anlamsal arama ekler. Dördüncüsü, TblFlow kendi altyapınızda barındırılabilir; Airtable bunu sunmaz.",
       uk: 'TblFlow відрізняється від Airtable за чотирма пунктами. По-перше, дані лежать у справжній базі PostgreSQL, яку можна запитувати мовою SQL з будь-якого клієнта, тоді як Airtable не дає SQL-доступу. По-друге, ШІ-агенти TblFlow діють на ваші дані та підключені сервіси з вашими правами, а кожну чутливу дію ви підтверджуєте. По-третє, додається семантичний пошук по бібліотеці документів. По-четверте, TblFlow можна розгорнути на власній інфраструктурі, чого Airtable не пропонує.',
-      zh: 'TblFlow 与 Airtable 有四点不同。第一，数据存放在真正的 PostgreSQL 中，可以从任意客户端用 SQL 查询，而 Airtable 不提供 SQL 访问。第二，TblFlow 的 AI 智能体在你的权限下作用于你的数据与已连接服务，每个敏感操作都由你审批。第三，它增加了面向文档库的语义搜索。第四，TblFlow 可以自托管在你自己的基础设施上，Airtable 不提供这一选项。',
+      zh: 'TblFlow 与 Airtable 有四点不同。第一，数据存放在真正的 PostgreSQL 中，可以从任意客户端用 SQL 查询，而 Airtable 不提供 SQL 访问。第二，TblFlow 的 AI 智能体在您的权限下作用于您的数据与已连接服务，每个敏感操作都由您审批。第三，它增加了面向文档库的语义搜索。第四，TblFlow 可以自托管在您自己的基础设施上，Airtable 不提供这一选项。',
     },
   },
   {
@@ -220,7 +220,7 @@ export const FAQ: FaqItem[] = [
       ru: "Да. В TblFlow Cloud есть постоянный бесплатный тариф: 2 участника, 1 база, 1 ГБ хранилища, а также неограниченные ИИ-агенты, автоматизации и запросы к API, без банковской карты. Диагностика одного процесса бесплатна. Развёртывание на собственной инфраструктуре относится к тарифу Enterprise, по запросу.",
       tr: "Evet. TblFlow Cloud, 2 kişi, 1 base, 1 GB depolama ve sınırsız yapay zekâ ajanı, otomasyon ve API isteği içeren kalıcı bir ücretsiz pakete sahiptir; kredi kartı gerekmez. Tek bir sürecin teşhisi ücretsizdir. Kendi altyapınıza dağıtım, teklife bağlı Enterprise paketinin bir parçasıdır.",
       uk: "Так. У TblFlow Cloud є постійний безкоштовний тариф: 2 користувачі, 1 база, 1 ГБ сховища, а також необмежені ШІ-агенти, автоматизації та запити до API, без банківської картки. Діагностика одного процесу безкоштовна. Розгортання на власній інфраструктурі належить до тарифу Enterprise, за запитом.",
-      zh: "有。TblFlow Cloud 提供永久免费套餐，包含 2 位成员、1 个 base、1 GB 存储，以及数量不限的 AI 智能体、自动化和 API 请求，无需信用卡。单个流程的诊断免费。部署在你自己的基础设施上属于企业版，按需报价。",
+      zh: "有。TblFlow Cloud 提供永久免费套餐，包含 2 位成员、1 个 base、1 GB 存储，以及数量不限的 AI 智能体、自动化和 API 请求，无需信用卡。单个流程的诊断免费。部署在您自己的基础设施上属于企业版，按需报价。",
     },
   },
   {
@@ -247,7 +247,7 @@ export const FAQ: FaqItem[] = [
       ru: 'TblFlow использует PostgreSQL, расширение pgvector для семантического поиска и Redis для кеша и очередей фоновых задач. Каждая таблица, которую вы создаёте в TblFlow, — это настоящая физическая таблица PostgreSQL, а не строка в универсальном хранилище; именно поэтому данные можно запрашивать напрямую на SQL.',
       tr: 'TblFlow, PostgreSQL kullanır; anlamsal arama için pgvector eklentisini, önbellek ve arka plan iş kuyrukları için Redis’i kullanır. TblFlow’da oluşturduğunuz her tablo, genel bir deponun içindeki bir satır değil, gerçek bir fiziksel PostgreSQL tablosudur — verilerinizi doğrudan SQL ile sorgulayabilmenizin nedeni budur.',
       uk: 'TblFlow використовує PostgreSQL, розширення pgvector для семантичного пошуку та Redis для кешу й черг фонових завдань. Кожна таблиця, яку ви створюєте в TblFlow, — це справжня фізична таблиця PostgreSQL, а не рядок в універсальному сховищі; саме тому дані можна запитувати напряму мовою SQL.',
-      zh: 'TblFlow 使用 PostgreSQL，语义搜索依赖 pgvector 扩展，缓存和后台任务队列使用 Redis。你在 TblFlow 中创建的每一张表都是真实的物理 PostgreSQL 表，而不是通用存储里的一行 —— 这正是你可以直接用 SQL 查询数据的原因。',
+      zh: 'TblFlow 使用 PostgreSQL，语义搜索依赖 pgvector 扩展，缓存和后台任务队列使用 Redis。您在 TblFlow 中创建的每一张表都是真实的物理 PostgreSQL 表，而不是通用存储里的一行 —— 这正是您可以直接用 SQL 查询数据的原因。',
     },
   },
   {
@@ -274,7 +274,7 @@ export const FAQ: FaqItem[] = [
       ru: 'Да. TblFlow предоставляет REST API, описанный спецификацией OpenAPI, с аутентификацией по токену. В приложения, опубликованные через App Builder, также внедряется JavaScript API, чтобы ваш собственный код мог читать и записывать записи.',
       tr: "Evet. TblFlow, OpenAPI belirtimiyle belgelenmiş, token kimlik doğrulamalı bir REST API sunar. App Builder ile yayımlanan uygulamalara ayrıca bir JavaScript API'si enjekte edilir; böylece kendi kodunuz kayıtları okuyup yazabilir.",
       uk: 'Так. TblFlow надає REST API, описаний специфікацією OpenAPI, з автентифікацією за токеном. У застосунки, опубліковані через App Builder, також вбудовується JavaScript API, щоб ваш власний код міг читати й записувати записи.',
-      zh: '有。TblFlow 提供由 OpenAPI 规范描述的 REST API，采用 token 认证。通过 App Builder 发布的应用中还会注入 JavaScript API，让你自己的代码可以读写记录。',
+      zh: '有。TblFlow 提供由 OpenAPI 规范描述的 REST API，采用 token 认证。通过 App Builder 发布的应用中还会注入 JavaScript API，让您自己的代码可以读写记录。',
     },
   },
   {
@@ -301,7 +301,7 @@ export const FAQ: FaqItem[] = [
       ru: 'TblFlow поддерживает OpenAI, Anthropic, Google Gemini, Azure OpenAI, DeepSeek, Mistral, Groq, Cohere, любую точку доступа, совместимую с OpenAI, а также локальные модели через Ollama и LM Studio. Провайдеры и модели настраиваются для каждой базы, с вашими собственными API-ключами.',
       tr: "TblFlow; OpenAI, Anthropic, Google Gemini, Azure OpenAI, DeepSeek, Mistral, Groq, Cohere, OpenAI uyumlu herhangi bir uç noktayı ve Ollama ile LM Studio üzerinden yerel modelleri destekler. Sağlayıcılar ve modeller, kendi API anahtarlarınızla base başına yapılandırılır.",
       uk: 'TblFlow підтримує OpenAI, Anthropic, Google Gemini, Azure OpenAI, DeepSeek, Mistral, Groq, Cohere, будь-яку сумісну з OpenAI точку доступу, а також локальні моделі через Ollama та LM Studio. Провайдери й моделі налаштовуються для кожної бази, з вашими власними API-ключами.',
-      zh: 'TblFlow 支持 OpenAI、Anthropic、Google Gemini、Azure OpenAI、DeepSeek、Mistral、Groq、Cohere、任何兼容 OpenAI 的端点，以及通过 Ollama 和 LM Studio 接入的本地模型。提供商和模型按 base 配置，使用你自己的 API 密钥。',
+      zh: 'TblFlow 支持 OpenAI、Anthropic、Google Gemini、Azure OpenAI、DeepSeek、Mistral、Groq、Cohere、任何兼容 OpenAI 的端点，以及通过 Ollama 和 LM Studio 接入的本地模型。提供商和模型按 base 配置，使用您自己的 API 密钥。',
     },
   },
   {
@@ -328,7 +328,7 @@ export const FAQ: FaqItem[] = [
       ru: 'TblFlow фильтрует, сортирует, группирует и ищет по миллионам строк с откликом менее секунды: сетка рисуется на canvas и перерисовывает только видимую область, поэтому скорость отображения не падает с ростом числа строк. А вот число строк на таблицу зависит от тарифа: 5 000 на бесплатном, до 1 000 000 на Team, без ограничений на Enterprise — полная разбивка на странице тарифов.',
       tr: "TblFlow, milyonlarca satır üzerinde saniyenin altında yanıt süreleriyle filtreler, sıralar, gruplar ve arar: ızgara canvas üzerine çizilir ve yalnızca görünen bölgeyi yeniden çizer, bu yüzden satır sayısı arttıkça görüntüleme performansı düşmez. Tablo başına satır sayısı ise pakete bağlıdır: Ücretsiz pakette 5.000, Team'de 1.000.000'a kadar, Enterprise'da sınırsız — paket bazındaki ayrıntı için fiyatlar sayfasına bakın.",
       uk: 'TblFlow фільтрує, сортує, групує та шукає по мільйонах рядків з відгуком менше секунди: сітка малюється на canvas і перемальовує лише видиму ділянку, тож швидкість відображення не падає зі зростанням кількості рядків. А от кількість рядків на таблицю залежить від тарифу: 5 000 на безкоштовному, до 1 000 000 на Team, без обмежень на Enterprise — повна розбивка на сторінці тарифів.',
-      zh: 'TblFlow 可以在数百万行数据上进行筛选、排序、分组和搜索，响应时间低于一秒：表格渲染到 canvas，且只重绘可见区域，因此显示性能不会随行数增长而下降。不过每张表的行数取决于套餐：免费套餐 5,000 行，团队版 最多 1,000,000 行，Enterprise 无限制 —— 各套餐的完整明细见价格页。',
+      zh: 'TblFlow 可以在数百万行数据上进行筛选、排序、分组和搜索，响应时间低于一秒：表格渲染到 canvas，且只重绘可见区域，因此显示性能不会随行数增长而下降。不过每张表的行数取决于套餐：免费套餐 5,000 行，团队版最多 1,000,000 行，企业版无限制 —— 各套餐的完整明细见价格页。',
     },
   },
   {
@@ -355,7 +355,7 @@ export const FAQ: FaqItem[] = [
       ru: 'Это зависит от варианта развёртывания. В TblFlow Cloud данные находятся в инфраструктуре, управляемой TblFlow. При self-hosted или выделенном Enterprise они находятся в вашем собственном PostgreSQL, на вашей инфраструктуре или в выделенном VPC — у TblFlow нет к ним доступа. В обоих случаях данные хранятся в стандартном PostgreSQL, без проприетарного формата.',
       tr: "Bu, dağıtım biçimine bağlıdır. TblFlow Cloud'da verileriniz TblFlow tarafından yönetilen altyapıda durur. Kendi sunucunuzda barındırılan ya da özel Enterprise kurulumda ise kendi PostgreSQL'inizde, kendi altyapınızda veya özel bir VPC içinde durur; TblFlow bunlara erişemez. Her iki durumda da veriler, tescilli bir biçim olmadan standart PostgreSQL'de saklanır.",
       uk: 'Це залежить від способу розгортання. У TblFlow Cloud дані перебувають в інфраструктурі, якою керує TblFlow. У self-hosted або виділеному Enterprise вони перебувають у вашому власному PostgreSQL, на вашій інфраструктурі або у виділеному VPC — TblFlow не має до них доступу. В обох випадках дані зберігаються у стандартному PostgreSQL, без пропрієтарного формату.',
-      zh: '这取决于部署方式。在 TblFlow Cloud 上，你的数据位于 TblFlow 托管的基础设施中。自托管或专属 Enterprise 部署时，数据位于你自己的 PostgreSQL 中，在你的基础设施或专属 VPC 内 —— TblFlow 无法访问。两种情况下，数据都存储在标准 PostgreSQL 中，没有专有格式。',
+      zh: '这取决于部署方式。在 TblFlow Cloud 上，您的数据位于 TblFlow 托管的基础设施中。自托管或专属 Enterprise 部署时，数据位于您自己的 PostgreSQL 中，在您的基础设施或专属 VPC 内 —— TblFlow 无法访问。两种情况下，数据都存储在标准 PostgreSQL 中，没有专有格式。',
     },
   },
   {
@@ -382,7 +382,7 @@ export const FAQ: FaqItem[] = [
       ru: 'Да, и без этапа конвертации. Ваши данные уже лежат в стандартных таблицах PostgreSQL, так что достаточно `pg_dump`, и он импортируется в любой Postgres. Нет ни проприетарного формата для конвертации, ни слоя синхронизации, который пришлось бы распутывать. Именно это на сайте означает «без привязки к поставщику».',
       tr: "Evet, üstelik dönüştürme adımı olmadan. Verileriniz zaten standart PostgreSQL tablolarında duruyor; bir `pg_dump` yeterli ve herhangi bir Postgres'e aktarılabiliyor. Dönüştürülecek tescilli bir biçim ya da çözülecek bir senkronizasyon katmanı yok. Bu sitedeki «sağlayıcıya bağımlılık yok» ifadesi bunu anlatıyor.",
       uk: 'Так, і без етапу конвертації. Ваші дані вже лежать у стандартних таблицях PostgreSQL, тож достатньо `pg_dump`, і він імпортується в будь-який Postgres. Немає ані пропрієтарного формату для конвертації, ані шару синхронізації, який довелося б розплутувати. Саме це на цьому сайті означає «без прив’язки до постачальника».',
-      zh: '可以，而且无需转换。你的数据已经存放在标准 PostgreSQL 表中，一个 `pg_dump` 就够了，并且能导入任意 Postgres。没有专有格式需要转换，也没有同步层需要拆解。这正是本站所说的「不锁定厂商」的含义。',
+      zh: '可以，而且无需转换。您的数据已经存放在标准 PostgreSQL 表中，一个 `pg_dump` 就够了，并且能导入任意 Postgres。没有专有格式需要转换，也没有同步层需要拆解。这正是本站所说的“不锁定供应商”的含义。',
     },
   },
   {
@@ -409,7 +409,7 @@ export const FAQ: FaqItem[] = [
       ru: 'TblFlow рассчитан на использование в соответствии с GDPR и предоставляет журнал аудита, историю изменений, детальные права доступа и управление согласиями. При self-hosted или выделенном Enterprise вы полностью контролируете расположение данных, что упрощает соответствие требованиям для организаций с ограничениями по резидентности данных.',
       tr: "TblFlow, GDPR uyumlu kullanım için tasarlanmıştır; denetim günlüğü, revizyon geçmişi, ayrıntılı izinler ve onay yönetimi sunar. Kendi sunucunuzda barındırılan ya da özel Enterprise kurulumda verilerin konumunu tümüyle siz denetlersiniz; bu da veri ikametgâhı gereksinimi olan kurumlar için uyumu kolaylaştırır.",
       uk: 'TblFlow розрахований на використання відповідно до GDPR і надає журнал аудиту, історію змін, деталізовані права доступу та керування згодами. У self-hosted або виділеному Enterprise ви повністю контролюєте розташування даних, що спрощує відповідність для організацій з вимогами щодо резидентності даних.',
-      zh: 'TblFlow 按照符合 GDPR 的使用方式构建，提供审计日志、修订历史、精细权限和同意管理。在自托管或专属 Enterprise 部署下，你完全掌控数据所在位置，这让有数据驻留要求的组织更容易满足合规。',
+      zh: 'TblFlow 按照符合 GDPR 的使用方式构建，提供审计日志、修订历史、精细权限和同意管理。在自托管或专属 Enterprise 部署下，您完全掌控数据所在位置，这让有数据驻留要求的组织更容易满足合规。',
     },
   },
   ...([

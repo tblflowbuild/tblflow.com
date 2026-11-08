@@ -170,7 +170,7 @@ export const HERO_DEMO: Record<Locale, {
     cols: ['客户', '状态', '金额'],
     accepted: '已接受',
     sent: '已发送',
-    agentTitle: '「开票」智能体',
+    agentTitle: '“开票”智能体',
     prompt: '为已接受的报价创建订单和发票',
     steps: ['正在读取已接受的报价', '正在创建订单', '发票待审核'],
     agentBody: '已创建 2 张发票，无需重复录入',
