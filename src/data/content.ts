@@ -542,8 +542,8 @@ export const COMPARISON_NOTES: Array<{
       notion: all('$8–15'),
       salesforce: all('$100+'),
       tblflow: {
-        de: '≈ 8 €', en: '≈ $8', es: '≈ 8 €', fr: '≈ 8 €', it: '≈ 8 €',
-        ja: '≈ $8', ru: '≈ 8 $', tr: '≈ $8', uk: '≈ 8 $', zh: '≈ $8',
+        de: '≈ 8 €', en: '≈ €8', es: '≈ 8 €', fr: '≈ 8 €', it: '≈ 8 €',
+        ja: '≈ €8', ru: '≈ 8 €', tr: '≈ €8', uk: '≈ 8 €', zh: '≈ €8',
       },
     },
   },

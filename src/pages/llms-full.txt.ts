@@ -140,8 +140,8 @@ ${tierDivider}
 ${priceRow}
 ${quotaRows.join('\n')}
 
-Enterprise Dedicated is priced per seat annually ($100-300/user/year, minimum 10 seats) or by
-concurrent users ($2-5k/month for up to 50 concurrent users). Add-ons include SSO/SAML,
+Enterprise Dedicated is priced per seat annually (€100–300/user/year, minimum 10 seats) or by
+concurrent users (€2–5k/month for up to 50 concurrent users). Add-ons include SSO/SAML,
 white-label, dedicated support and a 99.99% SLA.`);
 
   sections.push(`## Frequently asked questions

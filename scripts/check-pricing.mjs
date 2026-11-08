@@ -18,7 +18,6 @@ import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 
 const HREFLANG = { de: 'de', en: 'en', es: 'es', fr: 'fr-FR', it: 'it', ja: 'ja', ru: 'ru', tr: 'tr', uk: 'uk', zh: 'zh-Hans' };
-const EURO = ['de', 'es', 'fr', 'it'];
 const MONTHS_FREE = 2;
 const TIERS = [
   { name: 'Essentiel', price: 39, annualTotal: 390, seatPrice: 7, includedSeats: 5 },
@@ -48,7 +47,7 @@ const PER_TEAM = {
 const money = (locale, amount) =>
   new Intl.NumberFormat(HREFLANG[locale], {
     style: 'currency',
-    currency: EURO.includes(locale) ? 'EUR' : 'USD',
+    currency: 'EUR', // billed in EUR in every locale
     currencyDisplay: 'narrowSymbol',
     minimumFractionDigits: 0,
     maximumFractionDigits: 2,

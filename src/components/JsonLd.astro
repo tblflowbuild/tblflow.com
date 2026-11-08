@@ -46,7 +46,7 @@ interface Props {
 
 const { locale, path, title, description, breadcrumbs, faq, article, product } = Astro.props;
 
-/** Stripe bills euro-zone visitors in EUR at the same number — see `formatPrice`. */
+/** Stripe bills every visitor in EUR — see `formatPrice`. */
 const currency = currencyCode(locale);
 
 const pageUrl = absoluteUrl(path);

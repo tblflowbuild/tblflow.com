@@ -80,7 +80,7 @@ const gb = (value: number): Record<Locale, string> => {
   ) as Record<Locale, string>;
 };
 
-/** A monthly add-on per extra person: "+7 €/mois", "+$7/month". */
+/** A monthly add-on per extra person: "+7 €/mois", "+€7/month". */
 const MONTH_SUFFIX: Record<Locale, string> = {
   de: '/Monat', en: '/month', es: '/mes', fr: '/mois', it: '/mese',
   ja: '/月', ru: '/мес', tr: '/ay', uk: '/міс', zh: '/月',
@@ -97,7 +97,7 @@ export interface Tier {
   id: TierId;
   /**
    * Per month, billed monthly, for the included people. `null` = quote-based.
-   * Same number in EUR and USD — Stripe carries both currencies on each Price.
+   * In EUR in every locale — Stripe bills in euros only.
    */
   price: number | null;
   /** True when `price` is a starting price ("à partir de"): Enterprise, bought online up to 50 people. */
@@ -113,7 +113,7 @@ export interface Tier {
    * this, never the other way round; see `formatMonthlyEquivalent`.
    *
    * WARNING: the annual Prices must match this grid — 390 (Essentiel), 1190
-   * (Équipe), 3990 (Entreprise), in EUR and USD — and the monthly add-on per
+   * (Équipe), 3990 (Entreprise), in EUR — and the monthly add-on per
    * person (`seatPrice`) must exist as a Stripe Price too. Until they do,
    * checkout charges something other than what this page shows.
    */

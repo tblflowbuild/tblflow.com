@@ -107,23 +107,20 @@ export const ORG = {
 
 
 /**
- * Stripe carries every Price in both EUR and USD at the *same* number
- * (Essential 39/390, Team 119/1190, Enterprise 399/3990), and bills each customer in their own
- * currency. So only the formatting is locale-dependent — never the amount.
+ * Stripe bills every customer in EUR, whatever their language (decision of
+ * 2026-11-08: euros everywhere). Only the formatting is locale-dependent —
+ * symbol placement, separators — never the amount or the currency.
  */
-const EURO_LOCALES: readonly Locale[] = ['de', 'es', 'fr', 'it'];
-
-export const currencyCode = (locale: Locale): 'EUR' | 'USD' =>
-  EURO_LOCALES.includes(locale) ? 'EUR' : 'USD';
+export const currencyCode = (_locale: Locale): 'EUR' => 'EUR';
 
 /**
- * `29 €` / `1 089 €` / `26,58 €` in French, `$29` / `$1,089` / `$26.58` in
- * English, and the right thing in the other eight — decimal mark, thousands
- * separator and symbol placement all come from the locale.
+ * `39 €` / `1 190 €` in French, `€39` / `€1,190` in English, and the right
+ * thing in the other eight — decimal mark, thousands separator and symbol
+ * placement all come from the locale.
  *
- * `narrowSymbol` matters: without it Ukrainian renders "319 USD" and Chinese
- * "US$319". `minimumFractionDigits: 0` keeps whole amounts clean ("29 €", not
- * "29,00 €") while still allowing the two decimals a monthly equivalent needs.
+ * `narrowSymbol` keeps the plain "€" sign in every locale. `minimumFractionDigits: 0`
+ * keeps whole amounts clean ("39 €", not "39,00 €") while still allowing the
+ * two decimals a monthly equivalent needs.
  */
 export function formatPrice(locale: Locale, amount: number): string {
   return new Intl.NumberFormat(HREFLANG[locale], {
