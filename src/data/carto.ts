@@ -43,7 +43,7 @@ export const CARTO_STRINGS = {
     zh: "随时间跟踪",
   },
   'track.1.body': {
-    de: "Jeder Prozess hat sein Prozedurblatt, einen Verantwortlichen und einen Termin für die nächste Überprüfung. Jeden Montag um 7 Uhr meldet eine E-Mail überfällige oder innerhalb von 14 Tagen anstehende Überprüfungen, am 1. um 8 Uhr kommt ein Monatsbericht. Keine E-Mail, wenn es nichts zu melden gibt. V2-Base erforderlich.",
+    de: "Jeder Prozess hat sein Verfahrensblatt, einen Verantwortlichen und einen Termin für die nächste Überprüfung. Jeden Montag um 7 Uhr meldet eine E-Mail überfällige oder innerhalb von 14 Tagen anstehende Überprüfungen, am 1. um 8 Uhr kommt ein Monatsbericht. Keine E-Mail, wenn es nichts zu melden gibt. V2-Base erforderlich.",
     en: "Each process has its procedure sheet, an owner and a next review date. An email every Monday at 7:00 flags reviews that are overdue or due within 14 days, and a monthly report arrives on the 1st at 8:00. No email when there is nothing to report. V2 base required.",
     es: "Cada proceso tiene su ficha de procedimiento, un responsable y una fecha de próxima revisión. Un correo cada lunes a las 7:00 avisa de las revisiones vencidas o previstas en 14 días, y un informe mensual llega el día 1 a las 8:00. Sin correo si no hay nada que señalar. Requiere una base V2.",
     fr: "Chaque processus a sa fiche procédure, un propriétaire et une date de prochaine revue. Un courriel chaque lundi à 7 h signale les revues dépassées ou prévues sous 14 jours, et un rapport mensuel arrive le 1er à 8 h. Aucun courriel s’il n’y a rien à signaler. Base V2 requise.",

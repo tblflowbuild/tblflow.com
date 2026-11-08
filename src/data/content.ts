@@ -560,14 +560,14 @@ export const COMPARISON_NOTES: Array<{
         ja: '5 分', ru: '5 минут', tr: '5 dakika', uk: '5 хвилин', zh: '5 分钟',
       },
       baserow: {
-        de: '5 Min · Self-Host 1 Std', en: '5 min · self-host 1 h',
+        de: '5 Min. · Self-Host 1 Std.', en: '5 min · self-host 1 h',
         es: '5 min · autoalojado 1 h', fr: '5 min · auto-hébergement 1 h',
         it: '5 min · self-host 1 h', ja: '5 分 · セルフホスト 1 時間',
         ru: '5 мин · self-host 1 ч', tr: '5 dk · self-host 1 sa',
         uk: '5 хв · self-host 1 год', zh: '5 分钟 · 自托管 1 小时',
       },
       nocodb: {
-        de: '5 Min · Self-Host 1 Std', en: '5 min · self-host 1 h',
+        de: '5 Min. · Self-Host 1 Std.', en: '5 min · self-host 1 h',
         es: '5 min · autoalojado 1 h', fr: '5 min · auto-hébergement 1 h',
         it: '5 min · self-host 1 h', ja: '5 分 · セルフホスト 1 時間',
         ru: '5 мин · self-host 1 ч', tr: '5 dk · self-host 1 sa',

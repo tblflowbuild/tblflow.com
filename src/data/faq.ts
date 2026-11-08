@@ -373,7 +373,7 @@ export const FAQ: FaqItem[] = [
       zh: '我可以导出数据然后离开吗？',
     },
     answer: {
-      de: 'Ja, und ohne Konvertierungsschritt. Ihre Daten liegen bereits in standardmäßigen PostgreSQL-Tabellen, also genügt ein `pg_dump`, und der lässt sich in jedes Postgres importieren. Es gibt kein proprietäres Format zu konvertieren und keine Synchronisierungsschicht zu entwirren. Genau das bedeutet „kein Anbieter-Lock-in" auf dieser Website.',
+      de: 'Ja, und ohne Konvertierungsschritt. Ihre Daten liegen bereits in standardmäßigen PostgreSQL-Tabellen, also genügt ein `pg_dump`, und der lässt sich in jedes Postgres importieren. Es gibt kein proprietäres Format zu konvertieren und keine Synchronisierungsschicht zu entwirren. Genau das bedeutet „kein Anbieter-Lock-in“ auf dieser Website.',
       en: 'Yes, and with no conversion step. Your data already lives in standard PostgreSQL tables, so a `pg_dump` is enough and it imports into any Postgres. There is no proprietary format to convert and no sync layer to unpick. That is what "no vendor lock-in" means on this site.',
       es: 'Sí, y sin paso de conversión. Tus datos ya viven en tablas PostgreSQL estándar, así que basta un `pg_dump` y se importa en cualquier Postgres. No hay formato propietario que convertir ni capa de sincronización que desenredar. Eso es lo que significa «sin dependencia de proveedor» en este sitio.',
       fr: "Oui, et sans conversion. Vos données sont déjà dans des tables PostgreSQL standard : un dump `pg_dump` suffit, et il s'importe dans n'importe quel Postgres. Il n'y a pas de format propriétaire à convertir, ni de couche de synchronisation à démêler. C'est le sens de « sans verrouillage propriétaire » sur ce site.",

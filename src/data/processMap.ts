@@ -307,7 +307,7 @@ export const PM_STRINGS = {
     zh: "重复录入",
   },
   "problem.2.body": {
-    de: "Dieselben Daten werden von Hand von einem Tool ins nächste übertragen, mit verlorener Zeit und den passenden Fehlern.",
+    de: "Dieselben Daten werden von Hand von einem Tool ins nächste übertragen, mit verlorener Zeit und den Fehlern, die damit einhergehen.",
     en: "The same data copied by hand from one tool to another, with the lost time and the errors that come with it.",
     es: "El mismo dato copiado a mano de una herramienta a otra, con el tiempo perdido y los errores que conlleva.",
     fr: "La même donnée recopiée à la main d'un outil à l'autre, avec le temps perdu et les erreurs qui vont avec.",
@@ -1363,7 +1363,7 @@ export const PM_STRINGS = {
     zh: "在 TblFlow 中，估算值来自您填写的费率、订阅费和用量；实际值来自您同样在步骤上填写的实测值（分钟数、数量、错误率、来源）。面板只对已实测的步骤比较两者，并显示已实测步骤的占比，让您知道总数有多可信。",
   },
   "faq.8.q": {
-    de: "Warnt TblFlow mich, wenn eine Prozedur überprüft werden muss?",
+    de: "Warnt TblFlow mich, wenn ein Verfahren überprüft werden muss?",
     en: "Does TblFlow alert me when a procedure needs reviewing?",
     es: "¿Me avisa TblFlow cuando hay que revisar un procedimiento?",
     fr: "TblFlow m'avertit-il quand une procédure doit être relue ?",

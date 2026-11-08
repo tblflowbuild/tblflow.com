@@ -9,7 +9,7 @@ Die Prozesslandkarte (in der französischen Oberfläche „Carto des process“)
 
 **Im Zeitverlauf verfolgen**
 
-- **Prozedurblatt** zu jedem Prozess (Canvas-Feld), mit Verantwortlichem, Überprüfungsterminen und Status.
+- **Verfahrensblatt** zu jedem Prozess (Canvas-Feld), mit Verantwortlichem, Überprüfungsterminen und Status.
 - **Warnungen bei veralteten Prozessen**: Jeden Montag um 7 Uhr (Serverzeit) listet eine E-Mail die Prozesse auf, deren nächste Überprüfung überfällig ist oder innerhalb von 14 Tagen ansteht. Gibt es nichts zu prüfen, wird keine E-Mail gesendet. Empfänger sind änderbar; aktivieren im Menü „Weitere Aktionen“ des Canvas. Eine V2-Base ist erforderlich.
 - **Monatsbericht per E-Mail**: am 1. des Monats um 8 Uhr, mit Kosten, Einsparpotenzial, den drei Prozessen mit dem größten Potenzial und überfälligen Überprüfungen. Beträge erscheinen nur, wenn der Base-Eigentümer das aktiviert. Eine V2-Base ist erforderlich.
 - **Validierung pro Schritt**: Status (zu validieren, validiert, zu überprüfen), validiert von, Datum und Kommentar, mit einem Badge am Schritt im Canvas.

@@ -72,7 +72,7 @@ export const COMPETITOR_PAGES: Record<CompetitorSlug, CompetitorPage> = {
           uk: 'Зберігання і що з нього випливає', zh: '存储，以及由此带来的差别',
         },
         body: {
-          de: 'Bei Airtable ist ein Export eine CSV-Datei oder ein API-Aufruf: eine Kopie, zu einem bestimmten Zeitpunkt gezogen. Bei TblFlow ist ein `pg_dump` die Datenbank selbst, anderswo wiederherstellbar. Das ist der Unterschied zwischen "die Daten herausholen können" und "nie von ihnen getrennt gewesen sein".',
+          de: 'Bei Airtable ist ein Export eine CSV-Datei oder ein API-Aufruf: eine Kopie, zu einem bestimmten Zeitpunkt gezogen. Bei TblFlow ist ein `pg_dump` die Datenbank selbst, anderswo wiederherstellbar. Das ist der Unterschied zwischen „die Daten herausholen können“ und „nie von ihnen getrennt gewesen sein“.',
           en: 'With Airtable, an export is a CSV or an API call: a copy, taken at a point in time. With TblFlow, a `pg_dump` is the database itself, restorable elsewhere. That is the difference between being able to extract your data and never having been separated from it.',
           es: 'En Airtable, una exportación es un CSV o una llamada a la API: una copia, tomada en un momento dado. En TblFlow, un `pg_dump` es la base de datos misma, restaurable en otro sitio. Esa es la diferencia entre poder extraer tus datos y no haber estado nunca separado de ellos.',
           fr: "Chez Airtable, l'export est un CSV ou un appel d'API : une copie, prise à un instant donné. Chez TblFlow, un `pg_dump` est la base elle-même, restaurable ailleurs. C'est la différence entre pouvoir extraire ses données et ne jamais en avoir été séparé.",

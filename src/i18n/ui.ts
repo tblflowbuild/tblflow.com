@@ -32,7 +32,7 @@ export const ui = {
     'hero.cta.secondary': 'Preise ansehen',
     'hero.note': 'Keine Kreditkarte nötig · Selbst hostbar · Kein Anbieter-Lock-in',
 
-    'proof.rows': 'Zeilen pro Basis',
+    'proof.rows': 'Zeilen pro Base',
     'proof.rows.value': 'Millionen',
     'proof.views': 'Ansichtstypen',
     'proof.fields': 'Feldtypen',
@@ -162,7 +162,7 @@ export const ui = {
     'showcase.subtitle': 'Keine Mockups: Screenshots der echten Oberfläche, mit echten Daten.',
     'showcase.table.caption': 'Eine Kontakttabelle mit ihren Feldern und Status, direkt aus dem Raster.',
     'showcase.schema.caption': 'Das relationale Schema einer Base, generiert und bearbeitbar, mit dem KI-Assistenten daneben.',
-    'blog.search': 'Artikel suchen...',
+    'blog.search': 'Artikel suchen…',
     'blog.filterAll': 'Alle',
     'blog.noResults': 'Keine Artikel entsprechen diesem Filter.',
     'pricing.billing.monthly': 'Monatlich',
