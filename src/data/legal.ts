@@ -504,7 +504,7 @@ export const PRIVACY_LAST_UPDATED: Record<Locale, string> = {
   fr: 'Dernière mise à jour : 1er novembre 2026.',
   it: 'Ultimo aggiornamento: 1° novembre 2026.',
   ja: '最終更新：2026 年 11 月 1 日',
-  ru: 'Последнее обновление: 1 ноября 2026 г..',
+  ru: 'Последнее обновление: 1 ноября 2026 г.',
   tr: 'Son güncelleme: 1 Kasım 2026.',
   uk: 'Останнє оновлення: 1 листопада 2026 р..',
   zh: '最后更新：2026 年 11 月 1 日。',

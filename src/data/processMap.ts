@@ -25,7 +25,7 @@ export const PM_STRINGS = {
     fr: "Cartographiez vos processus, repérez ressaisies et outils en doublon, estimez les coûts, remplacez. Diagnostic gratuit ; carte complète dès Essentiel.",
     it: "Mappa i processi, individua i dati reinseriti a mano e gli strumenti duplicati e stima i costi. Diagnosi gratuita; mappa completa dal piano Essenziale.",
     ja: "プロセスをマッピングし、再入力や重複ツールを見つけ、コストを見積もって、TblFlowに置き換えを提案させましょう。診断は無料、完全なマップは Essential プランから。",
-    ru: "Нарисуйте процессы, найдите повторный ввод и дублирующие инструменты, оцените затраты и получите от TblFlow предложение по замене. Диагностика бесплатно.",
+    ru: "Нарисуйте процессы, найдите повторный ввод и дублирующие инструменты, оцените затраты и получите от TblFlow предложение по замене. Диагностика бесплатна.",
     tr: "Süreçlerinizi haritalayın, tekrar girişleri ve mükerrer araçları bulun, maliyetleri tahmin edin. Teşhis ücretsiz; tam harita Essential planından itibaren.",
     uk: "Складіть карту процесів, знайдіть повторне введення й дублювання, оцініть витрати і отримайте від TblFlow пропозицію щодо заміни. Діагностика безкоштовна.",
     zh: "梳理空间里的流程，找出重复录入和重复工具，估算成本，再让 TblFlow 给出替换方案。基于真实的 PostgreSQL 表。诊断免费；完整图谱从 Essential 套餐起可用。",
