@@ -235,7 +235,7 @@ export const ui = {
     'faq.all': 'All',
 
     'cta.title': "Ready to stop typing the same data twice?",
-    'cta.body': "Start free with no credit card. A diagnosis of your processes is included in the free plan.",
+    'cta.body': "Start free with no credit card. A diagnosis of your processes is included in the Free plan.",
     'cta.primary': 'Start for free',
     'cta.secondary': 'Talk to someone',
 
@@ -396,7 +396,7 @@ export const ui = {
     'faq.all': 'Todas',
 
     'cta.title': "¿Listo para dejar de teclear dos veces los mismos datos?",
-    'cta.body': "Empieza gratis sin tarjeta. El diagnóstico de tus procesos está incluido en el plan gratuito.",
+    'cta.body': "Empieza gratis sin tarjeta. El diagnóstico de tus procesos está incluido en el plan Gratis.",
     'cta.primary': 'Empezar gratis',
     'cta.secondary': 'Hablar con alguien',
 
@@ -557,7 +557,7 @@ export const ui = {
     'faq.all': 'Tout',
 
     'cta.title': "Prêt à supprimer vos ressaisies ?",
-    'cta.body': "Démarrez gratuitement, sans carte bancaire. Diagnostic de vos processus inclus dans le plan gratuit.",
+    'cta.body': "Démarrez gratuitement, sans carte bancaire. Diagnostic de vos processus inclus dans le palier gratuit.",
     'cta.primary': 'Commencer gratuitement',
     'cta.secondary': 'Parler à quelqu’un',
 
@@ -708,7 +708,7 @@ export const ui = {
     'pricing.compare': 'Confronta i piani in dettaglio',
     'pricing.selfhost.title': 'Serve il self-hosting?',
     'pricing.selfhost.body':
-      "L'installazione sulla tua infrastruttura o in una VPC dedicata fa parte del piano Enterprise, su preventivo, con tutte le funzionalità sbloccate.",
+      "L'installazione sulla tua infrastruttura o in un VPC dedicato fa parte del piano Enterprise, su preventivo, con tutte le funzionalità sbloccate.",
     'pricing.selfhost.cta': 'Contatta il supporto',
 
     'faq.title': 'Domande frequenti',
@@ -1201,7 +1201,7 @@ export const ui = {
     'faq.all': 'Tümü',
 
     'cta.title': "Aynı veriyi iki kez girmeyi bırakmaya hazır mısınız?",
-    'cta.body': "Kredi kartı olmadan ücretsiz başlayın. Süreçlerinizin teşhisi ücretsiz pakete dahildir.",
+    'cta.body': "Kredi kartı olmadan ücretsiz başlayın. Süreçlerinizin teşhisi ücretsiz plana dahildir.",
     'cta.primary': 'Ücretsiz başla',
     'cta.secondary': 'Biriyle konuş',
 
@@ -1288,7 +1288,7 @@ export const ui = {
     'showcase.title': 'Bu gerçekten TblFlow',
     'showcase.subtitle': 'Maket değil: gerçek arayüzün, gerçek verilerle alınmış ekran görüntüleri.',
     'showcase.table.caption': 'Alanları ve durumlarıyla bir kişiler tablosu, doğrudan ızgaradan.',
-    'showcase.schema.caption': "Bir base'in ilişkisel şeması, otomatik oluşturulmuş ve düzenlenebilir, yanında yapay zekâ asistanı.",
+    'showcase.schema.caption': "Bir tabanın ilişkisel şeması, otomatik oluşturulmuş ve düzenlenebilir, yanında yapay zeka asistanı.",
     'blog.search': 'Makale ara...',
     'blog.filterAll': 'Tümü',
     'blog.noResults': 'Bu filtreye uyan makale yok.',
@@ -1322,7 +1322,7 @@ export const ui = {
 
     'proof.rows': 'рядків на базу',
     'proof.rows.value': 'Мільйони',
-    'proof.views': 'типів переглядів',
+    'proof.views': 'типів подань',
     'proof.fields': 'типів полів',
     'proof.deploy': 'щоб почати',
     'proof.deploy.value': '5 хвилин',
@@ -1396,7 +1396,7 @@ export const ui = {
     'theme.toggle': 'Перемкнути темну тему',
 
     'footer.nav.features': 'Можливості',
-    'footer.nav.contact': 'Звʼязатися з нами',
+    'footer.nav.contact': 'Зв’язатися з нами',
     'footer.nav.appTerms': 'Умови застосунку',
     'footer.nav.appPrivacy': 'Приватність застосунку',
     'footer.nav.appDpa': 'Обробка даних (DPA)',
@@ -1419,7 +1419,7 @@ export const ui = {
     'views.title6': 'Шість способів побачити ту саму таблицю',
 
     'compare.lede': 'Детальне порівняння для кожного інструмента, з перевірюваними критеріями та випадками, коли перемагає інший продукт.',
-    'views.subtitle6': 'Перемикайте перегляди, не дублюючи жодного рядка даних.',
+    'views.subtitle6': 'Перемикайте подання, не дублюючи жодного рядка даних.',
 
     'consent.title': 'Ваші налаштування приватності',
     'consent.body': 'Ми використовуємо Google Analytics, щоб розуміти, як використовується цей сайт. Без вашої згоди нічого не запускається.',
@@ -1498,7 +1498,7 @@ export const ui = {
     'compare.partial': '部分支持',
 
     'pricing.title': '价格',
-    'pricing.subtitle': '免费开始，随团队成长升级方案。',
+    'pricing.subtitle': '免费开始，随团队成长升级套餐。',
     'pricing.perTeam': "按团队计价，而非按人头",
     'pricing.from': "起价",
     'pricing.seatExtra': "每增加 1 人 +{price} / 月",
@@ -1509,9 +1509,9 @@ export const ui = {
     'pricing.cta': '开始使用',
     'pricing.cta.enterprise': '联系我们',
     'pricing.popular': '最受欢迎',
-    'pricing.compare': '详细比较各方案',
+    'pricing.compare': '详细比较各套餐',
     'pricing.selfhost.title': '需要自行部署吗？',
-    'pricing.selfhost.body': '在您自己的基础设施或专用 VPC 上部署属于 Enterprise 方案，需定制报价，解锁全部功能。',
+    'pricing.selfhost.body': '在您自己的基础设施或专用 VPC 上部署属于 企业版套餐，需定制报价，解锁全部功能。',
     'pricing.selfhost.cta': '联系支持团队',
 
     'faq.title': '常见问题',
@@ -1608,7 +1608,7 @@ export const ui = {
     'showcase.title': '这就是真实的 TblFlow',
     'showcase.subtitle': '不是设计稿：真实界面、真实数据的截图。',
     'showcase.table.caption': '一张联系人表，字段与状态，直接取自表格视图。',
-    'showcase.schema.caption': '一个 base 的关系结构图，自动生成、可编辑，旁边是 AI 助手。',
+    'showcase.schema.caption': '一个数据库的关系结构图，自动生成、可编辑，旁边是 AI 助手。',
     'blog.search': '搜索文章…',
     'blog.filterAll': '全部',
     'blog.noResults': '没有符合此筛选条件的文章。',

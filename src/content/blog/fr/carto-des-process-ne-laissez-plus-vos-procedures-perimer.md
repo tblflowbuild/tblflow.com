@@ -34,5 +34,5 @@ modifier dans la fenêtre prévue pour cela.
 2. Activez les alertes de péremption.
 3. Quand le courriel arrive, ouvrez la fiche, relisez, puis repoussez la date.
 
-*Les alertes demandent une base V2 et la Carto des process est incluse dans les plans Essentiel, Équipe
+*Les alertes demandent une base V2 et la Carto des process est incluse dans les paliers Essentiel, Équipe
 et Entreprise.*

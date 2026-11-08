@@ -222,9 +222,9 @@ const BASE_TIERS: Tier[] = [
         'Поддержка сообщества',
       ],
       tr: [
-        '2 kişi dahil · 1 base · 1 alan',
+        '2 kişi dahil · 1 taban · 1 alan',
         '1 GB depolama · tablo başına 5.000 satır',
-        'Sayıca sınırsız yapay zekâ ajanı ve otomasyon — ayda 100 ajan ve 500 otomasyon çalıştırması',
+        'Sayıca sınırsız yapay zeka ajanı ve otomasyon — ayda 100 ajan ve 500 otomasyon çalıştırması',
         'Topluluk desteği',
       ],
       uk: [
@@ -287,7 +287,7 @@ const BASE_TIERS: Tier[] = [
         '5 personnes incluses · 5 bases',
         '100 Go de stockage · 100 000 lignes par table',
         'Agents IA et automatisations illimités en nombre — 5 000 exécutions d’agents et 25 000 d’automatisations/mois',
-        'Support par email · SLA 99,5 %',
+        'Support par e-mail · SLA 99,5 %',
       ],
       it: [
         '5 persone incluse · 5 base',
@@ -308,9 +308,9 @@ const BASE_TIERS: Tier[] = [
         'Поддержка по email · SLA 99,5 %',
       ],
       tr: [
-        '5 kişi dahil · 5 base',
+        '5 kişi dahil · 5 taban',
         '100 GB depolama · tablo başına 100.000 satır',
-        'Sayıca sınırsız yapay zekâ ajanı ve otomasyon — ayda 5.000 ajan ve 25.000 otomasyon çalıştırması',
+        'Sayıca sınırsız yapay zeka ajanı ve otomasyon — ayda 5.000 ajan ve 25.000 otomasyon çalıştırması',
         'E-posta desteği · %99,5 SLA',
       ],
       uk: [
@@ -401,9 +401,9 @@ const BASE_TIERS: Tier[] = [
         'Приоритетная поддержка · SLA 99,9 %',
       ],
       tr: [
-        '15 kişi dahil · 30 base',
+        '15 kişi dahil · 30 taban',
         '500 GB depolama · tablo başına 1.000.000 satır',
-        'Sayıca sınırsız yapay zekâ ajanı ve otomasyon — ayda 50.000 ajan ve 250.000 otomasyon çalıştırması',
+        'Sayıca sınırsız yapay zeka ajanı ve otomasyon — ayda 50.000 ajan ve 250.000 otomasyon çalıştırması',
         'SSO / SAML · white-label · gelişmiş denetim',
         'Öncelikli destek · %99,9 SLA',
       ],
@@ -492,7 +492,7 @@ const BASE_TIERS: Tier[] = [
       tr: [
         '50 kişiye kadar çevrimiçi satın alınabilir',
         '50 kişinin üzerinde, kendi sunucunuz veya VPC: teklife bağlı',
-        'Base, satır ve depolama sınırsız · SSO / SAML · white-label',
+        'Taban, satır ve depolama sınırsız · SSO / SAML · white-label',
         '7/24 özel destek · %99,99 SLA',
       ],
       uk: [
@@ -516,7 +516,7 @@ const PRO_TRIAL_NOTE: Record<Locale, string> = {
   de: '14 Tage Essential testen, ohne Karte; danach zurück zum Kostenlos-Tarif',
   en: '14-day Essential trial, no card; then back to the Free plan',
   es: 'Prueba de Esencial de 14 días, sin tarjeta; después vuelve al plan Gratis',
-  fr: 'Essai Essentiel de 14 jours, sans carte bancaire ; ensuite retour au plan Gratuit',
+  fr: 'Essai Essentiel de 14 jours, sans carte bancaire ; ensuite retour au palier Gratuit',
   it: 'Prova Essenziale di 14 giorni, senza carta; poi si torna al piano Gratuito',
   ja: 'Essential の 14 日間無料トライアル（カード不要）。終了後は無料プランに戻ります',
   ru: '14 дней Essential бесплатно, без карты; затем возврат на бесплатный тариф',
@@ -607,7 +607,7 @@ export const QUOTAS: QuotaRow[] = [
   {
     label: {
       de: 'Bases', en: 'Bases', es: 'Bases', fr: 'Bases', it: 'Base',
-      ja: 'ベース', ru: 'Базы', tr: "Base'ler", uk: 'Бази', zh: 'Base 数量',
+      ja: 'ベース', ru: 'Базы', tr: 'Tabanlar', uk: 'Бази', zh: '数据库数量',
     },
     values: { free: num(1), pro: num(5), business: num(30), enterprise: UNLIMITED },
   },
@@ -665,7 +665,7 @@ export const QUOTAS: QuotaRow[] = [
       de: 'KI-Agenten-Ausführungen / Monat', en: 'AI agent runs / month',
       es: 'Ejecuciones de agentes de IA / mes', fr: 'Exécutions d’agents IA / mois',
       it: 'Esecuzioni di agenti IA / mese', ja: 'AI エージェント実行数 / 月',
-      ru: 'Запусков ИИ-агентов / месяц', tr: 'Yapay zekâ ajanı çalıştırma / ay',
+      ru: 'Запусков ИИ-агентов / месяц', tr: 'Yapay zeka ajanı çalıştırma / ay',
       uk: 'Запусків ШІ-агентів / місяць', zh: 'AI 智能体运行次数 / 月',
     },
     values: {
@@ -805,7 +805,7 @@ export const API_RATE_LIMIT_NOTE: Record<Locale, string> = {
   it: 'Nessuna quota mensile sulle richieste API, ma su tutti i piani si applica un limite di frequenza globale di 100 richieste al minuto per impostazione predefinita.',
   ja: 'API リクエストに月間上限はありませんが、既定で毎分 100 リクエストという全体のレート制限がすべてのプランに適用されます。',
   ru: 'Месячной квоты на запросы к API нет, но для всех тарифов действует общее ограничение — по умолчанию 100 запросов в минуту.',
-  tr: 'API isteklerinde aylık kota yoktur, ancak tüm paketlerde varsayılan olarak dakikada 100 istek şeklinde genel bir hız sınırı geçerlidir.',
+  tr: 'API isteklerinde aylık kota yoktur, ancak tüm planlarda varsayılan olarak dakikada 100 istek şeklinde genel bir hız sınırı geçerlidir.',
   uk: 'Місячної квоти на запити до API немає, але для всіх тарифів діє загальне обмеження — за замовчуванням 100 запитів на хвилину.',
   zh: 'API 请求没有月度配额，但所有套餐都适用全局速率限制，默认为每分钟 100 次请求。',
 };

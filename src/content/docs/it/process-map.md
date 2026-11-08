@@ -16,7 +16,7 @@ Alla prima apertura, un clic crea la mappa. Scegli di crearla **con degli esempi
 
 ## Descrivere i processi
 
-Trascina per spostare la tela e usa la rotellina per ingrandire. Clicca su una fase per selezionarla; doppio clic o Spazio ne apre la scheda. Invio crea la fase successiva, Tab un ramo, F2 la rinomina.
+Trascina per spostare il canvas e usa la rotellina per ingrandire. Clicca su una fase per selezionarla; doppio clic o Spazio ne apre la scheda. Invio crea la fase successiva, Tab un ramo, F2 la rinomina.
 
 Per fare più in fretta, importa un documento, rispondi alle domande dell'assistente o collega i tuoi strumenti di automazione. Ogni fase è affidata a una persona, a un'automazione o a un agente IA.
 

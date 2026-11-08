@@ -79,7 +79,7 @@ const it = {
         {
           label: 'Mappare',
           title: 'Vedi dove l’importo viene ridigitato',
-          body: 'Parti dal processo tipo «Fatturazione clienti» della biblioteca: richiesta, controllo dell’ordine, preparazione, approvazione degli importi elevati, invio, monitoraggio delle scadenze, sollecito, incasso. Inserisci i tuoi volumi: TblFlow stima il costo di ogni passaggio.',
+          body: 'Parti dal processo tipo «Fatturazione clienti» della libreria: richiesta, controllo dell’ordine, preparazione, approvazione degli importi elevati, invio, monitoraggio delle scadenze, sollecito, incasso. Inserisci i tuoi volumi: TblFlow stima il costo di ogni passaggio.',
         },
         {
           label: 'Costruire',

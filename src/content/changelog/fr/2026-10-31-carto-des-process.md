@@ -5,7 +5,7 @@ translationKey: "carto-suivi"
 type: "feature"
 ---
 
-La « Cartographie des processus » devient la **Carto des process** dans l'interface, et ne se contente plus de dessiner : elle sert maintenant à mesurer, suivre dans le temps et piloter. Les coûts restent des **estimations que vous saisissez**, pas des mesures. La Carto des process est réservée aux plans Pro, Business et Enterprise.
+La « Cartographie des processus » devient la **Carto des process** dans l'interface, et ne se contente plus de dessiner : elle sert maintenant à mesurer, suivre dans le temps et piloter. Les coûts restent des **estimations que vous saisissez**, pas des mesures. La Carto des process est réservée aux paliers Pro, Business et Enterprise.
 
 **Suivre dans le temps**
 

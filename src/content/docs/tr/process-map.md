@@ -16,7 +16,7 @@ Her alanda en fazla bir süreç haritası bulunur. Alanın sağ taraftaki rozeti
 
 ## Süreçleri anlatın
 
-Tuvali kaydırmak için sürükleyin, yakınlaştırmak için tekerleği kullanın. Bir adımı seçmek için tıklayın; çift tıklama veya Boşluk tuşu kaydını açar. Enter sonraki adımı, Tab bir dalı oluşturur, F2 yeniden adlandırır.
+Canvas'ı kaydırmak için sürükleyin, yakınlaştırmak için tekerleği kullanın. Bir adımı seçmek için tıklayın; çift tıklama veya Boşluk tuşu kaydını açar. Enter sonraki adımı, Tab bir dalı oluşturur, F2 yeniden adlandırır.
 
 Daha hızlı ilerlemek için bir belge içe aktarın, asistanın sorularını yanıtlayın veya otomasyon araçlarınızı bağlayın. Her adımı bir insan, bir otomasyon veya bir yapay zeka ajanı üstlenir.
 
@@ -28,7 +28,7 @@ Canvas ayarlarında **Sözcük dağarcığı** bölümünde, bir hazır ayar «m
 |---|---|---|
 | Hizmet ve danışmanlık | Müşteri | Görev |
 | Ticaret ve e-ticaret | Müşteri | Sipariş |
-| Sanayi ve lojistik | Müşteri | Üretim emri |
+| Sanayi ve lojistik | Müşteri | İş emri |
 | Muhasebe ve hukuk | Müşteri | Dosya |
 | Sağlık ve bakım | Hasta | Dosya |
 

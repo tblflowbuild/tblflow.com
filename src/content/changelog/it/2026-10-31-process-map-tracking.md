@@ -12,7 +12,7 @@ La mappa dei processi (chiamata «Carto des process» nell'interfaccia francese)
 - **Scheda procedura** su ogni processo (campo Canvas), con responsabile, date di revisione e stato.
 - **Avvisi di scadenza**: ogni lunedì alle 7:00 (ora del server) un'email elenca i processi la cui prossima revisione è scaduta o cade entro 14 giorni. Nessuna email se non c'è nulla da rivedere. I destinatari sono modificabili; si attivano dal menu «Altre azioni» del canvas. È necessaria una base V2.
 - **Report mensile via email**: il 1° del mese alle 8:00, con costo, guadagno potenziale, i tre processi con il guadagno maggiore e le revisioni in ritardo. Gli importi compaiono solo se il proprietario della base li attiva. È necessaria una base V2.
-- **Validazione per fase**: stato (da validare, validata, da rivedere), validata da, data e commento, con un badge sulla fase nel canvas.
+- **Convalida per fase**: stato (da convalidare, convalidata, da rivedere), convalidata da, data e commento, con un badge sulla fase nel canvas.
 
 **Misurare e confrontare**
 

@@ -729,7 +729,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       {
         "label": "Anlamak",
         "title": "Önce TblFlow’a şirketinizi tanıtın",
-        "body": "Prosedürlerinizi PDF veya Markdown olarak yükleyin ve zaten kullandığınız araçları bağlayın. DocIndex bu dokümantasyonu dizinler: ekibiniz içinde arama yapar, yapay zekâ onu kullanır."
+        "body": "Prosedürlerinizi PDF veya Markdown olarak yükleyin ve zaten kullandığınız araçları bağlayın. DocIndex bu dokümantasyonu dizinler: ekibiniz içinde arama yapar, yapay zeka onu kullanır."
       },
       {
         "label": "Haritalamak",
@@ -744,7 +744,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       {
         "label": "Otomatikleştirmek",
         "title": "Önce bir kurala uyan işleri otomatikleştirin",
-        "body": "Bir adım basit bir kurala uyuyorsa otomasyon yeterlidir: öngörülebilir, hızlı ve yapay zekâ çağrısı gerektirmez. Ajanlar daha sonra, okumak, değerlendirmek ya da yazmak gereken yerlerde devreye girer."
+        "body": "Bir adım basit bir kurala uyuyorsa otomasyon yeterlidir: öngörülebilir, hızlı ve yapay zeka çağrısı gerektirmez. Ajanlar daha sonra, okumak, değerlendirmek ya da yazmak gereken yerlerde devreye girer."
       },
       {
         "label": "Ajanlara emanet etmek",
@@ -809,7 +809,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
         },
         {
           "title": "Karar",
-          "body": "Yapay zekânın ürettiği her şey, siz onaylayana kadar pasif kalır."
+          "body": "Yapay zekanın ürettiği her şey, siz onaylayana kadar pasif kalır."
         },
         {
           "title": "Okunabilirlik",
@@ -839,7 +839,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       {
         "label": "Побудувати",
         "title": "TblFlow створює таблиці, які замінять ваші інструменти",
-        "body": "На основі карти: аналіз, blueprint, таблиці, звʼязки, інтерфейс, автоматизації, агенти. Бізнес-правила вбудовано, інші інструменти лишаються підключеними, щоб потоки не переривалися, дані імпортуються, а старі застосунки можна вивести з експлуатації."
+        "body": "На основі карти: аналіз, blueprint, таблиці, зв’язки, інтерфейс, автоматизації, агенти. Бізнес-правила вбудовано, інші інструменти лишаються підключеними, щоб потоки не переривалися, дані імпортуються, а старі застосунки можна вивести з експлуатації."
       },
       {
         "label": "Автоматизувати",

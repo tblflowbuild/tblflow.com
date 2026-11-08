@@ -38,7 +38,7 @@ const fr = {
     useCasesFor: "Cas d'usage",
     audiencesFor: 'Pour qui',
     planNote:
-      "La carte d'un processus est gratuite, coûts estimés compris. La carte complète, Remplacer et le rapport mensuel sont inclus dès l'offre Essentiel.",
+      "La carte d'un processus est gratuite, coûts estimés compris. La carte complète, Remplacer et le rapport mensuel sont inclus dès le palier Essentiel.",
     cta: 'Commencer',
     secondaryCta: 'Voir la Carto des process',
     example: 'Exemple',
@@ -757,7 +757,7 @@ const fr = {
         },
         {
           q: 'Les données des clients restent-elles chez nous ?',
-          a: 'Elles vivent dans un vrai PostgreSQL, exportable, et TblFlow peut être auto-hébergé avec l’offre Entreprise.',
+          a: 'Elles vivent dans un vrai PostgreSQL, exportable, et TblFlow peut être auto-hébergé avec le palier Entreprise.',
         },
       ],
     },

@@ -6,7 +6,7 @@ section: "Guides"
 order: 5
 ---
 
-La Carto des process est une page de votre espace où vous dessinez qui fait quoi, avec quels outils, puis lisez les ruptures et les coûts estimés. Un processus se diagnostique gratuitement, avec ses coûts estimés visibles, sans bouton « Remplacer », sans rapport mensuel et sans comparaison de l’estimé au réel. Ces fonctions restent visibles, verrouillées. La carte complète demande le plan Essentiel ou supérieur.
+La Carto des process est une page de votre espace où vous dessinez qui fait quoi, avec quels outils, puis lisez les ruptures et les coûts estimés. Un processus se diagnostique gratuitement, avec ses coûts estimés visibles, sans bouton « Remplacer », sans rapport mensuel et sans comparaison de l’estimé au réel. Ces fonctions restent visibles, verrouillées. La carte complète demande le palier Essentiel ou supérieur.
 
 ## Ouvrir ou créer la cartographie
 
