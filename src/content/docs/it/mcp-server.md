@@ -1,7 +1,7 @@
 ---
 title: "Server MCP"
 translationKey: "mcp-server"
-description: "Collega TblFlow a Claude con il server MCP ufficiale: collegamento, strumenti disponibili, permessi e scelta degli spazi, esposizione di automazioni e agenti, limiti e risoluzione dei problemi."
+description: "Collega TblFlow a Claude con il server MCP ufficiale: strumenti disponibili, permessi, scelta degli spazi, limiti e risoluzione dei problemi."
 section: "Guide"
 order: 6
 ---

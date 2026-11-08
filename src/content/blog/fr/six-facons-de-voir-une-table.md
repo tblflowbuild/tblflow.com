@@ -1,7 +1,7 @@
 ---
 title: "Pourquoi changer de vue plutôt que dupliquer la table"
 translationKey: "six-views"
-description: "Grille, Kanban, Galerie, Calendrier, Gantt, Formulaire : les six vues de TblFlow lisent la même table sans en copier une seule ligne. Ce que ça change concrètement pour une équipe."
+description: "Grille, Kanban, Galerie, Calendrier, Gantt, Formulaire : les six vues de TblFlow lisent la même table sans en copier une ligne. Ce que cela change."
 publishedAt: 2026-08-20
 author: "TblFlow"
 tags: ["vues", "produit"]

@@ -1,7 +1,7 @@
 ---
 title: "Crea la tua prima app"
 translationKey: "first-app"
-description: "Pubblica un'app aziendale a partire da una base TblFlow: generata dall'IA o costruita a mano, con autenticazione dei visitatori, controllo delle scritture e link pubblico."
+description: "Pubblica un'app aziendale a partire da una base TblFlow: generata dall'IA o costruita a mano, con autenticazione dei visitatori e link pubblico."
 section: "Guide"
 order: 5
 ---

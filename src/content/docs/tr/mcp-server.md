@@ -1,7 +1,7 @@
 ---
 title: "MCP sunucusu"
 translationKey: "mcp-server"
-description: "TblFlow'u resmî MCP sunucusuyla Claude'a bağlayın: bağlantı, kullanılabilir araçlar, izinler ve alan seçimi, otomasyon ve ajanları kullanıma açma, sınırlar ve sorun giderme."
+description: "TblFlow'u resmî MCP sunucusuyla Claude'a bağlayın: kullanılabilir araçlar, izinler ve alan seçimi, otomasyon ve ajanları açma, sınırlar ve sorun giderme."
 section: "Kılavuzlar"
 order: 6
 ---

@@ -13,17 +13,17 @@ const es = {
     forNav: '¿Para quién?',
     useCasesNav: 'Casos de uso',
     forIndex: {
-      metaTitle: '¿Para quién es TblFlow? Dirección, finanzas, administración de ventas, industria, comercio, despachos',
+      metaTitle: '¿Para quién es TblFlow? Finanzas, industria, comercio',
       metaDescription:
-        'TblFlow es para las pymes que reintroducen la misma información de una herramienta a otra: dirección, finanzas, administración de ventas, industria, comercio y despachos profesionales.',
+        'TblFlow es para las pymes que reintroducen los mismos datos de una herramienta a otra: dirección, finanzas, ventas, industria, comercio y despachos.',
       title: '¿Para quién?',
       subtitle:
         'Para las pymes que funcionan con Excel y una decena de herramientas. Cada área reintroduce datos distintos: esto es lo que TblFlow cambia en la suya.',
     },
     useCasesIndex: {
-      metaTitle: 'Casos de uso de TblFlow: del presupuesto al cobro, compras, cierre, stocks, calidad',
+      metaTitle: 'Casos de uso de TblFlow: del presupuesto al cobro, compras',
       metaDescription:
-        'Seis flujos de principio a fin en los que la misma información se reintroduce de herramienta en herramienta, y cómo TblFlow los mapea, los automatiza y los confía a agentes bajo su validación.',
+        'Seis flujos en los que la misma información se reintroduce de herramienta en herramienta, y cómo TblFlow los mapea, los automatiza y los confía a agentes.',
       title: 'Casos de uso',
       subtitle:
         'Seis flujos en los que la misma información pasa de mano en mano y de herramienta en herramienta. Para cada uno: lo que cuesta hoy y lo que TblFlow hace con él.',
@@ -51,7 +51,7 @@ const es = {
       card: 'Presupuesto, pedido, factura y reclamación sin reintroducir datos entre herramientas.',
       metaTitle: 'Del presupuesto al cobro sin reintroducir datos | TblFlow',
       metaDescription:
-        'El presupuesto en Word, el pedido en Excel, la factura en otro sitio: TblFlow conecta presupuesto, pedido, factura y reclamación en una sola base, con automatizaciones y agentes bajo validación.',
+        'El presupuesto en Word, el pedido en Excel, la factura en otro sitio: TblFlow los conecta en una sola base, con automatizaciones y agentes bajo validación.',
       eyebrow: 'Caso de uso · Ventas y facturación',
       title: 'Del presupuesto al cobro, sin volver a teclear el mismo importe cuatro veces',
       subtitle:
@@ -126,7 +126,7 @@ const es = {
     'procure-to-pay': {
       nav: 'De la necesidad al pago a proveedores',
       card: 'Solicitudes de compra, pedidos, recepciones y facturas de proveedores conectados.',
-      metaTitle: 'Compras y facturas de proveedores sin reintroducir datos | TblFlow',
+      metaTitle: 'Compras y facturas de proveedores sin reintroducir datos',
       metaDescription:
         'Solicitud de compra, pedido, recepción, factura de proveedor: TblFlow conecta cada paso en una sola base y prepara la conciliación, bajo su validación.',
       eyebrow: 'Caso de uso · Compras y contabilidad de proveedores',
@@ -203,7 +203,7 @@ const es = {
     'financial-close': {
       nav: 'Cierre y control financiero',
       card: 'Márgenes, EBITDA y presupuesto frente a real, sin copiar las exportaciones cada mes.',
-      metaTitle: 'Cierre mensual, márgenes y EBITDA sin hojas de cálculo copiadas | TblFlow',
+      metaTitle: 'Cierre mensual, márgenes y EBITDA sin copiar hojas | TblFlow',
       metaDescription:
         'Importe sus exportaciones contables, deje que las fórmulas recalculen márgenes, EBITDA y presupuesto frente a real, y reciba cada mes una síntesis para validar.',
       eyebrow: 'Caso de uso · Finanzas y control de gestión',
@@ -280,9 +280,9 @@ const es = {
     'stock-to-shipping': {
       nav: 'Del stock al envío',
       card: 'Inventarios, umbrales, reposición y preparación en una sola base.',
-      metaTitle: 'Stocks, inventarios y reposición sin reintroducir datos | TblFlow',
+      metaTitle: 'Stocks, inventarios y reposición sin reintroducir datos',
       metaDescription:
-        'Inventario rotativo, alertas de umbral, pedidos de reposición, preparación y envío: TblFlow conecta sus artículos, sus movimientos y sus pedidos, bajo su validación.',
+        'Inventario rotativo, alertas de umbral, pedidos de reposición, preparación y envío: TblFlow conecta artículos, movimientos y pedidos, bajo su validación.',
       eyebrow: 'Caso de uso · Stocks y logística',
       title: 'Del stock al envío, sin volver a contar en tres archivos',
       subtitle:
@@ -357,9 +357,9 @@ const es = {
     quality: {
       nav: 'Calidad y no conformidades',
       card: 'Controles, no conformidades y acciones correctivas seguidos de principio a fin.',
-      metaTitle: 'No conformidades y acciones correctivas sin fichas en papel | TblFlow',
+      metaTitle: 'No conformidades y acciones correctivas sin papel | TblFlow',
       metaDescription:
-        'Control, registro, decisión, acción correctiva: TblFlow vincula cada no conformidad con su lote, su coste de reproceso y su acción, y prepara los recordatorios bajo su validación.',
+        'Control, registro, decisión, acción correctiva: TblFlow vincula cada no conformidad con su lote, su coste de reproceso y su acción, y prepara recordatorios.',
       eyebrow: 'Caso de uso · Calidad y producción',
       title: 'Cada no conformidad seguida hasta su acción correctiva',
       subtitle:
@@ -513,7 +513,7 @@ const es = {
     leaders: {
       nav: 'Dirección',
       card: 'Ver lo que cuestan las reintroducciones de datos y decidir qué confiar.',
-      metaTitle: 'TblFlow para la dirección de pymes: vea lo que cuestan sus reintroducciones de datos',
+      metaTitle: 'TblFlow para la dirección: el coste de reintroducir datos',
       metaDescription:
         'Un mapa de sus procesos con sus costes estimados, la lista de los procesos donde más pierde, una vista de dirección imprimible y un informe mensual.',
       eyebrow: 'Para quién · Dirección',
@@ -555,9 +555,9 @@ const es = {
     finance: {
       nav: 'Finanzas y contabilidad',
       card: 'Compras, facturas, cierre y control sin copiar las exportaciones.',
-      metaTitle: 'TblFlow para finanzas: facturas, cierre y control sin reintroducir datos',
+      metaTitle: 'TblFlow para finanzas: facturas y cierre sin reintroducir',
       metaDescription:
-        'Para la dirección financiera, el control de gestión y la contabilidad: facturas de proveedores conciliadas, calendario de cobros, márgenes y EBITDA recalculados, síntesis mensual preparada.',
+        'Para dirección financiera, control de gestión y contabilidad: facturas de proveedores conciliadas, calendario de cobros, márgenes y EBITDA recalculados.',
       eyebrow: 'Para quién · Finanzas y contabilidad',
       title: 'El control financiero que falta entre su contabilidad y sus hojas de cálculo',
       subtitle:
@@ -597,9 +597,9 @@ const es = {
     'sales-admin': {
       nav: 'Administración de ventas',
       card: 'Del presupuesto a la factura sin copiar los pedidos.',
-      metaTitle: 'TblFlow para la administración de ventas: del presupuesto a la factura sin reintroducir datos',
+      metaTitle: 'Administración de ventas: del presupuesto a la factura',
       metaDescription:
-        'Presupuestos, pedidos, facturas y reclamaciones vinculados en una sola base: administración de ventas introduce los datos una vez, las automatizaciones hacen el resto y los agentes preparan las reclamaciones.',
+        'Presupuestos, pedidos, facturas y reclamaciones en una base: datos introducidos una vez, automatizaciones para el resto y agentes que preparan reclamaciones.',
       eyebrow: 'Para quién · Administración de ventas',
       title: 'Introduzca el pedido una vez, no en cada herramienta',
       subtitle:
@@ -639,9 +639,9 @@ const es = {
     manufacturing: {
       nav: 'Industria y producción',
       card: 'Calidad, aprovisionamiento y stocks gestionados alrededor del ERP.',
-      metaTitle: 'TblFlow para la industria: calidad, aprovisionamiento y stocks alrededor del ERP',
+      metaTitle: 'TblFlow para industria: calidad, aprovisionamiento y stocks',
       metaDescription:
-        'No conformidades, aprovisionamiento de materias, stocks y envío conectados alrededor de su ERP, con el coste de los reprocesos estimado y agentes bajo validación.',
+        'No conformidades, aprovisionamiento, stocks y envío conectados alrededor de su ERP, con el coste de los reprocesos estimado y agentes bajo validación.',
       eyebrow: 'Para quién · Industria y producción',
       title: 'Gestione el taller alrededor de su ERP, sin sustituirlo',
       subtitle:
@@ -681,9 +681,9 @@ const es = {
     retail: {
       nav: 'Comercio y distribución',
       card: 'Stocks, reposición, pedidos y posventa en una sola base.',
-      metaTitle: 'TblFlow para el comercio: stocks, reposición y posventa sin reintroducir datos',
+      metaTitle: 'TblFlow para el comercio: stocks, reposición y posventa',
       metaDescription:
-        'Inventarios rotativos, alertas de umbral, pedidos de reposición, preparación y posventa conectados en una sola base, con agentes que preparan y usted que valida.',
+        'Inventarios rotativos, alertas de umbral, pedidos de reposición, preparación y posventa conectados en una base, con agentes que preparan y usted que valida.',
       eyebrow: 'Para quién · Comercio y distribución',
       title: 'Stocks, reposición y posventa en una sola base',
       subtitle:
@@ -723,9 +723,9 @@ const es = {
     firms: {
       nav: 'Despachos y servicios',
       card: 'Misiones, expedientes, tiempo y facturación sin hojas de cálculo copiadas.',
-      metaTitle: 'TblFlow para despachos y empresas de servicios: misiones, expedientes y márgenes',
+      metaTitle: 'TblFlow para despachos: misiones, expedientes y márgenes',
       metaDescription:
-        'Para consultoría, asesoría contable y jurídica: misiones y expedientes con seguimiento, margen por misión, facturación y reclamaciones, procedimientos indexados.',
+        'Para consultoría, asesoría contable y jurídica: misiones y expedientes con seguimiento, margen por misión, facturación y reclamaciones.',
       eyebrow: 'Para quién · Despachos y servicios',
       title: 'Sus misiones y sus expedientes, de la carta de encargo al cobro',
       subtitle:

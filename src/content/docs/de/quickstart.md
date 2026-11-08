@@ -1,7 +1,7 @@
 ---
 title: "Schnellstart"
 translationKey: "quickstart"
-description: "Erstellen Sie Ihre erste TblFlow-Base, importieren Sie Daten, öffnen Sie eine zweite Ansicht und teilen Sie sie mit Ihrem Team, in fünf Minuten und ohne ein Wort SQL."
+description: "Erstellen Sie Ihre erste TblFlow-Base, importieren Sie Daten, öffnen Sie eine zweite Ansicht und teilen Sie sie mit Ihrem Team, in fünf Minuten ohne SQL."
 section: "Einstieg"
 order: 1
 ---

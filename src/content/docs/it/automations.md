@@ -1,7 +1,7 @@
 ---
 title: "Automazioni"
 translationKey: "automations"
-description: "Costruire un workflow TblFlow: trigger a evento e cron, fasi condizionali, chiamate in uscita e fasi di approvazione umana, con un registro delle esecuzioni riproducibile."
+description: "Costruire un workflow TblFlow: trigger a evento e cron, fasi condizionali, chiamate in uscita e approvazione umana, con un registro delle esecuzioni."
 section: "Guide"
 order: 3
 ---

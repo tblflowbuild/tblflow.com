@@ -1,5 +1,5 @@
 ---
-title: "“Where are you losing money?”: the answer on one page for management"
+title: "“Where are you losing money?”: one page for management"
 translationKey: "carto-executive"
 description: "A ranking of the leaks, an executive view you can print to PDF, and a monthly report by email."
 publishedAt: 2026-11-10

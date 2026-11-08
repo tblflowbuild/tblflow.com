@@ -1,7 +1,7 @@
 ---
-title: "Chercher un document par ce qu'il veut dire, pas par les mots qu'il contient"
+title: "Chercher un document par son sens, pas par ses mots"
 translationKey: "semantic-search-graph"
-description: "pgvector pour la recherche sémantique, fusionnée avec la recherche plein texte, plus un graphe de liens entre documents : ce que ça change pour un agent qui doit retrouver la bonne information."
+description: "pgvector pour la recherche sémantique, fusionnée avec la recherche plein texte, plus un graphe de liens entre documents : l'effet sur un agent."
 publishedAt: 2026-08-24
 author: "TblFlow"
 tags: ["ia", "recherche"]

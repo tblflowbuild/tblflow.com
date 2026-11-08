@@ -1,7 +1,7 @@
 ---
 title: "Créer votre première application"
 translationKey: "first-app"
-description: "Publier une application métier depuis une base TblFlow : générée par l'IA ou construite à la main, avec authentification visiteur, écriture de données et lien public."
+description: "Publier une application métier depuis une base TblFlow : générée par l'IA ou construite à la main, avec authentification visiteur et lien public."
 section: "Guides"
 order: 5
 ---

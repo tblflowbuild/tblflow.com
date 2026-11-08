@@ -23,9 +23,9 @@ const path = localePath(locale, 'compare');
 
 const meta = {
   de: {
-    title: 'TblFlow im Vergleich zu anderen Tools — detaillierte Vergleiche',
+    title: 'TblFlow im Vergleich zu anderen Tools: alle Vergleiche',
     description:
-      'Vollständige Vergleiche von TblFlow mit Airtable, Monday.com, Notion und Salesforce: überprüfbare Kriterien, wesentliche Unterschiede und die Fälle, in denen das andere Tool noch die bessere Wahl ist.',
+      'TblFlow im Vergleich mit Airtable, Monday.com, Notion und Salesforce: überprüfbare Kriterien, Unterschiede und Fälle, in denen das andere Tool besser ist.',
     h1: 'TblFlow im Vergleich zu anderen Tools',
     lede: `Ein Vergleich pro Tool, jeweils ${COMPARISON.length} Kriterien, und ein Abschnitt darüber, wo das andere Produkt gewinnt. Ohne das wäre es kein Vergleich.`,
     cta: 'Vergleich ansehen',
@@ -33,15 +33,15 @@ const meta = {
   en: {
     title: 'TblFlow versus other tools — detailed comparisons',
     description:
-      'Full comparisons of TblFlow against Airtable, Monday.com, Notion and Salesforce: verifiable criteria, substantive differences, and where the other tool is still the better choice.',
+      'Detailed comparisons of TblFlow with Airtable, Monday.com, Notion and Salesforce: verifiable criteria, real differences, and where the other tool is better.',
     h1: 'TblFlow versus other tools',
     lede: `One comparison per tool, ${COMPARISON.length} criteria each time, and a section saying where the other product wins. Without that it would not be a comparison.`,
     cta: 'Read the comparison',
   },
   es: {
-    title: 'TblFlow frente a otras herramientas — comparativas detalladas',
+    title: 'TblFlow frente a otras herramientas: comparativas',
     description:
-      'Comparativas completas de TblFlow con Airtable, Monday.com, Notion y Salesforce: criterios verificables, diferencias de fondo y los casos en los que la otra herramienta sigue siendo la mejor opción.',
+      'Comparativas de TblFlow con Airtable, Monday.com, Notion y Salesforce: criterios verificables, diferencias de fondo y cuándo la otra herramienta es mejor.',
     h1: 'TblFlow frente a otras herramientas',
     lede: `Una comparativa por herramienta, ${COMPARISON.length} criterios cada vez, y una sección que indica dónde gana el otro producto. Sin eso no sería una comparativa.`,
     cta: 'Ver la comparativa',
@@ -49,15 +49,15 @@ const meta = {
   fr: {
     title: 'TblFlow face aux autres outils — comparatifs détaillés',
     description:
-      'Comparatifs complets entre TblFlow et Airtable, Monday.com, Notion et Salesforce : critères vérifiables, différences de fond, et les cas où l’autre outil reste le meilleur choix.',
+      'Comparatifs entre TblFlow et Airtable, Monday.com, Notion et Salesforce : critères vérifiables, différences de fond et cas où l’autre outil l’emporte.',
     h1: 'TblFlow face aux autres outils',
     lede: `Un comparatif par outil, ${COMPARISON.length} critères à chaque fois, et une section qui dit où l’autre produit gagne. Sans quoi ce ne serait pas un comparatif.`,
     cta: 'Voir le comparatif',
   },
   it: {
-    title: 'TblFlow a confronto con altri strumenti — confronti dettagliati',
+    title: 'TblFlow a confronto con altri strumenti — in dettaglio',
     description:
-      'Confronti completi tra TblFlow e Airtable, Monday.com, Notion e Salesforce: criteri verificabili, differenze sostanziali e i casi in cui l’altro strumento resta la scelta migliore.',
+      'Confronti tra TblFlow e Airtable, Monday.com, Notion e Salesforce: criteri verificabili, differenze sostanziali e i casi in cui l’altro strumento è migliore.',
     h1: 'TblFlow a confronto con altri strumenti',
     lede: `Un confronto per ogni strumento, ${COMPARISON.length} criteri ogni volta, e una sezione che indica dove vince l’altro prodotto. Senza questo non sarebbe un confronto.`,
     cta: 'Vedi il confronto',
@@ -71,25 +71,25 @@ const meta = {
     cta: '比較を見る',
   },
   ru: {
-    title: 'TblFlow в сравнении с другими инструментами — подробные сравнения',
+    title: 'TblFlow в сравнении с другими инструментами',
     description:
-      'Полные сравнения TblFlow с Airtable, Monday.com, Notion и Salesforce: проверяемые критерии, существенные различия и случаи, где другой инструмент по-прежнему лучший выбор.',
+      'Сравнения TblFlow с Airtable, Monday.com, Notion и Salesforce: проверяемые критерии, существенные различия и случаи, где другой инструмент лучше.',
     h1: 'TblFlow в сравнении с другими инструментами',
     lede: `Одно сравнение на инструмент, по ${COMPARISON.length} критериев каждый раз, и раздел о том, где выигрывает другой продукт. Без этого это не было бы сравнением.`,
     cta: 'Смотреть сравнение',
   },
   tr: {
-    title: 'TblFlow diğer araçlarla karşılaştırıldığında — ayrıntılı karşılaştırmalar',
+    title: 'TblFlow diğer araçlarla karşılaştırıldığında',
     description:
-      'TblFlow ile Airtable, Monday.com, Notion ve Salesforce arasında tam karşılaştırmalar: doğrulanabilir kriterler, temel farklar ve diğer aracın hâlâ daha iyi seçim olduğu durumlar.',
+      'TblFlow ile Airtable, Monday.com, Notion ve Salesforce karşılaştırmaları: doğrulanabilir kriterler, temel farklar ve diğer aracın hâlâ daha iyi olduğu durumlar.',
     h1: 'TblFlow diğer araçlarla karşılaştırıldığında',
     lede: `Her araç için bir karşılaştırma, her seferinde ${COMPARISON.length} kriter ve diğer ürünün kazandığı yerleri gösteren bir bölüm. Bu olmadan bir karşılaştırma olmazdı.`,
     cta: 'Karşılaştırmayı gör',
   },
   uk: {
-    title: 'TblFlow порівняно з іншими інструментами — детальні порівняння',
+    title: 'TblFlow порівняно з іншими інструментами',
     description:
-      'Повні порівняння TblFlow з Airtable, Monday.com, Notion та Salesforce: перевірювані критерії, суттєві відмінності та випадки, коли інший інструмент усе ще кращий вибір.',
+      'Порівняння TblFlow з Airtable, Monday.com, Notion та Salesforce: перевірювані критерії, суттєві відмінності та випадки, коли інший інструмент кращий.',
     h1: 'TblFlow порівняно з іншими інструментами',
     lede: `Одне порівняння на інструмент, по ${COMPARISON.length} критеріїв щоразу, і розділ про те, де перемагає інший продукт. Без цього це не було б порівнянням.`,
     cta: 'Переглянути порівняння',

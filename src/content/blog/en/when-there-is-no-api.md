@@ -1,7 +1,7 @@
 ---
 title: "When there is no API: the agent takes the browser"
 translationKey: "no-api"
-description: "Half the tools a small company runs on expose no usable API. Here is how our agents drive a browser instead, and the guardrails without which that approach is a bad idea."
+description: "Half the tools a small company runs on have no usable API. Here is how our agents drive a browser instead, and the guardrails without which that is a bad idea."
 publishedAt: 2026-08-14
 author: "TblFlow"
 tags: ["ai", "agents", "automation"]

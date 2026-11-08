@@ -1,7 +1,7 @@
 ---
 title: "TblFlow CLI"
 translationKey: "cli"
-description: "TblFlow CLI（@tblflow/cli）のインストールと使い方を説明します。デバイスコードまたはサービストークンでの接続、コマンド、CSVインポート、エクスポート、ローカルMCPサーバーを扱います。"
+description: "TblFlow CLI（@tblflow/cli）のインストールと使い方：デバイスコードまたはサービストークンでの接続、コマンド、CSVインポート、エクスポート、ローカルMCPサーバー。"
 section: "ガイド"
 order: 8
 ---

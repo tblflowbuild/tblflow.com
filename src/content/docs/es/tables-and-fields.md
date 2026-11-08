@@ -1,7 +1,7 @@
 ---
 title: "Tablas y campos"
 translationKey: "tables-and-fields"
-description: "Los 28 tipos de campo de TblFlow, los registros vinculados, las búsquedas y los resúmenes, y en qué se convierte realmente cada uno dentro de tu base de datos PostgreSQL."
+description: "Los 28 tipos de campo de TblFlow, los registros vinculados, las búsquedas y los resúmenes, y en qué se convierte cada uno en tu base PostgreSQL."
 section: "Guías"
 order: 2
 ---

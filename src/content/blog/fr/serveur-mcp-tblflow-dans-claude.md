@@ -1,7 +1,7 @@
 ---
-title: "Serveur MCP officiel : travaillez sur vos données TblFlow depuis Claude"
+title: "Serveur MCP officiel : vos données TblFlow depuis Claude"
 translationKey: "mcp-server"
-description: "TblFlow ouvre un serveur MCP officiel : connectez votre espace à Claude, choisissez ce qu'il peut voir et faire, et travaillez sur vos données depuis la conversation."
+description: "TblFlow ouvre un serveur MCP officiel : connectez votre espace à Claude, choisissez ce qu'il peut voir et faire, et travaillez sur vos données en conversation."
 publishedAt: 2026-11-01
 author: "TblFlow"
 tags: ["mcp", "claude", "produit"]

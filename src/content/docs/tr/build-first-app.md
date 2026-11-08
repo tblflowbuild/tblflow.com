@@ -1,7 +1,7 @@
 ---
 title: "İlk uygulamanızı oluşturun"
 translationKey: "first-app"
-description: "Bir TblFlow tabanından iş uygulaması yayınlayın: yapay zeka ile oluşturulmuş veya elle hazırlanmış, ziyaretçi kimlik doğrulaması, veri yazma denetimi ve herkese açık bir bağlantıyla."
+description: "TblFlow tabanından iş uygulaması yayınlayın: yapay zeka ile oluşturulmuş veya elle hazırlanmış, ziyaretçi kimlik doğrulaması ve herkese açık bağlantıyla."
 section: "Kılavuzlar"
 order: 5
 ---

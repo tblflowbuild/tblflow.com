@@ -1,7 +1,7 @@
 ---
 title: "Permisos y roles"
 translationKey: "permissions"
-description: "Gestionar los permisos en TblFlow: los cinco roles predeterminados y sus derechos, la creación de roles personalizados en un espacio, una base o una tabla, y las reglas que conviene conocer."
+description: "Gestionar los permisos en TblFlow: los cinco roles predeterminados y sus derechos, y la creación de roles personalizados en un espacio, una base o una tabla."
 section: "Guías"
 order: 7
 ---

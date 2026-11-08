@@ -13,7 +13,7 @@ const tr = {
     forNav: 'Kimler için?',
     useCasesNav: 'Kullanım senaryoları',
     forIndex: {
-      metaTitle: 'TblFlow kimler için? Yöneticiler, finans, satış operasyonları, sanayi, perakende, ofisler',
+      metaTitle: 'TblFlow kimler için? Yöneticiler, finans, satış, sanayi',
       metaDescription:
         "TblFlow, aynı bilgiyi araçtan araca yeniden giren KOBİ'lere yöneliktir: yöneticiler, finans, satış operasyonları, sanayi, perakende ve hizmet ofisleri.",
       title: 'Kimler için?',
@@ -21,9 +21,9 @@ const tr = {
         "Excel ve bir düzine araçla çalışan KOBİ'ler için. Her meslek grubu başka bir şeyi yeniden giriyor: TblFlow'un sizinki için neyi değiştirdiği aşağıda.",
     },
     useCasesIndex: {
-      metaTitle: 'TblFlow kullanım senaryoları: tekliften tahsilata, satın alma, kapanış, stok, kalite',
+      metaTitle: 'TblFlow senaryoları: tekliften tahsilata, stok, kalite',
       metaDescription:
-        "Aynı bilginin araçtan araca yeniden girildiği altı uçtan uca akış; TblFlow bunları nasıl haritalıyor, otomatikleştiriyor ve onayınız altında ajanlara emanet ediyor.",
+        "Aynı bilginin araçtan araca yeniden girildiği altı uçtan uca akış; TblFlow bunları haritalar, otomatikleştirir ve onayınız altında ajanlara bırakır.",
       title: 'Kullanım senaryoları',
       subtitle:
         'Aynı bilginin elden ele ve araçtan araca geçtiği altı akış. Her biri için: bugün neye mal olduğu ve TblFlow ile ne olduğu.',
@@ -51,7 +51,7 @@ const tr = {
       card: 'Araçlar arasında yeniden giriş yapmadan teklif, sipariş, fatura ve hatırlatma.',
       metaTitle: 'Yeniden giriş yapmadan tekliften tahsilata | TblFlow',
       metaDescription:
-        "Teklif Word'de, sipariş Excel'de, fatura başka yerde: TblFlow teklifi, siparişi, faturayı ve hatırlatmayı tek bir veritabanında birleştirir; otomasyonlar ve ajanlar onayınız altında çalışır.",
+        "Teklif Word'de, sipariş Excel'de, fatura başka yerde: TblFlow bunları tek veritabanında birleştirir; otomasyonlar ve ajanlar onayınız altında çalışır.",
       eyebrow: 'Kullanım senaryosu · Satış ve faturalandırma',
       title: 'Tekliften tahsilata, aynı tutarı dört kez yeniden yazmadan',
       subtitle:
@@ -126,7 +126,7 @@ const tr = {
     'procure-to-pay': {
       nav: 'İhtiyaçtan tedarikçi ödemesine',
       card: 'Birbirine bağlı satın alma talepleri, siparişler, teslim alma kayıtları ve tedarikçi faturaları.',
-      metaTitle: 'Yeniden giriş yapmadan satın alma ve tedarikçi faturaları | TblFlow',
+      metaTitle: 'Yeniden giriş yapmadan satın alma ve tedarikçi faturaları',
       metaDescription:
         'Satın alma talebi, sipariş, teslim alma, tedarikçi faturası: TblFlow her adımı tek bir veritabanında birleştirir ve eşleştirmeyi onayınız altında hazırlar.',
       eyebrow: 'Kullanım senaryosu · Satın alma ve tedarikçi muhasebesi',
@@ -203,7 +203,7 @@ const tr = {
     'financial-close': {
       nav: 'Kapanış ve finansal yönetim',
       card: 'Marjlar, FAVÖK ve bütçe-gerçekleşen, her ay dışa aktarımları yeniden kopyalamadan.',
-      metaTitle: 'Yeniden kopyalanan tablolar olmadan aylık kapanış, marjlar ve FAVÖK | TblFlow',
+      metaTitle: 'Aylık kapanış, marjlar ve FAVÖK, tablo kopyalamadan',
       metaDescription:
         'Muhasebe dışa aktarımlarınızı içe aktarın, formüller marjları, FAVÖK\'ü ve bütçe-gerçekleşen farkını yeniden hesaplasın; her ay onaylayacağınız bir özet alın.',
       eyebrow: 'Kullanım senaryosu · Finans ve yönetim kontrolü',
@@ -280,9 +280,9 @@ const tr = {
     'stock-to-shipping': {
       nav: 'Stoktan sevkiyata',
       card: 'Sayımlar, eşikler, yeniden stoklama ve hazırlık tek bir veritabanında.',
-      metaTitle: 'Yeniden giriş yapmadan stok, sayım ve yeniden stoklama | TblFlow',
+      metaTitle: 'Yeniden giriş yapmadan stok, sayım ve yeniden stoklama',
       metaDescription:
-        'Döngüsel sayım, eşik uyarıları, yeniden stoklama siparişleri, hazırlık ve sevkiyat: TblFlow ürünlerinizi, hareketlerinizi ve siparişlerinizi onayınız altında birbirine bağlar.',
+        'Döngüsel sayım, eşik uyarıları, yeniden stoklama siparişleri, hazırlık ve sevkiyat: TblFlow ürünlerinizi, hareketlerinizi ve siparişlerinizi onayınızla bağlar.',
       eyebrow: 'Kullanım senaryosu · Stok ve lojistik',
       title: 'Stoktan sevkiyata, üç dosyada yeniden saymadan',
       subtitle:
@@ -357,9 +357,9 @@ const tr = {
     quality: {
       nav: 'Kalite ve uygunsuzluklar',
       card: 'Kontroller, uygunsuzluklar ve düzeltici faaliyetler baştan sona izlenir.',
-      metaTitle: 'Kâğıt formlar olmadan uygunsuzluklar ve düzeltici faaliyetler | TblFlow',
+      metaTitle: 'Kâğıt formlar olmadan uygunsuzluklar ve düzeltici faaliyet',
       metaDescription:
-        'Kontrol, kayıt, karar, düzeltici faaliyet: TblFlow her uygunsuzluğu partisine, yeniden işleme maliyetine ve faaliyetine bağlar; hatırlatmaları onayınız altında hazırlar.',
+        'Kontrol, kayıt, karar, düzeltici faaliyet: TblFlow her uygunsuzluğu parti, yeniden işleme maliyeti ve faaliyete bağlar; hatırlatmaları onayınızla hazırlar.',
       eyebrow: 'Kullanım senaryosu · Kalite ve üretim',
       title: 'Her uygunsuzluk, düzeltici faaliyetine kadar izlenir',
       subtitle:
@@ -513,7 +513,7 @@ const tr = {
     leaders: {
       nav: 'Yöneticiler',
       card: 'Yeniden girişlerin maliyetini görün ve neyi emanet edeceğinize karar verin.',
-      metaTitle: "KOBİ yöneticileri için TblFlow: yeniden girişlerinizin maliyetini görün",
+      metaTitle: "KOBİ yöneticileri için TblFlow: yeniden girişin maliyeti",
       metaDescription:
         'Tahmini maliyetleriyle süreçlerinizin haritası, en çok kaybettiğiniz süreçlerin listesi, yazdırılabilir bir yönetim görünümü ve aylık bir rapor.',
       eyebrow: 'Kimler için · Yöneticiler',
@@ -555,9 +555,9 @@ const tr = {
     finance: {
       nav: 'Finans ve muhasebe',
       card: 'Dışa aktarımları kopyalamadan satın alma, faturalar, kapanış ve yönetim.',
-      metaTitle: 'Finans için TblFlow: yeniden giriş yapmadan faturalar, kapanış ve yönetim',
+      metaTitle: 'Finans için TblFlow: faturalar, kapanış ve yönetim',
       metaDescription:
-        'Finans direktörü, yönetim kontrolü ve muhasebe için: eşleştirilmiş tedarikçi faturaları, müşteri vade planı, yeniden hesaplanan marjlar ve FAVÖK, hazırlanmış aylık özet.',
+        'Finans direktörü, yönetim kontrolü ve muhasebe için: eşleştirilmiş tedarikçi faturaları, müşteri vade planı, yeniden hesaplanan marjlar ve FAVÖK, aylık özet.',
       eyebrow: 'Kimler için · Finans ve muhasebe',
       title: 'Muhasebeniz ile tablolarınız arasında eksik olan finansal yönetim',
       subtitle:
@@ -597,9 +597,9 @@ const tr = {
     'sales-admin': {
       nav: 'Satış operasyonları',
       card: 'Siparişleri kopyalamadan tekliften faturaya.',
-      metaTitle: 'Satış operasyonları için TblFlow: yeniden giriş yapmadan tekliften faturaya',
+      metaTitle: 'Satış operasyonları için TblFlow: tekliften faturaya',
       metaDescription:
-        'Teklifler, siparişler, faturalar ve hatırlatmalar tek bir veritabanında birbirine bağlı: satış operasyonları bir kez girer, otomasyonlar gerisini yapar, ajanlar hatırlatmaları hazırlar.',
+        'Teklifler, siparişler, faturalar ve hatırlatmalar tek veritabanında bağlı: satış operasyonları bir kez girer, otomasyonlar gerisini yapar, ajanlar hazırlar.',
       eyebrow: 'Kimler için · Satış operasyonları',
       title: 'Siparişi her araca değil, bir kez girin',
       subtitle:
@@ -639,7 +639,7 @@ const tr = {
     manufacturing: {
       nav: 'Sanayi ve üretim',
       card: "ERP'nin etrafında yönetilen kalite, tedarik ve stok.",
-      metaTitle: "Sanayi için TblFlow: ERP'nin etrafında kalite, tedarik ve stok",
+      metaTitle: "Sanayi için TblFlow: ERP çevresinde kalite, tedarik, stok",
       metaDescription:
         "Uygunsuzluklar, hammadde tedariki, stok ve sevkiyat ERP'nizin etrafında birbirine bağlı; tahmini yeniden işleme maliyeti ve onay altında çalışan ajanlarla.",
       eyebrow: 'Kimler için · Sanayi ve üretim',
@@ -681,9 +681,9 @@ const tr = {
     retail: {
       nav: 'Perakende ve dağıtım',
       card: 'Stok, yeniden stoklama, siparişler ve satış sonrası hizmet tek bir veritabanında.',
-      metaTitle: 'Perakende için TblFlow: yeniden giriş yapmadan stok, yeniden stoklama ve satış sonrası hizmet',
+      metaTitle: 'Perakende için TblFlow: stok ve yeniden stoklama',
       metaDescription:
-        'Döngüsel sayımlar, eşik uyarıları, yeniden stoklama siparişleri, hazırlık ve satış sonrası hizmet tek bir veritabanında birbirine bağlı; ajanlar hazırlar, siz onaylarsınız.',
+        'Döngüsel sayımlar, eşik uyarıları, yeniden stoklama siparişleri, hazırlık ve satış sonrası hizmet tek veritabanında bağlı; ajanlar hazırlar, siz onaylarsınız.',
       eyebrow: 'Kimler için · Perakende ve dağıtım',
       title: 'Stok, yeniden stoklama ve satış sonrası hizmet tek bir veritabanında',
       subtitle:
@@ -723,7 +723,7 @@ const tr = {
     firms: {
       nav: 'Ofisler ve hizmetler',
       card: 'Yeniden kopyalanan tablolar olmadan görevler, dosyalar, süre ve faturalandırma.',
-      metaTitle: 'Ofisler ve hizmet şirketleri için TblFlow: görevler, dosyalar ve marjlar',
+      metaTitle: 'Ofisler için TblFlow: görevler, dosyalar ve marjlar',
       metaDescription:
         'Danışmanlık, mali müşavirlik ve hukuk için: izlenen görevler ve dosyalar, görev başına marj, faturalandırma ve hatırlatmalar, dizinlenmiş prosedürler.',
       eyebrow: 'Kimler için · Ofisler ve hizmetler',

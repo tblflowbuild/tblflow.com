@@ -1,7 +1,7 @@
 ---
 title: "Automatisations"
 translationKey: "automations"
-description: "Construire un workflow TblFlow : déclencheurs événementiels ou cron, étapes conditionnelles, appels externes et étapes d'approbation humaine, avec journal d'exécution."
+description: "Construire un workflow TblFlow : déclencheurs événementiels ou cron, étapes conditionnelles, appels externes, approbation humaine et journal d'exécution."
 section: "Guides"
 order: 3
 ---

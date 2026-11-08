@@ -1,7 +1,7 @@
 ---
 title: "Süreç haritası"
 translationKey: "process-map"
-description: "Bir alanın süreç haritasını oluşturun, süreçleri çizin, kopuklukları ve tahmini maliyetleri okuyun, Değiştir'i kullanın; ardından gözden geçirmeleri takip edin, gerçek maliyetleri ölçün ve yönetime sunun."
+description: "Bir alanın süreç haritasını oluşturun, süreçleri çizin, kopuklukları ve tahmini maliyetleri okuyun, Değiştir'i kullanın; gözden geçirmeleri takip edin."
 section: "Kılavuzlar"
 order: 5
 ---

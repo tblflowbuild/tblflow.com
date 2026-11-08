@@ -1,7 +1,7 @@
 ---
 title: "Berechtigungen und Rollen"
 translationKey: "permissions"
-description: "Berechtigungen in TblFlow verwalten: die fünf Standardrollen und ihre Rechte, benutzerdefinierte Rollen für einen Space, eine Base oder eine Tabelle und die wichtigsten Regeln."
+description: "Berechtigungen in TblFlow verwalten: die fünf Standardrollen, benutzerdefinierte Rollen für einen Space, eine Base oder eine Tabelle und die wichtigsten Regeln."
 section: "Anleitungen"
 order: 7
 ---

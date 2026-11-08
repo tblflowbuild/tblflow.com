@@ -1,7 +1,7 @@
 ---
 title: "Automatisierungen"
 translationKey: "automations"
-description: "Einen TblFlow-Workflow aufbauen: Ereignis- und Cron-Trigger, bedingte Schritte, ausgehende Aufrufe und Schritte mit menschlicher Freigabe, mit wiedergebbarem Laufprotokoll."
+description: "Einen TblFlow-Workflow aufbauen: Ereignis- und Cron-Trigger, Bedingungen, ausgehende Aufrufe, Freigabeschritte und ein wiedergebbares Laufprotokoll."
 section: "Anleitungen"
 order: 3
 ---

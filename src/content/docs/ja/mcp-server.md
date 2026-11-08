@@ -1,7 +1,7 @@
 ---
 title: "MCPサーバー"
 translationKey: "mcp-server"
-description: "公式MCPサーバーでTblFlowをClaudeに接続します。接続方法、利用できるツール、権限とスペースの選択、自動化とエージェントの公開、制限、トラブルシューティングを説明します。"
+description: "公式MCPサーバーでTblFlowをClaudeに接続します。接続方法、利用できるツール、権限とスペースの選択、自動化とエージェントの公開、制限を説明します。"
 section: "ガイド"
 order: 6
 ---

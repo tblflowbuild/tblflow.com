@@ -1,7 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import { useTranslations } from '@/i18n/ui';
-import { localePath } from '@/i18n/utils';
+import { localePath, brandTitle } from '@/i18n/utils';
 import { LOCALES, type Locale } from '@/config';
 import {
   COOKIES_TITLE,
@@ -27,7 +27,7 @@ const breadcrumbs = [
 
 <Base
   locale={locale}
-  title={`${COOKIES_TITLE[locale]} — TblFlow`}
+  title={brandTitle(COOKIES_TITLE[locale])}
   description={COOKIES_LEDE[locale]}
   path={path}
   breadcrumbs={breadcrumbs}

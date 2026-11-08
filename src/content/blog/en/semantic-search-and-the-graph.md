@@ -1,7 +1,7 @@
 ---
-title: "Finding a document by what it means, not the words it contains"
+title: "Finding a document by what it means, not by its words"
 translationKey: "semantic-search-graph"
-description: "pgvector for semantic search, fused with full-text search, plus a link graph between documents: what that changes for an agent that has to find the right information."
+description: "pgvector for semantic search, fused with full-text search, plus a link graph between documents: what that changes for an agent looking for information."
 publishedAt: 2026-08-24
 author: "TblFlow"
 tags: ["ai", "search"]

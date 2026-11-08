@@ -1,5 +1,5 @@
 ---
-title: "« Où perdez-vous de l'argent ? » : la réponse en une page pour la direction"
+title: "« Où perdez-vous de l'argent ? » : la réponse en une page"
 translationKey: "carto-executive"
 description: "Classement des fuites, vue direction imprimable en PDF et rapport mensuel par courriel."
 publishedAt: 2026-11-10

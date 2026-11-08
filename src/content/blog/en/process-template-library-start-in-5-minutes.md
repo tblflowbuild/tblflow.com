@@ -1,5 +1,5 @@
 ---
-title: "Process template library: start from a template, not a blank page"
+title: "Process templates: start from a template, not a blank page"
 translationKey: "carto-library"
 description: "13 ready-to-import processes, grouped by sector, and a per-step validation to know what has been approved."
 publishedAt: 2026-11-12

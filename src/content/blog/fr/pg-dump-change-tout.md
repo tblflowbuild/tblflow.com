@@ -1,7 +1,7 @@
 ---
 title: "Ce qu'un pg_dump change dans une négociation de contrat"
 translationKey: "pg-dump-changes-everything"
-description: "L'auto-hébergement TblFlow est payant, sur devis. Ce qui est gratuit, à tous les paliers : la portabilité réelle de vos données via un pg_dump standard, sans conversion."
+description: "L'auto-hébergement TblFlow est payant, sur devis. Ce qui est gratuit à tous les paliers : la portabilité réelle de vos données via un pg_dump standard."
 publishedAt: 2026-08-22
 author: "TblFlow"
 tags: ["auto-hébergement", "postgresql"]

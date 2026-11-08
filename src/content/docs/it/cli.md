@@ -1,7 +1,7 @@
 ---
 title: "CLI di TblFlow"
 translationKey: "cli"
-description: "Installare e usare la CLI di TblFlow (@tblflow/cli): accesso con codice dispositivo o token di servizio, comandi, importazione CSV, esportazione e server MCP locale."
+description: "Installare e usare la CLI di TblFlow (@tblflow/cli): accesso con codice dispositivo o token, comandi, importazione CSV, esportazione e server MCP locale."
 section: "Guide"
 order: 8
 ---

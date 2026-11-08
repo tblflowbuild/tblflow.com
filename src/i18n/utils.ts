@@ -61,3 +61,20 @@ export function readingTime(markdown: string): number {
   const words = markdown.trim().split(/\s+/).length;
   return Math.max(1, Math.round(words / 200));
 }
+
+/** Rough search-result width: CJK and full-width characters count double. */
+export function displayWidth(text: string): number {
+  return [...text].reduce((w, c) => w + (/[　-鿿＀-￯]/.test(c) ? 2 : 1), 0);
+}
+
+/** Search engines cut a title past ~60 characters. */
+export const TITLE_MAX = 60;
+
+/**
+ * Appends the brand only when it still fits: a cut-off title loses the words
+ * that say what the page is, and the brand is already in the site name.
+ */
+export function brandTitle(title: string): string {
+  const branded = `${title} — TblFlow`;
+  return displayWidth(branded) <= TITLE_MAX ? branded : title;
+}

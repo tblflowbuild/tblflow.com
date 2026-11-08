@@ -1,7 +1,7 @@
 ---
 title: "Process map"
 translationKey: "process-map"
-description: "Create a space's process map, draw the processes, read the breaks and the estimated costs, use Replace, then track reviews, measure actual costs and report to management."
+description: "Create a space's process map, draw the processes, read the breaks and estimated costs, use Replace, then track reviews, measure actual costs and report."
 section: "Guides"
 order: 5
 ---

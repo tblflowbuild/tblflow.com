@@ -1,7 +1,7 @@
 ---
 title: "Le CLI TblFlow : vos bases depuis le terminal et la CI"
 translationKey: "cli"
-description: "Le CLI TblFlow est publié sur npm : connexion par code appareil ou jeton de service, import et export CSV, automatisations et agents, et un serveur MCP local pour Claude Code ou Cursor."
+description: "Le CLI TblFlow est publié sur npm : connexion par code appareil ou jeton de service, import et export CSV, automatisations, agents et serveur MCP local."
 publishedAt: 2026-11-07
 author: "TblFlow"
 tags: ["cli", "mcp", "produit"]

@@ -1,5 +1,5 @@
 ---
-title: "Procédures périmées : laissez la Carto des process vous prévenir"
+title: "Procédures périmées : la Carto des process vous prévient"
 translationKey: "carto-alerts"
 description: "Une fiche procédure par processus, un propriétaire, une date de revue, et un courriel chaque lundi quand une relecture est due."
 publishedAt: 2026-11-03

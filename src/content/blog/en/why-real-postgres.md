@@ -1,7 +1,7 @@
 ---
-title: "Why TblFlow writes to real Postgres, and what that actually costs"
+title: "Why TblFlow writes to real Postgres, and what it costs"
 translationKey: "real-postgres"
-description: "Most no-code databases store your data in a format of their own. TblFlow creates one real PostgreSQL table per table. Here are the concrete consequences, including the unpleasant ones."
+description: "Most no-code databases store data in their own format. TblFlow creates one real PostgreSQL table per table. The consequences, unpleasant ones included."
 publishedAt: 2026-08-12
 author: "TblFlow"
 tags: ["postgresql", "architecture"]

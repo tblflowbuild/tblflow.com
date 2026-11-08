@@ -1,7 +1,7 @@
 ---
 title: "Habilitations et rôles"
 translationKey: "permissions"
-description: "Gérer les habilitations dans TblFlow : les cinq rôles par défaut et leurs droits, la création de rôles personnalisés sur un espace, une base ou une table, et les règles à connaître."
+description: "Gérer les habilitations dans TblFlow : les cinq rôles par défaut et leurs droits, les rôles personnalisés sur un espace, une base ou une table, et les règles."
 section: "Guides"
 order: 7
 ---

@@ -9,7 +9,7 @@
  */
 import Base from '@/layouts/Base.astro';
 import { useTranslations } from '@/i18n/ui';
-import { localePath } from '@/i18n/utils';
+import { localePath, brandTitle } from '@/i18n/utils';
 import { LOCALES, type Locale } from '@/config';
 import { LEGAL_NOTICE_TITLE, LEGAL_NOTICE_NOTE, LEGAL_NOTICE_SECTIONS } from '@/data/legal';
 
@@ -29,7 +29,7 @@ const breadcrumbs = [
 
 <Base
   locale={locale}
-  title={`${LEGAL_NOTICE_TITLE[locale]} — TblFlow`}
+  title={brandTitle(LEGAL_NOTICE_TITLE[locale])}
   description={LEGAL_NOTICE_TITLE[locale]}
   path={path}
   breadcrumbs={breadcrumbs}

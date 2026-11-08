@@ -1,7 +1,7 @@
 ---
 title: "KI-Agenten"
 translationKey: "ai-agents"
-description: "Einen TblFlow-Agenten konfigurieren: Modellanbieter, Tool-Umfang, dauerhaftes Graph-Gedächtnis, Zeitplanung und Vorschläge, die genehmigt werden müssen, bevor etwas geschrieben wird."
+description: "Einen TblFlow-Agenten konfigurieren: Modellanbieter, Tool-Umfang, Graph-Gedächtnis, Zeitplanung und Vorschläge, die vor dem Schreiben genehmigt werden müssen."
 section: "Anleitungen"
 order: 4
 ---
