@@ -687,14 +687,14 @@ export const ui = {
     'why.subtitle': 'Quello che gli altri strumenti non fanno.',
 
     'compare.title': 'Confronto',
-    'compare.subtitle': 'Rispetto alle piattaforme che già conoscete.',
+    'compare.subtitle': 'Rispetto alle piattaforme che già conosci.',
     'compare.feature': 'Funzionalità',
     'compare.yes': 'Sì',
     'compare.no': 'No',
     'compare.partial': 'Parziale',
 
     'pricing.title': 'Prezzi',
-    'pricing.subtitle': 'Iniziate gratis. Cambiate piano quando il team cresce.',
+    'pricing.subtitle': 'Inizia gratis. Cambia piano quando il team cresce.',
     'pricing.perTeam': "Prezzo per team, non per persona",
     'pricing.from': "Da",
     'pricing.seatExtra': "+{price} / mese per persona aggiuntiva",
@@ -708,7 +708,7 @@ export const ui = {
     'pricing.compare': 'Confronta i piani in dettaglio',
     'pricing.selfhost.title': 'Serve il self-hosting?',
     'pricing.selfhost.body':
-      "L'installazione sulla vostra infrastruttura o in una VPC dedicata fa parte del piano Enterprise, su preventivo, con tutte le funzionalità sbloccate.",
+      "L'installazione sulla tua infrastruttura o in una VPC dedicata fa parte del piano Enterprise, su preventivo, con tutte le funzionalità sbloccate.",
     'pricing.selfhost.cta': 'Contatta il supporto',
 
     'faq.title': 'Domande frequenti',
@@ -740,7 +740,7 @@ export const ui = {
     'docs.toc': 'Indice',
     'docs.previous': 'Precedente',
     'docs.next': 'Successivo',
-    'docs.help': 'Una domanda a cui non rispondiamo qui? Scriveteci a ',
+    'docs.help': 'Una domanda a cui non rispondiamo qui? Scrivici a ',
 
     'footer.product': 'Prodotto',
     'footer.resources': 'Risorse',
@@ -759,7 +759,7 @@ export const ui = {
     'footer.nav.appNotice': 'Note legali dell’applicazione',
     'surfaces.eyebrow': 'Panoramica',
     'surfaces.title': 'Una piattaforma, sei superfici',
-    'surfaces.subtitle': 'I vostri dati strutturati diventano software funzionante, senza uscire dalla piattaforma.',
+    'surfaces.subtitle': 'I tuoi dati strutturati diventano software funzionante, senza uscire dalla piattaforma.',
     'surfaces.mock.api': 'API visitatore',
     'surfaces.mock.writes': 'scrive nella tabella',
     'views.kanban.todo': 'Da fare',
@@ -775,7 +775,7 @@ export const ui = {
     'views.title6': 'Sei modi per vedere la stessa tabella',
 
     'compare.lede': 'Un confronto dettagliato per ogni strumento, con criteri verificabili e i casi in cui l’altro prodotto vince.',
-    'views.subtitle6': 'Cambiate vista senza duplicare nemmeno una riga di dati.',
+    'views.subtitle6': 'Cambia vista senza duplicare nemmeno una riga di dati.',
 
     'consent.title': 'Le tue preferenze sulla privacy',
     'consent.body': 'Usiamo Google Analytics per capire come viene utilizzato questo sito. Nulla viene attivato senza il tuo consenso.',

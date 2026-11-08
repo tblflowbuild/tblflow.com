@@ -423,38 +423,38 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
     "steps": [
       {
         "label": "Il problema",
-        "title": "I vostri dati esistono già. Solo che non circolano.",
+        "title": "I tuoi dati esistono già. Solo che non circolano.",
         "body": "Un preventivo in uno strumento, l’ordine in un foglio di calcolo, la fattura in un terzo: la stessa informazione viene digitata più volte, da persone che di mestiere fanno altro."
       },
       {
         "label": "Capire",
-        "title": "Iniziate facendo capire a TblFlow la vostra azienda",
-        "body": "Caricate le vostre procedure in PDF o Markdown e collegate gli strumenti che già usate. DocIndex indicizza questa documentazione: il team la consulta, l’IA la utilizza."
+        "title": "Inizia facendo capire a TblFlow la tua azienda",
+        "body": "Carica le tue procedure in PDF o Markdown e collega gli strumenti che già usi. DocIndex indicizza questa documentazione: il team la consulta, l’IA la utilizza."
       },
       {
         "label": "Mappare",
-        "title": "Ottenete la mappa dei vostri processi, poi affinatela",
-        "body": "TblFlow genera la mappa dai vostri documenti e strumenti: chi fa cosa, con quale strumento, dove l’informazione viene ridigitata. Voi la correggete e completate, inserite volumi e tariffe, e TblFlow stima quanto costa ogni passaggio."
+        "title": "Ottieni la mappa dei tuoi processi, poi affinala",
+        "body": "TblFlow genera la mappa dai tuoi documenti e strumenti: chi fa cosa, con quale strumento, dove l’informazione viene ridigitata. Tu la correggi e completi, inserisci volumi e tariffe, e TblFlow stima quanto costa ogni passaggio."
       },
       {
         "label": "Costruire",
-        "title": "TblFlow genera le tabelle che sostituiscono i vostri strumenti",
+        "title": "TblFlow genera le tabelle che sostituiscono i tuoi strumenti",
         "body": "A partire dalla mappa: analisi, blueprint, tabelle, relazioni, interfaccia, automazioni, agenti. Le regole di business sono integrate, gli altri strumenti restano collegati per non interrompere i flussi, i dati vengono importati e le vecchie applicazioni possono essere dismesse."
       },
       {
         "label": "Automatizzare",
-        "title": "Automatizzate prima ciò che segue una regola",
+        "title": "Automatizza prima ciò che segue una regola",
         "body": "Quando un passaggio segue una regola semplice, basta un’automazione: prevedibile, veloce, senza chiamate all’IA. Gli agenti arrivano dopo, dove bisogna leggere, valutare o scrivere."
       },
       {
         "label": "Affidare agli agenti",
-        "title": "Affidate il resto ad agenti che conoscono la vostra azienda",
-        "body": "Gli agenti si basano sulle vostre tabelle e sulle procedure interne indicizzate in DocIndex. Propongono, voi approvate: nulla si attiva senza il vostro consenso."
+        "title": "Affida il resto ad agenti che conoscono la tua azienda",
+        "body": "Gli agenti si basano sulle tue tabelle e sulle procedure interne indicizzate in DocIndex. Propongono, tu approvi: nulla si attiva senza il tuo consenso."
       },
       {
         "label": "Restituire tempo",
         "title": "I compiti ripetitivi agli agenti. Le relazioni alle persone.",
-        "body": "Il tempo liberato si reinveste dove il vostro team fa la differenza: la relazione con il cliente, la consulenza, la decisione. Ridefinite i ruoli insieme e accompagnate il cambiamento."
+        "body": "Il tempo liberato si reinveste dove il tuo team fa la differenza: la relazione con il cliente, la consulenza, la decisione. Ridefinisci i ruoli insieme al team e accompagna il cambiamento."
       }
     ],
     "docs": {
@@ -488,7 +488,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
     },
     "split": {
       "agents": "Affidato agli agenti",
-      "team": "Al vostro team",
+      "team": "Al tuo team",
       "agentItems": [
         "Inserimento degli ordini",
         "Solleciti delle fatture",
@@ -501,15 +501,15 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       ]
     },
     "keep": {
-      "title": "Ciò che conservate",
+      "title": "Ciò che conservi",
       "items": [
         {
-          "title": "I vostri dati",
+          "title": "I tuoi dati",
           "body": "In un vero PostgreSQL, esportabile e self-hosted."
         },
         {
           "title": "La decisione",
-          "body": "Ciò che l’IA genera resta inattivo finché non lo approvate."
+          "body": "Ciò che l’IA genera resta inattivo finché non lo approvi."
         },
         {
           "title": "La leggibilità",
