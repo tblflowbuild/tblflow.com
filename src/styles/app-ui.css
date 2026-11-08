@@ -439,3 +439,67 @@
 [data-armed] .tf-spin {
   animation: tf-spin 800ms linear infinite;
 }
+
+/* ---------------------------------------------------------------------------
+ * Home journey: a thread on the left links the steps 01 to 07, with a dot at
+ * each step's number. Armed by scripts/scenes.ts, the text rises and the thread
+ * is drawn once, when the step scrolls into view.
+ * ------------------------------------------------------------------------- */
+.step-track {
+  --rail-x: 16px;
+  --rail-pad: 40px;
+  padding-left: var(--rail-pad);
+}
+@media (min-width: 640px) {
+  .step-track {
+    --rail-x: 24px;
+    --rail-pad: 56px;
+  }
+}
+.step-rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--rail-x);
+  width: 1px;
+  background: var(--border);
+}
+.step-rail::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--fg-subtle);
+  transform-origin: center top;
+}
+.step-mark {
+  position: relative;
+}
+.step-mark::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: calc(var(--rail-x) - var(--rail-pad) - 3.5px);
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border: 1px solid var(--fg-subtle);
+  border-radius: 50%;
+  background: var(--fg-subtle);
+  transition: background-color 300ms var(--ease-out-soft);
+}
+[data-reveal-armed]:not([data-revealed]) .rv {
+  opacity: 0;
+}
+[data-reveal-armed]:not([data-revealed]) .step-rail::before {
+  transform: scaleY(0);
+}
+[data-reveal-armed]:not([data-revealed]) .step-mark::before {
+  background: var(--bg);
+}
+[data-revealed] .rv {
+  animation: sc-rise 500ms var(--ease-out-soft) both;
+  animation-delay: calc(var(--d, 0) * 1ms);
+}
+[data-revealed] .step-rail::before {
+  animation: sc-grow-y 1200ms var(--ease-out-soft) both;
+}
