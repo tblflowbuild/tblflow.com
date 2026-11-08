@@ -65,7 +65,7 @@ export const GET: APIRoute = async () => {
   client. There is no proprietary format and no sync layer, so a \`pg_dump\` is a complete export.
 - Field types: 28, including formula, rollup, conditional rollup, lookup via link, AI, button,
   attachment, user and rating.
-- View types: 7 — Grid, Kanban, Gallery, Calendar, Gantt, Form, Plugin.
+- View types: 6 — Grid, Kanban, Gallery, Calendar, Gantt, Form.
 - Formulas: 200+ functions.
 - AI agents: a planner, an executor, persistent entity/relation memory and a scheduler. They read
   and write records and act on connected services (Gmail, GitHub, Slack, Google Calendar, Drive,

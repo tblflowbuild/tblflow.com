@@ -390,10 +390,6 @@ export const VIEWS: Array<{ name: Record<Locale, string>; use: Record<Locale, st
       zh: '通过公开 URL 收集外部用户的输入',
     },
   },
-  {
-    name: { de: 'Plugin', en: 'Plugin', es: 'Plugin', fr: 'Plugin', it: 'Plugin', ja: 'プラグイン', ru: 'Плагин', tr: 'Eklenti', uk: 'Плагін', zh: '插件' },
-    use: { de: 'Eigene Ansicht, von einem Plugin bereitgestellt', en: 'A custom view provided by a plugin', es: 'Una vista personalizada aportada por un plugin', fr: 'Une vue sur mesure fournie par un plugin', it: 'Una vista personalizzata fornita da un plugin', ja: 'プラグインが提供する独自のビュー', ru: 'Собственное представление, которое даёт плагин', tr: 'Bir eklentinin sağladığı özel görünüm', uk: 'Власне подання, яке надає плагін', zh: '由插件提供的自定义视图' },
-  },
 ];
 
 /**
