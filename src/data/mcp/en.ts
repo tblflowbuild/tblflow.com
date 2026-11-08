@@ -4,7 +4,7 @@ const en = {
   nav: 'MCP server',
   'meta.title': 'Official MCP server: TblFlow in Claude',
   'meta.description':
-    'Connect TblFlow to Claude in one click: the official MCP server reads and writes your data within your permissions, in your chosen spaces. Free tier included.',
+    'Connect TblFlow to Claude in one click: the official MCP server reads and writes your data within your permissions, in your chosen spaces. Free plan included.',
   breadcrumb: 'MCP server',
   'hero.eyebrow': 'Official MCP server',
   'hero.title': 'Work on your TblFlow data from Claude.',
@@ -12,7 +12,7 @@ const en = {
     'Add TblFlow as a connector in Claude, sign in with your usual account and choose the spaces it can reach. Claude can then query, create and edit your records from the conversation.',
   'hero.cta.primary': 'See how to connect',
   'hero.cta.secondary': 'Read the documentation',
-  'hero.note': 'Available from the Free tier, like the REST API.',
+  'hero.note': 'Available from the Free plan, like the REST API.',
   'hero.url.label': 'Server URL',
   'benefits.title': 'What it changes',
   'benefits.1.title': 'Query your data',
@@ -80,10 +80,10 @@ const en = {
     'The content of conversations is not logged: only the tool called, the time, the duration and the status are kept. Tool results are passed to the assistant (Claude) to answer your request.',
   'control.6':
     'Designed in line with ISO 27001 and ISO 42001 practices, GDPR and the AI Act. This is a design approach: no certification has been obtained to date.',
-  'limits.title': 'Rate limits by tier',
+  'limits.title': 'Rate limits by plan',
   'limits.intro':
-    'The MCP server is included in every tier. Only the requests-per-minute limit changes.',
-  'limits.col.tier': 'Tier',
+    'The MCP server is included in every plan. Only the requests-per-minute limit changes.',
+  'limits.col.tier': 'Plan',
   'limits.col.rate': 'Requests per minute',
   'status.title': 'Where to find it',
   'status.body':
@@ -100,7 +100,7 @@ const en = {
     'Not yet. The server is published in the official MCP registry (com.tblflow/tblflow, version 1.0.0) and connects to Claude. Submission to the Claude connectors directory is coming.',
   'faq.4.q': 'Is the MCP server available on the Free plan?',
   'faq.4.a':
-    'Yes, from the Free tier, like the REST API. Only the rate limit changes: 60, 120, 300 and 600 requests per minute for Free, Essential, Team and Enterprise.',
+    'Yes, from the Free plan, like the REST API. Only the rate limit changes: 60, 120, 300 and 600 requests per minute for Free, Essential, Team and Enterprise.',
   'faq.5.q': 'What can Claude do with my automations and agents?',
   'faq.5.a':
     'It can only trigger them if their owner has exposed them. For an automation, run_automation runs a dry run with sample data: no data is modified.',

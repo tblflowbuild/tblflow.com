@@ -39,8 +39,8 @@ export const SURFACES: Feature[] = [
       fr: "Des bases contenant plusieurs tables, 28 types de champs, des enregistrements liés, des formules avec plus de 200 fonctions, des rollups et des lookups. Chaque cellule est écrite dans une vraie table PostgreSQL, sans format propriétaire.",
       it: 'Base con più tabelle, 28 tipi di campo, record collegati, formule con oltre 200 funzioni, rollup e lookup. Ogni cella viene scritta in una vera tabella PostgreSQL, senza formato proprietario.',
       ja: '複数テーブルを含むベース、28 種類のフィールド、リンクレコード、200 以上の関数を備えた数式、ロールアップとルックアップ。すべてのセルは独自形式ではなく、実在する PostgreSQL テーブルに書き込まれます。',
-      ru: 'Базы с несколькими таблицами, 28 типов полей, связанные записи, формулы с более чем 200 функциями, роллапы и подстановки. Каждая ячейка записывается в настоящую таблицу PostgreSQL, без проприетарного формата.',
-      tr: "Birden çok tablo içeren tabanlar, 28 alan türü, bağlantılı kayıtlar, 200'den fazla işlevli formüller, rollup ve lookup. Her hücre, tescilli bir biçim olmadan gerçek bir PostgreSQL tablosuna yazılır.",
+      ru: 'Базы с несколькими таблицами, 28 типов полей, связанные записи, формулы с более чем 200 функциями, сворачивания и подстановки. Каждая ячейка записывается в настоящую таблицу PostgreSQL, без проприетарного формата.',
+      tr: "Birden çok tablo içeren veritabanları, 28 alan türü, bağlantılı kayıtlar, 200'den fazla işlevli formüller, rollup ve lookup. Her hücre, tescilli bir biçim olmadan gerçek bir PostgreSQL tablosuna yazılır.",
       uk: 'Бази з кількома таблицями, 28 типів полів, зв’язані записи, формули з понад 200 функціями, ролапи та лукапи. Кожна комірка записується у справжню таблицю PostgreSQL, без пропрієтарного формату.',
       zh: '包含多张表的数据库、28 种字段类型、关联记录、拥有 200 多个函数的公式、rollup 与 lookup。每个单元格都写入真实的 PostgreSQL 表，没有专有格式。',
     },
@@ -73,7 +73,7 @@ export const SURFACES: Feature[] = [
     },
     body: {
       de: 'Ereignis- und cron-gesteuerte Workflows, mehrstufig, mit menschlichen Freigabeschritten dort, wo sie nötig sind. Unbegrenzt viele Workflows; die monatlichen Ausführungen hängen vom Tarif ab — siehe Preise.',
-      en: 'Event-driven and cron-triggered workflows, multi-step, with human approval steps where they are needed. Unlimited workflows; monthly runs depend on your tier — see pricing.',
+      en: 'Event-driven and cron-triggered workflows, multi-step, with human approval steps where they are needed. Unlimited workflows; monthly runs depend on your plan — see pricing.',
       es: 'Flujos de trabajo disparados por eventos o por cron, de varios pasos, con etapas de aprobación humana donde hacen falta. Flujos ilimitados; las ejecuciones mensuales dependen de tu plan — consulta los precios.',
       fr: "Des workflows déclenchés par événement ou par cron, à étapes multiples, avec des étapes d'approbation humaine là où elles sont nécessaires. Nombre de workflows illimité ; le nombre d'exécutions mensuelles dépend du palier — voir les tarifs.",
       it: 'Workflow attivati da eventi o da cron, a più passaggi, con fasi di approvazione umana dove servono. Workflow illimitati; le esecuzioni mensili dipendono dal piano — vedi i prezzi.',
@@ -87,7 +87,7 @@ export const SURFACES: Feature[] = [
   {
     icon: 'M12 3a9 9 0 1 0 9 9M12 3v9l7 4M8 8h.01M16 16h.01',
     title: {
-      de: 'Knowledge Graph', en: 'Knowledge graph', es: 'Grafo de conocimiento',
+      de: 'Wissensgraph', en: 'Knowledge graph', es: 'Grafo de conocimiento',
       fr: 'Graphe de connaissances', it: 'Grafo della conoscenza', ja: 'ナレッジグラフ',
       ru: 'Граф знаний', tr: 'Bilgi grafiği', uk: 'Граф знань', zh: '知识图谱',
     },
@@ -109,7 +109,7 @@ export const SURFACES: Feature[] = [
     title: {
       de: 'KI-Agenten', en: 'AI Agents', es: 'Agentes de IA', fr: 'Agents IA',
       it: 'Agenti IA', ja: 'AI エージェント', ru: 'ИИ-агенты',
-      tr: 'Yapay zeka ajanları', uk: 'ШІ-агенти', zh: 'AI 智能体',
+      tr: 'Yapay zekâ ajanları', uk: 'ШІ-агенти', zh: 'AI 智能体',
     },
     body: {
       de: 'Agenten mit Planer, Executor, persistentem Gedächtnis und Scheduler. Sie lesen und schreiben in Ihren Daten und handeln über Ihre verbundenen Dienste — Gmail, GitHub, Slack, Google Kalender — unter Ihrer Freigabe.',
@@ -213,7 +213,7 @@ export const DIFFERENTIATORS: Feature[] = [
     },
     body: {
       de: 'Der Enterprise-Tarif wird auf Ihrer eigenen Infrastruktur oder in einer dedizierten VPC bereitgestellt, auf Anfrage, mit allen Funktionen freigeschaltet. Ihre Daten bleiben in standardmäßigem Postgres: Ein pg_dump ist eine vollständige Sicherung, anderswo ohne Konvertierung nutzbar.',
-      en: 'The Enterprise tier deploys on your own infrastructure or in a dedicated VPC, on quote, with every feature unlocked. Your data stays in standard Postgres: a pg_dump is a complete backup, reusable elsewhere with no conversion.',
+      en: 'The Enterprise plan deploys on your own infrastructure or in a dedicated VPC, on quote, with every feature unlocked. Your data stays in standard Postgres: a pg_dump is a complete backup, reusable elsewhere with no conversion.',
       es: 'El plan Enterprise se despliega en tu propia infraestructura o en una VPC dedicada, a presupuesto, con todas las funciones desbloqueadas. Tus datos siguen en Postgres estándar: un pg_dump es una copia completa, reutilizable en otro sitio sin conversión.',
       fr: "Le palier Entreprise se déploie sur votre propre infrastructure ou dans un VPC dédié, sur devis, avec toutes les fonctionnalités débloquées. Vos données restent dans un Postgres standard : un pg_dump est une sauvegarde complète, réutilisable ailleurs sans conversion.",
       it: 'Il piano Enterprise si distribuisce sulla tua infrastruttura o in un VPC dedicato, su preventivo, con tutte le funzionalità sbloccate. I tuoi dati restano in Postgres standard: un pg_dump è un backup completo, riutilizzabile altrove senza conversione.',
@@ -261,19 +261,19 @@ export const DIFFERENTIATORS: Feature[] = [
       it: 'API-first, dalla tua primissima base',
       ja: '最初のベースから API ファースト',
       ru: 'API-first, с самой первой базы',
-      tr: "İlk tabanınızdan itibaren API-first",
+      tr: "İlk veritabanınızdan itibaren API-first",
       uk: 'API-first, з найпершої бази',
       zh: '从第一个数据库起就 API 优先',
     },
     body: {
       de: 'Jede Base, die Sie in TblFlow anlegen, ist automatisch über eine dokumentierte REST-API (OpenAPI) mit Token-Authentifizierung erreichbar. Dafür muss kein Tarif freigeschaltet werden — es ist ab dem kostenlosen Tarif verfügbar.',
-      en: 'Every base you create in TblFlow is automatically reachable through a documented REST API (OpenAPI), with token authentication. No tier to unlock for that — it is available from the Free tier onward.',
+      en: 'Every base you create in TblFlow is automatically reachable through a documented REST API (OpenAPI), with token authentication. No plan to unlock for that — it is available from the Free plan onward.',
       es: 'Cada base que creas en TblFlow es accesible automáticamente mediante una API REST documentada (OpenAPI), con autenticación por token. No hay plan que desbloquear para eso: está disponible desde el plan Gratis.',
       fr: "Chaque base créée dans TblFlow est automatiquement accessible via une API REST documentée (OpenAPI), avec authentification par token. Pas de palier à débloquer pour ça : c'est disponible dès le palier Gratuit.",
       it: "Ogni base che crei in TblFlow è automaticamente raggiungibile tramite un'API REST documentata (OpenAPI), con autenticazione tramite token. Non c'è nessun piano da sbloccare: è disponibile già dal piano Gratuito.",
       ja: 'TblFlow で作成したすべてのベースは、トークン認証付きのドキュメント化された REST API（OpenAPI）から自動的に利用できます。そのために上位プランへ上げる必要はなく、無料プランから使えます。',
       ru: 'Каждая база, созданная в TblFlow, автоматически доступна через документированный REST API (OpenAPI) с аутентификацией по токену. Для этого не нужно повышать тариф — доступно уже на бесплатном.',
-      tr: "TblFlow'da oluşturduğunuz her taban, token kimlik doğrulamalı, belgelenmiş bir REST API (OpenAPI) üzerinden otomatik olarak erişilebilir. Bunun için plan yükseltmeye gerek yok — ücretsiz plandan itibaren kullanılabilir.",
+      tr: "TblFlow'da oluşturduğunuz her veritabanı, token kimlik doğrulamalı, belgelenmiş bir REST API (OpenAPI) üzerinden otomatik olarak erişilebilir. Bunun için plan yükseltmeye gerek yok — ücretsiz plandan itibaren kullanılabilir.",
       uk: 'Кожна база, створена в TblFlow, автоматично доступна через документований REST API (OpenAPI) з автентифікацією за токеном. Для цього не треба підвищувати тариф — доступно вже на безкоштовному.',
       zh: '您在 TblFlow 中创建的每一个数据库，都自动可通过带 token 认证、有文档的 REST API（OpenAPI）访问。无需升级套餐 —— 从免费版起即可使用。',
     },
@@ -456,7 +456,7 @@ export const COMPARISON: CompareRow[] = [
     feature: {
       de: 'Autonome KI-Agenten', en: 'Autonomous AI agents', es: 'Agentes de IA autónomos',
       fr: 'Agents IA autonomes', it: 'Agenti IA autonomi', ja: '自律型 AI エージェント',
-      ru: 'Автономные ИИ-агенты', tr: 'Otonom yapay zeka ajanları',
+      ru: 'Автономные ИИ-агенты', tr: 'Otonom yapay zekâ ajanları',
       uk: 'Автономні ШІ-агенти', zh: '自主 AI 智能体',
     },
     airtable: 'yes', baserow: 'no', nocodb: 'no', monday: 'yes', notion: 'yes', salesforce: 'partial', tblflow: 'yes',

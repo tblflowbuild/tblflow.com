@@ -222,9 +222,9 @@ const BASE_TIERS: Tier[] = [
         'Поддержка сообщества',
       ],
       tr: [
-        '2 kişi dahil · 1 taban · 1 alan',
+        '2 kişi dahil · 1 veritabanı · 1 alan',
         '1 GB depolama · tablo başına 5.000 satır',
-        'Sayıca sınırsız yapay zeka ajanı ve otomasyon — ayda 100 ajan ve 500 otomasyon çalıştırması',
+        'Sayıca sınırsız yapay zekâ ajanı ve otomasyon — ayda 100 ajan ve 500 otomasyon çalıştırması',
         'Topluluk desteği',
       ],
       uk: [
@@ -308,9 +308,9 @@ const BASE_TIERS: Tier[] = [
         'Поддержка по email · SLA 99,5 %',
       ],
       tr: [
-        '5 kişi dahil · 5 taban',
+        '5 kişi dahil · 5 veritabanı',
         '100 GB depolama · tablo başına 100.000 satır',
-        'Sayıca sınırsız yapay zeka ajanı ve otomasyon — ayda 5.000 ajan ve 25.000 otomasyon çalıştırması',
+        'Sayıca sınırsız yapay zekâ ajanı ve otomasyon — ayda 5.000 ajan ve 25.000 otomasyon çalıştırması',
         'E-posta desteği · %99,5 SLA',
       ],
       uk: [
@@ -401,9 +401,9 @@ const BASE_TIERS: Tier[] = [
         'Приоритетная поддержка · SLA 99,9 %',
       ],
       tr: [
-        '15 kişi dahil · 30 taban',
+        '15 kişi dahil · 30 veritabanı',
         '500 GB depolama · tablo başına 1.000.000 satır',
-        'Sayıca sınırsız yapay zeka ajanı ve otomasyon — ayda 50.000 ajan ve 250.000 otomasyon çalıştırması',
+        'Sayıca sınırsız yapay zekâ ajanı ve otomasyon — ayda 50.000 ajan ve 250.000 otomasyon çalıştırması',
         'SSO / SAML · white-label · gelişmiş denetim',
         'Öncelikli destek · %99,9 SLA',
       ],
@@ -492,7 +492,7 @@ const BASE_TIERS: Tier[] = [
       tr: [
         '50 kişiye kadar çevrimiçi satın alınabilir',
         '50 kişinin üzerinde, kendi sunucunuz veya VPC: teklife bağlı',
-        'Taban, satır ve depolama sınırsız · SSO / SAML · white-label',
+        'Veritabanı, satır ve depolama sınırsız · SSO / SAML · white-label',
         '7/24 özel destek · %99,99 SLA',
       ],
       uk: [
@@ -607,7 +607,7 @@ export const QUOTAS: QuotaRow[] = [
   {
     label: {
       de: 'Bases', en: 'Bases', es: 'Bases', fr: 'Bases', it: 'Base',
-      ja: 'ベース', ru: 'Базы', tr: 'Tabanlar', uk: 'Бази', zh: '数据库数量',
+      ja: 'ベース', ru: 'Базы', tr: 'Veritabanları', uk: 'Бази', zh: '数据库数量',
     },
     values: { free: num(1), pro: num(5), business: num(30), enterprise: UNLIMITED },
   },
@@ -665,7 +665,7 @@ export const QUOTAS: QuotaRow[] = [
       de: 'KI-Agenten-Ausführungen / Monat', en: 'AI agent runs / month',
       es: 'Ejecuciones de agentes de IA / mes', fr: 'Exécutions d’agents IA / mois',
       it: 'Esecuzioni di agenti IA / mese', ja: 'AI エージェント実行数 / 月',
-      ru: 'Запусков ИИ-агентов / месяц', tr: 'Yapay zeka ajanı çalıştırma / ay',
+      ru: 'Запусков ИИ-агентов / месяц', tr: 'Yapay zekâ ajanı çalıştırma / ay',
       uk: 'Запусків ШІ-агентів / місяць', zh: 'AI 智能体运行次数 / 月',
     },
     values: {
@@ -799,7 +799,7 @@ export const QUOTAS: QuotaRow[] = [
  * still applies (`BACKEND_THROTTLE_LIMIT`/`BACKEND_THROTTLE_TTL_MS`). */
 export const API_RATE_LIMIT_NOTE: Record<Locale, string> = {
   de: 'Kein Monatskontingent für API-Anfragen, es gilt jedoch für alle Tarife ein globales Ratenlimit von standardmäßig 100 Anfragen pro Minute.',
-  en: 'No monthly quota on API requests, but a global rate limit of 100 requests per minute by default applies across every tier.',
+  en: 'No monthly quota on API requests, but a global rate limit of 100 requests per minute by default applies across every plan.',
   es: 'Sin cuota mensual en las solicitudes de API, pero se aplica un límite de tasa global de 100 solicitudes por minuto por defecto en todos los planes.',
   fr: 'Aucun quota mensuel sur les requêtes API, mais une limitation de débit globale de 100 requêtes par minute par défaut s’applique à tous les paliers.',
   it: 'Nessuna quota mensile sulle richieste API, ma su tutti i piani si applica un limite di frequenza globale di 100 richieste al minuto per impostazione predefinita.',

@@ -9,7 +9,7 @@ type: "security"
 
 - **Uygulama sayfaları**: içerik güvenlik politikası sıkılaştırıldı, dinamik kod değerlendirmesi olmadan.
 - **Yalıtılmış önizlemeler ve uzantılar**: uygulama önizlemesi ve uzantılar yalıtılmış çerçevelerde çalışır.
-- **Alan yapay zeka sağlayıcıları**: bir koruma, sunucunun iç ağına işaret eden adresleri reddeder.
+- **Alan yapay zekâ sağlayıcıları**: bir koruma, sunucunun iç ağına işaret eden adresleri reddeder.
 - **Alan hakları**: okuyamadığınız bir alan artık sıralama, gruplama, takvim veya tablo çoğaltma yoluyla sızmaz.
 - **Oturumlar, veriler ve dosyalar**: erişim denetimleri güçlendirildi.
 

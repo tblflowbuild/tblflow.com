@@ -353,7 +353,7 @@ export const APP_UI: Record<Locale, Record<AppUiKey, string>> = {
     "lensData": "Veriler",
     "human": "İnsan",
     "automation": "Otomasyon",
-    "agent": "Yapay zeka ajanı",
+    "agent": "Yapay zekâ ajanı",
     "cost": "Maliyet",
     "ruptures": "Kopukluklar",
     "savings": "Olası tasarruf",

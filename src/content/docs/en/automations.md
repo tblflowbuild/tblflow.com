@@ -39,7 +39,7 @@ Every run is kept with its trigger, the input and output of each step, and the r
 
 ## Quotas
 
-Monthly runs depend on the tier: 500 on Free, 25,000 on Essential, 250,000 on Team, unlimited on Enterprise and when self-hosting. One run is one trigger, however many steps it contains.
+Monthly runs depend on the plan: 500 on Free, 25,000 on Essential, 250,000 on Team, unlimited on Enterprise and when self-hosting. One run is one trigger, however many steps it contains.
 
 ## Automation or agent?
 

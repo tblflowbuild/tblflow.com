@@ -17,7 +17,7 @@ const it = {
   'benefits.title': 'Cosa cambia',
   'benefits.1.title': 'Interrogare i tuoi dati',
   'benefits.1.body':
-    "Fai le tue domande a Claude: legge lo schema delle tue basi, filtra i record e cerca nel knowledge graph, con ricerca semantica e full-text.",
+    "Fai le tue domande a Claude: legge lo schema delle tue basi, filtra i record e cerca nel grafo della conoscenza, con ricerca semantica e full-text.",
   'benefits.2.title': 'Agire dalla conversazione',
   'benefits.2.body':
     "Crea e modifica record, aggiungi una tabella o un campo, avvia un'automazione o un agente IA, senza uscire da Claude.",
@@ -34,7 +34,7 @@ const it = {
   'tools.3.title': 'Leggere',
   'tools.3.body': 'Elencare, filtrare e leggere i record.',
   'tools.4.title': 'Cercare',
-  'tools.4.body': 'Cercare nel knowledge graph, con ricerca semantica e full-text.',
+  'tools.4.body': 'Cercare nel grafo della conoscenza, con ricerca semantica e full-text.',
   'tools.5.title': 'Creare e modificare',
   'tools.5.body': 'Creare e modificare i record.',
   'tools.6.title': 'Eliminare',

@@ -40,7 +40,7 @@ Ein Umschalter wechselt die Ansicht, ohne die Karte zu verändern:
 
 - **Wer macht was**: die ausführende und die verantwortliche Person jedes Schritts.
 - **Kosten**: Personalkosten (Satz pro Rolle), Toolkosten (Abos, API-Aufrufe, KI-Tokens), mögliche Einsparungen und erzielter Gewinn. Diese Zahlen sind **Schätzungen**, die Sie eingeben, keine Messwerte. Personalkosten sind nur für die Eigentümerin oder den Eigentümer sichtbar.
-- **Brüche**: manuelle Doppeleingabe zwischen Tools, Daten ohne führende Quelle, ein Objekt, das verwendet, aber nie erzeugt wird, ein Schritt ohne Verantwortliche, ohne Dauer, verwaist oder ohne Folgeschritt, eine fehlgeschlagene Automatisierung.
+- **Brüche**: manuelle Neuerfassung zwischen Tools, Daten ohne führende Quelle, ein Objekt, das verwendet, aber nie erzeugt wird, ein Schritt ohne Verantwortliche, ohne Dauer, verwaist oder ohne Folgeschritt, eine fehlgeschlagene Automatisierung.
 - **Daten**: die Datenobjekte und die Tools, die sie erzeugen oder verwenden.
 
 ## Ersetzen

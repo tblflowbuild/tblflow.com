@@ -1,18 +1,18 @@
 ---
-title: "Yapay zeka ajanları"
+title: "Yapay zekâ ajanları"
 translationKey: "ai-agents"
 description: "Bir TblFlow ajanını yapılandırma: model sağlayıcısı, araç kapsamı, kalıcı graf belleği, zamanlama ve herhangi bir şey yazılmadan önce onay gerektiren öneriler."
 section: "Kılavuzlar"
 order: 4
 ---
 
-Ajan, bir tabana bağlı özerk bir çalışandır. Bir hedefi, bir araç kapsamı ve bir belleği vardır; doğrudan yazmak yerine öneriler üretir.
+Ajan, bir veritabanına bağlı özerk bir çalışandır. Bir hedefi, bir araç kapsamı ve bir belleği vardır; doğrudan yazmak yerine öneriler üretir.
 
 ## Model sağlayıcısını seçme
 
-Model, taban başına ve kendi API anahtarlarınızla yapılandırılır: OpenAI, Anthropic, Google Gemini, Azure OpenAI, DeepSeek, Mistral, Groq, Cohere, OpenAI uyumlu herhangi bir uç nokta ve ayrıca Ollama ile LM Studio üzerinden yerel modeller.
+Model, veritabanı başına ve kendi API anahtarlarınızla yapılandırılır: OpenAI, Anthropic, Google Gemini, Azure OpenAI, DeepSeek, Mistral, Groq, Cohere, OpenAI uyumlu herhangi bir uç nokta ve ayrıca Ollama ile LM Studio üzerinden yerel modeller.
 
-Yerel bir modelle kendi sunucunuzda barındırıldığında, hiçbir taban verisi altyapınızın dışına çıkmaz.
+Yerel bir modelle kendi sunucunuzda barındırıldığında, hiçbir veritabanı verisi altyapınızın dışına çıkmaz.
 
 ## Kapsamı belirleme
 

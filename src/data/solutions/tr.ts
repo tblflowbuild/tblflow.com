@@ -33,7 +33,7 @@ const tr = {
     journeyTitle: 'TblFlow bunu nasıl devralır',
     limitsTitle: 'TblFlow neleri yapmaz',
     promptsTitle: "TblFlow'dan neler isterdiniz",
-    promptsNote: 'Kendi sözlerinizle yazılmış istekler. Yapay zeka önerir, onayınız olmadan hiçbir şey etkinleşmez.',
+    promptsNote: 'Kendi sözlerinizle yazılmış istekler. Yapay zekâ önerir, onayınız olmadan hiçbir şey etkinleşmez.',
     faqTitle: 'Sık sorulan sorular',
     useCasesFor: 'Kullanım senaryoları',
     audiencesFor: 'Kimler için',
@@ -166,7 +166,7 @@ const tr = {
         {
           label: 'Otomatikleştirme, sonra emanet etme',
           title: 'Eşleştirme önerilir, karar sizde kalır',
-          body: 'Bir otomasyon, talep onaylanır onaylanmaz siparişi oluşturur. Tedarikçi faturasını Yapay zeka sohbetine bırakın: satırları o önerir, bir ajan bunları sipariş ve teslim almayla eşleştirir, siz ödemeden önce onaylarsınız.',
+          body: 'Bir otomasyon, talep onaylanır onaylanmaz siparişi oluşturur. Tedarikçi faturasını Yapay zekâ sohbetine bırakın: satırları o önerir, bir ajan bunları sipariş ve teslim almayla eşleştirir, siz ödemeden önce onaylarsınız.',
         },
       ],
       build: {
@@ -178,7 +178,7 @@ const tr = {
         ],
       },
       limits:
-        'TblFlow tedarikçilerinize ödeme yapmaz: havale bankanızdan çıkar. Taranmış faturaları otomatik okumaz; Yapay zeka sohbeti bıraktığınız faturadan satırları önerir, siz onaylarsınız. Banka mutabakatı yapmaz.',
+        'TblFlow tedarikçilerinize ödeme yapmaz: havale bankanızdan çıkar. Taranmış faturaları otomatik okumaz; Yapay zekâ sohbeti bıraktığınız faturadan satırları önerir, siz onaylarsınız. Banka mutabakatı yapmaz.',
       prompts: [
         '€1.500 üzerinde farklı bir onaylayıcısı olan bir satın alma talebi formu oluştur.',
         'Bu tedarikçi faturasını BC-1187 siparişi ve teslim almasıyla eşleştir ve farkları işaretle.',
@@ -187,7 +187,7 @@ const tr = {
       faq: [
         {
           q: 'TblFlow PDF faturaları okuyor mu?',
-          a: 'Yapay zeka sohbeti bıraktığınız faturayı okur ve ilgili kayıtları önerir; siz kabul etmeden hiçbir şey oluşturulmaz. Bu, taranmış faturaların toplu otomatik okunması değildir.',
+          a: 'Yapay zekâ sohbeti bıraktığınız faturayı okur ve ilgili kayıtları önerir; siz kabul etmeden hiçbir şey oluşturulmaz. Bu, taranmış faturaların toplu otomatik okunması değildir.',
         },
         {
           q: 'Muhasebe yazılımım yerinde kalıyor mu?',
@@ -438,7 +438,7 @@ const tr = {
       metaDescription:
         'Prosedürlerinizi yükleyin, TblFlow dizinlesin, gözden geçirme tarihi geçtiğinde sizi uyarsın; ajanlar dokümanlarınızdan yanıt versin.',
       eyebrow: 'Kullanım senaryosu · İç dokümantasyon',
-      title: 'Bulunan, gözden geçirilen ve yapay zekanın kullandığı prosedürler',
+      title: 'Bulunan, gözden geçirilen ve yapay zekânın kullandığı prosedürler',
       subtitle:
         'Prosedürleriniz DocIndex\'te dizinlenir, haritadaki süreçlere bağlanır, uyarılar sayesinde zamanında gözden geçirilir ve ajanlara bağlam olur.',
       flow: {
@@ -480,7 +480,7 @@ const tr = {
       build: {
         title: 'Neler kurarsınız',
         items: [
-          { title: 'Bir prosedür tabanı', body: 'Dizinlenmiş, aranabilir, haritadaki süreçlere bağlı.' },
+          { title: 'Bir prosedür veritabanı', body: 'Dizinlenmiş, aranabilir, haritadaki süreçlere bağlı.' },
           { title: 'Tarihinde gözden geçirmeler', body: 'Prosedür başına bir sahip ve bir gözden geçirme tarihi, haftalık bir uyarıyla.' },
           { title: 'Kurallarınızı izleyen ajanlar', body: 'Bir işlem önermeden önce prosedürlerinizi okurlar.' },
         ],
@@ -502,7 +502,7 @@ const tr = {
           a: 'Alanınızın yetkileri geçerlidir: herkes yalnızca rolünün okumasına izin verdiğini görür.',
         },
         {
-          q: 'Yapay zeka yanıt uyduruyor mu?',
+          q: 'Yapay zekâ yanıt uyduruyor mu?',
           a: 'Ajanlar dizinlenmiş prosedürlerinizde arar ve size kaynağı gösterir. Önemli bir yanıta göre harekete geçmeden önce her zaman doğrulayın.',
         },
       ],

@@ -40,7 +40,7 @@ Fügen Sie bei einer Tabelle mit einem Statusfeld eine **Kanban**-Ansicht hinzu,
 
 ## 4. Ihr Team einladen
 
-**Teilen**, oben rechts. Die Berechtigungen werden auf Ebene der Base festgelegt (Eigentümer, Bearbeiter, Kommentator, Betrachter) und lassen sich pro Tabelle und pro Feld weiter einschränken.
+**Teilen**, oben rechts. Die Berechtigungen werden auf Ebene der Base festgelegt (Eigentümer, Editor, Kommentator, Betrachter) und lassen sich pro Tabelle und pro Feld weiter einschränken.
 
 Die Bearbeitung erfolgt gemeinsam in Echtzeit: Zwei Personen können gleichzeitig in derselben Tabelle arbeiten, mit sofort sichtbaren Cursorn und Änderungen.
 

@@ -123,7 +123,7 @@ export const ui = {
     'views.kanban.done': 'Erledigt',
     'views.mock.submit': 'Absenden',
 
-    'footer.tagline': "Prozesse abbilden, Doppelerfassung abschaffen. Auf echtem PostgreSQL.",
+    'footer.tagline': "Prozesse abbilden, Neuerfassung abschaffen. Auf echtem PostgreSQL.",
     'footer.stack': 'Basiert auf PostgreSQL, NestJS und Next.js.',
 
     'breadcrumbs.home': 'Startseite',
@@ -211,7 +211,7 @@ export const ui = {
     'compare.partial': 'Partial',
 
     'pricing.title': 'Pricing',
-    'pricing.subtitle': 'Start free. Move up a tier when your team grows.',
+    'pricing.subtitle': 'Start free. Move up a plan when your team grows.',
     'pricing.perTeam': "Price per team, not per person",
     'pricing.from': "From",
     'pricing.seatExtra': "+{price} / month per additional person",
@@ -222,10 +222,10 @@ export const ui = {
     'pricing.cta': 'Get started',
     'pricing.cta.enterprise': 'Contact us',
     'pricing.popular': 'Most popular',
-    'pricing.compare': 'Compare tiers in detail',
+    'pricing.compare': 'Compare plans in detail',
     'pricing.selfhost.title': 'Need to self-host?',
     'pricing.selfhost.body':
-      'Deploying on your own infrastructure or in a dedicated VPC is part of the Enterprise tier, on quote, with every feature unlocked.',
+      'Deploying on your own infrastructure or in a dedicated VPC is part of the Enterprise plan, on quote, with every feature unlocked.',
     'pricing.selfhost.cta': 'Contact support',
 
     'faq.title': 'Frequently asked questions',
@@ -1154,7 +1154,7 @@ export const ui = {
     'hero.eyebrow': "Excel ve on farklı araçla çalışan KOBİ'ler için",
     'hero.title': 'Ekipler için modern veritabanı arayüzü',
     'hero.subtitle':
-      'İhtiyacınızı tarif edin: yapay zeka ajanları ve otomasyonlar gerisini halleder, gerçek PostgreSQL üzerinde. Tamamen yönetilen ya da kendi sunucularınızda.',
+      'İhtiyacınızı tarif edin: yapay zekâ ajanları ve otomasyonlar gerisini halleder, gerçek PostgreSQL üzerinde. Tamamen yönetilen ya da kendi sunucularınızda.',
     'hero.cta.primary': 'Ücretsiz başla',
     'hero.cta.secondary': 'Fiyatlara bak',
     'hero.note': 'Kredi kartı gerekmez · Kendi sunucunuzda barındırılabilir · Sağlayıcıya bağımlılık yok',
@@ -1216,7 +1216,7 @@ export const ui = {
     'blog.toc': 'İçindekiler',
 
     'docs.title': 'Dokümantasyon',
-    'docs.subtitle': 'İlk veritabanınızdan yapay zeka ajanlarına, pratik rehberler ve referans.',
+    'docs.subtitle': 'İlk veritabanınızdan yapay zekâ ajanlarına, pratik rehberler ve referans.',
     'docs.back': 'Tüm dokümantasyon',
     'docs.updated': 'Güncelleme tarihi: ',
     'docs.empty': 'Dokümantasyon hazırlanıyor.',
@@ -1288,7 +1288,7 @@ export const ui = {
     'showcase.title': 'Bu gerçekten TblFlow',
     'showcase.subtitle': 'Maket değil: gerçek arayüzün, gerçek verilerle alınmış ekran görüntüleri.',
     'showcase.table.caption': 'Alanları ve durumlarıyla bir kişiler tablosu, doğrudan ızgaradan.',
-    'showcase.schema.caption': "Bir tabanın ilişkisel şeması, otomatik oluşturulmuş ve düzenlenebilir, yanında yapay zeka asistanı.",
+    'showcase.schema.caption': "Bir veritabanının ilişkisel şeması, otomatik oluşturulmuş ve düzenlenebilir, yanında yapay zekâ asistanı.",
     'blog.search': 'Makale ara...',
     'blog.filterAll': 'Tümü',
     'blog.noResults': 'Bu filtreye uyan makale yok.',
@@ -1473,7 +1473,7 @@ export const ui = {
     'nav.menu': '菜单',
     'nav.skip': '跳到主要内容',
 
-    'hero.eyebrow': "为靠 Excel 和十几个工具运转的中小企业而生",
+    'hero.eyebrow': "为靠 Excel 和十来个工具运转的中小企业而生",
     'hero.title': '面向团队的现代数据库界面',
     'hero.subtitle': '描述您的需求：AI 智能体和自动化会完成剩下的工作，基于真实的 PostgreSQL。可完全托管，也可部署在您自己的服务器上。',
     'hero.cta.primary': '免费开始',

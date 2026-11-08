@@ -169,7 +169,7 @@ export const HOME_STRINGS = {
     zh: "财务重新录入开票软件。",
   },
   "example.break": {
-    de: "Doppelerfassung", en: "Re-entry", es: "Doble introducción", fr: "Ressaisie", it: "Doppia digitazione",
+    de: "Neuerfassung", en: "Re-entry", es: "Doble introducción", fr: "Ressaisie", it: "Doppia digitazione",
     ja: "二重入力", ru: "Повторный ввод", tr: "Mükerrer giriş", uk: "Повторне введення", zh: "重复录入",
   },
   "example.afterBody": {
@@ -180,12 +180,12 @@ export const HOME_STRINGS = {
     it: "Un’unica tabella per clienti e ordini. Il preventivo accettato crea l’ordine, un’automazione prepara la fattura, un agente IA sollecita i preventivi senza risposta. Ogni passaggio resta approvato da una persona.",
     ja: "顧客と受注をひとつのテーブルに。承認された見積から受注が作成され、自動化が請求書を準備し、AI エージェントが未回答の見積をフォローします。各ステップは引き続き担当者が承認します。",
     ru: "Одна таблица для клиентов и заказов. Принятое предложение создаёт заказ, автоматизация готовит счёт, ИИ-агент напоминает о предложениях без ответа. Каждый шаг по-прежнему подтверждает человек.",
-    tr: "Müşteriler ve siparişler için tek bir tablo. Kabul edilen teklif siparişi oluşturur, bir otomasyon faturayı hazırlar, bir yapay zeka ajanı yanıtsız teklifleri takip eder. Her adım yine bir kişi tarafından onaylanır.",
+    tr: "Müşteriler ve siparişler için tek bir tablo. Kabul edilen teklif siparişi oluşturur, bir otomasyon faturayı hazırlar, bir yapay zekâ ajanı yanıtsız teklifleri takip eder. Her adım yine bir kişi tarafından onaylanır.",
     uk: "Одна таблиця для клієнтів і замовлень. Прийнята пропозиція створює замовлення, автоматизація готує рахунок, ШІ-агент нагадує про пропозиції без відповіді. Кожен крок і далі підтверджує людина.",
     zh: "客户和订单只用一张表。报价被接受后自动生成订单，自动化流程准备发票，AI 智能体跟进未回复的报价。每一步仍由人工确认。",
   },
   "example.calc": {
-    de: "Rechenbeispiel: 40 Angebote pro Monat × 2 Doppelerfassungen × 10 Minuten ≈ 13 Stunden pro Monat.",
+    de: "Rechenbeispiel: 40 Angebote pro Monat × 2 Neuerfassungen × 10 Minuten ≈ 13 Stunden pro Monat.",
     en: "Worked figure: 40 quotes a month × 2 re-entries × 10 minutes ≈ 13 hours a month.",
     es: "Cálculo de ejemplo: 40 presupuestos al mes × 2 reintroducciones × 10 minutos ≈ 13 horas al mes.",
     fr: "Calcul d’exemple : 40 devis par mois × 2 ressaisies × 10 minutes ≈ 13 heures par mois.",

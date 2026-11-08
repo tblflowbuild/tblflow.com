@@ -5,7 +5,7 @@ translationKey: "mcp-server"
 type: "feature"
 ---
 
-TblFlow opens an **official MCP server**: connect your space to Claude and work on your data from the conversation. It is a remote server (`https://app.tblflow.com/mcp`, Streamable HTTP, OAuth 2.1), **available from the Free tier**, like the REST API.
+TblFlow opens an **official MCP server**: connect your space to Claude and work on your data from the conversation. It is a remote server (`https://app.tblflow.com/mcp`, Streamable HTTP, OAuth 2.1), **available from the Free plan**, like the REST API.
 
 - **13 tools**: list spaces and bases, describe the schema, list, filter and read records, search the knowledge graph, create and edit records, delete (preview then explicit confirmation, trash), create a table or a field, trigger an automation, run an AI agent.
 - **You stay in control**: when you connect, you choose the spaces, bases and permissions. Read by default; write, delete, schema and trigger are options. Your TblFlow rights apply to every request.

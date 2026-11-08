@@ -6,7 +6,7 @@ section: "Guides"
 order: 6
 ---
 
-TblFlow's official MCP server lets Claude work on your data from the conversation. It is a remote MCP server over Streamable HTTP, with OAuth 2.1 authentication (your usual TblFlow sign-in). It is available from the Free tier, like the REST API.
+TblFlow's official MCP server lets Claude work on your data from the conversation. It is a remote MCP server over Streamable HTTP, with OAuth 2.1 authentication (your usual TblFlow sign-in). It is available from the Free plan, like the REST API.
 
 Server URL: `https://app.tblflow.com/mcp`
 
@@ -49,9 +49,9 @@ When you connect, you choose the spaces and bases that are reachable and the per
 
 An automation or an agent can only be triggered from Claude if its owner has **exposed** it. Today, exposure is done through the API: `PUT /api/base/:baseId/mcp-exposure`. A switch in the interface is coming.
 
-## Limits by tier
+## Limits by plan
 
-| Tier | Requests per minute |
+| Plan | Requests per minute |
 | --- | --- |
 | Free | 60 |
 | Essential | 120 |

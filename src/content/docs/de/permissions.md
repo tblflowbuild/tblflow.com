@@ -13,7 +13,7 @@ Berechtigungen legen fest, wer in TblFlow was sehen, ändern oder verwalten darf
 | Begriff | Bedeutung |
 |---|---|
 | **Aktion** | Ein einzelnes Recht, zum Beispiel einen Datensatz ändern oder die Berechtigungen einer Base konfigurieren. |
-| **Standardrolle** | Eine der fünf festen Rollen: Eigentümer, Ersteller, Bearbeiter, Kommentator, Leser. Sie lassen sich nicht ändern. |
+| **Standardrolle** | Eine der fünf festen Rollen: Eigentümer, Ersteller, Editor, Kommentator, Betrachter. Sie lassen sich nicht ändern. |
 | **Berechtigungsmatrix** | Eine benannte Gruppe von Rollen für einen Space, eine Base oder eine Tabelle. In der Oberfläche heißt sie „Permission“. |
 | **Benutzerdefinierte Rolle** | Eine Rolle, die Sie in einer Matrix benennen, mit der Liste der Aktionen, die Sie auswählen. |
 | **Zuweisung** | Die Verbindung zwischen einer benutzerdefinierten Rolle und einem Benutzer. |
@@ -24,21 +24,21 @@ Benutzerdefinierte Rollen **kommen zu** den Standardrollen **hinzu**: Sie geben 
 
 ### Die fünf Rollen
 
-Die Hierarchie lautet: Eigentümer, Ersteller, Bearbeiter, Kommentator, Leser (von den meisten zu den wenigsten Rechten). Ein Benutzer erhält eine Rolle, indem er **Mitarbeiter** eines Spaces oder einer Base wird: per E-Mail-Einladung, Einladungslink oder direktes Hinzufügen. In einer Base **summieren** sich die Rechte der Base-Rolle und die der übergeordneten Space-Rolle.
+Die Hierarchie lautet: Eigentümer, Ersteller, Editor, Kommentator, Betrachter (von den meisten zu den wenigsten Rechten). Ein Benutzer erhält eine Rolle, indem er **Mitarbeiter** eines Spaces oder einer Base wird: per E-Mail-Einladung, Einladungslink oder direktes Hinzufügen. In einer Base **summieren** sich die Rechte der Base-Rolle und die der übergeordneten Space-Rolle.
 
 Welche Rollen Sie anbieten können, hängt von der Ebene ab:
 
 - **Space**: alle fünf Rollen.
-- **Base**: Ersteller, Bearbeiter, Kommentator und Leser (nicht Eigentümer).
-- **Tabelle**: Ersteller, Bearbeiter und Leser.
+- **Base**: Ersteller, Editor, Kommentator und Betrachter (nicht Eigentümer).
+- **Tabelle**: Ersteller, Editor und Betrachter.
 
-Die Rollen Eigentümer, Ersteller und Bearbeiter zählen als kostenpflichtiger Platz.
+Die Rollen Eigentümer, Ersteller und Editor zählen als kostenpflichtiger Platz.
 
 ### Was jede Rolle darf
 
 ✅ erlaubt, ❌ verweigert.
 
-| Recht | Eigentümer | Ersteller | Bearbeiter | Kommentator | Leser |
+| Recht | Eigentümer | Ersteller | Editor | Kommentator | Betrachter |
 |---|---|---|---|---|---|
 | **Space**: erstellen, löschen, ändern | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Space: lesen | ✅ | ✅ | ✅ | ✅ | ✅ |

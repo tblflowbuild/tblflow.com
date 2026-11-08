@@ -33,7 +33,7 @@ Der Server stellt 23 Tools bereit, die wie folgt gruppiert sind:
 - **Verstehen**: das Schema einer Base beschreiben, die Prozesslandkarte eines Spaces lesen.
 - **Lesen**: Datensätze auflisten, filtern und lesen.
 - **Berechnen**: Statistiken zu einer Tabelle berechnen (Summe, Durchschnitt, Minimum, Maximum, Anzahl), mit Filter und Gruppierung, ohne alle Zeilen zu lesen.
-- **Suchen**: den Knowledge Graph durchsuchen, per semantischer Suche und Volltextsuche.
+- **Suchen**: den Wissensgraph durchsuchen, per semantischer Suche und Volltextsuche.
 - **Anlegen und ändern**: Datensätze anlegen und ändern.
 - **Importieren**: eine CSV-Datei importieren, in eine bestehende oder in eine neue Tabelle.
 - **Löschen und wiederherstellen**: Datensätze oder ein Feld löschen, mit einer Vorschau und anschließend einer ausdrücklichen Bestätigung; den Papierkorb auflisten und Gelöschtes wiederherstellen.

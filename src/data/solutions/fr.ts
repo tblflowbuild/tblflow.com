@@ -474,7 +474,7 @@ const fr = {
         {
           label: 'Automatiser, puis confier',
           title: 'Les revues rappelées, les réponses apportées',
-          body: "Chaque lundi, un courriel liste les procédures dont la revue est dépassée ou proche. Les agents s'appuient sur vos procédures indexées pour répondre et pour agir selon vos règles.",
+          body: "Chaque lundi, un e-mail liste les procédures dont la revue est dépassée ou proche. Les agents s'appuient sur vos procédures indexées pour répondre et pour agir selon vos règles.",
         },
       ],
       build: {
@@ -533,7 +533,7 @@ const fr = {
         items: [
           { title: 'La carte de vos processus', body: 'Qui fait quoi, avec quel outil, où l’information est ressaisie, et les coûts estimés.' },
           { title: '« Où perdez-vous de l’argent ? »', body: 'Vos processus classés par gain potentiel, pour choisir par où commencer.' },
-          { title: 'Une vue direction et un rapport mensuel', body: 'Coût, gain potentiel, revues en retard : une page imprimable et un courriel le 1er du mois.' },
+          { title: 'Une vue direction et un rapport mensuel', body: 'Coût, gain potentiel, revues en retard : une page imprimable et un e-mail le 1er du mois.' },
         ],
       },
       faq: [

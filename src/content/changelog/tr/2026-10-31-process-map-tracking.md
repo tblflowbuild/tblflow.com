@@ -10,8 +10,8 @@ Süreç haritası (Fransızca arayüzde “Carto des process”) artık yalnızc
 **Zaman içinde izleme**
 
 - **Prosedür sayfası**: her süreçte (Canvas alanı); sorumlu, gözden geçirme tarihleri ve durum ile birlikte.
-- **Eskime uyarıları**: her pazartesi 07:00'de (sunucu saati) bir e-posta, sonraki gözden geçirmesi gecikmiş veya 14 gün içinde gelecek süreçleri listeler. Gözden geçirilecek bir şey yoksa e-posta gönderilmez. Alıcılar değiştirilebilir; canvas'ın “Diğer işlemler” menüsünden etkinleştirilir. V2 tabanı gerekir.
-- **E-postayla aylık rapor**: her ayın 1'inde 08:00'de maliyet, olası kazanç, kazancı en yüksek üç süreç ve geciken gözden geçirmeler. Tutarlar yalnızca taban sahibi etkinleştirirse görünür. V2 tabanı gerekir.
+- **Eskime uyarıları**: her pazartesi 07:00'de (sunucu saati) bir e-posta, sonraki gözden geçirmesi gecikmiş veya 14 gün içinde gelecek süreçleri listeler. Gözden geçirilecek bir şey yoksa e-posta gönderilmez. Alıcılar değiştirilebilir; canvas'ın “Diğer işlemler” menüsünden etkinleştirilir. V2 veritabanı gerekir.
+- **E-postayla aylık rapor**: her ayın 1'inde 08:00'de maliyet, olası kazanç, kazancı en yüksek üç süreç ve geciken gözden geçirmeler. Tutarlar yalnızca veritabanı sahibi etkinleştirirse görünür. V2 veritabanı gerekir.
 - **Adım bazında onay**: durum (onaylanacak, onaylandı, yeniden bakılacak), onaylayan, tarih ve yorum; canvas'taki adımda bir rozetle gösterilir.
 
 **Ölçün ve karşılaştırın**

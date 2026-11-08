@@ -15,7 +15,7 @@ That is the role of TblFlow's official MCP server. MCP (Model Context Protocol) 
 
 The server exposes 13 tools. Claude can list your spaces and bases, describe a base's schema, list, filter and read records, and search the knowledge graph, both semantic and full-text. Depending on the permissions you grant, it can also create and edit records, delete records, create a table or a field, trigger an automation and run an AI agent.
 
-The server is remote, over Streamable HTTP, with OAuth 2.1 authentication: you sign in with your usual TblFlow account. It is available from the Free tier, like the REST API.
+The server is remote, over Streamable HTTP, with OAuth 2.1 authentication: you sign in with your usual TblFlow account. It is available from the Free plan, like the REST API.
 
 ## Three examples
 
@@ -35,7 +35,7 @@ A deletion goes through a preview and then an explicit confirmation, and records
 
 On the data side, the content of conversations is not logged: only the tool called, the time, the duration and the status are kept. Tool results are passed to the assistant, Claude, to answer your request. The server is designed in line with ISO 27001 and ISO 42001 practices, GDPR and the AI Act; no certification has been obtained to date.
 
-Rate limits depend on the tier: 60, 120, 300 and 600 requests per minute for Free, Essential, Team and Enterprise.
+Rate limits depend on the plan: 60, 120, 300 and 600 requests per minute for Free, Essential, Team and Enterprise.
 
 ## How to connect it
 

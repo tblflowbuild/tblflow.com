@@ -56,7 +56,7 @@ export const GET: APIRoute = async () => {
 > event-driven automations, an AI connector generator, an AI browser agent (computer use),
 > AI-accelerated process mapping, semantic document search and publishable custom apps, all on
 > the same data. It is available as a
-> managed service at tblflow.com and, under the Enterprise tier, as a self-hosted or dedicated
+> managed service at tblflow.com and, under the Enterprise plan, as a self-hosted or dedicated
 > VPC deployment with every feature unlocked.
 
 ## Key facts
@@ -83,15 +83,15 @@ export const GET: APIRoute = async () => {
 - Search: PostgreSQL full-text and pgvector semantic search, fused with reciprocal rank fusion.
 - Scale: filters, sorts, groups and searches across millions of rows with sub-second response.
   The grid renders to canvas and redraws only the visible region.
-- Deployment: managed cloud, or self-hosted / dedicated VPC under the Enterprise tier (on
+- Deployment: managed cloud, or self-hosted / dedicated VPC under the Enterprise plan (on
   quote), with every feature unlocked.
 - Licence: AGPL-3.0.
 - Stack: NestJS, Next.js, PostgreSQL with pgvector, Redis, BullMQ, ShareDB.
 
 ## Pricing
 
-${priceLine}. Self-hosted and dedicated VPC deployment is part of the Enterprise tier, on quote.
-Full tier detail: ${SITE_URL}/en/pricing
+${priceLine}. Self-hosted and dedicated VPC deployment is part of the Enterprise plan, on quote.
+Full plan detail: ${SITE_URL}/en/pricing
 
 ## Pages
 
@@ -99,12 +99,12 @@ Full tier detail: ${SITE_URL}/en/pricing
 - [Home (French)](${SITE_URL}/fr): same content in French.
 - [Process map (English)](${SITE_URL}/en/process-map): map processes, spot breaks, estimate costs (estimates entered by the user), and have the AI propose a TblFlow replacement. Free diagnosis; full map from the Essential plan.
 - [Process map (French)](${SITE_URL}/fr/process-map)
-- [MCP server (English)](${SITE_URL}/en/mcp): official remote MCP server (https://app.tblflow.com/mcp, Streamable HTTP, OAuth 2.1) that lets Claude query and edit TblFlow data under the user's rights. Included from the Free tier.
+- [MCP server (English)](${SITE_URL}/en/mcp): official remote MCP server (https://app.tblflow.com/mcp, Streamable HTTP, OAuth 2.1) that lets Claude query and edit TblFlow data under the user's rights. Included from the Free plan.
 - [MCP server (French)](${SITE_URL}/fr/mcp)
 - [CLI (English)](${SITE_URL}/en/docs/cli): the TblFlow command-line tool, npm package @tblflow/cli (MIT): device-code or service-token sign-in, records, CSV import and export, exposed automations and agents, and a local MCP server (\`tblflow mcp serve\`).
 - [Use cases (English)](${SITE_URL}/en/use-cases): six end-to-end flows where the same data is retyped from tool to tool (quote to cash, procure to pay, financial close with margins and EBITDA, stock to shipping, quality and non-conformities, internal procedures), each with what TblFlow does not do.
 - [Who it is for (English)](${SITE_URL}/en/for): SME leaders, finance and accounting, sales administration, manufacturing, retail and distribution, professional services firms.
-- [Pricing (English)](${SITE_URL}/en/pricing): four tiers with the full quota grid.
+- [Pricing (English)](${SITE_URL}/en/pricing): four plans with the full quota grid.
 - [Pricing (French)](${SITE_URL}/fr/pricing)
 - [Blog (English)](${SITE_URL}/en/blog)
 - [Blog (French)](${SITE_URL}/fr/blog)

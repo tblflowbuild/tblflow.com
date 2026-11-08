@@ -17,7 +17,7 @@ const de = {
   'benefits.title': 'Was sich ändert',
   'benefits.1.title': 'Ihre Daten abfragen',
   'benefits.1.body':
-    'Stellen Sie Claude Ihre Fragen: Es liest das Schema Ihrer Bases, filtert Datensätze und durchsucht den Knowledge Graph per semantischer Suche und Volltextsuche.',
+    'Stellen Sie Claude Ihre Fragen: Es liest das Schema Ihrer Bases, filtert Datensätze und durchsucht den Wissensgraph per semantischer Suche und Volltextsuche.',
   'benefits.2.title': 'Aus der Unterhaltung heraus handeln',
   'benefits.2.body':
     'Legen Sie Datensätze an und ändern Sie sie, fügen Sie eine Tabelle oder ein Feld hinzu, lösen Sie eine Automatisierung aus oder starten Sie einen KI-Agenten, ohne Claude zu verlassen.',
@@ -34,7 +34,7 @@ const de = {
   'tools.3.title': 'Lesen',
   'tools.3.body': 'Datensätze auflisten, filtern und lesen.',
   'tools.4.title': 'Suchen',
-  'tools.4.body': 'Den Knowledge Graph per semantischer Suche und Volltextsuche durchsuchen.',
+  'tools.4.body': 'Den Wissensgraph per semantischer Suche und Volltextsuche durchsuchen.',
   'tools.5.title': 'Anlegen und ändern',
   'tools.5.body': 'Datensätze anlegen und ändern.',
   'tools.6.title': 'Löschen',

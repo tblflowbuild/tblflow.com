@@ -30,7 +30,7 @@ The field type is what separates a database from a spreadsheet. Spend a minute o
 | An aggregate over linked records | Rollup |
 | A per-row calculation | Formula |
 
-All 28 types are available on every tier, self-hosting included.
+All 28 types are available on every plan, self-hosting included.
 
 ## 3. Open a second view
 

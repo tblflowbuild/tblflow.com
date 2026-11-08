@@ -9,6 +9,6 @@ TblFlow'a iletilen bir hesap silme talebi artık araçlarla desteklenen bir pros
 
 - **Varsayılan olarak 30 günlük bekleme süresi**: oturumlar hemen kapatılır ve silme bu süre içinde iptal edilebilir.
 - **Kayıt defteri**: her adım (planlama, yürütme, iptal), kişinin adresi olmadan bir kayıt defterine yazılır.
-- **Geriye kalanlar**: yasaların saklanmasını zorunlu kıldığı faturalar ve ödemeler ile paylaşılan tabanlardaki katkılar; bunlar tanımlanabilir bir yazar olmadan gösterilir.
+- **Geriye kalanlar**: yasaların saklanmasını zorunlu kıldığı faturalar ve ödemeler ile paylaşılan veritabanlarındaki katkılar; bunlar tanımlanabilir bir yazar olmadan gösterilir.
 
 Hesabınızı her zaman kendiniz, anında etkili olacak şekilde silebilirsiniz.

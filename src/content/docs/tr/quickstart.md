@@ -1,16 +1,16 @@
 ---
 title: "Hızlı başlangıç"
 translationKey: "quickstart"
-description: "İlk TblFlow tabanınızı oluşturun, verileri içe aktarın, ikinci bir görünüm açın ve ekibinizle paylaşın: beş dakikada, tek satır SQL yazmadan."
+description: "İlk TblFlow veritabanınızı oluşturun, verileri içe aktarın, ikinci bir görünüm açın ve ekibinizle paylaşın: beş dakikada, tek satır SQL yazmadan."
 section: "Başlarken"
 order: 1
 ---
 
-Bu sayfa sizi boş bir hesaptan ekibinizin çalışabileceği bir tabana götürür. Beş dakika ayırın.
+Bu sayfa sizi boş bir hesaptan ekibinizin çalışabileceği bir veritabanına götürür. Beş dakika ayırın.
 
-## 1. Bir taban oluşturun
+## 1. Bir veritabanı oluşturun
 
-Kontrol panelinden **Yeni taban**. Taban bir çalışma alanıdır: birkaç tabloyu, kendi görünümlerini, otomasyonlarını ve ajanlarını barındırır. Altta, ona ayrılmış bir PostgreSQL şemasıdır.
+Kontrol panelinden **Yeni veritabanı**. Veritabanı bir çalışma alanıdır: birkaç tabloyu, kendi görünümlerini, otomasyonlarını ve ajanlarını barındırır. Altta, ona ayrılmış bir PostgreSQL şemasıdır.
 
 Başlamanın üç yolu:
 
@@ -40,7 +40,7 @@ Durum alanı olan bir tabloda, bu duruma göre gruplanmış bir **Kanban** gör�
 
 ## 4. Ekibinizi davet edin
 
-Sağ üstte **Paylaş**. İzinler taban düzeyinde belirlenir (sahip, düzenleyici, yorumcu, görüntüleyici) ve tablo ve alan başına daraltılabilir.
+Sağ üstte **Paylaş**. İzinler veritabanı düzeyinde belirlenir (sahip, düzenleyici, yorumcu, görüntüleyici) ve tablo ve alan başına daraltılabilir.
 
 Düzenleme gerçek zamanlı ve ortaktır: iki kişi aynı tabloda aynı anda çalışabilir; imleçler ve değişiklikler anında görünür.
 
@@ -48,4 +48,4 @@ Düzenleme gerçek zamanlı ve ortaktır: iki kişi aynı tabloda aynı anda ça
 
 - [Tablolar ve alanlar](/tr/docs/tables-and-fields) — alan türleri ayrıntılı olarak.
 - [Otomasyonlar](/tr/docs/automations) — verileriniz üzerinde eylemleri tetikleyin.
-- [Yapay zeka ajanları](/tr/docs/ai-agents) — yinelenen işleri devredin.
+- [Yapay zekâ ajanları](/tr/docs/ai-agents) — yinelenen işleri devredin.

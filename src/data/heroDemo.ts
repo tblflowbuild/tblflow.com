@@ -38,7 +38,7 @@ export const HERO_DEMO: Record<Locale, {
     agentTitle: 'Agent „Fakturierung“',
     prompt: 'Lege Aufträge und Rechnungen für die angenommenen Angebote an',
     steps: ['Angenommene Angebote werden gelesen', 'Aufträge werden angelegt', 'Rechnungen zur Freigabe bereit'],
-    agentBody: '2 Rechnungen ohne Doppelerfassung erstellt',
+    agentBody: '2 Rechnungen ohne Neuerfassung erstellt',
     tableFoot: 'In eine echte PostgreSQL-Tabelle geschrieben',
     appKicker: 'Veröffentlichte App',
     appTitle: 'Kundenportal',

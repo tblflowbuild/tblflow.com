@@ -140,8 +140,8 @@ const ENGLISH_ONLY = [
   'Get started', 'Contact us', 'rows per table', 'runs/month', 'Unlimited AI agents',
   'billed annually', 'billed monthly', '1 month free', 'Rows per table',
   'Free spaces per user', 'No monthly quota', 'Community support', 'Priority support',
-  'Email support', 'Four tiers:', 'How much does TblFlow cost',
-  'TblFlow Cloud has four tiers', 'no-code database platform',
+  'Email support', 'Four plans:', 'How much does TblFlow cost',
+  'TblFlow Cloud has four plans', 'no-code database platform',
   'Price per team', 'per additional person', 'Starting at', 'Included seats',
   'Free diagnosis', 'Full process map',
 ];
