@@ -608,7 +608,7 @@ const tr = {
         title: 'Bugün size neye mal oluyor',
         items: [
           { title: 'Yeniden yazılan sipariş', body: 'Kabul edilen teklif sipariş tablosuna, sonra faturaya kopyalanır.' },
-          { title: 'Fiyat hataları', body: 'Her kopya, yanlış satır ya da indirim yapma fırsatıdır.' },
+          { title: 'Fiyat hataları', body: 'Her kopya, satırda ya da indirimde hata yapma fırsatıdır.' },
           { title: 'Bekleyen müşteri', body: 'Siparişinin durumunu öğrenmek için üç dosya açmak gerekir.' },
         ],
       },

@@ -158,7 +158,7 @@ export const CARTO_STRINGS = {
     it: "Scopri le novità nel changelog",
     ja: "変更履歴で新機能を見る",
     ru: "Смотреть новое в журнале изменений",
-    tr: "Yenilikleri changelog'da görün",
+    tr: "Yenilikleri değişiklik günlüğünde görün",
     uk: "Дивитися новинки в журналі змін",
     zh: "在更新日志中查看新内容",
   },

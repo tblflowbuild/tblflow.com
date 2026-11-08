@@ -491,7 +491,7 @@ const BASE_TIERS: Tier[] = [
       ],
       tr: [
         '50 kişiye kadar çevrimiçi satın alınabilir',
-        '50 kişinin üzerinde, kendi sunucu veya VPC: teklife bağlı',
+        '50 kişinin üzerinde, kendi sunucunuz veya VPC: teklife bağlı',
         'Base, satır ve depolama sınırsız · SSO / SAML · white-label',
         '7/24 özel destek · %99,99 SLA',
       ],

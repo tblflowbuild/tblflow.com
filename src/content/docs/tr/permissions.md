@@ -14,7 +14,7 @@ Yetkiler, TblFlow'da kimin neyi görebileceğini, değiştirebileceğini veya y�
 |---|---|
 | **Eylem** | Tek bir hak; örneğin bir kaydı değiştirmek veya bir tabanın izinlerini yapılandırmak. |
 | **Varsayılan rol** | Beş sabit rolden biri: sahip, oluşturucu, düzenleyici, yorumcu, görüntüleyici. Değiştirilemezler. |
-| **İzin matrisi** | Bir çalışma alanı, taban veya tablo üzerindeki adlandırılmış roller kümesi. Arayüzde « Permission » olarak adlandırılır. |
+| **İzin matrisi** | Bir çalışma alanı, taban veya tablo üzerindeki adlandırılmış roller kümesi. Arayüzde «Permission» olarak adlandırılır. |
 | **Özel rol** | Bir matriste adlandırdığınız ve seçtiğiniz eylem listesine sahip olan rol. |
 | **Atama** | Bir özel rol ile bir kullanıcı arasındaki bağ. |
 
@@ -89,7 +89,7 @@ Bazı haklar yukarıdaki rollerden geçmez, herkese kapalıdır:
 
 ### Varsayılan bir rol vermek
 
-Bir çalışma alanı veya taban düzeyinde, rolünü seçerek bir kullanıcıyı (e-postayla veya bağlantıyla) davet edin. O düzeyde davet edebiliyor olmanız gerekir; bir çalışma alanında rol atamak için de « rol atamak » hakkına sahip olmanız gerekir.
+Bir çalışma alanı veya taban düzeyinde, rolünü seçerek bir kullanıcıyı (e-postayla veya bağlantıyla) davet edin. O düzeyde davet edebiliyor olmanız gerekir; bir çalışma alanında rol atamak için de «rol atamak» hakkına sahip olmanız gerekir.
 
 ### Özel bir rol oluşturmak
 
