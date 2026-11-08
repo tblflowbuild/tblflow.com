@@ -16,7 +16,8 @@
     "check:csp": "astro build && node scripts/check-csp.mjs",
     "deploy": "astro build && wrangler deploy",
     "indexnow": "node scripts/indexnow.mjs",
-    "check:meta": "node scripts/check-meta.mjs"
+    "check:meta": "node scripts/check-meta.mjs",
+    "check:typo-fr": "node scripts/check-typo-fr.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "4.0.19",

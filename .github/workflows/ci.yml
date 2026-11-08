@@ -22,4 +22,5 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+      - run: npm run check:typo-fr
       - run: npx astro check
