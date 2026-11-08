@@ -230,7 +230,7 @@ export const ui = {
 
     'faq.title': 'Frequently asked questions',
     'faq.subtitle': 'What people ask us most.',
-    'faq.search': 'Search a question…',
+    'faq.search': 'Search questions…',
     'faq.empty': 'No question matches that search.',
     'faq.all': 'All',
 

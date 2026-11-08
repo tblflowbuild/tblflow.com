@@ -186,7 +186,7 @@ export const DIFFERENTIATORS: Feature[] = [
     },
     body: {
       de: "Agenten, die auf Ihren Daten handeln: Sie lesen und schreiben in Ihre Tabellen, unter Ihren Rechten, und Sie bestätigen jede sensible Aktion. Zum Beispiel: eine E-Mail, wenn ein Deal die Phase wechselt, ein GitHub-Issue anlegen, jeden Freitag die Woche zusammenfassen.",
-      en: "Agents that act on your data: they read and write your tables, under your rights, and you approve every sensitive action. For example: an email when a deal changes stage, a GitHub issue, a summary of the week every Friday.",
+      en: "Agents that act on your data: they read and write your tables, within your permissions, and you approve every sensitive action. For example: an email when a deal changes stage, a GitHub issue, a summary of the week every Friday.",
       es: "Agentes que actúan sobre tus datos: leen y escriben en tus tablas, con tus permisos, y tú validas cada acción sensible. Por ejemplo: un email cuando un trato cambia de etapa, una incidencia en GitHub, un resumen de la semana cada viernes.",
       fr: "Des agents qui agissent sur vos données : ils lisent et écrivent dans vos tables, sous vos droits, et vous validez chaque action sensible. Par exemple : un email au changement d'étape d'un deal, une issue GitHub, un résumé de la semaine chaque vendredi.",
       it: "Agenti che agiscono sui tuoi dati: leggono e scrivono nelle tue tabelle, con i tuoi permessi, e tu approvi ogni azione sensibile. Per esempio: un'email quando un'opportunità cambia fase, una issue su GitHub, un riepilogo della settimana ogni venerdì.",

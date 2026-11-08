@@ -4,7 +4,7 @@ const en = {
   nav: 'MCP server',
   'meta.title': 'Official MCP server: TblFlow in Claude',
   'meta.description':
-    'Connect TblFlow to Claude in one click: the official MCP server reads and writes your data under your rights and the spaces you choose. Free tier included.',
+    'Connect TblFlow to Claude in one click: the official MCP server reads and writes your data within your permissions, in your chosen spaces. Free tier included.',
   breadcrumb: 'MCP server',
   'hero.eyebrow': 'Official MCP server',
   'hero.title': 'Work on your TblFlow data from Claude.',
@@ -79,7 +79,7 @@ const en = {
   'control.5':
     'The content of conversations is not logged: only the tool called, the time, the duration and the status are kept. Tool results are passed to the assistant (Claude) to answer your request.',
   'control.6':
-    'Designed along ISO 27001 and ISO 42001 practices, GDPR and the AI Act. This is a design approach: no certification has been obtained to date.',
+    'Designed in line with ISO 27001 and ISO 42001 practices, GDPR and the AI Act. This is a design approach: no certification has been obtained to date.',
   'limits.title': 'Rate limits by tier',
   'limits.intro':
     'The MCP server is included in every tier. Only the requests-per-minute limit changes.',
@@ -107,7 +107,7 @@ const en = {
   'home.line': 'Connect TblFlow to Claude — official MCP server',
   'home.card.title': 'Claude',
   'home.card.body':
-    'Query and edit your TblFlow data from the conversation, under your rights and the spaces you choose.',
+    'Query and edit your TblFlow data from the conversation, within your permissions and the spaces you choose.',
   'home.card.cta': 'Discover the MCP server',
   'pricing.row': 'MCP server: requests / minute',
   'pricing.highlight': 'MCP server included: {n} requests / minute',
@@ -121,9 +121,9 @@ const en = {
   'privacy.p4':
     "Retention: the content of conversations is never recorded, nor are tool arguments and results. An audit log keeps, for each tool call, the user identifier, the tool name, the time, the duration in milliseconds and the status (success or error), for 6 months, after which it is purged automatically. Dynamically registered OAuth clients that remain unused are purged after 30 days.",
   'privacy.p5':
-    'Sharing: tool results are passed to the assistant you connected (for example Claude, from Anthropic), which processes them to answer your request under its own privacy policy. Only connect spaces whose content you accept to have passed to the assistant.',
+    'Sharing: tool results are passed to the assistant you connected (for example Claude, from Anthropic), which processes them to answer your request under its own privacy policy. Only connect spaces whose content you are willing to have passed to the assistant.',
   'privacy.p6':
-    'Framework: the server is designed along ISO 27001 and ISO 42001 practices, GDPR and the AI Act. No certification has been obtained to date.',
+    'Framework: the server is designed in line with ISO 27001 and ISO 42001 practices, GDPR and the AI Act. No certification has been obtained to date.',
   'privacy.p7':
     'Your rights (access, rectification, erasure, restriction, objection, portability, and the right to lodge a complaint with the supervisory authority) apply to this processing as described above. Data protection contact:',
 } as const satisfies Record<McpKey, string>;

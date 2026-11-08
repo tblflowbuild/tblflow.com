@@ -33,7 +33,7 @@ When you connect, you choose the spaces and bases that are reachable, and the pe
 
 A deletion goes through a preview and then an explicit confirmation, and records go to the trash. Automations and agents can only be triggered if their owner has exposed them.
 
-On the data side, the content of conversations is not logged: only the tool called, the time, the duration and the status are kept. Tool results are passed to the assistant, Claude, to answer your request. The server is designed along ISO 27001 and ISO 42001 practices, GDPR and the AI Act; no certification has been obtained to date.
+On the data side, the content of conversations is not logged: only the tool called, the time, the duration and the status are kept. Tool results are passed to the assistant, Claude, to answer your request. The server is designed in line with ISO 27001 and ISO 42001 practices, GDPR and the AI Act; no certification has been obtained to date.
 
 Rate limits depend on the tier: 60, 120, 300 and 600 requests per minute for Free, Essential, Team and Enterprise.
 

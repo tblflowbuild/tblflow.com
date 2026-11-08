@@ -142,7 +142,7 @@ export const HOME_STRINGS = {
   },
   "example.step2.body": {
     de: "Vom Vertriebsinnendienst erneut in Excel erfasst.",
-    en: "Re-typed into a spreadsheet by sales admin.",
+    en: "Retyped into a spreadsheet by sales admin.",
     es: "Tecleado de nuevo en Excel por administración de ventas.",
     fr: "Ressaisie dans Excel par l’administration des ventes.",
     it: "Ridigitato in Excel dall’amministrazione vendite.",
@@ -158,7 +158,7 @@ export const HOME_STRINGS = {
   },
   "example.step3.body": {
     de: "Von der Buchhaltung erneut in der Rechnungssoftware erfasst.",
-    en: "Re-typed into the invoicing software by accounting.",
+    en: "Retyped into the invoicing software by accounting.",
     es: "Tecleado de nuevo en el software de facturación por contabilidad.",
     fr: "Ressaisie dans le logiciel de facturation par la comptabilité.",
     it: "Ridigitato nel software di fatturazione dalla contabilità.",

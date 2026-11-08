@@ -113,7 +113,7 @@ chooses the reachable spaces and bases and the permissions (read by default; wri
 trigger are options), and existing TblFlow rights apply to every request. Automations and agents can only
 be triggered if their owner has exposed them. The content of conversations is not logged; only the tool
 called, the time, the duration and the status are kept. Tool results are passed to the assistant (Claude)
-to answer the user. Designed along ISO 27001 and ISO 42001 practices, GDPR and the AI Act; no
+to answer the user. Designed in line with ISO 27001 and ISO 42001 practices, GDPR and the AI Act; no
 certification has been obtained to date. Published in the official MCP registry as com.tblflow/tblflow
 (version 1.0.0); submission to the Claude connectors directory is coming; ChatGPT is not supported yet.
 Page: ${SITE_URL}/en/mcp`);
