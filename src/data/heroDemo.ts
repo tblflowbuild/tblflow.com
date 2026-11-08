@@ -71,7 +71,7 @@ export const HERO_DEMO: Record<Locale, {
     agentBody: '2 facturas creadas sin doble introducción',
     tableFoot: 'Escrito en una tabla PostgreSQL real',
     appKicker: 'Aplicación publicada',
-    appTitle: 'Portal de Clientes',
+    appTitle: 'Portal de clientes',
     stats: ['Presupuestos aceptados', 'Por facturar'],
     domain: 'portal.tudominio.es',
   },

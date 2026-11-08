@@ -1053,7 +1053,7 @@ export const PM_STRINGS = {
   "plan.body": {
     de: "Die Diagnose eines Prozesses ist kostenlos. Die vollständige Prozesslandkarte ist in den Tarifen Essential, Team und Enterprise enthalten. Im kostenlosen Tarif ist nur die Diagnose verfügbar.",
     en: "A one-process diagnosis is free. The full process map is included in the Essential, Team and Enterprise plans. The Free plan includes the diagnosis only.",
-    es: "El diagnóstico de un proceso es gratis. El mapa de procesos completo está incluido en los planes Esencial, Equipo y Enterprise. El plan Gratuito incluye solo el diagnóstico.",
+    es: "El diagnóstico de un proceso es gratis. El mapa de procesos completo está incluido en los planes Esencial, Equipo y Enterprise. El plan Gratis incluye solo el diagnóstico.",
     fr: "Le diagnostic d’un processus est gratuit. La Carto des process complète est incluse dans les plans Essentiel, Équipe et Entreprise. Le plan Gratuit n’inclut que le diagnostic.",
     it: "La diagnosi di un processo è gratuita. La mappa dei processi completa è inclusa nei piani Essenziale, Team ed Enterprise. Il piano Gratuito include solo la diagnosi.",
     ja: "1 つのプロセスの診断は無料です。プロセスマップ全体は Essential、チーム、Enterprise プランに含まれます。無料プランに含まれるのは診断のみです。",

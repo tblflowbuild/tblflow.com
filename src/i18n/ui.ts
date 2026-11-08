@@ -365,14 +365,14 @@ export const ui = {
     'why.subtitle': 'Lo que las otras herramientas no hacen.',
 
     'compare.title': 'Comparativa',
-    'compare.subtitle': 'Frente a las plataformas que ya conoce.',
+    'compare.subtitle': 'Frente a las plataformas que ya conoces.',
     'compare.feature': 'Función',
     'compare.yes': 'Sí',
     'compare.no': 'No',
     'compare.partial': 'Parcial',
 
     'pricing.title': 'Precios',
-    'pricing.subtitle': 'Empiece gratis. Cambie de plan cuando su equipo crezca.',
+    'pricing.subtitle': 'Empieza gratis. Cambia de plan cuando tu equipo crezca.',
     'pricing.perTeam': "Precio por equipo, no por persona",
     'pricing.from': "Desde",
     'pricing.seatExtra': "+{price} / mes por persona adicional",
@@ -384,9 +384,9 @@ export const ui = {
     'pricing.cta.enterprise': 'Contactar',
     'pricing.popular': 'El más elegido',
     'pricing.compare': 'Comparar planes en detalle',
-    'pricing.selfhost.title': '¿Necesita autoalojamiento?',
+    'pricing.selfhost.title': '¿Necesitas autoalojamiento?',
     'pricing.selfhost.body':
-      'El despliegue en su propia infraestructura o en una VPC dedicada forma parte del plan Enterprise, a medida, con todas las funciones desbloqueadas.',
+      'El despliegue en tu propia infraestructura o en una VPC dedicada forma parte del plan Enterprise, a medida, con todas las funciones desbloqueadas.',
     'pricing.selfhost.cta': 'Contactar con soporte',
 
     'faq.title': 'Preguntas frecuentes',
@@ -418,7 +418,7 @@ export const ui = {
     'docs.toc': 'Índice',
     'docs.previous': 'Anterior',
     'docs.next': 'Siguiente',
-    'docs.help': '¿Una pregunta que esto no responde? Escríbanos a ',
+    'docs.help': '¿Una pregunta que esto no responde? Escríbenos a ',
 
     'footer.product': 'Producto',
     'footer.resources': 'Recursos',
@@ -437,7 +437,7 @@ export const ui = {
     'footer.nav.appNotice': 'Aviso legal de la aplicación',
     'surfaces.eyebrow': 'Visión general',
     'surfaces.title': 'Una plataforma, seis superficies',
-    'surfaces.subtitle': 'Sus datos estructurados se convierten en software funcional, sin salir de la plataforma.',
+    'surfaces.subtitle': 'Tus datos estructurados se convierten en software funcional, sin salir de la plataforma.',
     'surfaces.mock.api': 'API de visitante',
     'surfaces.mock.writes': 'escribe en la tabla',
     'views.kanban.todo': 'Por hacer',
@@ -453,7 +453,7 @@ export const ui = {
     'views.title6': 'Seis formas de ver la misma tabla',
 
     'compare.lede': 'Una comparativa detallada por herramienta, con criterios verificables y los casos en los que el otro producto gana.',
-    'views.subtitle6': 'Cambie de vista sin duplicar ni una sola fila de datos.',
+    'views.subtitle6': 'Cambia de vista sin duplicar ni una sola fila de datos.',
 
     'consent.title': 'Tus preferencias de privacidad',
     'consent.body': 'Usamos Google Analytics para entender cómo se utiliza este sitio. No se activa nada sin tu consentimiento.',
@@ -484,7 +484,7 @@ export const ui = {
     'showcase.subtitle': 'No son maquetas: capturas de la interfaz real, con datos reales.',
     'showcase.table.caption': 'Una tabla de contactos, con sus campos y estados, directamente desde la cuadrícula.',
     'showcase.schema.caption': 'El esquema relacional de una base, generado y editable, con el asistente de IA al lado.',
-    'blog.search': 'Buscar artículos...',
+    'blog.search': 'Buscar artículos…',
     'blog.filterAll': 'Todos',
     'blog.noResults': 'Ningún artículo coincide con este filtro.',
     'pricing.billing.monthly': 'Mensual',
