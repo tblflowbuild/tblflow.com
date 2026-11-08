@@ -114,3 +114,25 @@ if (!reduced && 'IntersectionObserver' in window) {
     observer.observe(scene);
   }
 }
+
+/**
+ * Home journey steps: each step's text rises and its thread is drawn the first
+ * time it scrolls into view. Without the script the text is simply there.
+ */
+const reveals = document.querySelectorAll<HTMLElement>('[data-reveal]');
+if (reveals.length && !reduced && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        observer.unobserve(entry.target);
+        entry.target.setAttribute('data-revealed', '');
+      }
+    },
+    { rootMargin: '0px 0px -15% 0px' }
+  );
+  for (const el of reveals) {
+    el.setAttribute('data-reveal-armed', '');
+    observer.observe(el);
+  }
+}
