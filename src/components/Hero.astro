@@ -14,7 +14,7 @@
  * search; the journey's step 01 tells it in full.
  */
 import Logo from './Logo.astro';
-import HeroWindow from './HeroWindow.astro';
+import HeroTour from './HeroTour.astro';
 import { JOURNEY } from '@/data/journey';
 import type { Locale } from '@/config';
 
@@ -40,7 +40,7 @@ const { locale } = Astro.props;
       </p>
 
       <div class="animate-enter delay-3 mt-10 sm:mt-12">
-        <HeroWindow locale={locale} />
+        <HeroTour locale={locale} />
       </div>
     </div>
   </div>
