@@ -23,9 +23,11 @@ import { useTranslations } from '@/i18n/ui';
 interface Props {
   locale: Locale;
   class?: string;
+  /** Which edge the menu lines up with: 'start' when the trigger sits at the left of its column (footer). */
+  align?: 'start' | 'end';
 }
 
-const { locale, class: className = '' } = Astro.props;
+const { locale, class: className = '', align = 'end' } = Astro.props;
 const t = useTranslations(locale);
 // The 404 has no counterpart per locale: each language links to its home page.
 const is404 = /\/404(\.html)?$/.test(Astro.url.pathname);
@@ -54,7 +56,10 @@ const bare = is404 ? null : await barePathsFor(Astro.url.pathname);
 
   <nav
     aria-label={t('footer.lang')}
-    class="card absolute right-0 z-10 mt-2 max-h-80 w-48 origin-top-right overflow-y-auto p-2 group-open:animate-enter"
+    class:list={[
+      'card absolute z-10 mt-2 max-h-80 w-48 overflow-y-auto p-2 group-open:animate-enter',
+      align === 'start' ? 'left-0 origin-top-left' : 'right-0 origin-top-right',
+    ]}
   >
     <ul>
       {
