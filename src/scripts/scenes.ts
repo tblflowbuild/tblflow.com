@@ -64,40 +64,6 @@ for (const scene of scenes) {
   });
 }
 
-/**
- * Hero window: the before / after switch plays on its own, one side every
- * HERO_TAB_MS, while the window is on screen and the page is visible. The
- * first pointer or key inside the window hands control to the visitor.
- */
-const HERO_TAB_MS = 5000;
-
-function autoplayHeroTabs(hero: HTMLElement): void {
-  const radios = Array.from(hero.querySelectorAll<HTMLInputElement>('.hw-radio'));
-  if (radios.length < 2) return;
-  let onScreen = true;
-  const timer = window.setInterval(() => {
-    if (!onScreen || document.hidden) return;
-    const current = radios.findIndex((radio) => radio.checked);
-    radios[(current + 1) % radios.length].checked = true;
-  }, HERO_TAB_MS);
-  const stop = () => {
-    window.clearInterval(timer);
-    hero.removeAttribute('data-auto');
-  };
-  hero.addEventListener('pointerdown', stop, { once: true });
-  hero.addEventListener('keydown', stop, { once: true });
-  new IntersectionObserver(([entry]) => {
-    onScreen = entry.isIntersecting;
-  }).observe(hero);
-  hero.style.setProperty('--hw-cycle', `${HERO_TAB_MS}ms`);
-  hero.setAttribute('data-auto', '');
-  // The markup shows the last state (after TblFlow); the story starts before.
-  radios[0].checked = true;
-}
-
-const heroWindow = document.querySelector<HTMLElement>('.hw');
-if (heroWindow && !reduced && 'IntersectionObserver' in window) autoplayHeroTabs(heroWindow);
-
 if (!reduced && 'IntersectionObserver' in window) {
   const observer = new IntersectionObserver(
     (entries) => {

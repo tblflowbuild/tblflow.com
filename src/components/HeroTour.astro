@@ -1,0 +1,1402 @@
+---
+/**
+ * The product window under the hero: five short scenes that explain TblFlow
+ * to a first-time visitor. Your tools (some stay connected, some move into
+ * TblFlow), tables (grid, kanban, form), an assistant on the model you pick,
+ * agents that run on their own, and your approval before anything goes out.
+ * One fictional story runs through them (heroTour.ts).
+ *
+ * Five native radios drive the scenes, so the tabs work with a click or the
+ * arrow keys and need no script; the radios sit before the window because CSS
+ * can only look forward. The markup is every scene's finished state, which is
+ * what visitors without script or with reduced motion see. The script plays
+ * each scene from its first frame and walks through them once while the window
+ * is on screen; the first click, key or swipe hands control to the visitor.
+ *
+ * The window is the app's own chrome and theme (app-ui.css), like the journey.
+ */
+import { HERO_TOUR } from '@/data/heroTour';
+import { TOOL_LOGOS, AI_LOGOS } from '@/data/heroTourLogos';
+import { formatPrice, HREFLANG, type Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = HERO_TOUR[locale];
+const fill = (text: string, values: Record<string, string | number>) =>
+  text.replace(/\{(\w+)\}/g, (_, key: string) => String(values[key]));
+const price = (amount: number) => formatPrice(locale, amount);
+
+const SCENES = [0, 1, 2, 3, 4];
+const TOOLS = ['Google Sheets', 'Slack', 'Gmail', 'Stripe', 'Postgres', t.files, 'Teams', 'LinkedIn', 'Salesforce', 'Notion', 'DocuSign'];
+/** Sheets, Files and Notion become a table, documents and pages, in the app's resource colours. */
+const RES_ICON = {
+  table: 'M3 4h18v16H3zM3 10h18M3 15h18M9 10v10',
+  doc: 'M6 3h8l4 4v14H6zM14 3v4h4M9 12h6M9 16h6',
+  page: 'M3 4h18v16H3zM3 9h18M9 9v11',
+};
+const REPLACED: Record<number, { color: string; icon: keyof typeof RES_ICON; label: string }> = {
+  0: { color: 'var(--tf-table)', icon: 'table', label: t.replaced[0] },
+  5: { color: 'var(--tf-info)', icon: 'doc', label: t.replaced[1] },
+  9: { color: 'var(--ht-accent)', icon: 'page', label: t.replaced[2] },
+};
+/** Where each tile floats before the scene tidies it into a 4-column grid (percent of the canvas). */
+const SCATTER = [[8, 10], [70, 6], [38, 44], [82, 38], [12, 62], [55, 70], [26, 22], [60, 28], [86, 68], [34, 78], [8, 36]];
+const gridSpot = (k: number) => [22 + (k % 4) * 15, 14 + Math.floor(k / 4) * 24];
+
+const PROVIDERS = ['ChatGPT', 'Claude', 'Gemini', 'Qwen', 'DeepSeek'];
+const CHOSEN = 1;
+const FINANCE = 2;
+/** Five invoices are shown; the story counts 12 overdue, so 9 more are summarised. */
+const MORE_LATE = 9;
+const ROWS = [
+  { client: 'Atelier Morel', no: '#1042', amount: 1280, late: true, tool: 0 },
+  { client: 'Cabinet Roux', no: '#1043', amount: 640, late: false, tool: 2 },
+  { client: 'Studio Nova', no: '#1044', amount: 2150, late: true, tool: 3 },
+  { client: 'Maison Lefèvre', no: '#1045', amount: 890, late: false, tool: 9 },
+  { client: 'Bureau Duval', no: '#1046', amount: 1720, late: true, tool: 8 },
+];
+const due = new Intl.DateTimeFormat(HREFLANG[locale], { day: 'numeric', month: 'long' }).format(new Date(2026, 9, 12));
+const FORM = [ROWS[0].client, price(ROWS[0].amount), due, t.status[1]];
+const AGENT_TOOLS = [2, 3, 1];
+const AGENT_END = ['wait', 'done', 'done'] as const;
+const LOG_TIMES = ['09:00', '09:01', '09:04', '09:07'];
+---
+
+<div class="ht" data-ht>
+  {SCENES.map((i) => <input type="radio" name="hero-tour" id={`ht-r${i}`} class="ht-radio sr-only" checked={i === 0} />)}
+
+  <div class="ht-window tf-app text-left">
+    <div class="tf-top">
+      <span class="tf-pill hidden sm:inline-flex" aria-hidden="true"><b>TblFlow</b></span>
+      <div class="tf-pill ht-tabs">
+        {
+          t.pills.map((label, i) => (
+            <label for={`ht-r${i}`} class="ht-tab" title={label}>
+              <span class="ht-tab__n">{i + 1}</span>
+              <span class="ht-tab__l">{label}</span>
+            </label>
+          ))
+        }
+      </div>
+      <button type="button" class="ht-play" data-ht-play data-pause={t.pause} data-play={t.play} data-replay={t.replay} hidden>
+        {t.pause}
+      </button>
+    </div>
+
+    <div class="ht-stage tf-canvas">
+      <div class="ht-heads">
+        {
+          t.scenes.map((scene, i) => (
+            <div class="ht-text" data-i={i}>
+              <p class="ht-num tf-mono">{i + 1} / 5</p>
+              <p class="ht-h">{scene.h}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="ht-canvas" role="region" aria-label={t.region}>
+        {/* 1. Tools: scattered, tidied, then three of them become TblFlow resources. */}
+        <div class="ht-scene ht-s0 is-joined is-swapped" data-i="0">
+          <p class="sr-only">{t.scenes[0].alt}</p>
+          <div class="ht-legend" aria-hidden="true">
+            <span class="is-rep">{t.legendReplaced}</span>
+            <span>{t.legendKept}</span>
+          </div>
+          {
+            TOOLS.map((name, i) => {
+              const res = REPLACED[i];
+              const [gx, gy] = gridSpot(i);
+              return (
+                <div
+                  class:list={['ht-tile', res && 'is-rep']}
+                  title={name}
+                  aria-hidden="true"
+                  style={`--d:${-i * 0.7}s;${res ? `--rc:${res.color};` : ''}left:${gx}%;top:${gy}%`}
+                  data-x={SCATTER[i][0]}
+                  data-y={SCATTER[i][1]}
+                  data-gx={gx}
+                  data-gy={gy}
+                >
+                  <span class="ht-tile__lg" set:html={TOOL_LOGOS[i]} />
+                  {res && (
+                    <>
+                      <span class="ht-tile__mk">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+                          <path d={RES_ICON[res.icon]} />
+                        </svg>
+                      </span>
+                      <span class="ht-tile__tl">{res.label}</span>
+                    </>
+                  )}
+                </div>
+              );
+            })
+          }
+          <p class="ht-cap" aria-hidden="true">
+            <span class="ht-cap__a">{t.joined}</span>
+            <span class="ht-cap__b">{t.swapped}</span>
+          </p>
+        </div>
+
+        {/* 2. Tables: the same invoices as a grid, a kanban board and a form. */}
+        <div class="ht-scene ht-s1" data-i="1" data-view="0">
+          <p class="sr-only">{t.scenes[1].alt}</p>
+          <div class="ht-views">
+            {
+              t.views.map((view, i) => (
+                <button type="button" class="ht-view-tab" data-view-tab={i} aria-pressed={i === 0 ? 'true' : 'false'}>
+                  {view}
+                </button>
+              ))
+            }
+          </div>
+          <div class="ht-view ht-grid" data-v="0" aria-hidden="true">
+            <div class="ht-row is-head">
+              <span></span>
+              {t.cols.map((col) => <span>{col}</span>)}
+            </div>
+            {
+              ROWS.map((row) => (
+                <div class="ht-row is-show">
+                  <span class="ht-logo" set:html={TOOL_LOGOS[row.tool]} />
+                  <span>{row.client}</span>
+                  <span>{row.no}</span>
+                  <span>{price(row.amount)}</span>
+                  <span class:list={['ht-pill', row.late ? 'is-late' : 'is-ok']}>{t.status[row.late ? 1 : 0]}</span>
+                </div>
+              ))
+            }
+            <div class="ht-row is-more is-show">{fill(t.moreLateRow, { n: MORE_LATE })}</div>
+          </div>
+          <div class="ht-view ht-kan" data-v="1" aria-hidden="true">
+            {
+              [true, false].map((late) => {
+                const rows = ROWS.filter((row) => row.late === late);
+                return (
+                  <div class="ht-kcol">
+                    <p class="ht-kcol__h">
+                      <span>{t.status[late ? 1 : 0]}</span>
+                      <span>{rows.length + (late ? MORE_LATE : 0)}</span>
+                    </p>
+                    {rows.map((row) => (
+                      <div class="ht-kc is-show">
+                        <span class="ht-logo" set:html={TOOL_LOGOS[row.tool]} />
+                        <b>{row.client}</b>
+                        <em>{price(row.amount)}</em>
+                      </div>
+                    ))}
+                    {late && <div class="ht-kc is-more is-show">{fill(t.moreLateCard, { n: MORE_LATE })}</div>}
+                  </div>
+                );
+              })
+            }
+          </div>
+          <div class="ht-view ht-form" data-v="2" aria-hidden="true">
+            <p class="ht-form__t">{t.invoice} #1042</p>
+            {
+              FORM.map((value, i) => (
+                <div class="ht-fld">
+                  <span class="ht-fld__k">{t.fields[i]}</span>
+                  <span class="ht-fld__v">{value}</span>
+                </div>
+              ))
+            }
+            <span class="ht-save">{t.save}</span>
+          </div>
+        </div>
+
+        {/* 3. Assistant: the model is picked once, then the task runs on it. */}
+        <div class="ht-scene ht-s2 is-chosen" data-i="2">
+          <p class="sr-only">{t.scenes[2].alt}</p>
+          <div class="ht-prov" aria-hidden="true">
+            <span class="ht-prov__lab">{t.providerLabel}</span>
+            {PROVIDERS.map((name, i) => <span class:list={['ht-logo ht-pv', i === CHOSEN && 'is-on']} title={name} set:html={AI_LOGOS[i]} />)}
+            <span class="ht-logo ht-pv is-more" title={t.moreProviders}>+</span>
+            <span class="ht-prov__cur">{fill(t.providerChosen, { name: PROVIDERS[CHOSEN] })}</span>
+          </div>
+          <div class="ht-chat" aria-hidden="true">
+            <p class="ht-bubble is-me" data-text={t.ask}>{t.ask}</p>
+            <div class="ht-bubble is-ai is-show">
+              {t.todo.map((step) => <p class="ht-todo is-done">{step}</p>)}
+            </div>
+          </div>
+        </div>
+
+        {/* 4. Agents: triggered on their own; the reminders agent waits for Finance. */}
+        <div class="ht-scene ht-s3" data-i="3">
+          <p class="sr-only">{t.scenes[3].alt}</p>
+          <div class="ht-agents" aria-hidden="true">
+            {
+              t.agents.map(([name, when], i) => (
+                <div class="ht-ag" data-state={AGENT_END[i]}>
+                  <span class="ht-logo" set:html={TOOL_LOGOS[AGENT_TOOLS[i]]} />
+                  <span class="ht-ag__t">
+                    <b>{name}</b>
+                    {when}
+                  </span>
+                  <span
+                    class="ht-ag__st"
+                    data-idle={t.agentState.idle}
+                    data-run={t.agentState.run}
+                    data-wait={t.agentState.wait}
+                    data-done={t.agentState.done}
+                  >
+                    {t.agentState[AGENT_END[i]]}
+                  </span>
+                </div>
+              ))
+            }
+          </div>
+          <div class="ht-log tf-mono" aria-hidden="true">
+            {t.log.map((line, i) => <p class="is-show">{LOG_TIMES[i]}&nbsp;&nbsp;{line}</p>)}
+          </div>
+        </div>
+
+        {/* 5. Approval: Finance approves; the log keeps it. */}
+        <div class="ht-scene ht-s4 is-sent" data-i="4">
+          <p class="sr-only">{t.scenes[4].alt}</p>
+          <div class="ht-appr" aria-hidden="true">
+            <p class="ht-appr__q">{t.apprQ}</p>
+            <p class="ht-appr__mail">{t.mail}</p>
+            <div class="ht-act">
+              <span class="ht-btn">{t.no}</span>
+              <span class="ht-btn is-yes is-press">{t.yes}</span>
+              <span class="ht-who"><b>{t.roles[FINANCE].slice(0, 2).toUpperCase()}</b>{t.roles[FINANCE]}</span>
+            </div>
+            <p class="ht-done"><strong>{t.doneStrong}</strong> {t.doneRest}</p>
+          </div>
+          <div class="ht-roles" aria-hidden="true">
+            {t.roles.map((role, i) => <span class:list={[i === FINANCE && 'is-on']}>{role}</span>)}
+          </div>
+        </div>
+      </div>
+
+      <div class="ht-bodies">
+        {
+          t.scenes.map((scene, i) => (
+            <div class="ht-text" data-i={i}>
+              <p class="ht-p">{scene.p}</p>
+              <p class="ht-ex">{scene.ex}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /** Durations: a scene stays at least long enough to read its text, and never under 10 s. */
+  const MIN_SCENE_MS = 10_000;
+  const MS_PER_WORD = 260;
+  const HOLD_MS = 2500;
+  /** Rough length of each scene's animation, so the progress bar matches it. */
+  const ANIM_MS = [4300, 8300, 7000, 4800, 2300];
+
+  type Alive = () => boolean;
+  const sleep = (ms: number) => new Promise<void>((resolve) => window.setTimeout(resolve, ms));
+
+  const root = document.querySelector<HTMLElement>('[data-ht]');
+  if (root) setup(root);
+
+  function setup(root: HTMLElement): void {
+    const radios = Array.from(root.querySelectorAll<HTMLInputElement>('.ht-radio'));
+    const scenes = Array.from(root.querySelectorAll<HTMLElement>('.ht-scene'));
+    const all = <E extends Element = HTMLElement>(scope: ParentNode, selector: string) => Array.from(scope.querySelectorAll<E>(selector) as NodeListOf<E>);
+
+    // The tables scene's view tabs work with or without motion.
+    const tables = scenes[1];
+    const setView = (view: number) => {
+      tables.dataset.view = String(view);
+      all<HTMLButtonElement>(tables, '[data-view-tab]').forEach((tab) => {
+        tab.setAttribute('aria-pressed', String(tab.dataset.viewTab === String(view)));
+      });
+    };
+    all<HTMLButtonElement>(tables, '[data-view-tab]').forEach((tab) => {
+      tab.addEventListener('click', () => setView(Number(tab.dataset.viewTab)));
+    });
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+
+    const chosenProvider = scenes[2].querySelector<HTMLElement>('.ht-pv.is-on');
+
+    /** Each function resets its scene to the first frame, then plays it to the finished markup. */
+    const PLAY: ((scene: HTMLElement, alive: Alive) => Promise<void>)[] = [
+      async (scene, alive) => {
+        const tiles = all(scene, '.ht-tile');
+        scene.classList.remove('is-joined', 'is-swapped');
+        tiles.forEach((tile) => Object.assign(tile.style, { left: `${tile.dataset.x}%`, top: `${tile.dataset.y}%` }));
+        await sleep(2200);
+        if (!alive()) return;
+        tiles.forEach((tile) => Object.assign(tile.style, { left: `${tile.dataset.gx}%`, top: `${tile.dataset.gy}%` }));
+        scene.classList.add('is-joined');
+        await sleep(1500);
+        if (!alive()) return;
+        scene.classList.add('is-swapped');
+      },
+      async (scene, alive) => {
+        const rows = all(scene, '.ht-grid .ht-row:not(.is-head)');
+        const cards = all(scene, '.ht-kc');
+        const fields = all(scene, '.ht-fld');
+        [...rows, ...cards].forEach((el) => el.classList.remove('is-show'));
+        fields.forEach((el) => el.classList.remove('is-on'));
+        setView(0);
+        await sleep(300);
+        for (const row of rows) {
+          if (!alive()) return;
+          row.classList.add('is-show');
+          await sleep(420);
+        }
+        await sleep(700);
+        if (!alive()) return;
+        setView(1);
+        await sleep(250);
+        for (const card of cards) {
+          if (!alive()) return;
+          card.classList.add('is-show');
+          await sleep(280);
+        }
+        await sleep(700);
+        if (!alive()) return;
+        setView(2);
+        for (const field of fields) {
+          if (!alive()) return;
+          fields.forEach((el) => el.classList.toggle('is-on', el === field));
+          await sleep(600);
+        }
+        fields.forEach((el) => el.classList.remove('is-on'));
+        await sleep(300);
+        if (alive()) setView(0);
+      },
+      async (scene, alive) => {
+        const providers = all(scene, '.ht-pv:not(.is-more)');
+        const ask = scene.querySelector<HTMLElement>('.is-me')!;
+        const answer = scene.querySelector<HTMLElement>('.is-ai')!;
+        const steps = all(scene, '.ht-todo');
+        const text = ask.dataset.text ?? '';
+        scene.classList.remove('is-chosen');
+        providers.forEach((el) => el.classList.remove('is-on'));
+        answer.classList.remove('is-show');
+        steps.forEach((el) => el.classList.remove('is-done'));
+        ask.textContent = '';
+        for (const provider of providers) {
+          if (!alive()) return;
+          provider.classList.add('is-hover');
+          await sleep(280);
+          provider.classList.remove('is-hover');
+        }
+        chosenProvider?.classList.add('is-on');
+        scene.classList.add('is-chosen');
+        await sleep(500);
+        for (let i = 1; i <= text.length; i++) {
+          if (!alive()) return;
+          ask.textContent = text.slice(0, i);
+          await sleep(24);
+        }
+        await sleep(400);
+        answer.classList.add('is-show');
+        await sleep(500);
+        for (const step of steps) {
+          if (!alive()) return;
+          step.classList.add('is-done');
+          await sleep(850);
+        }
+      },
+      async (scene, alive) => {
+        const agents = all(scene, '.ht-ag');
+        const lines = all(scene, '.ht-log p');
+        const state = (i: number, value: 'idle' | 'run' | 'wait' | 'done') => {
+          agents[i].dataset.state = value;
+          const label = agents[i].querySelector<HTMLElement>('.ht-ag__st')!;
+          label.textContent = label.dataset[value] ?? '';
+        };
+        const log = async (i: number) => {
+          lines[i].classList.add('is-show');
+          await sleep(900);
+        };
+        agents.forEach((_, i) => state(i, 'idle'));
+        lines.forEach((el) => el.classList.remove('is-show'));
+        await sleep(500);
+        if (!alive()) return;
+        state(0, 'run');
+        await log(0);
+        if (!alive()) return;
+        await log(1);
+        state(0, 'wait'); // stays waiting: the next scene is Finance's approval
+        if (!alive()) return;
+        state(1, 'run');
+        await log(2);
+        if (!alive()) return;
+        state(1, 'done');
+        state(2, 'run');
+        await log(3);
+        if (alive()) state(2, 'done');
+      },
+      async (scene, alive) => {
+        const yes = scene.querySelector<HTMLElement>('.is-yes')!;
+        scene.classList.remove('is-sent');
+        yes.classList.remove('is-press');
+        await sleep(1500);
+        if (!alive()) return;
+        yes.classList.add('is-press');
+        await sleep(700);
+        if (alive()) scene.classList.add('is-sent');
+      },
+    ];
+
+    const playButton = root.querySelector<HTMLButtonElement>('[data-ht-play]')!;
+    let generation = 0;
+    let current = 0;
+    let auto = false;
+    let ended = false;
+    let onScreen = false;
+
+    const units = (i: number) => {
+      const text = all(root, `.ht-text[data-i="${i}"]`).map((el) => el.textContent ?? '').join(' ').trim();
+      // CJK has no spaces: count roughly 6 characters per reading unit there.
+      return Math.max(text.split(/\s+/).length, Math.round(text.replace(/\s/g, '').length / 6));
+    };
+    const duration = (i: number) => Math.max(MIN_SCENE_MS, units(i) * MS_PER_WORD, ANIM_MS[i] + HOLD_MS);
+    const whenVisible = async () => {
+      while (!onScreen || document.hidden) await sleep(400);
+    };
+    const refresh = () => {
+      root.toggleAttribute('data-auto', auto);
+      playButton.textContent = (auto ? playButton.dataset.pause : ended ? playButton.dataset.replay : playButton.dataset.play) ?? '';
+    };
+
+    async function goTo(i: number): Promise<void> {
+      current = Math.max(0, Math.min(scenes.length - 1, i));
+      ended = false;
+      const mine = ++generation;
+      const alive = () => mine === generation;
+      const start = performance.now();
+      radios[current].checked = true;
+      root.style.setProperty('--ht-cycle', `${duration(current)}ms`);
+      refresh();
+      await PLAY[current](scenes[current], alive);
+      if (!alive() || !auto) return;
+      await sleep(Math.max(0, duration(current) - (performance.now() - start)));
+      await whenVisible();
+      if (!alive() || !auto) return;
+      if (current < scenes.length - 1) {
+        void goTo(current + 1);
+      } else {
+        auto = false;
+        ended = true;
+        refresh();
+      }
+    }
+
+    const takeOver = (i: number) => {
+      auto = false;
+      void goTo(i);
+    };
+
+    radios.forEach((radio, i) => radio.addEventListener('change', () => radio.checked && takeOver(i)));
+    playButton.addEventListener('click', () => {
+      if (auto) {
+        auto = false;
+        refresh();
+        return;
+      }
+      auto = true;
+      void goTo(ended ? 0 : current);
+    });
+
+    // Swipe left or right on the illustration (phones).
+    const canvas = root.querySelector<HTMLElement>('.ht-canvas')!;
+    let touchX: number | null = null;
+    canvas.addEventListener('touchstart', (event) => (touchX = event.touches[0].clientX), { passive: true });
+    canvas.addEventListener('touchend', (event) => {
+      if (touchX === null) return;
+      const dx = event.changedTouches[0].clientX - touchX;
+      touchX = null;
+      if (Math.abs(dx) > 40) takeOver(current + (dx < 0 ? 1 : -1));
+    });
+
+    // Start once, the first time the window is on screen.
+    let started = false;
+    new IntersectionObserver(
+      ([entry]) => {
+        onScreen = entry.isIntersecting;
+        if (!onScreen || started) return;
+        started = true;
+        auto = true;
+        playButton.hidden = false;
+        void goTo(0);
+      },
+      { threshold: 0.35 }
+    ).observe(root);
+  }
+</script>
+
+<style is:global>
+  /* Accent for selection states: the app's violet (resource-interface), lighter on dark. */
+  .ht {
+    --ht-accent: #6f4de0;
+    --ht-tile: #ffffff;
+    --ht-accent-soft: color-mix(in oklab, var(--ht-accent) 12%, transparent);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) .ht {
+      --ht-accent: #a48bff;
+      --ht-tile: hsl(220 14% 91%);
+    }
+  }
+  :root[data-theme='dark'] .ht {
+    --ht-accent: #a48bff;
+    --ht-tile: hsl(220 14% 91%);
+  }
+
+  /* Tabs: the five scenes; numbers on small screens, labels from lg. */
+  .ht-tabs {
+    min-width: 0;
+    gap: 2px;
+    padding: 0 3px;
+  }
+  .ht-tab {
+    position: relative;
+    display: inline-flex;
+    flex: 0 1 auto;
+    min-width: 0;
+    align-items: center;
+    height: 24px;
+    padding: 0 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: var(--tf-muted);
+    transition: background-color 150ms var(--ease-out-soft), color 150ms var(--ease-out-soft);
+  }
+  .ht-tab:hover {
+    color: var(--tf-fg);
+  }
+  .ht-tab__l {
+    display: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  @media (min-width: 1024px) {
+    .ht-tab__n {
+      display: none;
+    }
+    .ht-tab__l {
+      display: inline;
+    }
+  }
+  :is(#ht-r0:checked ~ .ht-window label[for='ht-r0'], #ht-r1:checked ~ .ht-window label[for='ht-r1'], #ht-r2:checked ~ .ht-window label[for='ht-r2'], #ht-r3:checked ~ .ht-window label[for='ht-r3'], #ht-r4:checked ~ .ht-window label[for='ht-r4']) {
+    background: var(--tf-popover);
+    color: var(--tf-fg);
+  }
+  :is(#ht-r0:focus-visible ~ .ht-window label[for='ht-r0'], #ht-r1:focus-visible ~ .ht-window label[for='ht-r1'], #ht-r2:focus-visible ~ .ht-window label[for='ht-r2'], #ht-r3:focus-visible ~ .ht-window label[for='ht-r3'], #ht-r4:focus-visible ~ .ht-window label[for='ht-r4']) {
+    outline: 2px solid var(--color-ai-2);
+    outline-offset: 2px;
+  }
+  /* While the tour plays on its own, the active tab shows the time left. */
+  .ht[data-auto] :is(#ht-r0:checked ~ .ht-window label[for='ht-r0'], #ht-r1:checked ~ .ht-window label[for='ht-r1'], #ht-r2:checked ~ .ht-window label[for='ht-r2'], #ht-r3:checked ~ .ht-window label[for='ht-r3'], #ht-r4:checked ~ .ht-window label[for='ht-r4'])::after {
+    content: '';
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 2px;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--tf-fg);
+    opacity: 0.5;
+    transform-origin: left center;
+    animation: sc-grow var(--ht-cycle, 10000ms) linear both;
+  }
+  .ht-play {
+    flex: none;
+    margin-left: auto;
+    height: 28px;
+    padding: 0 12px;
+    border-radius: 999px;
+    border: 1px solid var(--tf-border);
+    background: var(--tf-card);
+    color: var(--tf-muted);
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .ht-play:hover {
+    color: var(--tf-fg);
+  }
+  .ht-play:focus-visible {
+    outline: 2px solid var(--color-ai-2);
+    outline-offset: 2px;
+  }
+
+  /* One scene at a time; the others fade out and leave the accessibility tree. */
+  .ht [data-i] {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 400ms var(--ease-out-soft), visibility 400ms;
+  }
+  :is(#ht-r0:checked ~ .ht-window [data-i='0'], #ht-r1:checked ~ .ht-window [data-i='1'], #ht-r2:checked ~ .ht-window [data-i='2'], #ht-r3:checked ~ .ht-window [data-i='3'], #ht-r4:checked ~ .ht-window [data-i='4']) {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Stage: title above the illustration and the text below on phones; text left, illustration right from md. */
+  .ht-stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'head' 'canvas' 'body';
+    gap: 14px;
+    padding: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .ht-stage {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      grid-template-areas: 'head canvas' 'body canvas';
+      gap: 0 1.75rem;
+      padding: 1.75rem;
+      align-items: center;
+    }
+    .ht-heads {
+      align-self: end;
+    }
+    .ht-bodies {
+      align-self: start;
+    }
+  }
+  .ht-heads {
+    grid-area: head;
+  }
+  .ht-bodies {
+    grid-area: body;
+  }
+  .ht-heads,
+  .ht-bodies {
+    display: grid;
+  }
+  .ht-text {
+    grid-area: 1 / 1;
+  }
+  .ht-num {
+    font-size: 11px;
+    color: var(--ht-accent);
+  }
+  .ht-h {
+    margin: 6px 0 12px;
+    font-size: 19px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: var(--tf-fg);
+    text-wrap: balance;
+  }
+  .ht-p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--tf-muted);
+  }
+  .ht-ex {
+    margin-top: 12px;
+    padding: 8px 10px;
+    border-left: 2px solid var(--ht-accent);
+    border-radius: 0 8px 8px 0;
+    background: var(--tf-note-bg);
+    font-size: 12.5px;
+    color: var(--tf-fg);
+  }
+
+  .ht-canvas {
+    grid-area: canvas;
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border: 1px solid var(--tf-border-high);
+    border-radius: 12px;
+    background: var(--tf-grid-bg);
+    touch-action: pan-y;
+  }
+  @media (min-width: 768px) {
+    .ht-canvas {
+      aspect-ratio: 16 / 11;
+    }
+  }
+  .ht-scene {
+    position: absolute;
+    inset: 0;
+  }
+  .ht-logo {
+    display: grid;
+    flex: none;
+    place-items: center;
+    border: 1px solid var(--tf-border-high);
+    border-radius: 6px;
+    background: var(--ht-tile);
+  }
+  .ht-logo svg,
+  .ht-tile svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 1. Tools */
+  .ht-tile {
+    position: absolute;
+    width: 11.5%;
+    aspect-ratio: 1;
+    border: 1px solid var(--tf-border-high);
+    border-radius: 10px;
+    background: var(--ht-tile);
+    transition: left 1s var(--ease-out-soft), top 1s var(--ease-out-soft), border-color 600ms, background-color 600ms, opacity 600ms;
+    animation: ht-drift 5s ease-in-out infinite alternate;
+    animation-delay: var(--d);
+  }
+  @media (max-width: 767px) {
+    .ht-tile {
+      width: 14%;
+    }
+  }
+  .is-joined .ht-tile {
+    animation: none;
+  }
+  @keyframes ht-drift {
+    from {
+      transform: translate(-5px, -4px) rotate(-3deg);
+    }
+    to {
+      transform: translate(5px, 4px) rotate(3deg);
+    }
+  }
+  .ht-tile__lg,
+  .ht-tile__mk {
+    position: absolute;
+    inset: 18%;
+    transition: opacity 600ms var(--ease-out-soft);
+  }
+  .ht-tile__mk {
+    opacity: 0;
+    color: var(--rc);
+  }
+  .ht-tile__tl {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 3px);
+    transform: translateX(-50%);
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--rc);
+    opacity: 0;
+    transition: opacity 600ms;
+  }
+  .is-swapped .ht-tile.is-rep {
+    border-color: var(--rc);
+    background: color-mix(in oklab, var(--rc) 12%, var(--tf-card));
+  }
+  .is-swapped .ht-tile.is-rep .ht-tile__lg {
+    opacity: 0;
+  }
+  .is-swapped .ht-tile.is-rep :is(.ht-tile__mk, .ht-tile__tl) {
+    opacity: 1;
+  }
+  .is-swapped .ht-tile:not(.is-rep) {
+    opacity: 0.5;
+  }
+  .ht-legend {
+    position: absolute;
+    left: 5%;
+    top: 4%;
+    display: flex;
+    gap: 12px;
+    font-size: 10.5px;
+    color: var(--tf-muted);
+    opacity: 0;
+    transition: opacity 600ms;
+  }
+  .is-swapped .ht-legend {
+    opacity: 1;
+  }
+  .ht-legend span::before {
+    content: '';
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-right: 5px;
+    border: 1px solid var(--tf-border-high);
+    border-radius: 3px;
+    background: var(--ht-tile);
+    vertical-align: -1px;
+  }
+  .ht-legend .is-rep {
+    color: var(--ht-accent);
+  }
+  .ht-legend .is-rep::before {
+    border-color: var(--ht-accent);
+    background: var(--ht-accent-soft);
+  }
+  .ht-cap {
+    position: absolute;
+    left: 50%;
+    bottom: 3%;
+    display: grid;
+    width: max-content;
+    max-width: 92%;
+    padding: 5px 12px;
+    border: 1px solid var(--ht-accent);
+    border-radius: 12px;
+    background: var(--tf-card);
+    font-size: 11.5px;
+    line-height: 1.4;
+    text-align: center;
+    opacity: 0;
+    transform: translate(-50%, 8px);
+    transition: opacity 600ms var(--ease-out-soft), transform 600ms var(--ease-out-soft);
+  }
+  .ht-cap > span {
+    grid-area: 1 / 1;
+    transition: opacity 400ms;
+  }
+  .is-joined .ht-cap {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  .ht-cap__b,
+  .is-swapped .ht-cap__a {
+    opacity: 0;
+  }
+  .is-swapped .ht-cap__b {
+    opacity: 1;
+  }
+
+  /* 2. Tables */
+  .ht-views {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    display: flex;
+    gap: 6px;
+    z-index: 1;
+  }
+  .ht-view-tab {
+    height: 24px;
+    padding: 0 10px;
+    border: 1px solid var(--tf-border-high);
+    border-radius: 999px;
+    background: var(--tf-card);
+    color: var(--tf-muted);
+    font-size: 11.5px;
+    cursor: pointer;
+  }
+  .ht-view-tab[aria-pressed='true'] {
+    border-color: var(--ht-accent);
+    background: var(--ht-accent-soft);
+    color: var(--ht-accent);
+  }
+  .ht-view-tab:focus-visible {
+    outline: 2px solid var(--color-ai-2);
+    outline-offset: 2px;
+  }
+  .ht-view {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 18%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 400ms var(--ease-out-soft), visibility 400ms;
+  }
+  .ht-s1[data-view='0'] [data-v='0'],
+  .ht-s1[data-view='1'] [data-v='1'],
+  .ht-s1[data-view='2'] [data-v='2'] {
+    opacity: 1;
+    visibility: visible;
+  }
+  .ht-grid,
+  .ht-kcol,
+  .ht-form {
+    border: 1px solid var(--tf-border-high);
+    border-radius: 8px;
+    background: var(--tf-card);
+  }
+  .ht-grid {
+    overflow: hidden;
+  }
+  .ht-row {
+    display: grid;
+    grid-template-columns: 7% 1.8fr 1fr 1fr 1.1fr;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 9px;
+    border-top: 1px solid var(--tf-border);
+    font-size: 11.5px;
+    white-space: nowrap;
+  }
+  .ht-row > * {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .ht-row .ht-logo {
+    width: 16px;
+    height: 16px;
+    padding: 2px;
+    border-radius: 4px;
+  }
+  .ht-row.is-head {
+    border-top: 0;
+    background: var(--tf-head);
+    font: 500 9.5px var(--tf-mono);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--tf-muted);
+  }
+  .ht-row.is-more {
+    display: block;
+    color: var(--tf-warning);
+    font-size: 11px;
+  }
+  .ht-pill {
+    justify-self: start;
+    padding: 1px 7px;
+    border-radius: 999px;
+    font-size: 10.5px;
+  }
+  .ht-pill.is-ok {
+    color: var(--tf-positive);
+    background: var(--tf-positive-bg);
+  }
+  .ht-pill.is-late {
+    color: var(--tf-warning);
+    background: color-mix(in oklab, var(--tf-warning) 12%, transparent);
+  }
+  .ht-kan {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px;
+  }
+  .ht-kcol {
+    min-width: 0;
+    display: grid;
+    align-content: start;
+    gap: 5px;
+    padding: 7px;
+  }
+  .ht-kcol__h {
+    display: flex;
+    justify-content: space-between;
+    font: 500 9.5px var(--tf-mono);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--tf-muted);
+  }
+  .ht-kc {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 7px;
+    border: 1px solid var(--tf-border);
+    border-radius: 6px;
+    background: var(--tf-head);
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .ht-kc .ht-logo {
+    width: 18px;
+    height: 18px;
+    padding: 2px;
+    border-radius: 4px;
+  }
+  .ht-kc b {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+  }
+  .ht-kc em {
+    font-style: normal;
+    color: var(--tf-muted);
+  }
+  .ht-kc.is-more {
+    justify-content: center;
+    border-style: dashed;
+    color: var(--tf-warning);
+  }
+  .ht-form {
+    display: grid;
+    gap: 6px;
+    padding: 12px;
+  }
+  .ht-form__t {
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+  .ht-fld {
+    display: grid;
+    grid-template-columns: 34% 1fr;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+  }
+  .ht-fld__k {
+    color: var(--tf-muted);
+  }
+  .ht-fld__v {
+    padding: 4px 8px;
+    border: 1px solid var(--tf-border-high);
+    border-radius: 6px;
+    background: var(--tf-head);
+    transition: border-color 300ms, box-shadow 300ms;
+  }
+  .ht-fld.is-on .ht-fld__v {
+    border-color: var(--ht-accent);
+    box-shadow: 0 0 0 3px var(--ht-accent-soft);
+  }
+  .ht-save {
+    justify-self: start;
+    padding: 4px 11px;
+    border-radius: 6px;
+    background: var(--tf-primary);
+    color: var(--tf-on-primary);
+    font-size: 11.5px;
+  }
+  /* Rows and cards rise in; in the markup they are already there. */
+  .ht-row:not(.is-head),
+  .ht-kc {
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 450ms var(--ease-out-soft), transform 450ms var(--ease-out-soft);
+  }
+  :is(.ht-row, .ht-kc).is-show {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* 3. Assistant */
+  .ht-prov {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 7px;
+  }
+  .ht-prov__lab {
+    margin-right: 2px;
+    font: 500 9.5px var(--tf-mono);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--tf-muted);
+  }
+  .ht-pv {
+    width: 10%;
+    aspect-ratio: 1;
+    padding: 2%;
+    border-radius: 8px;
+    opacity: 0.5;
+    transition: opacity 250ms, border-color 300ms, box-shadow 300ms;
+  }
+  .ht-pv.is-hover,
+  .ht-pv.is-on {
+    opacity: 1;
+  }
+  .ht-pv.is-on {
+    border-color: var(--ht-accent);
+    box-shadow: 0 0 0 3px var(--ht-accent-soft);
+  }
+  .ht-pv.is-more {
+    border-style: dashed;
+    background: var(--tf-head);
+    color: var(--tf-muted);
+    font-size: 13px;
+  }
+  .ht-prov__cur {
+    width: 100%;
+    min-height: 16px;
+    font-size: 11.5px;
+    color: var(--ht-accent);
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+  .is-chosen .ht-prov__cur {
+    opacity: 1;
+  }
+  .ht-chat {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 38%;
+    display: grid;
+    gap: 8px;
+  }
+  @media (max-width: 767px) {
+    .ht-pv {
+      width: 12%;
+    }
+    .ht-prov__lab {
+      width: 100%;
+    }
+    .ht-chat {
+      top: 34%;
+    }
+  }
+  .ht-bubble {
+    max-width: 90%;
+    padding: 8px 11px;
+    border-radius: 12px;
+    background: var(--tf-card);
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .ht-bubble.is-me {
+    justify-self: end;
+    min-height: 34px;
+    border: 1px solid var(--tf-border-high);
+  }
+  .ht-bubble.is-ai {
+    position: relative;
+    display: grid;
+    gap: 5px;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 500ms var(--ease-out-soft), transform 500ms var(--ease-out-soft);
+  }
+  .ht-bubble.is-ai.is-show {
+    opacity: 1;
+    transform: none;
+  }
+  /* The AI ring: the one place the AI gradient is used in the tour. */
+  .ht-bubble.is-ai::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--color-ai-1), var(--color-ai-2) 45%, var(--color-ai-3) 85%, var(--color-ai-4));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  .ht-todo {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    opacity: 0.4;
+    transition: opacity 400ms;
+  }
+  .ht-todo::before {
+    content: '';
+    flex: none;
+    width: 11px;
+    height: 11px;
+    border: 1.5px solid var(--tf-muted);
+    border-radius: 50%;
+    transition: background-color 400ms, border-color 400ms;
+  }
+  .ht-todo.is-done {
+    opacity: 1;
+  }
+  .ht-todo.is-done::before {
+    border-color: var(--tf-success);
+    background: var(--tf-success);
+  }
+
+  /* 4. Agents */
+  .ht-agents {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 5%;
+    display: grid;
+    gap: 7px;
+  }
+  .ht-ag {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 9px;
+    border: 1px solid var(--tf-border-high);
+    border-radius: 8px;
+    background: var(--tf-card);
+    transition: border-color 400ms, box-shadow 400ms;
+  }
+  .ht-ag .ht-logo {
+    width: 26px;
+    height: 26px;
+    padding: 4px;
+  }
+  .ht-ag__t {
+    flex: 1;
+    min-width: 0;
+    font-size: 11px;
+    color: var(--tf-muted);
+  }
+  .ht-ag__t b {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--tf-fg);
+  }
+  .ht-ag__st {
+    flex: none;
+    font: 500 9.5px var(--tf-mono);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--tf-muted);
+  }
+  .ht-ag[data-state='run'] {
+    border-color: var(--ht-accent);
+    box-shadow: 0 0 0 3px var(--ht-accent-soft);
+  }
+  .ht-ag[data-state='run'] .ht-ag__st {
+    color: var(--ht-accent);
+  }
+  .ht-ag[data-state='wait'] {
+    border-color: var(--tf-warning);
+  }
+  .ht-ag[data-state='wait'] .ht-ag__st {
+    color: var(--tf-warning);
+  }
+  .ht-ag[data-state='done'] {
+    border-color: var(--tf-success);
+  }
+  .ht-ag[data-state='done'] .ht-ag__st {
+    color: var(--tf-positive);
+  }
+  .ht-log {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+    display: grid;
+    gap: 2px;
+    font-size: 10.5px;
+    line-height: 1.6;
+    color: var(--tf-muted);
+  }
+  .ht-log p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 400ms var(--ease-out-soft), transform 400ms var(--ease-out-soft);
+  }
+  .ht-log p.is-show {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* 5. Approval */
+  .ht-appr {
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    top: 8%;
+    padding: 12px;
+    border: 1px solid var(--tf-warning);
+    border-radius: 12px;
+    background: var(--tf-card);
+    transition: border-color 500ms;
+  }
+  .is-sent .ht-appr {
+    border-color: var(--tf-success);
+  }
+  .ht-appr__q {
+    font-size: 13.5px;
+    font-weight: 600;
+  }
+  .ht-appr__mail {
+    margin: 8px 0 10px;
+    padding: 7px 9px;
+    border-radius: 8px;
+    background: var(--tf-head);
+    font-size: 11.5px;
+    color: var(--tf-muted);
+  }
+  .ht-act {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+  }
+  .ht-btn {
+    padding: 4px 11px;
+    border: 1px solid var(--tf-border-high);
+    border-radius: 6px;
+    font-size: 11.5px;
+    color: var(--tf-muted);
+    transition: background-color 300ms, color 300ms, transform 200ms var(--ease-out-soft);
+  }
+  .ht-btn.is-yes {
+    border-color: var(--tf-success);
+    color: var(--tf-fg);
+  }
+  .ht-btn.is-yes.is-press {
+    background: var(--tf-success);
+    color: #fff;
+  }
+  .ht-who {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+    font: 500 10.5px var(--tf-mono);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ht-accent);
+  }
+  .ht-who b {
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--ht-accent);
+    border-radius: 50%;
+    background: var(--ht-accent-soft);
+    font-size: 8.5px;
+    font-weight: 500;
+  }
+  .ht-done {
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0;
+    font-size: 11.5px;
+    color: var(--tf-muted);
+    opacity: 0;
+    transition: max-height 500ms var(--ease-out-soft), opacity 500ms, margin-top 500ms;
+  }
+  .is-sent .ht-done {
+    max-height: 40px;
+    margin-top: 9px;
+    opacity: 1;
+  }
+  .ht-done strong {
+    font-weight: 600;
+    color: var(--tf-positive);
+  }
+  .ht-roles {
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    bottom: 6%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .ht-roles span {
+    padding: 2px 9px;
+    border: 1px solid var(--tf-border-high);
+    border-radius: 999px;
+    font-size: 10.5px;
+    color: var(--tf-muted);
+  }
+  .ht-roles .is-on {
+    border-color: var(--ht-accent);
+    background: var(--ht-accent-soft);
+    color: var(--ht-accent);
+  }
+</style>
