@@ -142,6 +142,27 @@
   color: var(--tf-fg);
   font-weight: 500;
 }
+/* Phones: the window's toolbar wraps, and a tab strip wider than the window
+   scrolls sideways inside its pill instead of being cut off. */
+@media (max-width: 639.98px) {
+  .tf-top {
+    flex-wrap: wrap;
+  }
+  .tf-top > .tf-pill {
+    flex-shrink: 1;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .tf-top > .tf-pill::-webkit-scrollbar {
+    display: none;
+  }
+  .tf-top > .tf-pill > * {
+    flex-shrink: 0;
+  }
+}
 .tf-canvas {
   background-color: var(--tf-bg);
   background-image: radial-gradient(var(--tf-dot) 1.4px, transparent 1.4px);
@@ -449,6 +470,13 @@
   --rail-x: 16px;
   --rail-pad: 40px;
   padding-left: var(--rail-pad);
+}
+/* Below lg the step is one column that may shrink: without it the column takes
+   the width of the product screen and the whole page scrolls sideways on phones. */
+@media (max-width: 1023.98px) {
+  .step-track {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 @media (min-width: 640px) {
   .step-track {

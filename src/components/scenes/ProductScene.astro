@@ -136,12 +136,13 @@ const ICON = APP_ICON;
             <li class="sc-rise flex items-center gap-3 rounded-lg px-2 py-2 pl-8" style={`--d:${i * 450}`}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="shrink-0 tf-muted" aria-hidden="true"><path d={ICON.file} stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
               <span class="tf-mono min-w-0 flex-1 truncate">{name}</span>
-              <span class="sc-stack shrink-0 text-xs" style={`--d:${i * 450 + 1300}`}>
-                <span class="sc-only-armed flex items-center gap-2 tf-muted" aria-hidden="true">
-                  <span class="h-1 w-12 overflow-hidden rounded-full bg-[var(--tf-border-high)]">
+              {/* On phones the status may shrink (no bar, truncated label) so the file name keeps its room. */}
+              <span class="sc-stack min-w-0 max-w-[55%] shrink-0 text-xs sm:max-w-none" style={`--d:${i * 450 + 1300}`}>
+                <span class="sc-only-armed flex min-w-0 items-center gap-2 tf-muted" aria-hidden="true">
+                  <span class="hidden h-1 w-12 shrink-0 overflow-hidden rounded-full bg-[var(--tf-border-high)] sm:block">
                     <span class="sc-grow block h-full bg-[var(--tf-info)]" style={`--d:${i * 450 + 200}; --t:1100ms`}></span>
                   </span>
-                  {ui.indexing}
+                  <span class="truncate">{ui.indexing}</span>
                 </span>
                 <span class="flex items-center gap-2 tf-muted">
                   <span class="h-1.5 w-1.5 rounded-full bg-[var(--tf-success)]"></span>
