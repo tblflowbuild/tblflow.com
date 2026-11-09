@@ -9,6 +9,8 @@ import type { Locale } from '@/config';
  */
 export interface JourneyCopy {
   signature: string;
+  /** Heading above the seven steps, and the line under it. */
+  intro: { title: string; subtitle: string };
   steps: { label: string; title: string; body: string }[];
   docs: { files: string; tools: string; indexed: string; status: string; names: string[] };
   auto: { when: string; trigger: string; then: string; actions: string[] };
@@ -20,6 +22,7 @@ export interface JourneyCopy {
 export const JOURNEY: Record<Locale, JourneyCopy> = {
   de: {
     "signature": "Wiederkehrende Aufgaben an Agenten, Beziehungen an Menschen.",
+    "intro": {"title": "Wie TblFlow Ihren Bedarf erfüllt", "subtitle": "Sieben Schritte – von verstreuten Daten zu gewonnener Zeit."},
     "steps": [
       {
         "label": "Das Problem",
@@ -120,6 +123,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
   },
   en: {
     "signature": "Repetitive tasks to agents, relationships to people.",
+    "intro": {"title": "How TblFlow meets your needs", "subtitle": "Seven steps, from scattered data to time given back."},
     "steps": [
       {
         "label": "The problem",
@@ -220,6 +224,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
   },
   es: {
     "signature": "Las tareas repetitivas, a los agentes; las relaciones, a las personas.",
+    "intro": {"title": "Cómo responde TblFlow a tu necesidad", "subtitle": "Siete pasos, de tus datos dispersos al tiempo recuperado."},
     "steps": [
       {
         "label": "El problema",
@@ -320,6 +325,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
   },
   fr: {
     "signature": "Les tâches répétitives aux agents, les relations aux humains.",
+    "intro": {"title": "Comment TblFlow répond à votre besoin", "subtitle": "Sept étapes, de vos données éparpillées au temps rendu."},
     "steps": [
       {
         "label": "Le problème",
@@ -420,6 +426,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
   },
   it: {
     "signature": "I compiti ripetitivi agli agenti, le relazioni alle persone.",
+    "intro": {"title": "Come TblFlow risponde alle tue esigenze", "subtitle": "Sette passaggi, dai dati sparsi al tempo restituito."},
     "steps": [
       {
         "label": "Il problema",
@@ -520,6 +527,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
   },
   ja: {
     "signature": "繰り返しの作業はエージェントに、人との関係は人に。",
+    "intro": {"title": "TblFlow があなたの課題にどう応えるか", "subtitle": "散らばったデータから、取り戻した時間まで。7 つのステップ。"},
     "steps": [
       {
         "label": "課題",
@@ -620,6 +628,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
   },
   ru: {
     "signature": "Рутинные задачи — агентам, отношения — людям.",
+    "intro": {"title": "Как TblFlow решает вашу задачу", "subtitle": "Семь шагов — от разрозненных данных к сэкономленному времени."},
     "steps": [
       {
         "label": "Проблема",
@@ -720,6 +729,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
   },
   tr: {
     "signature": "Tekrarlayan işler ajanlara, ilişkiler insanlara.",
+    "intro": {"title": "TblFlow ihtiyacınıza nasıl yanıt verir", "subtitle": "Dağınık verilerden geri kazanılan zamana, yedi adım."},
     "steps": [
       {
         "label": "Sorun",
@@ -820,6 +830,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
   },
   uk: {
     "signature": "Рутинні завдання — агентам, стосунки — людям.",
+    "intro": {"title": "Як TblFlow відповідає на вашу потребу", "subtitle": "Сім кроків — від розрізнених даних до зекономленого часу."},
     "steps": [
       {
         "label": "Проблема",
@@ -920,6 +931,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
   },
   zh: {
     "signature": "重复的任务交给智能体，人与人的关系留给人。",
+    "intro": {"title": "TblFlow 如何满足你的需求", "subtitle": "七个步骤：从分散的数据，到节省下来的时间。"},
     "steps": [
       {
         "label": "问题",

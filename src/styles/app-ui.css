@@ -503,3 +503,50 @@
 [data-revealed] .step-rail::before {
   animation: sc-grow-y 1200ms var(--ease-out-soft) both;
 }
+
+/* ---------------------------------------------------------------------------
+ * Home journey from lg: a stack of cards (after skiper-ui's card stack, the
+ * quiet version: no scaling). Each card sticks under the site header, a little
+ * lower than the one before, so the next card slides over it and the earlier
+ * ones keep a visible top edge. Pure CSS: without sticky support it is the
+ * same list as below lg. The thread on the left gives way to the cards.
+ * ------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .journey-stack {
+    --card-top: 5rem; /* site header (3.5rem) + air */
+    --card-peek: 14px;
+    padding: 1.5rem 1.5rem 3rem;
+  }
+  .journey-card {
+    position: sticky;
+    top: calc(var(--card-top) + var(--i) * var(--card-peek));
+    max-width: 72rem;
+    margin: 0 auto 2rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 24px;
+    background: var(--bg-raised);
+    box-shadow: 0 -1px 0 var(--border), 0 12px 32px rgb(17 24 39 / 0.08);
+    /* One height for all, so a shorter card never lets the one beneath show below it. */
+    display: flex;
+    align-items: center;
+    min-height: min(36rem, calc(100vh - var(--card-top) - 7 * var(--card-peek) - 1rem));
+  }
+  .journey-card .step-track {
+    flex: 1;
+    padding: 2.5rem 3rem;
+  }
+  .journey-card .step-rail,
+  .journey-card .step-mark::before {
+    display: none;
+  }
+  /* In two thirds of a card, the map's links between steps are shortened so its three steps fit. */
+  .journey-card[data-wide] [data-scene] ol > li:not(.tf-step) {
+    width: 4.5rem;
+  }
+}
+/* The process map needs about 670px; between lg and xl its two thirds are narrower, so it is drawn a little smaller. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .journey-card[data-wide] [data-scene] {
+    zoom: 0.84;
+  }
+}
