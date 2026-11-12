@@ -61,6 +61,16 @@ Le récit de Pierre (cabinet de conformité, 31 conseillers, 25 outils) : **non 
 
 ---
 
+### Décisions de Tommy (12/11/2026)
+
+1. Cible : PME sur Excel et une dizaine d'outils (inchangée).
+2. Processus de démonstration : devis → commande → facture. Reste à produire une vraie capture commentée.
+3. Rôle de TblFlow : le client paramètre, l'IA génère, il valide. Pas de promesse d'accompagnement humain ; les formules « confiez-les-nous » restent écartées.
+4. Diagnostic : on garde le libre-service du Gratuit. Ni diagnostic humain ni calculateur pour l'instant.
+5. Pilotes : Kevin seul d'abord, avec accord écrit et chiffres de sa part avant toute publication.
+
+---
+
 ## 5. Textes proposés par l'auditeur
 
 | Proposition | Verdict | Traitement |
