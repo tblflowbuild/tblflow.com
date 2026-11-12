@@ -20,7 +20,7 @@ export const ui = {
     'nav.blog': 'Blog',
     'nav.docs': 'Dokumentation',
     'nav.login': 'Anmelden',
-    'nav.cta': 'Loslegen',
+    'nav.cta': "14 Tage testen",
     'nav.menu': 'Menü',
     'nav.skip': 'Zum Hauptinhalt springen',
 
@@ -74,9 +74,9 @@ export const ui = {
     'faq.all': 'Alle',
 
     'cta.title': "Bereit, nichts mehr doppelt einzugeben?",
-    'cta.body': "Starten Sie kostenlos ohne Kreditkarte. Die Diagnose Ihrer Prozesse ist im kostenlosen Tarif enthalten.",
-    'cta.primary': 'Kostenlos starten',
-    'cta.secondary': 'Mit jemandem sprechen',
+    'cta.body': "Keine Kreditkarte. Die Diagnose Ihrer Prozesse ist im kostenlosen Tarif enthalten.",
+    'cta.primary': "Essential 14 Tage testen",
+    'cta.secondary': "Dem Team schreiben",
 
     'blog.title': 'Blog',
     'blog.subtitle': 'Produktnotizen, Anleitungen und Erfahrungsberichte aus der Entwicklung.',
@@ -181,7 +181,7 @@ export const ui = {
     'nav.blog': 'Blog',
     'nav.docs': 'Docs',
     'nav.login': 'Log in',
-    'nav.cta': 'Start for free',
+    'nav.cta': "14-day trial",
     'nav.menu': 'Menu',
     'nav.skip': 'Skip to main content',
 
@@ -235,9 +235,9 @@ export const ui = {
     'faq.all': 'All',
 
     'cta.title': "Ready to stop typing the same data twice?",
-    'cta.body': "Start free with no credit card. A diagnosis of your processes is included in the Free plan.",
-    'cta.primary': 'Start for free',
-    'cta.secondary': 'Talk to someone',
+    'cta.body': "No credit card. A diagnosis of your processes is included in the Free plan.",
+    'cta.primary': "Try Essential for 14 days",
+    'cta.secondary': "Email the team",
 
     'blog.title': 'Blog',
     'blog.subtitle': 'Product notes, guides and engineering write-ups.',
@@ -342,7 +342,7 @@ export const ui = {
     'nav.blog': 'Blog',
     'nav.docs': 'Documentación',
     'nav.login': 'Iniciar sesión',
-    'nav.cta': 'Empezar',
+    'nav.cta': "Prueba 14 días",
     'nav.menu': 'Menú',
     'nav.skip': 'Ir al contenido principal',
 
@@ -396,9 +396,9 @@ export const ui = {
     'faq.all': 'Todas',
 
     'cta.title': "¿Listo para dejar de teclear dos veces los mismos datos?",
-    'cta.body': "Empieza gratis sin tarjeta. El diagnóstico de tus procesos está incluido en el plan Gratis.",
-    'cta.primary': 'Empezar gratis',
-    'cta.secondary': 'Hablar con alguien',
+    'cta.body': "Sin tarjeta de crédito. El diagnóstico de tus procesos está incluido en el plan Gratis.",
+    'cta.primary': "Probar Esencial 14 días",
+    'cta.secondary': "Escribir al equipo",
 
     'blog.title': 'Blog',
     'blog.subtitle': 'Notas de producto, guías y artículos de ingeniería.',
@@ -503,7 +503,7 @@ export const ui = {
     'nav.blog': 'Blog',
     'nav.docs': 'Documentation',
     'nav.login': 'Se connecter',
-    'nav.cta': 'Commencer',
+    'nav.cta': "Essai 14 jours",
     'nav.menu': 'Menu',
     'nav.skip': 'Aller au contenu principal',
 
@@ -557,9 +557,9 @@ export const ui = {
     'faq.all': 'Tout',
 
     'cta.title': "Prêt à supprimer vos ressaisies ?",
-    'cta.body': "Démarrez gratuitement, sans carte bancaire. Diagnostic de vos processus inclus dans le palier gratuit.",
-    'cta.primary': 'Commencer gratuitement',
-    'cta.secondary': 'Parler à quelqu’un',
+    'cta.body': "Sans carte bancaire. Diagnostic de vos processus inclus dans le palier gratuit.",
+    'cta.primary': "Essayer Essentiel 14 jours",
+    'cta.secondary': "Écrire à l’équipe",
 
     'blog.title': 'Blog',
     'blog.subtitle': 'Notes de produit, guides et retours d’ingénierie.',
@@ -664,7 +664,7 @@ export const ui = {
     'nav.blog': 'Blog',
     'nav.docs': 'Documentazione',
     'nav.login': 'Accedi',
-    'nav.cta': 'Inizia',
+    'nav.cta': "Prova 14 giorni",
     'nav.menu': 'Menu',
     'nav.skip': 'Vai al contenuto principale',
 
@@ -718,9 +718,9 @@ export const ui = {
     'faq.all': 'Tutte',
 
     'cta.title': "Pronto a smettere di digitare due volte gli stessi dati?",
-    'cta.body': "Inizia gratis senza carta di credito. La diagnosi dei tuoi processi è inclusa nel piano gratuito.",
-    'cta.primary': 'Inizia gratis',
-    'cta.secondary': 'Parla con noi',
+    'cta.body': "Senza carta di credito. La diagnosi dei tuoi processi è inclusa nel piano gratuito.",
+    'cta.primary': "Prova Essenziale per 14 giorni",
+    'cta.secondary': "Scrivi al team",
 
     'blog.title': 'Blog',
     'blog.subtitle': 'Note di prodotto, guide e approfondimenti tecnici.',
@@ -825,7 +825,7 @@ export const ui = {
     'nav.blog': 'ブログ',
     'nav.docs': 'ドキュメント',
     'nav.login': 'ログイン',
-    'nav.cta': 'はじめる',
+    'nav.cta': "14日間試す",
     'nav.menu': 'メニュー',
     'nav.skip': 'メインコンテンツへスキップ',
 
@@ -879,9 +879,9 @@ export const ui = {
     'faq.all': 'すべて',
 
     'cta.title': "同じデータの二重入力を、もう終わりにしませんか？",
-    'cta.body': "カード不要で無料で始められます。プロセスの診断は無料プランに含まれます。",
-    'cta.primary': '無料ではじめる',
-    'cta.secondary': '相談する',
+    'cta.body': "クレジットカード不要。プロセスの診断は無料プランに含まれます。",
+    'cta.primary': "Essential を 14 日間試す",
+    'cta.secondary': "チームにメールする",
 
     'blog.title': 'ブログ',
     'blog.subtitle': '製品に関するノート、ガイド、エンジニアリングの知見。',
@@ -986,7 +986,7 @@ export const ui = {
     'nav.blog': 'Блог',
     'nav.docs': 'Документация',
     'nav.login': 'Войти',
-    'nav.cta': 'Начать',
+    'nav.cta': "Попробовать 14 дней",
     'nav.menu': 'Меню',
     'nav.skip': 'Перейти к основному содержимому',
 
@@ -1040,9 +1040,9 @@ export const ui = {
     'faq.all': 'Все',
 
     'cta.title': "Готовы перестать вводить одни и те же данные дважды?",
-    'cta.body': "Начните бесплатно, без карты. Диагностика процессов входит в бесплатный тариф.",
-    'cta.primary': 'Начать бесплатно',
-    'cta.secondary': 'Поговорить с нами',
+    'cta.body': "Без банковской карты. Диагностика процессов входит в бесплатный тариф.",
+    'cta.primary': "Попробовать Essential 14 дней",
+    'cta.secondary': "Написать команде",
 
     'blog.title': 'Блог',
     'blog.subtitle': 'Заметки о продукте, руководства и инженерные материалы.',
@@ -1147,7 +1147,7 @@ export const ui = {
     'nav.blog': 'Blog',
     'nav.docs': 'Dokümantasyon',
     'nav.login': 'Giriş yap',
-    'nav.cta': 'Başla',
+    'nav.cta': "14 gün dene",
     'nav.menu': 'Menü',
     'nav.skip': 'Ana içeriğe geç',
 
@@ -1201,9 +1201,9 @@ export const ui = {
     'faq.all': 'Tümü',
 
     'cta.title': "Aynı veriyi iki kez girmeyi bırakmaya hazır mısınız?",
-    'cta.body': "Kredi kartı olmadan ücretsiz başlayın. Süreçlerinizin teşhisi ücretsiz plana dahildir.",
-    'cta.primary': 'Ücretsiz başla',
-    'cta.secondary': 'Biriyle konuş',
+    'cta.body': "Kredi kartı gerekmez. Süreçlerinizin teşhisi ücretsiz plana dahildir.",
+    'cta.primary': "Essential'ı 14 gün deneyin",
+    'cta.secondary': "Ekibe yazın",
 
     'blog.title': 'Blog',
     'blog.subtitle': 'Ürün notları, rehberler ve mühendislik yazıları.',
@@ -1308,7 +1308,7 @@ export const ui = {
     'nav.blog': 'Блог',
     'nav.docs': 'Документація',
     'nav.login': 'Увійти',
-    'nav.cta': 'Почати',
+    'nav.cta': "Спробувати 14 днів",
     'nav.menu': 'Меню',
     'nav.skip': 'Перейти до основного вмісту',
 
@@ -1362,9 +1362,9 @@ export const ui = {
     'faq.all': 'Усі',
 
     'cta.title': "Готові припинити вводити ті самі дані двічі?",
-    'cta.body': "Почніть безкоштовно, без картки. Діагностика процесів входить до безкоштовного тарифу.",
-    'cta.primary': 'Почати безкоштовно',
-    'cta.secondary': 'Поговорити з нами',
+    'cta.body': "Без банківської картки. Діагностика процесів входить до безкоштовного тарифу.",
+    'cta.primary': "Спробувати Essential 14 днів",
+    'cta.secondary': "Написати команді",
 
     'blog.title': 'Блог',
     'blog.subtitle': 'Нотатки про продукт, гайди та інженерні матеріали.',
@@ -1469,7 +1469,7 @@ export const ui = {
     'nav.blog': '博客',
     'nav.docs': '文档',
     'nav.login': '登录',
-    'nav.cta': '开始使用',
+    'nav.cta': "试用 14 天",
     'nav.menu': '菜单',
     'nav.skip': '跳到主要内容',
 
@@ -1521,9 +1521,9 @@ export const ui = {
     'faq.all': '全部',
 
     'cta.title': "准备好告别重复录入了吗？",
-    'cta.body': "无需信用卡即可免费开始。流程诊断包含在免费版中。",
-    'cta.primary': '免费开始',
-    'cta.secondary': '联系我们',
+    'cta.body': "无需信用卡。流程诊断包含在免费版中。",
+    'cta.primary': "免费试用 Essential 14 天",
+    'cta.secondary': "给团队写邮件",
 
     'blog.title': '博客',
     'blog.subtitle': '产品动态、指南与工程实践分享。',

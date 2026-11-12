@@ -10,12 +10,15 @@
  * On small screens the mark moves behind the title, dimmed, and the window
  * takes the full width.
  *
- * The page <title> and description still carry the re-keying promise for
- * search; the journey's step 01 tells it in full.
+ * The title says the result (the promise validated in docs/positionnement.md),
+ * the line under it says what the customer keeps, what moves into TblFlow and
+ * who validates, and the signature is the one the product proves: the AI
+ * prepares, a person approves. The brand name stays above, as a small mark.
  */
 import Logo from './Logo.astro';
 import HeroTour from './HeroTour.astro';
-import { JOURNEY } from '@/data/journey';
+import { pm } from '@/data/processMap';
+import { hm } from '@/data/home';
 import type { Locale } from '@/config';
 
 interface Props {
@@ -32,11 +35,15 @@ const { locale } = Astro.props;
     </div>
 
     <div class="relative lg:ml-[25%]">
-      <h1 class="animate-enter delay-1 text-center text-5xl leading-none font-medium tracking-[-0.03em] sm:text-7xl lg:text-left">
-        TblFlow
+      <p class="animate-enter text-center text-base font-medium text-[var(--fg-muted)] lg:text-left">TblFlow</p>
+      <h1 class="animate-enter delay-1 mt-3 text-center text-3xl leading-[1.1] font-medium tracking-[-0.03em] text-balance sm:text-5xl lg:text-6xl lg:text-left">
+        {pm(locale, 'home.hero.title')}
       </h1>
-      <p class="animate-enter delay-2 mt-4 text-center text-lg text-balance text-[var(--fg-muted)] sm:text-xl lg:text-left">
-        {JOURNEY[locale].signature}
+      <p class="animate-enter delay-2 mt-5 max-w-3xl text-center text-lg text-balance text-[var(--fg-muted)] sm:text-xl lg:text-left">
+        {hm(locale, 'hero.promise')}
+      </p>
+      <p class="animate-enter delay-2 mt-3 text-center text-base font-medium lg:text-left">
+        {hm(locale, 'hero.sign')}
       </p>
 
       <div class="animate-enter delay-3 mt-10 sm:mt-12">

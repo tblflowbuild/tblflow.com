@@ -32,7 +32,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       {
         "label": "Verstehen",
         "title": "Bringen Sie TblFlow zuerst Ihr Unternehmen bei",
-        "body": "Laden Sie Ihre Abläufe als PDF oder Markdown hoch und verbinden Sie die Tools, die Sie schon nutzen. DocIndex indexiert diese Dokumentation: Ihr Team kann sie durchsuchen, die KI damit arbeiten."
+        "body": "Laden Sie Ihre Abläufe als PDF oder Markdown hoch und verbinden Sie die Tools, die Sie schon nutzen. TblFlow liest und indexiert sie: Ihr Team kann sie durchsuchen, die KI damit arbeiten."
       },
       {
         "label": "Kartieren",
@@ -108,7 +108,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       "items": [
         {
           "title": "Ihre Daten",
-          "body": "In einem echten PostgreSQL, exportierbar und selbst hostbar."
+          "body": "Sie bleiben Ihre: als CSV oder Archiv exportierbar, in einem Standardformat, auch selbst hostbar."
         },
         {
           "title": "Die Entscheidung",
@@ -116,7 +116,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
         },
         {
           "title": "Die Lesbarkeit",
-          "body": "Alles bleibt lesbar: in SQL, in DocIndex, auf der Karte."
+          "body": "Alles bleibt nachvollziehbar: auf der Karte, in der Dokumentation und per SQL für Ihr technisches Team."
         }
       ]
     }
@@ -133,7 +133,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       {
         "label": "Understand",
         "title": "Start by helping TblFlow understand your company",
-        "body": "Upload your procedures as PDF or Markdown and connect the tools you already use. DocIndex indexes that documentation, so your team can search it and AI can work from it."
+        "body": "Upload your procedures as PDF or Markdown and connect the tools you already use. TblFlow reads and indexes them: your teams can search them, and the AI works from them."
       },
       {
         "label": "Map",
@@ -209,7 +209,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       "items": [
         {
           "title": "Your data",
-          "body": "In a real PostgreSQL database, exportable and self-hostable."
+          "body": "They stay yours: exportable as CSV or an archive, in a standard format, and self-hostable."
         },
         {
           "title": "The decision",
@@ -217,7 +217,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
         },
         {
           "title": "Visibility",
-          "body": "Everything stays readable: in SQL, in DocIndex, on the map."
+          "body": "Everything can be read back: on the map and in the documentation, and in SQL for your technical team."
         }
       ]
     }
@@ -234,7 +234,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       {
         "label": "Comprender",
         "title": "Empieza por hacer que TblFlow entienda tu empresa",
-        "body": "Sube tus procedimientos en PDF o Markdown y conecta las herramientas que ya utilizas. DocIndex indexa esa documentación: tu equipo la consulta y la IA trabaja con ella."
+        "body": "Sube tus procedimientos en PDF o Markdown y conecta las herramientas que ya usas. TblFlow los lee y los indexa: tus equipos los consultan y la IA se apoya en ellos."
       },
       {
         "label": "Cartografiar",
@@ -310,7 +310,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       "items": [
         {
           "title": "Tus datos",
-          "body": "En un PostgreSQL real, exportable y autoalojable."
+          "body": "Siguen siendo tuyos: exportables en CSV o en un archivo, en un formato estándar, y autoalojables."
         },
         {
           "title": "La decisión",
@@ -318,7 +318,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
         },
         {
           "title": "La legibilidad",
-          "body": "Todo se puede leer: en SQL, en DocIndex, en el mapa."
+          "body": "Todo se puede releer: en el mapa, en la documentación y, para tu equipo técnico, en SQL."
         }
       ]
     }
@@ -335,7 +335,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       {
         "label": "Comprendre",
         "title": "Commencez par faire comprendre votre entreprise",
-        "body": "Déposez vos procédures en PDF ou en Markdown et connectez les outils que vous utilisez déjà. DocIndex indexe cette documentation : vos équipes la consultent, l’IA s’en sert."
+        "body": "Déposez vos procédures en PDF ou en Markdown et connectez les outils que vous utilisez déjà. TblFlow les lit et les indexe : vos équipes les consultent, l’IA s’en sert."
       },
       {
         "label": "Cartographier",
@@ -411,7 +411,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       "items": [
         {
           "title": "Vos données",
-          "body": "Dans un vrai PostgreSQL, exportable et auto-hébergeable."
+          "body": "Elles restent à vous : exportables en CSV ou en archive, dans un format standard, et auto-hébergeables."
         },
         {
           "title": "La décision",
@@ -419,7 +419,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
         },
         {
           "title": "La lisibilité",
-          "body": "Tout se lit : en SQL, dans DocIndex, sur la carte."
+          "body": "Tout se relit : sur la carte, dans la documentation, et en SQL pour votre équipe technique."
         }
       ]
     }
@@ -436,7 +436,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       {
         "label": "Capire",
         "title": "Inizia facendo capire a TblFlow la tua azienda",
-        "body": "Carica le tue procedure in PDF o Markdown e collega gli strumenti che già usi. DocIndex indicizza questa documentazione: il team la consulta, l’IA la utilizza."
+        "body": "Carica le tue procedure in PDF o Markdown e collega gli strumenti che usi già. TblFlow le legge e le indicizza: i tuoi team le consultano e l’IA le usa."
       },
       {
         "label": "Mappare",
@@ -512,7 +512,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       "items": [
         {
           "title": "I tuoi dati",
-          "body": "In un vero PostgreSQL, esportabile e self-hosted."
+          "body": "Restano tuoi: esportabili in CSV o in un archivio, in un formato standard, e ospitabili in autonomia."
         },
         {
           "title": "La decisione",
@@ -520,7 +520,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
         },
         {
           "title": "La leggibilità",
-          "body": "Tutto resta leggibile: in SQL, in DocIndex, sulla mappa."
+          "body": "Tutto si può rileggere: sulla mappa, nella documentazione e, per il tuo team tecnico, in SQL."
         }
       ]
     }
@@ -537,7 +537,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       {
         "label": "理解する",
         "title": "まず、TblFlow に会社を理解させる",
-        "body": "手順書を PDF や Markdown でアップロードし、いま使っているツールを接続します。DocIndex がこのドキュメントをインデックス化し、チームは検索でき、AI はそれを活用できます。"
+        "body": "手順書を PDF または Markdown で取り込み、すでに使っているツールを接続します。TblFlow が読み込んで索引化するので、チームは検索でき、AI も活用できます。"
       },
       {
         "label": "マップ化する",
@@ -613,7 +613,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       "items": [
         {
           "title": "データ",
-          "body": "本物の PostgreSQL に。エクスポートもセルフホストも可能です。"
+          "body": "データはあなたのものです。CSV やアーカイブで書き出せ、標準的な形式で、自社サーバーでの運用も可能です。"
         },
         {
           "title": "決定権",
@@ -621,7 +621,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
         },
         {
           "title": "見通し",
-          "body": "SQL でも、DocIndex でも、マップでも、すべて読み取れます。"
+          "body": "すべて読み返せます。マップとドキュメントで確認でき、技術チームは SQL でも確認できます。"
         }
       ]
     }
@@ -638,7 +638,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       {
         "label": "Понять",
         "title": "Сначала помогите TblFlow понять вашу компанию",
-        "body": "Загрузите регламенты в PDF или Markdown и подключите инструменты, которыми уже пользуетесь. DocIndex индексирует эту документацию: команда может в ней искать, а ИИ — на неё опираться."
+        "body": "Загрузите ваши процедуры в PDF или Markdown и подключите уже используемые сервисы. TblFlow читает и индексирует их: команда ищет по ним, ИИ опирается на них."
       },
       {
         "label": "Картировать",
@@ -714,7 +714,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       "items": [
         {
           "title": "Ваши данные",
-          "body": "В настоящем PostgreSQL, с экспортом и возможностью самостоятельного размещения."
+          "body": "Они остаются вашими: экспорт в CSV или архив, стандартный формат, возможен самостоятельный хостинг."
         },
         {
           "title": "Решение",
@@ -722,7 +722,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
         },
         {
           "title": "Прозрачность",
-          "body": "Всё остаётся читаемым: в SQL, в DocIndex, на карте."
+          "body": "Всё можно перечитать: на карте, в документации, а вашей технической команде — ещё и в SQL."
         }
       ]
     }
@@ -739,7 +739,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       {
         "label": "Anlamak",
         "title": "Önce TblFlow’a şirketinizi tanıtın",
-        "body": "Prosedürlerinizi PDF veya Markdown olarak yükleyin ve zaten kullandığınız araçları bağlayın. DocIndex bu dokümantasyonu dizinler: ekibiniz içinde arama yapar, yapay zekâ onu kullanır."
+        "body": "Prosedürlerinizi PDF veya Markdown olarak yükleyin ve zaten kullandığınız araçları bağlayın. TblFlow bunları okuyup dizinler: ekipleriniz arama yapabilir, yapay zekâ da bunlardan yararlanır."
       },
       {
         "label": "Haritalamak",
@@ -815,7 +815,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       "items": [
         {
           "title": "Verileriniz",
-          "body": "Gerçek bir PostgreSQL’de; dışa aktarılabilir ve kendi sunucunuzda barındırılabilir."
+          "body": "Verileriniz sizin kalır: CSV veya arşiv olarak dışa aktarılabilir, standart bir biçimdedir ve kendi sunucunuzda barındırılabilir."
         },
         {
           "title": "Karar",
@@ -823,7 +823,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
         },
         {
           "title": "Okunabilirlik",
-          "body": "Her şey okunabilir kalır: SQL’de, DocIndex’te, haritada."
+          "body": "Her şey yeniden okunabilir: haritada, belgelerde ve teknik ekibiniz için SQL ile."
         }
       ]
     }
@@ -840,7 +840,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       {
         "label": "Зрозуміти",
         "title": "Спершу допоможіть TblFlow зрозуміти вашу компанію",
-        "body": "Завантажте регламенти у PDF або Markdown і підключіть інструменти, якими вже користуєтеся. DocIndex індексує цю документацію: команда шукає в ній, а ШІ на неї спирається."
+        "body": "Завантажте ваші процедури у PDF або Markdown і підключіть сервіси, якими вже користуєтесь. TblFlow читає та індексує їх: команди шукають у них, а ШІ спирається на них."
       },
       {
         "label": "Картувати",
@@ -916,7 +916,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       "items": [
         {
           "title": "Ваші дані",
-          "body": "У справжньому PostgreSQL, з експортом і можливістю власного розміщення."
+          "body": "Вони залишаються вашими: експорт у CSV або архів, стандартний формат, можливий самостійний хостинг."
         },
         {
           "title": "Рішення",
@@ -924,7 +924,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
         },
         {
           "title": "Прозорість",
-          "body": "Усе лишається читабельним: у SQL, у DocIndex, на карті."
+          "body": "Усе можна перечитати: на карті, в документації, а вашій технічній команді — ще й у SQL."
         }
       ]
     }
@@ -941,7 +941,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       {
         "label": "理解",
         "title": "先让 TblFlow 理解您的企业",
-        "body": "以 PDF 或 Markdown 上传您的流程文档，并连接您已经在用的工具。DocIndex 会为这些文档建立索引：团队可以检索，AI 可以直接利用。"
+        "body": "以 PDF 或 Markdown 上传您的流程文档，并连接您已在使用的工具。TblFlow 会读取并建立索引：团队可以检索，AI 也能据此工作。"
       },
       {
         "label": "绘制图谱",
@@ -1017,7 +1017,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
       "items": [
         {
           "title": "您的数据",
-          "body": "保存在真正的 PostgreSQL 中，可导出，也可自托管。"
+          "body": "数据始终属于您：可导出为 CSV 或压缩包，格式标准，也可自行托管。"
         },
         {
           "title": "决定权",
@@ -1025,7 +1025,7 @@ export const JOURNEY: Record<Locale, JourneyCopy> = {
         },
         {
           "title": "可读性",
-          "body": "一切都清晰可读：在 SQL 里、在 DocIndex 中、在图谱上。"
+          "body": "一切皆可查阅：在图谱上、在文档中，技术团队还可以用 SQL 查看。"
         }
       ]
     }
