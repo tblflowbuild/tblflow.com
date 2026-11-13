@@ -69,6 +69,13 @@ Le récit de Pierre (cabinet de conformité, 31 conseillers, 25 outils) : **non 
 4. Diagnostic : on garde le libre-service du Gratuit. Ni diagnostic humain ni calculateur pour l'instant.
 5. Pilotes : Kevin seul d'abord, avec accord écrit et chiffres de sa part avant toute publication.
 
+### Décisions de Tommy (13/11/2026)
+
+6. Test des 10 secondes sur le site actuel avant de fusionner la PR 32, avec 5 dirigeants du réseau (hors clients et prospects) ; protocole dans `test-10-secondes.md`.
+7. Récit de Pierre abandonné.
+8. Ton : concret et sobre, sans superlatifs.
+9. Après le test, priorité au témoignage de Kevin (grille dans `grille-recueil-kevin-beevisionary.md`).
+
 ---
 
 ## 5. Textes proposés par l'auditeur
