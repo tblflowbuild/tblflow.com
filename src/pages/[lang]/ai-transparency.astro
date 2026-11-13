@@ -1,0 +1,55 @@
+---
+import Base from '@/layouts/Base.astro';
+import { useTranslations } from '@/i18n/ui';
+import { localePath, brandTitle } from '@/i18n/utils';
+import { LOCALES, type Locale } from '@/config';
+import { AI_FUNCTION_FACTS, AI_TRANSPARENCY } from '@/data/ai-transparency';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+const texts = AI_TRANSPARENCY[locale];
+const path = localePath(locale, 'ai-transparency');
+
+const breadcrumbs = [
+  { name: t('breadcrumbs.home'), path: localePath(locale) },
+  { name: texts.title, path },
+];
+---
+
+<Base
+  locale={locale}
+  title={brandTitle(texts.title)}
+  description={texts.description}
+  path={path}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="mx-auto max-w-4xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
+    <h1 class="animate-enter text-4xl font-medium sm:text-5xl">{texts.title}</h1>
+    <p class="animate-enter delay-1 mt-4 max-w-2xl text-lg text-[var(--fg-muted)]">{texts.intro}</p>
+
+    <ul class="mt-10 grid gap-4">
+      {
+        AI_FUNCTION_FACTS.map((fn) => (
+          <li class="rounded-xl border border-[var(--border)] p-5">
+            <h2 class="text-lg font-medium">{texts.functions[fn.id].name}</h2>
+            <p class="mt-1 text-[var(--fg-muted)]">{texts.functions[fn.id].description}</p>
+            <ul class="mt-4 grid gap-1 text-sm text-[var(--fg-muted)]">
+              <li>
+                <span class="font-medium text-[var(--fg)]">{texts.models} :</span>{' '}
+                {fn.roles.map((role) => texts.roles[role]).join(', ')}
+              </li>
+              <li>{fn.reads ? texts.readsYes : texts.readsNo}</li>
+              <li>{texts.validation[fn.validation]}</li>
+              {fn.logged && <li>{texts.logging}</li>}
+              {fn.people && <li>{texts.people}</li>}
+            </ul>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>
