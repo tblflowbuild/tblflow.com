@@ -1,5 +1,7 @@
 # Analyse de positionnement : la cartographie des processus change-t-elle le message ?
 
+> **Grille périmée (14/11/2026).** Cette analyse parle d'un « essai Pro » et des paliers Pro et Business. La grille en vigueur est Gratuit, Essentiel 39 €, Équipe 119 €, Entreprise à partir de 399 € sur devis, avec essai Essentiel de 14 jours sans carte. Lire les noms de paliers en conséquence.
+
 Branche `feat/cartographie`, document de travail, non publié. Décision attendue de Tommy avant toute modification de `index.astro`, des méta-titres et des tarifs.
 
 ## 0. Faits vérifiés (et écarts avec le brief)
