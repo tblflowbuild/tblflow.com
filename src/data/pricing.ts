@@ -100,7 +100,7 @@ export interface Tier {
    * In EUR in every locale — Stripe bills in euros only.
    */
   price: number | null;
-  /** True when `price` is a starting price ("à partir de"): Enterprise, bought online up to 50 people. */
+  /** True when `price` is a starting price ("à partir de"): Enterprise, sold on quote only. */
   priceFrom: boolean;
   /**
    * Total for twelve months, billed annually: `price * 10`, i.e. two months
@@ -130,6 +130,13 @@ export interface Tier {
   /** Headline bullets on the card — the full grid lives in `QUOTAS` below. */
   highlights: Record<Locale, string[]>;
 }
+
+/** Entreprise ne s'achète plus en ligne : le bouton ouvre le formulaire de devis de l'application. */
+const CTA_QUOTE: Record<Locale, string> = {
+  de: 'Angebot anfragen', en: 'Request a quote', es: 'Solicitar presupuesto', fr: 'Demander un devis',
+  it: 'Richiedi un preventivo', ja: '見積を依頼', ru: 'Запросить предложение', tr: 'Teklif iste',
+  uk: 'Запросити пропозицію', zh: '申请报价',
+};
 
 const CTA_START: Record<Locale, string> = {
   de: 'Loslegen', en: 'Get started', es: 'Empezar', fr: 'Commencer', it: 'Inizia',
@@ -444,65 +451,65 @@ const BASE_TIERS: Tier[] = [
       uk: 'На вашій інфраструктурі або у виділеному VPC.',
       zh: '部署在您的基础设施或专属 VPC 中。',
     },
-    cta: CTA_START,
-    ctaHref: `${APP_URL}/auth/signup?plan=enterprise`,
+    cta: CTA_QUOTE,
+    ctaHref: `${APP_URL}/enterprise-quote`,
     highlights: {
       de: [
-        'Online buchbar bis 50 Personen',
+        'Nur auf Angebot: ab 399 €/Monat',
         'Mehr als 50 Personen, Selbsthosting oder VPC: auf Anfrage',
         'Bases, Zeilen und Speicher unbegrenzt · SSO / SAML · White-Label',
         'Dedizierter 24/7-Support · SLA 99,99 %',
       ],
       en: [
-        'Buy online for up to 50 people',
+        'Quote only: from €399/month',
         'Above 50 people, self-hosting or VPC: on quote',
         'Unlimited bases, rows and storage · SSO / SAML · white-label',
         'Dedicated 24/7 support · 99.99% SLA',
       ],
       es: [
-        'Compra en línea hasta 50 personas',
+        'Solo con presupuesto: desde 399 €/mes',
         'Más de 50 personas, autoalojamiento o VPC: a presupuesto',
         'Bases, filas y almacenamiento ilimitados · SSO / SAML · marca blanca',
         'Soporte dedicado 24/7 · SLA del 99,99 %',
       ],
       fr: [
-        'Achat en ligne jusqu’à 50 personnes',
+        'Sur devis uniquement : dès 399 €/mois',
         'Au-delà de 50, auto-hébergement ou VPC : sur devis',
         'Bases, lignes et stockage illimités · SSO / SAML · marque blanche',
         'Support dédié 24/7 · SLA 99,99 %',
       ],
       it: [
-        'Acquisto online fino a 50 persone',
+        'Solo su preventivo: da 399 €/mese',
         'Oltre 50 persone, self-hosting o VPC: su preventivo',
         'Base, righe e spazio illimitati · SSO / SAML · white-label',
         'Supporto dedicato 24/7 · SLA 99,99%',
       ],
       ja: [
-        '最大 50 名までオンラインで購入可能',
+        '見積のみ：月額 €399 から',
         '50 名超、セルフホスト、VPC: 見積制',
         'ベース・行・ストレージ無制限 · SSO / SAML · ホワイトラベル',
         '24 時間 365 日の専任サポート · SLA 99.99%',
       ],
       ru: [
-        'Покупка онлайн до 50 человек',
+        'Только по запросу: от 399 €/месяц',
         'Больше 50 человек, self-hosting или VPC: по запросу',
         'Базы, строки и хранилище без ограничений · SSO / SAML · white-label',
         'Выделенная поддержка 24/7 · SLA 99,99 %',
       ],
       tr: [
-        '50 kişiye kadar çevrimiçi satın alınabilir',
+        'Yalnızca teklifle: ayda €399\'dan',
         '50 kişinin üzerinde, kendi sunucunuz veya VPC: teklife bağlı',
         'Veritabanı, satır ve depolama sınırsız · SSO / SAML · white-label',
         '7/24 özel destek · %99,99 SLA',
       ],
       uk: [
-        'Купівля онлайн до 50 людей',
+        'Лише за запитом: від 399 €/міс',
         'Понад 50 людей, self-hosting або VPC: за запитом',
         'Бази, рядки та сховище без обмежень · SSO / SAML · white-label',
         'Виділена підтримка 24/7 · SLA 99,99%',
       ],
       zh: [
-        '最多 50 人，可在线购买',
+        '仅限报价：每月 €399 起',
         '超过 50 人、自托管或 VPC：按需报价',
         'base、行数与存储不限 · SSO / SAML · 白标',
         '7×24 专属支持 · 99.99% SLA',
