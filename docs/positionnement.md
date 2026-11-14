@@ -2,6 +2,15 @@
 
 Document de travail, validé par Tommy le 7 novembre 2026. Il fixe le Why, la cible d'entrée et les refus qui guident le message du site. Il complète `analyse-positionnement.md`, qui portait sur la place de la carte des process.
 
+## Décisions du 14 novembre 2026
+
+Mission, vision et stratégie : voir `docs/strategie/mission-vision-strategie.md` dans le dépôt TblFlow (application).
+
+- **Mission** : la formule du Why ci-dessous. Elle sert au manifeste et à la vidéo.
+- **Promesse et signature du site et du pitch** : « L'IA prépare, vous validez. » (`hero.sign` dans `src/data/home.ts`).
+- **Zone** : France seule pendant 18 mois. Les 10 langues du site servent au référencement, sans effort commercial hors France ; ne pas annoncer l'Europe comme marché.
+- **Données** : écrire « application et base à Vienne (Autriche) », jamais « toutes vos données en Europe ».
+
 ## Le cercle
 
 **Why, signature**

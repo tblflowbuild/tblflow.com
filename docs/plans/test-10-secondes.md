@@ -1,5 +1,7 @@
 # Test de compréhension du premier écran (10 secondes)
 
+> **Statut au 14/11/2026.** Aucune mesure « avant » n'existe : la PR 32 a été fusionnée le 12/11 sans que le test ait été passé. Décision de Tommy : le test se fait sur la nouvelle version, avec 5 dirigeants. Il sert à améliorer la page actuelle, pas à comparer avec un « avant ».
+
 Décision de Tommy (13/11/2026) : faire le test sur le site **actuel** (le « avant ») avant de fusionner la PR 32, puis le refaire après la mise en ligne avec **d'autres** personnes.
 
 ## Participants
