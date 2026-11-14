@@ -1,6 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import PricingTable from '@/components/PricingTable.astro';
+import AiOffer from '@/components/AiOffer.astro';
 import Faq from '@/components/Faq.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import { FAQ } from '@/data/faq';
@@ -74,6 +75,8 @@ const breadcrumbs = [
   </div>
 
   <PricingTable locale={locale} showQuotas />
+
+  <AiOffer locale={locale} />
 
   <Faq locale={locale} />
 

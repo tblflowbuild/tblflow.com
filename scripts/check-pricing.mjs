@@ -10,7 +10,7 @@
  * a customer could multiply by hand.
  *
  * Grid (2026-11): three paid tiers priced per team, each with a per-person
- * add-on above the included seats. Enterprise is "from" a price, not quote-only.
+ * add-on above the included seats. Enterprise is "from" a price and sold on quote only (request form, no online checkout).
  *
  * Run: npm run build && node scripts/check-pricing.mjs
  */
@@ -77,7 +77,10 @@ for (const tier of TIERS) {
 // The previous grid's figures, as the customer would see them.
 for (const locale of Object.keys(HREFLANG)) {
   const html = readFileSync(new URL(`../dist/${locale}/pricing.html`, import.meta.url), 'utf8');
-  const prose = html.replace(/<script[\s\S]*?<\/script>/g, '');
+  // L'offre IA (pools a 29 € et 140 €, recharges) a ses propres prix : hors du controle des anciens montants.
+  const prose = html
+    .replace(/<script[\s\S]*?<\/script>/g, '')
+    .replace(/<section id="ai-offer"[\s\S]*?<\/section>/g, '');
 
   for (const tier of TIERS) {
     const monthly = money(locale, tier.price);

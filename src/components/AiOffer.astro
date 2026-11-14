@@ -1,0 +1,78 @@
+---
+import { AI_OFFER, AI_STRINGS, nf, eur } from '@/data/aiOffer';
+import { TIERS } from '@/data/pricing';
+import type { Locale } from '@/config';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const tierName = (id: 'pro' | 'business' | 'enterprise') => TIERS.find((tier) => tier.id === id)!.name[locale];
+const rows = [
+  ['pro', AI_OFFER.included.pro],
+  ['business', AI_OFFER.included.business],
+  ['enterprise', AI_OFFER.included.enterprise],
+] as const;
+---
+
+<section id="ai-offer" class="mx-auto max-w-6xl scroll-mt-24 px-4 pb-16 sm:px-6">
+  <h2 class="text-2xl font-medium">{AI_STRINGS.title[locale]}</h2>
+  <p class="mt-2 max-w-3xl text-[var(--fg-muted)]">{AI_STRINGS.intro[locale]}</p>
+
+  <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+    <div class="card p-6">
+      <h3 class="text-base font-medium">{AI_STRINGS.includedTitle[locale]}</h3>
+      <ul class="mt-3 space-y-1 text-sm text-[var(--fg-muted)]">
+        {
+          rows.map(([id, credits]) => (
+            <li class="flex justify-between gap-4">
+              <span>{tierName(id)}</span>
+              <span class="tabular-nums">{nf(locale, credits)} {AI_STRINGS.credits[locale]}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="card p-6">
+      <h3 class="text-base font-medium">{AI_STRINGS.seatTitle[locale]}</h3>
+      <p class="mt-3 flex items-baseline gap-1">
+        <span class="text-3xl font-medium tabular-nums">{eur(locale, AI_OFFER.seat.price)}</span>
+        <span class="text-sm text-[var(--fg-subtle)]">{AI_STRINGS.perMonth[locale]}</span>
+      </p>
+      <p class="mt-2 text-sm text-[var(--fg-muted)]">
+        {nf(locale, AI_OFFER.seat.credits)} {AI_STRINGS.credits[locale]}, {AI_STRINGS.seatBody[locale]}
+      </p>
+    </div>
+
+    <div class="card p-6">
+      <h3 class="text-base font-medium">{AI_STRINGS.poolTitle[locale]}</h3>
+      <ul class="mt-3 space-y-1 text-sm text-[var(--fg-muted)]">
+        {
+          AI_OFFER.pools.map((pool) => (
+            <li class="flex justify-between gap-4">
+              <span class="tabular-nums">{nf(locale, pool.credits)} {AI_STRINGS.credits[locale]}</span>
+              <span class="tabular-nums">{eur(locale, pool.price)} {AI_STRINGS.perMonth[locale]}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="card p-6">
+      <h3 class="text-base font-medium">{AI_STRINGS.packsTitle[locale]}</h3>
+      <ul class="mt-3 space-y-1 text-sm text-[var(--fg-muted)]">
+        {
+          AI_OFFER.packs.map((pack) => (
+            <li class="flex justify-between gap-4">
+              <span class="tabular-nums">{nf(locale, pack.credits)} {AI_STRINGS.credits[locale]}</span>
+              <span class="tabular-nums">{eur(locale, pack.price)}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <p class="mt-4 text-xs text-[var(--fg-subtle)]">{AI_STRINGS.annual[locale]} {AI_STRINGS.byok[locale]}</p>
+</section>
