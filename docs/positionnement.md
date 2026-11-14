@@ -9,7 +9,7 @@ Mission, vision et stratégie : voir `docs/strategie/mission-vision-strategie.md
 - **Mission** : la formule du Why ci-dessous. Elle sert au manifeste et à la vidéo.
 - **Promesse et signature du site et du pitch** : « L'IA prépare, vous validez. » (`hero.sign` dans `src/data/home.ts`).
 - **Zone** : France seule pendant 18 mois. Les 10 langues du site servent au référencement, sans effort commercial hors France ; ne pas annoncer l'Europe comme marché.
-- **Données** : écrire « application et base en Allemagne », jamais « toutes vos données en Europe ».
+- **Données** : écrire « application et base à Vienne (Autriche) », jamais « toutes vos données en Europe ».
 
 ## Le cercle
 
