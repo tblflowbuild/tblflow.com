@@ -39,7 +39,7 @@ Every cell written in TblFlow goes into a real physical PostgreSQL table. There 
 format and no synchronisation layer: the table you see in TblFlow is the table in Postgres, and
 any SQL client can query it directly.
 
-TblFlow is available as a managed service at tblflow.com, and as a self-hosted or dedicated VPC
+TblFlow is available as a managed service at tblflow.com, and as a self-hosted or in your VPC
 deployment on customer infrastructure under the Enterprise plan, on quote, with every feature
 unlocked.`);
 
@@ -132,7 +132,7 @@ Docs: ${SITE_URL}/en/docs/cli`);
 
   sections.push(`## Pricing
 
-TblFlow Cloud has four plans. Self-hosted and dedicated VPC deployment is part of the Enterprise
+TblFlow Cloud has four plans. Self-hosted and VPC deployment is part of the Enterprise
 plan, on quote.
 
 ${tierHeader}

@@ -64,7 +64,7 @@ export const ui = {
     'pricing.compare': 'Tarife im Detail vergleichen',
     'pricing.selfhost.title': 'Selbst hosten?',
     'pricing.selfhost.body':
-      'Die Bereitstellung auf Ihrer eigenen Infrastruktur oder in einer dedizierten VPC ist Teil des Enterprise-Tarifs, auf Anfrage, mit allen freigeschalteten Funktionen.',
+      'Die Bereitstellung auf Ihrer eigenen Infrastruktur oder in Ihrer VPC ist Teil des Enterprise-Tarifs, auf Anfrage, mit allen freigeschalteten Funktionen.',
     'pricing.selfhost.cta': 'Support kontaktieren',
 
     'faq.title': 'Häufige Fragen',
@@ -225,7 +225,7 @@ export const ui = {
     'pricing.compare': 'Compare plans in detail',
     'pricing.selfhost.title': 'Need to self-host?',
     'pricing.selfhost.body':
-      'Deploying on your own infrastructure or in a dedicated VPC is part of the Enterprise plan, on quote, with every feature unlocked.',
+      'Deploying on your own infrastructure or in your VPC is part of the Enterprise plan, on quote, with every feature unlocked.',
     'pricing.selfhost.cta': 'Contact support',
 
     'faq.title': 'Frequently asked questions',
@@ -386,7 +386,7 @@ export const ui = {
     'pricing.compare': 'Comparar planes en detalle',
     'pricing.selfhost.title': '¿Necesitas autoalojamiento?',
     'pricing.selfhost.body':
-      'El despliegue en tu propia infraestructura o en una VPC dedicada forma parte del plan Enterprise, a medida, con todas las funciones desbloqueadas.',
+      'El despliegue en tu propia infraestructura o en tu VPC forma parte del plan Enterprise, a medida, con todas las funciones desbloqueadas.',
     'pricing.selfhost.cta': 'Contactar con soporte',
 
     'faq.title': 'Preguntas frecuentes',
@@ -547,7 +547,7 @@ export const ui = {
     'pricing.compare': 'Comparer les paliers en détail',
     'pricing.selfhost.title': 'Besoin d’auto-hébergement ?',
     'pricing.selfhost.body':
-      'Le déploiement sur votre propre infrastructure ou en VPC dédié fait partie du palier Entreprise, sur devis, avec toutes les fonctionnalités débloquées.',
+      'Le déploiement sur votre propre infrastructure ou dans votre VPC fait partie du palier Entreprise, sur devis, avec toutes les fonctionnalités débloquées.',
     'pricing.selfhost.cta': 'Contacter le support',
 
     'faq.title': 'Questions fréquentes',
@@ -708,7 +708,7 @@ export const ui = {
     'pricing.compare': 'Confronta i piani in dettaglio',
     'pricing.selfhost.title': 'Serve il self-hosting?',
     'pricing.selfhost.body':
-      "L'installazione sulla tua infrastruttura o in un VPC dedicato fa parte del piano Enterprise, su preventivo, con tutte le funzionalità sbloccate.",
+      "L'installazione sulla tua infrastruttura o nel tuo VPC fa parte del piano Enterprise, su preventivo, con tutte le funzionalità sbloccate.",
     'pricing.selfhost.cta': 'Contatta il supporto',
 
     'faq.title': 'Domande frequenti',
@@ -1030,7 +1030,7 @@ export const ui = {
     'pricing.compare': 'Сравнить тарифы подробно',
     'pricing.selfhost.title': 'Нужен self-hosting?',
     'pricing.selfhost.body':
-      'Развёртывание на вашей инфраструктуре или в выделенном VPC входит в тариф Enterprise, по запросу, со всеми разблокированными функциями.',
+      'Развёртывание на вашей инфраструктуре или в вашем VPC входит в тариф Enterprise, по запросу, со всеми разблокированными функциями.',
     'pricing.selfhost.cta': 'Связаться с поддержкой',
 
     'faq.title': 'Частые вопросы',
@@ -1191,7 +1191,7 @@ export const ui = {
     'pricing.compare': 'Planları ayrıntılı karşılaştır',
     'pricing.selfhost.title': 'Kendi sunucunuzda mı barındırmak istiyorsunuz?',
     'pricing.selfhost.body':
-      'Kendi altyapınızda veya özel bir VPC üzerinde dağıtım, tüm özelliklerin açık olduğu, teklife dayalı Enterprise planının bir parçasıdır.',
+      'Kendi altyapınızda veya kendi VPC'niz üzerinde dağıtım, tüm özelliklerin açık olduğu, teklife dayalı Enterprise planının bir parçasıdır.',
     'pricing.selfhost.cta': 'Destek ile iletişime geç',
 
     'faq.title': 'Sık sorulan sorular',
@@ -1352,7 +1352,7 @@ export const ui = {
     'pricing.compare': 'Порівняти тарифи детально',
     'pricing.selfhost.title': 'Потрібен self-hosting?',
     'pricing.selfhost.body':
-      'Розгортання на вашій інфраструктурі або у виділеному VPC входить до тарифу Enterprise, за запитом, з усіма розблокованими функціями.',
+      'Розгортання на вашій інфраструктурі або у вашому VPC входить до тарифу Enterprise, за запитом, з усіма розблокованими функціями.',
     'pricing.selfhost.cta': 'Зв’язатися з підтримкою',
 
     'faq.title': 'Часті запитання',
@@ -1511,7 +1511,7 @@ export const ui = {
     'pricing.popular': '最受欢迎',
     'pricing.compare': '详细比较各套餐',
     'pricing.selfhost.title': '需要自行部署吗？',
-    'pricing.selfhost.body': '在您自己的基础设施或专用 VPC 上部署属于 企业版套餐，需定制报价，解锁全部功能。',
+    'pricing.selfhost.body': '在您自己的基础设施或自有 VPC 上部署属于 企业版套餐，需定制报价，解锁全部功能。',
     'pricing.selfhost.cta': '联系支持团队',
 
     'faq.title': '常见问题',
