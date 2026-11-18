@@ -118,11 +118,11 @@ export interface Tier {
   highlights: Record<Locale, string[]>;
 }
 
-/** Entreprise ne s'achète plus en ligne : le bouton ouvre le formulaire de devis de l'application. */
+/** Entreprise ne s'achète pas en ligne : le bouton ouvre le formulaire public de demande de l'application (/enterprise-quote, sans compte). */
 const CTA_QUOTE: Record<Locale, string> = {
-  de: 'Angebot anfragen', en: 'Request a quote', es: 'Solicitar presupuesto', fr: 'Demander un devis',
-  it: 'Richiedi un preventivo', ja: '見積を依頼', ru: 'Запросить предложение', tr: 'Teklif iste',
-  uk: 'Запросити пропозицію', zh: '申请报价',
+  de: 'Angebot anfragen', en: 'Request a proposal', es: 'Solicitar una propuesta', fr: 'Demander une proposition',
+  it: 'Richiedi una proposta', ja: '提案を依頼', ru: 'Запросить предложение', tr: 'Teklif iste',
+  uk: 'Запросити пропозицію', zh: '申请方案',
 };
 
 const CTA_START: Record<Locale, string> = {
