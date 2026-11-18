@@ -140,9 +140,10 @@ ${tierDivider}
 ${priceRow}
 ${quotaRows.join('\n')}
 
-Enterprise Dedicated is priced per seat annually (€100–300/user/year, minimum 10 seats) or by
-concurrent users (€2–5k/month for up to 50 concurrent users). Add-ons include OIDC SSO and
-white-label on a dedicated instance, dedicated support and a 99.99% SLA.`);
+Enterprise starts at €399 per month for up to 50 people (+€5 per extra person per month), sold on
+quote through a request form. Hosting is on-premise or in the customer's own cloud; OIDC SSO and
+white-label are available on request. TblFlow Cloud (application and database) is hosted in Vienna,
+Austria. No contractual uptime commitment is offered.`);
 
   sections.push(`## Frequently asked questions
 
