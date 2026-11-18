@@ -1191,7 +1191,7 @@ export const ui = {
     'pricing.compare': 'Planları ayrıntılı karşılaştır',
     'pricing.selfhost.title': 'Kendi sunucunuzda mı barındırmak istiyorsunuz?',
     'pricing.selfhost.body':
-      'Kendi altyapınızda veya kendi VPC'niz üzerinde dağıtım, tüm özelliklerin açık olduğu, teklife dayalı Enterprise planının bir parçasıdır.',
+      'Kendi altyapınızda veya kendi VPC’niz üzerinde dağıtım, tüm özelliklerin açık olduğu, teklife dayalı Enterprise planının bir parçasıdır.',
     'pricing.selfhost.cta': 'Destek ile iletişime geç',
 
     'faq.title': 'Sık sorulan sorular',
