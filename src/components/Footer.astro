@@ -33,7 +33,7 @@ const columns: Array<{ title: string; links: Array<{ label: string; href: string
       { label: pm(locale, 'nav'), href: localePath(locale, 'process-map') },
       { label: mcp(locale, 'nav'), href: localePath(locale, 'mcp') },
       { label: t('nav.pricing'), href: localePath(locale, 'pricing') },
-      { label: t('footer.nav.features'), href: `${localePath(locale)}#features` },
+      { label: t('footer.nav.features'), href: localePath(locale, 'features') },
       { label: t('compare.title'), href: `${localePath(locale)}#comparison` },
       { label: t('nav.login'), href: `${APP_URL}/auth/login` },
     ],

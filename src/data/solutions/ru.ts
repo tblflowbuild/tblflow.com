@@ -11,7 +11,7 @@ import type { SolutionsLocale } from './types';
 const ru = {
   ui: {
     forNav: 'Для кого',
-    useCasesNav: 'Сценарии использования',
+    useCasesNav: 'Сценарии',
     forIndex: {
       metaTitle: 'Для кого TblFlow: финансы, продажи, производство, торговля',
       metaDescription:

@@ -13,6 +13,7 @@ import ThemeSwitch from './ThemeSwitch.astro';
 import { useTranslations } from '@/i18n/ui';
 import { pm } from '@/data/processMap';
 import { SOLUTIONS } from '@/data/solutions';
+import { features } from '@/data/features';
 import { localePath, pathWithoutLocale } from '@/i18n/utils';
 import { APP_URL, SIGNUP_TRIAL_URL, type Locale } from '@/config';
 
@@ -25,6 +26,7 @@ const t = useTranslations(locale);
 const current = pathWithoutLocale(Astro.url.pathname);
 
 const links: Array<{ label: string; href: string; match?: string; external?: boolean }> = [
+  { label: features(locale).nav, href: localePath(locale, 'features'), match: 'features' },
   { label: pm(locale, 'nav'), href: localePath(locale, 'process-map'), match: 'process-map' },
   { label: SOLUTIONS[locale].ui.forNav, href: localePath(locale, 'for'), match: 'for' },
   { label: SOLUTIONS[locale].ui.useCasesNav, href: localePath(locale, 'use-cases'), match: 'use-cases' },
@@ -55,7 +57,7 @@ const isActive = (match?: string) => Boolean(match) && current.startsWith(match!
       <span class="text-base">TblFlow</span>
     </a>
 
-    <nav aria-label={t('nav.product')} class="ml-auto hidden items-center gap-1 xl:flex">
+    <nav aria-label={t('nav.product')} class="ml-auto hidden items-center gap-0.5 xl:flex">
       {
         links.map((link) => (
           <a
@@ -63,7 +65,7 @@ const isActive = (match?: string) => Boolean(match) && current.startsWith(match!
             aria-current={isActive(link.match) ? 'page' : undefined}
             rel={link.external ? 'noopener' : undefined}
             class:list={[
-              'rounded-md px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors',
+              'rounded-md px-2 py-2 text-[13px] font-medium whitespace-nowrap transition-colors',
               isActive(link.match)
                 ? 'text-[var(--fg)]'
                 : 'text-[var(--fg-muted)] hover:text-[var(--fg)]',
@@ -82,14 +84,14 @@ const isActive = (match?: string) => Boolean(match) && current.startsWith(match!
 
       <a
         href={`${APP_URL}/auth/login`}
-        class="hidden rounded-lg px-3 py-2 text-sm font-medium text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)] sm:block"
+        class="hidden rounded-lg px-2 py-2 text-sm font-medium whitespace-nowrap text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)] sm:block"
       >
         {t('nav.login')}
       </a>
 
       <a
         href={SIGNUP_TRIAL_URL}
-        class="ai-gradient-bg hidden h-9 items-center rounded-lg px-4 text-sm font-medium text-white sm:inline-flex"
+        class="ai-gradient-bg hidden h-9 items-center rounded-lg px-3 text-sm font-medium whitespace-nowrap text-white sm:inline-flex"
       >
         {t('nav.cta')}
       </a>
