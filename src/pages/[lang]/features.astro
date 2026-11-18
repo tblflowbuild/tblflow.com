@@ -1,0 +1,83 @@
+---
+/** Catalogue of everything the product does, in four families. Copy lives in src/data/features. */
+import Base from '@/layouts/Base.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { features, FEATURE_LINKS, GROUPS } from '@/data/features';
+import { useTranslations } from '@/i18n/ui';
+import { localePath } from '@/i18n/utils';
+import { LOCALES, type Locale } from '@/config';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+const copy = features(locale);
+const path = localePath(locale, 'features');
+
+const breadcrumbs = [
+  { name: t('breadcrumbs.home'), path: localePath(locale) },
+  { name: copy.nav, path },
+];
+---
+
+<Base
+  locale={locale}
+  title={copy.metaTitle}
+  description={copy.metaDescription}
+  path={path}
+  breadcrumbs={breadcrumbs}
+>
+  <section class="mx-auto max-w-6xl px-4 pt-16 pb-6 sm:px-6 sm:pt-20">
+    <p class="font-mono text-sm text-[var(--fg-subtle)]">{copy.eyebrow}</p>
+    <h1 class="mt-3 max-w-3xl text-4xl font-medium sm:text-5xl">{copy.title}</h1>
+    <p class="mt-5 max-w-2xl text-lg text-[var(--fg-muted)]">{copy.subtitle}</p>
+  </section>
+
+  {
+    GROUPS.map((group) => (
+      <section
+        class="mx-auto max-w-6xl border-t border-[var(--border)] px-4 py-12 sm:px-6 sm:py-14"
+        aria-labelledby={`group-${group.id}`}
+      >
+        <h2 id={`group-${group.id}`} class="text-2xl font-medium sm:text-3xl">
+          {copy.groups[group.id].title}
+        </h2>
+        <p class="mt-3 max-w-2xl text-[var(--fg-muted)]">{copy.groups[group.id].intro}</p>
+        <ul class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {group.items.map((id) => {
+            const item = copy.items[id];
+            const link = FEATURE_LINKS[id];
+            return (
+              <li class="card p-6">
+                <h3 class="text-lg font-medium">{item.title}</h3>
+                <p class="mt-2 text-sm text-[var(--fg-muted)]">{item.body}</p>
+                {link && (
+                  <a
+                    href={localePath(locale, link)}
+                    class="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-ai-2)] hover:underline"
+                  >
+                    {copy.nav}
+                    <span aria-hidden="true">→</span>
+                  </a>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ))
+  }
+
+  <section class="mx-auto max-w-6xl border-t border-[var(--border)] px-4 py-10 sm:px-6">
+    <p class="text-sm text-[var(--fg-muted)]">
+      {copy.availability}
+      <a href={localePath(locale, 'pricing')} class="font-medium text-[var(--color-ai-2)] hover:underline">
+        {copy.pricingLink} →
+      </a>
+    </p>
+  </section>
+
+  <CtaBand locale={locale} />
+</Base>
