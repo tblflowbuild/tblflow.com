@@ -14,7 +14,9 @@
  *
  * Run: npm run build && node scripts/check-pricing.mjs
  */
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
 
 const HREFLANG = { de: 'de', en: 'en', es: 'es', fr: 'fr-FR', it: 'it', ja: 'ja', ru: 'ru', tr: 'tr', uk: 'uk', zh: 'zh-Hans' };
@@ -160,6 +162,35 @@ for (const locale of Object.keys(HREFLANG)) {
         `${locale}: untranslated English "${phrase}"`
       )
     );
+  }
+}
+
+// Promises the product or the infrastructure does not keep (T1, 2026-11-18): one
+// VPS in Vienna, no HA, one person on support, no SAML, no ISO certificate.
+// Scanned over every built page (JSON-LD included) and the llms*.txt files, so
+// a translation that reintroduces one of them fails the build gate.
+const CERT = 'certifi[ée]\\w*|certified|zertifiziert\\w*|certificad[oa]s?|certificat[oa]|сертифицирован\\w*|sertifikalı|认证';
+const FORBIDDEN = [
+  ['SAML', /\bSAML\b/i],
+  ['SLA', /\bSLA\b/],
+  ['24/7 support', /24\/7|24h\/24|24 ?hours a day|7\/24|7×24|24 ?時間 ?365 ?日/i],
+  ['"souveraine"', /souverain|sovereign|soberan[oa]|sovran[oa]|souverän|суверен|egemen|主权|ソブリン/i],
+  ['"certifié ISO"', new RegExp(`(?:${CERT})\\s+(?:ISO|selon|according)|ISO ?(?:27001|42001|9001)[^.<]{0,25}(?:${CERT})`, 'i')],
+  ['"toutes vos données en Europe"', /(?:vos données|your data|Ihre Daten|tus datos|tuoi dati|ваши данные|ваші дані|verileriniz|您的数据|データ)[^.<]{0,25}(?:en Europe|in Europe|in Europa|en Europa|в Европе|в Європі|Avrupa|欧洲|ヨーロッパ|欧州)/i],
+];
+const walk = (dir) =>
+  readdirSync(dir, { withFileTypes: true }).flatMap((e) =>
+    e.isDirectory() ? (e.name === '_astro' ? [] : walk(join(dir, e.name))) : [join(dir, e.name)]
+  );
+const distDir = fileURLToPath(new URL('../dist', import.meta.url));
+for (const file of walk(distDir).filter((p) => /\.(html|txt)$/.test(p))) {
+  const text = readFileSync(file, 'utf8');
+  for (const [name, pattern] of FORBIDDEN) {
+    check(`forbidden ${name} in ${file.slice(distDir.length)}`, () => {
+      const hit = text.match(pattern);
+      const around = hit ? text.slice(Math.max(0, hit.index - 60), hit.index + 80).replace(/\s+/g, ' ') : '';
+      assert.ok(!hit, `forbidden phrase ${name}: "${hit?.[0]}" ...${around}`);
+    });
   }
 }
 

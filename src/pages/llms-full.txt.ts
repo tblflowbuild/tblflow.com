@@ -39,7 +39,7 @@ Every cell written in TblFlow goes into a real physical PostgreSQL table. There 
 format and no synchronisation layer: the table you see in TblFlow is the table in Postgres, and
 any SQL client can query it directly.
 
-TblFlow is available as a managed service at tblflow.com, and as a self-hosted or dedicated VPC
+TblFlow is available as a managed service at tblflow.com, and as a self-hosted or in your VPC
 deployment on customer infrastructure under the Enterprise plan, on quote, with every feature
 unlocked.`);
 
@@ -132,7 +132,7 @@ Docs: ${SITE_URL}/en/docs/cli`);
 
   sections.push(`## Pricing
 
-TblFlow Cloud has four plans. Self-hosted and dedicated VPC deployment is part of the Enterprise
+TblFlow Cloud has four plans. Self-hosted and VPC deployment is part of the Enterprise
 plan, on quote.
 
 ${tierHeader}
@@ -140,9 +140,10 @@ ${tierDivider}
 ${priceRow}
 ${quotaRows.join('\n')}
 
-Enterprise Dedicated is priced per seat annually (€100–300/user/year, minimum 10 seats) or by
-concurrent users (€2–5k/month for up to 50 concurrent users). Add-ons include SSO/SAML,
-white-label, dedicated support and a 99.99% SLA.`);
+Enterprise starts at €399 per month for up to 50 people (+€5 per extra person per month), sold on
+quote through a request form. Hosting is on-premise or in the customer's own cloud; OIDC SSO and
+white-label are available on request. TblFlow Cloud (application and database) is hosted in Vienna,
+Austria. No contractual uptime commitment is offered.`);
 
   sections.push(`## Frequently asked questions
 

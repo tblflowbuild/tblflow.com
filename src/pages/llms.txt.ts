@@ -83,14 +83,14 @@ export const GET: APIRoute = async () => {
 - Search: PostgreSQL full-text and pgvector semantic search, fused with reciprocal rank fusion.
 - Scale: filters, sorts, groups and searches across millions of rows with sub-second response.
   The grid renders to canvas and redraws only the visible region.
-- Deployment: managed cloud, or self-hosted / dedicated VPC under the Enterprise plan (on
+- Deployment: managed cloud, or self-hosted / your VPC under the Enterprise plan (on
   quote), with every feature unlocked.
 - Licence: AGPL-3.0.
 - Stack: NestJS, Next.js, PostgreSQL with pgvector, Redis, BullMQ, ShareDB.
 
 ## Pricing
 
-${priceLine}. Self-hosted and dedicated VPC deployment is part of the Enterprise plan, on quote.
+${priceLine}. Self-hosted and VPC deployment is part of the Enterprise plan, on quote.
 Full plan detail: ${SITE_URL}/en/pricing
 
 ## Pages
