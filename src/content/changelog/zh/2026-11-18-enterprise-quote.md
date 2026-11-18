@@ -1,0 +1,11 @@
+---
+title: "Enterprise：可在线接受的报价方案"
+date: 2026-11-18
+translationKey: "enterprise-quote"
+type: "feature"
+---
+
+- **方案**：在 Enterprise 方案（本地部署或客户自有云）下，TblFlow 会以 PDF 形式向您发送带价格的方案。
+- **在线接受**：空间所有者在线接受该方案。
+- **付款**：方案被接受后，可用银行卡或 SEPA 直接借记付款。
+- **申请**：价格页面上的“申请方案”按钮可发起申请。参见[价格](/zh/pricing)。
