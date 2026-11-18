@@ -28,15 +28,15 @@ export const TRUST: Record<Locale, TrustTexts> = {
     sections: [
       {
         title: 'Hébergement et disponibilité',
-        text: 'L’application et la base de données sont hébergées à Vienne (Autriche), chez netcup, sur un seul serveur, sans haute disponibilité. Le fournisseur garantit 99,6 % de disponibilité en moyenne annuelle, soit environ 35 heures d’interruption tolérées par an. TblFlow ne prend aucun engagement contractuel de disponibilité. Les sauvegardes sont horaires (perte maximale d’une heure de données), chiffrées et stockées hors de l’hébergeur.',
+        text: 'L’application et la base de données sont hébergées à Vienne (Autriche), chez netcup, sur un seul serveur, sans haute disponibilité. Le fournisseur garantit 99,6 % de disponibilité en moyenne annuelle, soit environ 35 heures d’interruption tolérées par an. TblFlow ne prend aucun engagement contractuel de disponibilité. Les fichiers que vous ajoutez sont stockés sur Cloudflare R2, en Europe de l’Ouest. Les sauvegardes sont horaires (perte maximale d’une heure de données), chiffrées et stockées sur Cloudflare R2, dans la juridiction UE.',
       },
       {
         title: 'Sous-traitants',
-        text: 'Hébergement : netcup (Autriche). Fonctions d’IA : les requêtes passent par OpenRouter, qui les transmet à des fournisseurs de modèles (par exemple Claude ou Gemini). OpenRouter et ces fournisseurs sont situés aux États-Unis : le contenu envoyé à l’IA quitte donc l’Union européenne. Avec votre propre clé, vous choisissez le fournisseur. La liste exacte des sous-traitants est remise avec le DPA.',
+        text: 'Hébergement : netcup (Vienne, Autriche). Fichiers et sauvegardes : Cloudflare R2 (Europe de l’Ouest ; juridiction UE pour les sauvegardes). E-mails : Resend (États-Unis). IA : OpenRouter (États-Unis), qui transmet les requêtes à Anthropic et Google (Gemini) ; la vectorisation passe par MongoDB/Voyage AI, également via OpenRouter. Recherche web : Tavily (États-Unis). D’autres fournisseurs d’IA (par exemple OpenAI ou Mistral) n’interviennent que si vous configurez votre propre clé. Le contenu envoyé à l’IA peut donc quitter l’Union européenne. Liste contractuelle : DPA version 1.4, en vigueur le 2026-12-18.',
       },
       {
         title: 'Conservation des données par les fournisseurs d’IA',
-        text: 'Nous ne publions pas, à ce jour, de garantie de rétention zéro pour chaque fournisseur d’IA. Si ce point conditionne votre achat, demandez-nous l’état par fournisseur avant de signer.',
+        text: 'Rétention zéro exigée auprès des fournisseurs qui la proposent. Certains (dont Google) conservent les requêtes pour la seule prévention des abus, jamais pour l’entraînement. L’entraînement sur vos données est désactivé.',
       },
       {
         title: 'Saisie vocale',
@@ -44,11 +44,11 @@ export const TRUST: Record<Locale, TrustTexts> = {
       },
       {
         title: 'Accord de traitement des données (DPA)',
-        text: 'Un accord de traitement des données peut être examiné avec vous avant la signature de votre contrat. Écrivez à contact@tblflow.com.',
+        text: 'Un exemplaire du DPA à signer existe. Il est disponible sur demande à dpo@tblflow.com.',
       },
       {
-        title: 'ISO 27001 et ISO 42001',
-        text: 'Nous nous appuyons sur ISO 27001 et ISO 42001 comme référentiels, avec une documentation d’alignement. Aucune certification n’a été délivrée à TblFlow.',
+        title: 'ISO/IEC 42001',
+        text: 'Nos fonctions d’IA sont conçues en s’inspirant d’ISO/IEC 42001 (supervision humaine, traçabilité, transparence, maîtrise des fournisseurs). TblFlow ne détient aucune certification ISO 42001.',
       },
       {
         title: 'Réversibilité',
@@ -65,15 +65,15 @@ export const TRUST: Record<Locale, TrustTexts> = {
     sections: [
       {
         title: 'Hosting and availability',
-        text: 'The application and the database are hosted in Vienna (Austria) with netcup, on a single server with no high availability. The provider guarantees 99.6% availability on a yearly average, about 35 hours of tolerated downtime per year. TblFlow makes no contractual availability commitment. Backups run hourly (at most one hour of data lost), are encrypted and are stored outside the host.',
+        text: 'The application and the database are hosted in Vienna (Austria) with netcup, on a single server with no high availability. The provider guarantees 99.6% availability on a yearly average, about 35 hours of tolerated downtime per year. TblFlow makes no contractual availability commitment. Files you add are stored on Cloudflare R2, in Western Europe. Backups run hourly (at most one hour of data lost), are encrypted and are stored on Cloudflare R2, in the EU jurisdiction.',
       },
       {
         title: 'Subprocessors',
-        text: 'Hosting: netcup (Austria). AI features: requests go through OpenRouter, which forwards them to model providers (for example Claude or Gemini). OpenRouter and these providers are located in the United States, so content sent to the AI leaves the European Union. With your own key, you choose the provider. The exact list of subprocessors is provided with the DPA.',
+        text: 'Hosting: netcup (Vienna, Austria). Files and backups: Cloudflare R2 (Western Europe; EU jurisdiction for backups). Email: Resend (United States). AI: OpenRouter (United States), which forwards requests to Anthropic and Google (Gemini); vectorization goes through MongoDB/Voyage AI, also via OpenRouter. Web search: Tavily (United States). Other AI providers (for example OpenAI or Mistral) are involved only if you configure your own key. Content sent to the AI may therefore leave the European Union. Contractual list: DPA version 1.4, effective 2026-12-18.',
       },
       {
         title: 'Data retention by AI providers',
-        text: 'We do not currently publish a zero-retention guarantee for each AI provider. If this decides your purchase, ask us for the status per provider before you sign.',
+        text: 'Zero retention is required from providers that offer it. Some (including Google) keep requests only to prevent abuse, never for training. Training on your data is disabled.',
       },
       {
         title: 'Voice input',
@@ -81,11 +81,11 @@ export const TRUST: Record<Locale, TrustTexts> = {
       },
       {
         title: 'Data processing agreement (DPA)',
-        text: 'A data processing agreement can be reviewed with you before you sign your contract. Write to contact@tblflow.com.',
+        text: 'A copy of the DPA to sign exists. It is available on request at dpo@tblflow.com.',
       },
       {
-        title: 'ISO 27001 and ISO 42001',
-        text: 'We use ISO 27001 and ISO 42001 as reference frameworks, with alignment documentation. TblFlow holds no certification.',
+        title: 'ISO/IEC 42001',
+        text: 'Our AI features are designed with inspiration from ISO/IEC 42001 (human oversight, traceability, transparency, supplier control). TblFlow holds no ISO 42001 certification.',
       },
       {
         title: 'Reversibility',
@@ -102,15 +102,15 @@ export const TRUST: Record<Locale, TrustTexts> = {
     sections: [
       {
         title: 'Hosting und Verfügbarkeit',
-        text: 'Anwendung und Datenbank werden in Wien (Österreich) bei netcup auf einem einzelnen Server ohne Hochverfügbarkeit gehostet. Der Anbieter garantiert 99,6 % Verfügbarkeit im Jahresmittel, rund 35 Stunden tolerierte Ausfallzeit pro Jahr. TblFlow gibt keine vertragliche Verfügbarkeitszusage. Backups laufen stündlich (höchstens eine Stunde Datenverlust), sind verschlüsselt und werden außerhalb des Hosters gespeichert.',
+        text: 'Anwendung und Datenbank werden in Wien (Österreich) bei netcup auf einem einzelnen Server ohne Hochverfügbarkeit gehostet. Der Anbieter garantiert 99,6 % Verfügbarkeit im Jahresmittel, rund 35 Stunden tolerierte Ausfallzeit pro Jahr. TblFlow gibt keine vertragliche Verfügbarkeitszusage. Von Ihnen hinzugefügte Dateien liegen bei Cloudflare R2 in Westeuropa. Backups laufen stündlich (höchstens eine Stunde Datenverlust), sind verschlüsselt und liegen bei Cloudflare R2 in der EU-Jurisdiktion.',
       },
       {
         title: 'Unterauftragsverarbeiter',
-        text: 'Hosting: netcup (Österreich). KI-Funktionen: Anfragen laufen über OpenRouter, das sie an Modellanbieter weiterleitet (zum Beispiel Claude oder Gemini). OpenRouter und diese Anbieter sitzen in den USA, daher verlassen an die KI gesendete Inhalte die Europäische Union. Mit Ihrem eigenen Schlüssel wählen Sie den Anbieter. Die genaue Liste der Unterauftragsverarbeiter erhalten Sie mit dem AVV.',
+        text: 'Hosting: netcup (Wien, Österreich). Dateien und Backups: Cloudflare R2 (Westeuropa; EU-Jurisdiktion für Backups). E-Mail: Resend (USA). KI: OpenRouter (USA), das Anfragen an Anthropic und Google (Gemini) weiterleitet; die Vektorisierung läuft über MongoDB/Voyage AI, ebenfalls über OpenRouter. Websuche: Tavily (USA). Weitere KI-Anbieter (zum Beispiel OpenAI oder Mistral) kommen nur zum Einsatz, wenn Sie Ihren eigenen Schlüssel einrichten. An die KI gesendete Inhalte können daher die Europäische Union verlassen. Vertragliche Liste: AVV Version 1.4, gültig ab 2026-12-18.',
       },
       {
         title: 'Datenspeicherung bei KI-Anbietern',
-        text: 'Wir veröffentlichen derzeit keine Zero-Retention-Garantie für jeden KI-Anbieter. Hängt Ihre Kaufentscheidung davon ab, fragen Sie vor der Unterschrift nach dem Stand je Anbieter.',
+        text: 'Zero Retention wird von den Anbietern verlangt, die sie anbieten. Einige (darunter Google) speichern Anfragen nur zur Missbrauchsprävention, nie für Training. Training mit Ihren Daten ist deaktiviert.',
       },
       {
         title: 'Spracheingabe',
@@ -118,11 +118,11 @@ export const TRUST: Record<Locale, TrustTexts> = {
       },
       {
         title: 'Auftragsverarbeitungsvertrag (AVV)',
-        text: 'Ein Auftragsverarbeitungsvertrag kann vor Ihrer Vertragsunterzeichnung mit Ihnen geprüft werden. Schreiben Sie an contact@tblflow.com.',
+        text: 'Ein Exemplar des AVV zur Unterzeichnung liegt vor. Es ist auf Anfrage unter dpo@tblflow.com erhältlich.',
       },
       {
-        title: 'ISO 27001 und ISO 42001',
-        text: 'Wir orientieren uns an ISO 27001 und ISO 42001 als Referenzrahmen, mit Dokumentation der Angleichung. TblFlow besitzt keine Zertifizierung.',
+        title: 'ISO/IEC 42001',
+        text: 'Unsere KI-Funktionen sind in Anlehnung an ISO/IEC 42001 entworfen (menschliche Aufsicht, Nachvollziehbarkeit, Transparenz, Lieferantenkontrolle). TblFlow besitzt keine ISO-42001-Zertifizierung.',
       },
       {
         title: 'Umkehrbarkeit',
@@ -139,15 +139,15 @@ export const TRUST: Record<Locale, TrustTexts> = {
     sections: [
       {
         title: 'Alojamiento y disponibilidad',
-        text: 'La aplicación y la base de datos están alojadas en Viena (Austria), en netcup, en un único servidor sin alta disponibilidad. El proveedor garantiza un 99,6 % de disponibilidad en promedio anual, unas 35 horas de interrupción toleradas al año. TblFlow no asume ningún compromiso contractual de disponibilidad. Las copias de seguridad son cada hora (como máximo una hora de datos perdida), cifradas y guardadas fuera del alojamiento.',
+        text: 'La aplicación y la base de datos están alojadas en Viena (Austria), en netcup, en un único servidor sin alta disponibilidad. El proveedor garantiza un 99,6 % de disponibilidad en promedio anual, unas 35 horas de interrupción toleradas al año. TblFlow no asume ningún compromiso contractual de disponibilidad. Los archivos que añade se guardan en Cloudflare R2, en Europa occidental. Las copias de seguridad son cada hora (como máximo una hora de datos perdida), cifradas y guardadas en Cloudflare R2, en la jurisdicción de la UE.',
       },
       {
         title: 'Subencargados',
-        text: 'Alojamiento: netcup (Austria). Funciones de IA: las solicitudes pasan por OpenRouter, que las reenvía a proveedores de modelos (por ejemplo Claude o Gemini). OpenRouter y estos proveedores están en Estados Unidos, por lo que el contenido enviado a la IA sale de la Unión Europea. Con su propia clave, usted elige el proveedor. La lista exacta de subencargados se entrega con el DPA.',
+        text: 'Alojamiento: netcup (Viena, Austria). Archivos y copias de seguridad: Cloudflare R2 (Europa occidental; jurisdicción de la UE para las copias). Correo: Resend (Estados Unidos). IA: OpenRouter (Estados Unidos), que reenvía las solicitudes a Anthropic y Google (Gemini); la vectorización pasa por MongoDB/Voyage AI, también vía OpenRouter. Búsqueda web: Tavily (Estados Unidos). Otros proveedores de IA (por ejemplo OpenAI o Mistral) solo intervienen si configura su propia clave. Por tanto, el contenido enviado a la IA puede salir de la Unión Europea. Lista contractual: DPA versión 1.4, en vigor desde 2026-12-18.',
       },
       {
         title: 'Conservación de datos por los proveedores de IA',
-        text: 'Por ahora no publicamos una garantía de retención cero para cada proveedor de IA. Si esto condiciona su compra, pídanos el estado por proveedor antes de firmar.',
+        text: 'Se exige retención cero a los proveedores que la ofrecen. Algunos (entre ellos Google) conservan las solicitudes solo para prevenir abusos, nunca para entrenar. El entrenamiento con sus datos está desactivado.',
       },
       {
         title: 'Entrada de voz',
@@ -155,11 +155,11 @@ export const TRUST: Record<Locale, TrustTexts> = {
       },
       {
         title: 'Acuerdo de tratamiento de datos (DPA)',
-        text: 'Un acuerdo de tratamiento de datos puede revisarse con usted antes de firmar su contrato. Escriba a contact@tblflow.com.',
+        text: 'Existe un ejemplar del DPA para firmar. Está disponible bajo petición en dpo@tblflow.com.',
       },
       {
-        title: 'ISO 27001 e ISO 42001',
-        text: 'Usamos ISO 27001 e ISO 42001 como marcos de referencia, con documentación de alineación. TblFlow no tiene ninguna certificación.',
+        title: 'ISO/IEC 42001',
+        text: 'Nuestras funciones de IA están diseñadas inspirándose en ISO/IEC 42001 (supervisión humana, trazabilidad, transparencia, control de proveedores). TblFlow no cuenta con ninguna certificación ISO 42001.',
       },
       {
         title: 'Reversibilidad',
@@ -176,15 +176,15 @@ export const TRUST: Record<Locale, TrustTexts> = {
     sections: [
       {
         title: 'Hosting e disponibilità',
-        text: 'L’applicazione e il database sono ospitati a Vienna (Austria) presso netcup, su un solo server senza alta disponibilità. Il fornitore garantisce il 99,6 % di disponibilità in media annua, circa 35 ore di interruzione tollerate all’anno. TblFlow non assume alcun impegno contrattuale di disponibilità. I backup sono orari (al massimo un’ora di dati persa), cifrati e conservati fuori dall’host.',
+        text: 'L’applicazione e il database sono ospitati a Vienna (Austria) presso netcup, su un solo server senza alta disponibilità. Il fornitore garantisce il 99,6 % di disponibilità in media annua, circa 35 ore di interruzione tollerate all’anno. TblFlow non assume alcun impegno contrattuale di disponibilità. I file che aggiungi sono conservati su Cloudflare R2, nell’Europa occidentale. I backup sono orari (al massimo un’ora di dati persa), cifrati e conservati su Cloudflare R2, nella giurisdizione UE.',
       },
       {
         title: 'Sub-responsabili',
-        text: 'Hosting: netcup (Austria). Funzioni di IA: le richieste passano da OpenRouter, che le inoltra a fornitori di modelli (ad esempio Claude o Gemini). OpenRouter e questi fornitori si trovano negli Stati Uniti, quindi i contenuti inviati all’IA lasciano l’Unione europea. Con la tua chiave scegli tu il fornitore. L’elenco esatto dei sub-responsabili viene consegnato con il DPA.',
+        text: 'Hosting: netcup (Vienna, Austria). File e backup: Cloudflare R2 (Europa occidentale; giurisdizione UE per i backup). E-mail: Resend (Stati Uniti). IA: OpenRouter (Stati Uniti), che inoltra le richieste ad Anthropic e Google (Gemini); la vettorizzazione passa da MongoDB/Voyage AI, sempre tramite OpenRouter. Ricerca web: Tavily (Stati Uniti). Altri fornitori di IA (ad esempio OpenAI o Mistral) intervengono solo se configuri la tua chiave. I contenuti inviati all’IA possono quindi lasciare l’Unione europea. Elenco contrattuale: DPA versione 1.4, in vigore dal 2026-12-18.',
       },
       {
         title: 'Conservazione dei dati presso i fornitori di IA',
-        text: 'Al momento non pubblichiamo una garanzia di retention zero per ogni fornitore di IA. Se questo condiziona l’acquisto, chiedici lo stato per fornitore prima di firmare.',
+        text: 'La retention zero è richiesta ai fornitori che la offrono. Alcuni (tra cui Google) conservano le richieste solo per prevenire gli abusi, mai per l’addestramento. L’addestramento sui tuoi dati è disattivato.',
       },
       {
         title: 'Input vocale',
@@ -192,11 +192,11 @@ export const TRUST: Record<Locale, TrustTexts> = {
       },
       {
         title: 'Accordo sul trattamento dei dati (DPA)',
-        text: 'Un accordo sul trattamento dei dati può essere esaminato con te prima della firma del contratto. Scrivi a contact@tblflow.com.',
+        text: 'Esiste un esemplare del DPA da firmare. È disponibile su richiesta a dpo@tblflow.com.',
       },
       {
-        title: 'ISO 27001 e ISO 42001',
-        text: 'Ci riferiamo a ISO 27001 e ISO 42001 come quadri di riferimento, con documentazione di allineamento. TblFlow non possiede alcuna certificazione.',
+        title: 'ISO/IEC 42001',
+        text: 'Le nostre funzioni di IA sono progettate ispirandosi a ISO/IEC 42001 (supervisione umana, tracciabilità, trasparenza, controllo dei fornitori). TblFlow non possiede alcuna certificazione ISO 42001.',
       },
       {
         title: 'Reversibilità',
@@ -213,15 +213,15 @@ export const TRUST: Record<Locale, TrustTexts> = {
     sections: [
       {
         title: 'ホスティングと可用性',
-        text: 'アプリケーションとデータベースは、オーストリアのウィーンで netcup 上の単一サーバーにホストされており、高可用性構成ではありません。プロバイダーは年平均 99.6% の可用性を保証しており、年間約 35 時間の停止が許容されます。TblFlow は可用性について契約上の約束をしていません。バックアップは 1 時間ごと（失われるデータは最大 1 時間分）で、暗号化し、ホスティング事業者の外に保管しています。',
+        text: 'アプリケーションとデータベースは、オーストリアのウィーンで netcup 上の単一サーバーにホストされており、高可用性構成ではありません。プロバイダーは年平均 99.6% の可用性を保証しており、年間約 35 時間の停止が許容されます。TblFlow は可用性について契約上の約束をしていません。追加されたファイルは西ヨーロッパの Cloudflare R2 に保存されます。バックアップは 1 時間ごと（失われるデータは最大 1 時間分）で、暗号化され、EU 管轄の Cloudflare R2 に保存されます。',
       },
       {
         title: '再委託先',
-        text: 'ホスティング：netcup（オーストリア）。AI 機能：リクエストは OpenRouter を経由し、モデル提供元（例：Claude や Gemini）に転送されます。OpenRouter とこれらの提供元は米国にあるため、AI に送信された内容は EU の外に出ます。ご自身のキーを使う場合は提供元を選べます。再委託先の正確な一覧は DPA とともにお渡しします。',
+        text: 'ホスティング：netcup（オーストリア、ウィーン）。ファイルとバックアップ：Cloudflare R2（西ヨーロッパ。バックアップは EU 管轄）。メール：Resend（米国）。AI：OpenRouter（米国）が Anthropic と Google（Gemini）にリクエストを転送します。ベクトル化は MongoDB/Voyage AI を、同じく OpenRouter 経由で利用します。ウェブ検索：Tavily（米国）。OpenAI や Mistral などその他の AI 提供元は、ご自身のキーを設定した場合にのみ関与します。そのため、AI に送信された内容は EU の外に出ることがあります。契約上の一覧：DPA バージョン 1.4（2026-12-18 発効）。',
       },
       {
         title: 'AI 提供元によるデータの保持',
-        text: '現時点では、AI 提供元ごとのゼロリテンション保証は公開していません。購入の判断に関わる場合は、署名前に提供元ごとの状況をお問い合わせください。',
+        text: 'ゼロリテンションは、対応している提供元に求めています。一部（Google など）は不正利用の防止のためだけにリクエストを保持し、学習には使いません。お客様のデータでの学習は無効にしています。',
       },
       {
         title: '音声入力',
@@ -229,11 +229,11 @@ export const TRUST: Record<Locale, TrustTexts> = {
       },
       {
         title: 'データ処理契約（DPA）',
-        text: 'データ処理契約は、ご契約の署名前にご一緒に確認できます。contact@tblflow.com までご連絡ください。',
+        text: '署名用の DPA をご用意しています。dpo@tblflow.com までご請求ください。',
       },
       {
-        title: 'ISO 27001 と ISO 42001',
-        text: 'ISO 27001 と ISO 42001 を参照枠組みとし、整合状況を文書化しています。TblFlow は認証を取得していません。',
+        title: 'ISO/IEC 42001',
+        text: 'TblFlow の AI 機能は、ISO/IEC 42001（人による監督、追跡可能性、透明性、提供元の管理）を参考に設計しています。TblFlow は ISO 42001 の認証を取得していません。',
       },
       {
         title: 'データの持ち出し',
@@ -250,15 +250,15 @@ export const TRUST: Record<Locale, TrustTexts> = {
     sections: [
       {
         title: 'Хостинг и доступность',
-        text: 'Приложение и база данных размещены в Вене (Австрия) у netcup, на одном сервере без высокой доступности. Провайдер гарантирует доступность 99,6 % в среднем за год, то есть около 35 часов допустимых простоев в год. TblFlow не берёт на себя договорных обязательств по доступности. Резервные копии делаются каждый час (потеря не более часа данных), шифруются и хранятся вне хостера.',
+        text: 'Приложение и база данных размещены в Вене (Австрия) у netcup, на одном сервере без высокой доступности. Провайдер гарантирует доступность 99,6 % в среднем за год, то есть около 35 часов допустимых простоев в год. TblFlow не берёт на себя договорных обязательств по доступности. Добавленные вами файлы хранятся в Cloudflare R2, в Западной Европе. Резервные копии делаются каждый час (потеря не более часа данных), шифруются и хранятся в Cloudflare R2 в юрисдикции ЕС.',
       },
       {
         title: 'Субподрядчики',
-        text: 'Хостинг: netcup (Австрия). Функции ИИ: запросы идут через OpenRouter, который передаёт их поставщикам моделей (например, Claude или Gemini). OpenRouter и эти поставщики находятся в США, поэтому отправленное в ИИ содержимое покидает Европейский союз. С собственным ключом поставщика выбираете вы. Точный список субподрядчиков передаётся вместе с DPA.',
+        text: 'Хостинг: netcup (Вена, Австрия). Файлы и резервные копии: Cloudflare R2 (Западная Европа; юрисдикция ЕС для резервных копий). Почта: Resend (США). ИИ: OpenRouter (США), который передаёт запросы Anthropic и Google (Gemini); векторизация идёт через MongoDB/Voyage AI, тоже через OpenRouter. Веб-поиск: Tavily (США). Другие поставщики ИИ (например, OpenAI или Mistral) задействуются, только если вы настроите собственный ключ. Поэтому отправленное в ИИ содержимое может покидать Европейский союз. Договорный перечень: DPA версии 1.4, действует с 2026-12-18.',
       },
       {
         title: 'Хранение данных поставщиками ИИ',
-        text: 'Пока мы не публикуем гарантию нулевого хранения для каждого поставщика ИИ. Если от этого зависит ваша покупка, запросите статус по каждому поставщику до подписания.',
+        text: 'Нулевое хранение требуется от поставщиков, которые его предлагают. Некоторые (в том числе Google) хранят запросы только для предотвращения злоупотреблений, но не для обучения. Обучение на ваших данных отключено.',
       },
       {
         title: 'Голосовой ввод',
@@ -266,11 +266,11 @@ export const TRUST: Record<Locale, TrustTexts> = {
       },
       {
         title: 'Соглашение об обработке данных (DPA)',
-        text: 'Соглашение об обработке данных можно рассмотреть вместе с вами до подписания договора. Напишите на contact@tblflow.com.',
+        text: 'Экземпляр DPA для подписания существует. Он доступен по запросу: dpo@tblflow.com.',
       },
       {
-        title: 'ISO 27001 и ISO 42001',
-        text: 'Мы опираемся на ISO 27001 и ISO 42001 как на ориентиры и ведём документацию по соответствию. У TblFlow нет ни одного сертификата.',
+        title: 'ISO/IEC 42001',
+        text: 'Наши функции ИИ разработаны с опорой на ISO/IEC 42001 (контроль со стороны человека, прослеживаемость, прозрачность, управление поставщиками). У TblFlow нет сертификата ISO 42001.',
       },
       {
         title: 'Возможность выйти',
@@ -287,15 +287,15 @@ export const TRUST: Record<Locale, TrustTexts> = {
     sections: [
       {
         title: 'Barındırma ve erişilebilirlik',
-        text: 'Uygulama ve veritabanı, Viyana’da (Avusturya) netcup üzerinde, yüksek erişilebilirlik olmayan tek bir sunucuda barındırılır. Sağlayıcı yıllık ortalamada %99,6 erişilebilirlik garanti eder; bu, yılda yaklaşık 35 saatlik tolere edilen kesinti demektir. TblFlow sözleşmeyle erişilebilirlik taahhüdü vermez. Yedekler saatliktir (en fazla bir saatlik veri kaybı), şifrelidir ve barındırıcının dışında saklanır.',
+        text: 'Uygulama ve veritabanı, Viyana’da (Avusturya) netcup üzerinde, yüksek erişilebilirlik olmayan tek bir sunucuda barındırılır. Sağlayıcı yıllık ortalamada %99,6 erişilebilirlik garanti eder; bu, yılda yaklaşık 35 saatlik tolere edilen kesinti demektir. TblFlow sözleşmeyle erişilebilirlik taahhüdü vermez. Eklediğiniz dosyalar Batı Avrupa’daki Cloudflare R2’de saklanır. Yedekler saatliktir (en fazla bir saatlik veri kaybı), şifrelidir ve AB yargı alanındaki Cloudflare R2’de saklanır.',
       },
       {
         title: 'Alt işleyiciler',
-        text: 'Barındırma: netcup (Avusturya). Yapay zekâ işlevleri: istekler OpenRouter üzerinden geçer ve model sağlayıcılarına (örneğin Claude veya Gemini) iletilir. OpenRouter ve bu sağlayıcılar ABD’dedir; bu yüzden yapay zekâya gönderilen içerik Avrupa Birliği’nin dışına çıkar. Kendi anahtarınızı kullanırsanız sağlayıcıyı siz seçersiniz. Alt işleyicilerin tam listesi DPA ile birlikte verilir.',
+        text: 'Barındırma: netcup (Viyana, Avusturya). Dosyalar ve yedekler: Cloudflare R2 (Batı Avrupa; yedekler için AB yargı alanı). E-posta: Resend (ABD). Yapay zekâ: OpenRouter (ABD), istekleri Anthropic ve Google’a (Gemini) iletir; vektörleştirme yine OpenRouter üzerinden MongoDB/Voyage AI ile yapılır. Web araması: Tavily (ABD). Diğer yapay zekâ sağlayıcıları (örneğin OpenAI veya Mistral) yalnızca kendi anahtarınızı yapılandırırsanız devreye girer. Bu nedenle yapay zekâya gönderilen içerik Avrupa Birliği’nin dışına çıkabilir. Sözleşmedeki liste: DPA sürüm 1.4, 2026-12-18 tarihinde yürürlükte.',
       },
       {
         title: 'Yapay zekâ sağlayıcılarında veri saklama',
-        text: 'Şu an her yapay zekâ sağlayıcısı için sıfır saklama garantisi yayımlamıyoruz. Satın alma kararınız buna bağlıysa, imzadan önce sağlayıcı bazında durumu bizden isteyin.',
+        text: 'Sıfır saklama, sunan sağlayıcılardan talep edilir. Bazıları (Google dahil) istekleri yalnızca kötüye kullanımı önlemek için saklar, asla eğitim için değil. Verileriniz üzerinde eğitim kapalıdır.',
       },
       {
         title: 'Sesle giriş',
@@ -303,11 +303,11 @@ export const TRUST: Record<Locale, TrustTexts> = {
       },
       {
         title: 'Veri işleme sözleşmesi (DPA)',
-        text: 'Veri işleme sözleşmesi, sözleşmenizi imzalamadan önce sizinle birlikte incelenebilir. contact@tblflow.com adresine yazın.',
+        text: 'İmzalanacak bir DPA nüshası mevcuttur. İstek üzerine dpo@tblflow.com adresinden alabilirsiniz.',
       },
       {
-        title: 'ISO 27001 ve ISO 42001',
-        text: 'ISO 27001 ve ISO 42001’i referans çerçeve olarak alıyor, uyum belgelerini tutuyoruz. TblFlow’un hiçbir sertifikası yoktur.',
+        title: 'ISO/IEC 42001',
+        text: 'Yapay zekâ işlevlerimiz ISO/IEC 42001’den esinlenerek tasarlanmıştır (insan gözetimi, izlenebilirlik, şeffaflık, tedarikçi kontrolü). TblFlow’un ISO 42001 sertifikası yoktur.',
       },
       {
         title: 'Geri alınabilirlik',
@@ -324,15 +324,15 @@ export const TRUST: Record<Locale, TrustTexts> = {
     sections: [
       {
         title: 'Хостинг і доступність',
-        text: 'Застосунок і база даних розміщені у Відні (Австрія) в netcup, на одному сервері без високої доступності. Провайдер гарантує доступність 99,6 % у середньому за рік, тобто близько 35 годин допустимих простоїв на рік. TblFlow не бере на себе договірних зобов’язань щодо доступності. Резервні копії робляться щогодини (втрата не більше години даних), шифруються й зберігаються поза хостером.',
+        text: 'Застосунок і база даних розміщені у Відні (Австрія) в netcup, на одному сервері без високої доступності. Провайдер гарантує доступність 99,6 % у середньому за рік, тобто близько 35 годин допустимих простоїв на рік. TblFlow не бере на себе договірних зобов’язань щодо доступності. Файли, які ви додаєте, зберігаються в Cloudflare R2 у Західній Європі. Резервні копії робляться щогодини (втрата не більше години даних), шифруються й зберігаються в Cloudflare R2 під юрисдикцією ЄС.',
       },
       {
         title: 'Субпідрядники',
-        text: 'Хостинг: netcup (Австрія). Функції ШІ: запити йдуть через OpenRouter, який передає їх постачальникам моделей (наприклад, Claude або Gemini). OpenRouter і ці постачальники перебувають у США, тож вміст, надісланий до ШІ, залишає Європейський Союз. З власним ключем постачальника обираєте ви. Точний перелік субпідрядників передається разом із DPA.',
+        text: 'Хостинг: netcup (Відень, Австрія). Файли та резервні копії: Cloudflare R2 (Західна Європа; юрисдикція ЄС для резервних копій). Пошта: Resend (США). ШІ: OpenRouter (США), який передає запити Anthropic і Google (Gemini); векторизація йде через MongoDB/Voyage AI, також через OpenRouter. Вебпошук: Tavily (США). Інші постачальники ШІ (наприклад, OpenAI або Mistral) задіяні, лише якщо ви налаштуєте власний ключ. Тому вміст, надісланий до ШІ, може залишати Європейський Союз. Договірний перелік: DPA версії 1.4, чинна з 2026-12-18.',
       },
       {
         title: 'Зберігання даних постачальниками ШІ',
-        text: 'Наразі ми не публікуємо гарантії нульового зберігання для кожного постачальника ШІ. Якщо від цього залежить ваша покупка, запитайте стан за кожним постачальником перед підписанням.',
+        text: 'Нульове зберігання вимагається від постачальників, які його пропонують. Деякі (зокрема Google) зберігають запити лише для запобігання зловживанням, ніколи для навчання. Навчання на ваших даних вимкнено.',
       },
       {
         title: 'Голосове введення',
@@ -340,11 +340,11 @@ export const TRUST: Record<Locale, TrustTexts> = {
       },
       {
         title: 'Угода про обробку даних (DPA)',
-        text: 'Угоду про обробку даних можна розглянути разом із вами до підписання договору. Напишіть на contact@tblflow.com.',
+        text: 'Примірник DPA для підписання існує. Він доступний на запит: dpo@tblflow.com.',
       },
       {
-        title: 'ISO 27001 та ISO 42001',
-        text: 'Ми спираємося на ISO 27001 та ISO 42001 як на орієнтири й ведемо документацію щодо відповідності. TblFlow не має жодного сертифіката.',
+        title: 'ISO/IEC 42001',
+        text: 'Наші функції ШІ розроблені з орієнтацією на ISO/IEC 42001 (контроль з боку людини, простежуваність, прозорість, керування постачальниками). TblFlow не має сертифіката ISO 42001.',
       },
       {
         title: 'Зворотність',
@@ -361,15 +361,15 @@ export const TRUST: Record<Locale, TrustTexts> = {
     sections: [
       {
         title: '托管与可用性',
-        text: '应用与数据库托管在奥地利维也纳的 netcup，使用单台服务器，不提供高可用。服务商保证年均可用性为 99.6%，即每年约允许 35 小时的中断。TblFlow 不作任何合同层面的可用性承诺。备份每小时一次（最多丢失一小时数据），经过加密，并存放在托管商之外。',
+        text: '应用与数据库托管在奥地利维也纳的 netcup，使用单台服务器，不提供高可用。服务商保证年均可用性为 99.6%，即每年约允许 35 小时的中断。TblFlow 不作任何合同层面的可用性承诺。您添加的文件存放在西欧的 Cloudflare R2。备份每小时一次（最多丢失一小时数据），经过加密，存放在欧盟司法管辖区的 Cloudflare R2。',
       },
       {
         title: '子处理方',
-        text: '托管：netcup（奥地利）。AI 功能：请求经由 OpenRouter 转发给模型提供方（例如 Claude 或 Gemini）。OpenRouter 及这些提供方位于美国，因此发送给 AI 的内容会离开欧盟。使用您自己的密钥时，由您选择提供方。子处理方的完整清单随 DPA 一并提供。',
+        text: '托管：netcup（奥地利维也纳）。文件与备份：Cloudflare R2（西欧；备份位于欧盟司法管辖区）。邮件：Resend（美国）。AI：OpenRouter（美国），把请求转发给 Anthropic 和 Google（Gemini）；向量化经由 MongoDB/Voyage AI，同样通过 OpenRouter。网页搜索：Tavily（美国）。其他 AI 提供方（例如 OpenAI 或 Mistral）仅在您配置自己的密钥时才会参与。因此，发送给 AI 的内容可能离开欧盟。合同清单：DPA 1.4 版，自 2026-12-18 起生效。',
       },
       {
         title: 'AI 提供方对数据的留存',
-        text: '目前我们没有公布每家 AI 提供方的零留存保证。如果这会影响您的采购决定，请在签约前向我们索取各提供方的情况。',
+        text: '我们要求提供零留存的提供方执行零留存。部分提供方（包括 Google）仅为防止滥用而保留请求，绝不用于训练。基于您数据的训练已关闭。',
       },
       {
         title: '语音输入',
@@ -377,11 +377,11 @@ export const TRUST: Record<Locale, TrustTexts> = {
       },
       {
         title: '数据处理协议（DPA）',
-        text: '在您签署合同之前，可以与您一起审阅数据处理协议。请发邮件至 contact@tblflow.com。',
+        text: '已备有可供签署的 DPA 文本，可通过 dpo@tblflow.com 索取。',
       },
       {
-        title: 'ISO 27001 与 ISO 42001',
-        text: '我们以 ISO 27001 与 ISO 42001 为参照框架，并保留对照文档。TblFlow 未取得任何证书。',
+        title: 'ISO/IEC 42001',
+        text: '我们的 AI 功能参考 ISO/IEC 42001 进行设计（人工监督、可追溯、透明、供应商管控）。TblFlow 未取得 ISO 42001 证书。',
       },
       {
         title: '可迁出',
