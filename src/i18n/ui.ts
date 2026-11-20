@@ -869,7 +869,7 @@ export const ui = {
     'pricing.compare': 'プランを詳しく比較',
     'pricing.selfhost.title': 'セルフホストが必要ですか？',
     'pricing.selfhost.body':
-      '自社インフラや専用VPCへのデプロイはEnterpriseプランに含まれます。要お問い合わせ、全機能が利用可能です。',
+      '自社インフラや自社VPCへのデプロイはEnterpriseプランに含まれます。要お問い合わせ、全機能が利用可能です。',
     'pricing.selfhost.cta': 'サポートに問い合わせる',
 
     'faq.title': 'よくある質問',
@@ -1511,7 +1511,7 @@ export const ui = {
     'pricing.popular': '最受欢迎',
     'pricing.compare': '详细比较各套餐',
     'pricing.selfhost.title': '需要自行部署吗？',
-    'pricing.selfhost.body': '在您自己的基础设施或自有 VPC 上部署属于 企业版套餐，需定制报价，解锁全部功能。',
+    'pricing.selfhost.body': '在您自己的基础设施或自有 VPC 上部署属于企业版套餐，需定制报价，解锁全部功能。',
     'pricing.selfhost.cta': '联系支持团队',
 
     'faq.title': '常见问题',

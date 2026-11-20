@@ -902,7 +902,7 @@ export const PM_STRINGS = {
     it: "La mappa dei processi fa parte di TblFlow: hosting gestito (applicazione e database ospitati a Vienna, Austria) o sui tuoi server, senza vincoli proprietari.",
     ja: "プロセスマップはTblFlowの一部です。マネージドホスティング（アプリケーションとデータベースはオーストリアのウィーンでホスト）も、自社サーバーでの運用も選べ、特定ベンダーへの囲い込みもありません。",
     ru: "Карта процессов — часть TblFlow: управляемый хостинг (приложение и база размещены в Вене, Австрия) или ваши собственные серверы, без привязки к поставщику.",
-    tr: "Süreç haritası TblFlow'un bir parçasıdır: yönetilen barındırma (uygulama ve veritabanı Viyana, Avusturya'da barındırılır) veya kendi sunucularınızda, satıcıya bağımlı kalmadan.",
+    tr: "Süreç haritası TblFlow'un bir parçasıdır: yönetilen barındırma (uygulama ve veritabanı Avusturya'nın Viyana kentinde barındırılır) veya kendi sunucularınızda, satıcıya bağımlı kalmadan.",
     uk: "Карта процесів — частина TblFlow: кероване розміщення (застосунок і база розміщені у Відні, Австрія) або на ваших власних серверах, без прив’язки до постачальника.",
     zh: "流程图谱是 TblFlow 的一部分：可使用托管服务（应用和数据库托管在奥地利维也纳），也可部署在自己的服务器上，没有厂商锁定。",
   },

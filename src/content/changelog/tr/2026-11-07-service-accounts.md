@@ -12,4 +12,4 @@ Betikler, CI ve entegrasyonlar artık bir kişinin hesabını ödünç almak zor
 - **Belirteçler**: yalnızca bu alan için geçerlidir; erişim seçime bağlıdır (salt okunur, kayıtların okunması ve yazılması veya rolün izin verdiği her şey) ve süre 30, 90, 180 veya 365 gündür. Belirteç yalnızca bir kez gösterilir; iptal anında gerçekleşir.
 - **Takip**: son kullanım görüntülenir, süre dolmadan önce sahiplere e-posta uyarısı gider, oluşturma ve iptal alanın günlüğüne yazılır.
 
-[TblFlow CLI](/tr/docs/cli)'yi sürekli entegrasyonda kullanmanın önerilen yolu budur.
+[TblFlow CLI](/tr/docs/cli)'yı sürekli entegrasyonda kullanmanın önerilen yolu budur.
