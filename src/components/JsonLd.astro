@@ -42,9 +42,10 @@ interface Props {
   article?: ArticleMeta;
   /** Emits SoftwareApplication + Offer nodes. Home and pricing pages only. */
   product?: boolean;
+  modifiedAt?: Date;
 }
 
-const { locale, path, title, description, breadcrumbs, faq, article, product } = Astro.props;
+const { locale, path, title, description, breadcrumbs, faq, article, product, modifiedAt } = Astro.props;
 
 /** Stripe bills every visitor in EUR — see `formatPrice`. */
 const currency = currencyCode(locale);
@@ -86,6 +87,7 @@ const graph: Record<string, unknown>[] = [
     description,
     isPartOf: { '@id': siteId },
     inLanguage: HREFLANG[locale],
+    ...(modifiedAt ? { dateModified: modifiedAt.toISOString() } : {}),
     ...(breadcrumbs?.length ? { breadcrumb: { '@id': `${pageUrl}#breadcrumb` } } : {}),
   },
 ];

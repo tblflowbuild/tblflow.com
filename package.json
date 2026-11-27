@@ -17,6 +17,8 @@
     "deploy": "astro build && wrangler deploy",
     "indexnow": "node scripts/indexnow.mjs",
     "check:meta": "node scripts/check-meta.mjs",
+    "check:compare": "astro build && node scripts/check-compare.mjs",
+    "check:trust": "astro build && node scripts/check-trust.mjs",
     "check:typo-fr": "node scripts/check-typo-fr.mjs"
   },
   "dependencies": {

@@ -46,6 +46,8 @@ export const ui = {
     'compare.subtitle': 'Im Vergleich zu Plattformen, die Sie schon kennen.',
     'compare.feature': 'Funktion',
     'compare.yes': 'Ja',
+    'compare.verified': 'Geprüft am',
+    'compare.source': 'Quelle',
     'compare.no': 'Nein',
     'compare.partial': 'Teilweise',
 
@@ -207,6 +209,8 @@ export const ui = {
     'compare.subtitle': 'Against the platforms you already know.',
     'compare.feature': 'Feature',
     'compare.yes': 'Yes',
+    'compare.verified': 'Verified on',
+    'compare.source': 'Source',
     'compare.no': 'No',
     'compare.partial': 'Partial',
 
@@ -368,6 +372,8 @@ export const ui = {
     'compare.subtitle': 'Frente a las plataformas que ya conoces.',
     'compare.feature': 'Función',
     'compare.yes': 'Sí',
+    'compare.verified': 'Verificado el',
+    'compare.source': 'Fuente',
     'compare.no': 'No',
     'compare.partial': 'Parcial',
 
@@ -529,6 +535,8 @@ export const ui = {
     'compare.subtitle': 'Face aux plateformes que vous connaissez déjà.',
     'compare.feature': 'Fonctionnalité',
     'compare.yes': 'Oui',
+    'compare.verified': 'Vérifié le',
+    'compare.source': 'Source',
     'compare.no': 'Non',
     'compare.partial': 'Partiel',
 
@@ -690,6 +698,8 @@ export const ui = {
     'compare.subtitle': 'Rispetto alle piattaforme che già conosci.',
     'compare.feature': 'Funzionalità',
     'compare.yes': 'Sì',
+    'compare.verified': 'Verificato il',
+    'compare.source': 'Fonte',
     'compare.no': 'No',
     'compare.partial': 'Parziale',
 
@@ -851,6 +861,8 @@ export const ui = {
     'compare.subtitle': 'すでにご存知のプラットフォームとの比較。',
     'compare.feature': '機能',
     'compare.yes': 'あり',
+    'compare.verified': '確認日',
+    'compare.source': '出典',
     'compare.no': 'なし',
     'compare.partial': '一部対応',
 
@@ -1012,6 +1024,8 @@ export const ui = {
     'compare.subtitle': 'В сравнении с платформами, которые вы уже знаете.',
     'compare.feature': 'Функция',
     'compare.yes': 'Да',
+    'compare.verified': 'Проверено',
+    'compare.source': 'Источник',
     'compare.no': 'Нет',
     'compare.partial': 'Частично',
 
@@ -1173,6 +1187,8 @@ export const ui = {
     'compare.subtitle': 'Zaten bildiğiniz platformlara kıyasla.',
     'compare.feature': 'Özellik',
     'compare.yes': 'Evet',
+    'compare.verified': 'Doğrulama tarihi',
+    'compare.source': 'Kaynak',
     'compare.no': 'Hayır',
     'compare.partial': 'Kısmen',
 
@@ -1334,6 +1350,8 @@ export const ui = {
     'compare.subtitle': 'Порівняно з платформами, які ви вже знаєте.',
     'compare.feature': 'Функція',
     'compare.yes': 'Так',
+    'compare.verified': 'Перевірено',
+    'compare.source': 'Джерело',
     'compare.no': 'Ні',
     'compare.partial': 'Частково',
 
@@ -1494,6 +1512,8 @@ export const ui = {
     'compare.subtitle': '与您已经了解的平台相比。',
     'compare.feature': '功能',
     'compare.yes': '支持',
+    'compare.verified': '核实日期',
+    'compare.source': '来源',
     'compare.no': '不支持',
     'compare.partial': '部分支持',
 

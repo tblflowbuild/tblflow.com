@@ -1,0 +1,34 @@
+{
+  "maxAgeDays": 90,
+  "entries": {
+    "airtable": {
+      "verifiedAt": null,
+      "source": "https://www.airtable.com/pricing"
+    },
+    "baserow": {
+      "verifiedAt": null,
+      "source": "https://baserow.io/pricing"
+    },
+    "nocodb": {
+      "verifiedAt": null,
+      "source": "https://www.nocodb.com/pricing"
+    },
+    "monday": {
+      "verifiedAt": null,
+      "source": "https://monday.com/pricing"
+    },
+    "notion": {
+      "verifiedAt": null,
+      "source": "https://www.notion.com/pricing"
+    },
+    "salesforce": {
+      "verifiedAt": null,
+      "source": "https://www.salesforce.com/editions-pricing/overview/"
+    },
+    "boldo": {
+      "verifiedAt": "2026-11-21",
+      "source": "https://www.boldo.io/fr",
+      "page": "boldo"
+    }
+  }
+}

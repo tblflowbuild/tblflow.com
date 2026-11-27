@@ -25,6 +25,8 @@ interface Props {
     image?: string;
   };
   product?: boolean;
+  /** Last editorial verification of the page's claims → WebPage.dateModified. */
+  modifiedAt?: Date;
 }
 
 const {
@@ -39,6 +41,7 @@ const {
   faq,
   article,
   product,
+  modifiedAt,
 } = Astro.props;
 ---
 
@@ -65,6 +68,7 @@ const {
       faq={faq}
       article={article}
       product={product}
+      modifiedAt={modifiedAt}
     />
   </head>
 
