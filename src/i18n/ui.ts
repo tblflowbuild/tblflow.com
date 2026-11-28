@@ -46,6 +46,9 @@ export const ui = {
     'compare.subtitle': 'Im Vergleich zu Plattformen, die Sie schon kennen.',
     'compare.feature': 'Funktion',
     'compare.yes': 'Ja',
+    'compare.verified': 'Geprüft am',
+    'compare.source': 'Quelle',
+    'compare.disclaimer': "Angaben von der öffentlichen Website des Anbieters zu diesem Datum, Änderungen vorbehalten; „Nein“ bedeutet „in der Quelle nicht angegeben“. Fehler melden: contact@tblflow.com.",
     'compare.no': 'Nein',
     'compare.partial': 'Teilweise',
 
@@ -207,6 +210,9 @@ export const ui = {
     'compare.subtitle': 'Against the platforms you already know.',
     'compare.feature': 'Feature',
     'compare.yes': 'Yes',
+    'compare.verified': 'Verified on',
+    'compare.source': 'Source',
+    'compare.disclaimer': "Information taken from the vendor’s public website on this date and liable to change; “No” means “not stated on the source”. To report an error: contact@tblflow.com.",
     'compare.no': 'No',
     'compare.partial': 'Partial',
 
@@ -368,6 +374,9 @@ export const ui = {
     'compare.subtitle': 'Frente a las plataformas que ya conoces.',
     'compare.feature': 'Función',
     'compare.yes': 'Sí',
+    'compare.verified': 'Verificado el',
+    'compare.source': 'Fuente',
+    'compare.disclaimer': "Información tomada del sitio público del proveedor en esta fecha y sujeta a cambios; «No» significa «no indicado en la fuente». Para señalar un error: contact@tblflow.com.",
     'compare.no': 'No',
     'compare.partial': 'Parcial',
 
@@ -529,6 +538,9 @@ export const ui = {
     'compare.subtitle': 'Face aux plateformes que vous connaissez déjà.',
     'compare.feature': 'Fonctionnalité',
     'compare.yes': 'Oui',
+    'compare.verified': 'Vérifié le',
+    'compare.source': 'Source',
+    'compare.disclaimer': "Informations relevées sur le site public de l’éditeur à cette date, susceptibles d’avoir changé ; « Non » signifie « non indiqué sur la source ». Pour signaler une erreur : contact@tblflow.com.",
     'compare.no': 'Non',
     'compare.partial': 'Partiel',
 
@@ -690,6 +702,9 @@ export const ui = {
     'compare.subtitle': 'Rispetto alle piattaforme che già conosci.',
     'compare.feature': 'Funzionalità',
     'compare.yes': 'Sì',
+    'compare.verified': 'Verificato il',
+    'compare.source': 'Fonte',
+    'compare.disclaimer': "Informazioni tratte dal sito pubblico del fornitore a questa data e soggette a modifiche; «No» significa «non indicato nella fonte». Per segnalare un errore: contact@tblflow.com.",
     'compare.no': 'No',
     'compare.partial': 'Parziale',
 
@@ -851,6 +866,9 @@ export const ui = {
     'compare.subtitle': 'すでにご存知のプラットフォームとの比較。',
     'compare.feature': '機能',
     'compare.yes': 'あり',
+    'compare.verified': '確認日',
+    'compare.source': '出典',
+    'compare.disclaimer': "この日付時点でベンダーの公開サイトから確認した情報で、変更される場合があります。「なし」は「出典に記載なし」を意味します。誤りのご連絡：contact@tblflow.com。",
     'compare.no': 'なし',
     'compare.partial': '一部対応',
 
@@ -1012,6 +1030,9 @@ export const ui = {
     'compare.subtitle': 'В сравнении с платформами, которые вы уже знаете.',
     'compare.feature': 'Функция',
     'compare.yes': 'Да',
+    'compare.verified': 'Проверено',
+    'compare.source': 'Источник',
+    'compare.disclaimer': "Сведения взяты с публичного сайта вендора на эту дату и могут измениться; «Нет» означает «не указано в источнике». Сообщить об ошибке: contact@tblflow.com.",
     'compare.no': 'Нет',
     'compare.partial': 'Частично',
 
@@ -1173,6 +1194,9 @@ export const ui = {
     'compare.subtitle': 'Zaten bildiğiniz platformlara kıyasla.',
     'compare.feature': 'Özellik',
     'compare.yes': 'Evet',
+    'compare.verified': 'Doğrulama tarihi',
+    'compare.source': 'Kaynak',
+    'compare.disclaimer': "Bilgiler bu tarihte satıcının herkese açık sitesinden alınmıştır ve değişebilir; «Hayır», «kaynakta belirtilmemiş» anlamına gelir. Hata bildirmek için: contact@tblflow.com.",
     'compare.no': 'Hayır',
     'compare.partial': 'Kısmen',
 
@@ -1334,6 +1358,9 @@ export const ui = {
     'compare.subtitle': 'Порівняно з платформами, які ви вже знаєте.',
     'compare.feature': 'Функція',
     'compare.yes': 'Так',
+    'compare.verified': 'Перевірено',
+    'compare.source': 'Джерело',
+    'compare.disclaimer': "Відомості взято з публічного сайту вендора на цю дату, вони можуть змінитися; «Ні» означає «не зазначено в джерелі». Повідомити про помилку: contact@tblflow.com.",
     'compare.no': 'Ні',
     'compare.partial': 'Частково',
 
@@ -1494,6 +1521,9 @@ export const ui = {
     'compare.subtitle': '与您已经了解的平台相比。',
     'compare.feature': '功能',
     'compare.yes': '支持',
+    'compare.verified': '核实日期',
+    'compare.source': '来源',
+    'compare.disclaimer': "信息取自厂商公开网站的当日内容，可能变更；“不支持”表示“来源中未说明”。报告错误：contact@tblflow.com。",
     'compare.no': '不支持',
     'compare.partial': '部分支持',
 

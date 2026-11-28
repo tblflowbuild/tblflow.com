@@ -1,5 +1,5 @@
 ---
-title: "Detailed comparisons: Airtable, Baserow, NocoDB, Monday, Notion, Salesforce"
+title: "Detailed comparison pages"
 date: 2026-08-18
 translationKey: "comparisons"
 type: "feature"

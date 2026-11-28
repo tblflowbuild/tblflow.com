@@ -435,57 +435,12 @@ export const COMPETITOR_LABELS: Record<Competitor, string> = {
 export const COMPARISON: CompareRow[] = [
   {
     feature: {
-      de: 'Mehrere Ansichten', en: 'Multi-view UI', es: 'Vistas múltiples',
-      fr: 'Vues multiples', it: 'Viste multiple', ja: '複数ビュー',
-      ru: 'Несколько представлений', tr: 'Çoklu görünüm', uk: 'Кілька подань',
-      zh: '多视图界面',
-    },
-    airtable: 'yes', baserow: 'yes', nocodb: 'yes', monday: 'yes', notion: 'yes', salesforce: 'yes', tblflow: 'yes',
-  },
-  {
-    feature: {
-      de: 'Echtzeit-Zusammenarbeit', en: 'Real-time collaboration',
-      es: 'Colaboración en tiempo real', fr: 'Collaboration temps réel',
-      it: 'Collaborazione in tempo reale', ja: 'リアルタイム共同編集',
-      ru: 'Совместная работа в реальном времени', tr: 'Gerçek zamanlı işbirliği',
-      uk: 'Спільна робота в реальному часі', zh: '实时协作',
-    },
-    airtable: 'yes', baserow: 'yes', nocodb: 'partial', monday: 'yes', notion: 'yes', salesforce: 'no', tblflow: 'yes',
-  },
-  {
-    feature: {
       de: 'Autonome KI-Agenten', en: 'Autonomous AI agents', es: 'Agentes de IA autónomos',
       fr: 'Agents IA autonomes', it: 'Agenti IA autonomi', ja: '自律型 AI エージェント',
       ru: 'Автономные ИИ-агенты', tr: 'Otonom yapay zekâ ajanları',
       uk: 'Автономні ШІ-агенти', zh: '自主 AI 智能体',
     },
-    airtable: 'yes', baserow: 'no', nocodb: 'no', monday: 'yes', notion: 'yes', salesforce: 'partial', tblflow: 'yes',
-  },
-  {
-    feature: {
-      de: 'Autonome Workflows', en: 'Autonomous workflows', es: 'Flujos autónomos',
-      fr: 'Workflows autonomes', it: 'Workflow autonomi', ja: '自律型ワークフロー',
-      ru: 'Автономные рабочие процессы', tr: 'Otonom iş akışları',
-      uk: 'Автономні робочі процеси', zh: '自主工作流',
-    },
-    airtable: 'partial', baserow: 'partial', nocodb: 'partial', monday: 'yes', notion: 'no', salesforce: 'yes', tblflow: 'yes',
-  },
-  {
-    feature: {
-      de: 'Semantische Suche', en: 'Semantic search', es: 'Búsqueda semántica',
-      fr: 'Recherche sémantique', it: 'Ricerca semantica', ja: 'セマンティック検索',
-      ru: 'Семантический поиск', tr: 'Anlamsal arama', uk: 'Семантичний пошук',
-      zh: '语义搜索',
-    },
-    airtable: 'no', baserow: 'no', nocodb: 'no', monday: 'no', notion: 'partial', salesforce: 'no', tblflow: 'yes',
-  },
-  {
-    feature: {
-      de: 'SQL-Abfragen', en: 'SQL queries', es: 'Consultas SQL', fr: 'Requêtes SQL',
-      it: 'Query SQL', ja: 'SQL クエリ', ru: 'SQL-запросы', tr: 'SQL sorguları',
-      uk: 'SQL-запити', zh: 'SQL 查询',
-    },
-    airtable: 'no', baserow: 'yes', nocodb: 'yes', monday: 'no', notion: 'no', salesforce: 'no', tblflow: 'yes',
+    airtable: 'yes', baserow: 'partial', nocodb: 'no', monday: 'yes', notion: 'yes', salesforce: 'yes', tblflow: 'yes',
   },
   {
     feature: {
@@ -494,16 +449,7 @@ export const COMPARISON: CompareRow[] = [
       ru: 'Вариант on-premise', tr: 'On-premise seçeneği', uk: 'Варіант on-premise',
       zh: '本地部署选项',
     },
-    airtable: 'no', baserow: 'yes', nocodb: 'yes', monday: 'no', notion: 'no', salesforce: 'yes', tblflow: 'yes',
-  },
-  {
-    feature: {
-      de: 'DSGVO-Konformität', en: 'GDPR compliance', es: 'Cumplimiento del RGPD',
-      fr: 'Conformité RGPD', it: 'Conformità GDPR', ja: 'GDPR 準拠',
-      ru: 'Соответствие GDPR', tr: 'GDPR uyumu', uk: 'Відповідність GDPR',
-      zh: 'GDPR 合规',
-    },
-    airtable: 'partial', baserow: 'yes', nocodb: 'yes', monday: 'partial', notion: 'partial', salesforce: 'yes', tblflow: 'yes',
+    airtable: 'no', baserow: 'yes', nocodb: 'yes', monday: 'no', notion: 'no', salesforce: 'no', tblflow: 'yes',
   },
 ];
 
@@ -512,79 +458,6 @@ export const COMPARISON_NOTES: Array<{
   feature: Record<Locale, string>;
   values: Record<Competitor, Record<Locale, string>>;
 }> = [
-  {
-    feature: {
-      de: 'Preis pro Nutzer / Monat', en: 'Price per user / month',
-      es: 'Precio por usuario / mes', fr: 'Prix par utilisateur / mois',
-      it: 'Prezzo per utente / mese', ja: 'ユーザーあたりの月額',
-      ru: 'Цена за пользователя / месяц', tr: 'Kullanıcı başına fiyat / ay',
-      uk: 'Ціна за користувача / місяць', zh: '每用户每月价格',
-    },
-    /*
-     * Each vendor's own list currency, identical in every locale — these are
-     * published prices, not something that varies with who is reading. Only
-     * the TblFlow row follows the visitor's currency, because that is the one
-     * we actually bill.
-     *
-     * TblFlow row: the grid of 2026-11 is 39 for 5 people (Essentiel) and 119
-     * for 15 people (Team), both about 8 per person, so the cell reads about 8.
-     * The competitor figures are published list prices, transcribed as they were.
-     */
-    values: {
-      airtable: all('$10–20'),
-      baserow: all('€0–5'),
-      nocodb: all('$0–19'),
-      monday: all('$10–20'),
-      notion: all('$8–15'),
-      salesforce: all('$100+'),
-      tblflow: {
-        de: '≈ 8 €', en: '≈ €8', es: '≈ 8 €', fr: '≈ 8 €', it: '≈ 8 €',
-        ja: '≈ €8', ru: '≈ 8 €', tr: '≈ €8', uk: '≈ 8 €', zh: '≈ €8',
-      },
-    },
-  },
-  {
-    feature: {
-      de: 'Bereitstellungsdauer', en: 'Deployment speed', es: 'Tiempo de despliegue',
-      fr: 'Temps de déploiement', it: 'Tempo di deployment', ja: '導入までの時間',
-      ru: 'Время развёртывания', tr: 'Dağıtım süresi', uk: 'Час розгортання',
-      zh: '部署耗时',
-    },
-    values: {
-      airtable: {
-        de: '5 Minuten', en: '5 minutes', es: '5 minutos', fr: '5 minutes', it: '5 minuti',
-        ja: '5 分', ru: '5 минут', tr: '5 dakika', uk: '5 хвилин', zh: '5 分钟',
-      },
-      baserow: {
-        de: '5 Min. · Self-Host 1 Std.', en: '5 min · self-host 1 h',
-        es: '5 min · autoalojado 1 h', fr: '5 min · auto-hébergement 1 h',
-        it: '5 min · self-host 1 h', ja: '5 分 · セルフホスト 1 時間',
-        ru: '5 мин · self-host 1 ч', tr: '5 dk · self-host 1 sa',
-        uk: '5 хв · self-host 1 год', zh: '5 分钟 · 自托管 1 小时',
-      },
-      nocodb: {
-        de: '5 Min. · Self-Host 1 Std.', en: '5 min · self-host 1 h',
-        es: '5 min · autoalojado 1 h', fr: '5 min · auto-hébergement 1 h',
-        it: '5 min · self-host 1 h', ja: '5 分 · セルフホスト 1 時間',
-        ru: '5 мин · self-host 1 ч', tr: '5 dk · self-host 1 sa',
-        uk: '5 хв · self-host 1 год', zh: '5 分钟 · 自托管 1 小时',
-      },
-      monday: {
-        de: '5 Minuten', en: '5 minutes', es: '5 minutos', fr: '5 minutes', it: '5 minuti',
-        ja: '5 分', ru: '5 минут', tr: '5 dakika', uk: '5 хвилин', zh: '5 分钟',
-      },
-      notion: {
-        de: '5 Minuten', en: '5 minutes', es: '5 minutos', fr: '5 minutes', it: '5 minuti',
-        ja: '5 分', ru: '5 минут', tr: '5 dakika', uk: '5 хвилин', zh: '5 分钟',
-      },
-      salesforce: {
-        de: '6 Monate', en: '6 months', es: '6 meses', fr: '6 mois', it: '6 mesi',
-        ja: '6 か月', ru: '6 месяцев', tr: '6 ay', uk: '6 місяців', zh: '6 个月',
-      },
-      tblflow: {
-        de: '5 Minuten', en: '5 minutes', es: '5 minutos', fr: '5 minutes', it: '5 minuti',
-        ja: '5 分', ru: '5 минут', tr: '5 dakika', uk: '5 хвилин', zh: '5 分钟',
-      },
-    },
-  },
+  // Emptied 2026-11-28: the published prices and deployment times of competitors
+  // could not be confirmed at the source. Reinstate only with a dated source.
 ];

@@ -104,6 +104,8 @@ Full plan detail: ${SITE_URL}/en/pricing
 - [CLI (English)](${SITE_URL}/en/docs/cli): the TblFlow command-line tool, npm package @tblflow/cli (MIT): device-code or service-token sign-in, records, CSV import and export, exposed automations and agents, and a local MCP server (\`tblflow mcp serve\`).
 - [Use cases (English)](${SITE_URL}/en/use-cases): six end-to-end flows where the same data is retyped from tool to tool (quote to cash, procure to pay, financial close with margins and EBITDA, stock to shipping, quality and non-conformities, internal procedures), each with what TblFlow does not do.
 - [Who it is for (English)](${SITE_URL}/en/for): SME leaders, finance and accounting, sales administration, manufacturing, retail and distribution, professional services firms.
+- [Trust (English)](${SITE_URL}/en/trust): where data is hosted, sub-processors (annex 3 of the DPA), how AI requests are routed, and what TblFlow does not claim (no certification, no appointed data protection officer).
+- [Trust (French)](${SITE_URL}/fr/trust)
 - [Pricing (English)](${SITE_URL}/en/pricing): four plans with the full quota grid.
 - [Pricing (French)](${SITE_URL}/fr/pricing)
 - [Blog (English)](${SITE_URL}/en/blog)

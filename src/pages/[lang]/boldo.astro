@@ -1,0 +1,64 @@
+---
+import Base from '@/layouts/Base.astro';
+import verification from '@/data/compare-verification.json';
+import { useTranslations } from '@/i18n/ui';
+import { localePath, brandTitle } from '@/i18n/utils';
+import { LOCALES, type Locale } from '@/config';
+import { BOLDO } from '@/data/boldo';
+
+export function getStaticPaths() {
+  return LOCALES.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const t = useTranslations(locale);
+const texts = BOLDO[locale];
+const path = localePath(locale, 'boldo');
+
+const check = verification.entries.boldo;
+const verifiedAt = new Date(`${check.verifiedAt}T00:00:00Z`);
+const verifiedLabel = new Intl.DateTimeFormat(locale, { dateStyle: 'long', timeZone: 'UTC' }).format(
+  verifiedAt
+);
+
+const breadcrumbs = [
+  { name: t('breadcrumbs.home'), path: localePath(locale) },
+  { name: texts.h1, path },
+];
+---
+
+<Base
+  locale={locale}
+  title={brandTitle(texts.title)}
+  description={texts.description}
+  path={path}
+  breadcrumbs={breadcrumbs}
+  modifiedAt={verifiedAt}
+>
+  <div class="mx-auto max-w-4xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
+    <h1 class="animate-enter text-4xl font-medium sm:text-5xl">{texts.h1}</h1>
+    <p class="animate-enter delay-1 mt-4 max-w-2xl text-lg text-[var(--fg-muted)]">{texts.intro}</p>
+
+    <div class="mt-10 grid gap-4 sm:grid-cols-2">
+      {
+        texts.cards.map((card) => (
+          <section class="rounded-xl border border-[var(--border)] p-5">
+            <h2 class="text-lg font-medium">{card.title}</h2>
+            <p class="mt-1 text-[var(--fg-muted)]">{card.text}</p>
+          </section>
+        ))
+      }
+    </div>
+
+    <section class="mt-8 rounded-xl border border-[var(--border)] p-5">
+      <h2 class="text-lg font-medium">{texts.meetTitle}</h2>
+      <p class="mt-1 text-[var(--fg-muted)]">{texts.meetText}</p>
+    </section>
+
+    <p class="mt-8 text-sm text-[var(--fg-subtle)]">
+      {texts.note}
+      {t('compare.verified')} {verifiedLabel} · {t('compare.source')} :{' '}
+      <a href={check.source} class="underline underline-offset-2" rel="noopener nofollow">boldo.io</a>
+    </p>
+  </div>
+</Base>

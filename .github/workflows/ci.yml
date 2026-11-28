@@ -24,3 +24,9 @@ jobs:
       - run: npm run build
       - run: npm run check:typo-fr
       - run: npx astro check
+      - run: node scripts/check-meta.mjs
+      - run: node scripts/check-pricing.mjs
+      - run: node scripts/check-trust.mjs
+      # Warning only: the 90-day freshness of the comparisons is checked by hand before each publication.
+      - run: node scripts/check-compare.mjs
+        continue-on-error: true

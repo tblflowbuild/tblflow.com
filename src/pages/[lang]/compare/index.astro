@@ -9,6 +9,7 @@
 import Base from '@/layouts/Base.astro';
 import { COMPARISON, COMPETITOR_LABELS } from '@/data/content';
 import { COMPETITOR_PAGES, COMPETITOR_SLUGS } from '@/data/competitors';
+import { BOLDO } from '@/data/boldo';
 import { useTranslations } from '@/i18n/ui';
 import { localePath } from '@/i18n/utils';
 import { LOCALES, type Locale } from '@/config';
@@ -165,6 +166,20 @@ const breadcrumbs = [
           </li>
         ))
       }
+      <li>
+        <a
+          href={localePath(locale, 'boldo')}
+          class="card group block p-6 transition-colors hover:border-[var(--border-strong)]"
+        >
+          <h2 class="text-xl font-medium transition-colors group-hover:text-[var(--color-ai-2)]">
+            {BOLDO[locale].title}
+          </h2>
+          <p class="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">{BOLDO[locale].description}</p>
+          <span class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-ai-2)]">
+            {meta.cta}
+          </span>
+        </a>
+      </li>
     </ul>
   </div>
 </Base>
