@@ -1,41 +1,41 @@
 ---
 title: "İlk uygulamanızı oluşturun"
 translationKey: "first-app"
-description: "TblFlow veritabanından iş uygulaması yayınlayın: yapay zekâ ile oluşturulmuş veya elle hazırlanmış, ziyaretçi kimlik doğrulaması ve herkese açık bağlantıyla."
+description: "TblFlow veritabanından iş uygulaması oluşturun, yapay zekâyla üretin ya da düzenleyicide kurun; davetle veya herkese açık erişimle yayımlayın."
 section: "Kılavuzlar"
 order: 5
 ---
 
-Bir TblFlow veritabanı yalnızca ızgarada gezilebilir değildir: kendi sayfaları, kendi kimlik doğrulaması ve kendi alan adıyla gerçek bir uygulama olarak yayınlanabilir. Bu sayfa, bir uygulama oluşturmanın iki yolunu da ele alır.
+Bir TblFlow veritabanı yalnızca tabloda görüntülenebilir değildir: kendi sayfalarıyla, davetliler için ya da herkese açık bir bağlantıyla ve size ait bir alan adıyla gerçek bir uygulama olarak yayımlanabilir. Bu sayfa bunu oluşturmanın iki yolunu anlatır.
 
-## Seçenek 1 — Yapay zekâya anlatın
+## Seçenek 1 — yapay zekâya tarif edin
 
-Veritabanının sohbet panelinde **Tam uygulama**'yı seçin, ardından istediğinizi anlatın: "Bir gösterge paneli, hesap listesi ve Kanban olarak fırsat hattı olan bir CRM." Yapay zekâ, mevcut tablolarınızdan bir sayfa ve blok yapısı önerir. Öneriyi onaylayıp **Yayınla**'ya tıklamadıkça hiçbir şey yayınlanmaz.
+Veritabanının sohbet panelinde **Tam uygulama** modunu seçin, ardından ne istediğinizi anlatın: « Bir gösterge paneli, hesap listesi ve fırsat hattının Kanban görünümünde olduğu bir CRM ». Üretim adım adım ilerler: tablolar, bunların ilişkileri, ardından arayüz, otomasyonlar, görünümler ve kurgusal veriler, son olarak bir yapay zekâ ajanı. Her adım, bir sonrakine geçmeden kabul edeceğiniz öneriler üretir; hiçbiri kabul edilmediği sürece öneriyi değiştirebilirsiniz. **Yayınla** düğmesine tıklamadığınız sürece hiçbir şey yayımlanmaz.
 
-Bu en hızlı yoldur ve TblFlow ana sayfasının "Üretim hattı" bölümünde ayrıntılı olarak anlattığı yoldur.
+## Seçenek 2 — düzenleyicide oluşturun
 
-## Seçenek 2 — Elle oluşturun
+Veritabanında oluşturma menüsü **Yeni uygulama** seçeneğini sunar (yapay zekâ sohbeti etkinse ve uygulama oluşturabiliyorsanız). Düzenleyici **Önizleme**, **Kod** ve **Günlük** olmak üzere üç sekmeyle ve sağda yapay zekâ sohbetiyle açılır: uygulamanızı orada anlatın, ardından inceltin.
 
-Veritabanından **Yeni arayüz**. Bir arayüz sayfalardan, her sayfa da bloklardan oluşur: sayısal metrikler, bir tabloya bağlı liste veya ızgara, bir arama kutusu, bir Kanban. Her blok mevcut bir tabloyu veya görünümü işaret eder; yani veriyi çoğaltmazsınız, sahnelersiniz.
-
-Bir blok ekleyin, kaynağını seçin (bir tablo veya belirli bir görünüm, önceden filtrelenmiş bir Kanban ya da Takvim görünümü dahil), ardından düzenini ayarlayın. Sol gezinti, oluşturduğunuz sırayla sayfa sayfa şekillenir.
+Önizlemedeki bir bloğa tıklamak, bloğu sohbette referans olarak gösterir. **Metni doğrudan düzenle** bir talep göndermeden görüntülenen metni düzeltir. **Geçmiş** uygulamanın sürümlerini listeler; **Bu sürümü geri yükle**, seçtiğiniz sürüme döner.
 
 ## Yayınlama
 
-Arayüzün üstündeki **Yayınla** düğmesi üç ayar açar:
+Editörün üst kısmındaki **Yayınla** düğmesi **Uygulama yayını** panelini açar. Panel, birini seçebileceğiniz iki erişim modu sunar:
 
-- **Parola** — boş bırakılırsa uygulamaya bağlantıya sahip herkes ulaşabilir. Belirlenirse (veya oluşturulursa) girmek için parola gerekir.
-- **Veri yazmaya izin ver** — varsayılan olarak kapalıdır. Salt okunur bir uygulama hiçbir şeyi bozamaz; bunu yalnızca ziyaretçilerin uygulamadan kayıt oluşturması veya düzenlemesi gerçekten gerekiyorsa açın.
-- **Ziyaretçi hesapları** — bu uygulamaya özgü, TblFlow hesaplarından yalıtılmış bir e-posta + parola hesap sistemi açar. Dışarıdan bir müşterinin, TblFlow hesabınıza hiç dokunmadan kendi alanında oturum açmasını sağlayan budur.
+- **Davetle — davet edilen kişiler ve veritabanı üyeleri** (varsayılan olarak önerilir). Her kişi TblFlow hesabıyla, parolasız oturum açar: sihirli bağlantı ya da güvenlik anahtarı.
+- **Herkese açık — bağlantıya sahip herkes.** Onay istenir: bağlantıyı alan herkes uygulamayı hesapsız açar ve gösterdiği verileri görür.
 
-**Yayınla — herkese açık bağlantıyı oluştur**'a tıklamak hemen çalışan bir URL üretir. Team planı özel bir alan adı ekler.
+**Veri yazmaya izin ver** varsayılan olarak kapalıdır. Salt okunur bir uygulama hiçbir şeyi bozamaz; yalnızca ziyaretçilerin uygulamadan gerçekten kayıt oluşturması veya değiştirmesi gerekiyorsa etkinleştirin.
+
+**Yayınla — bağlantıyı oluştur** düğmesine tıklamak hemen bir URL üretir. Paylaşım parolası ya da uygulamaya özgü bir ziyaretçi hesabı yoktur. Davetliler, sayfa özelleştirme, yayından kaldırma ve özel alan adı [Paylaşım ve yayınlama](/tr/docs/sharing-publishing) sayfasında anlatılır.
 
 ## Kod sizde kalır
 
-Yayınlanan bir uygulama kara kutu değil, gerçek React ve Tailwind kodudur: **Kod → Kodu dışa aktar** hepsini alır. Tersine, **Kodu içe aktar**, bir yapay zekâ üretiminden sonra elle ayarlamak üzere mevcut bir veritabanından başlamanızı sağlar.
+Yayımlanmış bir uygulama bir kara kutu değil, gerçek React ve Tailwind kodudur: **Kod → Kodu dışa aktar** ile tamamını alırsınız. Tersine, **Kodu içe aktar** yapay zekâ üretiminden sonra elle uyarlamak için mevcut bir veritabanından başlamanızı sağlar.
 
-## Sonraki adımlar
+## Sırada ne var
 
-- [Otomasyonlar](/tr/docs/automations) — iş akışlarını ziyaretçilerinizin yaptıklarına bağlayın.
-- [Yapay zekâ ajanları](/tr/docs/ai-agents) — yinelenen bir görevi uygulamada sunmak yerine devredin.
-- [Tablolar ve alanlar](/tr/docs/tables-and-fields) — yayınlamadan önce veri yapısını yeniden gözden geçirin.
+- [Otomasyonlar](/tr/docs/automations) — iş akışlarını ziyaretçilerinizin eylemlerine bağlayın.
+- [Yapay zekâ ajanları](/tr/docs/ai-agents) — uygulamada sunmak yerine yinelenen bir görevi devredin.
+- [Tablolar ve alanlar](/tr/docs/tables-and-fields) — yayınlamadan önce veri yapısını gözden geçirin.
+- [Paylaşım ve yayınlama](/tr/docs/sharing-publishing) — davetliler, özel alan adı, görünüm ve veritabanı bağlantıları.

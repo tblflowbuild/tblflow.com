@@ -9,7 +9,7 @@ TblFlow ouvre un **serveur MCP officiel** : connectez votre espace à Claude et 
 
 - **13 outils** : lister espaces et bases, décrire le schéma, lister, filtrer et lire des enregistrements, chercher dans le graphe de connaissances, créer et modifier des enregistrements, supprimer (aperçu puis confirmation explicite, corbeille), créer une table ou un champ, déclencher une automatisation, lancer un agent IA.
 - **Vous gardez la main** : à la connexion, vous choisissez les espaces, les bases et les permissions. Lecture par défaut ; écriture, suppression, schéma et déclenchement sont des options. Vos droits TblFlow s'appliquent à chaque requête.
-- **Limites de débit** : 60, 120, 300 et 600 requêtes par minute pour Gratuit, Pro, Business et Enterprise.
+- **Limites de débit** : 60, 120, 300 et 600 requêtes par minute pour Gratuit, Essentiel, Équipe et Entreprise.
 - **Registre MCP officiel** : le serveur est publié sous le nom `com.tblflow/tblflow` (version 1.0.0). La soumission à l'annuaire de connecteurs de Claude est à venir.
 
 Présentation : [/fr/mcp](/fr/mcp). Guide de connexion : [documentation](/fr/docs/serveur-mcp). Annonce : [le serveur MCP de TblFlow](/fr/blog/serveur-mcp-tblflow-dans-claude).

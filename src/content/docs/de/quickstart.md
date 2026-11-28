@@ -1,51 +1,63 @@
 ---
 title: "Schnellstart"
 translationKey: "quickstart"
-description: "Erstellen Sie Ihre erste TblFlow-Base, importieren Sie Daten, öffnen Sie eine zweite Ansicht und teilen Sie sie mit Ihrem Team, in fünf Minuten ohne SQL."
-section: "Einstieg"
+description: "Erstellen Sie Ihre erste TblFlow-Base, importieren Sie Daten, öffnen Sie eine Ansicht und teilen Sie alles mit Ihrem Team in fünf Minuten, ohne SQL."
+section: "Anleitungen"
 order: 1
 ---
 
-Diese Seite führt Sie von einem leeren Konto zu einer Base, in der Ihr Team arbeiten kann. Planen Sie fünf Minuten ein.
+Diese Seite führt Sie von einem leeren Konto zu einer Base, die Sie mit Ihrem Team teilen. Rechnen Sie mit fünf Minuten.
 
 ## 1. Eine Base erstellen
 
-Wählen Sie im Dashboard **Neue Base**. Eine Base ist ein Arbeitsbereich: Sie enthält mehrere Tabellen, eigene Ansichten, Automatisierungen und Agenten. Darunter ist sie ein eigenes PostgreSQL-Schema.
+Klicken Sie in einem Space auf **Base erstellen**. Eine Base fasst Tabellen, Automatisierungen und Agenten zusammen; jede Tabelle hat ihre eigenen Ansichten. Technisch ist jede Base ein eigenes PostgreSQL-Schema.
 
-Drei Wege zum Einstieg:
+Ein Fenster fragt Sie, was Sie erstellen möchten:
 
-- **Leere Tabelle** — Sie definieren die Felder selbst.
-- **Import** — CSV, Excel oder direkt aus einer Tabellenkalkulation einfügen. Die Feldtypen werden aus den Daten abgeleitet, und Sie können sie vor der Bestätigung korrigieren.
-- **Beschreibung in einfacher Sprache** — beschreiben Sie, was Sie verfolgen („eine Vertriebs-Pipeline mit Kontakten, Unternehmen und Deals“), und der Assistent schlägt ein Schema vor. Nichts wird erstellt, bis Sie den Vorschlag annehmen.
+- **Anwendung beschreiben** — geben Sie ein, was Sie verfolgen wollen („ein Tool zur Verwaltung von Kursplänen für ein Bildungszentrum“), und klicken Sie auf **Anwendung generieren**. Die KI schlägt ein Schema, Ansichten, eine Oberfläche und Automatisierungen vor, die Sie Schritt für Schritt bestätigen. Dafür muss im Space eine KI eingerichtet sein; andernfalls wird die Schaltfläche zu **KI für die Generierung verbinden** und führt zu den Einstellungen. Siehe [KI-Chat](/de/docs/ai-chat).
+- **Mit einer leeren Base beginnen** — die Base wird ohne KI-Generierung angelegt; Sie fügen danach Ihre Tabellen hinzu.
 
-## 2. Die richtigen Feldtypen wählen
+In einem Space, der noch keine Base enthält, können Sie auch **Von einer Vorlage ausgehen**. Die Vorlage **Projektverwaltung** gehört zur Galerie, die mit TblFlow mitgeliefert wird: Sie legt die Tabellen Projekte, Aufgaben (mit Unteraufgaben und Abhängigkeiten), Sprints und Personen an, die Ansichten Kanban, Gantt und Kalender, eine Ansicht **Dashboard** (Raster, nach Status gruppiert, mit Summen) sowie zwei Automatisierungen, die das Datum „Abgeschlossen am“ einer Aufgabe setzen oder leeren. Ein Projekt, ein Sprint und fünf Beispielaufgaben sind enthalten; Sie können sie anpassen oder löschen. Eine **.tbl**-Datei, die aus einer anderen Base exportiert wurde, spielen Sie mit **Importieren** wieder in den Space ein. Siehe [Import, Export und Papierkorb](/de/docs/import-export-trash).
 
-Der Feldtyp unterscheidet eine Datenbank von einer Tabellenkalkulation. Nehmen Sie sich eine Minute dafür: Formeln, Filter und Automatisierungen hängen alle davon ab.
+### Eine Tabelle hinzufügen
 
-| Was Sie brauchen | Feldtyp |
+In der Seitenleiste der Base bietet die Schaltfläche zum Hinzufügen Folgendes an:
+
+- **Neue Tabelle** — Sie legen die Felder selbst fest;
+- **Mit KI erstellen** — Sie beschreiben die Tabelle, eine Vorschau erscheint, und nichts wird angelegt, bis Sie auf **Erstellen** klicken;
+- **Aus anderen Quellen hinzufügen** — Import einer CSV-, TSV- oder Excel-Datei oder eines Links zu einer Datei (**Link (URL)**). Die Feldtypen werden aus den Daten abgeleitet (Option **Automatische Auswahl der Feldtypen**), und Sie können sie vor dem Import korrigieren. Zellen, die Sie aus einer Tabellenkalkulation kopiert haben, können auch in eine Rasteransicht eingefügt werden.
+
+## 2. Felder strukturieren
+
+Der Feldtyp unterscheidet eine Datenbank von einer Tabellenkalkulation. Nehmen Sie sich Zeit dafür, ihn richtig zu wählen, denn alles Weitere (Formeln, Filter, Automatisierungen) hängt davon ab.
+
+| Bedarf | Zu verwendender Typ |
 | --- | --- |
-| Ein Wert aus einer festen Menge | Einfachauswahl |
+| Ein Wert aus einer festen Auswahl | Einfachauswahl |
 | Eine Verknüpfung zu einer anderen Tabelle | Verknüpfter Datensatz |
 | Ein Wert aus der verknüpften Tabelle | Lookup |
-| Eine Aggregation über verknüpfte Datensätze | Rollup |
+| Eine Summe über verknüpfte Datensätze | Rollup |
 | Eine Berechnung pro Zeile | Formel |
 
-Alle 28 Typen sind in jedem Tarif verfügbar, auch beim Selbsthosting.
+Die Feldtypen hängen nicht von Ihrem Tarif ab. Siehe [Tabellen und Felder](/de/docs/tables-and-fields).
 
 ## 3. Eine zweite Ansicht öffnen
 
-Eine Ansicht ist eine Lesart der Tabelle, keine Kopie. Der Wechsel zwischen Ansichten dupliziert nichts.
+Eine Ansicht ist eine Lesart der Tabelle, keine Kopie. Der Wechsel zwischen Ansichten dupliziert keine Daten.
 
-Fügen Sie bei einer Tabelle mit einem Statusfeld eine **Kanban**-Ansicht hinzu, nach diesem Status gruppiert. Fügen Sie bei einer Tabelle mit Datumsangaben eine **Kalender**- oder **Gantt**-Ansicht hinzu. Filter, Sortierungen und Gruppierungen gehören zur Ansicht: Die Ansicht „Meine überfälligen Aufgaben“ einer Kollegin oder eines Kollegen ändert Ihre nicht.
+Bei einer Tabelle mit einem Statusfeld fügen Sie eine **Kanban**-Ansicht hinzu, gestapelt nach diesem Status. Bei einer Tabelle mit Datumsangaben fügen Sie eine **Kalender**- oder **Gantt**-Ansicht hinzu. Filter, Sortierungen und Gruppen werden in jeder Ansicht gespeichert. Standardmäßig ist eine Ansicht gemeinsam genutzt: Ändert ein Kollege den Filter „Meine überfälligen Akten“, sehen alle die Änderung. Mit der Schaltfläche **Persönlich** beschränken Sie Ihre Einstellungen auf Sie allein. Siehe [Ansichten, Filter und Datensätze](/de/docs/views-and-filters).
 
 ## 4. Ihr Team einladen
 
-**Teilen**, oben rechts. Die Berechtigungen werden auf Ebene der Base festgelegt (Eigentümer, Editor, Kommentator, Betrachter) und lassen sich pro Tabelle und pro Feld weiter einschränken.
+Die Schaltfläche **Einladen** in der Seitenleiste der Base öffnet die Freigabe; sie steht nur Rollen zur Verfügung, die die Base bearbeiten dürfen. Jede Person erhält eine Rolle: Ersteller, Editor, Kommentator oder Leser für eine Base (die Rolle Eigentümer wird auf Ebene des Space vergeben). Auf einer Base oder einer Tabelle lassen sich auch benutzerdefinierte Rollen festlegen. Um eine Ansicht nach außen zu veröffentlichen oder zu teilen, siehe [Freigabe und Veröffentlichung](/de/docs/sharing-publishing). Siehe [Berechtigungen und Rollen](/de/docs/permissions).
 
-Die Bearbeitung erfolgt gemeinsam in Echtzeit: Zwei Personen können gleichzeitig in derselben Tabelle arbeiten, mit sofort sichtbaren Cursorn und Änderungen.
+Die Bearbeitung erfolgt in Echtzeit gemeinsam: Zwei Personen können dieselbe Tabelle gleichzeitig bearbeiten, und die aktive Zelle jeder beteiligten Person wird im Raster angezeigt.
 
 ## Weiter
 
 - [Tabellen und Felder](/de/docs/tables-and-fields) — die Feldtypen im Detail.
-- [Automatisierungen](/de/docs/automations) — lösen Sie Aktionen auf Ihren Daten aus.
-- [KI-Agenten](/de/docs/ai-agents) — delegieren Sie wiederkehrende Arbeit.
+- [Automatisierungen](/de/docs/automations) — Aktionen auf Ihren Daten auslösen.
+- [KI-Agenten](/de/docs/ai-agents) — wiederkehrende Aufgaben delegieren.
+- [Konnektoren](/de/docs/connectors) — Ihre Werkzeuge miteinander verbinden.
+- [API und Entwickler](/de/docs/api-developers) — programmgesteuert auf Daten zugreifen.
+- [Konto und Sicherheit](/de/docs/account-security), [Space-Einstellungen](/de/docs/space-settings) und [Tarife und Limits](/de/docs/plans-limits).

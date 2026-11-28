@@ -6,9 +6,10 @@ import { mcp, MCP_RATE_PER_MINUTE } from '@/data/mcp';
  * SaaS Cloud tiers, grid of 2026-11: a price per team (a base with people
  * included), plus a monthly add-on per extra person. Quotas are transcribed
  * from `PLAN_LIMITS` in `packages/openapi/src/billing/plan-limits.ts` in the
- * `teable-ee` repo — the constant the backend actually enforces
- * (`quota.service.ts` for bases/seats/storage/agents/workflows/computer-use,
- * `creditCheck()` in `record.service.ts` for rows per table). If a figure here
+ * TblFlow application repository — the constant the backend actually enforces
+ * (`quota.service.ts` for bases/seats/storage/agents/workflows/connector calls/
+ * computer-use, `creditCheck()` in `record.service.ts` for rows per table;
+ * `WELCOME_AI_CREDITS` and `TRIAL_AI_CREDITS` for the one-off AI credits). If a figure here
  * disagrees with that file, that file is right and this one is stale.
  *
  * Internal ids (`free`, `pro`, `business`, `enterprise`) and the `plan=` values
@@ -177,60 +178,70 @@ const BASE_TIERS: Tier[] = [
         '2 Personen inklusive · 1 Base · 1 Space',
         '1 GB Speicher · 5.000 Zeilen pro Tabelle',
         'Unbegrenzt viele KI-Agenten und Automatisierungen — 100 Agenten- und 500 Automatisierungs-Ausführungen/Monat',
+        '200 KI-Credits zum Start, einmalig und ohne Ablauf (sofern kein Test gestartet wurde)',
         'Community-Support',
       ],
       en: [
         '2 people included · 1 base · 1 space',
         '1 GB storage · 5,000 rows per table',
         'Unlimited AI agents and automations — 100 agent runs and 500 automation runs/month',
+        '200 AI credits as a welcome gift, one-off and without expiry (if you did not start a trial)',
         'Community support',
       ],
       es: [
         '2 personas incluidas · 1 base · 1 espacio',
         '1 GB de almacenamiento · 5000 filas por tabla',
         'Agentes de IA y automatizaciones ilimitados en número — 100 ejecuciones de agentes y 500 de automatizaciones/mes',
+        '200 créditos de IA de bienvenida, únicos y sin caducidad (si no iniciaste la prueba)',
         'Soporte de la comunidad',
       ],
       fr: [
         '2 personnes incluses · 1 base · 1 espace',
         '1 Go de stockage · 5 000 lignes par table',
         'Agents IA et automatisations illimités en nombre — 100 exécutions d’agents et 500 d’automatisations/mois',
+        '200 crédits IA offerts à l’arrivée, une seule fois et sans expiration (si vous n’avez pas démarré l’essai)',
         'Support communautaire',
       ],
       it: [
         '2 persone incluse · 1 base · 1 spazio',
         '1 GB di spazio · 5000 righe per tabella',
         'Agenti IA e automazioni illimitati nel numero — 100 esecuzioni di agenti e 500 di automazioni/mese',
+        '200 crediti IA di benvenuto, una tantum e senza scadenza (se non hai avviato la prova)',
         'Supporto della community',
       ],
       ja: [
         '2 名まで含む · ベース 1 · スペース 1',
         'ストレージ 1 GB · 1 テーブルあたり 5,000 行',
         'AI エージェントと自動化は数に制限なし — 月にエージェント 100 回・自動化 500 回の実行',
+        'ウェルカム AI クレジット 200（1 回限り・有効期限なし。トライアルを開始しなかった場合）',
         'コミュニティサポート',
       ],
       ru: [
         '2 участника включено · 1 база · 1 пространство',
         '1 ГБ хранилища · 5 000 строк на таблицу',
         'Неограниченное число ИИ-агентов и автоматизаций — 100 запусков агентов и 500 запусков автоматизаций/месяц',
+        '200 приветственных ИИ-кредитов, разово и без срока действия (если вы не запускали пробный период)',
         'Поддержка сообщества',
       ],
       tr: [
         '2 kişi dahil · 1 veritabanı · 1 alan',
         '1 GB depolama · tablo başına 5.000 satır',
         'Sayıca sınırsız yapay zekâ ajanı ve otomasyon — ayda 100 ajan ve 500 otomasyon çalıştırması',
+        '200 karşılama yapay zekâ kredisi, tek seferlik ve süresiz (deneme başlatılmadıysa)',
         'Topluluk desteği',
       ],
       uk: [
         '2 особи включено · 1 база · 1 простір',
         '1 ГБ сховища · 5 000 рядків на таблицю',
         'Необмежена кількість ШІ-агентів та автоматизацій — 100 запусків агентів і 500 запусків автоматизацій/місяць',
+        '200 вітальних ШІ-кредитів, одноразово і без терміну дії (якщо ви не запускали пробний період)',
         'Підтримка спільноти',
       ],
       zh: [
         '含 2 位成员 · 1 个 base · 1 个空间',
         '1 GB 存储 · 每表 5,000 行',
         'AI 智能体与自动化数量不限——每月智能体运行 100 次、自动化运行 500 次',
+        '欢迎赠送 200 个 AI 额度，一次性且长期有效（未开启试用时）',
         '社区支持',
       ],
     },
@@ -616,6 +627,22 @@ export const QUOTAS: QuotaRow[] = [
     },
   },
   {
+    // maxViewerSeats in plan-limits.ts: one bucket shared by viewers and commenters.
+    label: {
+      de: 'Kostenlose Lesende',
+      en: 'Free viewers',
+      es: 'Lectores gratuitos',
+      fr: 'Lecteurs gratuits',
+      it: 'Lettori gratuiti',
+      ja: '無料の閲覧者',
+      ru: 'Бесплатные читатели',
+      tr: 'Ücretsiz okuyucular',
+      uk: 'Безкоштовні читачі',
+      zh: '免费查看者',
+    },
+    values: { free: num(2), pro: num(10), business: num(30), enterprise: UNLIMITED },
+  },
+  {
     label: {
       de: 'Kostenlose Spaces pro Nutzer', en: 'Free spaces per user',
       es: 'Espacios gratuitos por usuario', fr: 'Espaces gratuits par utilisateur',
@@ -715,6 +742,38 @@ export const QUOTAS: QuotaRow[] = [
     },
   },
   {
+    // maxApiConnectorCallsPerMonth in plan-limits.ts: real calls to connectors; cache hits are not counted.
+    label: {
+      de: 'Connector-Aufrufe / Monat',
+      en: 'Connector calls / month',
+      es: 'Llamadas a conectores / mes',
+      fr: 'Appels aux connecteurs / mois',
+      it: 'Chiamate ai connettori / mese',
+      ja: 'コネクタ呼び出し / 月',
+      ru: 'Вызовов коннекторов / месяц',
+      tr: 'Bağlayıcı çağrısı / ay',
+      uk: 'Викликів конекторів / місяць',
+      zh: '连接器调用 / 月',
+    },
+    values: { free: num(1000), pro: num(50000), business: num(500000), enterprise: UNLIMITED },
+  },
+  {
+    // includedAiCreditsPerMonth in plan-limits.ts. Free: 0 a month (the welcome credit is one-off, see WELCOME_CREDIT_NOTE).
+    label: {
+      de: 'Inklusive KI-Credits / Monat',
+      en: 'AI credits included / month',
+      es: 'Créditos de IA incluidos / mes',
+      fr: 'Crédits IA inclus / mois',
+      it: 'Crediti IA inclusi / mese',
+      ja: '含まれる AI クレジット / 月',
+      ru: 'Включено ИИ-кредитов / месяц',
+      tr: 'Dahil yapay zekâ kredisi / ay',
+      uk: 'Включено ШІ-кредитів / місяць',
+      zh: '含 AI 额度 / 月',
+    },
+    values: { free: num(0), pro: num(4000), business: num(15000), enterprise: num(40000) },
+  },
+  {
     label: {
       de: 'API-Anfragen / Monat', en: 'API requests / month',
       es: 'Solicitudes de API / mes', fr: 'Requêtes API / mois',
@@ -726,16 +785,6 @@ export const QUOTAS: QuotaRow[] = [
       free: NO_MONTHLY_QUOTA, pro: NO_MONTHLY_QUOTA,
       business: NO_MONTHLY_QUOTA, enterprise: NO_MONTHLY_QUOTA,
     },
-  },
-  {
-    label: {
-      de: 'Semantische Suchen / Monat', en: 'Semantic searches / month',
-      es: 'Búsquedas semánticas / mes', fr: 'Recherches sémantiques / mois',
-      it: 'Ricerche semantiche / mese', ja: 'セマンティック検索 / 月',
-      ru: 'Семантических поисков / месяц', tr: 'Anlamsal arama / ay',
-      uk: 'Семантичних пошуків / місяць', zh: '语义搜索 / 月',
-    },
-    values: { free: NO, pro: num(100), business: num(1000), enterprise: UNLIMITED },
   },
   {
     label: {
@@ -776,7 +825,8 @@ export const QUOTAS: QuotaRow[] = [
   },
 ];
 
-/** Shown once, below the quota table — the API row's "no monthly quota" is not
+/** Shown once, below the quota table — the API row's "no monthly quota" (the metered
+ * "connector calls" row above is a separate thing: outgoing calls to connectors) is not
  * the same claim as "no limit at all": a global, tier-independent rate limit
  * still applies (`BACKEND_THROTTLE_LIMIT`/`BACKEND_THROTTLE_TTL_MS`). */
 export const API_RATE_LIMIT_NOTE: Record<Locale, string> = {
@@ -804,4 +854,18 @@ export const CARTO_FREE_NOTE: Record<Locale, string> = {
   tr: 'Ücretsiz: tek bir sürecin teşhisi, tahmini maliyetler görünür; «Değiştir» düğmesi ve aylık rapor yok.',
   uk: 'Безкоштовно: діагностика одного процесу з видимими оцінками витрат, без кнопки «Замінити» та без щомісячного звіту.',
   zh: '免费版：对一个流程进行诊断，可见估算成本；不含“替换”按钮和月度报告。',
+};
+
+/** Under the quota table: the one-off welcome credit (WELCOME_AI_CREDITS) and its conditions, from `billing.service.ts` (`claimWelcomeCredit`, `grantCredit`). */
+export const WELCOME_CREDIT_NOTE: Record<Locale, string> = {
+  de: 'Kostenlos-Tarif: Ein neuer Space ohne Test erhält einmalig 200 KI-Credits, ohne Ablauf, einmal pro Adresse und pro Firmendomain. Sie sind nur nutzbar, wenn die TblFlow-KI aktiv ist; mit eigenem Schlüssel verbrauchen Sie keine Credits. Ein gestarteter Test bringt stattdessen einmalig 1.000 Credits.',
+  en: 'Free plan: a new space that did not start a trial receives 200 AI credits once, with no expiry, once per address and per company domain. They can only be spent when TblFlow AI is active; with your own key you spend no credits. A trial grants a one-off 1,000 credits instead.',
+  es: 'Plan Gratis: un espacio nuevo que no inició la prueba recibe una vez 200 créditos de IA, sin caducidad, una vez por dirección y por dominio de empresa. Solo se pueden gastar si la IA de TblFlow está activa; con tu propia clave no gastas créditos. La prueba aporta en su lugar 1.000 créditos únicos.',
+  fr: 'Palier Gratuit : un espace neuf qui n’a pas démarré l’essai reçoit une fois 200 crédits IA, sans expiration, une seule fois par adresse et par domaine d’entreprise. Ils ne se dépensent que si l’IA TblFlow est active ; avec votre propre clé, vous ne dépensez aucun crédit. L’essai apporte à la place 1 000 crédits uniques.',
+  it: 'Piano Gratuito: un nuovo spazio che non ha avviato la prova riceve una sola volta 200 crediti IA, senza scadenza, una volta per indirizzo e per dominio aziendale. Si possono spendere solo se l’IA di TblFlow è attiva; con la tua chiave non consumi crediti. La prova concede invece 1.000 crediti una tantum.',
+  ja: '無料プラン：トライアルを開始しなかった新しいスペースには、AI クレジット 200 が 1 回だけ付与されます。有効期限はなく、メールアドレスごと・企業ドメインごとに 1 回限りです。TblFlow AI が有効なときだけ使え、自分のキーを使う場合はクレジットを消費しません。トライアルを開始した場合は、代わりに 1,000 クレジットが 1 回付与されます。',
+  ru: 'Бесплатный тариф: новое пространство, не запускавшее пробный период, один раз получает 200 ИИ-кредитов без срока действия — один раз на адрес и на домен компании. Их можно тратить, только если ИИ TblFlow активен; со своим ключом кредиты не расходуются. Пробный период вместо этого даёт разовые 1 000 кредитов.',
+  tr: 'Ücretsiz plan: deneme başlatmamış yeni bir alan, adres ve şirket alan adı başına bir kez olmak üzere, süresiz 200 yapay zekâ kredisi alır. Yalnızca TblFlow yapay zekâsı etkinse harcanabilir; kendi anahtarınızla kredi harcamazsınız. Deneme ise bunun yerine tek seferlik 1.000 kredi verir.',
+  uk: 'Безкоштовний тариф: новий простір, що не запускав пробний період, один раз отримує 200 ШІ-кредитів без терміну дії — один раз на адресу та на домен компанії. Їх можна витрачати, лише якщо ШІ TblFlow активний; зі своїм ключем кредити не витрачаються. Пробний період натомість дає разові 1 000 кредитів.',
+  zh: '免费版：未开启试用的新空间会一次性获得 200 个 AI 额度，长期有效，每个邮箱地址和每个企业域名仅限一次。仅在启用 TblFlow AI 时才能使用；使用自己的密钥不消耗额度。开启试用则改为一次性获得 1,000 个额度。',
 };

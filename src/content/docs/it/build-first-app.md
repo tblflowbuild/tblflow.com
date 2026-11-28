@@ -1,41 +1,41 @@
 ---
 title: "Crea la tua prima app"
 translationKey: "first-app"
-description: "Pubblica un'app aziendale a partire da una base TblFlow: generata dall'IA o costruita a mano, con autenticazione dei visitatori e link pubblico."
+description: "Crea un'app aziendale da una base TblFlow, generata dall'IA o costruita nell'editor, poi pubblicala con accesso pubblico o riservato agli invitati."
 section: "Guide"
 order: 5
 ---
 
-Una base TblFlow non si consulta solo nella griglia: può essere pubblicata come una vera applicazione, con le sue pagine, la sua autenticazione e il suo dominio. Questa pagina illustra entrambi i modi per crearne una.
+Una base TblFlow non si consulta solo nella griglia: può essere pubblicata come una vera applicazione, con le sue pagine, un link pubblico o riservato agli invitati e un nome di dominio tutto tuo. Questa pagina illustra i due modi per costruirne una.
 
-## Opzione 1 — descrivila all'IA
+## Opzione 1 — descriverla all'IA
 
-Nel pannello chat della base, scegli **Applicazione completa**, poi descrivi ciò che vuoi: «Un CRM con una dashboard, l'elenco degli account e la pipeline delle opportunità come Kanban». L'IA propone una struttura di pagine e blocchi a partire dalle tue tabelle esistenti. Nulla viene pubblicato finché non approvi la proposta e non clicchi su **Pubblica**.
+Nel pannello di chat della base, scegli la modalità **Applicazione completa**, poi descrivi ciò che vuoi: «Un CRM con una dashboard, l'elenco degli account e la pipeline delle opportunità in Kanban». La generazione procede per fasi: prima le tabelle e le loro relazioni, poi l'interfaccia, le automazioni, le viste e dati di esempio, infine un agente IA. Ogni fase produce proposte che accetti prima di passare alla successiva, e puoi modificare la proposta in corso finché nessuna è stata accettata. Non viene pubblicato nulla finché non clicchi su **Pubblica**.
 
-È il percorso più rapido, e quello che la homepage di TblFlow illustra nel dettaglio in «Pipeline di generazione».
+## Opzione 2 — costruirla nell'editor
 
-## Opzione 2 — costruiscila a mano
+Nella base, il menu di creazione propone **Nuova app** (se la chat IA è attiva e puoi creare applicazioni). L'editor si apre con tre schede, **Anteprima**, **Codice** e **Log**, e la chat IA a destra: descrivi lì la tua applicazione, poi affinala.
 
-Dalla base, **Nuova interfaccia**. Un'interfaccia è composta da pagine, e ogni pagina da blocchi: metriche numeriche, un elenco o una griglia collegati a una tabella, una casella di ricerca, un Kanban. Ogni blocco punta a una tabella o a una vista esistente, quindi non duplichi i dati: li metti in scena.
+Cliccare su un blocco dell'anteprima lo riferisce nella chat. **Modifica il testo direttamente** corregge un testo visualizzato senza passare da una richiesta. **Cronologia** elenca le versioni dell'applicazione; **Ripristina questa versione** torna a quella selezionata.
 
-Aggiungi un blocco, scegli la sua fonte (una tabella o una vista specifica, compresa una vista Kanban o Calendario già filtrata), poi regola il layout. La navigazione a sinistra si costruisce pagina dopo pagina, nell'ordine in cui le crei.
+## Pubblicare
 
-## Pubblicazione
+Il pulsante **Pubblica**, in cima all'editor, apre il pannello **Pubblicazione dell'app**. Propone due modalità di accesso, a scelta:
 
-Il pulsante **Pubblica**, in alto nell'interfaccia, apre tre impostazioni:
+- **Su invito — persone invitate e membri della base** (proposta per impostazione predefinita). Ogni persona accede con il proprio account TblFlow, senza password: tramite link magico o chiave di sicurezza.
+- **Pubblica — chiunque abbia il link.** Viene richiesta una conferma: chiunque riceva il link apre l'app, senza account, e vede i dati che essa mostra.
 
-- **Password** — se lasciata vuota, l'app è raggiungibile da chiunque abbia il link. Se impostata (o generata), la password è richiesta per entrare.
-- **Consenti le scritture sui dati** — disattivato per impostazione predefinita. Un'app in sola lettura non può rompere nulla; attivalo solo se i visitatori hanno davvero bisogno di creare o modificare record dall'app.
-- **Account visitatore** — attiva un sistema di account email + password limitato a questa applicazione, isolato dagli account TblFlow. È ciò che permette a un cliente esterno di accedere al proprio spazio senza mai toccare il tuo account TblFlow.
+**Consenti la scrittura dei dati** è disattivato per impostazione predefinita. Un'app in sola lettura non può rompere nulla; attivalo solo se i visitatori devono davvero creare o modificare record dall'app.
 
-Cliccando su **Pubblica — genera il link pubblico** si ottiene subito un URL funzionante. Il piano Team aggiunge un dominio personalizzato.
+Cliccare su **Pubblica — genera il link** produce subito un URL. Non esistono password di condivisione né un account visitatore proprio dell'applicazione. Gli invitati, la personalizzazione della pagina, la rimozione della pubblicazione e il dominio personalizzato sono descritti in [Condivisione e pubblicazione](/it/docs/sharing-publishing).
 
 ## Il codice resta tuo
 
-Un'app pubblicata è vero codice React e Tailwind, non una scatola nera: **Codice → Esporta il codice** lo recupera per intero. Viceversa, **Importa il codice** permette di partire da una base esistente per ritoccarla a mano dopo una generazione IA.
+Un'applicazione pubblicata è vero codice React e Tailwind, non una scatola nera: **Codice → Esporta il codice** ne recupera l'intero contenuto. Al contrario, **Importa codice** permette di ripartire da una base esistente per adattarla a mano dopo una generazione IA.
 
-## Prossimi passi
+## E poi
 
-- [Automazioni](/it/docs/automations) — collega i workflow a ciò che fanno i tuoi visitatori.
-- [Agenti IA](/it/docs/ai-agents) — delega un'attività ricorrente invece di esporla nell'app.
-- [Tabelle e campi](/it/docs/tables-and-fields) — rivedi la struttura dei dati prima di pubblicarli.
+- [Automazioni](/it/docs/automations) — collegare workflow alle azioni dei visitatori.
+- [Agenti IA](/it/docs/ai-agents) — delegare un'attività ricorrente invece di esporla nell'app.
+- [Tabelle e campi](/it/docs/tables-and-fields) — rivedere la struttura dei dati prima di pubblicarla.
+- [Condivisione e pubblicazione](/it/docs/sharing-publishing) — inviti, dominio personalizzato, link di vista e di base.

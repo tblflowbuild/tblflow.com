@@ -6,7 +6,7 @@ section: "Guides"
 order: 6
 ---
 
-Le serveur MCP officiel de TblFlow permet à Claude de travailler sur vos données depuis la conversation. C'est un serveur MCP distant en Streamable HTTP, avec une authentification OAuth 2.1 (votre connexion TblFlow habituelle). Il est disponible dès le palier Gratuit, comme l'API REST.
+Le serveur MCP officiel de TblFlow permet à Claude de travailler sur vos données depuis la conversation. C'est un serveur MCP distant en Streamable HTTP, avec une authentification OAuth 2.1 (votre connexion TblFlow habituelle). Il est disponible dès le palier Gratuit, comme l'[API REST](/fr/docs/api-developpeurs).
 
 URL du serveur : `https://app.tblflow.com/mcp`
 
@@ -25,25 +25,53 @@ URL du serveur : `https://app.tblflow.com/mcp`
 claude mcp add --transport http tblflow https://app.tblflow.com/mcp
 ```
 
-## Les 23 outils
+## Les 27 outils
 
-Le serveur expose 23 outils, qui se regroupent ainsi :
+Le serveur expose 27 outils, qui se regroupent ainsi :
 
-- **Explorer** : lister vos espaces et vos bases, les vues d'une table et les membres d'un espace.
-- **Comprendre** : décrire le schéma d'une base, lire la carte des process d'un espace.
-- **Lire** : lister, filtrer et lire des enregistrements.
-- **Calculer** : calculer des statistiques sur une table (somme, moyenne, minimum, maximum, comptage), avec filtre et regroupement, sans lire toutes les lignes.
-- **Rechercher** : chercher dans le graphe de connaissances, en recherche sémantique et en plein texte.
-- **Créer et modifier** : créer et modifier des enregistrements.
-- **Importer** : importer un CSV, dans une table existante ou dans une nouvelle table.
-- **Supprimer et restaurer** : supprimer des enregistrements ou un champ, avec un aperçu puis une confirmation explicite ; lister la corbeille et restaurer ce qui a été supprimé.
-- **Structurer** : créer une table, créer ou renommer un champ.
-- **Automatiser** : lister les automatisations et agents exposés, déclencher une automatisation.
-- **Déléguer** : lancer un agent IA et suivre l'état de ses dernières exécutions.
+- **Explorer** : lister vos espaces et vos bases (`list_workspaces`), les vues d'une table (`list_views`) et les membres d'un espace (`list_collaborators`, sans leurs adresses e-mail).
+- **Comprendre** : décrire le schéma d'une base (`describe_base`), lire la carte des process d'un espace (`get_process_map`).
+- **Lire** : lister, filtrer et lire des enregistrements, 100 au plus par appel (`list_records`, `get_record`).
+- **Calculer** : calculer des statistiques sur une table (`aggregate_records`), avec filtre et regroupement, sans lire toutes les lignes. Fonctions : comptage, vides, remplis, valeurs uniques, minimum, maximum, somme, moyenne, pourcentages de vides, de remplis et d'uniques, date la plus ancienne et la plus récente.
+- **Rechercher** : chercher dans le graphe de connaissances, en recherche sémantique et en plein texte (`search_knowledge`).
+- **Créer et modifier** : créer et modifier des enregistrements, 50 au plus par appel (`create_records`, `update_records`).
+- **Importer** : importer un CSV de 2 Mio au plus, dans une table existante ou dans une nouvelle table (`import_csv`). Par défaut, un premier appel montre seulement les colonnes, les types devinés et le nombre de lignes, sans rien écrire.
+- **Supprimer et restaurer** : supprimer des enregistrements ou un champ (`delete_records`, `delete_field`), avec un aperçu puis une confirmation explicite ; lister la corbeille d'une table et restaurer ce qui a été supprimé (`list_trash`, `restore_records`).
+- **Structurer** : créer une table (`create_table`), créer un champ (`create_field`), modifier le nom, la description et, pour un champ Canvas, les options d'un champ (`update_field`). Le type d'un champ ne change jamais.
+- **Documents et fiches Canvas** : lire la fiche d'une ligne (`get_canvas_doc`), la modifier (`update_canvas_doc`), lancer la génération des fiches d'un champ Canvas pour 25 lignes au plus par appel (`generate_canvas_docs`, qui consomme des crédits IA en mode IA), et lire un document de l'espace (`get_doc`).
+- **Automatiser** : lister les automatisations et agents exposés (`list_exposed_actions`), tester à blanc une automatisation (`run_automation`).
+- **Déléguer** : lancer un agent IA (`run_agent`, attente de 100 secondes environ au plus) et suivre l'état de ses dernières exécutions (`get_run_status`).
+
+Chaque outil appelle l'API REST avec votre jeton : le serveur n'ouvre aucun accès de plus.
+
+## Ressources et prompts
+
+Le serveur publie aussi trois ressources en lecture et trois prompts prêts à l'emploi.
+
+| Type | Nom | Contenu |
+|---|---|---|
+| Ressource | `tblflow://workspaces` | Espaces accessibles (30 au plus) |
+| Ressource | `tblflow://bases/{baseId}` | Tables d'une base |
+| Ressource | `tblflow://tables/{tableId}` | Champs d'une table |
+| Prompt | `summarize_table` | Décrire une table et en tirer les chiffres clés, sans la modifier |
+| Prompt | `audit_data_quality` | Repérer champs vides et doublons probables, sans rien corriger |
+| Prompt | `add_rows_safely` | Ajouter des enregistrements après vérification du schéma, et seulement après votre accord |
 
 ## Permissions et choix des espaces
 
-À la connexion, vous choisissez les espaces et bases accessibles et les permissions. La **lecture** est active par défaut ; **écriture**, **suppression**, **schéma** et **déclenchement** sont des options. Vos droits TblFlow existants s'appliquent à chaque requête : Claude ne peut jamais faire plus que ce que vous pouvez faire.
+À la connexion, TblFlow affiche l'écran « demande l'accès à votre compte ». Il liste les permissions demandées, avec ces libellés :
+
+| Permission | Libellé affiché |
+| --- | --- |
+| Lecture (par défaut) | Lire vos données (espaces, tables, enregistrements, documents) |
+| Écriture | Créer et modifier des enregistrements |
+| Suppression | Supprimer des enregistrements (corbeille) |
+| Schéma | Créer des tables et des champs |
+| Déclenchement | Tester à blanc les automatisations et lancer les agents que vous avez exposés |
+
+Vous devez ensuite choisir les espaces et bases accessibles à l'application. Un espace coché inclut toutes ses bases. Si l'application n'a pas été vérifiée par TblFlow, l'écran l'indique (« Application non vérifiée ») : n'autorisez que si vous avez lancé la connexion vous-même, et contrôlez l'hôte de redirection affiché.
+
+La **lecture** est active par défaut ; **écriture**, **suppression**, **schéma** et **déclenchement** sont des options. La suppression comprend la restauration depuis la corbeille. L'import d'un CSV dans une table existante demande l'écriture ; l'import qui crée une table demande le schéma. Vos droits TblFlow existants s'appliquent à chaque requête : Claude ne peut jamais faire plus que ce que vous pouvez faire.
 
 ## Exposer une automatisation ou un agent
 

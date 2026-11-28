@@ -5,14 +5,14 @@ translationKey: "carto-suivi"
 type: "feature"
 ---
 
-El mapa de procesos (llamado «Carto des process» en la interfaz en francés) ya no se limita a dibujar: ahora mide, hace seguimiento en el tiempo y ayuda a dirigir. Los costes siguen siendo **estimaciones que introduces tú**, no mediciones. El mapa de procesos solo está disponible en los planes Pro, Business y Enterprise.
+El mapa de procesos (llamado «Carto des process» en la interfaz en francés) ya no se limita a dibujar: ahora mide, hace seguimiento en el tiempo y ayuda a dirigir. Los costes siguen siendo **estimaciones que introduces tú**, no mediciones. El mapa de procesos está disponible desde el plan Esencial (Esencial, Equipo, Enterprise); el plan Gratis solo ofrece un diagnóstico limitado a un proceso.
 
 **Seguimiento en el tiempo**
 
 - **Ficha de procedimiento** en cada proceso (campo Canvas), con responsable, fechas de revisión y estado.
 - **Alertas de caducidad**: cada lunes a las 7:00 (hora del servidor), un correo lista los procesos cuya próxima revisión está vencida o llega en los próximos 14 días. Si no hay nada que revisar, no se envía correo. Los destinatarios se pueden cambiar; se activan desde el menú «Más acciones» del lienzo. Se requiere una base V2.
-- **Informe mensual por correo**: el día 1 de cada mes a las 8:00, con el coste, la ganancia potencial, los tres procesos de mayor ganancia y las revisiones atrasadas. Los importes solo aparecen si el propietario de la base lo activa. Se requiere una base V2.
-- **Validación por paso**: estado (por validar, validado, por revisar), validado por, fecha y comentario, con una insignia en el paso dentro del lienzo.
+- **Informe mensual por correo**: el día 1 de cada mes a las 8:00, con el coste, la ganancia potencial, los tres procesos de mayor ganancia y las revisiones atrasadas. Los importes solo aparecen si quien activa el informe es el propietario de la base. Se requiere una base V2.
+- **Validación por paso**: estado (los valores vienen de la plantilla de la base: por validar, validado, por revisar), validado por, fecha y comentario, con una insignia en el paso dentro del lienzo.
 
 **Medir y comparar**
 

@@ -24,7 +24,7 @@ const de = {
   'benefits.3.title': 'Die Kontrolle behalten',
   'benefits.3.body':
     'Bei der Verbindung wählen Sie die zugänglichen Spaces und Bases sowie die Berechtigungen. Ihre TblFlow-Rechte gelten für jede Anfrage.',
-  'tools.title': '23 Tools, einfach erklärt',
+  'tools.title': "27 Tools, einfach erklärt",
   'tools.intro':
     'Das kann Claude tun. Die sensibleren Fähigkeiten sind Optionen, die Sie bei der Verbindung aktivieren.',
   'tools.1.title': 'Erkunden',
@@ -34,14 +34,14 @@ const de = {
   'tools.3.title': 'Lesen',
   'tools.3.body': 'Datensätze auflisten, filtern und lesen.',
   'tools.4.title': 'Suchen',
-  'tools.4.body': 'Den Wissensgraph per semantischer Suche und Volltextsuche durchsuchen.',
+  'tools.4.body': "Den Wissensgraph per semantischer Suche und Volltextsuche durchsuchen und ein Dokument lesen.",
   'tools.5.title': 'Anlegen und ändern',
-  'tools.5.body': 'Datensätze anlegen und ändern.',
+  'tools.5.body': "Datensätze anlegen und ändern sowie die Blätter der Canvas-Felder lesen, ändern und ihre Generierung starten.",
   'tools.6.title': 'Löschen',
   'tools.6.body':
     'Datensätze löschen: zuerst eine Vorschau, dann eine ausdrückliche Bestätigung. Die Datensätze landen im Papierkorb.',
   'tools.7.title': 'Strukturieren',
-  'tools.7.body': 'Eine Tabelle anlegen, ein Feld anlegen oder umbenennen.',
+  'tools.7.body': "Eine Tabelle anlegen, ein Feld anlegen, Namen, Beschreibung oder Optionen eines Canvas-Felds ändern.",
   'tools.8.title': 'Automatisieren',
   'tools.8.body':
     'Freigegebene Automatisierungen und Agenten auflisten und eine Automatisierung auslösen, sofern ihr Eigentümer sie freigegeben hat.',
@@ -50,7 +50,7 @@ const de = {
     'Einen KI-Agenten starten, sofern sein Eigentümer ihn freigegeben hat, und den Status seiner letzten Ausführungen verfolgen.',
   'tools.10.title': 'Berechnen',
   'tools.10.body':
-    'Summe, Durchschnitt, Minimum, Maximum und Anzahl zu einer Tabelle, mit Filter und Gruppierung, ohne alle Zeilen zu lesen.',
+    "Anzahl, leere, gefüllte und eindeutige Werte, Minimum, Maximum, Summe, Durchschnitt und Prozentwerte für eine Tabelle, mit Filter und Gruppierung, ohne alle Zeilen zu lesen.",
   'tools.11.title': 'Importieren',
   'tools.11.body': 'Eine CSV-Datei in eine bestehende oder in eine neue Tabelle importieren.',
   'tools.12.title': 'Wiederherstellen',

@@ -1,7 +1,7 @@
 ---
 title: "CLI de TblFlow"
 translationKey: "cli"
-description: "Instalar y usar la CLI de TblFlow (@tblflow/cli): conexión con código de dispositivo o token, comandos, importación de CSV, exportación y servidor MCP local."
+description: "Instalar y usar la CLI de TblFlow (@tblflow/cli): código de dispositivo o token de servicio, comandos, importación CSV y servidor MCP local."
 section: "Guías"
 order: 8
 ---
@@ -33,7 +33,7 @@ Antes de aprobar, comprueba que el código que aparece en el terminal es el mism
 
 ### En integración continua
 
-Crea un **token de servicio** en TblFlow: Ajustes del espacio → Seguridad y auditoría → Cuentas de servicio. Guárdalo en los secretos de tu CI y expónlo como variable de entorno:
+Crea un **token de servicio** en TblFlow: Ajustes del espacio → Seguridad y auditoría → Cuentas de servicio (véase [API y acceso para desarrolladores](/es/docs/api-developers)). Guárdalo en los secretos de tu CI y expónlo como variable de entorno:
 
 ```bash
 export TBLFLOW_TOKEN=...      # inyectado por la CI, nunca escrito en el repositorio
@@ -71,7 +71,17 @@ Por defecto, la CLI se comunica con `https://app.tblflow.com`. Para otro servido
 | `api <MÉTODO> <ruta>` | Llamada directa, solo rutas `/api/`; `DELETE` exige `--confirm` |
 | `mcp serve` | Servidor MCP local (stdio) |
 
-`--json` funciona con todos los comandos. Códigos de salida: 0 si todo va bien, 1 si hay un error, 2 si hay un error de uso o se requiere una confirmación.
+Opciones globales:
+
+| Opción | Efecto |
+|---|---|
+| `--json` | Muestra el resultado en JSON (salvo `export` sin `--out`, que escribe el CSV) |
+| `--host <url>` | Servidor a utilizar |
+| `--no-browser` | No abre el navegador al conectarse: la dirección y el código aparecen en el terminal |
+| `-h`, `--help` | Ayuda |
+| `-v`, `--version` | Versión |
+
+Códigos de salida: 0 si todo va bien, 1 si hay un error, 2 si hay un error de uso o se requiere una confirmación.
 
 ### Crear una tabla a partir de un CSV
 
@@ -89,6 +99,20 @@ tblflow import --new-table <baseId> clientes.csv --name "Clientes"
 ```json
 { "mcpServers": { "tblflow": { "command": "npx", "args": ["-y", "@tblflow/cli", "mcp", "serve"] } } }
 ```
+
+El servidor local expone 7 herramientas, con el token de tu sesión:
+
+| Herramienta | Efecto |
+|---|---|
+| `list_workspaces` | Lista los espacios y sus bases accesibles |
+| `list_tables` | Lista las tablas de una base |
+| `list_records` | Lee registros, 100 como máximo por llamada, con filtros y ordenaciones |
+| `get_record` | Lee un registro por su identificador |
+| `create_records` | Crea hasta 50 registros |
+| `update_records` | Actualiza hasta 50 registros (solo cambian los campos indicados) |
+| `delete_records` | Sin `confirm`, muestra una vista previa; con `confirm=true`, envía los registros a la papelera |
+
+Es un conjunto reducido: no incluye importación, estadísticas, creación de tablas ni automatizaciones. El servidor MCP remoto ofrece 27.
 
 Para conectar Claude (web, escritorio o móvil) sin instalar nada, usa mejor el servidor MCP remoto: consulta la guía [Servidor MCP](/es/docs/mcp-server).
 

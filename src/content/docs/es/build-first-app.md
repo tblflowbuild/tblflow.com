@@ -1,41 +1,41 @@
 ---
 title: "Crea tu primera aplicación"
 translationKey: "first-app"
-description: "Publica una aplicación de negocio a partir de una base de TblFlow: generada con IA o a mano, con autenticación de visitantes y un enlace público."
+description: "Crea una aplicación de negocio desde una base de TblFlow, generada por IA o construida en el editor, y publícala con acceso público o solo por invitación."
 section: "Guías"
 order: 5
 ---
 
-Una base de TblFlow no solo se consulta en la cuadrícula: puede publicarse como una aplicación real, con sus propias páginas, su propia autenticación y su propio dominio. Esta página cubre las dos formas de construir una.
+Una base de TblFlow no se limita a consultarse en la cuadrícula: puede publicarse como una aplicación real, con sus propias páginas, un enlace público o reservado a invitados, y un nombre de dominio propio. Esta página cubre las dos formas de construir una.
 
-## Opción 1 — descríbela a la IA
+## Opción 1 — describirla a la IA
 
-En el panel de chat de la base, elige **Aplicación completa** y describe lo que quieres: «Un CRM con un panel de control, la lista de cuentas y el pipeline de oportunidades como Kanban». La IA propone una estructura de páginas y bloques a partir de tus tablas existentes. No se publica nada hasta que apruebas la propuesta y haces clic en **Publicar**.
+En el panel de chat de la base, elige el modo **Aplicación completa** y describe lo que quieres: «Un CRM con un panel de control, la lista de cuentas y el pipeline de oportunidades en Kanban». La generación avanza por etapas: primero las tablas y sus relaciones, después la interfaz, las automatizaciones, las vistas y datos de ejemplo, y por último un agente de IA. Cada etapa produce propuestas que aceptas antes de pasar a la siguiente, y puedes modificar la propuesta en curso mientras no hayas aceptado ninguna. No se publica nada hasta que haces clic en **Publicar**.
 
-Es el camino más rápido, y el que la página de inicio de TblFlow recorre en detalle en «Pipeline de generación».
+## Opción 2 — construirla en el editor
 
-## Opción 2 — constrúyela a mano
+En la base, el menú de creación ofrece **Nueva aplicación** (si el chat de IA está activado y puedes crear aplicaciones). El editor se abre con tres pestañas, **Vista previa**, **Código** y **Logs**, y el chat de IA a la derecha: describe ahí tu aplicación y luego afínala.
 
-Desde la base, **Nueva interfaz**. Una interfaz se compone de páginas, y cada página de bloques: métricas numéricas, una lista o cuadrícula vinculada a una tabla, un cuadro de búsqueda, un Kanban. Cada bloque apunta a una tabla o vista existente, así que no duplicas datos, los pones en escena.
+Hacer clic en un bloque de la vista previa lo referencia en el chat. **Editar el texto directamente** corrige un texto mostrado sin pasar por una solicitud. **Historial** enumera las versiones de la aplicación; **Restaurar esta versión** vuelve a la que hayas seleccionado.
 
-Añade un bloque, elige su origen (una tabla o una vista concreta, incluida una vista Kanban o Calendario ya filtrada) y después ajusta su diseño. La navegación de la izquierda se construye página a página, en el orden en que las creas.
+## Publicar
 
-## Publicación
+El botón **Publicar**, en la parte superior del editor, abre el panel **Publicación de la aplicación**. Ofrece dos modos de acceso, a elegir:
 
-El botón **Publicar**, en la parte superior de la interfaz, abre tres ajustes:
+- **Solo por invitación — personas invitadas y miembros de la base** (opción por defecto). Cada persona inicia sesión con su cuenta de TblFlow, sin contraseña: enlace mágico o llave de seguridad.
+- **Pública — cualquier persona que tenga el enlace.** Se pide una confirmación: quien reciba el enlace abre la aplicación sin cuenta y ve los datos que muestra.
 
-- **Contraseña** — si se deja vacía, cualquiera que tenga el enlace puede acceder a la aplicación. Si se define (o se genera), la contraseña es necesaria para entrar.
-- **Permitir escritura de datos** — desactivado por defecto. Una aplicación de solo lectura no puede romper nada; actívalo solo si los visitantes necesitan realmente crear o editar registros desde la aplicación.
-- **Cuentas de visitantes** — activa un sistema de cuentas con correo y contraseña propio de esta aplicación, aislado de las cuentas de TblFlow. Es lo que permite a un cliente externo iniciar sesión en su propio espacio sin tocar nunca tu cuenta de TblFlow.
+**Permitir escritura de datos** está desactivado por defecto. Una aplicación de solo lectura no puede romper nada; actívalo solo si los visitantes necesitan realmente crear o modificar registros desde la aplicación.
 
-Al hacer clic en **Publicar — generar el enlace público** se produce al instante una URL operativa. El plan Equipo añade un dominio personalizado.
+Hacer clic en **Publicar — generar el enlace** produce una URL de inmediato. No hay contraseña para compartir ni cuenta de visitante propia de la aplicación. Los invitados, la personalización de la página, la despublicación y el dominio personalizado se describen en [Compartir y publicar](/es/docs/sharing-publishing).
 
 ## El código sigue siendo tuyo
 
-Una aplicación publicada es código React y Tailwind real, no una caja negra: **Código → Exportar código** recupera todo. A la inversa, **Importar código** permite partir de una base existente para ajustarla a mano después de una generación con IA.
+Una aplicación publicada es código real de React y Tailwind, no una caja negra: **Código → Exportar código** recupera la totalidad. A la inversa, **Importar código** permite partir de una base existente para adaptarla a mano tras una generación con IA.
 
-## Siguientes pasos
+## Y después
 
-- [Automatizaciones](/es/docs/automations) — conecta flujos de trabajo a lo que hacen tus visitantes.
-- [Agentes de IA](/es/docs/ai-agents) — delega una tarea recurrente en lugar de exponerla en la aplicación.
-- [Tablas y campos](/es/docs/tables-and-fields) — revisa la estructura de los datos antes de publicarlos.
+- [Automatizaciones](/es/docs/automations) — conectar flujos de trabajo a las acciones de tus visitantes.
+- [Agentes de IA](/es/docs/ai-agents) — delegar una tarea recurrente en lugar de exponerla en la aplicación.
+- [Tablas y campos](/es/docs/tables-and-fields) — revisar la estructura de datos antes de publicarla.
+- [Compartir y publicar](/es/docs/sharing-publishing) — invitados, dominio personalizado, enlaces de vista y de base.

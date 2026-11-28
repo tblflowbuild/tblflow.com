@@ -33,7 +33,7 @@ Before approving, check that the code displayed in the terminal is the same as t
 
 ### In continuous integration
 
-Create a **service token** in TblFlow: Space settings → Security and audit → Service accounts. Store it in your CI secrets, then expose it as an environment variable:
+Create a **service token** in TblFlow: Space settings → Security and audit → Service accounts (see [API and developer access](/en/docs/api-developers)). Store it in your CI secrets, then expose it as an environment variable:
 
 ```bash
 export TBLFLOW_TOKEN=...      # injected by the CI, never written to the repository
@@ -71,7 +71,17 @@ By default, the CLI talks to `https://app.tblflow.com`. For another server, use 
 | `api <METHOD> <path>` | Direct call, `/api/` paths only; `DELETE` requires `--confirm` |
 | `mcp serve` | Local MCP server (stdio) |
 
-`--json` works with every command. Exit codes: 0 on success, 1 on error, 2 for a usage error or a required confirmation.
+Global options:
+
+| Option | Effect |
+|---|---|
+| `--json` | Prints the result as JSON (except `export` without `--out`, which writes the CSV) |
+| `--host <url>` | Server to use |
+| `--no-browser` | Does not open the browser at sign-in: the address and the code are displayed in the terminal |
+| `-h`, `--help` | Help |
+| `-v`, `--version` | Version |
+
+Exit codes: 0 on success, 1 on error, 2 for a usage error or a required confirmation.
 
 ### Create a table from a CSV
 
@@ -89,6 +99,20 @@ tblflow import --new-table <baseId> clients.csv --name "Clients"
 ```json
 { "mcpServers": { "tblflow": { "command": "npx", "args": ["-y", "@tblflow/cli", "mcp", "serve"] } } }
 ```
+
+The local server exposes 7 tools, with the token of your session:
+
+| Tool | Effect |
+|---|---|
+| `list_workspaces` | Lists the spaces and their accessible bases |
+| `list_tables` | Lists a base's tables |
+| `list_records` | Reads records, 100 at most per call, with filters and sorts |
+| `get_record` | Reads a record by its identifier |
+| `create_records` | Creates up to 50 records |
+| `update_records` | Updates up to 50 records (only the fields supplied change) |
+| `delete_records` | Without `confirm`, shows a preview; with `confirm=true`, sends the records to the trash |
+
+This is a reduced set: it includes neither import, nor statistics, nor table creation, nor automations. The remote MCP server offers 27.
 
 To connect Claude (web, desktop or mobile) with nothing to install, use the remote MCP server instead: see the [MCP server](/en/docs/mcp-server) guide.
 

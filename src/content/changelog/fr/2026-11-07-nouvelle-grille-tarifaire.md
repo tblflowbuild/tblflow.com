@@ -13,4 +13,4 @@ Les paliers changent de forme : un prix par équipe, avec des personnes incluses
 - **Entreprise**, à partir de 399 € par mois : 50 personnes incluses, puis 5 € par personne supplémentaire. Sur devis au-delà de 50 personnes ou pour l'auto-hébergement.
 - **Annuel** : 2 mois offerts sur chaque palier payant.
 
-Les fonctions d'IA utilisent toujours votre propre clé de fournisseur ; un guide pas à pas vous accompagne pour la configurer. Détail des paliers : [tarifs](/fr/pricing).
+À cette date, les fonctions d'IA utilisent votre propre clé de fournisseur ; un guide pas à pas vous accompagne pour la configurer. L'IA TblFlow, avec ses crédits, est arrivée ensuite. Détail des paliers : [tarifs](/fr/pricing).

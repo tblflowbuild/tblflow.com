@@ -23,3 +23,99 @@
 # (yet). Sent to the closest real page rather than left to 404.
 /templates            /fr                   302
 /en/templates         /en                   302
+
+# MCP docs: the app links to /docs/mcp, which never existed
+/docs/mcp            /fr/docs/serveur-mcp  301
+
+# Liens d'aide de l'application (ancien domaine help.tblflow.com).
+# Host-agnostique : si help.tblflow.com est rattaché à ce déploiement, ses anciens
+# chemins atterrissent sur la page de doc correspondante. /<lang>/changelog est une
+# vraie route du site, donc sans règle. Règles statiques seulement (pas de splat).
+# /<lang>/api-doc
+/en/api-doc                                   /en/docs/api-developers             301
+/de/api-doc                                   /de/docs/api-developers             301
+/es/api-doc                                   /es/docs/api-developers             301
+/fr/api-doc                                   /fr/docs/api-developpeurs           301
+/it/api-doc                                   /it/docs/api-developers             301
+/ja/api-doc                                   /ja/docs/api-developers             301
+/ru/api-doc                                   /ru/docs/api-developers             301
+/tr/api-doc                                   /tr/docs/api-developers             301
+/uk/api-doc                                   /uk/docs/api-developers             301
+/zh/api-doc                                   /zh/docs/api-developers             301
+# /<lang>/api-doc/token
+/en/api-doc/token                             /en/docs/api-developers             301
+/de/api-doc/token                             /de/docs/api-developers             301
+/es/api-doc/token                             /es/docs/api-developers             301
+/fr/api-doc/token                             /fr/docs/api-developpeurs           301
+/it/api-doc/token                             /it/docs/api-developers             301
+/ja/api-doc/token                             /ja/docs/api-developers             301
+/ru/api-doc/token                             /ru/docs/api-developers             301
+/tr/api-doc/token                             /tr/docs/api-developers             301
+/uk/api-doc/token                             /uk/docs/api-developers             301
+/zh/api-doc/token                             /zh/docs/api-developers             301
+# /<lang>/api-doc/oauth
+/en/api-doc/oauth                             /en/docs/api-developers             301
+/de/api-doc/oauth                             /de/docs/api-developers             301
+/es/api-doc/oauth                             /es/docs/api-developers             301
+/fr/api-doc/oauth                             /fr/docs/api-developpeurs           301
+/it/api-doc/oauth                             /it/docs/api-developers             301
+/ja/api-doc/oauth                             /ja/docs/api-developers             301
+/ru/api-doc/oauth                             /ru/docs/api-developers             301
+/tr/api-doc/oauth                             /tr/docs/api-developers             301
+/uk/api-doc/oauth                             /uk/docs/api-developers             301
+/zh/api-doc/oauth                             /zh/docs/api-developers             301
+# /<lang>/basic/field/advanced/link
+/en/basic/field/advanced/link                 /en/docs/tables-and-fields          301
+/de/basic/field/advanced/link                 /de/docs/tables-and-fields          301
+/es/basic/field/advanced/link                 /es/docs/tables-and-fields          301
+/fr/basic/field/advanced/link                 /fr/docs/tables-et-champs           301
+/it/basic/field/advanced/link                 /it/docs/tables-and-fields          301
+/ja/basic/field/advanced/link                 /ja/docs/tables-and-fields          301
+/ru/basic/field/advanced/link                 /ru/docs/tables-and-fields          301
+/tr/basic/field/advanced/link                 /tr/docs/tables-and-fields          301
+/uk/basic/field/advanced/link                 /uk/docs/tables-and-fields          301
+/zh/basic/field/advanced/link                 /zh/docs/tables-and-fields          301
+# /<lang>/basic/plugin/chart
+/en/basic/plugin/chart                        /en/docs/views-and-filters          301
+/de/basic/plugin/chart                        /de/docs/views-and-filters          301
+/es/basic/plugin/chart                        /es/docs/views-and-filters          301
+/fr/basic/plugin/chart                        /fr/docs/vues-filtres               301
+/it/basic/plugin/chart                        /it/docs/views-and-filters          301
+/ja/basic/plugin/chart                        /ja/docs/views-and-filters          301
+/ru/basic/plugin/chart                        /ru/docs/views-and-filters          301
+/tr/basic/plugin/chart                        /tr/docs/views-and-filters          301
+/uk/basic/plugin/chart                        /uk/docs/views-and-filters          301
+/zh/basic/plugin/chart                        /zh/docs/views-and-filters          301
+# /<lang>/basic/plugin/sheet-form
+/en/basic/plugin/sheet-form                   /en/docs/views-and-filters          301
+/de/basic/plugin/sheet-form                   /de/docs/views-and-filters          301
+/es/basic/plugin/sheet-form                   /es/docs/views-and-filters          301
+/fr/basic/plugin/sheet-form                   /fr/docs/vues-filtres               301
+/it/basic/plugin/sheet-form                   /it/docs/views-and-filters          301
+/ja/basic/plugin/sheet-form                   /ja/docs/views-and-filters          301
+/ru/basic/plugin/sheet-form                   /ru/docs/views-and-filters          301
+/tr/basic/plugin/sheet-form                   /tr/docs/views-and-filters          301
+/uk/basic/plugin/sheet-form                   /uk/docs/views-and-filters          301
+/zh/basic/plugin/sheet-form                   /zh/docs/views-and-filters          301
+# /<lang>/basic/ai/custom-model
+/en/basic/ai/custom-model                     /en/docs/space-settings             301
+/de/basic/ai/custom-model                     /de/docs/space-settings             301
+/es/basic/ai/custom-model                     /es/docs/space-settings             301
+/fr/basic/ai/custom-model                     /fr/docs/reglages-espace            301
+/it/basic/ai/custom-model                     /it/docs/space-settings             301
+/ja/basic/ai/custom-model                     /ja/docs/space-settings             301
+/ru/basic/ai/custom-model                     /ru/docs/space-settings             301
+/tr/basic/ai/custom-model                     /tr/docs/space-settings             301
+/uk/basic/ai/custom-model                     /uk/docs/space-settings             301
+/zh/basic/ai/custom-model                     /zh/docs/space-settings             301
+# /<lang>/deploy/database-connection
+/en/deploy/database-connection                /en/docs/tables-and-fields          301
+/de/deploy/database-connection                /de/docs/tables-and-fields          301
+/es/deploy/database-connection                /es/docs/tables-and-fields          301
+/fr/deploy/database-connection                /fr/docs/tables-et-champs           301
+/it/deploy/database-connection                /it/docs/tables-and-fields          301
+/ja/deploy/database-connection                /ja/docs/tables-and-fields          301
+/ru/deploy/database-connection                /ru/docs/tables-and-fields          301
+/tr/deploy/database-connection                /tr/docs/tables-and-fields          301
+/uk/deploy/database-connection                /uk/docs/tables-and-fields          301
+/zh/deploy/database-connection                /zh/docs/tables-and-fields          301
