@@ -18,13 +18,13 @@ Les habilitations décident qui peut voir, modifier ou administrer quoi dans Tbl
 | **Rôle personnalisé** | Un rôle que vous nommez dans une matrice, avec la liste d'actions que vous choisissez. |
 | **Attribution** | Le lien entre un rôle personnalisé et un utilisateur. |
 
-Les rôles personnalisés **s'ajoutent** aux rôles par défaut : ils donnent des droits en plus, jamais l'accès à un espace ou à une base dont l'utilisateur n'est pas déjà membre.
+Les rôles personnalisés **s'ajoutent** aux rôles par défaut : leurs droits s'additionnent à ceux du rôle de l'utilisateur, ils ne les remplacent pas. L'écran d'attribution ne propose que les collaborateurs de la portée.
 
 ## Les rôles par défaut
 
 ### Les cinq rôles
 
-La hiérarchie est : propriétaire, créateur, éditeur, commentateur, lecteur (du plus au moins de droits). Un utilisateur obtient un rôle en devenant **collaborateur** d'un espace ou d'une base : invitation par e-mail, lien d'invitation ou ajout direct. Sur une base, les droits du rôle de la base et ceux du rôle de l'espace parent se **cumulent**.
+La hiérarchie est : propriétaire, créateur, éditeur, commentateur, lecteur (du plus au moins de droits). Un utilisateur obtient un rôle en devenant **collaborateur** d'un espace ou d'une base : invitation par e-mail, lien d'invitation ou ajout d'un membre ou d'un département de l'organisation. Sur une base, les droits du rôle de la base et ceux du rôle de l'espace parent se **cumulent**.
 
 Les rôles que l'on peut proposer dépendent du niveau :
 
@@ -44,7 +44,7 @@ Les rôles propriétaire, créateur et éditeur comptent comme un siège factura
 | Espace : lire | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Espace : inviter par e-mail | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Espace : créer un lien d'invitation | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Espace : attribuer un rôle, configurer les permissions | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Espace : configurer les permissions | ✅ | ❌ | ❌ | ❌ | ❌ |
 | **Base** : créer, supprimer, modifier | ✅ | ✅ | ❌ | ❌ | ❌ |
 | Base : lire | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Base : inviter par e-mail | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -80,8 +80,7 @@ Les rôles propriétaire, créateur et éditeur comptent comme un siège factura
 Certains droits ne passent pas par les rôles ci-dessus, ils sont refusés à tous :
 
 - **Administration de l'instance** (pages d'administration, import de l'organigramme) : réservée aux administrateurs de l'instance.
-- **Fonctions Enterprise** : réservées à l'offre Enterprise.
-- **Opérateur de plateforme** (déploiement multi-locataire) : réservé à l'opérateur TblFlow du déploiement.
+- **Configuration de l'entreprise** (actions « enterprise ») : aucun rôle d'espace ne les porte, et un rôle personnalisé ne peut pas les accorder.
 
 ## Où gérer les habilitations
 
@@ -89,7 +88,7 @@ Deux gestes existent : **donner un rôle par défaut** et **créer un rôle pers
 
 ### Donner un rôle par défaut
 
-Au niveau d'un espace ou d'une base, invitez un utilisateur (par e-mail ou par lien) en choisissant son rôle. Il faut pouvoir inviter à ce niveau, et pour attribuer un rôle sur un espace, avoir le droit « attribuer un rôle ».
+Au niveau d'un espace ou d'une base, invitez un utilisateur (par e-mail ou par lien) en choisissant son rôle. Il faut avoir le droit d'inviter à ce niveau (voir le tableau : l'invitation par lien est réservée au propriétaire et au créateur).
 
 ### Créer un rôle personnalisé
 
@@ -97,23 +96,23 @@ Il y a trois portées, avec le même écran :
 
 | Portée | Où dans l'interface | Droit requis |
 |---|---|---|
-| **Espace** | Réglages de l'espace, onglet **Permission** | Configurer les permissions de l'espace |
-| **Base** | Menu de la base, entrée **Permission** (icône cadenas) | Configurer les permissions de la base |
-| **Table** | Clic droit sur une table, **Permissions de la table** | Configurer les permissions de la table |
+| **Espace** | Réglages de l'espace, onglet **Permissions** | Configurer les permissions de l'espace |
+| **Base** | Icônes de la base, **Permission** (cadenas) | Configurer les permissions de la base |
+| **Table** | Menu de la table, entrée **Permissions** (cadenas) | Configurer les permissions de la table |
 
-Par défaut, l'entrée **Permission** d'une base n'apparaît que pour le propriétaire et le créateur. Pour une table, les utilisateurs que l'on peut cibler sont les **collaborateurs de la base parente** : une table n'a pas de collaborateurs propres.
+Par défaut, l'entrée **Permission** d'une base n'apparaît que pour le propriétaire et le créateur, et elle demande l'offre Équipe ou supérieure : en dessous, elle porte un badge d'offre et mène à la mise à niveau. Pour une table, les utilisateurs que l'on peut cibler sont les **collaborateurs de la base parente** : une table n'a pas de collaborateurs propres.
 
 ## Créer un rôle personnalisé, pas à pas
 
-1. **Créez la matrice.** Sur l'écran Permission de la portée voulue, utilisez le bouton de création. Un nom suffit, la description est facultative. Une matrice regroupe plusieurs rôles.
-2. **Ajoutez un rôle** dans la matrice : donnez-lui un nom, puis cochez les actions. Elles sont rangées en groupes repliables (Tables, Champs, Vues, Enregistrements, Collaboration, Base, Automatisations, Autres), avec une recherche.
-3. **Attribuez le rôle** à un ou plusieurs utilisateurs, choisis parmi les collaborateurs de la portée. L'effet est immédiat : les droits de l'utilisateur sont recalculés dès l'attribution et dès la révocation.
+1. **Créez la matrice.** Sur l'écran Permission de la portée voulue, cliquez sur **Nouvelle permission**. Un nom suffit, la description est facultative. Une matrice regroupe plusieurs rôles.
+2. **Ajoutez un rôle** (**Ajouter un rôle**) dans la matrice : donnez-lui un nom, puis cochez les actions. Elles sont rangées en groupes repliables (Tables, Champs, Vues, Enregistrements, Collaboration, Base, Automatisations, Autres), avec une recherche.
+3. **Assignez le rôle** (**Assigner**) à un ou plusieurs utilisateurs, choisis parmi les collaborateurs de la portée. L'effet est immédiat : les droits de l'utilisateur sont recalculés dès l'attribution et dès la révocation.
 4. **Modifiez ou retirez.** Un rôle se renomme, change d'actions ou se supprime. Une attribution se retire. Supprimer une matrice supprime aussi ses rôles et ses attributions.
 
 ## Règles et limites à connaître
 
-- **Additif seulement.** Un rôle personnalisé ne remplace jamais l'appartenance à l'espace ou à la base. Sur une table, il ajoute des actions à celles que la base donne déjà.
-- **Actions validées.** Le serveur refuse toute action qui n'appartient pas à la liste officielle. Un rôle personnalisé ne peut pas accorder les droits sur les connecteurs ni les droits d'opérateur de plateforme.
+- **Additif seulement.** Les droits d'un rôle personnalisé s'ajoutent à ceux du rôle par défaut, sans les retirer. Sur une table, ils s'ajoutent à ceux que la base donne déjà.
+- **Actions validées.** Le serveur refuse toute action qui n'appartient pas à la liste officielle. Il refuse aussi l'administration de l'espace (créer, supprimer ou modifier l'espace, attribuer un rôle, configurer les permissions de l'espace) et les actions d'instance et d'entreprise. Les autres actions, y compris celles des connecteurs et celles qui ouvrent un réglage d'espace (notifications, e-mail, domaines, IA), peuvent être accordées.
 - **Cohérence de portée.** Le serveur vérifie que la matrice appartient à la ressource concernée et que le rôle appartient à la matrice.
 - **Une attribution est unique** pour un couple rôle et utilisateur : la refaire ne la duplique pas.
 - **Jeton d'accès personnel.** Il ne peut que restreindre les droits de son propriétaire, jamais les étendre.

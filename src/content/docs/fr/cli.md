@@ -33,7 +33,7 @@ Avant d'approuver, vérifiez que le code affiché dans le terminal est le même 
 
 ### En intégration continue
 
-Créez un **jeton de service** dans TblFlow : Réglages de l'espace → Sécurité et audit → Comptes de service. Rangez-le dans les secrets de votre CI, puis exposez-le en variable d'environnement :
+Créez un **jeton de service** dans TblFlow : Réglages de l'espace → Sécurité et audit → Comptes de service (voir [API et accès développeurs](/fr/docs/api-developpeurs)). Rangez-le dans les secrets de votre CI, puis exposez-le en variable d'environnement :
 
 ```bash
 export TBLFLOW_TOKEN=...      # injecté par la CI, jamais écrit dans le dépôt
@@ -71,7 +71,17 @@ Par défaut, le CLI parle à `https://app.tblflow.com`. Pour un autre serveur, u
 | `api <MÉTHODE> <chemin>` | Appel direct, chemins `/api/` uniquement ; `DELETE` exige `--confirm` |
 | `mcp serve` | Serveur MCP local (stdio) |
 
-`--json` fonctionne avec toutes les commandes. Codes de sortie : 0 en cas de succès, 1 en cas d'erreur, 2 pour une erreur d'usage ou une confirmation requise.
+Options globales :
+
+| Option | Effet |
+|---|---|
+| `--json` | Affiche le résultat en JSON (sauf `export` sans `--out`, qui écrit le CSV) |
+| `--host <url>` | Serveur à utiliser |
+| `--no-browser` | Ne pas ouvrir le navigateur à la connexion : l'adresse et le code s'affichent dans le terminal |
+| `-h`, `--help` | Aide |
+| `-v`, `--version` | Version |
+
+Codes de sortie : 0 en cas de succès, 1 en cas d'erreur, 2 pour une erreur d'usage ou une confirmation requise.
 
 ### Créer une table depuis un CSV
 
@@ -89,6 +99,20 @@ tblflow import --new-table <baseId> clients.csv --name "Clients"
 ```json
 { "mcpServers": { "tblflow": { "command": "npx", "args": ["-y", "@tblflow/cli", "mcp", "serve"] } } }
 ```
+
+Le serveur local expose 7 outils, avec le jeton de votre session :
+
+| Outil | Effet |
+|---|---|
+| `list_workspaces` | Liste les espaces et leurs bases accessibles |
+| `list_tables` | Liste les tables d'une base |
+| `list_records` | Lit des enregistrements, 100 au plus par appel, avec filtres et tris |
+| `get_record` | Lit un enregistrement par son identifiant |
+| `create_records` | Crée jusqu'à 50 enregistrements |
+| `update_records` | Met à jour jusqu'à 50 enregistrements (seuls les champs fournis changent) |
+| `delete_records` | Sans `confirm`, montre un aperçu ; avec `confirm=true`, envoie les enregistrements à la corbeille |
+
+C'est un jeu réduit : il ne comprend ni import, ni statistiques, ni création de table, ni automatisations. Le serveur MCP distant en propose 27.
 
 Pour connecter Claude (web, bureau ou mobile) sans rien installer, utilisez plutôt le serveur MCP distant : voir le guide [Serveur MCP](/fr/docs/serveur-mcp).
 

@@ -1,34 +1,33 @@
 ---
 title: "Créer votre première application"
 translationKey: "first-app"
-description: "Publier une application métier depuis une base TblFlow : générée par l'IA ou construite à la main, avec authentification visiteur et lien public."
+description: "Créer une application métier depuis une base TblFlow, générée par l'IA ou construite dans l'éditeur, puis la publier en accès public ou sur invitation."
 section: "Guides"
 order: 5
 ---
 
-Une base TblFlow n'est pas seulement consultable dans la grille : elle peut être publiée comme une vraie application, avec ses propres pages, sa propre authentification et son propre nom de domaine. Cette page couvre les deux façons d'en construire une.
+Une base TblFlow n'est pas seulement consultable dans la grille : elle peut être publiée comme une vraie application, avec ses propres pages, un lien public ou réservé à des invités, et un nom de domaine à vous. Cette page couvre les deux façons d'en construire une.
 
 ## Option 1 — la décrire à l'IA
 
-Dans le panneau de chat de la base, choisissez **Application complète**, puis décrivez ce que vous voulez : « Un CRM avec un tableau de bord, la liste des comptes et le pipeline des opportunités en Kanban ». L'IA propose une structure de pages et de blocs à partir de vos tables existantes. Rien n'est publié tant que vous n'avez pas validé la proposition et cliqué sur **Publier**.
+Dans le panneau de chat de la base, choisissez le mode **Application complète**, puis décrivez ce que vous voulez : « Un CRM avec un tableau de bord, la liste des comptes et le pipeline des opportunités en Kanban ». La génération avance par étapes : les tables, leurs relations, puis l'interface, les automatisations, les vues et des données fictives, enfin un agent IA. Chaque étape produit des propositions que vous acceptez avant de passer à la suivante, et vous pouvez modifier la proposition en cours tant qu'aucune n'est acceptée. Rien n'est publié tant que vous n'avez pas cliqué sur **Publier**.
 
-C'est le chemin le plus rapide, et celui que la page d'accueil de TblFlow montre en détail dans « Pipeline de génération ».
+## Option 2 — la construire dans l'éditeur
 
-## Option 2 — la construire à la main
+Dans la base, le menu de création propose **Nouvelle application** (si le chat IA est activé et que vous pouvez créer des applications). L'éditeur s'ouvre avec trois onglets, **Aperçu**, **Code** et **Logs**, et le chat IA à droite : décrivez-y votre application, puis affinez.
 
-Depuis la base, **Nouvelle interface**. Une interface est composée de pages, et chaque page de blocs : des indicateurs chiffrés, une liste ou une grille liée à une table, une recherche, un Kanban. Chaque bloc pointe vers une table ou une vue existante — vous ne dupliquez pas les données, vous les mettez en scène.
-
-Ajoutez un bloc, choisissez sa source (une table ou une vue précise, y compris une vue Kanban ou Calendrier déjà filtrée), puis ajustez sa mise en page. La navigation de gauche se construit page par page, dans l'ordre où vous les créez.
+Cliquer sur un bloc de l'aperçu le référence dans le chat. **Modifier le texte directement** corrige un texte affiché sans repasser par une demande. **Historique** liste les versions de l'application ; **Restaurer cette version** revient à celle que vous avez sélectionnée.
 
 ## Publier
 
-Le bouton **Publier**, en haut de l'interface, ouvre trois réglages :
+Le bouton **Publier**, en haut de l'éditeur, ouvre le panneau **Publication de l'app**. Il propose deux modes d'accès, au choix :
 
-- **Mot de passe** — laissé vide, l'app est accessible à quiconque a le lien. Renseigné (ou généré), il faut le mot de passe pour entrer.
-- **Autoriser l'écriture des données** — désactivé par défaut. Une app en lecture seule ne peut rien casser ; ne l'activez que si des visiteurs doivent réellement créer ou modifier des enregistrements depuis l'app.
-- **Comptes visiteurs** — active un système de comptes e-mail + mot de passe propre à cette application, isolé des comptes TblFlow. C'est ce qui permet à un client externe de se connecter à son propre espace sans jamais avoir accès à votre compte TblFlow.
+- **Sur invitation — personnes invitées et membres de la base** (proposé par défaut). Chaque personne se connecte avec son compte TblFlow, sans mot de passe : lien magique ou clé de sécurité.
+- **Publique — toute personne qui a le lien.** Une confirmation est demandée : quiconque reçoit le lien ouvre l'app, sans compte, et voit les données qu'elle affiche.
 
-Cliquer sur **Publier — générer le lien public** produit une URL fonctionnelle immédiatement. Le palier Équipe ajoute un domaine personnalisé.
+**Autoriser l'écriture des données** est désactivé par défaut. Une app en lecture seule ne peut rien casser ; ne l'activez que si des visiteurs doivent réellement créer ou modifier des enregistrements depuis l'app.
+
+Cliquer sur **Publier — générer le lien** produit une URL immédiatement. Il n'y a ni mot de passe de partage ni compte visiteur propre à l'application. Les invités, la personnalisation de la page, la dépublication et le domaine personnalisé sont décrits dans [Partage et publication](/fr/docs/partage-publication).
 
 ## Le code reste à vous
 
@@ -39,3 +38,4 @@ Une application publiée est du vrai code React et Tailwind, pas une boîte noir
 - [Automatisations](/fr/docs/automatisations) — connecter des workflows aux actions de vos visiteurs.
 - [Agents IA](/fr/docs/agents-ia) — déléguer une tâche récurrente plutôt que l'exposer dans l'app.
 - [Tables et champs](/fr/docs/tables-et-champs) — revoir la structure de données avant de la publier.
+- [Partage et publication](/fr/docs/partage-publication) — invités, domaine personnalisé, liens de vue et de base.
