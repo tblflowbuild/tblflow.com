@@ -1,5 +1,5 @@
 ---
-import { TIERS, QUOTAS, API_RATE_LIMIT_NOTE, CARTO_FREE_NOTE } from '@/data/pricing';
+import { TIERS, QUOTAS, API_RATE_LIMIT_NOTE, CARTO_FREE_NOTE, WELCOME_CREDIT_NOTE } from '@/data/pricing';
 import { useTranslations } from '@/i18n/ui';
 import { SUPPORT_EMAIL, formatPrice, formatMonthlyEquivalent, type Locale } from '@/config';
 
@@ -198,6 +198,7 @@ const t = useTranslations(locale);
         </div>
         <p class="mt-3 text-xs text-[var(--fg-subtle)]">{CARTO_FREE_NOTE[locale]}</p>
         <p class="mt-1 text-xs text-[var(--fg-subtle)]">{API_RATE_LIMIT_NOTE[locale]}</p>
+        <p class="mt-1 text-xs text-[var(--fg-subtle)]">{WELCOME_CREDIT_NOTE[locale]}</p>
       </div>
     )
   }

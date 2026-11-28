@@ -77,7 +77,7 @@ ${[...rows, ...noteRows].join('\n')}`);
   const tierDivider = new Array(TIERS.length + 1).fill('---').join(' | ');
   const priceRow = [
     'Price per month',
-    ...TIERS.map((t) => (t.price === null ? 'Custom' : t.price === 0 ? 'Free' : `$${t.price}`)),
+    ...TIERS.map((t) => (t.price === null ? 'Custom' : t.price === 0 ? 'Free' : `€${t.price}`)),
   ].join(' | ');
   const quotaRows = QUOTAS.map((row) =>
     [row.label.en, ...TIERS.map((t) => row.values[t.id].en)].join(' | ')
