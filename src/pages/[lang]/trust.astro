@@ -4,7 +4,7 @@ import { useTranslations } from '@/i18n/ui';
 import { localePath, brandTitle } from '@/i18n/utils';
 import { LOCALES, APP_LEGAL, type Locale } from '@/config';
 import { COMPANY } from '@/data/legal';
-import { TRUST } from '@/data/trust';
+import { TRUST, TRUST_UPDATED_AT } from '@/data/trust';
 
 export function getStaticPaths() {
   return LOCALES.map((lang) => ({ params: { lang } }));
@@ -27,6 +27,7 @@ const breadcrumbs = [
   description={texts.description}
   path={path}
   breadcrumbs={breadcrumbs}
+  modifiedAt={new Date(`${TRUST_UPDATED_AT}T00:00:00Z`)}
 >
   <div class="mx-auto max-w-4xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
     <h1 class="animate-enter text-4xl font-medium sm:text-5xl">{texts.title}</h1>

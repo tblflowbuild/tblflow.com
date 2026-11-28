@@ -34,7 +34,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     cards: [
       {
         title: 'Ce que fait Boldo',
-        text: 'Boldo est un outil d’architecture d’entreprise. Il sert à cartographier les applications, les flux, les capacités et les risques d’un système d’information, avec des diagrammes collaboratifs, de l’analyse d’impact et des scénarios. Il s’adresse surtout aux équipes informatiques, aux architectes d’entreprise et aux cabinets de conseil.',
+        text: "Boldo est une plateforme d’architecture d’entreprise. Elle sert à cartographier les actifs d’un système d’information et leurs dépendances, avec des diagrammes collaboratifs, de l’analyse d’impact et des scénarios. Elle s’adresse surtout aux DSI, aux architectes d’entreprise et aux responsables de la transformation.",
       },
       {
         title: 'Ce que fait TblFlow',
@@ -44,7 +44,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     meetTitle: 'Où ils se rencontrent',
     meetText:
       'Le point de contact est la cartographie. Boldo la met au service de la gouvernance du système d’information ; la cartographie des processus de TblFlow sert à repérer le travail à simplifier ou à automatiser. Ce qui est décrit d’un côté peut éclairer l’autre.',
-    note: 'Ce que nous disons de Boldo vient de son site public, lu le 21 novembre 2026. Nous n’avons pas utilisé son produit. Boldo est une marque de BOLDO SAS.',
+    note: "Ce que nous disons de Boldo vient de son site public et de ses mentions légales, lus le 28 novembre 2026. Boldo est édité par la société par actions simplifiée Boldo (RCS Nanterre 928 795 970). Nous n’avons pas utilisé son produit. Ces informations peuvent avoir changé ; pour signaler une erreur : contact@tblflow.com.",
   },
   en: {
     title: 'TblFlow and Boldo: complementary tools',
@@ -56,7 +56,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     cards: [
       {
         title: 'What Boldo does',
-        text: 'Boldo is an enterprise architecture tool. It is used to map the applications, flows, capabilities and risks of an information system, with collaborative diagrams, impact analysis and scenarios. It is aimed mainly at IT teams, enterprise architects and consulting firms.',
+        text: "Boldo is an enterprise architecture platform. It maps the assets of an information system and their dependencies, with collaborative diagrams, impact analysis and scenarios. It is aimed mainly at CIOs, enterprise architects and transformation leads.",
       },
       {
         title: 'What TblFlow does',
@@ -66,7 +66,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     meetTitle: 'Where they meet',
     meetText:
       'The point of contact is mapping. Boldo puts it at the service of information system governance; TblFlow’s process map is used to spot work to simplify or automate. What is described on one side can inform the other.',
-    note: 'What we say about Boldo comes from its public website, read on 21 November 2026. We have not used its product. Boldo is a trademark of BOLDO SAS.',
+    note: "What we say about Boldo comes from its public website and legal notice, read on 28 November 2026. Boldo is published by the simplified joint-stock company Boldo (RCS Nanterre 928 795 970). We have not used its product. This information may have changed; to report an error: contact@tblflow.com.",
   },
   de: {
     title: 'TblFlow und Boldo: sich ergänzende Werkzeuge',
@@ -78,7 +78,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     cards: [
       {
         title: 'Was Boldo macht',
-        text: 'Boldo ist ein Werkzeug für Unternehmensarchitektur. Es dient dazu, die Anwendungen, Datenflüsse, Fähigkeiten und Risiken eines Informationssystems abzubilden, mit kollaborativen Diagrammen, Auswirkungsanalysen und Szenarien. Es richtet sich vor allem an IT-Teams, Unternehmensarchitekten und Beratungsunternehmen.',
+        text: "Boldo ist eine Plattform für Unternehmensarchitektur. Sie bildet die Assets eines Informationssystems und ihre Abhängigkeiten ab, mit kollaborativen Diagrammen, Auswirkungsanalyse und Szenarien. Sie richtet sich vor allem an IT-Leitungen, Unternehmensarchitekten und Transformationsverantwortliche.",
       },
       {
         title: 'Was TblFlow macht',
@@ -88,7 +88,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     meetTitle: 'Wo sie sich treffen',
     meetText:
       'Der Berührungspunkt ist die Abbildung. Boldo stellt sie in den Dienst der Steuerung des Informationssystems; die Prozesslandkarte von TblFlow dient dazu, Arbeit zu erkennen, die sich vereinfachen oder automatisieren lässt. Was auf der einen Seite beschrieben ist, kann die andere aufklären.',
-    note: 'Was wir über Boldo sagen, stammt von der öffentlichen Website, gelesen am 21. November 2026. Wir haben das Produkt nicht benutzt. Boldo ist eine Marke von BOLDO SAS.',
+    note: "Was wir über Boldo sagen, stammt von seiner öffentlichen Website und seinem Impressum, gelesen am 28. November 2026. Boldo wird herausgegeben von der Boldo SAS (vereinfachte Aktiengesellschaft, RCS Nanterre 928 795 970). Wir haben sein Produkt nicht genutzt. Diese Angaben können sich geändert haben; Fehler melden: contact@tblflow.com.",
   },
   es: {
     title: 'TblFlow y Boldo: herramientas complementarias',
@@ -100,7 +100,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     cards: [
       {
         title: 'Qué hace Boldo',
-        text: 'Boldo es una herramienta de arquitectura empresarial. Sirve para cartografiar las aplicaciones, los flujos, las capacidades y los riesgos de un sistema de información, con diagramas colaborativos, análisis de impacto y escenarios. Se dirige sobre todo a equipos de informática, arquitectos empresariales y consultoras.',
+        text: "Boldo es una plataforma de arquitectura empresarial. Sirve para cartografiar los activos de un sistema de información y sus dependencias, con diagramas colaborativos, análisis de impacto y escenarios. Se dirige sobre todo a directores de sistemas de información, arquitectos empresariales y responsables de transformación.",
       },
       {
         title: 'Qué hace TblFlow',
@@ -110,7 +110,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     meetTitle: 'Dónde se encuentran',
     meetText:
       'El punto de contacto es la cartografía. Boldo la pone al servicio del gobierno del sistema de información; el mapa de procesos de TblFlow sirve para detectar el trabajo que conviene simplificar o automatizar. Lo que se describe en un lado puede aclarar el otro.',
-    note: 'Lo que decimos de Boldo procede de su sitio web público, leído el 21 de noviembre de 2026. No hemos utilizado su producto. Boldo es una marca de BOLDO SAS.',
+    note: "Lo que decimos de Boldo procede de su sitio público y de sus avisos legales, leídos el 28 de noviembre de 2026. Boldo está editado por la sociedad por acciones simplificada Boldo (RCS Nanterre 928 795 970). No hemos usado su producto. Esta información puede haber cambiado; para señalar un error: contact@tblflow.com.",
   },
   it: {
     title: 'TblFlow e Boldo: strumenti complementari',
@@ -122,7 +122,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     cards: [
       {
         title: 'Cosa fa Boldo',
-        text: 'Boldo è uno strumento di architettura aziendale. Serve a mappare le applicazioni, i flussi, le capacità e i rischi di un sistema informativo, con diagrammi collaborativi, analisi d’impatto e scenari. Si rivolge soprattutto a team informatici, architetti aziendali e società di consulenza.',
+        text: "Boldo è una piattaforma di architettura aziendale. Serve a mappare gli asset di un sistema informativo e le loro dipendenze, con diagrammi collaborativi, analisi d’impatto e scenari. Si rivolge soprattutto a responsabili IT, architetti d’impresa e responsabili della trasformazione.",
       },
       {
         title: 'Cosa fa TblFlow',
@@ -132,7 +132,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     meetTitle: 'Dove si incontrano',
     meetText:
       'Il punto di contatto è la mappatura. Boldo la mette al servizio della governance del sistema informativo; la mappa dei processi di TblFlow serve a individuare il lavoro da semplificare o automatizzare. Ciò che è descritto da una parte può illuminare l’altra.',
-    note: 'Ciò che diciamo di Boldo proviene dal suo sito pubblico, letto il 21 novembre 2026. Non abbiamo utilizzato il suo prodotto. Boldo è un marchio di BOLDO SAS.',
+    note: "Quanto diciamo su Boldo proviene dal suo sito pubblico e dalle note legali, letti il 28 novembre 2026. Boldo è edito dalla società per azioni semplificata Boldo (RCS Nanterre 928 795 970). Non abbiamo usato il suo prodotto. Queste informazioni possono essere cambiate; per segnalare un errore: contact@tblflow.com.",
   },
   ja: {
     title: 'TblFlowとBoldo：互いに補い合うツール',
@@ -144,7 +144,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     cards: [
       {
         title: 'Boldoの役割',
-        text: 'Boldoはエンタープライズアーキテクチャのツールです。情報システムのアプリケーション、フロー、ケイパビリティ、リスクをマッピングするために使われ、共同編集できる図、影響分析、シナリオを備えています。主な対象は、IT部門、エンタープライズアーキテクト、コンサルティング会社です。',
+        text: "Boldo はエンタープライズアーキテクチャのプラットフォームです。情報システムの資産とその依存関係を、共同編集できる図、影響分析、シナリオとともにマッピングします。主な対象は、情報システム責任者、エンタープライズアーキテクト、変革責任者です。",
       },
       {
         title: 'TblFlowの役割',
@@ -154,7 +154,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     meetTitle: '接点',
     meetText:
       '接点はマッピングです。Boldoはそれを情報システムのガバナンスのために用い、TblFlowのプロセスマップは、簡素化または自動化すべき仕事を見つけるために使われます。一方で記述された内容が、もう一方の助けになることがあります。',
-    note: 'Boldoについての記述は、2026年11月21日に確認した公開サイトに基づいています。同製品は使用していません。Boldoは BOLDO SAS の商標です。',
+    note: "Boldo についての記述は、2026年11月28日に確認した公開サイトと法的表示に基づきます。Boldo は簡易株式会社 Boldo（RCS Nanterre 928 795 970）が運営しています。当社は同製品を使用していません。情報は変更されている可能性があります。誤りのご連絡：contact@tblflow.com。",
   },
   ru: {
     title: 'TblFlow и Boldo: взаимодополняющие инструменты',
@@ -166,7 +166,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     cards: [
       {
         title: 'Что делает Boldo',
-        text: 'Boldo — инструмент корпоративной архитектуры. Он нужен, чтобы картировать приложения, потоки, возможности и риски информационной системы: с совместными диаграммами, анализом влияния и сценариями. Он ориентирован главным образом на ИТ-команды, корпоративных архитекторов и консалтинговые компании.',
+        text: "Boldo — платформа корпоративной архитектуры. Она помогает картографировать активы информационной системы и их зависимости: с совместными диаграммами, анализом влияния и сценариями. Ориентирована прежде всего на ИТ-директоров, корпоративных архитекторов и руководителей трансформации.",
       },
       {
         title: 'Что делает TblFlow',
@@ -176,7 +176,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     meetTitle: 'Где они пересекаются',
     meetText:
       'Точка соприкосновения — картирование. Boldo использует его для управления информационной системой; карта процессов TblFlow помогает найти работу, которую можно упростить или автоматизировать. То, что описано с одной стороны, может прояснить другую.',
-    note: 'То, что мы говорим о Boldo, взято с его публичного сайта, прочитанного 21 ноября 2026 года. Мы не использовали его продукт. Boldo — торговая марка BOLDO SAS.',
+    note: "То, что мы пишем о Boldo, взято с его публичного сайта и юридической информации, прочитанных 28 ноября 2026 г. Boldo издаётся обществом Boldo (SAS, RCS Nanterre 928 795 970). Мы не пользовались его продуктом. Сведения могли измениться; сообщить об ошибке: contact@tblflow.com.",
   },
   tr: {
     title: 'TblFlow ve Boldo: birbirini tamamlayan araçlar',
@@ -188,7 +188,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     cards: [
       {
         title: 'Boldo ne yapar',
-        text: 'Boldo bir kurumsal mimari aracıdır. Bir bilgi sisteminin uygulamalarını, akışlarını, yeteneklerini ve risklerini; ortak çalışmaya açık diyagramlar, etki analizi ve senaryolarla haritalamak için kullanılır. Esas olarak BT ekiplerine, kurumsal mimarlara ve danışmanlık firmalarına yöneliktir.',
+        text: "Boldo bir kurumsal mimari platformudur. Bir bilgi sisteminin varlıklarını ve bağımlılıklarını; ortak çalışılan diyagramlar, etki analizi ve senaryolarla haritalar. Başlıca BT yöneticilerine, kurumsal mimarlara ve dönüşüm sorumlularına yöneliktir.",
       },
       {
         title: 'TblFlow ne yapar',
@@ -198,7 +198,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     meetTitle: 'Nerede buluşurlar',
     meetText:
       'Temas noktası haritalamadır. Boldo bunu bilgi sisteminin yönetişimine hizmet etmek için kullanır; TblFlow’un süreç haritası ise sadeleştirilecek veya otomatikleştirilecek işleri belirlemek için kullanılır. Bir tarafta tanımlanan, diğer tarafa ışık tutabilir.',
-    note: 'Boldo hakkında söylediklerimiz, 21 Kasım 2026 tarihinde okunan herkese açık web sitesinden alınmıştır. Ürününü kullanmadık. Boldo, BOLDO SAS’ın ticari markasıdır.',
+    note: "Boldo hakkında söylediklerimiz, 28 Kasım 2026’da okunan herkese açık sitesinden ve yasal bildiriminden gelir. Boldo, Boldo şirketi (SAS, RCS Nanterre 928 795 970) tarafından yayımlanır. Ürününü kullanmadık. Bu bilgiler değişmiş olabilir; hata bildirmek için: contact@tblflow.com.",
   },
   uk: {
     title: 'TblFlow і Boldo: взаємодоповнювальні інструменти',
@@ -210,7 +210,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     cards: [
       {
         title: 'Що робить Boldo',
-        text: 'Boldo — інструмент корпоративної архітектури. Він потрібен, щоб картувати застосунки, потоки, спроможності та ризики інформаційної системи: зі спільними діаграмами, аналізом впливу та сценаріями. Він орієнтований передусім на ІТ-команди, корпоративних архітекторів і консалтингові компанії.',
+        text: "Boldo — платформа корпоративної архітектури. Вона допомагає картографувати активи інформаційної системи та їхні залежності: зі спільними діаграмами, аналізом впливу та сценаріями. Орієнтована передусім на ІТ-директорів, корпоративних архітекторів і керівників трансформації.",
       },
       {
         title: 'Що робить TblFlow',
@@ -220,7 +220,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     meetTitle: 'Де вони перетинаються',
     meetText:
       'Точка дотику — картування. Boldo використовує його для управління інформаційною системою; карта процесів TblFlow допомагає знайти роботу, яку можна спростити або автоматизувати. Те, що описано з одного боку, може прояснити інший.',
-    note: 'Те, що ми говоримо про Boldo, взято з його публічного сайту, прочитаного 21 листопада 2026 року. Ми не користувалися його продуктом. Boldo — торгова марка BOLDO SAS.',
+    note: "Те, що ми пишемо про Boldo, взято з його публічного сайту та юридичної інформації, прочитаних 28 листопада 2026 р. Boldo видає компанія Boldo (SAS, RCS Nanterre 928 795 970). Ми не користувалися його продуктом. Відомості могли змінитися; повідомити про помилку: contact@tblflow.com.",
   },
   zh: {
     title: 'TblFlow 与 Boldo：两款互补的工具',
@@ -232,7 +232,7 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     cards: [
       {
         title: 'Boldo 的作用',
-        text: 'Boldo 是一款企业架构工具，用于梳理信息系统中的应用、数据流、能力和风险，提供协作式图表、影响分析和情景模拟。它主要面向 IT 团队、企业架构师和咨询公司。',
+        text: "Boldo 是一个企业架构平台。它用于绘制信息系统的资产及其依赖关系，提供协作图表、影响分析和场景。主要面向 CIO、企业架构师和转型负责人。",
       },
       {
         title: 'TblFlow 的作用',
@@ -242,6 +242,6 @@ export const BOLDO: Record<Locale, BoldoTexts> = {
     meetTitle: '两者的交会点',
     meetText:
       '交会点是梳理。Boldo 将其用于信息系统治理；TblFlow 的流程图谱用于发现可以简化或自动化的工作。一方所描述的内容，可以为另一方提供参考。',
-    note: '我们对 Boldo 的说明来自其公开网站，查阅日期为 2026 年 11 月 21 日。我们没有使用过其产品。Boldo 是 BOLDO SAS 的商标。',
+    note: "我们对 Boldo 的描述来自其公开网站和法律声明，阅读日期为 2026 年 11 月 28 日。Boldo 由 Boldo 公司（简易股份公司，RCS Nanterre 928 795 970）运营。我们未使用过其产品。这些信息可能已变更；报告错误：contact@tblflow.com。",
   },
 };
