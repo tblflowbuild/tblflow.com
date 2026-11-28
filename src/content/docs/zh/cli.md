@@ -33,7 +33,7 @@ tblflow logout    # 删除本地会话，并在服务器端撤销令牌
 
 ### 在持续集成中
 
-在 TblFlow 中创建**服务令牌**：空间设置 → 安全与审计 → 服务账户。将它存放在 CI 的密钥中，再通过环境变量提供：
+在 TblFlow 中创建**服务令牌**：空间设置 → 安全与审计 → 服务账户（参见 [API 与开发者访问](/zh/docs/api-developers)）。将它存放在 CI 的密钥中，再通过环境变量提供：
 
 ```bash
 export TBLFLOW_TOKEN=...      # 由 CI 注入，绝不写入代码仓库
@@ -71,7 +71,17 @@ printenv TBLFLOW_TOKEN | tblflow login --token -
 | `api <方法> <路径>` | 直接调用，仅限 `/api/` 路径；`DELETE` 需要 `--confirm` |
 | `mcp serve` | 本地 MCP 服务器（stdio） |
 
-`--json` 适用于所有命令。退出码：成功为 0，出错为 1，用法错误或需要确认为 2。
+全局选项：
+
+| 选项 | 作用 |
+|---|---|
+| `--json` | 以 JSON 显示结果（`export` 不带 `--out` 时除外，它会写出 CSV） |
+| `--host <url>` | 使用的服务器 |
+| `--no-browser` | 登录时不打开浏览器：地址和代码显示在终端中 |
+| `-h`, `--help` | 帮助 |
+| `-v`, `--version` | 版本 |
+
+退出码：成功为 0，出错为 1，用法错误或需要确认为 2。
 
 ### 从 CSV 创建数据表
 
@@ -89,6 +99,20 @@ tblflow import --new-table <baseId> clients.csv --name "Clients"
 ```json
 { "mcpServers": { "tblflow": { "command": "npx", "args": ["-y", "@tblflow/cli", "mcp", "serve"] } } }
 ```
+
+本地服务器使用您会话的令牌，提供 7 个工具：
+
+| 工具 | 作用 |
+|---|---|
+| `list_workspaces` | 列出可访问的空间及其数据库 |
+| `list_tables` | 列出某个数据库中的数据表 |
+| `list_records` | 读取记录，每次调用最多 100 条，支持筛选和排序 |
+| `get_record` | 通过标识符读取一条记录 |
+| `create_records` | 最多创建 50 条记录 |
+| `update_records` | 最多更新 50 条记录（仅更改所提供的字段） |
+| `delete_records` | 不带 `confirm` 时显示预览；带 `confirm=true` 时将记录移入回收站 |
+
+这是一个精简的工具集：不包括导入、统计、创建数据表和自动化。远程 MCP 服务器提供 27 个工具。
 
 若要无需安装任何东西就连接 Claude（网页版、桌面版或移动端），请改用远程 MCP 服务器：参见 [MCP 服务器](/zh/docs/mcp-server)指南。
 

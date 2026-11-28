@@ -33,7 +33,7 @@ Prüfen Sie vor der Bestätigung, dass der im Terminal angezeigte Code mit dem i
 
 ### In der Continuous Integration
 
-Erstellen Sie in TblFlow ein **Service-Token**: Einstellungen des Spaces → Sicherheit und Audit → Servicekonten. Legen Sie es in den Secrets Ihrer CI ab und stellen Sie es dann als Umgebungsvariable bereit:
+Erstellen Sie in TblFlow ein **Service-Token**: Einstellungen des Spaces → Sicherheit und Audit → Servicekonten (siehe [API und Entwicklerzugang](/de/docs/api-developers)). Legen Sie es in den Secrets Ihrer CI ab und stellen Sie es dann als Umgebungsvariable bereit:
 
 ```bash
 export TBLFLOW_TOKEN=...      # von der CI eingespeist, nie im Repository gespeichert
@@ -68,10 +68,20 @@ Standardmäßig spricht das CLI mit `https://app.tblflow.com`. Für einen andere
 | `export <tableId>` | CSV auf der Standardausgabe oder `--out datei.csv`; `--view <viewId>` |
 | `run automation <baseId> <workflowId>` | Startet eine von ihrem Eigentümer freigegebene Automatisierung |
 | `run agent <baseId> <agentId> <Aufgabe…>` | Startet einen von seinem Eigentümer freigegebenen Agenten |
-| `api <METHODE> <Pfad>` | Direkter Aufruf, nur Pfade unter `/api/`; `DELETE` erfordert `--confirm` |
+| `api <METHODE> <Pfad>` | Direkter Aufruf, nur Pfade `/api/`; `DELETE` erfordert `--confirm` |
 | `mcp serve` | Lokaler MCP-Server (stdio) |
 
-`--json` funktioniert mit allen Befehlen. Exit-Codes: 0 bei Erfolg, 1 bei einem Fehler, 2 bei einem Verwendungsfehler oder wenn eine Bestätigung nötig ist.
+Globale Optionen:
+
+| Option | Wirkung |
+|---|---|
+| `--json` | Zeigt das Ergebnis als JSON an (außer `export` ohne `--out`, das die CSV schreibt) |
+| `--host <url>` | Zu verwendender Server |
+| `--no-browser` | Beim Anmelden den Browser nicht öffnen: Adresse und Code werden im Terminal angezeigt |
+| `-h`, `--help` | Hilfe |
+| `-v`, `--version` | Version |
+
+Exit-Codes: 0 bei Erfolg, 1 bei einem Fehler, 2 bei einem Verwendungsfehler oder wenn eine Bestätigung nötig ist.
 
 ### Eine Tabelle aus einer CSV-Datei anlegen
 
@@ -89,6 +99,20 @@ tblflow import --new-table <baseId> clients.csv --name "Clients"
 ```json
 { "mcpServers": { "tblflow": { "command": "npx", "args": ["-y", "@tblflow/cli", "mcp", "serve"] } } }
 ```
+
+Der lokale Server stellt 7 Tools bereit, mit dem Token Ihrer Sitzung:
+
+| Tool | Wirkung |
+|---|---|
+| `list_workspaces` | Listet die Spaces und ihre zugänglichen Bases auf |
+| `list_tables` | Listet die Tabellen einer Base auf |
+| `list_records` | Liest Datensätze, höchstens 100 pro Aufruf, mit Filtern und Sortierungen |
+| `get_record` | Liest einen Datensatz anhand seiner Kennung |
+| `create_records` | Legt bis zu 50 Datensätze an |
+| `update_records` | Aktualisiert bis zu 50 Datensätze (nur die angegebenen Felder ändern sich) |
+| `delete_records` | Ohne `confirm` zeigt es eine Vorschau; mit `confirm=true` werden die Datensätze in den Papierkorb verschoben |
+
+Das ist ein reduzierter Funktionsumfang: Er umfasst weder Import, Statistiken, Tabellenanlage noch Automatisierungen. Der Remote-MCP-Server bietet 27.
 
 Um Claude (Web, Desktop oder Mobil) ohne Installation zu verbinden, nutzen Sie stattdessen den Remote-MCP-Server: siehe die Anleitung [MCP-Server](/de/docs/mcp-server).
 

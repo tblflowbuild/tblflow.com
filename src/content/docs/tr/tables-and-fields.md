@@ -1,7 +1,7 @@
 ---
 title: "Tablolar ve alanlar"
 translationKey: "tables-and-fields"
-description: "TblFlow'un 28 alan türü, bağlantılı kayıtlar, aramalar ve toplamalar ve her birinin PostgreSQL veritabanınızda gerçekte neye dönüştüğü."
+description: "TblFlow'un 28 alan türü, tablolar arası bağlantılar, Arama ve Toplama, formüller, varsayılan değerler, doğrulama ve PostgreSQL'deki karşılığı."
 section: "Kılavuzlar"
 order: 2
 ---
@@ -10,48 +10,68 @@ Bir TblFlow tablosu gerçek bir PostgreSQL tablosudur. Bir alan gerçek bir süt
 
 ## Alan aileleri
 
-**Düz değerler** — Tek satırlık metin, Uzun metin, Sayı, Para birimi, Yüzde, Tarih, Onay kutusu, Derecelendirme, E-posta, Telefon, URL. Yazdığınızı saklarlar, daha fazlasını değil.
+**Tür** menüsünde 28 alan türü ve buna ek olarak iki seçenek, **Arama** ve **Koşullu arama**, bulunur. Alan türleri planınıza bağlı değildir.
 
-**Kısıtlı değerler** — Tek seçim, Çoklu seçim, Kullanıcı. Seçenekler alanda tanımlanır; gruplamayı ve filtrelemeyi güvenilir kılan budur: "Devam ediyor"un iki farklı yazılışı bir arada bulunamaz.
+**Basit değerler**: Tek satırlık metin, Uzun metin, E-posta, Telefon, URL, Sayı, Tarih, Onay kutusu, Derecelendirme. Girdiğiniz değeri olduğu gibi saklarlar, başka bir şey yapmazlar. E-posta, Telefon ve URL alanları geçerli bir biçim ister.
 
-**İlişkisel** — Bağlantılı kayıt, Arama, Toplama, Koşullu toplama. Aşağıya bakın.
+**Süreler**: Süre, değeri 1:30, 1:30:00 veya 1sa 30dk biçiminde gösterir; İzlenen süre ise her satırda, kişi bazında harcanan zamanı kronometreyle ölçer.
 
-**Hesaplanan** — Formül (200'den fazla işlev), Otomatik numara, Oluşturulma zamanı, Son değiştirilme zamanı, Oluşturan, Son değiştiren. Düzenlenemezler: yazma sırasında yeniden hesaplanırlar.
+**İzlenen süre.** Hücre toplam süreyi saat ve dakika olarak gösterir; alanın **Saniyeleri göster** seçeneği saniyeleri de ekler. Hücrede girilecek bir şey yoktur: zamanlayıcıya ulaşmak için hücreye çift tıklayın (ya da Enter tuşuna basın) veya kaydı açın. **Başlat** bir süre başlatır, **Durdur** o süreyi kapatır; çalışan süre sürerken toplam her saniye güncellenir ve alanın değeri durdurulduğunda kaydedilir. Süreler başlangıç saatiyle birlikte kişi bazında listelenir. Herkes yalnızca kendi sürelerini silebilir (**Bu süreyi sil**) ve toplam yeniden hesaplanır. Kişi, satır ve alan başına yalnızca bir çalışan süre olabilir. Zamanlayıcıyı başlatmak ve durdurmak kayıtları düzenleme iznini gerektirir; okuma rolünde toplam ve süreler düğme olmadan görünür kalır.
 
-**Etkin** — Ek, Düğme, Yapay zekâ. Yapay zekâ alanı veritabanında yapılandırılmış modeli çağırır ve yanıtı hücreye yazar.
+**Sınırlı değerler**: Tek seçim, Çoklu seçim, Kullanıcı. Seçenekler alan düzeyinde tanımlanır.
 
-## İki tabloyu bağlama
+**İlişkiler**: Başka bir kayda bağlantı, Arama, Toplama, Koşullu arama, Koşullu toplama. Aşağıya bakın.
 
-Bir **Bağlantılı kayıt** alanı iki tablo arasında bir ilişki oluşturur. İlişki kurulduktan sonra:
+**Hesaplanan alanlar**: Formül (200'den fazla işlev), Otomatik numara, Satır kimliği, Oluşturulma zamanı, Son değişiklik, Oluşturan, Son değiştiren. Bunlar elle girilmez.
 
-- bir **Arama**, bağlantılı tablodan bir alanı çeker (şirket adını kişi satırına);
-- bir **Toplama**, bağlantılı kayıtları bir araya toplar (bir hesabın anlaşmalarının `SUM`'ı, bir projenin görevlerinin `COUNT`'ı);
-- bir **Koşullu toplama** aynısını bir alt küme üzerinde yapar (aşaması "Kazanıldı" olan anlaşmaların `SUM`'ı).
+**Varlıklar**: Ek dosya, Düğme, Yapay zekâ alanı, Tuval. Yapay zekâ alanı hücre içeriğini diğer alanlardan üretir. Tuval alanı, belge kitaplığında her satır için bir belge oluşturur.
 
-Üçü de kaynak veri değiştiğinde yeniden hesaplanır; harici bir SQL istemcisinden değiştirildiğinde de.
+**Biçimler.** Para birimi ve Yüzde ayrı türler değildir: **Sayı** türünün biçimleridir. **Halka** ve **Çubuk** de aynı değeri göstermenin iki yoludur. Benzer şekilde **Tarih** ve **Tarih ve saat**, **Tarih** türünün iki ayarıdır.
+
+Tablonun, her kaydı tanımlayan ana alanı yalnızca bazı türleri kabul eder: örneğin Ek dosya ve Başka bir kayda bağlantı türleri kabul edilmez.
+
+## İki tabloyu bağlamak
+
+**Başka bir kayda bağlantı** alanı iki tablo arasında bir ilişki kurar: bire bir, bire çok, çoktan bire veya çoka çok. Bağlantı tek yönlü ya da çift yönlü olabilir (**Bağlantı tablosunda karşılıklı bağlantı alanı oluştur**) ve başka bir veritabanını gösterebilir. İlişki kurulduktan sonra:
+
+- bir **Arama**, bağlı tablodaki bir alanı getirir (kişinin satırında şirket adı gibi);
+- bir **Toplama**, bağlı kayıtları **TOPLA** veya **SAY** gibi bir işlevle birleştirir (bir hesabın tüm anlaşmalarının toplamı, bir projenin görev sayısı).
+
+**Koşullu arama** ve **Koşullu toplama** bir bağlantı gerektirmez: bir tablo seçersiniz, ardından bu tablonun kayıtlarını süzen koşulları belirlersiniz (durumu « Kazanıldı » olan anlaşmaların toplamı gibi).
+
+Bu alanlar, kaynak veri değiştiğinde yeniden hesaplanır.
 
 ## Formüller
 
-Formüller alanda tanımlanır ve her satıra uygulanır. Kullanılabilir aileler: metin, sayısal, tarih, mantıksal ve bağlantılı kayıtlar üzerindeki toplamalar.
+Formüller alan düzeyinde yazılır ve tüm satırlara uygulanır. İşlevler altı ailede toplanır: sayısal, metin, mantıksal, tarih ve saat, dizi, sistem. Bir formül Arama ve Toplama alanlarını okuyabilir, ancak doğrudan başka bir tablonun alanını okuyamaz.
 
 ```
 IF(
-  AND({Stage} = "Won", {Amount} > 10000),
-  "Key account",
-  "Standard"
+  AND({Durum} = "Kazanıldı", {Tutar} > 10000),
+  "Kilit hesap",
+  "Standart"
 )
 ```
 
-Bir formül yan etki üretemez: başka bir tabloya yazma yok, ağ çağrısı yok. Bunun için bir [otomasyona](/tr/docs/automations) ihtiyacınız var.
+Bir formül yan etki üretemez: başka bir tabloya yazamaz, ağ çağrısı yapamaz. Bunun için bir [otomasyon](/tr/docs/automations) gerekir.
 
-## Postgres'te bu neye benzer
+## Varsayılan değer ve doğrulama
 
-Her veritabanı bir şemadır, her tablo fiziksel bir tablo, her alan türü belirli bir sütun. `psql`'i, bir ORM'yi veya bir BI aracını aynı örneğe yönlendirip verilerinizi doğrudan okuyabilirsiniz: dışa aktarma yok, eşitleme katmanı yok, çoğaltma gecikmesi yok.
+Bir alanın panelinde **Varsayılan değer**, yeni satırları önceden doldurur. Tek satırlık metin, Uzun metin, Sayı, Süre, Telefon, Onay kutusu, Kullanıcı, Tek seçim ve Çoklu seçim türlerinde bulunur. Tarih türünde bunun yerine **Geçerli tarihle otomatik doldur** seçeneği vardır.
 
-Pratik sonucu: bir `pg_dump`, başka bir yerde de kullanılabilen eksiksiz bir yedektir. Burada "kilitlenme yok"un anlamı budur.
+**Alan değeri doğrulama kuralları** iki anahtardan oluşur:
 
-## Bilmeye değer şeyler
+- **Yalnızca benzersiz değerler**: Tek satırlık metin, Uzun metin, Sayı, Süre, Tarih, E-posta, Telefon ve URL türleri için;
+- **Zorunlu**: aynı türler için ve ayrıca seçim alanları, Kullanıcı, Derecelendirme, İzlenen süre, Ek dosya ve Başka bir kayda bağlantı için. Bu kural alan oluşturulurken değil, mevcut bir alan düzenlenerek ayarlanır.
 
-- Bir alanı yeniden adlandırmak etiketini değiştirir, formüllerin kullandığı başvuruyu değiştirmez: hiçbir şey bozulmaz.
-- Bir alanın türünü değiştirmek bir dönüştürme dener ve kaybolacak değerler konusunda sizi uyarır.
-- Bir alanı silmek sütunu kaldırır. İşlem günlüğe kaydedilir, ancak veritabanının çöp kutusunun ötesinde geri alınamaz.
+Hiçbiri Arama türündeki bir alan için geçerli değildir.
+
+## Postgres'te ne görünür
+
+Her veritabanı bir PostgreSQL şemasıdır, her tablo fiziksel bir tablodur, her alan bir sütundur. Veritabanının sahibi, veritabanının **Tasarım** sayfasından **Salt okunur Postgres erişimi** açabilir ve verileri `psql`, bir ORM veya bir BI aracıyla okuyabilir. Bu erişim yalnızca okuma hakkı verir: her yazma işlemi TblFlow üzerinden yapılır. Barındırılan sürümde bu erişim Enterprise planla sınırlıdır. Bkz. [API ve geliştiriciler](/tr/docs/api-developers).
+
+## Bilmeniz gereken sınırlar
+
+- Bir alanı yeniden adlandırmak yalnızca etiketini değiştirir; formüllerin kullandığı başvuru alanın dahili kimliğine dayandığı için hiçbir şey bozulmaz.
+- Bir alanın türünü değiştirmek mevcut değerleri dönüştürür. Dönüştürme uzun sürerse ya da bağlantı alanlarını etkilerse, **Alan değişikliğini onayla** penceresi önce etkilenen alanları gösterir.
+- Bir alanı silmek, ona bağlı alanları listeleyen bir pencere açar. Silinen alan tablonun çöp kutusuna gider; saklama süresi boyunca değerleriyle birlikte geri yüklenebilir. Bkz. [İçe aktarma, dışa aktarma ve çöp kutusu](/tr/docs/import-export-trash).

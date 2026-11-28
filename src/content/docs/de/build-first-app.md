@@ -1,41 +1,41 @@
 ---
 title: "Ihre erste App erstellen"
 translationKey: "first-app"
-description: "Veröffentlichen Sie eine Team-App aus einer TblFlow-Base, per KI generiert oder von Hand gebaut, mit Besucher-Authentifizierung und öffentlichem Link."
+description: "Eine Geschäfts-App aus einer TblFlow-Base per KI generieren oder im Editor bauen und dann öffentlich oder nur auf Einladung veröffentlichen."
 section: "Anleitungen"
 order: 5
 ---
 
-Eine TblFlow-Base lässt sich nicht nur im Raster durchsuchen: Sie kann als echte Anwendung veröffentlicht werden, mit eigenen Seiten, eigener Authentifizierung und eigener Domain. Diese Seite behandelt beide Wege, eine zu erstellen.
+Eine TblFlow-Base lässt sich nicht nur im Raster abfragen: Sie kann als echte Anwendung veröffentlicht werden, mit eigenen Seiten, einem öffentlichen oder nur für Gäste bestimmten Link und einer eigenen Domain. Diese Seite beschreibt die beiden Wege, eine solche App zu erstellen.
 
-## Option 1 — der KI beschreiben
+## Option 1 — die KI beschreiben
 
-Wählen Sie im Chat-Panel der Base **Vollständige Anwendung** und beschreiben Sie, was Sie möchten: „Ein CRM mit Dashboard, der Liste der Konten und der Opportunity-Pipeline als Kanban.“ Die KI schlägt auf Basis Ihrer vorhandenen Tabellen eine Struktur aus Seiten und Blöcken vor. Nichts wird veröffentlicht, bis Sie den Vorschlag genehmigen und auf **Veröffentlichen** klicken.
+Wählen Sie im Chat-Panel der Base den Modus **Vollständige Anwendung** und beschreiben Sie, was Sie möchten: „Ein CRM mit Dashboard, Kontoliste und Opportunity-Pipeline als Kanban“. Die Generierung läuft in Schritten ab: zuerst die Tabellen und ihre Beziehungen, dann die Oberfläche, die Automatisierungen, die Ansichten und Testdaten, schließlich ein KI-Agent. Jeder Schritt liefert Vorschläge, die Sie annehmen, bevor es zum nächsten geht. Solange Sie einen Vorschlag noch nicht angenommen haben, können Sie ihn ändern. Nichts wird veröffentlicht, bevor Sie auf **Veröffentlichen** klicken.
 
-Das ist der schnellste Weg, und den zeigt die TblFlow-Startseite unter „Generierungs-Pipeline“ im Detail.
+## Option 2 — im Editor bauen
 
-## Option 2 — von Hand bauen
+In der Base öffnet das Erstellungsmenü **Neue Anwendung** (sofern der KI-Chat aktiviert ist und Sie Anwendungen erstellen dürfen). Der Editor öffnet sich mit drei Reitern, **Vorschau**, **Code** und **Logs**, und dem KI-Chat rechts: Beschreiben Sie dort Ihre Anwendung und verfeinern Sie sie anschließend.
 
-Wählen Sie in der Base **Neue Oberfläche**. Eine Oberfläche besteht aus Seiten, und jede Seite aus Blöcken: numerische Kennzahlen, eine Liste oder ein Raster, das an eine Tabelle gebunden ist, ein Suchfeld, ein Kanban. Jeder Block verweist auf eine vorhandene Tabelle oder Ansicht, Sie duplizieren also keine Daten, Sie bringen sie auf die Bühne.
-
-Fügen Sie einen Block hinzu, wählen Sie seine Quelle (eine Tabelle oder eine bestimmte Ansicht, auch eine bereits gefilterte Kanban- oder Kalenderansicht) und passen Sie dann sein Layout an. Die linke Navigation entsteht Seite für Seite, in der Reihenfolge, in der Sie sie anlegen.
+Ein Klick auf einen Block der Vorschau verweist ihn im Chat. **Text direkt bearbeiten** korrigiert einen angezeigten Text, ohne eine Anfrage zu stellen. **Verlauf** listet die Versionen der Anwendung auf; **Diese Version wiederherstellen** kehrt zu der Version zurück, die Sie ausgewählt haben.
 
 ## Veröffentlichen
 
-Die Schaltfläche **Veröffentlichen** oben in der Oberfläche öffnet drei Einstellungen:
+Die Schaltfläche **Veröffentlichen** oben im Editor öffnet das Panel **App-Veröffentlichung**. Es bietet zwei Zugriffsmodi zur Auswahl:
 
-- **Passwort** — bleibt es leer, ist die App für alle mit dem Link erreichbar. Ist eines gesetzt (oder generiert), ist das Passwort für den Zugang erforderlich.
-- **Datenschreibzugriff erlauben** — standardmäßig aus. Eine App nur zum Lesen kann nichts kaputt machen; aktivieren Sie die Option nur, wenn Besucher tatsächlich Datensätze aus der App heraus erstellen oder bearbeiten müssen.
-- **Besucherkonten** — aktiviert ein Kontosystem mit E-Mail und Passwort, das auf diese Anwendung beschränkt und von den TblFlow-Konten getrennt ist. So kann sich ein externer Kunde in seinem eigenen Bereich anmelden, ohne je Ihr TblFlow-Konto zu berühren.
+- **Nur auf Einladung — eingeladene Personen und Mitglieder der Base** (standardmäßig vorausgewählt). Jede Person meldet sich mit ihrem TblFlow-Konto an, ohne Passwort: per Magic Link oder Sicherheitsschlüssel.
+- **Öffentlich — jede Person mit dem Link.** Eine Bestätigung wird verlangt: Wer den Link erhält, öffnet die App ohne Konto und sieht die Daten, die sie anzeigt.
 
-Ein Klick auf **Veröffentlichen — öffentlichen Link generieren** erzeugt sofort eine funktionierende URL. Der Team-Tarif ergänzt eine eigene Domain.
+**Schreibzugriff auf Daten erlauben** ist standardmäßig deaktiviert. Eine App im Nur-Lese-Modus kann nichts kaputt machen; aktivieren Sie diese Option nur, wenn Besucher tatsächlich Datensätze aus der App heraus erstellen oder ändern müssen.
+
+Ein Klick auf **Veröffentlichen — Link generieren** erzeugt sofort eine URL. Es gibt weder ein Freigabepasswort noch ein eigenes Besucherkonto für die Anwendung. Gäste, die Gestaltung der Seite, das Zurückziehen der Veröffentlichung und die eigene Domain sind unter [Teilen und Veröffentlichen](/de/docs/sharing-publishing) beschrieben.
 
 ## Der Code bleibt Ihrer
 
-Eine veröffentlichte App ist echter React- und Tailwind-Code, keine Blackbox: Über **Code → Code exportieren** erhalten Sie ihn vollständig. Umgekehrt können Sie mit **Code importieren** von einer vorhandenen Base ausgehen, um sie nach einer KI-Generierung von Hand anzupassen.
+Eine veröffentlichte App ist echter React- und Tailwind-Code, keine Blackbox: Über **Code → Code exportieren** erhalten Sie ihn vollständig. Umgekehrt erlaubt **Code importieren**, von einer bestehenden Base auszugehen, um sie nach einer KI-Generierung von Hand anzupassen.
 
-## Weiter
+## Und dann
 
-- [Automatisierungen](/de/docs/automations) — verbinden Sie Workflows mit dem, was Ihre Besucher tun.
+- [Automatisierungen](/de/docs/automations) — verbinden Sie Workflows mit den Aktionen Ihrer Besucher.
 - [KI-Agenten](/de/docs/ai-agents) — delegieren Sie eine wiederkehrende Aufgabe, statt sie in der App anzubieten.
-- [Tabellen und Felder](/de/docs/tables-and-fields) — überdenken Sie die Datenstruktur, bevor Sie sie veröffentlichen.
+- [Tabellen und Felder](/de/docs/tables-and-fields) — überprüfen Sie die Datenstruktur, bevor Sie sie veröffentlichen.
+- [Teilen und Veröffentlichen](/de/docs/sharing-publishing) — Gäste, eigene Domain, Ansichts- und Base-Links.

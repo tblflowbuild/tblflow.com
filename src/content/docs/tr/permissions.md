@@ -12,108 +12,107 @@ Yetkiler, TblFlow'da kimin neyi görebileceğini, değiştirebileceğini veya y�
 
 | Terim | Anlamı |
 |---|---|
-| **Eylem** | Tek bir hak; örneğin bir kaydı değiştirmek veya bir veritabanının izinlerini yapılandırmak. |
-| **Varsayılan rol** | Beş sabit rolden biri: sahip, oluşturucu, düzenleyici, yorumcu, görüntüleyici. Değiştirilemezler. |
-| **İzin matrisi** | Bir çalışma alanı, veritabanı veya tablo üzerindeki adlandırılmış roller kümesi. Arayüzde «Permission» olarak adlandırılır. |
-| **Özel rol** | Bir matriste adlandırdığınız ve seçtiğiniz eylem listesine sahip olan rol. |
-| **Atama** | Bir özel rol ile bir kullanıcı arasındaki bağ. |
+| **Eylem** | Tek bir hak, örneğin bir kaydı değiştirmek veya bir veritabanının izinlerini yapılandırmak. |
+| **Varsayılan rol** | Beş sabit rolden biri: sahip, oluşturucu, düzenleyici, yorumcu, okuyucu. Bunlar değiştirilemez. |
+| **İzin matrisi** | Bir çalışma alanında, veritabanında veya tabloda adlandırılmış roller kümesi. Arayüzde « Permission » olarak adlandırılır. |
+| **Özel rol** | Bir matriste adını verdiğiniz ve eylem listesini seçtiğiniz rol. |
+| **Atama** | Bir özel rol ile bir kullanıcı arasındaki bağlantı. |
 
-Özel roller varsayılan rollere **eklenir**: ek haklar verirler, ancak kullanıcının zaten üyesi olmadığı bir çalışma alanına veya veritabanına asla erişim vermezler.
+Özel roller varsayılan rollere **eklenir**: hakları, kullanıcının rolünün haklarıyla toplanır, onların yerini almaz. Atama ekranı yalnızca kapsamdaki iş birlikçilerini listeler.
 
 ## Varsayılan roller
 
 ### Beş rol
 
-Hiyerarşi şöyledir: sahip, oluşturucu, düzenleyici, yorumcu, görüntüleyici (en çok haktan en aza). Bir kullanıcı, bir çalışma alanının veya veritabanının **ortak çalışanı** olarak bir rol edinir: e-postayla davet, davet bağlantısı veya doğrudan ekleme. Bir veritabanında, veritabanının rolünün hakları ile üst çalışma alanının rolünün hakları **birleşir**.
+Hiyerarşi şöyledir: sahip, oluşturucu, düzenleyici, yorumcu, okuyucu (en çok haktan en aza doğru). Bir kullanıcı, bir çalışma alanının veya veritabanının **iş birlikçisi** olduğunda bir rol kazanır: e-posta daveti, davet bağlantısı ya da kuruluşun bir üyesini veya bir bölümünü ekleyerek. Bir veritabanında, veritabanının rolünün hakları ile üst çalışma alanının rolünün hakları **birleşir**.
 
-Sunulabilecek roller düzeye bağlıdır:
+Önerilebilecek roller seviyeye göre değişir:
 
-- **Çalışma alanı**: beş rolün hepsi.
-- **Veritabanı**: oluşturucu, düzenleyici, yorumcu ve görüntüleyici (sahip yok).
-- **Tablo**: oluşturucu, düzenleyici ve görüntüleyici.
+- **Çalışma alanı**: beş rol.
+- **Veritabanı**: oluşturucu, düzenleyici, yorumcu ve okuyucu (sahip yok).
+- **Tablo**: oluşturucu, düzenleyici ve okuyucu.
 
-Sahip, oluşturucu ve düzenleyici rolleri faturalandırılabilir bir koltuk sayılır.
+Sahip, oluşturucu ve düzenleyici rolleri faturalanabilir bir koltuk sayılır.
 
-### Her rolün yapabilecekleri
+### Her rolün yapabildikleri
 
-✅ izinli, ❌ reddedilmiş.
+✅ izinli, ❌ reddedildi.
 
-| Hak | Sahip | Oluşturucu | Düzenleyici | Yorumcu | Görüntüleyici |
+| Hak | Sahip | Oluşturucu | Düzenleyici | Yorumcu | Okuyucu |
 |---|---|---|---|---|---|
-| **Çalışma alanı**: oluşturmak, silmek, değiştirmek | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Çalışma alanı: okumak | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Çalışma alanı: e-postayla davet etmek | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Çalışma alanı: davet bağlantısı oluşturmak | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Çalışma alanı: rol atamak, izinleri yapılandırmak | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Veritabanı**: oluşturmak, silmek, değiştirmek | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Veritabanı: okumak | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Veritabanı: e-postayla davet etmek | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Veritabanı: davet bağlantısı oluşturmak | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Veritabanı: tabloları dışa aktarmak | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Veritabanı: tabloları içe aktarmak | ✅ | ✅ | ✅ | ❌ | ❌ |
-| Veritabanı: izinleri yapılandırmak | ✅ | ✅ | ❌ | ❌ | ❌ |
+| **Çalışma alanı**: oluşturma, silme, değiştirme | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Çalışma alanı: okuma | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Çalışma alanı: e-postayla davet etme | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Çalışma alanı: davet bağlantısı oluşturma | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Çalışma alanı: izinleri yapılandırma | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Veritabanı**: oluşturma, silme, değiştirme | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Veritabanı: okuma | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Veritabanı: e-postayla davet etme | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Veritabanı: davet bağlantısı oluşturma | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Veritabanı: tabloları dışa aktarma | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Veritabanı: tabloları içe aktarma | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Veritabanı: izinleri yapılandırma | ✅ | ✅ | ❌ | ❌ | ❌ |
 | Veritabanı: veri sorguları | ✅ | ✅ | ❌ | ❌ | ❌ |
 | Veritabanı: veritabanı bağlantısı | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Tablo**: oluşturmak, değiştirmek, silmek, içe aktarmak | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Tablo: okumak, dışa aktarmak | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Tablo: çöp kutusunu okumak ve değiştirmek | ✅ | ✅ | ✅ | ❌ | ❌ |
-| Tablo: çöp kutusunu boşaltmak | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Tablo: izinleri yapılandırmak | ✅ | ✅ | ❌ | ❌ | ❌ |
+| **Tablo**: oluşturma, değiştirme, silme, içe aktarma | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Tablo: okuma, dışa aktarma | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Tablo: çöp kutusunu okuma ve değiştirme | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Tablo: çöp kutusunu boşaltma | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Tablo: izinleri yapılandırma | ✅ | ✅ | ❌ | ❌ | ❌ |
 | Kayıt geçmişi | ✅ | ✅ | ✅ | ❌ | ❌ |
-| **Görünüm**: oluşturmak, değiştirmek, silmek, paylaşmak | ✅ | ✅ | ✅ | ❌ | ❌ |
-| Görünüm: okumak | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Alan**: oluşturmak, değiştirmek, silmek | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Alan: okumak | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Kayıt**: oluşturmak, değiştirmek, silmek | ✅ | ✅ | ✅ | ❌ | ❌ |
-| Kayıt: okumak, kopyalamak | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Kayıt: yorum yapmak | ✅ | ✅ | ✅ | ✅ | ❌ |
-| **Otomasyon**: oluşturmak, değiştirmek, silmek | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Otomasyon: okumak | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Bağlayıcı**: oluşturmak, değiştirmek | ✅ | ✅ | ✅ | ❌ | ❌ |
-| Bağlayıcı: silmek, katalogdan yüklemek | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Bağlayıcı: kendi hesabını bağlamak | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Uygulama**: oluşturmak, değiştirmek, silmek | ✅ | ✅ | ❌ | ❌ | ❌ |
-| Uygulama: okumak | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Görünüm**: oluşturma, değiştirme, silme, paylaşma | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Görünüm: okuma | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Alan**: oluşturma, değiştirme, silme | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Alan: okuma | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Kayıt**: oluşturma, değiştirme, silme | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Kayıt: okuma, kopyalama | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Kayıt: yorum yapma | ✅ | ✅ | ✅ | ✅ | ❌ |
+| **Otomasyon**: oluşturma, değiştirme, silme | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Otomasyon: okuma | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Bağlayıcı**: oluşturma, değiştirme | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Bağlayıcı: silme, katalogdan kurma | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Bağlayıcı: kendi hesabını bağlama | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Uygulama**: oluşturma, değiştirme, silme | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Uygulama: okuma | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 ### Hiçbir çalışma alanı rolünün vermediği haklar
 
-Bazı haklar yukarıdaki rollerden geçmez, herkese kapalıdır:
+Bazı haklar yukarıdaki roller üzerinden verilmez, herkese reddedilir:
 
-- **Örnek yönetimi** (yönetim sayfaları, organizasyon şemasının içe aktarılması): yalnızca örneğin yöneticilerine ayrılmıştır.
-- **Enterprise işlevleri**: yalnızca Enterprise planına ayrılmıştır.
-- **Platform operatörü** (çok kiracılı dağıtım): yalnızca dağıtımın TblFlow operatörüne ayrılmıştır.
+- **Örnek yönetimi** (yönetim sayfaları, kurum şemasını içe aktarma): yalnızca örnek yöneticilerine ayrılmıştır.
+- **Kurum yapılandırması** (« enterprise » eylemleri): hiçbir çalışma alanı rolü bunları taşımaz ve özel bir rol bunları veremez.
 
-## Yetkileri nerede yönetmeli
+## Yetkileri nerede yönetirsiniz
 
 İki işlem vardır: **varsayılan bir rol vermek** ve **özel bir rol oluşturmak**.
 
 ### Varsayılan bir rol vermek
 
-Bir çalışma alanı veya veritabanı düzeyinde, rolünü seçerek bir kullanıcıyı (e-postayla veya bağlantıyla) davet edin. O düzeyde davet edebiliyor olmanız gerekir; bir çalışma alanında rol atamak için de «rol atamak» hakkına sahip olmanız gerekir.
+Bir çalışma alanı veya veritabanı düzeyinde, bir kullanıcıyı (e-posta ile ya da bağlantıyla) rolünü seçerek davet edin. Bu düzeyde davet etme hakkınız olmalıdır (tabloya bakın: bağlantıyla davet yalnızca sahip ve oluşturucuya ayrılmıştır).
 
 ### Özel bir rol oluşturmak
 
 Aynı ekranla üç kapsam vardır:
 
-| Kapsam | Arayüzde nerede | Gerekli hak |
+| Kapsam | Arayüzde nerede | Gereken hak |
 |---|---|---|
-| **Çalışma alanı** | Çalışma alanı ayarları, **Permission** sekmesi | Çalışma alanının izinlerini yapılandırmak |
-| **Veritabanı** | Veritabanı menüsü, **Permission** girişi (asma kilit simgesi) | Veritabanının izinlerini yapılandırmak |
-| **Tablo** | Bir tabloya sağ tık, **Tablo izinleri** | Tablonun izinlerini yapılandırmak |
+| **Çalışma alanı** | Çalışma alanı ayarları, **Permissions** sekmesi | Çalışma alanının izinlerini yapılandırma |
+| **Veritabanı** | Veritabanının simgeleri, **Permission** (kilit) | Veritabanının izinlerini yapılandırma |
+| **Tablo** | Tablo menüsü, **Permissions** girişi (kilit) | Tablonun izinlerini yapılandırma |
 
-Varsayılan olarak, bir veritabanının **Permission** girişi yalnızca sahip ve oluşturucu için görünür. Bir tabloda hedeflenebilecek kullanıcılar **üst veritabanının ortak çalışanlarıdır**: bir tablonun kendine ait ortak çalışanı yoktur.
+Varsayılan olarak, bir veritabanının **Permission** girişi yalnızca sahip ve oluşturucuya görünür ve **Team** veya üstü bir paket gerektirir: bu paketin altında, girişte bir paket rozeti bulunur ve yükseltmeye götürür. Bir tablo için hedeflenebilecek kullanıcılar **üst veritabanının iş birlikçileridir**: bir tablonun kendi iş birlikçisi yoktur.
 
-## Özel bir rol oluşturmak, adım adım
+## Adım adım özel rol oluşturma
 
-1. **Matrisi oluşturun.** İstediğiniz kapsamın Permission ekranında oluşturma düğmesini kullanın. Bir ad yeterlidir, açıklama isteğe bağlıdır. Bir matris birden çok rolü bir araya getirir.
-2. **Matrise bir rol ekleyin**: ona bir ad verin, ardından eylemleri işaretleyin. Eylemler katlanabilir gruplar halinde düzenlenmiştir (Tablolar, Alanlar, Görünümler, Kayıtlar, İşbirliği, Veritabanı, Otomasyonlar, Diğer) ve bir arama içerir.
-3. **Rolü bir veya birden çok kullanıcıya atayın**; kullanıcılar kapsamın ortak çalışanları arasından seçilir. Etki anında gerçekleşir: kullanıcının hakları atama ve iptal anında yeniden hesaplanır.
-4. **Değiştirin veya kaldırın.** Bir rol yeniden adlandırılabilir, eylemleri değiştirilebilir veya silinebilir. Bir atama geri alınabilir. Bir matrisi silmek, rollerini ve atamalarını da siler.
+1. **Matrisi oluşturun.** İstediğiniz kapsamın Permission ekranında **New permission** düğmesine tıklayın. Bir ad yeterlidir, açıklama isteğe bağlıdır. Bir matris birden çok rolü bir araya getirir.
+2. **Bir rol ekleyin** (**Add role**): matrise bir ad verin, ardından eylemleri işaretleyin. Eylemler, aranabilir ve daraltılabilir gruplar halinde düzenlenmiştir (Tables, Fields, Views, Records, Collaboration, Base, Automations, Other).
+3. **Rolü atayın** (**Assign**): kapsamın iş birlikçileri arasından seçilen bir veya birden çok kullanıcıya atayın. Etki anındadır: atama ve iptal anında kullanıcının hakları yeniden hesaplanır.
+4. **Değiştirin veya kaldırın.** Bir rolün adı değiştirilebilir, eylemleri değiştirilebilir veya silinebilir. Bir atama geri alınabilir. Bir matrisi silmek, onun rollerini ve atamalarını da siler.
 
 ## Bilinmesi gereken kurallar ve sınırlar
 
-- **Yalnızca ekleyici.** Özel bir rol, çalışma alanı veya veritabanı üyeliğinin yerini asla almaz. Bir tabloda, veritabanının zaten verdiği eylemlere eylemler ekler.
-- **Doğrulanmış eylemler.** Sunucu, resmî listede yer almayan her eylemi reddeder. Özel bir rol, bağlayıcılar üzerindeki hakları ya da platform operatörü haklarını veremez.
-- **Kapsam tutarlılığı.** Sunucu, matrisin ilgili kaynağa ve rolün matrise ait olduğunu doğrular.
-- **Bir atama benzersizdir**: bir rol ve kullanıcı çifti için yeniden yapmak onu çoğaltmaz.
+- **Yalnızca ekleme.** Özel bir rolün hakları, varsayılan rolün haklarına eklenir, onları kaldırmaz. Bir tabloda, veritabanının zaten verdiği haklara eklenirler.
+- **Doğrulanmış eylemler.** Sunucu, resmi listeye ait olmayan her eylemi reddeder. Ayrıca çalışma alanı yönetimini (çalışma alanını oluşturma, silme veya değiştirme, rol atama, çalışma alanının izinlerini yapılandırma) ve örnek ile kurum eylemlerini de reddeder. Diğer eylemler, bağlayıcıların eylemleri ve bir çalışma alanı ayarını açanlar (bildirimler, e-posta, alan adları, yapay zeka) dahil, verilebilir.
+- **Kapsam tutarlılığı.** Sunucu, matrisin ilgili kaynağa ait olduğunu ve rolün matrise ait olduğunu denetler.
+- **Bir atama tekildir**: bir rol ile bir kullanıcı çifti için atama yeniden yapılsa bile çoğaltılmaz.
 - **Kişisel erişim belirteci.** Yalnızca sahibinin haklarını kısıtlayabilir, asla genişletemez.
