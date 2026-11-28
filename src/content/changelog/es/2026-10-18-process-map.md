@@ -5,7 +5,7 @@ translationKey: "process-map"
 type: "feature"
 ---
 
-El mapa de procesos está disponible en el plan Pro y superiores. Es una página de tu espacio: un lienzo para dibujar quién hace qué (una persona, una automatización o un agente de IA), que se lee de cuatro formas: *Quién hace qué*, *Costes*, *Rupturas* y *Datos*.
+El mapa de procesos está disponible desde el plan Esencial; el plan Gratis solo ofrece un diagnóstico limitado a un proceso. Es una página de tu espacio: un lienzo para dibujar quién hace qué (una persona, una automatización o un agente de IA), que se lee de seis formas: *Quién hace qué*, *Costes*, *Rupturas*, *Datos*, *Conectores* y *Síntesis*.
 
 Detecta la reintroducción de datos entre herramientas, los datos sin fuente maestra, los pasos sin responsable o sin paso siguiente, y las automatizaciones con errores. Los costes son estimaciones que introduces tú, no mediciones. En un paso o una herramienta, *Reemplazar* pide a la IA que proponga una alternativa con TblFlow; todo lo que crea queda inactivo y lo activas tú. El mapa se apoya en tablas PostgreSQL reales de tu espacio y se puede compartir en solo lectura mediante un enlace.
 

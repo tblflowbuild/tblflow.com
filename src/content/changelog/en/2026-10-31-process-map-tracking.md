@@ -5,14 +5,14 @@ translationKey: "carto-suivi"
 type: "feature"
 ---
 
-The process map (called "Carto des process" in the French interface) no longer just draws: it now measures, tracks over time and helps you steer. Costs remain **estimates that you enter**, not measurements. The process map is available on the Pro, Business and Enterprise plans only.
+The process map (called "Carto des process" in the French interface) no longer just draws: it now measures, tracks over time and helps you steer. Costs remain **estimates that you enter**, not measurements. The process map is available from the Essential plan (Essential, Team, Enterprise); the Free plan only offers a diagnosis limited to one process.
 
 **Track over time**
 
 - **Procedure sheet** on every process (Canvas field), with owner, review dates and status.
 - **Staleness alerts**: an email every Monday at 7:00 (server time) lists the processes whose next review is overdue or due within 14 days. No email if there is nothing to review. Recipients can be changed; switch it on from the canvas's "More actions" menu. A V2 base is required.
-- **Monthly report by email**: on the 1st of the month at 8:00, cost, potential gain, the three processes with the biggest gain and the overdue reviews. Amounts only appear if the base owner switches them on. A V2 base is required.
-- **Per-step validation**: status (to validate, validated, to review), validated by, date and comment, with a badge on the step in the canvas.
+- **Monthly report by email**: on the 1st of the month at 8:00, cost, potential gain, the three processes with the biggest gain and the overdue reviews. Amounts only appear if the person who switches the report on is the base owner. A V2 base is required.
+- **Per-step validation**: status (values come from the base template: to validate, validated, to review), validated by, date and comment, with a badge on the step in the canvas.
 
 **Measure and compare**
 

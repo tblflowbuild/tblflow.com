@@ -5,14 +5,14 @@ translationKey: "carto-suivi"
 type: "feature"
 ---
 
-Süreç haritası (Fransızca arayüzde “Carto des process”) artık yalnızca çizmiyor: ölçüyor, zaman içinde izliyor ve yönetmenize yardım ediyor. Maliyetler hâlâ **sizin girdiğiniz tahminlerdir**, ölçüm değildir. Süreç haritası yalnızca Pro, Business ve Enterprise planlarında bulunur.
+Süreç haritası (Fransızca arayüzde “Carto des process”) artık yalnızca çizmiyor: ölçüyor, zaman içinde izliyor ve yönetmenize yardım ediyor. Maliyetler hâlâ **sizin girdiğiniz tahminlerdir**, ölçüm değildir. Süreç haritası Essential ve üzeri planlarda (Essential, Team, Enterprise) bulunur; Ücretsiz plan yalnızca tek bir süreçle sınırlı bir teşhis sunar.
 
 **Zaman içinde izleme**
 
 - **Prosedür sayfası**: her süreçte (Canvas alanı); sorumlu, gözden geçirme tarihleri ve durum ile birlikte.
 - **Eskime uyarıları**: her pazartesi 07:00'de (sunucu saati) bir e-posta, sonraki gözden geçirmesi gecikmiş veya 14 gün içinde gelecek süreçleri listeler. Gözden geçirilecek bir şey yoksa e-posta gönderilmez. Alıcılar değiştirilebilir; canvas'ın “Diğer işlemler” menüsünden etkinleştirilir. V2 veritabanı gerekir.
-- **E-postayla aylık rapor**: her ayın 1'inde 08:00'de maliyet, olası kazanç, kazancı en yüksek üç süreç ve geciken gözden geçirmeler. Tutarlar yalnızca veritabanı sahibi etkinleştirirse görünür. V2 veritabanı gerekir.
-- **Adım bazında onay**: durum (onaylanacak, onaylandı, yeniden bakılacak), onaylayan, tarih ve yorum; canvas'taki adımda bir rozetle gösterilir.
+- **E-postayla aylık rapor**: her ayın 1'inde 08:00'de maliyet, olası kazanç, kazancı en yüksek üç süreç ve geciken gözden geçirmeler. Tutarlar yalnızca raporu etkinleştiren kişi veritabanı sahibiyse görünür. V2 veritabanı gerekir.
+- **Adım bazında onay**: durum (değerler veritabanı şablonundan gelir: onaylanacak, onaylandı, yeniden bakılacak), onaylayan, tarih ve yorum; canvas'taki adımda bir rozetle gösterilir.
 
 **Ölçün ve karşılaştırın**
 

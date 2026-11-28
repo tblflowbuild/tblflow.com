@@ -5,14 +5,14 @@ translationKey: "carto-suivi"
 type: "feature"
 ---
 
-Die Prozesslandkarte (in der französischen Oberfläche „Carto des process“) zeichnet nicht mehr nur: Sie misst jetzt, verfolgt über die Zeit und hilft beim Steuern. Kosten bleiben **Schätzungen, die Sie eingeben**, keine Messungen. Die Prozesslandkarte gibt es nur in den Tarifen Pro, Business und Enterprise.
+Die Prozesslandkarte (in der französischen Oberfläche „Carto des process“) zeichnet nicht mehr nur: Sie misst jetzt, verfolgt über die Zeit und hilft beim Steuern. Kosten bleiben **Schätzungen, die Sie eingeben**, keine Messungen. Die Prozesslandkarte gibt es ab dem Tarif Essential (Essential, Team, Enterprise); der Tarif Kostenlos bietet nur eine auf einen Prozess begrenzte Diagnose.
 
 **Im Zeitverlauf verfolgen**
 
 - **Verfahrensblatt** zu jedem Prozess (Canvas-Feld), mit Verantwortlichem, Überprüfungsterminen und Status.
 - **Warnungen bei veralteten Prozessen**: Jeden Montag um 7 Uhr (Serverzeit) listet eine E-Mail die Prozesse auf, deren nächste Überprüfung überfällig ist oder innerhalb von 14 Tagen ansteht. Gibt es nichts zu prüfen, wird keine E-Mail gesendet. Empfänger sind änderbar; aktivieren im Menü „Weitere Aktionen“ des Canvas. Eine V2-Base ist erforderlich.
-- **Monatsbericht per E-Mail**: am 1. des Monats um 8 Uhr, mit Kosten, Einsparpotenzial, den drei Prozessen mit dem größten Potenzial und überfälligen Überprüfungen. Beträge erscheinen nur, wenn der Base-Eigentümer das aktiviert. Eine V2-Base ist erforderlich.
-- **Validierung pro Schritt**: Status (zu validieren, validiert, zu überprüfen), validiert von, Datum und Kommentar, mit einem Badge am Schritt im Canvas.
+- **Monatsbericht per E-Mail**: am 1. des Monats um 8 Uhr, mit Kosten, Einsparpotenzial, den drei Prozessen mit dem größten Potenzial und überfälligen Überprüfungen. Beträge erscheinen nur, wenn die Person, die den Bericht aktiviert, Eigentümer der Base ist. Eine V2-Base ist erforderlich.
+- **Validierung pro Schritt**: Status (die Werte stammen aus der Vorlage der Base: zu validieren, validiert, zu überprüfen), validiert von, Datum und Kommentar, mit einem Badge am Schritt im Canvas.
 
 **Messen und vergleichen**
 
